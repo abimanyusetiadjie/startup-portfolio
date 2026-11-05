@@ -65,11 +65,11 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-28 bg-[#F8FAFC]">
+    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 bg-[#F8FAFC]">
       {/* Subtle Background Radial Highlight */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[540px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(37,99,235,0.07),transparent)]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[580px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(37,99,235,0.08),transparent)]"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,15 +100,14 @@ export function HeroSection() {
             </span>
           </h1>
 
-          {/* Sub-headline */}
-          <p className="mt-6 text-base sm:text-lg text-[#64748B] leading-relaxed max-w-3xl mx-auto">
-            Kami merancang arsitektur web Next.js dengan skor{" "}
+          {/* Sub-headline Ringkas & Tajam (Menghindari Wall-of-Text) */}
+          <p className="mt-5 text-base sm:text-lg text-[#64748B] leading-relaxed max-w-2xl mx-auto">
+            Arsitektur web Next.js skor{" "}
             <span className="font-mono font-semibold text-[#09090B]">
-              95–100 Lighthouse
+              Lighthouse 95–100
             </span>
-            , ekosistem SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF
-            rapor paralel otomatis, serta integrasi API &amp; WhatsApp real-time
-            berketahanan tinggi.
+            , sistem SIAKAD terpisah anti-down dengan mesin cetak PDF rapor paralel,
+            serta otomasi WhatsApp &amp; API berketahanan tinggi.
           </p>
 
           {/* Baris Tombol CTA */}
@@ -124,13 +123,13 @@ export function HeroSection() {
             </motion.a>
 
             <motion.a
-              href="#studi-kasus"
-              onClick={(e) => handleSmoothScroll(e, "studi-kasus")}
+              href="#showcase-visual"
+              onClick={(e) => handleSmoothScroll(e, "showcase-visual")}
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white text-[#09090B] border border-[#E2E8F0] font-semibold text-sm sm:text-base shadow-triloe-soft hover:border-[#2563EB] hover:text-[#2563EB] transition-colors"
             >
-              Eksplorasi Arsitektur &amp; Studi Kasus
+              Lihat Katalog Visual &amp; Sistem
             </motion.a>
           </div>
         </motion.div>

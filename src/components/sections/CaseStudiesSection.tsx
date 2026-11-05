@@ -366,7 +366,7 @@ export async function CaseStudiesSection() {
 
                 {/* Main Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8 items-start">
-                  {/* Left 7 Columns: Title, Architecture Stack, Problem & Solution */}
+                  {/* Left 7 Columns: Title, Dedicated Screenshot Frame, Problem & Solution */}
                   <div className="lg:col-span-7 space-y-6">
                     <div>
                       <h3 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[#09090B]">
@@ -375,6 +375,83 @@ export async function CaseStudiesSection() {
                       <p className="mt-2 text-sm sm:text-base text-[#64748B] font-medium">
                         {study.subtitle}
                       </p>
+                    </div>
+
+                    {/* DEDICATED VISUAL SCREENSHOT FRAME (TATA LETAK SLOT GAMBAR STUDI KASUS) */}
+                    <div className="relative rounded-2xl overflow-hidden border border-[#E2E8F0] bg-slate-950 aspect-[16/9] shadow-sm group">
+                      {isSiakad ? (
+                        <div className="w-full h-full p-4 sm:p-5 bg-gradient-to-br from-[#091322] via-[#0E1E36] to-[#080F1D] text-white flex flex-col justify-between select-none">
+                          <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
+                            <div className="flex items-center gap-1.5">
+                              <span className="h-2.5 w-2.5 rounded-full bg-rose-500" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-amber-500" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                              <span className="ml-2 font-mono text-[10px] text-slate-400 hidden sm:inline">
+                                siakad.yayasan-pendidikan.sch.id
+                              </span>
+                            </div>
+                            <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/70 border border-cyan-800/40 px-2.5 py-0.5 rounded-full">
+                              📷 Slot Tangkapan Layar SIAKAD
+                            </span>
+                          </div>
+
+                          <div className="grid grid-cols-3 gap-2 sm:gap-3 my-auto py-2">
+                            <div className="p-2 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                              <span className="block text-[10px] text-slate-400 font-mono">Beban Ujian</span>
+                              <span className="text-xs sm:text-sm font-bold text-white">4.200 Siswa</span>
+                            </div>
+                            <div className="p-2 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                              <span className="block text-[10px] text-slate-400 font-mono">Cetak Rapor</span>
+                              <span className="text-xs sm:text-sm font-bold text-emerald-400">&lt;45s Paralel</span>
+                            </div>
+                            <div className="p-2 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                              <span className="block text-[10px] text-slate-400 font-mono">Stabilitas Server</span>
+                              <span className="text-xs sm:text-sm font-bold text-blue-400">0% Down</span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+                            <span>Arsitektur: Next.js App Router + Supabase RLS</span>
+                            <span className="text-emerald-400">Signed URL Storage OK</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="w-full h-full p-4 sm:p-5 bg-gradient-to-br from-[#121924] via-[#0E1520] to-[#070D16] text-white flex flex-col justify-between select-none">
+                          <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
+                            <div className="flex items-center gap-1.5">
+                              <span className="h-2.5 w-2.5 rounded-full bg-rose-500" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-amber-500" />
+                              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                              <span className="ml-2 font-mono text-[10px] text-slate-400 hidden sm:inline">
+                                hub.omnichannel-distribusi.com
+                              </span>
+                            </div>
+                            <span className="text-[10px] font-mono text-amber-400 bg-amber-950/70 border border-amber-800/40 px-2.5 py-0.5 rounded-full">
+                              📷 Slot Tangkapan Layar Omnichannel
+                            </span>
+                          </div>
+
+                          <div className="grid grid-cols-3 gap-2 sm:gap-3 my-auto py-2">
+                            <div className="p-2 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                              <span className="block text-[10px] text-slate-400 font-mono">Kanal Terhubung</span>
+                              <span className="text-xs sm:text-sm font-bold text-white">4 Marketplace</span>
+                            </div>
+                            <div className="p-2 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                              <span className="block text-[10px] text-slate-400 font-mono">Sync Latency</span>
+                              <span className="text-xs sm:text-sm font-bold text-emerald-400">&lt;150ms</span>
+                            </div>
+                            <div className="p-2 sm:p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                              <span className="block text-[10px] text-slate-400 font-mono">Akurasi Stok</span>
+                              <span className="text-xs sm:text-sm font-bold text-blue-400">0% Oversell</span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+                            <span>Arsitektur: Redis Buffer + Atomic Stock Lock</span>
+                            <span className="text-emerald-400">Backoff Retry 5x</span>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     {/* Architecture Highlight Banner */}
@@ -388,22 +465,22 @@ export async function CaseStudiesSection() {
                       </p>
                     </div>
 
-                    {/* Challenge & Engineering Solution */}
+                    {/* Challenge & Engineering Solution (Ringkas & Terstruktur) */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] p-5">
+                      <div className="rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] p-4 sm:p-5">
                         <span className="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-rose-600 bg-rose-500/10 px-2.5 py-0.5 rounded-full">
                           Tantangan Teknis
                         </span>
-                        <p className="mt-3 text-sm text-[#64748B] leading-relaxed">
+                        <p className="mt-2.5 text-xs sm:text-sm text-[#64748B] leading-relaxed">
                           {study.challengeSummary}
                         </p>
                       </div>
 
-                      <div className="rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] p-5">
+                      <div className="rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] p-4 sm:p-5">
                         <span className="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-[#10B981] bg-[#10B981]/10 px-2.5 py-0.5 rounded-full">
                           Solusi Arsitektur
                         </span>
-                        <p className="mt-3 text-sm text-[#09090B] leading-relaxed">
+                        <p className="mt-2.5 text-xs sm:text-sm text-[#09090B] leading-relaxed">
                           {study.architectureSolution}
                         </p>
                       </div>

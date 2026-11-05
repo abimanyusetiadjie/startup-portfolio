@@ -136,7 +136,7 @@ export function EngineeringBentoSection() {
 
   return (
     <section
-      id="arsitektur"
+      id="keunggulan-teknis"
       className="py-20 sm:py-28 bg-[#F8FAFC] border-t border-[#E2E8F0]/70"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

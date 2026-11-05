@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { MarketingNavbar } from "@/components/navigation/MarketingNavbar";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { ProjectVisualGridSection } from "@/components/sections/ProjectVisualGridSection";
 import { ServicePillarsSection } from "@/components/sections/ServicePillarsSection";
 import { EngineeringBentoSection } from "@/components/sections/EngineeringBentoSection";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
@@ -77,7 +79,9 @@ export default function MarketingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
+      <MarketingNavbar />
       <HeroSection />
+      <ProjectVisualGridSection />
       <ServicePillarsSection />
       <EngineeringBentoSection />
       <CaseStudiesSection />
