@@ -228,17 +228,17 @@ export function GroveBentoGrid() {
   };
 
   return (
-    <section id="systems" className="bg-[#F0FDFA] py-16 sm:py-24 font-sans border-b border-[#E2E8F0]">
+    <section id="systems" className="bg-[#F8FAFC] py-16 sm:py-24 font-sans border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
           <div>
-            <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#0F766E] mb-1.5">
+            <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#0F766E] mb-1.5 font-mono">
               {lang === "id"
                 ? "KATALOG LAYANAN & SISTEM DIGITAL"
                 : "DIGITAL SYSTEMS & SERVICES CATALOG"}
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#134E4A]">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0F172A]">
               {lang === "id"
                 ? "Solusi Lengkap Website, Sistem & Otomasi"
                 : "Comprehensive Web, System & Automation Solutions"}
@@ -332,7 +332,7 @@ export function GroveBentoGrid() {
                 </div>
 
                 {/* Title & Subtitle */}
-                <h3 className="font-heading text-base sm:text-lg font-bold text-[#134E4A] group-hover:text-[#0F766E] transition-colors leading-snug">
+                <h3 className="font-heading text-base sm:text-lg font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors leading-snug">
                   {item.title}
                 </h3>
                 <p className="text-xs text-[#64748B] mt-1.5 leading-relaxed line-clamp-2">
@@ -346,7 +346,7 @@ export function GroveBentoGrid() {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded bg-[#F8FAFC] border border-[#E2E8F0] text-[10px] font-mono text-[#134E4A]"
+                      className="px-2 py-0.5 rounded bg-[#F8FAFC] border border-[#E2E8F0] text-[10px] font-mono text-slate-800"
                     >
                       {tag}
                     </span>
@@ -367,7 +367,7 @@ export function GroveBentoGrid() {
         </div>
 
         {/* Bento Grid Footer Banner */}
-        <div className="mt-8 rounded-2xl bg-[#0F766E] text-white p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+        <div className="mt-8 rounded-2xl bg-gradient-to-r from-[#0F172A] via-[#0D4B46] to-[#0F766E] text-white p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-[#5EEAD4] shrink-0">
               <Cpu className="h-5 w-5" />

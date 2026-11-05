@@ -39,8 +39,8 @@ export function GroveSplitFeature() {
             </div>
           </div>
 
-          {/* Right Side: Solid Deep Teal Block (#0F766E) */}
-          <div className="bg-[#0F766E] text-white p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+          {/* Right Side: Deep Obsidian Teal Slate with Luminous Metrics */}
+          <div className="bg-gradient-to-br from-[#0F172A] via-[#0E3E39] to-[#0F766E] text-white p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
             {/* Eyebrow */}
             <span className="block text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-[#5EEAD4] mb-2 font-mono">
               {t.caseStudy.eyebrow}

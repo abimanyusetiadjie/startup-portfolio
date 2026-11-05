@@ -12,7 +12,7 @@ import { GroveFooter } from "./GroveFooter";
 export function GroveApp() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#F8FAFC] text-[#134E4A] flex flex-col font-sans selection:bg-[#CCFBF1] selection:text-[#0F766E]">
+      <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#0F766E] selection:text-white">
         <GroveNavbar />
         <GroveHeroSection />
         <GroveBentoGrid />

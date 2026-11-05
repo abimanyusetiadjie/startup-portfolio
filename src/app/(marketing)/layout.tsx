@@ -50,7 +50,7 @@ export default function MarketingLayout({
   children: ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-[#F4F1EA] text-[#1A201C] selection:bg-[#18362B] selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0F766E] selection:text-white">
       {children}
     </div>
   );

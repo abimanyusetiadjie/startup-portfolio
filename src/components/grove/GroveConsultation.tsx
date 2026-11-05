@@ -71,7 +71,7 @@ export function GroveConsultation() {
             <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#0F766E] font-mono mb-2">
               {t.consultation.eyebrow}
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#134E4A] tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F172A] tracking-tight">
               {t.consultation.title}
             </h2>
             <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-lg mx-auto leading-relaxed">
