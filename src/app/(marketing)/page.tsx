@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import { ModernNavbar } from "@/components/modern/ModernNavbar";
-import { ModernHeroSection } from "@/components/modern/ModernHeroSection";
-import { ModernSystemsSection } from "@/components/modern/ModernSystemsSection";
-import { ModernCaseStudySection } from "@/components/modern/ModernCaseStudySection";
-import { ModernStandardsSection } from "@/components/modern/ModernStandardsSection";
-import { ModernConsultationSection } from "@/components/modern/ModernConsultationSection";
-import { ModernFooter } from "@/components/modern/ModernFooter";
+import { GroveApp } from "@/components/grove/GroveApp";
 
 const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
@@ -13,14 +7,14 @@ const APP_BASE_URL =
 export const metadata: Metadata = {
   title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
   description:
-    "Infrastruktur perangkat lunak kelas enterprise: Website Next.js 100 Lighthouse, SIAKAD sekolah decoupled anti-down dengan paralel PDF worker, dan otomasi WhatsApp API.",
+    "Abinest merancang website Next.js skor Lighthouse 95–100, SIAKAD sekolah anti-down dengan paralel PDF engine, omnichannel stock hub, dan otomasi WhatsApp API.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
     description:
-      "Infrastruktur perangkat lunak untuk sistem yang menolak down. Arsitektur terpisah, SLA 99.98%, dan pemrosesan data paralel berkecepatan tinggi.",
+      "Arsitektur Web Next.js 95–100 Lighthouse, SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF rapor otomatis, dan integrasi API/WhatsApp real-time.",
     url: APP_BASE_URL,
     type: "website",
   },
@@ -32,7 +26,7 @@ const jsonLdSchema = {
     {
       "@type": "Organization",
       "@id": `${APP_BASE_URL}/#organization`,
-      name: "Abinest Engineering Studio",
+      name: "Abinest Engineering & Automation Studio",
       url: APP_BASE_URL,
       description:
         "Studio rekayasa perangkat lunak B2B spesialis arsitektur web performa tinggi, sistem SIAKAD/ERP terpisah, dan otomasi bisnis WhatsApp/API.",
@@ -48,7 +42,7 @@ const jsonLdSchema = {
     {
       "@type": "SoftwareApplication",
       "@id": `${APP_BASE_URL}/#software`,
-      name: "SIAKAD Decoupled Core & Parallel PDF Report Engine",
+      name: "SIAKAD Core + Parallel PDF Report Engine & Enterprise Client Portal",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web Cloud (Next.js Edge & Supabase)",
       offers: {
@@ -71,18 +65,12 @@ const jsonLdSchema = {
 
 export default function MarketingPage() {
   return (
-    <main className="min-h-screen bg-[#FFFFFF] text-[#09090B]">
+    <main className="min-h-screen bg-[#F4F1EA] text-[#1A201C]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      <ModernNavbar />
-      <ModernHeroSection />
-      <ModernSystemsSection />
-      <ModernCaseStudySection />
-      <ModernStandardsSection />
-      <ModernConsultationSection />
-      <ModernFooter />
+      <GroveApp />
     </main>
   );
 }

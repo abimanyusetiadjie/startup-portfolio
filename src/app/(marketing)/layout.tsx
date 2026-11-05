@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: APP_BASE_URL,
     siteName: "Abinest Engineering Studio",
-    title: "Infrastruktur Perangkat Lunak untuk Sistem yang Menolak Down.",
+    title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
     description:
       "Arsitektur Web Next.js 100 Lighthouse, SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF rapor otomatis, dan integrasi API/WhatsApp real-time.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Infrastruktur Perangkat Lunak untuk Sistem yang Menolak Down.",
+    title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
     description:
       "Spesialis Web Modern 100 Lighthouse, SIAKAD + Parallel PDF Engine, & Otomasi WhatsApp/API B2B.",
   },
@@ -50,7 +50,7 @@ export default function MarketingLayout({
   children: ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#09090B] selection:bg-[#0052FF]/15 selection:text-[#0052FF]">
+    <div className="min-h-screen bg-[#F4F1EA] text-[#1A201C] selection:bg-[#18362B] selection:text-white">
       {children}
     </div>
   );
