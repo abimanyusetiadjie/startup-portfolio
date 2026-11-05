@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import { MarketingNavbar } from "@/components/navigation/MarketingNavbar";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ProjectVisualGridSection } from "@/components/sections/ProjectVisualGridSection";
-import { ServicePillarsSection } from "@/components/sections/ServicePillarsSection";
-import { EngineeringBentoSection } from "@/components/sections/EngineeringBentoSection";
-import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
-import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { ConsultationSection } from "@/components/sections/ConsultationSection";
+import { GroveApp } from "@/components/grove/GroveApp";
 
 const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://studio-rekayasa.triloe.id";
@@ -74,19 +67,12 @@ const jsonLdSchema = {
 
 export default function MarketingPage() {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-[#09090B]">
+    <main className="min-h-screen bg-[#F4F1EA] text-[#1A201C]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      <MarketingNavbar />
-      <HeroSection />
-      <ProjectVisualGridSection />
-      <ServicePillarsSection />
-      <EngineeringBentoSection />
-      <CaseStudiesSection />
-      <TestimonialSection />
-      <ConsultationSection />
+      <GroveApp />
     </main>
   );
 }
