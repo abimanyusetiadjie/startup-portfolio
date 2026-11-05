@@ -5,16 +5,16 @@ const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
 
 export const metadata: Metadata = {
-  title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
+  title: "Abinest | Software House & Konsultan Teknologi: Website, Sistem & Otomasi",
   description:
-    "Abinest merancang website Next.js skor Lighthouse 95–100, SIAKAD sekolah anti-down dengan paralel PDF engine, omnichannel stock hub, dan otomasi WhatsApp API.",
+    "Abinest melayani jasa pembuatan website modern berkecepatan tinggi, sistem informasi kustom (SIAKAD Sekolah anti-down & ERP), serta otomasi WhatsApp terpadu.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
+    title: "Abinest | Software House & Konsultan Teknologi: Website, Sistem & Otomasi",
     description:
-      "Arsitektur Web Next.js 95–100 Lighthouse, SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF rapor otomatis, dan integrasi API/WhatsApp real-time.",
+      "Jasa pembuatan website Next.js 95–100 Lighthouse, SIAKAD sekolah anti-down dengan cetak ratusan PDF rapor otomatis, dan integrasi WhatsApp API real-time.",
     url: APP_BASE_URL,
     type: "website",
   },
@@ -26,7 +26,7 @@ const jsonLdSchema = {
     {
       "@type": "Organization",
       "@id": `${APP_BASE_URL}/#organization`,
-      name: "Abinest Engineering & Automation Studio",
+      name: "Abinest Software House & Konsultan Teknologi",
       url: APP_BASE_URL,
       description:
         "Studio rekayasa perangkat lunak B2B spesialis arsitektur web performa tinggi, sistem SIAKAD/ERP terpisah, dan otomasi bisnis WhatsApp/API.",

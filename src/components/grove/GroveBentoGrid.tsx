@@ -4,27 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Activity,
-  ArrowRight,
-  ArrowUpRight,
   CheckCircle2,
   Cpu,
-  Database,
-  ExternalLink,
   Eye,
-  FileSpreadsheet,
-  Globe,
   ImageIcon,
-  Layers,
   Lock,
   Maximize2,
-  MessageSquare,
-  RefreshCw,
-  Server,
   ShieldCheck,
-  Smartphone,
   Sparkles,
-  Zap,
+  ArrowUpRight,
 } from "lucide-react";
 
 interface BentoItem {
@@ -34,7 +22,7 @@ interface BentoItem {
   badge: string;
   subtitle: string;
   tags: string[];
-  gridSpan: string; // e.g., "lg:col-span-8", "lg:col-span-4", "lg:col-span-12"
+  gridSpan: string;
   aspectClass: string;
   imageUrl?: string;
   mockupType: "siakad" | "whatsapp" | "pdf_worker" | "omnichannel" | "rls_security" | "polaris_portal";
@@ -45,87 +33,87 @@ interface BentoItem {
 const ABINEST_BENTO_ITEMS: BentoItem[] = [
   {
     id: "bento_siakad",
-    title: "SIAKAD Modern v2.4 & Academic Gradebook",
-    eyebrow: "SISTEM INTI EDTECH",
+    title: "SIAKAD Sekolah Modern & Buku Nilai Digital",
+    eyebrow: "JASA SISTEM INFORMASI AKADEMIK",
     badge: "SLA 99.9% UPTIME",
-    subtitle: "Pemisahan arsitektur antara modul administrasi SPP & sistem ujian serentak anti-crash.",
-    tags: ["Next.js 15 RSC", "Supabase RLS", "PostgreSQL", "Decoupled DB"],
+    subtitle: "Sistem informasi akademik terpadu untuk sekolah dan yayasan. Ujian online dan modul SPP tetap lancar tanpa risiko server down saat diakses ribuan siswa bersamaan.",
+    tags: ["Sekolah & Yayasan", "Next.js 15", "PostgreSQL", "Anti-Down"],
     gridSpan: "lg:col-span-8",
     aspectClass: "aspect-[16/9] sm:aspect-[16/10]",
-    imageUrl: "", // Siap diisi: "/images/projects/siakad-dashboard.webp"
+    imageUrl: "",
     mockupType: "siakad",
-    metricHighlight: "0% Downtime",
+    metricHighlight: "0% Server Crash",
     metricLabel: "Trafik Ujian 4.200 Siswa",
   },
   {
     id: "bento_whatsapp",
-    title: "WhatsApp Gateway & Bot Otomasi",
-    eyebrow: "KOMUNIKASI TRANSAKSIONAL",
+    title: "WhatsApp Notification Gateway & Chatbot",
+    eyebrow: "JASA OTOMASI BISNIS & WHATSAPP",
     badge: "< 2s TERKIRIM",
-    subtitle: "Pengiriman tagihan SPP, jadwal ujian, & alert otomatis dengan auto-retry exponential backoff 5x.",
-    tags: ["Meta Cloud API", "QStash Queue", "HMAC Signed"],
+    subtitle: "Kirim pesan WhatsApp otomatis untuk pengingat SPP, bukti pembayaran, notifikasi absensi, dan alert pesanan pelanggan dalam 2 detik.",
+    tags: ["Meta Cloud API", "Pesan Otomatis", "Anti-Gagal 24/7"],
     gridSpan: "lg:col-span-4",
     aspectClass: "aspect-[4/3] sm:aspect-[4/5]",
-    imageUrl: "", // Siap diisi: "/images/projects/whatsapp-gateway.webp"
+    imageUrl: "",
     mockupType: "whatsapp",
-    metricHighlight: "< 2s Dispatch",
-    metricLabel: "Auto-Retry Backoff 5x",
+    metricHighlight: "< 2 Detik",
+    metricLabel: "Terkirim Otomatis 24/7",
   },
   {
     id: "bento_pdf",
-    title: "Parallel PDF Report Generator Engine",
-    eyebrow: "ASYNCHRONOUS WORKER",
+    title: "Mesin Cetak Rapor PDF Otomatis",
+    eyebrow: "OTOMASI DOKUMEN CEPAT",
     badge: "500+ PDF / <45s",
-    subtitle: "Pencetakan ratusan rapor siswa paralel di background worker tanpa membebani server web utama.",
-    tags: ["Upstash QStash", "Edge Worker", "Signed S3 URL"],
+    subtitle: "Sekali klik, ratusan PDF rapor siswa langsung terbuat otomatis di background worker tanpa membuat komputer guru atau server sekolah macet.",
+    tags: ["Rapor Otomatis", "Cloud Storage", "Format Resmi"],
     gridSpan: "lg:col-span-4",
     aspectClass: "aspect-[4/3]",
-    imageUrl: "", // Siap diisi: "/images/projects/pdf-worker.webp"
+    imageUrl: "",
     mockupType: "pdf_worker",
     metricHighlight: "< 45 Detik",
-    metricLabel: "500+ Rapor PDF Paralel",
+    metricLabel: "500+ Rapor PDF Sekali Klik",
   },
   {
     id: "bento_omnichannel",
-    title: "Atomic Stock Hub & Sync Engine",
-    eyebrow: "ERP & DISTRIBUSI",
-    badge: "< 150ms LATENCY",
-    subtitle: "Penyelarasan stok otomatis lintas 4 marketplace (Shopee, Tokopedia, TikTok) & gudang fisik.",
-    tags: ["Supabase Realtime", "Atomic Lock", "Anti-Overselling"],
+    title: "Manajemen Stok & Omnichannel Hub",
+    eyebrow: "JASA SISTEM ERP & E-COMMERCE",
+    badge: "SYNC REAL-TIME",
+    subtitle: "Penyelarasan stok otomatis lintas Shopee, Tokopedia, TikTok Shop, dan toko fisik secara real-time. Tidak ada lagi pesanan batal karena overselling.",
+    tags: ["Multi-Marketplace", "Anti-Overselling", "Sync < 150ms"],
     gridSpan: "lg:col-span-4",
     aspectClass: "aspect-[4/3]",
-    imageUrl: "", // Siap diisi: "/images/projects/omnichannel-hub.webp"
+    imageUrl: "",
     mockupType: "omnichannel",
     metricHighlight: "0% Overselling",
     metricLabel: "Sinkronisasi Multi-Gudang",
   },
   {
     id: "bento_rls",
-    title: "PostgreSQL Row Level Security (RLS)",
-    eyebrow: "SECURITY & COMPLIANCE",
+    title: "Keamanan Database Berlapis (PostgreSQL RLS)",
+    eyebrow: "JAMINAN KEAMANAN DATA",
     badge: "100% TERISOLASI",
-    subtitle: "Proteksi data multi-tenant di tingkat SQL engine: Admin, Guru, Siswa, & Klien terisolasi mutlak.",
-    tags: ["Zero-Trust", "Postgres RLS", "Role-Based Access"],
+    subtitle: "Data yayasan, nilai siswa, dan catatan keuangan Anda terkunci aman. Hanya pihak yang berwenang (Admin, Guru, Siswa, Klien) yang dapat mengakses.",
+    tags: ["Privasi Terjamin", "Enkripsi SQL", "Zero-Trust"],
     gridSpan: "lg:col-span-4",
     aspectClass: "aspect-[4/3]",
-    imageUrl: "", // Siap diisi: "/images/projects/rls-security.webp"
+    imageUrl: "",
     mockupType: "rls_security",
-    metricHighlight: "Zero-Trust",
-    metricLabel: "Isolasi Multi-Tenant SQL",
+    metricHighlight: "100% Terlindungi",
+    metricLabel: "Isolasi Data Per Organisasi",
   },
   {
     id: "bento_portal",
-    title: "Shopify Polaris Enterprise Client Portal",
-    eyebrow: "TRANSPARANSI PROYEK (/portal)",
-    badge: "RUANG KERJA KLIEN",
-    subtitle: "Dashboard khusus klien Abinest untuk memantau progres milestone, unduh invoice, dan audit log otomasi.",
-    tags: ["Shopify Polaris", "Supabase Auth", "Realtime Milestones"],
+    title: "Enterprise Client Portal: Pantau Progres Pembuatan Sistem Anda",
+    eyebrow: "FASILITAS EKSKLUSIF KLIEN ABINEST (/portal)",
+    badge: "TRANSPARANSI PENUH",
+    subtitle: "Setiap klien Abinest mendapatkan akses ke portal khusus berbasis Shopify Polaris untuk melihat milestone pengerjaan, mengunduh invoice resmi, dan menguji integrasi secara transparan.",
+    tags: ["Shopify Polaris", "Pantau Milestone Live", "Invoice Otomatis"],
     gridSpan: "lg:col-span-12",
-    aspectClass: "aspect-[21/9] sm:aspect-[24/9] min-h-[180px]",
-    imageUrl: "", // Siap diisi: "/images/projects/polaris-portal.webp"
+    aspectClass: "aspect-[21/9] sm:aspect-[24/9] min-h-[170px]",
+    imageUrl: "",
     mockupType: "polaris_portal",
     metricHighlight: "100% Transparan",
-    metricLabel: "Progres & Tagihan Real-Time",
+    metricLabel: "Akses Langsung ke /portal",
   },
 ];
 
@@ -148,24 +136,24 @@ export function GroveBentoGrid() {
   return (
     <section id="systems" className="bg-[#F4F1EA] py-16 sm:py-24 font-sans border-b border-[#E7E2D6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Section Header (Grove Minimalist Style) */}
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
           <div>
             <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#D15B3A] mb-1.5">
-              KATALOG ARSITEKTUR &amp; BENTO SHOWCASE
+              KATALOG LAYANAN &amp; SISTEM DIGITAL
             </span>
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#1A201C]">
-              Ekosistem Sistem Rekayasa Abinest
+              Solusi Lengkap Website, Sistem &amp; Otomasi
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-[#6B736C] max-w-xl leading-relaxed">
-              Arsitektur terintegrasi dalam format Bento Grid modular. Setiap kotak dirancang dengan bingkai gambar beresolusi tinggi yang siap menampilkan screenshot produk nyata Anda.
+              Pilih layanan yang Anda butuhkan. Kami mendesain antarmuka modern yang ramah pengguna, didukung arsitektur anti-lelet dan keamanan data terjamin.
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[#18362B] text-emerald-100">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-[#18362B] text-emerald-100 shadow-sm">
               <Sparkles className="h-3.5 w-3.5 text-amber-300" />
-              <span>Bento UI v2.0</span>
+              <span>Bento UI Showcase</span>
             </span>
           </div>
         </div>
@@ -184,11 +172,9 @@ export function GroveBentoGrid() {
               <div>
                 {/* Top Card Meta */}
                 <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#F0ECE4]">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider text-[#D15B3A]">
-                      {item.eyebrow}
-                    </span>
-                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider text-[#D15B3A]">
+                    {item.eyebrow}
+                  </span>
 
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-mono font-semibold text-[#18362B] bg-[#18362B]/10 px-2.5 py-0.5 rounded-full">
@@ -228,7 +214,7 @@ export function GroveBentoGrid() {
                     <div className="absolute top-2.5 left-2.5 pointer-events-none z-10">
                       <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[9px] font-mono font-medium bg-black/60 backdrop-blur-sm text-emerald-200 border border-white/10">
                         <ImageIcon className="h-2.5 w-2.5 text-emerald-400" />
-                        <span>Slot Gambar Siap Pakai</span>
+                        <span>Slot Screenshot Siap Pakai</span>
                       </span>
                     </div>
 
@@ -254,7 +240,7 @@ export function GroveBentoGrid() {
                 </p>
               </div>
 
-              {/* Bottom Tags & Telemetry CTA */}
+              {/* Bottom Tags & CTA */}
               <div className="pt-3 mt-3 border-t border-[#F0ECE4] flex flex-wrap items-center justify-between gap-2">
                 <div className="flex flex-wrap items-center gap-1.5">
                   {item.tags.map((tag) => (
@@ -272,7 +258,7 @@ export function GroveBentoGrid() {
                   onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
                   className="inline-flex items-center gap-1 text-xs font-semibold text-[#18362B] hover:text-[#D15B3A] transition-colors"
                 >
-                  <span>Konsultasi</span>
+                  <span>Konsultasi Jasa Ini</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
@@ -288,10 +274,10 @@ export function GroveBentoGrid() {
             </div>
             <div>
               <h4 className="text-sm font-bold text-white">
-                Butuh Arsitektur Sistem Kustom untuk Institusi Anda?
+                Punya Kebutuhan Sistem Khusus untuk Lembaga Anda?
               </h4>
               <p className="text-xs text-emerald-100/70 mt-0.5">
-                Abinest merancang sistem SIAKAD, ERP, dan integrasi API yang disesuaikan persis dengan alur kerja organisasi Anda.
+                Konsultasikan kebutuhan pembuatan website, sistem administrasi, atau bot otomasi bisnis Anda langsung bersama tim insinyur Abinest.
               </p>
             </div>
           </div>
@@ -301,7 +287,7 @@ export function GroveBentoGrid() {
             onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
             className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-[#18362B] text-xs font-bold hover:bg-[#F4F1EA] transition-colors shadow-sm"
           >
-            Diskusikan Kebutuhan Sistem →
+            Konsultasi Gratis Sekarang →
           </a>
         </div>
       </div>
@@ -373,7 +359,7 @@ export function GroveBentoGrid() {
                     }}
                     className="px-5 py-2.5 rounded-full bg-white text-[#18362B] text-xs font-bold hover:bg-[#F4F1EA]"
                   >
-                    Konsultasi Sistem Ini →
+                    Konsultasi Jasa Ini →
                   </a>
                 </div>
               </div>
@@ -385,9 +371,6 @@ export function GroveBentoGrid() {
   );
 }
 
-/**
- * Komponen Vector Mockup Beresolusi Tinggi untuk Setiap Tipe Bento
- */
 function BentoVectorMockup({
   mockupType,
   title,
@@ -401,22 +384,20 @@ function BentoVectorMockup({
     case "siakad":
       return (
         <div className="w-full h-full p-4 sm:p-5 bg-gradient-to-br from-[#0B1A14] via-[#122B21] to-[#0A1712] text-white flex flex-col justify-between select-none">
-          {/* Browser Chrome Header */}
           <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
             <div className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-rose-500" />
               <span className="h-2 w-2 rounded-full bg-amber-500" />
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
               <span className="ml-2 font-mono text-[10px] text-emerald-200/60 hidden sm:inline">
-                siakad.abinest.id/grades
+                siakad.sekolah-contoh.sch.id
               </span>
             </div>
             <span className="font-mono text-[9px] text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
-              ● RLS ENFORCED
+              ● ANTI-DOWN
             </span>
           </div>
 
-          {/* Mock Dashboard Grid */}
           <div className="grid grid-cols-12 gap-2.5 my-auto py-1">
             <div className="col-span-3 rounded-lg bg-black/40 border border-white/5 p-2 space-y-1.5">
               <div className="h-1.5 w-12 bg-emerald-700/60 rounded" />
@@ -442,7 +423,7 @@ function BentoVectorMockup({
           </div>
 
           <div className="flex items-center justify-between pt-2 border-t border-white/10 text-[9px] font-mono text-emerald-200/60">
-            <span>DATABASE: SUPABASE POSTGRESQL</span>
+            <span>SISTEM INFORMASI AKADEMIK ABINEST</span>
             <span className="text-emerald-400 font-bold">{metricHighlight}</span>
           </div>
         </div>
@@ -453,18 +434,18 @@ function BentoVectorMockup({
         <div className="w-full h-full p-4 bg-gradient-to-br from-[#061B13] via-[#0A261B] to-[#04120D] text-white flex flex-col justify-between select-none">
           <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[9px] font-mono">
             <span className="text-emerald-300">WA CLOUD API GATEWAY</span>
-            <span className="text-emerald-400 font-bold">ACTIVE</span>
+            <span className="text-emerald-400 font-bold">AKTIF</span>
           </div>
           <div className="space-y-2 my-auto max-w-[200px] mx-auto w-full">
             <div className="p-2 rounded-xl rounded-tl-none bg-[#143B2B] border border-emerald-600/30 text-left">
               <p className="text-[10px] text-emerald-100 leading-snug">
-                Halo Bpk. Ahmad, Rapor Akademik Siswa telah siap diunduh.
+                Halo Bpk/Ibu, Tagihan SPP &amp; Rapor Siswa telah siap diunduh.
               </p>
               <span className="block text-right text-[8px] text-emerald-300 mt-1">11:42 ✓✓</span>
             </div>
           </div>
           <div className="text-[9px] font-mono text-center text-emerald-300/70">
-            Resilient Exponential Backoff 5x
+            Kirim Otomatis &lt; 2 Detik
           </div>
         </div>
       );
@@ -473,12 +454,12 @@ function BentoVectorMockup({
       return (
         <div className="w-full h-full p-4 bg-gradient-to-br from-[#0F241B] via-[#0B1A13] to-[#06120C] text-white flex flex-col justify-between select-none">
           <div className="flex items-center justify-between pb-1.5 border-b border-white/10 text-[9px] font-mono">
-            <span className="text-emerald-300">UPSTASH QSTASH DISPATCHER</span>
-            <span className="text-emerald-400 font-bold">100% DONE</span>
+            <span className="text-emerald-300">MESIN RAPOR OTOMATIS</span>
+            <span className="text-emerald-400 font-bold">100% SUKSES</span>
           </div>
           <div className="space-y-2 my-auto">
             <div className="p-2 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
-              <span className="text-[10px] font-mono text-white">Batch-Rapor-2026.pdf</span>
+              <span className="text-[10px] font-mono text-white">Batch-Rapor-Semester.pdf</span>
               <span className="text-[9px] font-mono text-emerald-400 font-bold">500+ PDF</span>
             </div>
             <div className="h-1.5 w-full bg-emerald-950 rounded-full overflow-hidden">
@@ -486,8 +467,8 @@ function BentoVectorMockup({
             </div>
           </div>
           <div className="flex justify-between text-[9px] font-mono text-emerald-200/60">
-            <span>Signed S3 Storage</span>
-            <span className="text-emerald-400">&lt; 45s Batch</span>
+            <span>Penyimpanan Cloud Aman</span>
+            <span className="text-emerald-400">&lt; 45 Detik Selesai</span>
           </div>
         </div>
       );
@@ -496,13 +477,13 @@ function BentoVectorMockup({
       return (
         <div className="w-full h-full p-4 bg-gradient-to-br from-[#122A1E] via-[#0D1E16] to-[#08150F] text-white flex flex-col justify-between select-none">
           <div className="flex items-center justify-between pb-1.5 border-b border-white/10 text-[9px] font-mono">
-            <span className="text-amber-300">ATOMIC STOCK LOCK</span>
-            <span className="text-emerald-400">&lt; 150ms SYNC</span>
+            <span className="text-amber-300">SINKRONISASI STOK</span>
+            <span className="text-emerald-400">&lt; 150ms REALTIME</span>
           </div>
           <div className="grid grid-cols-2 gap-2 my-auto text-center">
             <div className="p-2 rounded bg-black/40 border border-white/5">
               <span className="block text-[8px] text-emerald-300 font-mono">Marketplace</span>
-              <span className="text-[10px] font-bold text-white">Tokopedia &amp; Shopee</span>
+              <span className="text-[10px] font-bold text-white">Tokopedia, Shopee, TikTok</span>
             </div>
             <div className="p-2 rounded bg-black/40 border border-white/5">
               <span className="block text-[8px] text-emerald-300 font-mono">Akurasi Stok</span>
@@ -510,7 +491,7 @@ function BentoVectorMockup({
             </div>
           </div>
           <div className="text-[9px] font-mono text-center text-emerald-200/60">
-            Supabase Realtime Sync Engine
+            Multi-Gudang &amp; POS Terintegrasi
           </div>
         </div>
       );
@@ -519,20 +500,20 @@ function BentoVectorMockup({
       return (
         <div className="w-full h-full p-4 bg-gradient-to-br from-[#0A1A13] via-[#07150E] to-[#040C08] text-white flex flex-col justify-between select-none">
           <div className="flex items-center justify-between pb-1.5 border-b border-white/10 text-[9px] font-mono">
-            <span className="text-emerald-300">POSTGRESQL RLS GUARD</span>
-            <span className="text-emerald-400">MULTI-TENANT</span>
+            <span className="text-emerald-300">KEAMANAN TINGKAT TINGGI</span>
+            <span className="text-emerald-400">TERISOLASI</span>
           </div>
           <div className="grid grid-cols-3 gap-1.5 my-auto text-center">
             {["Admin", "Guru", "Siswa"].map((role) => (
               <div key={role} className="p-1.5 rounded bg-black/40 border border-white/5">
                 <Lock className="h-3 w-3 text-emerald-400 mx-auto mb-0.5" />
                 <span className="block text-[9px] font-bold text-white">{role}</span>
-                <span className="block text-[7px] text-emerald-300/80">ISOLATED</span>
+                <span className="block text-[7px] text-emerald-300/80">TERPROTEKSI</span>
               </div>
             ))}
           </div>
           <div className="text-[9px] font-mono text-center text-emerald-200/60">
-            Zero-Trust Data Protection
+            Row Level Security (RLS) PostgreSQL
           </div>
         </div>
       );
@@ -546,10 +527,10 @@ function BentoVectorMockup({
             </div>
             <div>
               <span className="font-mono text-[9px] text-emerald-300 uppercase tracking-widest block">
-                SHOPIFY POLARIS ENTERPRISE WORKSPACE
+                RUANG KERJA KHUSUS KLIEN ABINEST
               </span>
               <h4 className="text-sm font-bold text-white">
-                Client Portal Terisolasi (/portal)
+                Client Portal Transparan (/portal)
               </h4>
             </div>
           </div>
