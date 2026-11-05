@@ -1,13 +1,23 @@
 "use client";
 
-import { useRef } from "react";
-import { ArrowRight, ShieldCheck, Zap } from "lucide-react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import dynamic from "next/dynamic";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+const GroveHero3DScene = dynamic(
+  () =>
+    import("./GroveHero3DScene").then((mod) => mod.GroveHero3DScene),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3] rounded-2xl bg-[#EDE8DB] border border-[#DDD7C9] flex items-center justify-center">
+        <span className="text-xs font-mono text-[#717872] animate-pulse">
+          Memuat Real 3D Architecture Engine...
+        </span>
+      </div>
+    ),
+  }
+);
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -77,35 +87,6 @@ const FEATURE_ITEMS = [
 ];
 
 export function GroveHeroSection() {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  // 3D Perspective Tilt Physics
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), {
-    stiffness: 200,
-    damping: 25,
-  });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), {
-    stiffness: 200,
-    damping: 25,
-  });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string
@@ -186,43 +167,14 @@ export function GroveHeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Hero Visual Container with 3D Tilt & Parallax */}
+          {/* Right Column: Real 3D Interactive Architecture Scene */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-            className="lg:col-span-6"
-            style={{ perspective: 1000 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+            className="lg:col-span-6 w-full"
           >
-            <motion.div
-              ref={cardRef}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-              }}
-              className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#E8E3D7] border border-[#DDD7C9] shadow-md group transition-shadow duration-300 hover:shadow-xl"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <motion.img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
-                alt="Abinest Enterprise System Architecture"
-                className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-out"
-              />
-
-              {/* Overlay Badge with Spring Entrance */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute bottom-3 left-3 bg-[#18362B]/90 backdrop-blur-sm px-3 py-1.5 rounded-md text-[11px] font-mono text-emerald-100 font-semibold border border-white/10 flex items-center gap-1.5 shadow-sm"
-              >
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-                <span>ABINEST ENGINEERING • PRODUCTION READY</span>
-              </motion.div>
-            </motion.div>
+            <GroveHero3DScene />
           </motion.div>
         </div>
       </div>
