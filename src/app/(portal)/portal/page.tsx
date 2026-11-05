@@ -118,7 +118,7 @@ export default function PortalProjectOverviewPage() {
       titleMetadata={realtimeBadgeMarkup}
       primaryAction={{
         content: "Buka Staging Environment",
-        url: project.staging_url ?? "https://staging.siakad-alazhar.triloe.id",
+        url: project.staging_url ?? "https://staging.siakad-alazhar.abinest.id",
         external: true,
       }}
       secondaryActions={[

@@ -84,7 +84,7 @@ export function PortalShell({ children }: PortalShellProps) {
   const navigationMarkup = (
     <Navigation location={pathname}>
       <Navigation.Section
-        title="ENTERPRISE CLIENT PORTAL"
+        title="ABINEST CLIENT PORTAL"
         items={[
           {
             url: "/portal",

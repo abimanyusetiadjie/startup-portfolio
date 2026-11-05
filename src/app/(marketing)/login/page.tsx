@@ -141,7 +141,7 @@ export default function LoginPage() {
           <div className="space-y-2 text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2563EB]/10 text-[#2563EB] text-xs font-semibold">
               <ShieldCheck className="h-4 w-4" />
-              <span>ENTERPRISE CLIENT PORTAL GATE</span>
+              <span>ABINEST CLIENT PORTAL GATE</span>
             </div>
 
             <h1 className="font-heading text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090B]">

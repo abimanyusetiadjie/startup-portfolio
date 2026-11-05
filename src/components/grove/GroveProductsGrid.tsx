@@ -1,135 +1,133 @@
 "use client";
 
-interface GroveProductsGridProps {
-  isTechMode?: boolean;
-}
+import { ArrowUpRight } from "lucide-react";
 
-const GROVE_PLANTS = [
+const ABINEST_SYSTEMS = [
   {
-    id: "zebra-haworthia",
-    badge: "Easy-care",
-    name: "Zebra Haworthia",
-    price: "£18",
-    subtitle: "Low light • 14cm pot",
-    image: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?q=80&w=800&auto=format&fit=crop",
-    btnLabel: "Add to bag",
-    // Tech variant
-    techBadge: "EdTech Core",
-    techName: "SIAKAD Modern v2.4",
-    techPrice: "SLA 99.9%",
-    techSub: "Next.js 15 • PostgreSQL RLS",
-    techBtn: "Pelajari Sistem",
+    id: "siakad-core",
+    badge: "EdTech Core",
+    name: "SIAKAD Modern v2.4",
+    metric: "SLA 99.9%",
+    subtitle: "Arsitektur terpisah • SPP & Ujian serentak",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    ctaLabel: "Konsultasi Sistem SIAKAD",
+    href: "#konsultasi?system=siakad",
   },
   {
-    id: "ball-cactus",
-    badge: "In flower",
-    name: "Ball Cactus",
-    price: "£22",
-    subtitle: "Bright sun • 10cm pot",
-    image: "https://images.unsplash.com/photo-1519336367661-ebd9c4d41e9a?q=80&w=800&auto=format&fit=crop",
-    btnLabel: "Add to bag",
-    // Tech variant
-    techBadge: "PDF Worker",
-    techName: "Parallel Report Engine",
-    techPrice: "500 PDF/<45s",
-    techSub: "Upstash QStash • S3 Signed",
-    techBtn: "Pelajari Sistem",
+    id: "pdf-worker",
+    badge: "Async Worker",
+    name: "Parallel PDF Engine",
+    metric: "500+ PDF / <45s",
+    subtitle: "Upstash QStash • S3 Signed URL",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    ctaLabel: "Konsultasi Mesin Rapor",
+    href: "#konsultasi?system=pdf_engine",
   },
   {
-    id: "ginseng-ficus",
-    badge: "Statement",
-    name: "Ginseng Ficus",
-    price: "£45",
-    subtitle: "Bright indirect • 18cm pot",
-    image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=800&auto=format&fit=crop",
-    btnLabel: "Add to bag",
-    // Tech variant
-    techBadge: "Omnichannel",
-    techName: "Atomic Stock Hub",
-    techPrice: "< 150ms Sync",
-    techSub: "Supabase Realtime • 4 MP",
-    techBtn: "Pelajari Sistem",
+    id: "omnichannel-hub",
+    badge: "Omnichannel Hub",
+    name: "Atomic Stock Hub",
+    metric: "< 150ms Sync",
+    subtitle: "Sinkronisasi 4 marketplace • 0% oversell",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+    ctaLabel: "Konsultasi Omnichannel",
+    href: "#konsultasi?system=omnichannel",
   },
   {
-    id: "cut-eucalyptus",
-    badge: "Fresh bundle",
-    name: "Cut Eucalyptus",
-    price: "£12",
-    subtitle: "Vase ready • Lasts 3 weeks",
-    image: "https://images.unsplash.com/photo-1516048015710-7a3b4c86be43?q=80&w=800&auto=format&fit=crop",
-    btnLabel: "Add to bag",
-    // Tech variant
-    techBadge: "WhatsApp API",
-    techName: "Resilient WA Gateway",
-    techPrice: "< 2s Dispatch",
-    techSub: "Exponential Backoff 5x",
-    techBtn: "Pelajari Sistem",
+    id: "whatsapp-gateway",
+    badge: "WhatsApp API",
+    name: "Resilient WA Gateway",
+    metric: "< 2s Dispatch",
+    subtitle: "Meta Cloud API • Backoff Retry 5x",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+    ctaLabel: "Konsultasi Otomasi WA",
+    href: "#konsultasi?system=whatsapp",
   },
 ];
 
-export function GroveProductsGrid({ isTechMode = false }: GroveProductsGridProps) {
+export function GroveProductsGrid() {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    if (targetId.startsWith("#")) {
+      e.preventDefault();
+      const target = document.getElementById(targetId.replace("#", ""));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
-    <section id="favourites" className="bg-[#F4F1EA] py-16 sm:py-20 font-sans border-b border-[#E7E2D6]">
+    <section id="systems" className="bg-[#F4F1EA] py-16 sm:py-20 font-sans border-b border-[#E7E2D6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex items-baseline justify-between mb-8 sm:mb-10">
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[#1A201C]">
-            {isTechMode ? "Sistem Pilihan Unggulan" : "This week's favourites"}
-          </h2>
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-8 sm:mb-10">
+          <div>
+            <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#D15B3A] mb-1">
+              PRODUK &amp; SOLUSI UNGGULAN
+            </span>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[#1A201C]">
+              Sistem Rekayasa Unggulan Abinest
+            </h2>
+          </div>
           <a
-            href={isTechMode ? "#feature-box" : "#"}
-            className="text-xs sm:text-sm text-[#717872] underline hover:text-[#18362B] transition-colors"
+            href="#case-study"
+            onClick={(e) => handleSmoothScroll(e, "#case-study")}
+            className="text-xs sm:text-sm font-semibold text-[#18362B] underline hover:text-[#D15B3A] transition-colors"
           >
-            {isTechMode ? "Lihat Semua Studi Kasus →" : "View all 42 plants →"}
+            Lihat Studi Kasus Arsitektur →
           </a>
         </div>
 
-        {/* 4-Item Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {GROVE_PLANTS.map((item) => (
+        {/* 4-Item Grid (Exact Grove Card Layout) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {ABINEST_SYSTEMS.map((system) => (
             <div
-              key={item.id}
-              className="group bg-white rounded-xl border border-[#E5E0D5] p-3 sm:p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-[#18362B]/40 transition-all duration-300"
+              key={system.id}
+              className="group bg-white rounded-xl border border-[#E5E0D5] p-3.5 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-[#18362B]/50 transition-all duration-300"
             >
               <div>
-                {/* Product Image Container with Badge */}
+                {/* Visual Image / Screenshot Container */}
                 <div className="relative aspect-square rounded-lg bg-[#FAF9F6] border border-[#F0ECE4] overflow-hidden mb-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={item.image}
-                    alt={isTechMode ? item.techName : item.name}
+                    src={system.image}
+                    alt={system.name}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Corner Badge */}
-                  <div className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-medium text-[#1A201C] border border-black/5 shadow-xs">
-                    {isTechMode ? item.techBadge : item.badge}
+                  <div className="absolute top-2.5 left-2.5 bg-[#18362B]/90 backdrop-blur-sm px-2.5 py-0.5 rounded text-[10px] font-mono font-medium text-emerald-200 border border-white/10 shadow-xs">
+                    {system.badge}
                   </div>
                 </div>
 
-                {/* Info Row: Title & Price */}
+                {/* Info Row: Title & Performance Metric */}
                 <div className="flex items-baseline justify-between gap-2">
-                  <h3 className="font-heading text-xs sm:text-sm font-bold text-[#1A201C] group-hover:text-[#18362B] transition-colors">
-                    {isTechMode ? item.techName : item.name}
+                  <h3 className="font-heading text-sm font-bold text-[#1A201C] group-hover:text-[#18362B] transition-colors">
+                    {system.name}
                   </h3>
-                  <span className="font-mono text-xs sm:text-sm font-semibold text-[#18362B]">
-                    {isTechMode ? item.techPrice : item.price}
+                  <span className="font-mono text-xs font-semibold text-[#18362B]">
+                    {system.metric}
                   </span>
                 </div>
 
                 {/* Subtitle */}
-                <p className="text-[11px] sm:text-xs text-[#717872] mt-0.5 mb-4">
-                  {isTechMode ? item.techSub : item.subtitle}
+                <p className="text-[11px] text-[#717872] mt-0.5 mb-4 line-clamp-2">
+                  {system.subtitle}
                 </p>
               </div>
 
               {/* Action Button: Pill Outline */}
-              <button
-                type="button"
-                className="w-full py-1.5 sm:py-2 px-3 rounded-full border border-[#D5D0C4] bg-white text-xs font-semibold text-[#1A201C] hover:border-[#18362B] hover:bg-[#18362B] hover:text-white transition-all duration-200 text-center"
+              <a
+                href="#konsultasi"
+                onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
+                className="w-full py-2 px-3 rounded-full border border-[#D5D0C4] bg-white text-xs font-semibold text-[#1A201C] hover:border-[#18362B] hover:bg-[#18362B] hover:text-white transition-all duration-200 text-center block"
               >
-                {isTechMode ? item.techBtn : item.btnLabel}
-              </button>
+                {system.ctaLabel}
+              </a>
             </div>
           ))}
         </div>

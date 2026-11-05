@@ -25,11 +25,11 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Engineering & Automation Studio | Enterprise Systems & B2B Solutions",
-    template: "%s | Engineering & Automation Studio",
+    default: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
+    template: "%s | Abinest",
   },
   description:
-    "Rekayasa Sistem Kelas Enterprise & Otomasi Bisnis Tanpa Kompromi. Spesialis Web Modern, Sistem SIAKAD, WA Automation, dan Integrasi API.",
+    "Abinest: Rekayasa Sistem Kelas Enterprise & Otomasi Bisnis Tanpa Kompromi. Spesialis Web Modern Next.js 100 Lighthouse, Sistem SIAKAD Sekolah Anti-Down, WA Automation, dan Integrasi API.",
 };
 
 export default function RootLayout({

@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import { GroveApp } from "@/components/grove/GroveApp";
 
 const APP_BASE_URL =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://studio-rekayasa.triloe.id";
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
 
 export const metadata: Metadata = {
   title:
-    "Rekayasa Sistem Skala Enterprise & Otomasi Bisnis Berkecepatan Tinggi",
+    "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
   description:
-    "Solusi rekayasa perangkat lunak B2B: Website Next.js 95–100 Lighthouse, SIAKAD Sekolah Modern + Parallel PDF Engine, Omnichannel Hub, dan Otomasi WhatsApp Real-Time.",
+    "Abinest merancang website Next.js skor Lighthouse 95–100, SIAKAD sekolah anti-down dengan paralel PDF engine, omnichannel stock hub, dan otomasi WhatsApp API.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title:
-      "Rekayasa Sistem Skala Enterprise & Otomasi Bisnis Berkecepatan Tinggi",
+      "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
     description:
       "Arsitektur Web Next.js 95–100 Lighthouse, SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF rapor otomatis, dan integrasi API/WhatsApp real-time.",
     url: APP_BASE_URL,
@@ -28,7 +28,7 @@ const jsonLdSchema = {
     {
       "@type": "Organization",
       "@id": `${APP_BASE_URL}/#organization`,
-      name: "Software Engineering & Automation Studio",
+      name: "Abinest Engineering & Automation Studio",
       url: APP_BASE_URL,
       description:
         "Studio rekayasa perangkat lunak B2B spesialis arsitektur web performa tinggi, sistem SIAKAD/ERP terpisah, dan otomasi bisnis WhatsApp/API.",
