@@ -51,7 +51,7 @@ export function GroveHero3DScene() {
     mainLight.shadow.bias = -0.0005;
     scene.add(mainLight);
 
-    const rimLight = new THREE.DirectionalLight(0xd15b3a, 1.8); // Terracotta accent rim
+    const rimLight = new THREE.DirectionalLight(0x5eead4, 2.0); // Soft Teal accent rim
     rimLight.position.set(-6, -2, -4);
     scene.add(rimLight);
 
@@ -59,25 +59,25 @@ export function GroveHero3DScene() {
     pointEmerald.position.set(0, 0, 1.5);
     scene.add(pointEmerald);
 
-    // 3. Materials
+    // 3. Materials (Soft Teal Professional Palette)
     const deepForestMat = new THREE.MeshStandardMaterial({
-      color: 0x18362b, // Forest Green
+      color: 0x0f766e, // Deep Teal
       roughness: 0.25,
       metalness: 0.35,
     });
 
     const warmSandMat = new THREE.MeshStandardMaterial({
-      color: 0xded7c8, // Warm Sand / Oat
+      color: 0xccfbf1, // Light Teal / Mint
       roughness: 0.4,
       metalness: 0.1,
     });
 
     const terracottaMat = new THREE.MeshStandardMaterial({
-      color: 0xd15b3a, // Terracotta Accent
+      color: 0x10b981, // Emerald Accent
       roughness: 0.3,
       metalness: 0.2,
-      emissive: 0xd15b3a,
-      emissiveIntensity: 0.15,
+      emissive: 0x10b981,
+      emissiveIntensity: 0.2,
     });
 
     const glassMat = new THREE.MeshPhysicalMaterial({
@@ -357,16 +357,16 @@ export function GroveHero3DScene() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-b from-[#EDE8DB] to-[#E3DDD0] border border-[#DDD7C9] shadow-lg select-none cursor-grab active:cursor-grabbing group"
+      className="relative w-full aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-b from-[#F0FDFA] to-[#E6FAF6] border border-[#E2E8F0] shadow-md select-none cursor-grab active:cursor-grabbing group"
     >
       {/* Three.js Canvas */}
       <canvas ref={canvasRef} className="w-full h-full block" />
 
       {/* Loading Skeleton Indicator */}
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#EAE5D9]/80 backdrop-blur-sm">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#18362B] font-semibold">
-            <Loader2 className="h-4 w-4 animate-spin text-[#D15B3A]" />
+        <div className="absolute inset-0 flex items-center justify-center bg-[#F8FAFC]/80 backdrop-blur-sm">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#0F766E] font-semibold">
+            <Loader2 className="h-4 w-4 animate-spin text-[#0F766E]" />
             <span>{t.hero3D.loading}</span>
           </div>
         </div>
@@ -374,23 +374,23 @@ export function GroveHero3DScene() {
 
       {/* TOP FLOATING HUD BADGE: Live System Architecture State */}
       <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-        <div className="bg-[#18362B]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-white shadow-md flex items-center gap-2">
+        <div className="bg-[#0F766E]/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-white shadow-md flex items-center gap-2">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5EEAD4] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
           </span>
           <div className="flex flex-col">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-300 font-bold">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#5EEAD4] font-bold">
               {t.hero3D.badgeTitle}
             </span>
-            <span className="text-[9px] text-white/70 font-mono">
+            <span className="text-[9px] text-teal-100/90 font-mono">
               {t.hero3D.badgeSub}
             </span>
           </div>
         </div>
 
-        <div className="bg-[#FAF7F0]/85 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#DDD7C9] text-[10px] font-mono text-[#18362B] font-semibold hidden sm:flex items-center gap-1 shadow-sm">
-          <Sparkles className="h-3 w-3 text-[#D15B3A]" />
+        <div className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#E2E8F0] text-[10px] font-mono text-[#0F766E] font-semibold hidden sm:flex items-center gap-1 shadow-sm">
+          <Sparkles className="h-3 w-3 text-[#10B981]" />
           <span>{t.hero3D.interactiveBadge}</span>
         </div>
       </div>
@@ -398,21 +398,21 @@ export function GroveHero3DScene() {
       {/* BOTTOM FLOATING CONTROLS & HUD */}
       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
         {/* Node Telemetry Card */}
-        <div className="bg-[#FAF7F0]/90 backdrop-blur-md border border-[#DDD7C9] px-3 py-1.5 rounded-lg shadow-sm">
-          <div className="text-[9px] font-mono uppercase tracking-wider text-[#D15B3A] font-bold">
+        <div className="bg-white/95 backdrop-blur-md border border-[#E2E8F0] px-3 py-1.5 rounded-lg shadow-sm">
+          <div className="text-[9px] font-mono uppercase tracking-wider text-[#0F766E] font-bold">
             {t.hero3D.nodeMonitor}
           </div>
-          <div className="text-xs font-bold text-[#18362B]">
+          <div className="text-xs font-bold text-[#134E4A]">
             {activeNodeName}
           </div>
-          <div className="text-[10px] text-[#717872] font-mono">
+          <div className="text-[10px] text-[#64748B] font-mono">
             {activeNodeMetric}
           </div>
         </div>
 
         {/* Interaction Hint */}
-        <div className="bg-[#18362B]/85 backdrop-blur-sm text-emerald-100 px-3 py-1.5 rounded-full text-[10px] font-medium border border-white/10 flex items-center gap-1.5 shadow-sm opacity-90 group-hover:opacity-100 transition-opacity">
-          <RotateCcw className="h-3 w-3 text-emerald-400 animate-spin-slow" />
+        <div className="bg-[#0F766E]/90 backdrop-blur-sm text-teal-100 px-3 py-1.5 rounded-full text-[10px] font-medium border border-white/10 flex items-center gap-1.5 shadow-sm opacity-90 group-hover:opacity-100 transition-opacity">
+          <RotateCcw className="h-3 w-3 text-[#5EEAD4] animate-spin-slow" />
           <span className="hidden sm:inline">{t.hero3D.hint}</span>
           <span className="sm:hidden">{t.hero3D.hintShort}</span>
         </div>
