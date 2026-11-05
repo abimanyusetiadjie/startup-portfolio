@@ -7,15 +7,13 @@ const APP_BASE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(APP_BASE_URL),
   title: {
-    default:
-      "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
-    template: "%s | Abinest",
+    default: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
+    template: "%s | Abinest Engineering Studio",
   },
   description:
-    "Abinest adalah studio rekayasa perangkat lunak B2B kelas enterprise. Spesialis Website Next.js 95–100 Lighthouse, Sistem SIAKAD Sekolah Modern dengan Parallel PDF Report Engine, dan Otomasi WhatsApp/API Real-Time.",
+    "Infrastruktur perangkat lunak kelas enterprise: Website Next.js 100 Lighthouse, SIAKAD sekolah decoupled anti-down dengan paralel PDF worker, dan otomasi WhatsApp API.",
   keywords: [
-    "Abinest",
-    "Software Engineering Studio Indonesia",
+    "Abinest Engineering Studio",
     "Sistem SIAKAD Sekolah Modern",
     "Parallel PDF Report Generator",
     "Otomasi Bisnis WhatsApp API",
@@ -23,24 +21,22 @@ export const metadata: Metadata = {
     "Omnichannel Order Stock Hub",
     "Supabase PostgreSQL RLS",
   ],
-  authors: [{ name: "Abinest" }],
-  creator: "Abinest",
+  authors: [{ name: "Abinest Engineering Studio" }],
+  creator: "Abinest Engineering Studio",
   openGraph: {
     type: "website",
     locale: "id_ID",
     url: APP_BASE_URL,
-    siteName: "Abinest",
-    title:
-      "Abinest | Rekayasa Sistem Skala Enterprise & Otomasi Bisnis Berkecepatan Tinggi",
+    siteName: "Abinest Engineering Studio",
+    title: "Infrastruktur Perangkat Lunak untuk Sistem yang Menolak Down.",
     description:
-      "Arsitektur Web Next.js 95–100 Lighthouse, SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF rapor paralel otomatis, dan integrasi API/WhatsApp real-time.",
+      "Arsitektur Web Next.js 100 Lighthouse, SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF rapor otomatis, dan integrasi API/WhatsApp real-time.",
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Abinest | Rekayasa Sistem Skala Enterprise & Otomasi Bisnis Berkecepatan Tinggi",
+    title: "Infrastruktur Perangkat Lunak untuk Sistem yang Menolak Down.",
     description:
-      "Spesialis Web Modern 95–100 Lighthouse, SIAKAD + Parallel PDF Engine, & Otomasi WhatsApp/API B2B.",
+      "Spesialis Web Modern 100 Lighthouse, SIAKAD + Parallel PDF Engine, & Otomasi WhatsApp/API B2B.",
   },
   robots: {
     index: true,
@@ -54,7 +50,7 @@ export default function MarketingLayout({
   children: ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#09090B] selection:bg-[#2563EB]/15 selection:text-[#2563EB]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#09090B] selection:bg-[#0052FF]/15 selection:text-[#0052FF]">
       {children}
     </div>
   );
