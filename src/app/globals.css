@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-canvas: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-obsidian: #0F172A;
+  --color-primary: #2563EB;
+  --color-emerald: #10B981;
+  --color-heading: #09090B;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+  --font-jakarta: var(--font-heading);
+}
+
+@layer utilities {
+  /* Triloe Cutout Corner Mask (Bottom-Right Inverted Corner Illusion) */
+  .cutout-corner-mask {
+    @apply absolute bottom-0 right-0 bg-[#F8FAFC] pt-4 pl-6 rounded-tl-3xl;
+  }
+
+  .cutout-corner-mask::before {
+    content: "";
+    position: absolute;
+    top: -1.75rem;
+    right: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-bottom-right-radius: 1.75rem;
+    box-shadow: 0.5rem 0.5rem 0 0.5rem #F8FAFC;
+    pointer-events: none;
+  }
+
+  .cutout-corner-mask::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -1.75rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-bottom-right-radius: 1.75rem;
+    box-shadow: 0.5rem 0.5rem 0 0.5rem #F8FAFC;
+    pointer-events: none;
+  }
+
+  /* Soft elevation shadow per design.md (shadow-xl shadow-slate-900/5) */
+  .shadow-triloe-soft {
+    @apply shadow-xl shadow-slate-900/5;
+  }
+}
