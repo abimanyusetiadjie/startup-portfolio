@@ -3,8 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Loader2, RotateCcw, Sparkles } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveHero3DScene() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -365,7 +367,7 @@ export function GroveHero3DScene() {
         <div className="absolute inset-0 flex items-center justify-center bg-[#EAE5D9]/80 backdrop-blur-sm">
           <div className="flex items-center gap-2 text-xs font-mono text-[#18362B] font-semibold">
             <Loader2 className="h-4 w-4 animate-spin text-[#D15B3A]" />
-            <span>MEMUAT REAL 3D ENGINE...</span>
+            <span>{t.hero3D.loading}</span>
           </div>
         </div>
       )}
@@ -379,17 +381,17 @@ export function GroveHero3DScene() {
           </span>
           <div className="flex flex-col">
             <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-300 font-bold">
-              REAL 3D ARCHITECTURE CLUSTER
+              {t.hero3D.badgeTitle}
             </span>
             <span className="text-[9px] text-white/70 font-mono">
-              Next.js 15 Edge • WebGL Procedural
+              {t.hero3D.badgeSub}
             </span>
           </div>
         </div>
 
         <div className="bg-[#FAF7F0]/85 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#DDD7C9] text-[10px] font-mono text-[#18362B] font-semibold hidden sm:flex items-center gap-1 shadow-sm">
           <Sparkles className="h-3 w-3 text-[#D15B3A]" />
-          <span>INTERACTIVE 360°</span>
+          <span>{t.hero3D.interactiveBadge}</span>
         </div>
       </div>
 
@@ -398,7 +400,7 @@ export function GroveHero3DScene() {
         {/* Node Telemetry Card */}
         <div className="bg-[#FAF7F0]/90 backdrop-blur-md border border-[#DDD7C9] px-3 py-1.5 rounded-lg shadow-sm">
           <div className="text-[9px] font-mono uppercase tracking-wider text-[#D15B3A] font-bold">
-            NODE MONITOR
+            {t.hero3D.nodeMonitor}
           </div>
           <div className="text-xs font-bold text-[#18362B]">
             {activeNodeName}
@@ -411,8 +413,8 @@ export function GroveHero3DScene() {
         {/* Interaction Hint */}
         <div className="bg-[#18362B]/85 backdrop-blur-sm text-emerald-100 px-3 py-1.5 rounded-full text-[10px] font-medium border border-white/10 flex items-center gap-1.5 shadow-sm opacity-90 group-hover:opacity-100 transition-opacity">
           <RotateCcw className="h-3 w-3 text-emerald-400 animate-spin-slow" />
-          <span className="hidden sm:inline">Geser mouse / sentuh untuk memutar</span>
-          <span className="sm:hidden">Drag untuk putar</span>
+          <span className="hidden sm:inline">{t.hero3D.hint}</span>
+          <span className="sm:hidden">{t.hero3D.hintShort}</span>
         </div>
       </div>
     </div>

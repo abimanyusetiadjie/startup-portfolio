@@ -14,6 +14,7 @@ import {
   Sparkles,
   ArrowUpRight,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface BentoItem {
   id: string;
@@ -30,94 +31,187 @@ interface BentoItem {
   metricLabel: string;
 }
 
-const ABINEST_BENTO_ITEMS: BentoItem[] = [
-  {
-    id: "bento_siakad",
-    title: "SIAKAD Sekolah Modern & Buku Nilai Digital",
-    eyebrow: "JASA SISTEM INFORMASI AKADEMIK",
-    badge: "SLA 99.9% UPTIME",
-    subtitle: "Sistem informasi akademik terpadu untuk sekolah dan yayasan. Ujian online dan modul SPP tetap lancar tanpa risiko server down saat diakses ribuan siswa bersamaan.",
-    tags: ["Sekolah & Yayasan", "Next.js 15", "PostgreSQL", "Anti-Down"],
-    gridSpan: "lg:col-span-8",
-    aspectClass: "aspect-[16/9] sm:aspect-[16/10]",
-    imageUrl: "",
-    mockupType: "siakad",
-    metricHighlight: "0% Server Crash",
-    metricLabel: "Trafik Ujian 4.200 Siswa",
-  },
-  {
-    id: "bento_whatsapp",
-    title: "WhatsApp Notification Gateway & Chatbot",
-    eyebrow: "JASA OTOMASI BISNIS & WHATSAPP",
-    badge: "< 2s TERKIRIM",
-    subtitle: "Kirim pesan WhatsApp otomatis untuk pengingat SPP, bukti pembayaran, notifikasi absensi, dan alert pesanan pelanggan dalam 2 detik.",
-    tags: ["Meta Cloud API", "Pesan Otomatis", "Anti-Gagal 24/7"],
-    gridSpan: "lg:col-span-4",
-    aspectClass: "aspect-[4/3] sm:aspect-[4/5]",
-    imageUrl: "",
-    mockupType: "whatsapp",
-    metricHighlight: "< 2 Detik",
-    metricLabel: "Terkirim Otomatis 24/7",
-  },
-  {
-    id: "bento_pdf",
-    title: "Mesin Cetak Rapor PDF Otomatis",
-    eyebrow: "OTOMASI DOKUMEN CEPAT",
-    badge: "500+ PDF / <45s",
-    subtitle: "Sekali klik, ratusan PDF rapor siswa langsung terbuat otomatis di background worker tanpa membuat komputer guru atau server sekolah macet.",
-    tags: ["Rapor Otomatis", "Cloud Storage", "Format Resmi"],
-    gridSpan: "lg:col-span-4",
-    aspectClass: "aspect-[4/3]",
-    imageUrl: "",
-    mockupType: "pdf_worker",
-    metricHighlight: "< 45 Detik",
-    metricLabel: "500+ Rapor PDF Sekali Klik",
-  },
-  {
-    id: "bento_omnichannel",
-    title: "Manajemen Stok & Omnichannel Hub",
-    eyebrow: "JASA SISTEM ERP & E-COMMERCE",
-    badge: "SYNC REAL-TIME",
-    subtitle: "Penyelarasan stok otomatis lintas Shopee, Tokopedia, TikTok Shop, dan toko fisik secara real-time. Tidak ada lagi pesanan batal karena overselling.",
-    tags: ["Multi-Marketplace", "Anti-Overselling", "Sync < 150ms"],
-    gridSpan: "lg:col-span-4",
-    aspectClass: "aspect-[4/3]",
-    imageUrl: "",
-    mockupType: "omnichannel",
-    metricHighlight: "0% Overselling",
-    metricLabel: "Sinkronisasi Multi-Gudang",
-  },
-  {
-    id: "bento_rls",
-    title: "Keamanan Database Berlapis (PostgreSQL RLS)",
-    eyebrow: "JAMINAN KEAMANAN DATA",
-    badge: "100% TERISOLASI",
-    subtitle: "Data yayasan, nilai siswa, dan catatan keuangan Anda terkunci aman. Hanya pihak yang berwenang (Admin, Guru, Siswa, Klien) yang dapat mengakses.",
-    tags: ["Privasi Terjamin", "Enkripsi SQL", "Zero-Trust"],
-    gridSpan: "lg:col-span-4",
-    aspectClass: "aspect-[4/3]",
-    imageUrl: "",
-    mockupType: "rls_security",
-    metricHighlight: "100% Terlindungi",
-    metricLabel: "Isolasi Data Per Organisasi",
-  },
-  {
-    id: "bento_portal",
-    title: "Enterprise Client Portal: Pantau Progres Pembuatan Sistem Anda",
-    eyebrow: "FASILITAS EKSKLUSIF KLIEN ABINEST (/portal)",
-    badge: "TRANSPARANSI PENUH",
-    subtitle: "Setiap klien Abinest mendapatkan akses ke portal khusus berbasis Shopify Polaris untuk melihat milestone pengerjaan, mengunduh invoice resmi, dan menguji integrasi secara transparan.",
-    tags: ["Shopify Polaris", "Pantau Milestone Live", "Invoice Otomatis"],
-    gridSpan: "lg:col-span-12",
-    aspectClass: "aspect-[21/9] sm:aspect-[24/9] min-h-[170px]",
-    imageUrl: "",
-    mockupType: "polaris_portal",
-    metricHighlight: "100% Transparan",
-    metricLabel: "Akses Langsung ke /portal",
-  },
-];
+const getBentoItems = (lang: "id" | "en"): BentoItem[] => {
+  if (lang === "en") {
+    return [
+      {
+        id: "bento_siakad",
+        title: "Modern School SIAKAD & Digital Gradebook",
+        eyebrow: "ACADEMIC INFORMATION SYSTEM",
+        badge: "99.9% UPTIME SLA",
+        subtitle: "Integrated academic software for schools and foundations. Simultaneous online exams and tuition fee billing remain uninterrupted without server crashes during peak traffic.",
+        tags: ["EdTech & Foundations", "Next.js 15", "PostgreSQL", "Anti-Crash"],
+        gridSpan: "lg:col-span-8",
+        aspectClass: "aspect-[16/9] sm:aspect-[16/10]",
+        imageUrl: "",
+        mockupType: "siakad",
+        metricHighlight: "0% Server Crash",
+        metricLabel: "4,200 Student Exam Load",
+      },
+      {
+        id: "bento_whatsapp",
+        title: "WhatsApp Notification Gateway & Chatbot",
+        eyebrow: "B2B AUTOMATION & MESSAGING",
+        badge: "< 2s DISPATCH",
+        subtitle: "Automated WhatsApp delivery for tuition reminders, payment receipts, attendance alerts, and order confirmations within 2 seconds.",
+        tags: ["Meta Cloud API", "Automated Dispatch", "24/7 Resilient"],
+        gridSpan: "lg:col-span-4",
+        aspectClass: "aspect-[4/3] sm:aspect-[4/5]",
+        imageUrl: "",
+        mockupType: "whatsapp",
+        metricHighlight: "< 2 Seconds",
+        metricLabel: "24/7 Automated Dispatch",
+      },
+      {
+        id: "bento_pdf",
+        title: "Parallel PDF Batch Report Card Engine",
+        eyebrow: "HIGH-SPEED DOCUMENT AUTOMATION",
+        badge: "500+ PDF / <45s",
+        subtitle: "One-click generation of hundreds of student report card PDFs in asynchronous background workers without freezing administrative systems.",
+        tags: ["Batch Report Generation", "S3 Storage", "Official Format"],
+        gridSpan: "lg:col-span-4",
+        aspectClass: "aspect-[4/3]",
+        imageUrl: "",
+        mockupType: "pdf_worker",
+        metricHighlight: "< 45 Seconds",
+        metricLabel: "500+ Reports / Single Click",
+      },
+      {
+        id: "bento_omnichannel",
+        title: "Atomic Inventory & Omnichannel Hub",
+        eyebrow: "ERP & E-COMMERCE SYNC",
+        badge: "REAL-TIME SYNC",
+        subtitle: "Real-time stock synchronization across Shopee, Tokopedia, TikTok Shop, and offline stores. Zero order cancellations due to overselling.",
+        tags: ["Multi-Marketplace", "Anti-Oversell", "Sync < 150ms"],
+        gridSpan: "lg:col-span-4",
+        aspectClass: "aspect-[4/3]",
+        imageUrl: "",
+        mockupType: "omnichannel",
+        metricHighlight: "0% Overselling",
+        metricLabel: "Multi-Warehouse Sync",
+      },
+      {
+        id: "bento_rls",
+        title: "Multi-Tenant Database Security (PostgreSQL RLS)",
+        eyebrow: "DATA PROTECTION GUARANTEE",
+        badge: "100% ISOLATED",
+        subtitle: "Your foundation records, student grades, and financial ledger locked with PostgreSQL Row Level Security. Only authorized roles access designated records.",
+        tags: ["Guaranteed Privacy", "SQL Encryption", "Zero-Trust"],
+        gridSpan: "lg:col-span-4",
+        aspectClass: "aspect-[4/3]",
+        imageUrl: "",
+        mockupType: "rls_security",
+        metricHighlight: "100% Protected",
+        metricLabel: "Per-Tenant Isolation",
+      },
+      {
+        id: "bento_portal",
+        title: "Enterprise Client Portal: Live Engineering Visibility",
+        eyebrow: "EXCLUSIVE CLIENT SUITE (/portal)",
+        badge: "FULL TRANSPARENCY",
+        subtitle: "Every Abinest client receives dedicated access to a Shopify Polaris-powered portal to track development milestones, download official invoices, and test live webhooks.",
+        tags: ["Shopify Polaris", "Live Milestone Tracking", "Automated Invoices"],
+        gridSpan: "lg:col-span-12",
+        aspectClass: "aspect-[21/9] sm:aspect-[24/9] min-h-[170px]",
+        imageUrl: "",
+        mockupType: "polaris_portal",
+        metricHighlight: "100% Transparent",
+        metricLabel: "Direct Access to /portal",
+      },
+    ];
+  }
+
+  return [
+    {
+      id: "bento_siakad",
+      title: "SIAKAD Sekolah Modern & Buku Nilai Digital",
+      eyebrow: "JASA SISTEM INFORMASI AKADEMIK",
+      badge: "SLA 99.9% UPTIME",
+      subtitle: "Sistem informasi akademik terpadu untuk sekolah dan yayasan. Ujian online dan modul SPP tetap lancar tanpa risiko server down saat diakses ribuan siswa bersamaan.",
+      tags: ["Sekolah & Yayasan", "Next.js 15", "PostgreSQL", "Anti-Down"],
+      gridSpan: "lg:col-span-8",
+      aspectClass: "aspect-[16/9] sm:aspect-[16/10]",
+      imageUrl: "",
+      mockupType: "siakad",
+      metricHighlight: "0% Server Crash",
+      metricLabel: "Trafik Ujian 4.200 Siswa",
+    },
+    {
+      id: "bento_whatsapp",
+      title: "WhatsApp Notification Gateway & Chatbot",
+      eyebrow: "JASA OTOMASI BISNIS & WHATSAPP",
+      badge: "< 2s TERKIRIM",
+      subtitle: "Kirim pesan WhatsApp otomatis untuk pengingat SPP, bukti pembayaran, notifikasi absensi, dan alert pesanan pelanggan dalam 2 detik.",
+      tags: ["Meta Cloud API", "Pesan Otomatis", "Anti-Gagal 24/7"],
+      gridSpan: "lg:col-span-4",
+      aspectClass: "aspect-[4/3] sm:aspect-[4/5]",
+      imageUrl: "",
+      mockupType: "whatsapp",
+      metricHighlight: "< 2 Detik",
+      metricLabel: "Terkirim Otomatis 24/7",
+    },
+    {
+      id: "bento_pdf",
+      title: "Mesin Cetak Rapor PDF Otomatis",
+      eyebrow: "OTOMASI DOKUMEN CEPAT",
+      badge: "500+ PDF / <45s",
+      subtitle: "Sekali klik, ratusan PDF rapor siswa langsung terbuat otomatis di background worker tanpa membuat komputer guru atau server sekolah macet.",
+      tags: ["Rapor Otomatis", "Cloud Storage", "Format Resmi"],
+      gridSpan: "lg:col-span-4",
+      aspectClass: "aspect-[4/3]",
+      imageUrl: "",
+      mockupType: "pdf_worker",
+      metricHighlight: "< 45 Detik",
+      metricLabel: "500+ Rapor PDF Sekali Klik",
+    },
+    {
+      id: "bento_omnichannel",
+      title: "Manajemen Stok & Omnichannel Hub",
+      eyebrow: "JASA SISTEM ERP & E-COMMERCE",
+      badge: "SYNC REAL-TIME",
+      subtitle: "Penyelarasan stok otomatis lintas Shopee, Tokopedia, TikTok Shop, dan toko fisik secara real-time. Tidak ada lagi pesanan batal karena overselling.",
+      tags: ["Multi-Marketplace", "Anti-Overselling", "Sync < 150ms"],
+      gridSpan: "lg:col-span-4",
+      aspectClass: "aspect-[4/3]",
+      imageUrl: "",
+      mockupType: "omnichannel",
+      metricHighlight: "0% Overselling",
+      metricLabel: "Sinkronisasi Multi-Gudang",
+    },
+    {
+      id: "bento_rls",
+      title: "Keamanan Database Berlapis (PostgreSQL RLS)",
+      eyebrow: "JAMINAN KEAMANAN DATA",
+      badge: "100% TERISOLASI",
+      subtitle: "Data yayasan, nilai siswa, dan catatan keuangan Anda terkunci aman. Hanya pihak yang berwenang (Admin, Guru, Siswa, Klien) yang dapat mengakses.",
+      tags: ["Privasi Terjamin", "Enkripsi SQL", "Zero-Trust"],
+      gridSpan: "lg:col-span-4",
+      aspectClass: "aspect-[4/3]",
+      imageUrl: "",
+      mockupType: "rls_security",
+      metricHighlight: "100% Terlindungi",
+      metricLabel: "Isolasi Data Per Organisasi",
+    },
+    {
+      id: "bento_portal",
+      title: "Enterprise Client Portal: Pantau Progres Pembuatan Sistem Anda",
+      eyebrow: "FASILITAS EKSKLUSIF KLIEN ABINEST (/portal)",
+      badge: "TRANSPARANSI PENUH",
+      subtitle: "Setiap klien Abinest mendapatkan akses ke portal khusus berbasis Shopify Polaris untuk melihat milestone pengerjaan, mengunduh invoice resmi, dan menguji integrasi secara transparan.",
+      tags: ["Shopify Polaris", "Pantau Milestone Live", "Invoice Otomatis"],
+      gridSpan: "lg:col-span-12",
+      aspectClass: "aspect-[21/9] sm:aspect-[24/9] min-h-[170px]",
+      imageUrl: "",
+      mockupType: "polaris_portal",
+      metricHighlight: "100% Transparan",
+      metricLabel: "Akses Langsung ke /portal",
+    },
+  ];
+};
 
 export function GroveBentoGrid() {
+  const { lang } = useLanguage();
+  const bentoItems = getBentoItems(lang);
   const [selectedPreview, setSelectedPreview] = useState<BentoItem | null>(null);
 
   const handleSmoothScroll = (
@@ -134,25 +228,31 @@ export function GroveBentoGrid() {
   };
 
   return (
-    <section id="systems" className="bg-[#F4F1EA] py-16 sm:py-24 font-sans border-b border-[#E7E2D6]">
+    <section id="systems" className="bg-[#F0FDFA] py-16 sm:py-24 font-sans border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
           <div>
-            <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#D15B3A] mb-1.5">
-              KATALOG LAYANAN &amp; SISTEM DIGITAL
+            <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#0F766E] mb-1.5">
+              {lang === "id"
+                ? "KATALOG LAYANAN & SISTEM DIGITAL"
+                : "DIGITAL SYSTEMS & SERVICES CATALOG"}
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#1A201C]">
-              Solusi Lengkap Website, Sistem &amp; Otomasi
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#134E4A]">
+              {lang === "id"
+                ? "Solusi Lengkap Website, Sistem & Otomasi"
+                : "Comprehensive Web, System & Automation Solutions"}
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-[#6B736C] max-w-xl leading-relaxed">
-              Pilih layanan yang Anda butuhkan. Kami mendesain antarmuka modern yang ramah pengguna, didukung arsitektur anti-lelet dan keamanan data terjamin.
+            <p className="mt-2 text-xs sm:text-sm text-[#64748B] max-w-xl leading-relaxed">
+              {lang === "id"
+                ? "Pilih layanan yang Anda butuhkan. Kami mendesain antarmuka modern yang ramah pengguna, didukung arsitektur anti-lelet dan keamanan data terjamin."
+                : "Select the system you need. We engineer intuitive modern interfaces backed by resilient high-throughput architecture and guaranteed security."}
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-[#18362B] text-emerald-100 shadow-sm">
-              <Sparkles className="h-3.5 w-3.5 text-amber-300" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-[#CCFBF1] text-[#0F766E] border border-[#5EEAD4]/50 shadow-sm">
+              <Sparkles className="h-3.5 w-3.5 text-[#0F766E]" />
               <span>Bento UI Showcase</span>
             </span>
           </div>
@@ -160,32 +260,32 @@ export function GroveBentoGrid() {
 
         {/* 12-COLUMN ASYMMETRIC BENTO GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
-          {ABINEST_BENTO_ITEMS.map((item) => (
+          {bentoItems.map((item) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4 }}
-              className={`group bg-white rounded-2xl border border-[#E5E0D5] hover:border-[#18362B]/60 p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-lg transition-all duration-300 ${item.gridSpan}`}
+              className={`group bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#0F766E] p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 ${item.gridSpan}`}
             >
               <div>
                 {/* Top Card Meta */}
-                <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#F0ECE4]">
-                  <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider text-[#D15B3A]">
+                <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#E2E8F0]">
+                  <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider text-[#0F766E]">
                     {item.eyebrow}
                   </span>
 
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-mono font-semibold text-[#18362B] bg-[#18362B]/10 px-2.5 py-0.5 rounded-full">
-                      <CheckCircle2 className="h-3 w-3 text-[#18362B]" />
+                    <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-mono font-semibold text-[#0F766E] bg-[#CCFBF1] px-2.5 py-0.5 rounded-full">
+                      <CheckCircle2 className="h-3 w-3 text-[#10B981]" />
                       <span>{item.badge}</span>
                     </span>
 
                     <button
                       onClick={() => setSelectedPreview(item)}
-                      aria-label="Perbesar Pratinjau Sistem"
-                      className="h-7 w-7 rounded-full bg-[#FAF9F6] border border-[#DDD7C9] text-[#717872] hover:text-[#18362B] hover:bg-white flex items-center justify-center transition-colors"
+                      aria-label={lang === "id" ? "Perbesar Pratinjau Sistem" : "Zoom System Preview"}
+                      className="h-7 w-7 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-[#64748B] hover:text-[#0F766E] hover:bg-white flex items-center justify-center transition-colors"
                     >
                       <Maximize2 className="h-3 w-3" />
                     </button>
@@ -193,7 +293,7 @@ export function GroveBentoGrid() {
                 </div>
 
                 {/* DEDICATED IMAGE CONTAINER / SCREENSHOT FRAME */}
-                <div className="relative w-full rounded-xl overflow-hidden bg-[#18362B] border border-[#E0DBD0] group/img mb-4">
+                <div className="relative w-full rounded-xl overflow-hidden bg-[#042F2E] border border-[#E2E8F0] group/img mb-4">
                   <div className={`w-full ${item.aspectClass} relative`}>
                     {item.imageUrl ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
@@ -212,9 +312,9 @@ export function GroveBentoGrid() {
 
                     {/* Image Placeholder Overlay Indicator */}
                     <div className="absolute top-2.5 left-2.5 pointer-events-none z-10">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[9px] font-mono font-medium bg-black/60 backdrop-blur-sm text-emerald-200 border border-white/10">
-                        <ImageIcon className="h-2.5 w-2.5 text-emerald-400" />
-                        <span>Slot Screenshot Siap Pakai</span>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[9px] font-mono font-medium bg-black/60 backdrop-blur-sm text-[#5EEAD4] border border-white/10">
+                        <ImageIcon className="h-2.5 w-2.5 text-[#10B981]" />
+                        <span>{lang === "id" ? "Slot Screenshot Siap Pakai" : "Production Screenshot Frame"}</span>
                       </span>
                     </div>
 
@@ -223,30 +323,30 @@ export function GroveBentoGrid() {
                       onClick={() => setSelectedPreview(item)}
                       className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-200 flex items-center justify-center cursor-pointer"
                     >
-                      <span className="px-3.5 py-1.5 rounded-full bg-white/95 text-[#18362B] text-xs font-semibold shadow-md flex items-center gap-1.5">
-                        <Eye className="h-3.5 w-3.5 text-[#18362B]" />
-                        <span>Lihat Ukuran Penuh</span>
+                      <span className="px-3.5 py-1.5 rounded-full bg-white/95 text-[#0F766E] text-xs font-semibold shadow-md flex items-center gap-1.5">
+                        <Eye className="h-3.5 w-3.5 text-[#0F766E]" />
+                        <span>{lang === "id" ? "Lihat Ukuran Penuh" : "View Full Size"}</span>
                       </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Title & Subtitle */}
-                <h3 className="font-heading text-base sm:text-lg font-bold text-[#1A201C] group-hover:text-[#18362B] transition-colors leading-snug">
+                <h3 className="font-heading text-base sm:text-lg font-bold text-[#134E4A] group-hover:text-[#0F766E] transition-colors leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-xs text-[#6B736C] mt-1.5 leading-relaxed line-clamp-2">
+                <p className="text-xs text-[#64748B] mt-1.5 leading-relaxed line-clamp-2">
                   {item.subtitle}
                 </p>
               </div>
 
               {/* Bottom Tags & CTA */}
-              <div className="pt-3 mt-3 border-t border-[#F0ECE4] flex flex-wrap items-center justify-between gap-2">
+              <div className="pt-3 mt-3 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-2">
                 <div className="flex flex-wrap items-center gap-1.5">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded bg-[#FAF9F6] border border-[#DDD7C9] text-[10px] font-mono text-[#1A201C]"
+                      className="px-2 py-0.5 rounded bg-[#F8FAFC] border border-[#E2E8F0] text-[10px] font-mono text-[#134E4A]"
                     >
                       {tag}
                     </span>
@@ -256,9 +356,9 @@ export function GroveBentoGrid() {
                 <a
                   href="#konsultasi"
                   onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#18362B] hover:text-[#D15B3A] transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#0F766E] hover:text-[#0D9488] transition-colors"
                 >
-                  <span>Konsultasi Jasa Ini</span>
+                  <span>{lang === "id" ? "Konsultasi Solusi Ini" : "Consult This Solution"}</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
@@ -267,17 +367,21 @@ export function GroveBentoGrid() {
         </div>
 
         {/* Bento Grid Footer Banner */}
-        <div className="mt-8 rounded-2xl bg-[#18362B] text-white p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-8 rounded-2xl bg-[#0F766E] text-white p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-emerald-300 shrink-0">
+            <div className="h-10 w-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-[#5EEAD4] shrink-0">
               <Cpu className="h-5 w-5" />
             </div>
             <div>
               <h4 className="text-sm font-bold text-white">
-                Punya Kebutuhan Sistem Khusus untuk Lembaga Anda?
+                {lang === "id"
+                  ? "Punya Kebutuhan Sistem Khusus untuk Lembaga Anda?"
+                  : "Need a Custom Software Architecture for Your Institution?"}
               </h4>
-              <p className="text-xs text-emerald-100/70 mt-0.5">
-                Konsultasikan kebutuhan pembuatan website, sistem administrasi, atau bot otomasi bisnis Anda langsung bersama tim insinyur Abinest.
+              <p className="text-xs text-teal-100/80 mt-0.5">
+                {lang === "id"
+                  ? "Konsultasikan kebutuhan pembuatan website, sistem administrasi, atau bot otomasi bisnis Anda langsung bersama tim insinyur Abinest."
+                  : "Discuss your custom web application, enterprise management system, or automated B2B workflows directly with Abinest engineers."}
               </p>
             </div>
           </div>
@@ -285,9 +389,9 @@ export function GroveBentoGrid() {
           <a
             href="#konsultasi"
             onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-            className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-[#18362B] text-xs font-bold hover:bg-[#F4F1EA] transition-colors shadow-sm"
+            className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-[#0F766E] text-xs font-bold hover:bg-[#F0FDFA] transition-colors shadow-sm"
           >
-            Konsultasi Gratis Sekarang →
+            {lang === "id" ? "Konsultasi Gratis Sekarang →" : "Start Free Consultation →"}
           </a>
         </div>
       </div>
@@ -307,12 +411,12 @@ export function GroveBentoGrid() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl bg-[#18362B] border border-white/10 rounded-3xl overflow-hidden shadow-2xl text-white"
+              className="relative w-full max-w-4xl bg-[#134E4A] border border-white/15 rounded-3xl overflow-hidden shadow-2xl text-white"
             >
               {/* Modal Header */}
               <div className="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono text-emerald-300 uppercase font-bold tracking-wider">
+                  <span className="text-[10px] font-mono text-[#5EEAD4] uppercase font-bold tracking-wider">
                     {selectedPreview.eyebrow}
                   </span>
                   <h3 className="text-base sm:text-lg font-bold font-heading text-white">
@@ -347,7 +451,7 @@ export function GroveBentoGrid() {
                 </div>
 
                 <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-                  <p className="text-xs sm:text-sm text-emerald-100/80 max-w-xl">
+                  <p className="text-xs sm:text-sm text-teal-100/90 max-w-xl">
                     {selectedPreview.subtitle}
                   </p>
                   <a
@@ -357,7 +461,7 @@ export function GroveBentoGrid() {
                       const el = document.getElementById("konsultasi");
                       if (el) el.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="px-5 py-2.5 rounded-full bg-white text-[#18362B] text-xs font-bold hover:bg-[#F4F1EA]"
+                    className="px-5 py-2.5 rounded-full bg-white text-[#0F766E] text-xs font-bold hover:bg-[#F0FDFA] transition-colors"
                   >
                     Konsultasi Jasa Ini →
                   </a>

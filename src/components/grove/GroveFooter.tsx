@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveFooter() {
+  const { t } = useLanguage();
+
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string
@@ -17,49 +20,49 @@ export function GroveFooter() {
   };
 
   return (
-    <footer className="bg-[#142E22] text-[#E0E7E2] py-14 px-4 sm:px-8 lg:px-12 font-sans border-t border-[#0F241B]">
+    <footer className="bg-[#042F2E] text-[#E0E7E2] py-14 px-4 sm:px-8 lg:px-12 font-sans border-t border-[#0F766E]/30">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div>
           <span className="font-heading font-extrabold text-2xl text-white tracking-tight">
             ABINEST
           </span>
-          <p className="text-xs text-emerald-200/70 mt-1 max-w-sm leading-relaxed">
-            Software House &amp; Konsultan Teknologi: Jasa Pembuatan Website Modern, Sistem Informasi (SIAKAD &amp; ERP) &amp; Otomasi Bisnis.
+          <p className="text-xs text-teal-200/80 mt-1 max-w-sm leading-relaxed">
+            {t.footer.studioTagline}
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6 text-xs text-emerald-100/80 font-medium">
+        <div className="flex flex-wrap items-center gap-6 text-xs text-teal-100/90 font-medium">
           <a
             href="#systems"
             onClick={(e) => handleSmoothScroll(e, "#systems")}
             className="hover:text-white transition-colors"
           >
-            Layanan &amp; Sistem
+            {t.nav.systems}
           </a>
           <a
             href="#case-study"
             onClick={(e) => handleSmoothScroll(e, "#case-study")}
             className="hover:text-white transition-colors"
           >
-            Studi Kasus
+            {t.nav.caseStudy}
           </a>
           <a
             href="#engineering"
             onClick={(e) => handleSmoothScroll(e, "#engineering")}
             className="hover:text-white transition-colors"
           >
-            Mengapa Abinest
+            {t.nav.standards}
           </a>
-          <Link href="/portal" className="text-emerald-300 font-bold hover:underline">
-            Client Portal (/portal)
+          <Link href="/portal" className="text-[#5EEAD4] font-bold hover:underline">
+            {t.footer.clientPortalLive}
           </Link>
           <Link href="/login" className="hover:text-white transition-colors">
-            Masuk Klien
+            {t.nav.clientLogin}
           </Link>
         </div>
 
-        <div className="text-[11px] text-emerald-200/50 font-mono">
-          © {new Date().getFullYear()} Abinest. All rights reserved.
+        <div className="text-[11px] text-teal-200/60 font-mono">
+          © {new Date().getFullYear()} Abinest. {t.footer.copyright}
         </div>
       </div>
     </footer>

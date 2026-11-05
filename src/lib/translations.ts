@@ -1,6 +1,104 @@
 export type Language = "id" | "en";
 
-export const translations = {
+export interface TranslationDictionary {
+  nav: {
+    announcement: string;
+    systems: string;
+    caseStudy: string;
+    standards: string;
+    portal: string;
+    clientLogin: string;
+    cta: string;
+  };
+  hero: {
+    eyebrow: string;
+    headlinePrefix: string;
+    headlineHighlight: string;
+    subtitle: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    featureBar: Array<{ title: string; desc: string }>;
+  };
+  hero3D: {
+    badgeTitle: string;
+    badgeSub: string;
+    interactiveBadge: string;
+    nodeMonitor: string;
+    activeNode: string;
+    activeMetric: string;
+    hint: string;
+    hintShort: string;
+    loading: string;
+  };
+  systems: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: Array<{
+      id: string;
+      badge: string;
+      name: string;
+      metric: string;
+      subtitle: string;
+      ctaLabel: string;
+    }>;
+  };
+  caseStudy: {
+    eyebrow: string;
+    title: string;
+    desc: string;
+    stat1Number: string;
+    stat1Label: string;
+    stat2Number: string;
+    stat2Label: string;
+    cta: string;
+  };
+  standards: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: Array<{
+      num: string;
+      title: string;
+      desc: string;
+    }>;
+  };
+  consultation: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    form: {
+      nameLabel: string;
+      namePlaceholder: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      phoneLabel: string;
+      phonePlaceholder: string;
+      systemLabel: string;
+      options: Array<{ val: string; label: string }>;
+      noteLabel: string;
+      notePlaceholder: string;
+      submitBtn: string;
+      submittingBtn: string;
+      successTitle: string;
+      successDesc: string;
+      resetBtn: string;
+    };
+  };
+  footer: {
+    studioTagline: string;
+    col1Title: string;
+    col2Title: string;
+    col3Title: string;
+    clientPortalLive: string;
+    viewInvoices: string;
+    webhookWorkers: string;
+    copyright: string;
+    allSystemsOperational: string;
+  };
+}
+
+export const translations: Record<Language, TranslationDictionary> = {
   id: {
     nav: {
       announcement: "Jaminan SLA Uptime 99.9% • Arsitektur Next.js 15 Edge • Konsultasi Teknis Arsitektur Bebas Biaya",
@@ -306,4 +404,4 @@ export const translations = {
       allSystemsOperational: "All Systems Operational",
     },
   },
-} as const;
+};

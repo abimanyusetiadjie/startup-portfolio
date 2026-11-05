@@ -65,7 +65,7 @@ const jsonLdSchema = {
 
 export default function MarketingPage() {
   return (
-    <main className="min-h-screen bg-[#F4F1EA] text-[#1A201C]">
+    <main className="min-h-screen bg-[#F8FAFC] text-[#134E4A]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}

@@ -7,13 +7,17 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { translations, type Language } from "@/lib/translations";
+import {
+  translations,
+  type Language,
+  type TranslationDictionary,
+} from "@/lib/translations";
 
 interface LanguageContextType {
   lang: Language;
   setLang: (lang: Language) => void;
   toggleLang: () => void;
-  t: (typeof translations)["id"];
+  t: TranslationDictionary;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -22,18 +26,17 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Language>("id");
-  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem("abinest_lang") as Language | null;
       if (saved === "id" || saved === "en") {
         setLangState(saved);
+        document.documentElement.lang = saved;
       }
     } catch {
       // ignore storage access errors
     }
-    setIsHydrated(true);
   }, []);
 
   const setLang = (newLang: Language) => {

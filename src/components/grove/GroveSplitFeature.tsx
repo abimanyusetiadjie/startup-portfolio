@@ -1,8 +1,11 @@
 "use client";
 
 import { ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveSplitFeature() {
+  const { t } = useLanguage();
+
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string
@@ -17,12 +20,12 @@ export function GroveSplitFeature() {
   };
 
   return (
-    <section id="case-study" className="bg-[#F4F1EA] py-14 sm:py-20 font-sans">
+    <section id="case-study" className="bg-[#F8FAFC] py-14 sm:py-20 font-sans border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        {/* 50/50 SPLIT CONTAINER (Exact Grove Proportions) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden border border-[#DDD7C9] shadow-sm">
+        {/* 50/50 SPLIT CONTAINER */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm">
           {/* Left Side: System Architecture Visual */}
-          <div className="relative aspect-square sm:aspect-[4/3] lg:aspect-auto lg:min-h-[480px] bg-[#EAE5D9]">
+          <div className="relative aspect-square sm:aspect-[4/3] lg:aspect-auto lg:min-h-[480px] bg-[#F0FDFA]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop"
@@ -30,46 +33,46 @@ export function GroveSplitFeature() {
               className="w-full h-full object-cover object-center"
             />
 
-            <div className="absolute top-4 left-4 bg-[#18362B]/90 backdrop-blur-sm text-emerald-100 px-3 py-1 rounded text-[10px] font-mono border border-white/10 flex items-center gap-1.5 shadow-sm">
-              <ShieldCheck className="h-3 w-3 text-emerald-400" />
-              <span>STUDI KASUS YAYASAN &amp; SEKOLAH</span>
+            <div className="absolute top-4 left-4 bg-[#0F766E]/90 backdrop-blur-sm text-teal-100 px-3 py-1 rounded text-[10px] font-mono border border-white/15 flex items-center gap-1.5 shadow-sm">
+              <ShieldCheck className="h-3 w-3 text-[#5EEAD4]" />
+              <span>{t.caseStudy.eyebrow}</span>
             </div>
           </div>
 
-          {/* Right Side: Solid Deep Forest Green Block (#18362B) */}
-          <div className="bg-[#18362B] text-white p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+          {/* Right Side: Solid Deep Teal Block (#0F766E) */}
+          <div className="bg-[#0F766E] text-white p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
             {/* Eyebrow */}
-            <span className="block text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-emerald-300/80 mb-2">
-              SOLUSI SISTEM INFORMASI AKADEMIK
+            <span className="block text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-[#5EEAD4] mb-2 font-mono">
+              {t.caseStudy.eyebrow}
             </span>
 
             {/* Headline */}
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug text-white mb-4">
-              Ujian serentak &amp; cetak rapor selesai tepat waktu tanpa server down.
+              {t.caseStudy.title}
             </h2>
 
             {/* Body Description */}
-            <p className="text-xs sm:text-sm text-emerald-100/80 leading-relaxed max-w-md mb-6">
-              Banyak sekolah mengeluh server lumpuh saat musim ujian dan pembagian rapor serentak. Abinest menyelesaikan kendala ini dengan memisahkan beban server administrasi dan ujian, serta mesin cetak PDF rapor otomatis yang mampu memproses ratusan siswa dalam hitungan detik.
+            <p className="text-xs sm:text-sm text-teal-100/90 leading-relaxed max-w-md mb-6">
+              {t.caseStudy.desc}
             </p>
 
             {/* Impact Metric Telemetry */}
-            <div className="flex items-baseline gap-4 mb-8 pt-2 border-t border-[#254F40]">
+            <div className="flex items-baseline gap-4 mb-8 pt-2 border-t border-[#0D9488]/40">
               <div>
                 <span className="font-mono text-2xl sm:text-3xl font-bold text-white">
-                  0% Downtime
+                  {t.caseStudy.stat1Number}
                 </span>
-                <span className="block text-[10px] text-emerald-300/70 font-mono mt-0.5">
-                  Trafik Ujian 4.200 Siswa
+                <span className="block text-[10px] text-teal-200/80 font-mono mt-0.5">
+                  {t.caseStudy.stat1Label}
                 </span>
               </div>
-              <div className="h-8 w-[1px] bg-[#254F40]" />
+              <div className="h-8 w-[1px] bg-[#0D9488]/40" />
               <div>
-                <span className="font-mono text-2xl sm:text-3xl font-bold text-emerald-400">
-                  &lt; 45 Detik
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-[#5EEAD4]">
+                  {t.caseStudy.stat2Number}
                 </span>
-                <span className="block text-[10px] text-emerald-300/70 font-mono mt-0.5">
-                  500+ Rapor PDF Paralel
+                <span className="block text-[10px] text-teal-200/80 font-mono mt-0.5">
+                  {t.caseStudy.stat2Label}
                 </span>
               </div>
             </div>
@@ -79,9 +82,9 @@ export function GroveSplitFeature() {
               <a
                 href="#konsultasi"
                 onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white text-[#18362B] text-xs sm:text-sm font-bold hover:bg-[#F4F1EA] transition-colors shadow-sm"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white text-[#0F766E] text-xs sm:text-sm font-bold hover:bg-[#F0FDFA] transition-colors shadow-sm"
               >
-                Konsultasikan Sistem Sekolah Anda →
+                {t.caseStudy.cta}
               </a>
             </div>
           </div>
