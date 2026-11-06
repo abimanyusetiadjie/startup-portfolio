@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { motion } from "framer-motion";
 import { CheckCircle2, Loader2, Send, ShieldCheck, Zap, MessageSquare, ArrowUpRight } from "lucide-react";
 import { submitConsultationLead, type LeadDeliveryMeta } from "@/actions/submit-lead";
 import {
@@ -63,9 +64,15 @@ export function GroveConsultation() {
   };
 
   return (
-    <section id="konsultasi" className="bg-[#0B0F19] text-white py-16 sm:py-24 font-sans border-t border-white/10">
+    <section id="konsultasi" className="bg-[#0B0F19] text-white py-14 sm:py-20 font-sans border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mx-auto rounded-3xl bg-white/[0.04] border border-white/15 p-6 sm:p-10 lg:p-12 shadow-2xl backdrop-blur-md">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl mx-auto rounded-3xl bg-white/[0.04] border border-white/15 p-6 sm:p-10 lg:p-12 shadow-2xl backdrop-blur-md"
+        >
           {/* Header */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2.5 mb-2">
@@ -101,7 +108,7 @@ export function GroveConsultation() {
               href="https://wa.me/6281234567890?text=Halo%20Abinest,%20saya%20ingin%20konsultasi%20pembuatan%20website/sistem"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
             >
               <span>Chat WA Konsultan</span>
               <ArrowUpRight className="h-3 w-3" />
@@ -148,7 +155,7 @@ export function GroveConsultation() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="contoh: Bpk. Hendra (Kepala Yayasan / Direktur)"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/25 focus:border-emerald-400"
                   />
                 </div>
 
@@ -161,7 +168,7 @@ export function GroveConsultation() {
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
                     placeholder="contoh: Yayasan Mandiri / PT Nusantara"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/25 focus:border-emerald-400"
                   />
                 </div>
               </div>
@@ -177,7 +184,7 @@ export function GroveConsultation() {
                     value={whatsappNumber}
                     onChange={(e) => setWhatsappNumber(e.target.value)}
                     placeholder="081234567890"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/25 focus:border-emerald-400"
                   />
                 </div>
 
@@ -190,7 +197,7 @@ export function GroveConsultation() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="hendra@perusahaan.com"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/25 focus:border-emerald-400"
                   />
                 </div>
               </div>
@@ -202,7 +209,7 @@ export function GroveConsultation() {
                 <select
                   value={serviceInterest}
                   onChange={(e) => setServiceInterest(e.target.value as ServiceInterest)}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#11141C] border border-white/15 text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-400"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#11141C] border border-white/15 text-xs sm:text-sm text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/25 focus:border-emerald-400"
                 >
                   <option value="custom_siakad_erp">SIAKAD Sekolah / Yayasan Anti-Down</option>
                   <option value="whatsapp_gateway_bot">WhatsApp Notification Gateway &amp; Chatbot</option>
@@ -220,14 +227,14 @@ export function GroveConsultation() {
                   value={projectSummary}
                   onChange={(e) => setProjectSummary(e.target.value)}
                   placeholder="Ceritakan kebutuhan Anda (misal: ingin ganti sistem sekolah lama yang sering down saat pembagian rapor, kirim tagihan SPP otomatis, dll.)"
-                  className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-400"
+                  className="w-full px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-xs sm:text-sm text-white placeholder:text-zinc-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/25 focus:border-emerald-400"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full py-4 px-6 rounded-full bg-white text-zinc-950 font-bold text-xs sm:text-sm hover:bg-zinc-100 transition-all shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+                className="w-full py-4 px-6 rounded-full bg-white text-zinc-950 font-bold text-xs sm:text-sm hover:bg-zinc-100 hover:scale-[1.01] active:scale-[0.98] transition-all duration-200 shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
               >
                 {isPending ? (
                   <>
@@ -247,12 +254,12 @@ export function GroveConsultation() {
                 <span>
                   {lang === "id"
                     ? "Privasi Anda terjaga. Kami tidak membagikan data kontak Anda ke pihak lain."
-                    : "Your privacy is protected. We never share your contact details."}
+                    : "Strict NDAs & Zero third-party sharing. Your data remains 100% confidential."}
                 </span>
               </div>
             </form>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

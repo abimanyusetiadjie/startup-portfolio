@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { ChevronDown } from "lucide-react";
 
@@ -55,7 +56,13 @@ export function GroveFaqSection() {
     <section className="bg-[#F8FAFC] text-slate-900 py-14 sm:py-20 font-sans border-b border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-2xl mx-auto mb-10 sm:mb-14"
+        >
           <div className="inline-flex items-center gap-2.5 mb-2">
             <span className="w-6 h-[2px] bg-[#0F766E]" />
             <span className="text-xs font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
@@ -73,38 +80,61 @@ export function GroveFaqSection() {
               ? "Transparansi adalah fondasi kerja kami. Berikut adalah jawaban atas hal-hal yang sering ditanyakan sebelum memulai proyek bersama Abinest."
               : "Everything you need to know about our project timelines, data security, code ownership, and ongoing support."}
           </p>
-        </div>
+        </motion.div>
 
-        {/* Accordion List */}
+        {/* Accordion List (Height & Opacity Animation via Framer Motion) */}
         <div className="space-y-3.5">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div
+              <motion.div
                 key={idx}
-                className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all shadow-xs"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{
+                  duration: 0.4,
+                  delay: idx * 0.06,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-colors shadow-xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/80 transition-colors duration-200"
                 >
                   <span className="text-base sm:text-lg font-bold text-[#0F172A] pr-2">
                     {faq.q}
                   </span>
-                  <div className={`w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                    isOpen ? "rotate-180 bg-teal-50 text-[#0F766E] border-teal-200" : "text-slate-400"
-                  }`}>
+                  <div
+                    className={`w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center shrink-0 transition-all duration-300 ease-out ${
+                      isOpen
+                        ? "rotate-180 bg-teal-50 text-[#0F766E] border-teal-200"
+                        : "text-slate-400"
+                    }`}
+                  >
                     <ChevronDown className="h-4 w-4" />
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-dashed border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-dashed border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>

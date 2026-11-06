@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
@@ -72,7 +73,13 @@ export function GroveCaseStudiesSection() {
     <section id="case-study" className="bg-[#0F1219] text-white py-14 sm:py-20 font-sans border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 sm:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl mb-10 sm:mb-14"
+        >
           <div className="inline-flex items-center gap-2.5 mb-2">
             <span className="w-6 h-[2px] bg-emerald-400" />
             <span className="text-xs font-semibold tracking-widest uppercase text-emerald-300 font-mono">
@@ -89,18 +96,26 @@ export function GroveCaseStudiesSection() {
               ? "Kami membuktikan klaim teknis kami melalui angka nyata di lapangan. Berikut adalah studi kasus rekayasa sistem yang memecahkan kendala operasional klien kami."
               : "We back our engineering standards with hard numbers in production. Here is how our architecture solved operational bottlenecks for our clients."}
           </p>
-        </div>
+        </motion.div>
 
-        {/* 2 Focused Case Study Cards */}
+        {/* 2 Focused Case Study Cards (Staggered Entrance + Image Hover Zoom) */}
         <div className="space-y-8 sm:space-y-10">
           {caseStudies.map((cs, idx) => (
-            <div
+            <motion.div
               key={cs.id}
-              className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] shadow-xl items-stretch"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.55,
+                delay: idx * 0.15,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] hover:border-white/20 shadow-xl transition-all duration-300 items-stretch group/card"
             >
-              {/* Left / Visual Image */}
+              {/* Left / Visual Image with Subtle Scale on Hover */}
               <div
-                className={`lg:col-span-5 relative aspect-video lg:aspect-auto min-h-[260px] lg:min-h-[360px] ${
+                className={`lg:col-span-5 relative aspect-video lg:aspect-auto min-h-[260px] lg:min-h-[360px] overflow-hidden ${
                   idx % 2 === 1 ? "lg:order-2" : "lg:order-1"
                 }`}
               >
@@ -108,7 +123,7 @@ export function GroveCaseStudiesSection() {
                 <img
                   src={cs.image}
                   alt={cs.title}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center group-hover/card:scale-103 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:hidden" />
                 <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono text-emerald-300 border border-white/10">
@@ -170,14 +185,14 @@ export function GroveCaseStudiesSection() {
                   <a
                     href="#konsultasi"
                     onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-                    className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full bg-white text-zinc-950 text-xs font-bold hover:bg-zinc-100 transition-all shadow-sm group"
+                    className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full bg-white text-zinc-950 text-xs font-bold hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-sm group"
                   >
                     <span>{lang === "id" ? "Konsultasi Kebutuhan Serupa" : "Consult Similar System"}</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

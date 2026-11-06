@@ -220,7 +220,7 @@ export function GroveNavbar() {
             <a
               href="#konsultasi"
               onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-zinc-100 text-zinc-950 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap shadow-sm group"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] text-zinc-950 text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap shadow-sm group"
             >
               <span>{lang === "id" ? "Mulai Konsultasi" : "Book Consultation"}</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />

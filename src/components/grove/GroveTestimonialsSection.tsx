@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Star, CheckCircle2 } from "lucide-react";
 
@@ -40,7 +41,13 @@ export function GroveTestimonialsSection() {
     <section className="bg-white text-slate-900 py-14 sm:py-20 font-sans border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 sm:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl mb-10 sm:mb-14"
+        >
           <div className="inline-flex items-center gap-2.5 mb-2">
             <span className="w-6 h-[2px] bg-[#0F766E]" />
             <span className="text-xs font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
@@ -57,16 +64,24 @@ export function GroveTestimonialsSection() {
               ? "Pengalaman langsung para pengambil keputusan yayasan dan direktur bisnis yang bermitra dengan Abinest."
               : "Direct feedback from institutional decision-makers who rely on Abinest systems for their day-to-day operations."}
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3 Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        {/* 3 Testimonial Cards (Staggered Entrance + Lift) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {testimonials.map((t, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-[#0F766E]/40 hover:bg-white transition-all flex flex-col justify-between space-y-6 group shadow-2xs hover:shadow-xs"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.45,
+                delay: idx * 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="p-5 sm:p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-[#0F766E]/40 hover:bg-white hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col justify-between space-y-5 group shadow-2xs hover:shadow-lg"
             >
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {/* 5 Stars */}
                 <div className="flex items-center gap-1 text-amber-500">
                   {[...Array(t.stars)].map((_, i) => (
@@ -79,14 +94,14 @@ export function GroveTestimonialsSection() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-200 space-y-3">
+              <div className="pt-4 border-t border-slate-200 space-y-2.5">
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-[#0F766E] text-[10px] font-mono font-bold">
                   <CheckCircle2 className="h-3 w-3 text-emerald-600" />
                   <span>{t.highlight}</span>
                 </div>
 
                 <div>
-                  <h4 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors">
+                  <h4 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors duration-200">
                     {t.name}
                   </h4>
                   <span className="text-xs text-[#0F766E] block font-bold">
@@ -97,7 +112,7 @@ export function GroveTestimonialsSection() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

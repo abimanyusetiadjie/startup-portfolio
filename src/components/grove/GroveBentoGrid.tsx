@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   Activity,
   MessageSquare,
@@ -160,7 +161,13 @@ export function GroveBentoGrid() {
     <section id="systems" className="bg-[#FFFFFF] py-14 sm:py-20 font-sans border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12"
+        >
           <div>
             <div className="inline-flex items-center gap-2.5 mb-2">
               <span className="w-6 h-[2px] bg-[#0F766E]" aria-hidden="true" />
@@ -186,16 +193,24 @@ export function GroveBentoGrid() {
               <span>{lang === "id" ? "Arsitektur Enterprise" : "Enterprise Architecture"}</span>
             </span>
           </div>
-        </div>
+        </motion.div>
 
-        {/* 6 RINGKAS SERVICE CARDS (3-COLUMN RESPONSIVE GRID) */}
+        {/* 6 RINGKAS SERVICE CARDS (STAGGERED ENTRANCE + HOVER LIFT) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
-          {services.map((svc) => {
+          {services.map((svc, idx) => {
             const Icon = svc.icon;
             return (
-              <div
+              <motion.div
                 key={svc.id}
-                className="bg-white rounded-2xl border border-slate-200 hover:border-[#0F766E]/50 p-5 sm:p-6 flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-300 group hover:-translate-y-0.5"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  duration: 0.45,
+                  delay: idx * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="bg-white rounded-2xl border border-slate-200 hover:border-[#0F766E]/50 p-5 sm:p-6 flex flex-col justify-between shadow-xs hover:shadow-lg transition-all duration-300 ease-out group hover:-translate-y-1.5"
               >
                 <div>
                   {/* Card Header Meta */}
@@ -214,7 +229,7 @@ export function GroveBentoGrid() {
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] tracking-tight group-hover:text-[#0F766E] transition-colors leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] tracking-tight group-hover:text-[#0F766E] transition-colors duration-200 leading-snug">
                     {svc.title}
                   </h3>
 
@@ -248,23 +263,23 @@ export function GroveBentoGrid() {
                   {svc.isExternalOrRoute ? (
                     <Link
                       href={svc.ctaHref}
-                      className="inline-flex items-center justify-between text-xs font-semibold text-[#0F766E] hover:text-teal-800 transition-colors pt-1 group/btn"
+                      className="inline-flex items-center justify-between text-xs font-semibold text-[#0F766E] hover:text-teal-800 transition-colors pt-1 group/btn active:scale-95 duration-150"
                     >
                       <span>{svc.ctaText}</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </Link>
                   ) : (
                     <a
                       href={svc.ctaHref}
                       onClick={(e) => handleSmoothScroll(e, svc.ctaHref)}
-                      className="inline-flex items-center justify-between text-xs font-semibold text-[#0F766E] hover:text-teal-800 transition-colors pt-1 group/btn"
+                      className="inline-flex items-center justify-between text-xs font-semibold text-[#0F766E] hover:text-teal-800 transition-colors pt-1 group/btn active:scale-95 duration-150"
                     >
                       <span>{svc.ctaText}</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
