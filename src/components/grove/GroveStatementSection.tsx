@@ -6,7 +6,7 @@ export function GroveStatementSection() {
   const { lang } = useLanguage();
 
   return (
-    <section className="bg-white py-20 sm:py-28 border-t border-dashed border-[#CBD5E1] font-sans">
+    <section id="statement" className="bg-white py-20 sm:py-28 border-t border-dashed border-[#CBD5E1] font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
         <div className="inline-flex items-center gap-3 mb-6">
           <span className="w-8 h-[1px] bg-[#0F766E]" aria-hidden="true" />
