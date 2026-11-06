@@ -30,41 +30,45 @@ export function GroveNavbar() {
         </span>
       </div>
 
-      {/* 2. MAIN NAVIGATION (Pure White #FFFFFF with Light Gray Border #E2E8F0) */}
-      <header className="bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] px-4 sm:px-8 lg:px-12 py-3.5 transition-colors">
+      {/* 2. MAIN NAVIGATION (Architectural Editorial Header) */}
+      <header className="bg-white/95 backdrop-blur-md border-b border-dashed border-[#CBD5E1] px-4 sm:px-8 lg:px-12 py-3.5 transition-colors">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Left Brand Logo: ABINEST */}
+          {/* Left Brand Logo: Diamond Mark + abinest Serif */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="font-heading font-extrabold text-2xl tracking-tight text-[#134E4A] group-hover:text-[#0F766E] transition-colors">
-              ABINEST
+            <span className="w-2.5 h-2.5 border border-[#0F766E] rotate-45 shrink-0 group-hover:bg-[#0F766E] transition-colors" aria-hidden="true" />
+            <span className="font-serif italic font-normal text-2xl tracking-normal text-[#134E4A] group-hover:text-[#0F766E] transition-colors">
+              abinest
             </span>
-            <span className="hidden sm:inline-block font-mono text-[9px] uppercase tracking-wider text-[#0F766E] font-semibold px-2 py-0.5 rounded bg-[#CCFBF1] border border-[#5EEAD4]/40">
-              SOFTWARE HOUSE
+            <span className="hidden sm:inline-block font-mono text-[9px] uppercase tracking-wider text-[#0F766E] font-semibold px-2 py-0.5 rounded bg-[#CCFBF1] border border-[#5EEAD4]/40 ml-1">
+              STUDIO
             </span>
           </Link>
 
-          {/* Center Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold text-[#64748B] tracking-wide">
+          {/* Center Nav Links with Hover Dot */}
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold text-[#64748B] tracking-wide uppercase font-mono">
             <a
               href="#systems"
               onClick={(e) => handleSmoothScroll(e, "#systems")}
-              className="hover:text-[#0F766E] transition-colors"
+              className="hover:text-[#0F766E] transition-colors flex items-center gap-1.5 group/nav"
             >
-              {t.nav.systems}
+              <span className="w-1 h-1 rounded-full bg-[#0F766E] opacity-0 group-hover/nav:opacity-100 transition-opacity" />
+              <span>{t.nav.systems}</span>
             </a>
             <a
               href="#case-study"
               onClick={(e) => handleSmoothScroll(e, "#case-study")}
-              className="hover:text-[#0F766E] transition-colors"
+              className="hover:text-[#0F766E] transition-colors flex items-center gap-1.5 group/nav"
             >
-              {t.nav.caseStudy}
+              <span className="w-1 h-1 rounded-full bg-[#0F766E] opacity-0 group-hover/nav:opacity-100 transition-opacity" />
+              <span>{t.nav.caseStudy}</span>
             </a>
             <a
               href="#engineering"
               onClick={(e) => handleSmoothScroll(e, "#engineering")}
-              className="hover:text-[#0F766E] transition-colors"
+              className="hover:text-[#0F766E] transition-colors flex items-center gap-1.5 group/nav"
             >
-              {t.nav.standards}
+              <span className="w-1 h-1 rounded-full bg-[#0F766E] opacity-0 group-hover/nav:opacity-100 transition-opacity" />
+              <span>{t.nav.standards}</span>
             </a>
             <Link
               href="/portal"

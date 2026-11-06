@@ -63,18 +63,22 @@ export function GroveConsultation() {
   };
 
   return (
-    <section id="konsultasi" className="bg-[#F8FAFC] py-16 sm:py-24 font-sans border-b border-[#E2E8F0]">
+    <section id="konsultasi" className="bg-[#F8FAFC] py-16 sm:py-24 font-sans border-t border-dashed border-[#CBD5E1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mx-auto rounded-3xl bg-white border border-[#E2E8F0] p-6 sm:p-10 lg:p-12 shadow-sm">
+        <div className="max-w-3xl mx-auto rounded-3xl bg-white border border-dashed border-[#CBD5E1] p-6 sm:p-10 lg:p-12 shadow-sm">
           {/* Header */}
           <div className="text-center mb-8">
-            <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#0F766E] font-mono mb-2">
-              {t.consultation.eyebrow}
-            </span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+            <div className="inline-flex items-center gap-2.5 mb-2">
+              <span className="w-6 h-[1px] bg-[#0F766E]" aria-hidden="true" />
+              <span className="text-[11px] font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
+                {t.consultation.eyebrow}
+              </span>
+              <span className="w-6 h-[1px] bg-[#0F766E]" aria-hidden="true" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#134E4A] tracking-tight">
               {t.consultation.title}
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-lg mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 mt-3 max-w-lg mx-auto leading-relaxed">
               {t.consultation.subtitle}
             </p>
           </div>

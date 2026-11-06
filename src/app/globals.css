@@ -48,4 +48,12 @@
   .shadow-triloe-soft {
     @apply shadow-xl shadow-slate-900/5;
   }
+
+  /* Architectural Dashed Hairlines */
+  .rule-dashed {
+    border-top: 1px dashed #CBD5E1;
+  }
+  .rule-dashed-dark {
+    border-top: 1px dashed rgba(255, 255, 255, 0.18);
+  }
 }

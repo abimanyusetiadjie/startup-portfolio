@@ -35,64 +35,69 @@ export function GroveHeroSection() {
   return (
     <section className="bg-[#F8FAFC] text-[#0F172A] pt-8 sm:pt-12 pb-0 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 1. COMPACT HIGH-IMPACT HEADLINE & VALUE PROP (CLEAN, AIRY & HIGH TRUST) */}
+        {/* 1. ARCHITECTURAL EDITORIAL HEADLINE & FACTS LEDGER */}
         <div className="text-center max-w-4xl mx-auto">
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 mb-3.5">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono uppercase tracking-wider bg-teal-50 text-teal-700 border border-teal-200/80 font-bold shadow-xs">
-              <span className="h-2 w-2 rounded-full bg-teal-500 animate-pulse" />
-              <span>{t.hero.eyebrow}</span>
+          {/* Eyebrow Line */}
+          <div className="inline-flex items-center gap-3 mb-3.5">
+            <span className="w-8 h-[1px] bg-[#0F766E]" aria-hidden="true" />
+            <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-[#0F766E] font-semibold">
+              {t.hero.eyebrow}
             </span>
+            <span className="w-8 h-[1px] bg-[#0F766E]" aria-hidden="true" />
           </div>
 
-          {/* Headline */}
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.12] sm:leading-[1.1]">
+          {/* Headline in Playfair Display Serif */}
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-[#134E4A] leading-[1.1]">
             {t.hero.headlinePrefix}
-            <span className="text-[#0F766E] underline decoration-teal-300 decoration-4 underline-offset-6">
+            <span className="font-serif italic font-normal text-[#0F766E] ml-2">
               {t.hero.headlineHighlight}
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-3.5 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 sm:mt-5 text-xs sm:text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
             {t.hero.subtitle}
           </p>
 
-          {/* CTA Buttons & Guarantees */}
+          {/* CTA Buttons */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <a
               href="#konsultasi"
               onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#0F766E] text-white text-xs sm:text-sm font-bold hover:bg-[#115E59] transition-all shadow-md shadow-teal-700/20 hover:scale-102 active:scale-98"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0F766E] text-white text-xs sm:text-sm font-medium hover:bg-[#115E59] transition-all shadow-md shadow-teal-700/20 group hover:scale-102"
             >
               <span>{t.hero.ctaPrimary}</span>
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
             <a
               href="#systems"
               onClick={(e) => handleSmoothScroll(e, "#systems")}
-              className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full border border-slate-200 text-slate-700 bg-white hover:bg-slate-50 transition-all font-semibold text-xs sm:text-sm shadow-xs hover:border-slate-300"
+              className="inline-flex items-center gap-1.5 px-7 py-3.5 rounded-full border border-dashed border-[#CBD5E1] text-[#134E4A] bg-white hover:bg-slate-50 transition-all font-semibold text-xs sm:text-sm shadow-xs hover:border-[#0F766E]"
             >
               <span>{lang === "id" ? "Lihat Katalog Sistem ↓" : "View Systems Catalog ↓"}</span>
             </a>
           </div>
 
-          {/* Trust Guarantees */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[11px] font-mono text-slate-500">
-            <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
-              <span>SLA Uptime 99.9%</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
-              <span>0% Server Down Saat Ujian</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="h-3.5 w-3.5 text-teal-600" />
-              <span>Respon WhatsApp &lt; 2 Detik</span>
-            </span>
-          </div>
+          {/* Facts Ledger (Architectural Grid) */}
+          <dl className="mt-8 pt-6 border-t border-dashed border-[#CBD5E1] grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
+            <div>
+              <dt className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Layanan</dt>
+              <dd className="text-xs sm:text-sm font-semibold text-[#134E4A] mt-1">Web · SIAKAD · Otomasi WA</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] font-mono uppercase tracking-widest text-slate-400">SLA Uptime</dt>
+              <dd className="text-xs sm:text-sm font-semibold text-[#0F766E] mt-1 font-mono">99.9% Anti-Down</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Lokasi Studio</dt>
+              <dd className="text-xs sm:text-sm font-semibold text-[#134E4A] mt-1">Jakarta · Surabaya</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Standar Mutu</dt>
+              <dd className="text-xs sm:text-sm font-semibold text-[#10B981] mt-1 font-mono">Lighthouse 95–100</dd>
+            </div>
+          </dl>
         </div>
 
         {/* 2. FULL-SIZE PRODUCTION SOFTWARE SHOWCASE WINDOW: CLEAN LIGHT PORCELAIN & CRISP TEAL */}

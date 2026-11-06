@@ -228,22 +228,25 @@ export function GroveBentoGrid() {
   };
 
   return (
-    <section id="systems" className="bg-[#F8FAFC] py-16 sm:py-24 font-sans border-b border-[#E2E8F0]">
+    <section id="systems" className="bg-[#ffffff] py-16 sm:py-24 font-sans border-t border-dashed border-[#CBD5E1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Section Header */}
+        {/* Section Header with Architectural Dashed Lines */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
           <div>
-            <span className="block text-[11px] font-semibold tracking-wider uppercase text-[#0F766E] mb-1.5 font-mono">
-              {lang === "id"
-                ? "KATALOG LAYANAN & SISTEM DIGITAL"
-                : "DIGITAL SYSTEMS & SERVICES CATALOG"}
-            </span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0F172A]">
+            <div className="inline-flex items-center gap-2.5 mb-2">
+              <span className="w-6 h-[1px] bg-[#0F766E]" aria-hidden="true" />
+              <span className="text-[11px] font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
+                {lang === "id"
+                  ? "KATALOG LAYANAN & SISTEM DIGITAL"
+                  : "DIGITAL SYSTEMS & SERVICES CATALOG"}
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#134E4A]">
               {lang === "id"
                 ? "Solusi Lengkap Website, Sistem & Otomasi"
                 : "Comprehensive Web, System & Automation Solutions"}
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-[#64748B] max-w-xl leading-relaxed">
+            <p className="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
               {lang === "id"
                 ? "Pilih layanan yang Anda butuhkan. Kami mendesain antarmuka modern yang ramah pengguna, didukung arsitektur anti-lelet dan keamanan data terjamin."
                 : "Select the system you need. We engineer intuitive modern interfaces backed by resilient high-throughput architecture and guaranteed security."}
@@ -253,7 +256,7 @@ export function GroveBentoGrid() {
           <div className="flex items-center gap-3 shrink-0">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-[#CCFBF1] text-[#0F766E] border border-[#5EEAD4]/50 shadow-sm">
               <Sparkles className="h-3.5 w-3.5 text-[#0F766E]" />
-              <span>Bento UI Showcase</span>
+              <span>Bento Architecture Grid</span>
             </span>
           </div>
         </div>
@@ -267,11 +270,11 @@ export function GroveBentoGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4 }}
-              className={`group bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#0F766E] p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 ${item.gridSpan}`}
+              className={`group bg-white rounded-2xl border border-dashed border-[#CBD5E1] hover:border-[#0F766E] p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 ${item.gridSpan}`}
             >
               <div>
                 {/* Top Card Meta */}
-                <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#E2E8F0]">
+                <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-dashed border-[#CBD5E1]">
                   <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider text-[#0F766E]">
                     {item.eyebrow}
                   </span>
@@ -285,7 +288,7 @@ export function GroveBentoGrid() {
                     <button
                       onClick={() => setSelectedPreview(item)}
                       aria-label={lang === "id" ? "Perbesar Pratinjau Sistem" : "Zoom System Preview"}
-                      className="h-7 w-7 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-[#64748B] hover:text-[#0F766E] hover:bg-white flex items-center justify-center transition-colors"
+                      className="h-7 w-7 rounded-full bg-[#F8FAFC] border border-[#CBD5E1] text-[#64748B] hover:text-[#0F766E] hover:bg-white flex items-center justify-center transition-colors"
                     >
                       <Maximize2 className="h-3 w-3" />
                     </button>

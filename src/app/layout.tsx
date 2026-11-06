@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -40,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`scroll-smooth ${plusJakartaSans.variable} ${dmSans.variable} ${jetBrainsMono.variable}`}
+      className={`scroll-smooth ${playfairDisplay.variable} ${plusJakartaSans.variable} ${dmSans.variable} ${jetBrainsMono.variable}`}
     >
       <body className="font-sans antialiased">{children}</body>
     </html>
