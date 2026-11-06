@@ -8,14 +8,11 @@ import {
   ArrowUpRight,
   Menu,
   X,
-  ShieldCheck,
-  Activity,
   MessageSquare,
-  Lock,
-  ExternalLink,
-  Phone,
   Mail,
   MapPin,
+  ShieldCheck,
+  CheckCircle2,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -24,7 +21,7 @@ export function GroveNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Detect scroll to adjust floating island elevation
+  // Detect scroll to adjust floating pill elevation
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 25) {
@@ -37,7 +34,7 @@ export function GroveNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll and ESC key listener when menu modal is open
+  // Lock body scroll and ESC key listener when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -70,131 +67,136 @@ export function GroveNavbar() {
     }
   };
 
-  const menuItems = [
+  const mobileNavLinks = [
     {
       num: "01",
-      title: lang === "id" ? "Layanan & Katalog Sistem" : "Services & Systems Catalog",
+      title: lang === "id" ? "Layanan & Sistem" : "Services & Systems",
       desc:
         lang === "id"
-          ? "Website Next.js 15, SIAKAD Sekolah, ERP Cloud, & Bot Otomasi WA"
-          : "Next.js 15 Web, School SIAKAD, Cloud ERP & WA Bot Automation",
+          ? "Website Next.js 15, SIAKAD Sekolah Anti-Down, ERP Cloud, & Bot Otomasi WA"
+          : "Next.js 15 Web, School SIAKAD, Business ERP & WhatsApp Dispatch Bot",
       href: "#systems",
-      badge: "KATALOG",
     },
     {
       num: "02",
-      title: lang === "id" ? "Studi Kasus SIAKAD Mandiri" : "SIAKAD Case Study",
+      title: lang === "id" ? "Studi Kasus" : "Case Studies",
       desc:
         lang === "id"
           ? "Ujian 1.200 siswa serentak & cetak 500+ rapor PDF cloud <45s tanpa down"
           : "1,200 simultaneous student exams & 500+ PDF report generation in <45s",
       href: "#case-study",
-      badge: "STUDI KASUS",
     },
     {
       num: "03",
-      title: lang === "id" ? "Standar Rekayasa & SLA" : "Engineering Standards & SLA",
+      title: lang === "id" ? "Standar Teknis" : "Engineering Standards",
       desc:
         lang === "id"
           ? "Decoupled worker, isolasi PostgreSQL RLS, & SLA uptime 99.9%"
           : "Decoupled architecture, PostgreSQL RLS isolation & 99.9% uptime SLA",
       href: "#engineering",
-      badge: "ARSITEKTUR",
     },
     {
       num: "04",
-      title: lang === "id" ? "Client Portal Enterprise" : "Enterprise Client Portal",
+      title: "Client Portal",
       desc:
         lang === "id"
           ? "Live progress tracking, SLA uptime dashboard, & pemantauan invoice"
           : "Real-time project tracking, SLA monitoring & invoice management",
       href: "/portal",
-      badge: "LIVE PORTAL",
-      isExternal: false,
+      isRoute: true,
     },
     {
       num: "05",
-      title: lang === "id" ? "Konsultasi & Estimasi Biaya" : "Consultation & Scope Planning",
+      title: lang === "id" ? "Mulai Konsultasi" : "Book Consultation",
       desc:
         lang === "id"
-          ? "Diskusikan roadmap perangkat lunak bersama tim konsultan teknologi kami"
+          ? "Diskusikan kebutuhan arsitektur digital bersama tim konsultan teknologi kami"
           : "Schedule a technical scoping session directly with our engineering team",
       href: "#konsultasi",
-      badge: "GRATIS",
     },
   ];
 
   return (
     <>
-      {/* 1. FLOATING CAPSULE / ISLAND PILL HEADER (Detached Floating Island) */}
-      <header className="fixed top-3 sm:top-5 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none transition-all duration-300 font-sans">
-        <div
-          className={`pointer-events-auto max-w-5xl w-full mx-auto rounded-full px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-3 sm:gap-4 transition-all duration-300 ${
+      {/* 1. FLOATING PILL NAVBAR (MODERN B2B SOFTWARE STUDIO) */}
+      <header className="fixed top-5 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl font-sans transition-all duration-300">
+        <nav
+          className={`flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 ${
             isScrolled
-              ? "bg-[#070A10]/90 backdrop-blur-2xl border border-white/20 shadow-2xl shadow-black/80 scale-[0.99]"
-              : "bg-[#0B0F19]/75 backdrop-blur-xl border border-white/15 shadow-xl shadow-black/50"
-          } text-white`}
+              ? "bg-[#11141C]/95 backdrop-blur-xl border border-white/15 shadow-2xl shadow-black/60 scale-[0.99]"
+              : "bg-[#11141C]/90 backdrop-blur-md border border-white/10 shadow-xl shadow-black/40"
+          }`}
         >
-          {/* Left Brand Logo: Diamond Mark + abinest Serif */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <span
-              className="w-2.5 h-2.5 border border-white rotate-45 shrink-0 group-hover:bg-white group-hover:rotate-90 transition-all duration-300"
-              aria-hidden="true"
-            />
-            <span className="font-serif italic font-normal text-xl sm:text-2xl tracking-normal text-white group-hover:text-teal-200 transition-colors">
-              abinest
-            </span>
-            <span className="hidden md:inline-block font-mono text-[9px] uppercase tracking-wider text-teal-300 font-semibold px-2 py-0.5 rounded-full bg-teal-950/70 border border-teal-500/30 ml-0.5">
-              STUDIO
-            </span>
+          {/* 1. BRAND IDENTITY (Kiri) */}
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            {/* Custom Geometric Diamond Mark */}
+            <div className="relative flex items-center justify-center w-6 h-6">
+              <span className="w-3.5 h-3.5 rotate-45 border-[1.75px] border-white group-hover:border-emerald-400 group-hover:rotate-90 transition-all duration-300" />
+              <span className="absolute w-1 h-1 rounded-full bg-emerald-400" />
+            </div>
+
+            {/* Wordmark: Modern Engineering Studio (Bold contrast + Emerald Dot) */}
+            <div className="flex items-center gap-2">
+              <span className="text-xl tracking-tight text-white font-semibold">
+                abi<span className="font-light text-zinc-300">nest</span>
+                <span className="text-emerald-400">.</span>
+              </span>
+
+              {/* Badge Studio Proporsional */}
+              <span className="px-2 py-0.5 text-[10px] font-mono font-medium tracking-widest uppercase rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                Studio
+              </span>
+            </div>
           </Link>
 
-          {/* Center Nav Links with Micro Pill Hover (Desktop md+) */}
-          <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-xs font-medium text-white/75 tracking-wide uppercase font-mono">
+          {/* 2. NAVIGATION LINKS (Tengah - 1 Baris / whitespace-nowrap) */}
+          <div className="hidden lg:flex items-center gap-7 text-sm font-medium text-zinc-300">
             <a
               href="#systems"
               onClick={(e) => handleSmoothScroll(e, "#systems")}
-              className="hover:text-white transition-colors flex items-center gap-1.5 group/nav py-1"
+              className="whitespace-nowrap hover:text-white transition-colors"
             >
-              <span className="w-1 h-1 rounded-full bg-teal-300 opacity-0 group-hover/nav:opacity-100 transition-opacity" />
-              <span>{t.nav.systems}</span>
+              {lang === "id" ? "Layanan & Sistem" : "Services & Systems"}
             </a>
             <a
               href="#case-study"
               onClick={(e) => handleSmoothScroll(e, "#case-study")}
-              className="hover:text-white transition-colors flex items-center gap-1.5 group/nav py-1"
+              className="whitespace-nowrap hover:text-white transition-colors"
             >
-              <span className="w-1 h-1 rounded-full bg-teal-300 opacity-0 group-hover/nav:opacity-100 transition-opacity" />
-              <span>{t.nav.caseStudy}</span>
+              {lang === "id" ? "Studi Kasus" : "Case Studies"}
             </a>
             <a
               href="#engineering"
               onClick={(e) => handleSmoothScroll(e, "#engineering")}
-              className="hover:text-white transition-colors flex items-center gap-1.5 group/nav py-1"
+              className="whitespace-nowrap hover:text-white transition-colors"
             >
-              <span className="w-1 h-1 rounded-full bg-teal-300 opacity-0 group-hover/nav:opacity-100 transition-opacity" />
-              <span>{t.nav.standards}</span>
+              {lang === "id" ? "Standar Teknis" : "Tech Standards"}
             </a>
+          </div>
+
+          {/* 3. ACTIONS & UTILITIES (Kanan) */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            {/* Client Portal - 1 Baris Rapi dengan Live Status Dot */}
             <Link
               href="/portal"
-              className="text-teal-300 hover:text-teal-200 font-bold flex items-center gap-1.5 py-0.5 px-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 hover:border-emerald-500/40 text-xs font-mono tracking-wider uppercase text-emerald-400 transition-all whitespace-nowrap"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-              <span>{t.nav.portal}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Client Portal</span>
             </Link>
-          </nav>
 
-          {/* Right Action Items: Language, CTA Pill, and Menu Icon */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            {/* Language Switcher [ ID | EN ] */}
-            <div className="flex items-center rounded-full bg-white/10 p-0.5 border border-white/15 text-[10px] sm:text-[11px] font-mono font-semibold">
+            {/* Divider tipis pemisah utilitas */}
+            <div className="hidden sm:block h-4 w-[1px] bg-white/10 mx-0.5" />
+
+            {/* Language Switcher Ramping */}
+            <div className="hidden md:flex items-center p-0.5 rounded-full bg-zinc-900 border border-white/10 text-[11px] font-semibold">
               <button
                 type="button"
                 onClick={() => setLang("id")}
-                className={`px-2 py-0.5 rounded-full transition-all duration-200 ${
+                className={`px-2.5 py-1 rounded-full transition-all ${
                   lang === "id"
-                    ? "bg-white text-[#0B0F19] font-bold shadow-xs"
-                    : "text-white/60 hover:text-white"
+                    ? "bg-white text-zinc-950 font-bold shadow-xs"
+                    : "text-zinc-400 hover:text-white"
                 }`}
                 aria-label="Pilih Bahasa Indonesia"
               >
@@ -203,10 +205,10 @@ export function GroveNavbar() {
               <button
                 type="button"
                 onClick={() => setLang("en")}
-                className={`px-2 py-0.5 rounded-full transition-all duration-200 ${
+                className={`px-2.5 py-1 rounded-full transition-all ${
                   lang === "en"
-                    ? "bg-white text-[#0B0F19] font-bold shadow-xs"
-                    : "text-white/60 hover:text-white"
+                    ? "bg-white text-zinc-950 font-bold shadow-xs"
+                    : "text-zinc-400 hover:text-white"
                 }`}
                 aria-label="Switch to English"
               >
@@ -214,238 +216,201 @@ export function GroveNavbar() {
               </button>
             </div>
 
-            {/* Consultation Pill Button */}
+            {/* Primary CTA */}
             <a
               href="#konsultasi"
               onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-              className="inline-flex items-center gap-1.5 px-4 sm:px-4.5 py-1.5 sm:py-2 rounded-full bg-white text-[#0B0F19] font-medium text-xs hover:bg-slate-100 transition-all shadow-md shadow-black/30 hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-zinc-100 text-zinc-950 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap shadow-sm group"
             >
-              <span>{t.nav.cta}</span>
+              <span>{lang === "id" ? "Mulai Konsultasi" : "Book Consultation"}</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
 
-            {/* EDITORIAL MENU BUTTON (Icon Hamburger in Capsule) */}
+            {/* Hamburger Menu - HANYA MUNCUL DI MOBILE/TABLET (lg:hidden) */}
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
-              className="flex items-center justify-center h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all duration-200 group cursor-pointer"
-              aria-label="Buka Menu Navigasi Lengkap"
-              title="Menu Navigasi"
+              aria-label="Buka Menu Navigasi"
+              className="flex lg:hidden items-center justify-center w-9 h-9 rounded-full bg-zinc-900 border border-white/10 text-zinc-300 hover:text-white transition-colors cursor-pointer"
             >
-              <div className="flex flex-col gap-1 w-3.5 sm:w-4 items-center">
-                <span className="h-[1.5px] w-full bg-white transition-transform group-hover:scale-x-110" />
-                <span className="h-[1.5px] w-2/3 bg-white transition-transform group-hover:w-full" />
-              </div>
+              <Menu className="w-4 h-4" />
             </button>
           </div>
-        </div>
+        </nav>
       </header>
 
-      {/* 2. FULL-SCREEN EDITORIAL MODAL MENU (Kai Nomura & Halden Style) */}
+      {/* 2. FULL-SCREEN MOBILE / TABLET MENU DRAWER */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-[60] bg-[#07090E]/98 backdrop-blur-2xl text-white overflow-y-auto font-sans flex flex-col justify-between"
           >
             {/* Modal Top Bar */}
-            <div className="max-w-7xl mx-auto w-full px-4 sm:px-8 lg:px-12 py-4 sm:py-6 flex items-center justify-between border-b border-dashed border-white/15">
+            <div className="max-w-6xl mx-auto w-full px-5 py-5 sm:py-6 flex items-center justify-between border-b border-dashed border-white/15">
               <Link
                 href="/"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center gap-2.5 group"
+                className="flex items-center gap-2.5"
               >
-                <span
-                  className="w-2.5 h-2.5 border border-white rotate-45 shrink-0 group-hover:bg-white transition-colors"
-                  aria-hidden="true"
-                />
-                <span className="font-serif italic font-normal text-2xl tracking-normal text-white">
-                  abinest
-                </span>
-                <span className="font-mono text-[9px] uppercase tracking-wider text-teal-300 font-semibold px-2 py-0.5 rounded-full bg-teal-950/70 border border-teal-500/30 ml-1">
-                  STUDIO
-                </span>
+                <div className="relative flex items-center justify-center w-6 h-6">
+                  <span className="w-3.5 h-3.5 rotate-45 border-[1.75px] border-white" />
+                  <span className="absolute w-1 h-1 rounded-full bg-emerald-400" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl tracking-tight text-white font-semibold">
+                    abi<span className="font-light text-zinc-300">nest</span>
+                    <span className="text-emerald-400">.</span>
+                  </span>
+                  <span className="px-2 py-0.5 text-[10px] font-mono font-medium tracking-widest uppercase rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Studio
+                  </span>
+                </div>
               </Link>
 
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-mono uppercase tracking-widest transition-all cursor-pointer group"
+                className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-mono uppercase tracking-wider transition-all cursor-pointer"
                 aria-label="Tutup Menu"
               >
-                <span>{lang === "id" ? "Tutup [ESC]" : "Close [ESC]"}</span>
-                <X className="h-4 w-4 transition-transform group-hover:rotate-90 duration-200" />
+                <span>{lang === "id" ? "Tutup" : "Close"}</span>
+                <X className="h-4 w-4" />
               </button>
             </div>
 
-            {/* Modal Main Content: 2-Column Architectural Layout */}
-            <div className="max-w-7xl mx-auto w-full px-4 sm:px-8 lg:px-12 py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 flex-1 items-start">
-              {/* Left Column: Giant Numbered Editorial Links */}
-              <div className="lg:col-span-7 space-y-2">
-                <div className="inline-flex items-center gap-2.5 mb-6 text-[11px] font-mono uppercase tracking-[0.2em] text-teal-300">
-                  <span className="w-6 h-[1px] bg-teal-400" />
-                  <span>{lang === "id" ? "DIREKTORI & NAVIGASI SISTEM" : "SYSTEMS & NAVIGATION"}</span>
+            {/* Modal Body */}
+            <div className="max-w-6xl mx-auto w-full px-5 py-8 sm:py-12 grid grid-cols-1 md:grid-cols-12 gap-8 flex-1 items-start">
+              {/* Left Column: Numbered Navigation Links */}
+              <div className="md:col-span-7 space-y-4">
+                <div className="text-xs font-mono uppercase tracking-[0.2em] text-emerald-400">
+                  {lang === "id" ? "NAVIGASI DIREKTORI SISTEM" : "SYSTEMS DIRECTORY"}
                 </div>
 
-                <div className="space-y-4">
-                  {menuItems.map((item) => (
-                    <div
-                      key={item.num}
-                      className="border-b border-dashed border-white/10 pb-5 pt-2 group"
-                    >
-                      {item.href.startsWith("#") ? (
-                        <a
-                          href={item.href}
-                          onClick={(e) => handleSmoothScroll(e, item.href)}
-                          className="block"
-                        >
-                          <div className="flex items-baseline gap-4 sm:gap-6">
-                            <span className="font-serif italic text-lg sm:text-2xl text-teal-400/80 group-hover:text-teal-300 transition-colors shrink-0">
-                              {item.num}
-                            </span>
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-white group-hover:translate-x-1 transition-transform duration-200">
-                                  {item.title}
-                                </h3>
-                                <ArrowUpRight className="h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                              </div>
-                              <p className="text-xs sm:text-sm text-white/60 mt-1.5 leading-relaxed font-normal">
-                                {item.desc}
-                              </p>
-                            </div>
-                          </div>
-                        </a>
-                      ) : (
+                <div className="divide-y divide-white/10">
+                  {mobileNavLinks.map((item) => (
+                    <div key={item.num} className="py-3.5 first:pt-1">
+                      {item.isRoute ? (
                         <Link
                           href={item.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block"
+                          className="block group"
                         >
-                          <div className="flex items-baseline gap-4 sm:gap-6">
-                            <span className="font-serif italic text-lg sm:text-2xl text-teal-400/80 group-hover:text-teal-300 transition-colors shrink-0">
+                          <div className="flex items-baseline gap-4">
+                            <span className="font-mono text-xs text-emerald-400">
                               {item.num}
                             </span>
                             <div className="flex-1">
                               <div className="flex items-center justify-between">
-                                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-white group-hover:translate-x-1 transition-transform duration-200">
+                                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
                                   {item.title}
                                 </h3>
-                                <ArrowRight className="h-5 w-5 text-teal-300 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="h-4 w-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
                               </div>
-                              <p className="text-xs sm:text-sm text-white/60 mt-1.5 leading-relaxed font-normal">
+                              <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
                                 {item.desc}
                               </p>
                             </div>
                           </div>
                         </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          onClick={(e) => handleSmoothScroll(e, item.href)}
+                          className="block group"
+                        >
+                          <div className="flex items-baseline gap-4">
+                            <span className="font-mono text-xs text-emerald-400">
+                              {item.num}
+                            </span>
+                            <div className="flex-1">
+                              <div className="flex items-center justify-between">
+                                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                  {item.title}
+                                </h3>
+                                <ArrowUpRight className="h-4 w-4 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                              </div>
+                              <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                                {item.desc}
+                              </p>
+                            </div>
+                          </div>
+                        </a>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Right Column: Studio Telemetry, Specifications & Quick Contacts */}
-              <div className="lg:col-span-5 space-y-6 pt-4 lg:pt-0">
-                {/* Live Cluster Status Card */}
-                <div className="p-6 rounded-2xl bg-white/[0.04] border border-white/10 space-y-4">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                      INFRASTRUKTUR CLOUD
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-[10px] font-mono font-semibold">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>SLA 99.98% OPERASIONAL</span>
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4 text-xs font-mono">
-                    <div>
-                      <span className="text-slate-400 text-[10px] block">LOKASI EDGE REGION</span>
-                      <span className="text-white font-semibold mt-0.5 block">Jakarta (ap-southeast-3)</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-400 text-[10px] block">SECURITY ISOLATION</span>
-                      <span className="text-white font-semibold mt-0.5 block">PostgreSQL RLS Mode</span>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-white/70 leading-relaxed pt-2 border-t border-dashed border-white/10">
-                    {lang === "id"
-                      ? "Seluruh sistem yang dibangun Abinest dijamin dengan SLA Uptime 99.9%, kepemilikan kode sumber penuh (full IP handover), dan tanpa vendor lock-in."
-                      : "All systems built by Abinest are guaranteed with 99.9% Uptime SLA, full source code intellectual property handover, and zero vendor lock-in."}
-                  </p>
-                </div>
-
-                {/* Direct Communications Box */}
-                <div className="p-6 rounded-2xl bg-white/[0.04] border border-white/10 space-y-3.5">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 block mb-2">
-                    KONTAK LANGSUNG KONSULTAN
+              {/* Right Column: Mobile Quick Actions & Direct WhatsApp */}
+              <div className="md:col-span-5 space-y-4 pt-2 md:pt-0">
+                {/* Language Switcher Inside Mobile Drawer */}
+                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-between">
+                  <span className="text-xs font-mono uppercase text-zinc-400">
+                    PILIHAN BAHASA
                   </span>
-
-                  <a
-                    href="https://wa.me/6281234567890?text=Halo%20Abinest,%20saya%20ingin%20konsultasi%20pembuatan%20website/sistem"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-mono text-white group"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <MessageSquare className="h-4 w-4 text-emerald-400" />
-                      <span>WhatsApp: +62 812-3456-7890</span>
-                    </div>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-white" />
-                  </a>
-
-                  <a
-                    href="mailto:halo@abinest.id"
-                    className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-mono text-white group"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Mail className="h-4 w-4 text-teal-300" />
-                      <span>Email: halo@abinest.id</span>
-                    </div>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-white" />
-                  </a>
-
-                  <div className="flex items-center gap-2.5 px-3 py-2 text-xs font-mono text-slate-400">
-                    <MapPin className="h-4 w-4 text-slate-500" />
-                    <span>Studio: Jakarta Selatan &amp; Surabaya Timur</span>
+                  <div className="flex items-center p-0.5 rounded-full bg-zinc-900 border border-white/10 text-xs font-semibold">
+                    <button
+                      type="button"
+                      onClick={() => setLang("id")}
+                      className={`px-3 py-1 rounded-full transition-all ${
+                        lang === "id"
+                          ? "bg-white text-zinc-950 font-bold"
+                          : "text-zinc-400"
+                      }`}
+                    >
+                      ID
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setLang("en")}
+                      className={`px-3 py-1 rounded-full transition-all ${
+                        lang === "en"
+                          ? "bg-white text-zinc-950 font-bold"
+                          : "text-zinc-400"
+                      }`}
+                    >
+                      EN
+                    </button>
                   </div>
                 </div>
 
-                {/* CTA Action Inside Menu */}
-                <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                  <a
-                    href="#konsultasi"
-                    onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-                    className="flex-1 text-center px-6 py-3.5 rounded-full bg-white text-[#0B0F19] font-semibold text-xs hover:bg-slate-100 transition-all shadow-lg"
-                  >
-                    {lang === "id" ? "Mulai Konsultasi Gratis →" : "Book Free Scoping Session →"}
-                  </a>
-                  <Link
-                    href="/portal"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-center px-6 py-3.5 rounded-full border border-dashed border-white/30 text-white hover:bg-white/10 transition-all text-xs font-mono"
-                  >
-                    {lang === "id" ? "Buka Client Portal" : "Access Client Portal"}
-                  </Link>
-                </div>
+                {/* Direct WhatsApp Callout */}
+                <a
+                  href="https://wa.me/6281234567890?text=Halo%20Abinest,%20saya%20ingin%20konsultasi%20pembuatan%20website/sistem"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between p-4 rounded-2xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-white transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <MessageSquare className="h-5 w-5 text-emerald-400" />
+                    <div>
+                      <span className="text-xs font-bold block">WhatsApp Konsultan</span>
+                      <span className="text-[11px] text-emerald-300 font-mono">+62 812-3456-7890</span>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+
+                {/* Direct CTA */}
+                <a
+                  href="#konsultasi"
+                  onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
+                  className="block text-center w-full py-3.5 rounded-full bg-white text-zinc-950 font-semibold text-xs hover:bg-zinc-100 transition-all shadow-lg"
+                >
+                  {lang === "id" ? "Mulai Konsultasi Proyek →" : "Book Engineering Consultation →"}
+                </a>
               </div>
             </div>
 
             {/* Modal Bottom Strip */}
-            <div className="max-w-7xl mx-auto w-full px-4 sm:px-8 lg:px-12 py-4 border-t border-dashed border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-white/50">
-              <span>© {new Date().getFullYear()} Abinest Engineering Studio. All rights reserved.</span>
-              <div className="flex items-center gap-4">
-                <span>Next.js 15 App Router</span>
-                <span>•</span>
-                <span>PostgreSQL RLS</span>
-                <span>•</span>
-                <span>QStash Workers</span>
-              </div>
+            <div className="max-w-6xl mx-auto w-full px-5 py-4 border-t border-dashed border-white/15 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+              <span>© {new Date().getFullYear()} Abinest Engineering Studio</span>
+              <span className="text-emerald-400">SLA 99.9% Uptime Guarantee</span>
             </div>
           </motion.div>
         )}
