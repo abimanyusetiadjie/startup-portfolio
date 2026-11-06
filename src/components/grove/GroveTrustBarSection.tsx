@@ -1,7 +1,6 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { ShieldCheck, Activity, Users, Zap, CheckCircle2 } from "lucide-react";
 
 export function GroveTrustBarSection() {
   const { lang } = useLanguage();
@@ -39,23 +38,25 @@ export function GroveTrustBarSection() {
   ];
 
   return (
-    <section id="trust-bar" className="bg-[#0F1219] text-white py-12 sm:py-16 font-sans border-y border-white/10">
+    <section id="trust-bar" className="bg-white text-slate-900 py-12 sm:py-16 font-sans border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* 1. TOP METRICS STRIP */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pb-10 border-b border-white/10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pb-10 border-b border-slate-100">
           {metrics.map((m, i) => (
             <div key={i} className="space-y-1">
               <div className="flex items-baseline gap-2">
-                <span className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight ${
-                  m.highlight ? "text-emerald-400" : "text-white"
-                }`}>
+                <span
+                  className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight ${
+                    m.highlight ? "text-[#0F766E]" : "text-[#0F172A]"
+                  }`}
+                >
                   {m.value}
                 </span>
               </div>
-              <h4 className="text-xs sm:text-sm font-semibold text-zinc-200">
+              <h4 className="text-xs sm:text-sm font-bold text-slate-800">
                 {m.label}
               </h4>
-              <p className="text-[11px] sm:text-xs text-zinc-400 font-mono">
+              <p className="text-[11px] sm:text-xs text-slate-500 font-mono">
                 {m.sub}
               </p>
             </div>
@@ -65,10 +66,10 @@ export function GroveTrustBarSection() {
         {/* 2. CLIENT TRUST & INSTITUTION LOGO STRIP */}
         <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="shrink-0 space-y-0.5">
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-emerald-400 font-semibold block">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#0F766E] font-bold block">
               SOCIAL PROOF
             </span>
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs sm:text-sm text-slate-600 font-normal">
               {lang === "id"
                 ? "Dipercaya oleh yayasan pendidikan, sekolah, dan bisnis di Indonesia:"
                 : "Trusted by educational foundations, schools, and enterprises in Indonesia:"}
@@ -79,14 +80,14 @@ export function GroveTrustBarSection() {
             {clientInstitutions.map((c, idx) => (
               <div
                 key={idx}
-                className="px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-emerald-500/30 transition-colors flex items-center gap-2 group"
+                className="px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#0F766E]/40 hover:bg-white transition-all flex items-center gap-2.5 group shadow-2xs"
               >
-                <div className="w-2 h-2 rounded-full bg-emerald-400/80 group-hover:scale-125 transition-transform" />
+                <div className="w-2 h-2 rounded-full bg-[#10B981] group-hover:scale-125 transition-transform" />
                 <div>
-                  <span className="text-xs font-semibold text-zinc-200 group-hover:text-white transition-colors block leading-tight">
+                  <span className="text-xs font-bold text-slate-800 group-hover:text-[#0F766E] transition-colors block leading-tight">
                     {c.name}
                   </span>
-                  <span className="text-[9px] font-mono text-zinc-500 block leading-none mt-0.5">
+                  <span className="text-[9px] font-mono text-slate-500 block leading-none mt-0.5">
                     {c.type}
                   </span>
                 </div>

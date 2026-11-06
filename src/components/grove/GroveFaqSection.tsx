@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export function GroveFaqSection() {
   const { lang } = useLanguage();
@@ -52,23 +52,23 @@ export function GroveFaqSection() {
   ];
 
   return (
-    <section className="bg-[#11141C] text-white py-16 sm:py-24 font-sans border-b border-white/10">
+    <section className="bg-[#F8FAFC] text-slate-900 py-16 sm:py-24 font-sans border-b border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2.5 mb-2">
-            <span className="w-6 h-[2px] bg-emerald-400" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-emerald-300 font-mono">
+            <span className="w-6 h-[2px] bg-[#0F766E]" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
               {lang === "id" ? "PERTANYAAN UMUM (FAQ)" : "FREQUENTLY ASKED QUESTIONS"}
             </span>
-            <span className="w-6 h-[2px] bg-emerald-400" />
+            <span className="w-6 h-[2px] bg-[#0F766E]" />
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
             {lang === "id"
               ? "Jawaban untuk pertanyaan Anda."
               : "Clear answers to key questions."}
           </h2>
-          <p className="mt-3 text-sm text-zinc-300 leading-relaxed font-normal">
+          <p className="mt-3 text-sm text-slate-600 leading-relaxed font-normal">
             {lang === "id"
               ? "Transparansi adalah fondasi kerja kami. Berikut adalah jawaban atas hal-hal yang sering ditanyakan sebelum memulai proyek bersama Abinest."
               : "Everything you need to know about our project timelines, data security, code ownership, and ongoing support."}
@@ -82,25 +82,25 @@ export function GroveFaqSection() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden transition-colors"
+                className="rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all shadow-xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
                 >
-                  <span className="text-base sm:text-lg font-bold text-white pr-2">
+                  <span className="text-base sm:text-lg font-bold text-[#0F172A] pr-2">
                     {faq.q}
                   </span>
-                  <div className={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                    isOpen ? "rotate-180 bg-emerald-500/10 text-emerald-400 border-emerald-500/30" : "text-zinc-400"
+                  <div className={`w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    isOpen ? "rotate-180 bg-teal-50 text-[#0F766E] border-teal-200" : "text-slate-400"
                   }`}>
                     <ChevronDown className="h-4 w-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-dashed border-white/10 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+                  <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-dashed border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {faq.a}
                   </div>
                 )}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { MapPin, ShieldCheck, Award, HeartHandshake } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 export function GroveAboutTeamSection() {
   const { lang } = useLanguage();
@@ -42,53 +42,53 @@ export function GroveAboutTeamSection() {
   ];
 
   return (
-    <section className="bg-[#11141C] text-white py-16 sm:py-24 font-sans border-b border-white/10">
+    <section className="bg-[#F8FAFC] text-slate-900 py-16 sm:py-24 font-sans border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Studio Background Story */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-16">
           <div className="lg:col-span-7 space-y-4">
             <div className="inline-flex items-center gap-2.5 mb-2">
-              <span className="w-6 h-[2px] bg-emerald-400" />
-              <span className="text-xs font-semibold tracking-widest uppercase text-emerald-300 font-mono">
+              <span className="w-6 h-[2px] bg-[#0F766E]" />
+              <span className="text-xs font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
                 {lang === "id" ? "TENTANG ABINEST STUDIO" : "ABOUT ABINEST"}
               </span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
               {lang === "id"
                 ? "Dikerjakan oleh insinyur perangkat lunak, bukan template instan."
                 : "Built by dedicated software engineers, not disposable templates."}
             </h2>
 
-            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
               {lang === "id"
                 ? "Abinest Engineering Studio adalah studio rekayasa perangkat lunak yang berfokus membangun sistem digital jangka panjang untuk institusi pendidikan dan bisnis di Indonesia. Berbasis di Jakarta dan Surabaya, kami menggabungkan arsitektur cloud modern dengan empati mendalam terhadap rutinitas operasional sehari-hari pengguna."
                 : "Abinest is a software engineering studio dedicated to crafting enduring digital systems for schools and enterprises across Indonesia. Based in Jakarta and Surabaya, we pair enterprise cloud architecture with deep empathy for day-to-day user workflows."}
             </p>
           </div>
 
-          <div className="lg:col-span-5 p-6 rounded-2xl bg-white/[0.03] border border-white/10 space-y-4">
-            <div className="flex items-center gap-3 text-emerald-400">
+          <div className="lg:col-span-5 p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-4">
+            <div className="flex items-center gap-3 text-[#0F766E]">
               <MapPin className="h-5 w-5 shrink-0" />
-              <span className="text-sm font-bold text-white font-mono">
+              <span className="text-sm font-bold text-slate-900 font-mono">
                 JAKARTA SELATAN &amp; SURABAYA TIMUR
               </span>
             </div>
-            <p className="text-xs text-zinc-300 leading-relaxed font-normal">
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
               {lang === "id"
                 ? "Kami siap hadir langsung untuk konsultasi tatap muka, survei alur kerja on-site di sekolah/kantor Anda, maupun koordinasi daring yang fleksibel."
                 : "Available for in-person consultations, on-site campus workflow audits, and responsive remote technical collaboration."}
             </p>
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs font-mono text-zinc-400">
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
               <span>EST. 2024 • INDONESIA</span>
-              <span className="text-emerald-400 font-bold">TIM INTENSIF</span>
+              <span className="text-[#0F766E] font-bold">TIM INTENSIF</span>
             </div>
           </div>
         </div>
 
         {/* Core Team Grid */}
         <div className="space-y-4">
-          <div className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-400">
+          <div className="text-xs font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold">
             {lang === "id" ? "TIM TEKNIS & PENDAMPINGAN INTI" : "CORE ENGINEERING & ONBOARDING TEAM"}
           </div>
 
@@ -96,9 +96,9 @@ export function GroveAboutTeamSection() {
             {team.map((m, i) => (
               <div
                 key={i}
-                className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-emerald-500/30 transition-all space-y-3 group"
+                className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#0F766E]/40 shadow-xs hover:shadow-md transition-all space-y-3 group"
               >
-                <div className="w-full aspect-square rounded-xl overflow-hidden bg-zinc-800">
+                <div className="w-full aspect-square rounded-xl overflow-hidden bg-slate-100">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={m.image}
@@ -107,13 +107,13 @@ export function GroveAboutTeamSection() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  <h4 className="text-base font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors">
                     {m.name}
                   </h4>
-                  <span className="text-[11px] font-mono text-emerald-400 block mt-0.5">
+                  <span className="text-[11px] font-mono text-[#0F766E] font-bold block mt-0.5">
                     {m.role}
                   </span>
-                  <p className="text-xs text-zinc-300 mt-2 leading-relaxed font-normal">
+                  <p className="text-xs text-slate-600 mt-2 leading-relaxed font-normal">
                     {m.desc}
                   </p>
                 </div>

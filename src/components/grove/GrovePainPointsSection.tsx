@@ -50,24 +50,24 @@ export function GrovePainPointsSection() {
   ];
 
   return (
-    <section className="bg-[#11141C] text-white py-16 sm:py-24 font-sans border-b border-white/10">
+    <section className="bg-[#F8FAFC] text-slate-900 py-16 sm:py-24 font-sans border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2.5 mb-3">
-            <span className="w-6 h-[1.5px] bg-rose-400" />
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-rose-300 font-semibold">
+            <span className="w-6 h-[2px] bg-rose-500" />
+            <span className="text-xs font-mono uppercase tracking-[0.2em] text-rose-600 font-bold">
               {lang === "id" ? "KENDALA OPERASIONAL NYATA" : "COMMON FIELD CHALLENGES"}
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
             {lang === "id"
               ? "Masalah yang sering kami temui di lapangan."
               : "The critical problems we solve in production."}
           </h2>
 
-          <p className="mt-3.5 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+          <p className="mt-3.5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
             {lang === "id"
               ? "Banyak yayasan dan bisnis kehilangan waktu, reputasi, dan biaya besar karena mengandalkan sistem lama yang tidak dirancang untuk menangani beban tinggi."
               : "Many institutions suffer lost hours, damaged trust, and high overhead because their software was never architected for modern peak concurrency."}
@@ -81,33 +81,33 @@ export function GrovePainPointsSection() {
             return (
               <div
                 key={item.num}
-                className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between group"
+                className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
+                      <div className="w-8 h-8 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600">
                         <IconComponent className="h-4 w-4" />
                       </div>
-                      <span className="font-mono text-xs text-zinc-400">
+                      <span className="font-mono text-xs text-slate-500 font-semibold">
                         MASALAH #{item.num}
                       </span>
                     </div>
-                    <span className="text-xs font-mono text-rose-400 font-semibold">
+                    <span className="text-xs font-mono text-rose-600 font-bold bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
                       RISIKO TINGGI
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-zinc-300 mt-2.5 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-dashed border-white/10 flex items-center justify-between text-xs font-mono text-emerald-400">
+                <div className="mt-6 pt-4 border-t border-dashed border-slate-200 flex items-center justify-between text-xs font-mono font-bold text-[#0F766E]">
                   <span>{item.impact}</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>

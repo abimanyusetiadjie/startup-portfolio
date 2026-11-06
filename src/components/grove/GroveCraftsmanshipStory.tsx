@@ -50,21 +50,21 @@ export function GroveCraftsmanshipStory() {
   ];
 
   return (
-    <section id="engineering" className="bg-[#11141C] text-white py-16 sm:py-24 font-sans border-b border-white/10">
+    <section id="engineering" className="bg-[#F8FAFC] text-slate-900 py-16 sm:py-24 font-sans border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2.5 mb-2">
-            <span className="w-6 h-[2px] bg-emerald-400" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-emerald-300 font-mono">
+            <span className="w-6 h-[2px] bg-[#0F766E]" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
               {lang === "id" ? "STANDAR TEKNIS ABINEST" : "ENGINEERING STANDARDS"}
             </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
             {lang === "id"
               ? "Standar yang kami pegang di setiap proyek."
               : "The engineering principles behind every system."}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
             {lang === "id"
               ? "Kami bukan pembuat website instan. Kami adalah mitra rekayasa teknologi yang memastikan sistem Anda cepat, aman, dan siap bertumbuh untuk jangka panjang."
               : "We do not ship fragile templates. We are software engineering partners ensuring your digital systems are secure, blazing-fast, and built to endure."}
@@ -78,31 +78,31 @@ export function GroveCraftsmanshipStory() {
             return (
               <div
                 key={s.num}
-                className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-emerald-500/30 transition-all flex flex-col justify-between group"
+                className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-[#0F766E]/40 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
+                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-200 text-[#0F766E] flex items-center justify-center">
                         <Icon className="h-4.5 w-4.5" />
                       </div>
-                      <span className="font-mono text-xs text-zinc-400">PRINSIP #{s.num}</span>
+                      <span className="font-mono text-xs text-slate-500 font-semibold">PRINSIP #{s.num}</span>
                     </div>
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-300 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[#0F766E] bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200 font-bold">
                       {s.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors">
                     {s.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-300 mt-2.5 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed font-normal">
                     {s.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-dashed border-white/10 flex items-center gap-2 text-xs font-mono text-emerald-400">
-                  <CheckCircle2 className="h-4 w-4" />
+                <div className="mt-6 pt-4 border-t border-dashed border-slate-200 flex items-center gap-2 text-xs font-mono font-bold text-[#0F766E]">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                   <span>Jaminan Standar Produksi 100%</span>
                 </div>
               </div>

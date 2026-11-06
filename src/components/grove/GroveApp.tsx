@@ -18,7 +18,7 @@ import { GroveFooter } from "./GroveFooter";
 export function GroveApp() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#0B0F19] text-white flex flex-col font-sans selection:bg-emerald-500 selection:text-zinc-950">
+      <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-[#0F766E] selection:text-white">
         {/* 1. Navbar: Floating Pill */}
         <GroveNavbar />
 
