@@ -3,24 +3,59 @@
 import { LanguageProvider } from "@/context/LanguageContext";
 import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
-import { GroveStatementSection } from "./GroveStatementSection";
+import { GroveTrustBarSection } from "./GroveTrustBarSection";
+import { GrovePainPointsSection } from "./GrovePainPointsSection";
 import { GroveBentoGrid } from "./GroveBentoGrid";
-import { GroveSplitFeature } from "./GroveSplitFeature";
+import { GroveCaseStudiesSection } from "./GroveCaseStudiesSection";
 import { GroveCraftsmanshipStory } from "./GroveCraftsmanshipStory";
+import { GroveWorkflowSection } from "./GroveWorkflowSection";
+import { GroveAboutTeamSection } from "./GroveAboutTeamSection";
+import { GroveTestimonialsSection } from "./GroveTestimonialsSection";
+import { GroveFaqSection } from "./GroveFaqSection";
 import { GroveConsultation } from "./GroveConsultation";
 import { GroveFooter } from "./GroveFooter";
 
 export function GroveApp() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#F8FAFC] text-[#134E4A] flex flex-col font-sans selection:bg-[#0F766E] selection:text-white">
+      <div className="min-h-screen bg-[#0B0F19] text-white flex flex-col font-sans selection:bg-emerald-500 selection:text-zinc-950">
+        {/* 1. Navbar: Floating Pill */}
         <GroveNavbar />
+
+        {/* 2. Hero Section: Cinematic Image + Concrete Value Prop */}
         <GroveHeroSection />
-        <GroveStatementSection />
+
+        {/* 3. Trust Bar: Social Proof Strip (Numbers & Client Institutions) */}
+        <GroveTrustBarSection />
+
+        {/* 4. Pain Points: Kendala Operasional Nyata */}
+        <GrovePainPointsSection />
+
+        {/* 5. Katalog Layanan: 6 Solusi Lengkap Tanpa Placeholder */}
         <GroveBentoGrid />
-        <GroveSplitFeature />
+
+        {/* 6. Studi Kasus: 3 Proyek Nyata Terukur (SIAKAD, WA Gateway, ERP) */}
+        <GroveCaseStudiesSection />
+
+        {/* 7. Standar Kualitas & Arsitektur */}
         <GroveCraftsmanshipStory />
+
+        {/* 8. Cara Kerja: 5 Langkah Kolaborasi Terstruktur */}
+        <GroveWorkflowSection />
+
+        {/* 9. Tentang Studio + Tim Insinyur (Jakarta & Surabaya) */}
+        <GroveAboutTeamSection />
+
+        {/* 10. Testimoni Klien & Kepala Yayasan */}
+        <GroveTestimonialsSection />
+
+        {/* 11. FAQ: Jawaban untuk Keberatan Umum */}
+        <GroveFaqSection />
+
+        {/* 12. Form Konsultasi & WhatsApp Fast-Path */}
         <GroveConsultation />
+
+        {/* 13. Footer Arsitektural Lengkap */}
         <GroveFooter />
       </div>
     </LanguageProvider>

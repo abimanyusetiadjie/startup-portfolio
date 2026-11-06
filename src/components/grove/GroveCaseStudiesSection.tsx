@@ -1,0 +1,196 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+import { ShieldCheck, CheckCircle2, ArrowRight, ArrowUpRight, Zap, Users, MessageSquare, Database } from "lucide-react";
+
+export function GroveCaseStudiesSection() {
+  const { lang } = useLanguage();
+
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    if (targetId.startsWith("#")) {
+      e.preventDefault();
+      const element = document.getElementById(targetId.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
+  const caseStudies = [
+    {
+      id: "cs-siakad",
+      client: "Yayasan Pendidikan Mandiri (Jakarta)",
+      category: "EdTech & SIAKAD Sekolah",
+      title: lang === "id"
+        ? "SIAKAD tetap responsif saat 1.200 siswa mengakses bersamaan."
+        : "SIAKAD remains lightning-fast with 1,200 simultaneous student logins.",
+      problem: lang === "id"
+        ? "Sekolah mengalami server crash berulang kali setiap musim pembagian rapor dan ujian online. Ratusan wali murid mengeluhkan portal yang down, guru lembur input nilai berulang kali, dan reputasi yayasan terancam."
+        : "The school suffered regular server crashes during report card season and online exams. Frustrated parents, lost exam progress, and severe institutional downtime.",
+      solution: lang === "id"
+        ? "Kami merancang arsitektur decoupled berbasis Next.js 15 dan memisahkan proses berat (cetak ratusan PDF rapor dan rekap nilai) ke background worker cloud asinkron. Sistem portal utama tetap ringan dan bebas gangguan."
+        : "We architected a decoupled Next.js 15 infrastructure, offloading intensive tasks (batch PDF generation and grade reconciliation) to asynchronous cloud workers.",
+      stats: [
+        { label: lang === "id" ? "Server Crash Ujian" : "Exam Server Crash", val: "0%" },
+        { label: lang === "id" ? "Cetak 500+ Rapor PDF" : "500+ PDF Reports", val: "< 45 Detik" },
+        { label: lang === "id" ? "Uptime Musim Rapor" : "Report Season SLA", val: "99.98%" },
+      ],
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      id: "cs-whatsapp",
+      client: "SMA Unggulan Al-Hikmah & Pesantren",
+      category: "Otomasi WhatsApp API Resmi",
+      title: lang === "id"
+        ? "Otomasi 4.500 tagihan SPP & kwitansi instan terkirim dalam < 2 detik."
+        : "4,500 automated tuition invoices dispatched in under 2 seconds.",
+      problem: lang === "id"
+        ? "Tim tata usaha menghabiskan 3–4 hari kerja setiap awal bulan untuk mengirim rincian tagihan SPP secara manual via WhatsApp pribadi staf. Sering salah kirim nomor, rekapitulasi pembayaran lambat, dan nomor staf berisiko diblokir WhatsApp."
+        : "Administration staff spent 3–4 days each month manually typing and dispatching tuition receipts via personal WhatsApp, suffering frequent human errors and account bans.",
+      solution: lang === "id"
+        ? "Kami membangun gateway Meta Cloud API resmi terintegrasi dengan antrean pesan QStash dan database PostgreSQL yayasan. Tagihan, kode bayar, dan kwitansi otomatis terkirim tanpa campur tangan staf."
+        : "We deployed an official Meta Cloud API Gateway integrated with distributed QStash message queues and PostgreSQL, automatically generating personalized tuition slips.",
+      stats: [
+        { label: lang === "id" ? "Kecepatan Kirim" : "Dispatch Speed", val: "< 2s / Pesan" },
+        { label: lang === "id" ? "Penghematan Waktu Staf" : "Admin Hours Saved", val: "24 Jam / Bulan" },
+        { label: lang === "id" ? "Akurasi Pengiriman" : "Delivery Accuracy", val: "100% Tervalidasi" },
+      ],
+      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      id: "cs-erp",
+      client: "Mitra Retail Nusantara",
+      category: "Omnichannel ERP & Web Next.js 15",
+      title: lang === "id"
+        ? "Sinkronisasi stok toko fisik & marketplace dalam 150ms dengan Next.js 15."
+        : "Omnichannel stock synchronization within 150ms and Lighthouse 98.",
+      problem: lang === "id"
+        ? "Sering terjadi overselling (selisih stok) antara kasir toko offline dengan pesanan di Shopee dan Tokopedia. Website e-commerce lama lemot dengan skor performa Google rendah (LCP > 4.5s)."
+        : "Frequent inventory mismatches between physical POS retail checkouts and digital marketplaces, combined with a sluggish legacy website (LCP > 4.5s).",
+      solution: lang === "id"
+        ? "Migrasi menyeluruh ke Next.js 15 App Router dengan Supabase PostgreSQL Row Level Security dan webhook bi-directional real-time. Setiap transaksi di kasir langsung mengunci stok marketplace dalam 150 milidetik."
+        : "Complete migration to Next.js 15 App Router with Supabase PostgreSQL RLS and bi-directional real-time webhooks, eliminating inventory discrepancies.",
+      stats: [
+        { label: lang === "id" ? "Skor Google Lighthouse" : "Lighthouse Score", val: "98 / 100" },
+        { label: lang === "id" ? "Selisih Stok (Drift)" : "Inventory Drift", val: "0% Akurat" },
+        { label: lang === "id" ? "Sinkronisasi Webhook" : "Sync Latency", val: "< 150ms" },
+      ],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    },
+  ];
+
+  return (
+    <section id="case-study" className="bg-[#0F1219] text-white py-16 sm:py-24 font-sans border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2.5 mb-2">
+            <span className="w-6 h-[2px] bg-emerald-400" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-emerald-300 font-mono">
+              {lang === "id" ? "STUDI KASUS PRODUKSI NYATA" : "REAL-WORLD CASE STUDIES"}
+            </span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+            {lang === "id"
+              ? "Hasil nyata dari sistem yang kami bangun."
+              : "Measurable impact engineered in production."}
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+            {lang === "id"
+              ? "Kami membuktikan klaim teknis kami melalui angka nyata di lapangan. Berikut adalah studi kasus rekayasa sistem yang memecahkan masalah operasional klien kami."
+              : "We back our engineering standards with hard numbers in production. Here is how our architecture solved operational bottlenecks for our clients."}
+          </p>
+        </div>
+
+        {/* 3 Detailed Case Study Cards */}
+        <div className="space-y-12">
+          {caseStudies.map((cs, idx) => (
+            <div
+              key={cs.id}
+              className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] shadow-xl items-stretch"
+            >
+              {/* Left / Visual Image */}
+              <div className={`lg:col-span-5 relative aspect-video lg:aspect-auto min-h-[300px] lg:min-h-[420px] ${
+                idx % 2 === 1 ? "lg:order-2" : "lg:order-1"
+              }`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={cs.image}
+                  alt={cs.title}
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:hidden" />
+                <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-mono text-emerald-300 border border-white/10">
+                  {cs.category}
+                </div>
+              </div>
+
+              {/* Right / Problem Solution Results */}
+              <div className={`lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6 ${
+                idx % 2 === 1 ? "lg:order-1" : "lg:order-2"
+              }`}>
+                <div>
+                  <span className="text-xs font-mono text-zinc-400 block mb-1">
+                    KLIEN: {cs.client}
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-normal text-white leading-snug">
+                    {cs.title}
+                  </h3>
+
+                  {/* Problem & Solution Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-5 border-t border-white/10 text-xs sm:text-sm">
+                    <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                      <span className="font-bold text-rose-400 font-mono text-[11px] block">
+                        MASALAH KLIEN:
+                      </span>
+                      <p className="text-zinc-300 leading-relaxed font-normal">
+                        {cs.problem}
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/20 space-y-1">
+                      <span className="font-bold text-emerald-400 font-mono text-[11px] block">
+                        SOLUSI REKAYASA ABINEST:
+                      </span>
+                      <p className="text-zinc-200 leading-relaxed font-normal">
+                        {cs.solution}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Measurable Impact Numbers */}
+                <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex flex-wrap items-baseline gap-6 sm:gap-8">
+                    {cs.stats.map((st, i) => (
+                      <div key={i}>
+                        <span className="font-serif text-2xl sm:text-3xl font-normal text-emerald-400 block">
+                          {st.val}
+                        </span>
+                        <span className="text-[10px] sm:text-xs text-zinc-400 font-mono block mt-0.5">
+                          {st.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a
+                    href="#konsultasi"
+                    onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-xs font-bold hover:bg-zinc-100 transition-all shadow-sm group"
+                  >
+                    <span>{lang === "id" ? "Konsultasi Kebutuhan Serupa" : "Consult Similar System"}</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
