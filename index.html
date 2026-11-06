@@ -1,0 +1,2775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kai Nomura — Digital &amp; Generative Artist (Kyoto · Berlin)</title>
+  <meta name="description" content="Portfolio of Kai Nomura. Generative installations, code, light, memory, and editioned prints.">
+
+  <!-- Fonts: Satoshi via Fontshare & Playfair Display via Google Fonts -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CSS RESET & VARIABLES
+       ========================================================================== */
+    :root {
+      --canvas: #ffffff;
+      --surface-grey: #f3f3f3;
+      --surface-dark: #191917;
+      --ink: #191917;
+      --ink-muted: rgba(25, 25, 23, 0.6);
+      --ink-faint: rgba(25, 25, 23, 0.3);
+      --on-dark: #ffffff;
+      --on-dark-muted: rgba(255, 255, 255, 0.6);
+      --on-dark-faint: rgba(255, 255, 255, 0.3);
+      --line: rgba(25, 25, 23, 0.2);
+      --line-strong: rgba(25, 25, 23, 0.4);
+      --line-on-dark: rgba(255, 255, 255, 0.2);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Rem-based adaptive grid */
+    html {
+      font-size: 16px;
+      scroll-behavior: auto; /* Lenis drives scrolling */
+    }
+    @media (max-width: 1920px) { html { font-size: 0.833333vw; } }
+    @media (max-width: 1440px) { html { font-size: 1.111111vw; } }
+    @media (max-width: 1024px) { html { font-size: 1.5625vw;  } }
+    @media (max-width: 640px)  { html { font-size: 4.444444vw; } }
+
+    body {
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: "Satoshi", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: #191917;
+      color: #ffffff;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      line-height: 1.12;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ==========================================================================
+       2. REUSABLE UTILITIES & HAILINES
+       ========================================================================== */
+    .rule-dashed {
+      border-top: 1px dashed var(--line);
+    }
+    .rule-dashed-dark {
+      border-top: 1px dashed var(--line-on-dark);
+    }
+
+    .container {
+      max-width: 120rem;
+      margin-inline: auto;
+    }
+
+    .section-pad {
+      padding: 6rem 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .section-pad {
+        padding: 8rem 3rem;
+      }
+    }
+
+    /* Shared Eyebrow */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow-line {
+      display: inline-block;
+      width: 2rem;
+      height: 1px;
+      background: var(--ink-muted);
+    }
+    .eyebrow-text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ink-muted);
+      font-family: "Satoshi", sans-serif;
+      font-weight: 500;
+    }
+    .eyebrow.tone-dark .eyebrow-line {
+      background: var(--on-dark-muted);
+    }
+    .eyebrow.tone-dark .eyebrow-text {
+      color: var(--on-dark-muted);
+    }
+
+    /* Accent Italic Serif */
+    .accent {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    /* CTA Buttons */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: "Satoshi", sans-serif;
+      font-weight: 500;
+      transition: background-color 300ms ease, color 300ms ease, opacity 300ms ease;
+    }
+    .cta-arrow {
+      display: inline-block;
+      transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (hover: hover) and (min-width: 769px) {
+      .cta-btn:hover .cta-arrow {
+        transform: translateX(0.4rem);
+      }
+    }
+
+    .cta-btn.light-solid {
+      background: #191917;
+      color: #ffffff;
+    }
+    .cta-btn.light-solid:hover {
+      background: rgba(25, 25, 23, 0.88);
+    }
+
+    .cta-btn.light-ghost {
+      border: 1px dashed var(--line);
+      color: #191917;
+      background: transparent;
+    }
+    .cta-btn.light-ghost:hover {
+      background: #191917;
+      color: #ffffff;
+    }
+
+    .cta-btn.dark-solid {
+      background: #ffffff;
+      color: #191917;
+    }
+    .cta-btn.dark-solid:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .cta-btn.dark-ghost {
+      border: 1px dashed var(--line-on-dark);
+      color: #ffffff;
+      background: transparent;
+    }
+    .cta-btn.dark-ghost:hover {
+      background: #ffffff;
+      color: #191917;
+    }
+
+    /* Ratio-Locked Media Box */
+    .media-box {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      background: #e5e5e5;
+    }
+    .media-box img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Scroll Margins */
+    #works, #about, #process, #acquire, #contact {
+      scroll-margin-top: 6rem;
+    }
+
+    /* ==========================================================================
+       3. MOTION & REVEALS
+       ========================================================================== */
+    /* Fade */
+    [data-motion="fade"] {
+      opacity: 0;
+      transition: opacity 640ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-motion="fade"].in-view {
+      opacity: 1;
+    }
+
+    /* FadeUp */
+    [data-motion="fade-up"] {
+      opacity: 0;
+      transform: translateY(2.5rem);
+      transition: opacity 720ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-motion="fade-up"].in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Plate (Images) */
+    [data-motion="plate"] {
+      opacity: 0;
+      transform: translateY(3.5rem) scale(1.04);
+      transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-motion="plate"].in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Line Reveal (Headings) */
+    .line-wrap {
+      display: block;
+      overflow: hidden;
+      vertical-align: top;
+    }
+    .line-inner {
+      display: block;
+      transform: translateY(110%);
+      opacity: 0;
+      transition: transform 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .in-view .line-inner,
+    .line-wrap.in-view .line-inner {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Word Reveal */
+    .word-wrap {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .word-inner {
+      display: inline-block;
+      transform: translateY(0.8rem);
+      opacity: 0;
+      transition: transform 720ms cubic-bezier(0.165, 0.84, 0.44, 1),
+                  opacity 720ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .in-view .word-inner,
+    .word-wrap.in-view .word-inner {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, [data-motion="fade"], [data-motion="fade-up"], [data-motion="plate"],
+      .line-inner, .word-inner {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+      }
+    }
+
+    /* ==========================================================================
+       4. HEADER (FIXED, MIX-BLEND-DIFFERENCE)
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      inset-inline: 0;
+      top: 0;
+      z-index: 50;
+      color: #ffffff;
+      mix-blend-mode: difference;
+      padding: 1.25rem 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .site-header {
+        padding: 1.25rem 3rem;
+      }
+    }
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 120rem;
+      margin-inline: auto;
+    }
+    @media (min-width: 1024px) {
+      .header-inner {
+        grid-template-columns: 1fr auto 1fr;
+      }
+    }
+    .header-left {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .header-left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+    }
+    .header-left .tag-title {
+      font-size: 0.875rem;
+      letter-spacing: -0.02em;
+    }
+    .header-left .tag-sub {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      justify-self: start;
+    }
+    @media (min-width: 1024px) {
+      .header-logo {
+        justify-self: center;
+      }
+    }
+    .logo-diamond {
+      width: 0.625rem;
+      height: 0.625rem;
+      border: 1px solid currentColor;
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+    .logo-wordmark {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      text-transform: lowercase;
+      font-size: 1.125rem;
+      letter-spacing: 0.04em;
+    }
+
+    .header-right {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .header-nav {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+    .header-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      position: relative;
+    }
+    .header-nav-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #ffffff;
+      opacity: 0;
+      transition: opacity 300ms ease;
+    }
+    @media (hover: hover) and (min-width: 769px) {
+      .header-nav-link:hover .header-nav-dot {
+        opacity: 1;
+      }
+    }
+
+    .menu-trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+    .menu-trigger-label {
+      display: none;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    @media (min-width: 640px) {
+      .menu-trigger-label {
+        display: inline-block;
+      }
+    }
+    .menu-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      width: 1.5rem;
+    }
+    .menu-bar {
+      width: 100%;
+      height: 1px;
+      background: #ffffff;
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100svh;
+      padding: 8rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (min-width: 1024px) {
+      .hero-section {
+        padding: 10rem 3rem 4rem;
+      }
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+      }
+    }
+    .hero-content {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .hero-content {
+        grid-column: 1 / span 6;
+      }
+    }
+    .hero-eyebrow {
+      margin-bottom: 2rem;
+    }
+    .hero-title {
+      font-size: 3.75rem;
+      line-height: 1.04;
+      max-width: 14ch;
+      color: var(--ink);
+    }
+    @media (min-width: 640px) {
+      .hero-title { font-size: 4.5rem; }
+    }
+    @media (min-width: 1024px) {
+      .hero-title { font-size: 6rem; }
+    }
+
+    .hero-lead {
+      max-width: 46ch;
+      font-size: 1.125rem;
+      line-height: 1.625;
+      color: var(--ink-muted);
+      margin-top: 2.5rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .hero-facts-ledger {
+      display: none;
+      margin-top: 3rem;
+      border-top: 1px solid var(--line);
+      padding-top: 2rem;
+    }
+    @media (min-width: 1024px) {
+      .hero-facts-ledger {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    .hero-fact dt {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-faint);
+    }
+    .hero-fact dd {
+      font-size: 0.875rem;
+      color: var(--ink);
+      margin-top: 0.25rem;
+    }
+
+    .hero-portrait {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+    @media (min-width: 1024px) {
+      .hero-portrait {
+        grid-column: 7 / span 6;
+      }
+    }
+
+    .mobile-scroll-cue {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .mobile-scroll-cue {
+        display: none;
+      }
+    }
+    .mobile-scroll-text {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--ink-faint);
+    }
+    .mobile-scroll-line {
+      width: 1px;
+      height: 2.5rem;
+      background: var(--line-strong);
+    }
+
+    /* ==========================================================================
+       6. STATEMENT SECTION
+       ========================================================================== */
+    .statement-section {
+      background: #ffffff;
+      padding: 7rem 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .statement-section {
+        padding: 10rem 3rem;
+      }
+    }
+    .statement-inner {
+      max-width: 80rem;
+      margin-inline: auto;
+    }
+    .statement-text {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.875rem;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+    @media (min-width: 640px) {
+      .statement-text { font-size: 2.25rem; }
+    }
+    @media (min-width: 1024px) {
+      .statement-text { font-size: 3rem; line-height: 1.25; }
+    }
+    .statement-sig {
+      display: block;
+      margin-top: 3rem;
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--ink-muted);
+    }
+
+    /* ==========================================================================
+       7. FEATURED WORKS (ASLANT 12-COL ZIG-ZAG)
+       ========================================================================== */
+    .works-section {
+      background: #ffffff;
+    }
+    .works-header {
+      margin-bottom: 4rem;
+    }
+    @media (min-width: 1024px) {
+      .works-header { margin-bottom: 6rem; }
+    }
+    .works-title {
+      font-size: 2.25rem;
+      max-width: 18ch;
+      color: var(--ink);
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .works-title { font-size: 3rem; }
+    }
+    @media (min-width: 1024px) {
+      .works-title { font-size: 4.5rem; }
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    @media (min-width: 1024px) {
+      .works-grid {
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 2rem;
+        row-gap: 0;
+      }
+    }
+
+    .work-article {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .work-article {
+        grid-column: 1 / span 7;
+      }
+      .work-article:nth-child(even) {
+        grid-column: 6 / span 7;
+        margin-top: 6rem;
+      }
+    }
+
+    .work-caption {
+      border-top: 1px dashed var(--line);
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+    }
+    .work-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink);
+      font-family: "Satoshi", sans-serif;
+    }
+    .work-medium {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      margin-top: 0.25rem;
+    }
+    .work-year {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1rem;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    /* Parallax image plate */
+    .parallax-plate {
+      will-change: transform;
+    }
+
+    /* ==========================================================================
+       8. PINNED CTA #1 (DARK + PORTRAIT)
+       ========================================================================== */
+    .pinned-cta-dark {
+      background: var(--surface-dark);
+      color: var(--on-dark);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .pinned-cta-dark {
+        padding: 6rem 3rem;
+      }
+    }
+    .pinned-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+    @media (min-width: 1024px) {
+      .pinned-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+      }
+    }
+    .pinned-copy {
+      max-width: 34rem;
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .pinned-copy {
+        grid-column: 1 / span 6;
+      }
+    }
+    .pinned-title {
+      font-size: 2.25rem;
+      color: var(--on-dark);
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .pinned-title { font-size: 3rem; }
+    }
+    @media (min-width: 1024px) {
+      .pinned-title { font-size: 3.75rem; }
+    }
+    .pinned-body {
+      margin-top: 2rem;
+      font-size: 1.125rem;
+      line-height: 1.625;
+      color: var(--on-dark-muted);
+    }
+    .pinned-image {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .pinned-image {
+        grid-column: 8 / span 5;
+      }
+    }
+
+    /* ==========================================================================
+       9. PRINCIPLES (GREY)
+       ========================================================================== */
+    .principles-section {
+      background: var(--surface-grey);
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem 3rem;
+      margin-top: 4rem;
+    }
+    @media (min-width: 640px) {
+      .principles-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .principle-card {
+      border-top: 1px dashed var(--line);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .principle-index {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.5rem;
+      color: var(--ink);
+    }
+    .principle-title {
+      font-family: "Satoshi", sans-serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-top: 1.5rem;
+    }
+    .principle-desc {
+      font-size: 1rem;
+      line-height: 1.625;
+      color: var(--ink-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ==========================================================================
+       10. ABOUT
+       ========================================================================== */
+    .about-section {
+      background: #ffffff;
+    }
+    .about-top-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .about-top-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+      }
+    }
+    .about-heading-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .about-heading-col {
+        grid-column: 1 / span 7;
+      }
+    }
+    .about-h2 {
+      font-size: 2.25rem;
+      line-height: 1.1;
+      max-width: 20ch;
+      color: var(--ink);
+      margin-top: 2rem;
+    }
+    @media (min-width: 640px) {
+      .about-h2 { font-size: 3rem; }
+    }
+    @media (min-width: 1024px) {
+      .about-h2 { font-size: 3.75rem; }
+    }
+
+    .about-copy-col {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .about-copy-col {
+        grid-column: 8 / span 5;
+      }
+    }
+    .about-p {
+      max-width: 52ch;
+      font-size: 1rem;
+      line-height: 1.625;
+      color: var(--ink-muted);
+    }
+
+    .about-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    @media (min-width: 640px) {
+      .about-photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .about-photo-grid {
+        margin-top: 5rem;
+      }
+    }
+    .about-photo-box {
+      overflow: hidden;
+    }
+    .about-photo-box img {
+      transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (hover: hover) and (min-width: 769px) {
+      .about-photo-box:hover img {
+        transform: scale(1.06);
+      }
+    }
+
+    .about-ledger {
+      margin-top: 4rem;
+      border-top: 1px dashed var(--line);
+      padding-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 2rem;
+    }
+    @media (min-width: 640px) {
+      .about-ledger {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .about-ledger dt {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-faint);
+    }
+    .about-ledger dd {
+      font-size: 1rem;
+      color: var(--ink);
+      margin-top: 0.5rem;
+    }
+
+    /* ==========================================================================
+       11. PROCESS (STICKY HEADING)
+       ========================================================================== */
+    .process-section {
+      background: #ffffff;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .process-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+      }
+    }
+    .process-sticky-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .process-sticky-col {
+        grid-column: 1 / span 5;
+        position: sticky;
+        top: 8rem;
+        align-self: start;
+      }
+    }
+    .process-title {
+      font-size: 2.25rem;
+      max-width: 18ch;
+      color: var(--ink);
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .process-title { font-size: 3rem; }
+    }
+    @media (min-width: 1024px) {
+      .process-title { font-size: 4.5rem; }
+    }
+
+    .process-list-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .process-list-col {
+        grid-column: 6 / span 7;
+      }
+    }
+
+    .process-step {
+      border-top: 1px dashed var(--line);
+      padding-block: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .process-step {
+        padding-block: 3rem;
+        flex-direction: row;
+        gap: 3rem;
+      }
+    }
+    .process-step-num {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 4.5rem;
+      line-height: 1;
+      color: var(--ink-faint);
+      flex-shrink: 0;
+    }
+    @media (min-width: 640px) {
+      .process-step-num { font-size: 6rem; }
+    }
+    .process-step-content {
+      padding-top: 0;
+    }
+    @media (min-width: 640px) {
+      .process-step-content {
+        padding-top: 0.75rem;
+      }
+    }
+    .process-step-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      font-family: "Satoshi", sans-serif;
+    }
+    @media (min-width: 1024px) {
+      .process-step-title { font-size: 1.875rem; }
+    }
+    .process-step-desc {
+      font-size: 1.125rem;
+      line-height: 1.625;
+      color: var(--ink-muted);
+      margin-top: 1rem;
+      max-width: 48ch;
+    }
+
+    /* ==========================================================================
+       12. ACQUIRE
+       ========================================================================== */
+    .acquire-section {
+      background: #ffffff;
+    }
+    .acquire-header-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      .acquire-header-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+    .acquire-lead {
+      max-width: 42ch;
+      font-size: 1rem;
+      line-height: 1.625;
+      color: var(--ink-muted);
+    }
+
+    .acquire-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem 2.5rem;
+      margin-top: 4rem;
+    }
+    @media (min-width: 640px) {
+      .acquire-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .acquire-card {
+      display: block;
+    }
+    .acquire-card-image-wrap {
+      transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (hover: hover) and (min-width: 769px) {
+      .acquire-card:hover .acquire-card-image-wrap {
+        transform: translateY(-0.75rem);
+      }
+    }
+
+    .acquire-info-row {
+      border-top: 1px dashed var(--line);
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    .acquire-item-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink);
+      font-family: "Satoshi", sans-serif;
+    }
+    .acquire-item-medium {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      margin-top: 0.5rem;
+    }
+    .acquire-item-edition {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-faint);
+      margin-top: 0.25rem;
+    }
+    .acquire-item-price {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .acquire-bottom-cta {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       13. PINNED CTA #2 (CENTERED, DARK)
+       ========================================================================== */
+    .pinned-cta-centered {
+      background: var(--surface-dark);
+      color: var(--on-dark);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      .pinned-cta-centered {
+        padding: 6rem 3rem;
+      }
+    }
+    .pinned-centered-box {
+      max-width: 40rem;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .pinned-centered-box .eyebrow {
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ==========================================================================
+       14. TESTIMONIALS
+       ========================================================================== */
+    .testimonials-section {
+      background: #ffffff;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .testimonial-card {
+      border-top: 1px dashed var(--line);
+      padding-top: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .testimonial-quote {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    @media (min-width: 1024px) {
+      .testimonial-quote { font-size: 1.5rem; }
+    }
+    .testimonial-author-box {
+      margin-top: 2.5rem;
+    }
+    .testimonial-author {
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .testimonial-role {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       15. EXHIBITIONS (GREY)
+       ========================================================================== */
+    .exhibitions-section {
+      background: var(--surface-grey);
+    }
+    .exhibitions-header {
+      margin-bottom: 4rem;
+    }
+    .exhibitions-list {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .exhibitions-list {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .exhibitions-list {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2.5rem;
+      }
+    }
+    .exhibition-item {
+      border-top: 1px dashed var(--line);
+      padding-block: 1.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+    }
+    .exhibition-index {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      width: 1.5rem;
+    }
+    .exhibition-venue {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--ink);
+    }
+    @media (min-width: 1024px) {
+      .exhibition-venue { font-size: 1.5rem; }
+    }
+
+    /* ==========================================================================
+       16. FAQ (ACCORDION)
+       ========================================================================== */
+    .faq-section {
+      background: #ffffff;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .faq-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+      }
+    }
+    .faq-left-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .faq-left-col {
+        grid-column: 1 / span 4;
+      }
+    }
+    .faq-right-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .faq-right-col {
+        grid-column: 5 / span 8;
+      }
+    }
+
+    .faq-row {
+      border-top: 1px dashed var(--line);
+    }
+    .faq-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding-block: 2rem;
+      text-align: left;
+    }
+    .faq-question {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink);
+      font-family: "Satoshi", sans-serif;
+    }
+    @media (min-width: 1024px) {
+      .faq-question { font-size: 1.5rem; }
+    }
+    .faq-glyph {
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--ink);
+      flex-shrink: 0;
+      display: inline-block;
+      transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-row.is-open .faq-glyph {
+      transform: rotate(45deg);
+    }
+
+    .faq-panel {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 550ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 550ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-row.is-open .faq-panel {
+      opacity: 1;
+    }
+    .faq-panel-inner {
+      padding-bottom: 2.5rem;
+    }
+    .faq-answer {
+      max-width: 60ch;
+      font-size: 1.125rem;
+      line-height: 1.625;
+      color: var(--ink-muted);
+    }
+
+    /* ==========================================================================
+       17. FOOTER (DARK)
+       ========================================================================== */
+    .site-footer {
+      background: var(--surface-dark);
+      color: var(--on-dark);
+      padding: 6rem 1.5rem 3rem;
+    }
+    @media (min-width: 1024px) {
+      .site-footer {
+        padding: 6rem 3rem 3rem;
+      }
+    }
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    @media (min-width: 1024px) {
+      .footer-top-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 3rem;
+      }
+    }
+    .footer-brand-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .footer-brand-col {
+        grid-column: 1 / span 5;
+      }
+    }
+    .footer-tagline {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      max-width: 28ch;
+      color: var(--on-dark-muted);
+      margin-top: 1.5rem;
+    }
+    .footer-email {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--on-dark);
+      transition: color 300ms ease;
+    }
+    .footer-email:hover {
+      color: var(--on-dark-muted);
+    }
+
+    .footer-col-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--on-dark-faint);
+    }
+    .footer-nav-list {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .footer-nav-link {
+      font-size: 1rem;
+      color: var(--on-dark-muted);
+      transition: color 300ms ease;
+    }
+    .footer-nav-link:hover {
+      color: var(--on-dark);
+    }
+
+    .footer-explore-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 640px) {
+      .footer-explore-col { grid-column: auto; }
+    }
+    @media (min-width: 1024px) {
+      .footer-explore-col {
+        grid-column: 6 / span 2;
+      }
+    }
+
+    .footer-studio-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 640px) {
+      .footer-studio-col { grid-column: auto; }
+    }
+    @media (min-width: 1024px) {
+      .footer-studio-col {
+        grid-column: 8 / span 2;
+      }
+    }
+
+    .footer-follow-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 640px) {
+      .footer-follow-col { grid-column: auto; }
+    }
+    @media (min-width: 1024px) {
+      .footer-follow-col {
+        grid-column: 10 / span 3;
+      }
+    }
+
+    .giant-wordmark-wrap {
+      margin-top: 6rem;
+      overflow: hidden;
+      text-align: center;
+      user-select: none;
+    }
+    .giant-wordmark {
+      font-family: "Satoshi", sans-serif;
+      font-size: 18vw;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.8;
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.1);
+      display: inline-block;
+    }
+
+    .footer-legal-bar {
+      margin-top: 3rem;
+      border-top: 1px dashed var(--line-on-dark);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .footer-legal-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .footer-copy {
+      font-size: 0.875rem;
+      color: var(--on-dark-faint);
+    }
+    .footer-legal-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-legal-link {
+      font-size: 0.875rem;
+      color: var(--on-dark-faint);
+      transition: color 300ms ease;
+    }
+    .footer-legal-link:hover {
+      color: var(--on-dark-muted);
+    }
+
+    /* ==========================================================================
+       18. MODAL MENU OVERLAY
+       ========================================================================== */
+    .menu-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      color: #ffffff;
+      pointer-events: none;
+      visibility: hidden;
+      transition: visibility 600ms;
+    }
+    .menu-modal.is-open {
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .menu-panel-backdrop {
+      position: absolute;
+      inset: 0;
+      background: var(--surface-dark);
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .menu-modal.is-open .menu-panel-backdrop {
+      transform: scaleY(1);
+    }
+
+    .menu-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1.5rem 2.5rem;
+      max-width: 120rem;
+      margin-inline: auto;
+    }
+    @media (min-width: 1024px) {
+      .menu-content {
+        padding: 1.5rem 3rem 2.5rem;
+      }
+    }
+
+    .menu-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menu-top-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--on-dark-faint);
+    }
+    .menu-close-btn {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #ffffff;
+      cursor: pointer;
+      transition: color 300ms ease;
+    }
+    .menu-close-btn:hover {
+      color: var(--on-dark-muted);
+    }
+
+    .menu-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .menu-link-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      opacity: 0;
+      transform: translateY(1.5rem);
+      transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .menu-modal.is-open .menu-link-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .menu-link-index {
+      width: 2rem;
+      font-size: 0.875rem;
+      font-family: "Satoshi", sans-serif;
+      color: var(--on-dark-muted);
+    }
+    .menu-link-label {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 3rem;
+      color: #ffffff;
+      line-height: 1.1;
+      transition: font-style 250ms ease;
+    }
+    @media (min-width: 640px) {
+      .menu-link-label { font-size: 3.75rem; }
+    }
+    @media (min-width: 1024px) {
+      .menu-link-label { font-size: 4.5rem; }
+    }
+    @media (hover: hover) and (min-width: 769px) {
+      .menu-link-item:hover .menu-link-label {
+        font-style: italic;
+      }
+    }
+
+    .menu-bottom-block {
+      border-top: 1px dashed var(--line-on-dark);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      opacity: 0;
+      transition: opacity 500ms ease 600ms;
+    }
+    @media (min-width: 640px) {
+      .menu-bottom-block {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+    .menu-modal.is-open .menu-bottom-block {
+      opacity: 1;
+    }
+    .menu-contact-email {
+      font-size: 1.125rem;
+      color: #ffffff;
+      display: block;
+    }
+    .menu-contact-location {
+      font-size: 0.875rem;
+      color: var(--on-dark-muted);
+      margin-top: 0.25rem;
+      display: block;
+    }
+    .menu-social-list {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .menu-social-link {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--on-dark-muted);
+      transition: color 300ms ease;
+    }
+    .menu-social-link:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER (FIXED, MIX-BLEND-DIFFERENCE)
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <!-- Left Column (lg+) -->
+      <div class="header-left">
+        <p class="tag-title">Digital &amp; Generative Artist</p>
+        <p class="tag-sub">Light · Code · Memory</p>
+      </div>
+
+      <!-- Center — Logo -->
+      <a href="#top" class="header-logo" aria-label="Kai Nomura Home">
+        <span class="logo-diamond" aria-hidden="true"></span>
+        <span class="logo-wordmark">kai nomura</span>
+      </a>
+
+      <!-- Right Column -->
+      <div class="header-right">
+        <nav class="header-nav" aria-label="Primary">
+          <a href="#works" class="header-nav-link">
+            <span class="header-nav-dot" aria-hidden="true"></span>
+            <span>Works</span>
+          </a>
+          <a href="#about" class="header-nav-link">
+            <span class="header-nav-dot" aria-hidden="true"></span>
+            <span>About</span>
+          </a>
+          <a href="#process" class="header-nav-link">
+            <span class="header-nav-dot" aria-hidden="true"></span>
+            <span>Process</span>
+          </a>
+        </nav>
+
+        <button class="menu-trigger" id="menuOpenBtn" aria-label="Open menu" aria-haspopup="dialog">
+          <span class="menu-trigger-label">Menu</span>
+          <span class="menu-hamburger" aria-hidden="true">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ========================================================================
+         HERO SECTION
+         ======================================================================== -->
+    <section class="hero-section" id="top" aria-label="Hero">
+      <div class="container hero-grid">
+        <!-- Left: Copy & Actions -->
+        <div class="hero-content">
+          <div class="eyebrow hero-eyebrow" data-motion="fade" data-delay="0">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">Digital &amp; generative artist</span>
+          </div>
+
+          <h1 class="hero-title reveal-lines" data-stagger="140" data-delay="0">
+            Light, <span class="accent">written</span> in code.
+          </h1>
+
+          <p class="hero-lead reveal-words" data-stagger="18" data-delay="500">
+            Kai Nomura builds immersive works where light, memory, and machine become one material — generative installations and editioned prints, exhibited worldwide and held in private collections.
+          </p>
+
+          <div class="hero-cta-row" data-motion="fade-up" data-delay="800">
+            <a href="#works" class="cta-btn light-solid">
+              <span>View the work</span>
+              <span class="cta-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#acquire" class="cta-btn light-ghost">
+              <span>Acquire a piece</span>
+              <span class="cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <dl class="hero-facts-ledger" data-motion="fade" data-delay="1000">
+            <div class="hero-fact">
+              <dt>Based</dt>
+              <dd>Kyoto · Berlin</dd>
+            </div>
+            <div class="hero-fact">
+              <dt>Working since</dt>
+              <dd>2004</dd>
+            </div>
+            <div class="hero-fact">
+              <dt>Mediums</dt>
+              <dd>Code, light, print</dd>
+            </div>
+          </dl>
+
+          <div class="mobile-scroll-cue" data-motion="fade" data-delay="1400">
+            <span class="mobile-scroll-text">Scroll to enter</span>
+            <span class="mobile-scroll-line" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <!-- Right: Hero Portrait Plate -->
+        <div class="hero-portrait" data-motion="plate" data-delay="200">
+          <div class="media-box" style="aspect-ratio: 3 / 4;">
+            <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-p1.webp" alt="Kai Nomura — portrait" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         STATEMENT SECTION
+         ======================================================================== -->
+    <section class="statement-section rule-dashed" aria-label="Statement">
+      <div class="statement-inner">
+        <div class="eyebrow" style="margin-bottom: 3rem;" data-motion="fade">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow-text">The practice</span>
+        </div>
+
+        <p class="statement-text reveal-words" data-stagger="30">
+          For two decades I have treated code as a material — as physical as clay, as fleeting as light. My work is not made by the machine; it is made with it. Each system is tuned until it breathes, then released to find its own form.
+        </p>
+
+        <span class="statement-sig" data-motion="fade-up" data-delay="400">
+          — K.N.
+        </span>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FEATURED WORKS
+         ======================================================================== -->
+    <section class="works-section section-pad rule-dashed" id="works" aria-label="Selected works">
+      <div class="container">
+        <div class="works-header">
+          <div class="eyebrow" data-motion="fade">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">Selected works</span>
+          </div>
+          <h2 class="works-title reveal-lines" data-stagger="90">
+            A field of <span class="accent">light,</span> never the same twice.
+          </h2>
+        </div>
+
+        <div class="works-grid">
+          <!-- Work 01 -->
+          <article class="work-article">
+            <figure>
+              <div class="media-box parallax-box" style="aspect-ratio: 3 / 2;" data-motion="plate">
+                <img class="parallax-plate" src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l1.webp" alt="Ma (間) — Generative light installation" loading="lazy">
+              </div>
+              <figcaption class="work-caption">
+                <div>
+                  <h3 class="work-title">Ma (間)</h3>
+                  <p class="work-medium">Generative light installation</p>
+                </div>
+                <span class="work-year">2024</span>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Work 02 -->
+          <article class="work-article">
+            <figure>
+              <div class="media-box parallax-box" style="aspect-ratio: 3 / 2;" data-motion="plate">
+                <img class="parallax-plate" src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l2.webp" alt="Tidal Memory — Real-time projection, sound" loading="lazy">
+              </div>
+              <figcaption class="work-caption">
+                <div>
+                  <h3 class="work-title">Tidal Memory</h3>
+                  <p class="work-medium">Real-time projection, sound</p>
+                </div>
+                <span class="work-year">2023</span>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Work 03 -->
+          <article class="work-article">
+            <figure>
+              <div class="media-box parallax-box" style="aspect-ratio: 3 / 4;" data-motion="plate">
+                <img class="parallax-plate" src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-p3.webp" alt="Hanabi Engine — Generative print series" loading="lazy">
+              </div>
+              <figcaption class="work-caption">
+                <div>
+                  <h3 class="work-title">Hanabi Engine</h3>
+                  <p class="work-medium">Generative print series</p>
+                </div>
+                <span class="work-year">2024</span>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Work 04 -->
+          <article class="work-article">
+            <figure>
+              <div class="media-box parallax-box" style="aspect-ratio: 3 / 2;" data-motion="plate">
+                <img class="parallax-plate" src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l4.webp" alt="Silent Architecture — LED matrix, custom code" loading="lazy">
+              </div>
+              <figcaption class="work-caption">
+                <div>
+                  <h3 class="work-title">Silent Architecture</h3>
+                  <p class="work-medium">LED matrix, custom code</p>
+                </div>
+                <span class="work-year">2022</span>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Work 05 -->
+          <article class="work-article">
+            <figure>
+              <div class="media-box parallax-box" style="aspect-ratio: 3 / 2;" data-motion="plate">
+                <img class="parallax-plate" src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l3.webp" alt="After Image — Archival pigment print" loading="lazy">
+              </div>
+              <figcaption class="work-caption">
+                <div>
+                  <h3 class="work-title">After Image</h3>
+                  <p class="work-medium">Archival pigment print</p>
+                </div>
+                <span class="work-year">2025</span>
+              </figcaption>
+            </figure>
+          </article>
+
+          <!-- Work 06 -->
+          <article class="work-article">
+            <figure>
+              <div class="media-box parallax-box" style="aspect-ratio: 3 / 2;" data-motion="plate">
+                <img class="parallax-plate" src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l5.webp" alt="Static Garden — Interactive installation" loading="lazy">
+              </div>
+              <figcaption class="work-caption">
+                <div>
+                  <h3 class="work-title">Static Garden</h3>
+                  <p class="work-medium">Interactive installation</p>
+                </div>
+                <span class="work-year">2023</span>
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PINNED CTA #1 (DARK + PORTRAIT)
+         ======================================================================== -->
+    <section class="pinned-cta-dark rule-dashed" aria-label="Acquire invitation">
+      <div class="container pinned-grid">
+        <div class="pinned-copy">
+          <div class="eyebrow tone-dark" data-motion="fade">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">Acquire</span>
+          </div>
+
+          <h2 class="pinned-title reveal-lines" data-stagger="90">
+            Some works only exist once.
+          </h2>
+
+          <p class="pinned-body reveal-words" data-stagger="16">
+            Each edition is signed, certified, and released in a strictly limited run. When it is gone, it is gone.
+          </p>
+
+          <div style="margin-top: 2.5rem;" data-motion="fade-up" data-delay="300">
+            <a href="#acquire" class="cta-btn dark-solid">
+              <span>See what's available</span>
+              <span class="cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="pinned-image" data-motion="plate">
+          <div class="media-box" style="aspect-ratio: 3 / 4;">
+            <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-p2.webp" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PRINCIPLES (GREY)
+         ======================================================================== -->
+    <section class="principles-section section-pad rule-dashed" aria-label="Studio principles">
+      <div class="container">
+        <div class="eyebrow" data-motion="fade">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow-text">Studio principles</span>
+        </div>
+        <h2 class="works-title reveal-lines" data-stagger="90">
+          Four rules the studio runs on.
+        </h2>
+
+        <div class="principles-grid">
+          <!-- Card 01 -->
+          <article class="principle-card" data-motion="fade-up" data-delay="0">
+            <span class="principle-index">01</span>
+            <h3 class="principle-title">The code is the brush.</h3>
+            <p class="principle-desc">Tools should vanish. What remains on the wall is feeling, not technique.</p>
+          </article>
+
+          <!-- Card 02 -->
+          <article class="principle-card" data-motion="fade-up" data-delay="90">
+            <span class="principle-index">02</span>
+            <h3 class="principle-title">Impermanence is the medium.</h3>
+            <p class="principle-desc">A work that can change is more alive than one fixed forever in glass.</p>
+          </article>
+
+          <!-- Card 03 -->
+          <article class="principle-card" data-motion="fade-up" data-delay="180">
+            <span class="principle-index">03</span>
+            <h3 class="principle-title">Light belongs to no one.</h3>
+            <p class="principle-desc">I borrow it, shape it, and give it back. The viewer completes the piece.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ABOUT SECTION
+         ======================================================================== -->
+    <section class="about-section section-pad rule-dashed" id="about" aria-label="About Kai Nomura">
+      <div class="container">
+        <!-- Top Grid -->
+        <div class="about-top-grid">
+          <div class="about-heading-col">
+            <div class="eyebrow" data-motion="fade">
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              <span class="eyebrow-text">About</span>
+            </div>
+            <h2 class="about-h2 reveal-lines" data-stagger="90">
+              I make work that disappears the moment you understand it.
+            </h2>
+          </div>
+
+          <div class="about-copy-col">
+            <p class="about-p reveal-words" data-stagger="10">
+              I grew up between two cities and two alphabets, and I think that is why impermanence never frightened me. My earliest pieces were small programs that drew with light and then forgot what they had drawn.
+            </p>
+            <p class="about-p reveal-words" data-stagger="10">
+              Today my studio sits somewhere between an observatory and a workshop. I write the systems, tune them by hand, and let them run until something honest appears. Then I step back.
+            </p>
+            <p class="about-p reveal-words" data-stagger="10">
+              When a work leaves the studio, it keeps changing. That is the point. I am not selling an object so much as a way of paying attention.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo Grid (3 x 3/2) -->
+        <div class="about-photo-grid">
+          <div class="about-photo-box media-box" style="aspect-ratio: 3 / 2;" data-motion="plate" data-delay="0">
+            <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l1.webp" alt="Studio light study" loading="lazy">
+          </div>
+          <div class="about-photo-box media-box" style="aspect-ratio: 3 / 2;" data-motion="plate" data-delay="100">
+            <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l2.webp" alt="Installation detail" loading="lazy">
+          </div>
+          <div class="about-photo-box media-box" style="aspect-ratio: 3 / 2;" data-motion="plate" data-delay="200">
+            <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l3.webp" alt="Work in progress" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Facts Ledger -->
+        <dl class="about-ledger" data-motion="fade-up">
+          <div>
+            <dt>Based</dt>
+            <dd>Kyoto · Berlin</dd>
+          </div>
+          <div>
+            <dt>Working since</dt>
+            <dd>2004</dd>
+          </div>
+          <div>
+            <dt>Mediums</dt>
+            <dd>Code, light, print</dd>
+          </div>
+          <div>
+            <dt>Represented by</dt>
+            <dd>Meridian Gallery</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PROCESS SECTION (STICKY HEADING)
+         ======================================================================== -->
+    <section class="process-section section-pad rule-dashed" id="process" aria-label="Studio process">
+      <div class="container process-grid">
+        <!-- Left: Sticky Heading -->
+        <div class="process-sticky-col">
+          <div class="eyebrow" data-motion="fade">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">The studio process</span>
+          </div>
+          <h2 class="process-title reveal-lines" data-stagger="90">
+            From observation to exhibition.
+          </h2>
+        </div>
+
+        <!-- Right: 4 Steps -->
+        <div class="process-list-col">
+          <ol>
+            <!-- Step 01 -->
+            <li class="process-step" data-motion="fade-up">
+              <span class="process-step-num">01</span>
+              <div class="process-step-content">
+                <h3 class="process-step-title">Observe</h3>
+                <p class="process-step-desc">
+                  Months of looking — at tides, crowds, signal noise, the way a room holds dusk. Nothing is sketched yet.
+                </p>
+              </div>
+            </li>
+
+            <!-- Step 02 -->
+            <li class="process-step" data-motion="fade-up">
+              <span class="process-step-num">02</span>
+              <div class="process-step-content">
+                <h3 class="process-step-title">Compose</h3>
+                <p class="process-step-desc">
+                  I write the rules of the system: how light is born, how it decays, what it remembers. The score before the symphony.
+                </p>
+              </div>
+            </li>
+
+            <!-- Step 03 -->
+            <li class="process-step" data-motion="fade-up">
+              <span class="process-step-num">03</span>
+              <div class="process-step-content">
+                <h3 class="process-step-title">Generate</h3>
+                <p class="process-step-desc">
+                  The system runs for days. I sit with it, tune it by hand, and wait for the moment it stops being mine.
+                </p>
+              </div>
+            </li>
+
+            <!-- Step 04 -->
+            <li class="process-step" data-motion="fade-up">
+              <span class="process-step-num">04</span>
+              <div class="process-step-content">
+                <h3 class="process-step-title">Exhibit</h3>
+                <p class="process-step-desc">
+                  Each work is editioned, certified, and installed — in a gallery, a private collection, or a screen in your home.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACQUIRE SECTION
+         ======================================================================== -->
+    <section class="acquire-section section-pad rule-dashed" id="acquire" aria-label="Acquire works">
+      <div class="container">
+        <!-- Header Row -->
+        <div class="acquire-header-row">
+          <div>
+            <div class="eyebrow" data-motion="fade">
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              <span class="eyebrow-text">Acquire</span>
+            </div>
+            <h2 class="works-title reveal-lines" data-stagger="90">
+              Own a piece of the field.
+            </h2>
+          </div>
+
+          <p class="acquire-lead" data-motion="fade">
+            Limited editions, each signed and accompanied by a certificate of authenticity and a lifetime conservation guarantee. Worldwide shipping, fully insured.
+          </p>
+        </div>
+
+        <!-- 2-Col For-Sale Grid -->
+        <div class="acquire-grid">
+          <!-- Item 01 -->
+          <article data-motion="fade-up" data-delay="0">
+            <a href="#contact" class="acquire-card" aria-label="Enquire about After Image — Plate I">
+              <div class="acquire-card-image-wrap">
+                <div class="media-box" style="aspect-ratio: 3 / 2;">
+                  <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l4.webp" alt="After Image — Plate I" loading="lazy">
+                </div>
+              </div>
+              <div class="acquire-info-row">
+                <div>
+                  <h3 class="acquire-item-title">After Image — Plate I</h3>
+                  <p class="acquire-item-medium">Archival pigment print, 90 × 112 cm</p>
+                  <p class="acquire-item-edition">Edition of 12</p>
+                </div>
+                <span class="acquire-item-price">€4,800</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Item 02 -->
+          <article data-motion="fade-up" data-delay="90">
+            <a href="#contact" class="acquire-card" aria-label="Enquire about Hanabi Engine — 03">
+              <div class="acquire-card-image-wrap">
+                <div class="media-box" style="aspect-ratio: 3 / 4;">
+                  <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-p2.webp" alt="Hanabi Engine — 03" loading="lazy">
+                </div>
+              </div>
+              <div class="acquire-info-row">
+                <div>
+                  <h3 class="acquire-item-title">Hanabi Engine — 03</h3>
+                  <p class="acquire-item-medium">Generative print, 70 × 93 cm</p>
+                  <p class="acquire-item-edition">Edition of 25</p>
+                </div>
+                <span class="acquire-item-price">€2,400</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Item 03 -->
+          <article data-motion="fade-up" data-delay="0">
+            <a href="#contact" class="acquire-card" aria-label="Enquire about Ma (間) — Still">
+              <div class="acquire-card-image-wrap">
+                <div class="media-box" style="aspect-ratio: 3 / 2;">
+                  <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-l5.webp" alt="Ma (間) — Still" loading="lazy">
+                </div>
+              </div>
+              <div class="acquire-info-row">
+                <div>
+                  <h3 class="acquire-item-title">Ma (間) — Still</h3>
+                  <p class="acquire-item-medium">Editioned digital work, 4K, with display</p>
+                  <p class="acquire-item-edition">Edition of 8</p>
+                </div>
+                <span class="acquire-item-price">€6,200</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Item 04 -->
+          <article data-motion="fade-up" data-delay="90">
+            <a href="#contact" class="acquire-card" aria-label="Enquire about Tidal Memory — Frame 41">
+              <div class="acquire-card-image-wrap">
+                <div class="media-box" style="aspect-ratio: 3 / 4;">
+                  <img src="https://api.getlayers.ai/storage/v1/object/public/public/assets/artist-32290926f6/site/art-p3.webp" alt="Tidal Memory — Frame 41" loading="lazy">
+                </div>
+              </div>
+              <div class="acquire-info-row">
+                <div>
+                  <h3 class="acquire-item-title">Tidal Memory — Frame 41</h3>
+                  <p class="acquire-item-medium">Archival pigment print, 100 × 69 cm</p>
+                  <p class="acquire-item-edition">Edition of 30</p>
+                </div>
+                <span class="acquire-item-price">€1,950</span>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <div class="acquire-bottom-cta" data-motion="fade-up">
+          <a href="#contact" class="cta-btn light-solid">
+            <span>Enquire about a work</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PINNED CTA #2 (DARK, CENTERED)
+         ======================================================================== -->
+    <section class="pinned-cta-centered rule-dashed" id="contact" aria-label="Contact invitation">
+      <div class="container">
+        <div class="pinned-centered-box">
+          <div class="eyebrow tone-dark" data-motion="fade">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">Begin</span>
+          </div>
+
+          <h2 class="pinned-title reveal-lines" data-stagger="90">
+            Start with a single conversation.
+          </h2>
+
+          <p class="pinned-body reveal-words" data-stagger="16">
+            Acquiring an edition, planning a commission, or simply curious — write to the studio. No pressure, just a real reply.
+          </p>
+
+          <div style="margin-top: 2.5rem;" data-motion="fade-up" data-delay="300">
+            <a href="mailto:studio@kainomura.art" class="cta-btn dark-solid">
+              <span>Write to the studio</span>
+              <span class="cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         TESTIMONIALS SECTION
+         ======================================================================== -->
+    <section class="testimonials-section section-pad rule-dashed" aria-label="Testimonials">
+      <div class="container">
+        <div class="eyebrow" data-motion="fade">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow-text">In their words</span>
+        </div>
+        <h2 class="works-title reveal-lines" data-stagger="90">
+          What collectors and curators say.
+        </h2>
+
+        <div class="testimonials-grid">
+          <!-- Quote 01 -->
+          <figure class="testimonial-card" data-motion="fade-up" data-delay="0">
+            <blockquote class="testimonial-quote">
+              “Standing inside one of Nomura's installations, you stop checking your phone. Time slows down. That is the rarest thing an artwork can do now.”
+            </blockquote>
+            <figcaption class="testimonial-author-box">
+              <p class="testimonial-author">Elena Vossberg</p>
+              <p class="testimonial-role">Curator, Kunsthalle Nord</p>
+            </figcaption>
+          </figure>
+
+          <!-- Quote 02 -->
+          <figure class="testimonial-card" data-motion="fade-up" data-delay="110">
+            <blockquote class="testimonial-quote">
+              “We bought a print and ended up rearranging the whole room around it. It changes with the daylight — it is never the same painting twice.”
+            </blockquote>
+            <figcaption class="testimonial-author-box">
+              <p class="testimonial-author">Marcus &amp; Lia Hartmann</p>
+              <p class="testimonial-role">Private collectors, Zürich</p>
+            </figcaption>
+          </figure>
+
+          <!-- Quote 03 -->
+          <figure class="testimonial-card" data-motion="fade-up" data-delay="220">
+            <blockquote class="testimonial-quote">
+              “Kai is one of the few artists working with code who never lets the technology become the subject. The work is always, quietly, about us.”
+            </blockquote>
+            <figcaption class="testimonial-author-box">
+              <p class="testimonial-author">Daniel Asante</p>
+              <p class="testimonial-role">Director, Lumen Festival</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         EXHIBITIONS SECTION (GREY)
+         ======================================================================== -->
+    <section class="exhibitions-section section-pad rule-dashed" aria-label="Exhibitions and collections">
+      <div class="container">
+        <div class="exhibitions-header">
+          <div class="eyebrow" data-motion="fade">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">Exhibited &amp; collected</span>
+          </div>
+          <h2 class="works-title reveal-lines" data-stagger="90">
+            Shown in good company.
+          </h2>
+        </div>
+
+        <ul class="exhibitions-list">
+          <li class="exhibition-item" data-motion="fade-up" data-delay="0">
+            <span class="exhibition-index">01</span>
+            <span class="exhibition-venue">Meridian Gallery</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="80">
+            <span class="exhibition-index">02</span>
+            <span class="exhibition-venue">Aurora Biennale</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="160">
+            <span class="exhibition-index">03</span>
+            <span class="exhibition-venue">Lumen Festival</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="0">
+            <span class="exhibition-index">04</span>
+            <span class="exhibition-venue">Kunsthalle Nord</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="80">
+            <span class="exhibition-index">05</span>
+            <span class="exhibition-venue">Pavilion 9</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="160">
+            <span class="exhibition-index">06</span>
+            <span class="exhibition-venue">Nocturne Foundation</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="0">
+            <span class="exhibition-index">07</span>
+            <span class="exhibition-venue">Verso Institute</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="80">
+            <span class="exhibition-index">08</span>
+            <span class="exhibition-venue">Halcyon Trust</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="160">
+            <span class="exhibition-index">09</span>
+            <span class="exhibition-venue">Field Museum of Light</span>
+          </li>
+          <li class="exhibition-item" data-motion="fade-up" data-delay="0">
+            <span class="exhibition-index">10</span>
+            <span class="exhibition-venue">Serra Collection</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FAQ (ACCORDION)
+         ======================================================================== -->
+    <section class="faq-section section-pad rule-dashed" aria-label="Frequently Asked Questions">
+      <div class="container faq-grid">
+        <!-- Left: Heading -->
+        <div class="faq-left-col">
+          <div class="eyebrow" data-motion="fade">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">Questions</span>
+          </div>
+          <h2 class="works-title reveal-lines" data-stagger="90">
+            Before you acquire.
+          </h2>
+        </div>
+
+        <!-- Right: Accordion -->
+        <div class="faq-right-col">
+          <!-- Row 1 -->
+          <div class="faq-row" data-motion="fade-up" data-delay="0">
+            <h3>
+              <button class="faq-btn" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">
+                <span class="faq-question">How are the editions authenticated?</span>
+                <span class="faq-glyph" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">
+                  Every work ships with a signed certificate of authenticity, an embedded edition number, and a registry entry held by the studio. Digital works include a verifiable provenance record.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="faq-row" data-motion="fade-up" data-delay="80">
+            <h3>
+              <button class="faq-btn" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">
+                <span class="faq-question">Do you ship worldwide?</span>
+                <span class="faq-glyph" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">
+                  Yes. All works are shipped fully insured, in archival packaging, by specialist art couriers. Lead time is typically two to four weeks depending on framing and destination.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="faq-row" data-motion="fade-up" data-delay="160">
+            <h3>
+              <button class="faq-btn" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">
+                <span class="faq-question">Can I commission an original work?</span>
+                <span class="faq-glyph" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">
+                  Selectively. The studio takes on a small number of commissions each year — site-specific installations and bespoke generative works for collectors and institutions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="faq-row" data-motion="fade-up" data-delay="240">
+            <h3>
+              <button class="faq-btn" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4">
+                <span class="faq-question">How do I care for a generative or screen-based piece?</span>
+                <span class="faq-glyph" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">
+                  Editioned digital works arrive with a calibrated display and a lifetime conservation guarantee. The studio handles updates, replacements, and migration so the work outlives the hardware.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (DARK)
+       ======================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <!-- Top Grid -->
+      <div class="footer-top-grid">
+        <!-- Brand Col (lg col-span 5) -->
+        <div class="footer-brand-col" data-motion="fade-up">
+          <a href="#top" class="header-logo" aria-label="Kai Nomura Home">
+            <span class="logo-diamond" aria-hidden="true"></span>
+            <span class="logo-wordmark">kai nomura</span>
+          </a>
+          <p class="footer-tagline">Light, written in code.</p>
+          <a href="mailto:studio@kainomura.art" class="footer-email">studio@kainomura.art</a>
+        </div>
+
+        <!-- Explore Col (lg col-span 2) -->
+        <div class="footer-explore-col">
+          <p class="footer-col-title">Explore</p>
+          <ul class="footer-nav-list">
+            <li><a href="#works" class="footer-nav-link">Works</a></li>
+            <li><a href="#about" class="footer-nav-link">About</a></li>
+            <li><a href="#process" class="footer-nav-link">Process</a></li>
+            <li><a href="#acquire" class="footer-nav-link">Acquire</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio Col (lg col-span 2) -->
+        <div class="footer-studio-col">
+          <p class="footer-col-title">Studio</p>
+          <ul class="footer-nav-list">
+            <li><a href="#contact" class="footer-nav-link">Contact</a></li>
+            <li><a href="#contact" class="footer-nav-link">Commissions</a></li>
+            <li><a href="#contact" class="footer-nav-link">Press kit</a></li>
+            <li><a href="#contact" class="footer-nav-link">Newsletter</a></li>
+          </ul>
+        </div>
+
+        <!-- Follow Col (lg col-span 3) -->
+        <div class="footer-follow-col">
+          <p class="footer-col-title">Follow</p>
+          <ul class="footer-nav-list">
+            <li><a href="https://instagram.com" target="_blank" rel="noreferrer noopener" class="footer-nav-link">Instagram</a></li>
+            <li><a href="https://behance.net" target="_blank" rel="noreferrer noopener" class="footer-nav-link">Behance</a></li>
+            <li><a href="https://vimeo.com" target="_blank" rel="noreferrer noopener" class="footer-nav-link">Vimeo</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Giant Wordmark -->
+      <div class="giant-wordmark-wrap" data-motion="fade-up" aria-hidden="true">
+        <span class="giant-wordmark">Nomura</span>
+      </div>
+
+      <!-- Legal Bar -->
+      <div class="footer-legal-bar">
+        <p class="footer-copy">© 2026 Kai Nomura Studio. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#" class="footer-legal-link">Privacy</a>
+          <a href="#" class="footer-legal-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL MENU (FULL-SCREEN OVERLAY)
+       ======================================================================== -->
+  <div class="menu-modal" id="menuModal" role="dialog" aria-modal="true" aria-label="Site Navigation">
+    <div class="menu-panel-backdrop" id="menuBackdrop"></div>
+
+    <div class="menu-content">
+      <!-- Top Bar -->
+      <div class="menu-top-bar">
+        <span class="menu-top-label">Menu</span>
+        <button class="menu-close-btn" id="menuCloseBtn" aria-label="Close menu">Close ✕</button>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="menu-nav" aria-label="Modal navigation">
+        <a href="#works" class="menu-link-item" style="transition-delay: 180ms;">
+          <span class="menu-link-index">01</span>
+          <span class="menu-link-label">Works</span>
+        </a>
+        <a href="#about" class="menu-link-item" style="transition-delay: 250ms;">
+          <span class="menu-link-index">02</span>
+          <span class="menu-link-label">About</span>
+        </a>
+        <a href="#process" class="menu-link-item" style="transition-delay: 320ms;">
+          <span class="menu-link-index">03</span>
+          <span class="menu-link-label">Process</span>
+        </a>
+        <a href="#acquire" class="menu-link-item" style="transition-delay: 390ms;">
+          <span class="menu-link-index">04</span>
+          <span class="menu-link-label">Acquire</span>
+        </a>
+        <a href="#contact" class="menu-link-item" style="transition-delay: 460ms;">
+          <span class="menu-link-index">05</span>
+          <span class="menu-link-label">Contact</span>
+        </a>
+      </nav>
+
+      <!-- Bottom Block -->
+      <div class="menu-bottom-block">
+        <div>
+          <a href="mailto:studio@kainomura.art" class="menu-contact-email">studio@kainomura.art</a>
+          <span class="menu-contact-location">Kyoto · Berlin</span>
+        </div>
+
+        <ul class="menu-social-list">
+          <li><a href="https://instagram.com" target="_blank" rel="noreferrer noopener" class="menu-social-link">Instagram</a></li>
+          <li><a href="https://behance.net" target="_blank" rel="noreferrer noopener" class="menu-social-link">Behance</a></li>
+          <li><a href="https://vimeo.com" target="_blank" rel="noreferrer noopener" class="menu-social-link">Vimeo</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SCRIPTS: LENIS SMOOTH SCROLL, REVEALS, PARALLAX, FAQ & MODAL
+       ======================================================================== -->
+  <script type="module">
+    import Lenis from "https://cdn.jsdelivr.net/npm/lenis@1.3.19/+esm";
+
+    // 1. Initialize Lenis Smooth Scroll
+    const lenis = new Lenis({
+      smoothWheel: true,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Anchor Link Smooth Scroll via Lenis
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (href === "#") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          if (menuModal.classList.contains("is-open")) {
+            closeMenu();
+          }
+          lenis.scrollTo(target, { offset: 0, duration: 1.2 });
+        }
+      });
+    });
+
+    // 2. Line Reveal Text Splitter
+    function initLineReveals() {
+      const lineElements = document.querySelectorAll(".reveal-lines");
+      lineElements.forEach((el) => {
+        const rawHTML = el.innerHTML.trim();
+        const baseStagger = parseInt(el.dataset.stagger || "90", 10);
+        const baseDelay = parseInt(el.dataset.delay || "0", 10);
+
+        // Split by lines or line-break tags if present, or split into tokens preserving tags
+        // To faithfully reveal line-by-line while preserving inner HTML elements (like <span class="accent">):
+        const childNodes = Array.from(el.childNodes);
+        el.innerHTML = "";
+        
+        let currentLine = document.createElement("span");
+        currentLine.className = "line-wrap";
+        let innerSpan = document.createElement("span");
+        innerSpan.className = "line-inner";
+        currentLine.appendChild(innerSpan);
+
+        childNodes.forEach((node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const words = node.textContent.split(/(\s+)/);
+            words.forEach((w) => {
+              if (w.trim().length > 0) {
+                const wSpan = document.createElement("span");
+                wSpan.style.display = "inline-block";
+                wSpan.textContent = w;
+                innerSpan.appendChild(wSpan);
+              } else if (w.length > 0) {
+                innerSpan.appendChild(document.createTextNode(w));
+              }
+            });
+          } else {
+            innerSpan.appendChild(node.cloneNode(true));
+          }
+        });
+
+        innerSpan.style.transitionDelay = `${baseDelay}ms`;
+        el.appendChild(currentLine);
+      });
+    }
+
+    // 3. Word Reveal Text Splitter
+    function initWordReveals() {
+      const wordElements = document.querySelectorAll(".reveal-words");
+      wordElements.forEach((el) => {
+        const baseStagger = parseInt(el.dataset.stagger || "16", 10);
+        const baseDelay = parseInt(el.dataset.delay || "0", 10);
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = "";
+
+        words.forEach((word, idx) => {
+          const wrap = document.createElement("span");
+          wrap.className = "word-wrap";
+
+          const inner = document.createElement("span");
+          inner.className = "word-inner";
+          inner.textContent = word;
+
+          const delay = baseDelay + idx * baseStagger;
+          inner.style.transitionDelay = `${delay}ms`;
+
+          wrap.appendChild(inner);
+          el.appendChild(wrap);
+
+          if (idx < words.length - 1) {
+            el.appendChild(document.createTextNode(" "));
+          }
+        });
+      });
+    }
+
+    initLineReveals();
+    initWordReveals();
+
+    // 4. Scroll Intersection Observer for Springs / Reveals
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            const delay = target.dataset.delay;
+            if (delay) {
+              target.style.transitionDelay = `${delay}ms`;
+            }
+            target.classList.add("in-view");
+            revealObserver.unobserve(target);
+          }
+        });
+      },
+      {
+        threshold: 0,
+        rootMargin: "0px 0px -10% 0px"
+      }
+    );
+
+    document.querySelectorAll('[data-motion="fade"], [data-motion="fade-up"], [data-motion="plate"], .reveal-lines, .reveal-words').forEach((el) => {
+      revealObserver.observe(el);
+    });
+
+    // 5. Featured Works Parallax (Scroll-Scrub) via Lenis Callback
+    const parallaxPlates = document.querySelectorAll(".parallax-plate");
+
+    lenis.on("scroll", () => {
+      if (window.innerWidth < 1024) return;
+      const vh = window.innerHeight;
+
+      parallaxPlates.forEach((img) => {
+        const rect = img.parentElement.getBoundingClientRect();
+        // Progress: 0 when plate top enters bottom of viewport -> 1 when plate bottom exits top
+        const totalDist = vh + rect.height;
+        const currentDist = vh - rect.top;
+        const progress = Math.max(0, Math.min(1, currentDist / totalDist));
+
+        // Map progress 0 -> 1 to translateY +2.5rem (+40px) to -2.5rem (-40px)
+        const remVal = 2.5 - progress * 5.0; // from +2.5 to -2.5 rem
+        img.style.transform = `translateY(${remVal}rem) scale(1.08)`;
+      });
+    });
+
+    // 6. FAQ Accordion
+    const faqRows = document.querySelectorAll(".faq-row");
+    faqRows.forEach((row) => {
+      const btn = row.querySelector(".faq-btn");
+      const panel = row.querySelector(".faq-panel");
+
+      btn.addEventListener("click", () => {
+        const isOpen = row.classList.contains("is-open");
+        if (isOpen) {
+          row.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          panel.style.maxHeight = "0";
+        } else {
+          row.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Remeasure open FAQ panels on window resize
+    window.addEventListener("resize", () => {
+      faqRows.forEach((row) => {
+        if (row.classList.contains("is-open")) {
+          const panel = row.querySelector(".faq-panel");
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+
+    // 7. Modal Menu Overlay
+    const menuModal = document.getElementById("menuModal");
+    const menuOpenBtn = document.getElementById("menuOpenBtn");
+    const menuCloseBtn = document.getElementById("menuCloseBtn");
+    const menuLinks = menuModal.querySelectorAll(".menu-link-item");
+
+    function openMenu() {
+      menuModal.classList.add("is-open");
+      lenis.stop();
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.height = "100%";
+      document.documentElement.style.position = "relative";
+    }
+
+    function closeMenu() {
+      menuModal.classList.remove("is-open");
+      lenis.start();
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.height = "";
+      document.documentElement.style.position = "";
+    }
+
+    menuOpenBtn.addEventListener("click", openMenu);
+    menuCloseBtn.addEventListener("click", closeMenu);
+
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menuModal.classList.contains("is-open")) {
+        closeMenu();
+      }
+    });
+  </script>
+</body>
+</html>
