@@ -37,10 +37,10 @@ export function GroveTestimonialsSection() {
   ];
 
   return (
-    <section className="bg-white text-slate-900 py-16 sm:py-24 font-sans border-b border-slate-200">
+    <section className="bg-white text-slate-900 py-14 sm:py-20 font-sans border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2.5 mb-2">
             <span className="w-6 h-[2px] bg-[#0F766E]" />
             <span className="text-xs font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
