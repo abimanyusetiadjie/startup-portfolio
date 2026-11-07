@@ -21,7 +21,7 @@ export function GroveHeroSection() {
   };
 
   return (
-    <section className="relative w-full h-[100svh] min-h-[660px] max-h-[1100px] flex flex-col justify-between overflow-hidden bg-[#0A0D14] font-sans">
+    <section id="beranda" className="relative w-full h-[100svh] min-h-[660px] max-h-[1100px] flex flex-col justify-between overflow-hidden bg-[#0A0D14] font-sans">
       {/* 1. CINEMATIC FULL-BLEED ARCHITECTURAL MONOLITH BACKGROUND (SUBTLE INITIAL ZOOM) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}

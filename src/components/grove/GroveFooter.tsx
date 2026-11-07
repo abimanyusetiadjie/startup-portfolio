@@ -34,7 +34,7 @@ export function GroveFooter() {
   };
 
   return (
-    <footer className="bg-[#080B11] text-white pt-16 pb-12 px-4 sm:px-8 lg:px-12 font-sans border-t border-dashed border-white/20">
+    <footer id="tentang" className="bg-[#080B11] text-white pt-16 pb-12 px-4 sm:px-8 lg:px-12 font-sans border-t border-dashed border-white/20">
       <div className="max-w-7xl mx-auto">
         {/* 1. TOP LIVE SYSTEM STATUS BAR */}
         <div className="pb-10 mb-12 border-b border-dashed border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

@@ -9,15 +9,11 @@ import {
   Menu,
   X,
   MessageSquare,
-  Mail,
-  MapPin,
-  ShieldCheck,
-  CheckCircle2,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveNavbar() {
-  const { lang, setLang, t } = useLanguage();
+  const { lang, setLang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -60,6 +56,10 @@ export function GroveNavbar() {
     if (targetId.startsWith("#")) {
       e.preventDefault();
       setIsMenuOpen(false);
+      if (targetId === "#beranda") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
       const element = document.getElementById(targetId.replace("#", ""));
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -67,34 +67,52 @@ export function GroveNavbar() {
     }
   };
 
-  const mobileNavLinks = [
+  // Struktur Menu Referensi: Beranda | Layanan | Harga | Bantuan | Tentang
+  const navItems = [
     {
       num: "01",
-      title: lang === "id" ? "Layanan & Sistem" : "Services & Systems",
+      title: lang === "id" ? "Beranda" : "Home",
       desc:
         lang === "id"
-          ? "Website Next.js 15, SIAKAD Sekolah Anti-Down, ERP Cloud, & Bot Otomasi WA"
-          : "Next.js 15 Web, School SIAKAD, Business ERP & WhatsApp Dispatch Bot",
-      href: "#systems",
+          ? "Ringkasan kapabilitas rekayasa sistem & standar infrastruktur Abinest"
+          : "Overview of Abinest software engineering capabilities & infrastructure",
+      href: "#beranda",
     },
     {
       num: "02",
-      title: "Client Portal",
+      title: lang === "id" ? "Layanan" : "Services",
       desc:
         lang === "id"
-          ? "Live progress tracking, SLA uptime dashboard, & pemantauan invoice"
-          : "Real-time project tracking, SLA monitoring & invoice management",
-      href: "/portal",
-      isRoute: true,
+          ? "SIAKAD Sekolah Anti-Down, Website Next.js 15, ERP Omnichannel, & Bot WA"
+          : "School SIAKAD, Next.js 15 Web, Omnichannel ERP & WhatsApp Automation",
+      href: "#systems",
     },
     {
       num: "03",
-      title: lang === "id" ? "Konsultasi WhatsApp" : "WhatsApp Scoping",
+      title: lang === "id" ? "Harga" : "Pricing",
       desc:
         lang === "id"
-          ? "Diskusikan kebutuhan arsitektur digital bersama tim insinyur kami via WhatsApp"
-          : "Schedule a technical scoping session directly with our engineering team on WhatsApp",
+          ? "Diskusi cakupan fitur & estimasi investasi proyek secara transparan"
+          : "Transparent feature scoping and project investment estimation",
       href: "#konsultasi",
+    },
+    {
+      num: "04",
+      title: lang === "id" ? "Bantuan" : "Support",
+      desc:
+        lang === "id"
+          ? "Garansi 100% kepemilikan source code, SLA uptime 99.9%, & pemeliharaan"
+          : "100% source code ownership, 99.9% uptime SLA warranty & maintenance",
+      href: "#bantuan",
+    },
+    {
+      num: "05",
+      title: lang === "id" ? "Tentang" : "About",
+      desc:
+        lang === "id"
+          ? "Profil studio, status operasional server live, & kontak resmi"
+          : "Studio profile, live server operational telemetry & official contact",
+      href: "#tentang",
     },
   ];
 
@@ -130,46 +148,22 @@ export function GroveNavbar() {
             </div>
           </Link>
 
-          {/* 2. NAVIGATION LINKS (Tengah - 1 Baris / whitespace-nowrap) */}
-          <div className="hidden lg:flex items-center gap-7 text-sm font-medium text-zinc-300">
-            <a
-              href="#systems"
-              onClick={(e) => handleSmoothScroll(e, "#systems")}
-              className="whitespace-nowrap hover:text-white transition-colors"
-            >
-              {lang === "id" ? "Layanan & Sistem" : "Services & Systems"}
-            </a>
-            <a
-              href="#konsultasi"
-              onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-              className="whitespace-nowrap hover:text-white transition-colors"
-            >
-              {lang === "id" ? "Garansi & SLA" : "SLA & Warranty"}
-            </a>
-            <a
-              href="#konsultasi"
-              onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-              className="whitespace-nowrap text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5"
-            >
-              <span>{lang === "id" ? "Konsultasi WA" : "WhatsApp Chat"}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            </a>
+          {/* 2. NAVIGATION LINKS (Tengah: Beranda | Layanan | Harga | Bantuan | Tentang) */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-medium text-zinc-300">
+            {navItems.map((item) => (
+              <a
+                key={item.num}
+                href={item.href}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className="whitespace-nowrap hover:text-white transition-colors"
+              >
+                {item.title}
+              </a>
+            ))}
           </div>
 
-          {/* 3. ACTIONS & UTILITIES (Kanan) */}
+          {/* 3. ACTIONS & UTILITIES (Kanan: ID/EN + Masuk + Konsultasi Gratis) */}
           <div className="flex items-center gap-2.5 shrink-0">
-            {/* Client Portal - 1 Baris Rapi dengan Live Status Dot */}
-            <Link
-              href="/portal"
-              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 hover:border-emerald-500/40 text-xs font-mono tracking-wider uppercase text-emerald-400 transition-all whitespace-nowrap"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Client Portal</span>
-            </Link>
-
-            {/* Divider tipis pemisah utilitas */}
-            <div className="hidden sm:block h-4 w-[1px] bg-white/10 mx-0.5" />
-
             {/* Language Switcher Ramping */}
             <div className="hidden md:flex items-center p-0.5 rounded-full bg-zinc-900 border border-white/10 text-[11px] font-semibold">
               <button
@@ -198,13 +192,22 @@ export function GroveNavbar() {
               </button>
             </div>
 
-            {/* Primary CTA */}
+            {/* Tombol Outline: Masuk (Akses Client Portal) */}
+            <Link
+              href="/portal"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-white/25 hover:border-emerald-400/60 hover:bg-white/5 text-xs sm:text-sm font-medium text-white transition-all whitespace-nowrap"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>{lang === "id" ? "Masuk" : "Sign In"}</span>
+            </Link>
+
+            {/* Primary CTA: Konsultasi Gratis */}
             <a
               href="#konsultasi"
               onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] text-zinc-950 text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap shadow-sm group"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] text-zinc-950 text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap shadow-sm group"
             >
-              <span>{lang === "id" ? "Mulai Konsultasi" : "Book Consultation"}</span>
+              <span>{lang === "id" ? "Konsultasi Gratis" : "Free Consultation"}</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
 
@@ -269,59 +272,34 @@ export function GroveNavbar() {
               {/* Left Column: Numbered Navigation Links */}
               <div className="md:col-span-7 space-y-4">
                 <div className="text-xs font-mono uppercase tracking-[0.2em] text-emerald-400">
-                  {lang === "id" ? "NAVIGASI DIREKTORI SISTEM" : "SYSTEMS DIRECTORY"}
+                  {lang === "id" ? "MENU NAVIGASI UTAMA" : "MAIN NAVIGATION"}
                 </div>
 
                 <div className="divide-y divide-white/10">
-                  {mobileNavLinks.map((item) => (
+                  {navItems.map((item) => (
                     <div key={item.num} className="py-3.5 first:pt-1">
-                      {item.isRoute ? (
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block group"
-                        >
-                          <div className="flex items-baseline gap-4">
-                            <span className="font-mono text-xs text-emerald-400">
-                              {item.num}
-                            </span>
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
-                                  {item.title}
-                                </h3>
-                                <ArrowRight className="h-4 w-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
-                              </div>
-                              <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
-                                {item.desc}
-                              </p>
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleSmoothScroll(e, item.href)}
+                        className="block group"
+                      >
+                        <div className="flex items-baseline gap-4">
+                          <span className="font-mono text-xs text-emerald-400">
+                            {item.num}
+                          </span>
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between">
+                              <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                {item.title}
+                              </h3>
+                              <ArrowUpRight className="h-4 w-4 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                             </div>
+                            <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                              {item.desc}
+                            </p>
                           </div>
-                        </Link>
-                      ) : (
-                        <a
-                          href={item.href}
-                          onClick={(e) => handleSmoothScroll(e, item.href)}
-                          className="block group"
-                        >
-                          <div className="flex items-baseline gap-4">
-                            <span className="font-mono text-xs text-emerald-400">
-                              {item.num}
-                            </span>
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
-                                  {item.title}
-                                </h3>
-                                <ArrowUpRight className="h-4 w-4 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                              </div>
-                              <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
-                                {item.desc}
-                              </p>
-                            </div>
-                          </div>
-                        </a>
-                      )}
+                        </div>
+                      </a>
                     </div>
                   ))}
                 </div>
@@ -332,7 +310,7 @@ export function GroveNavbar() {
                 {/* Language Switcher Inside Mobile Drawer */}
                 <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-between">
                   <span className="text-xs font-mono uppercase text-zinc-400">
-                    PILIHAN BAHASA
+                    {lang === "id" ? "PILIHAN BAHASA" : "LANGUAGE"}
                   </span>
                   <div className="flex items-center p-0.5 rounded-full bg-zinc-900 border border-white/10 text-xs font-semibold">
                     <button
@@ -360,6 +338,26 @@ export function GroveNavbar() {
                   </div>
                 </div>
 
+                {/* Masuk Client Portal Button */}
+                <Link
+                  href="/portal"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 text-white transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <div>
+                      <span className="text-xs font-bold block">
+                        {lang === "id" ? "Masuk ke Client Portal" : "Sign In to Client Portal"}
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-mono">
+                        {lang === "id" ? "Pantau proyek & invoice live" : "Live milestone & invoice tracker"}
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowRight className="h-4 w-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+
                 {/* Direct WhatsApp Callout */}
                 <a
                   href="https://wa.me/6281234567890?text=Halo%20Abinest,%20saya%20ingin%20konsultasi%20pembuatan%20website/sistem"
@@ -383,7 +381,7 @@ export function GroveNavbar() {
                   onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
                   className="block text-center w-full py-3.5 rounded-full bg-white text-zinc-950 font-semibold text-xs hover:bg-zinc-100 transition-all shadow-lg"
                 >
-                  {lang === "id" ? "Mulai Konsultasi Proyek →" : "Book Engineering Consultation →"}
+                  {lang === "id" ? "Konsultasi Gratis →" : "Free Consultation →"}
                 </a>
               </div>
             </div>
