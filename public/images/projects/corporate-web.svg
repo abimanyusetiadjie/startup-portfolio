@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+  <rect width="1200" height="800" rx="16" fill="#050811"/>
+  <rect x="30" y="30" width="1140" height="740" rx="14" fill="#090D1A" stroke="#1E293B" stroke-width="1.5"/>
+  <path d="M30 44C30 36.268 36.268 30 44 30H1156C1163.73 30 1170 36.268 1170 44V76H30V44Z" fill="#131B2E"/>
+  <circle cx="60" cy="53" r="5" fill="#EF4444"/>
+  <circle cx="76" cy="53" r="5" fill="#F59E0B"/>
+  <circle cx="92" cy="53" r="5" fill="#10B981"/>
+  <text x="120" y="58" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12">https://yayasan-bina-insan.sch.id (Next.js 15 Edge)</text>
+  
+  <!-- Website Header mockup -->
+  <text x="60" y="130" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="28" font-weight="800">Yayasan Pendidikan Bina Insan</text>
+  <text x="60" y="160" fill="#38BDF8" font-family="-apple-system, sans-serif" font-size="16" font-weight="600">Mencetak Generasi Unggul Berkarakter &amp; Berteknologi</text>
+
+  <!-- Lighthouse Score Pills -->
+  <g transform="translate(60, 190)">
+    <rect width="180" height="70" rx="10" fill="#064E3B" stroke="#059669"/>
+    <text x="20" y="35" fill="#34D399" font-family="-apple-system, sans-serif" font-size="12">Performance</text>
+    <text x="20" y="58" fill="#FFFFFF" font-family="monospace" font-size="20" font-weight="800">100 / 100</text>
+
+    <rect x="200" width="180" height="70" rx="10" fill="#064E3B" stroke="#059669"/>
+    <text x="220" y="35" fill="#34D399" font-family="-apple-system, sans-serif" font-size="12">Accessibility</text>
+    <text x="220" y="58" fill="#FFFFFF" font-family="monospace" font-size="20" font-weight="800">98 / 100</text>
+
+    <rect x="400" width="180" height="70" rx="10" fill="#064E3B" stroke="#059669"/>
+    <text x="420" y="35" fill="#34D399" font-family="-apple-system, sans-serif" font-size="12">Best Practices</text>
+    <text x="420" y="58" fill="#FFFFFF" font-family="monospace" font-size="20" font-weight="800">100 / 100</text>
+
+    <rect x="600" width="180" height="70" rx="10" fill="#064E3B" stroke="#059669"/>
+    <text x="620" y="35" fill="#34D399" font-family="-apple-system, sans-serif" font-size="12">SEO Structure</text>
+    <text x="620" y="58" fill="#FFFFFF" font-family="monospace" font-size="20" font-weight="800">100 / 100</text>
+  </g>
+
+  <!-- Visual Mockup Cards -->
+  <rect x="60" y="290" width="680" height="440" rx="12" fill="#131B2E" stroke="#1E293B"/>
+  <rect x="90" y="320" width="620" height="240" rx="8" fill="#1E293B"/>
+  <text x="120" y="440" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="18" font-weight="600">Hero Section Website: Tipografi Elegan &amp; Fast-Loading Video</text>
+  <text x="90" y="600" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="18" font-weight="700">Kecepatan Muat: 0.6 Detik (Core Web Vitals Hijau)</text>
+  <text x="90" y="630" fill="#64748B" font-family="-apple-system, sans-serif" font-size="13">Menggunakan Server-Side Rendering (SSR) dan optimasi aset gambar WebP/AVIF.</text>
+
+  <!-- Side info -->
+  <rect x="760" y="290" width="380" height="440" rx="12" fill="#0F172A" stroke="#1E293B"/>
+  <text x="790" y="340" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="18" font-weight="700">Fitur Unggulan Website</text>
+  <circle cx="800" cy="385" r="4" fill="#10B981"/>
+  <text x="815" y="390" fill="#CBD5E1" font-family="-apple-system, sans-serif" font-size="13">Formulir PPDB &amp; Bayar Online</text>
+
+  <circle cx="800" cy="425" r="4" fill="#10B981"/>
+  <text x="815" y="430" fill="#CBD5E1" font-family="-apple-system, sans-serif" font-size="13">Struktur Artikel &amp; Berita SEO</text>
+
+  <circle cx="800" cy="465" r="4" fill="#10B981"/>
+  <text x="815" y="470" fill="#CBD5E1" font-family="-apple-system, sans-serif" font-size="13">Koneksi WhatsApp Customer Service</text>
+
+  <circle cx="800" cy="505" r="4" fill="#10B981"/>
+  <text x="815" y="510" fill="#CBD5E1" font-family="-apple-system, sans-serif" font-size="13">Keamanan SSL &amp; Anti-Deface</text>
+</svg>

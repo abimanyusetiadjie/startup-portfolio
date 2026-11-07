@@ -1,20 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ArrowUp,
-  ArrowUpRight,
-  ShieldCheck,
-  Activity,
-  MessageSquare,
-  Mail,
-  MapPin,
-  Lock,
-} from "lucide-react";
+import { ArrowUp, ArrowUpRight, Mail, MessageSquare, MapPin } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveFooter() {
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -34,63 +25,60 @@ export function GroveFooter() {
   };
 
   return (
-    <footer id="tentang" className="bg-[#080B11] text-white pt-16 pb-12 px-4 sm:px-8 lg:px-12 font-sans border-t border-dashed border-white/20">
-      <div className="max-w-7xl mx-auto">
-        {/* 1. TOP LIVE SYSTEM STATUS BAR */}
-        <div className="pb-10 mb-12 border-b border-dashed border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="flex h-2.5 w-2.5 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-            </span>
-            <span className="text-xs font-mono uppercase tracking-widest text-emerald-300 font-semibold">
+    <footer
+      id="tentang"
+      className="bg-[#06080E] text-white pt-16 pb-12 px-4 sm:px-8 lg:px-12 font-sans border-t border-white/10"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Top Status Bar (Subdued & Clean, No Pulse Gimmick) */}
+        <div className="pb-8 mb-10 border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+          <div className="flex items-center gap-2 text-zinc-300">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span>
               {lang === "id"
-                ? "SELURUH SISTEM OPERASIONAL • SLA UPTIME 99.98% • CLOUD MONITORING AKTIF"
-                : "ALL SYSTEMS OPERATIONAL • 99.98% UPTIME SLA • 24/7 MONITORING"}
+                ? "SELURUH CLUSTER SISTEM BEROPERASI NORMAL • SLA UPTIME 99.98%"
+                : "ALL CLUSTER NODES OPERATIONAL • 99.98% UPTIME SLA"}
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-mono">
-            <Link
-              href="/portal"
-              className="inline-flex items-center gap-1.5 text-teal-300 hover:text-teal-200 transition-colors"
-            >
-              <span>{lang === "id" ? "Buka Client Portal Live" : "Access Live Client Portal"}</span>
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
+          <Link
+            href="/portal"
+            className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors"
+          >
+            <span>{lang === "id" ? "Masuk ke Client Portal" : "Access Client Portal"}</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-emerald-400" />
+          </Link>
         </div>
 
-        {/* 2. MAIN 4-COLUMN ARCHITECTURAL GRID */}
+        {/* 4-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12">
-          {/* Column 1: Studio Brand & Identity (4 Cols) */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <span
-                className="w-2.5 h-2.5 border border-white rotate-45 shrink-0"
-                aria-hidden="true"
-              />
-              <span className="font-heading font-bold text-3xl text-white tracking-tight">
+          {/* Col 1: Studio Brand */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center text-[#06080E] font-bold text-sm tracking-tighter">
+                A
+              </div>
+              <span className="font-heading font-bold text-2xl text-white tracking-tight">
                 Abinest<span className="text-emerald-400">.</span>
               </span>
-              <span className="font-mono text-[9px] uppercase tracking-wider text-teal-300 font-semibold px-2 py-0.5 rounded-full bg-teal-950/70 border border-teal-500/30 ml-1">
-                STUDIO
+              <span className="text-xs font-mono text-zinc-400 ml-1">
+                Software Studio
               </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-300/80 leading-relaxed max-w-sm font-normal">
+            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-sm font-normal">
               {lang === "id"
-                ? "Studio rekayasa perangkat lunak enterprise dan konsultan teknologi. Kami merekayasa infrastruktur web modern berkecepatan tinggi, sistem akademik (SIAKAD) & ERP decoupled anti-down, serta otomasi pesan WhatsApp terintegrasi."
-                : "Enterprise software engineering studio & IT consulting firm. We engineer high-velocity web platforms, decoupled academic (SIAKAD) & ERP systems with zero downtime, and mission-critical WhatsApp automations."}
+                ? "Studio rekayasa perangkat lunak enterprise dan konsultan arsitektur web modern. Kami membangun sistem SIAKAD sekolah anti-down, website institusi super cepat, dan custom ERP terintegrasi dengan 100% kepemilikan source code."
+                : "Bespoke software engineering studio architecting resilient school SIS platforms, ultra-fast institutional websites, and custom omnichannel ERPs with 100% intellectual property handover."}
             </p>
 
-            <div className="pt-2 space-y-2 text-xs font-mono text-slate-300">
+            <div className="pt-2 space-y-2 text-xs font-mono text-zinc-300">
               <a
-                href="mailto:halo@abinest.id"
+                href="mailto:hello@abinest.id"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <Mail className="h-3.5 w-3.5 text-teal-300" />
-                <span>halo@abinest.id</span>
+                <Mail className="w-3.5 h-3.5 text-emerald-400" />
+                <span>hello@abinest.id</span>
               </a>
               <a
                 href="https://wa.me/6281234567890"
@@ -98,193 +86,165 @@ export function GroveFooter() {
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <MessageSquare className="h-3.5 w-3.5 text-emerald-400" />
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
                 <span>WhatsApp: +62 812-3456-7890</span>
               </a>
-              <div className="flex items-center gap-2 text-slate-400">
-                <MapPin className="h-3.5 w-3.5 text-slate-500" />
+              <div className="flex items-center gap-2 text-zinc-400">
+                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
                 <span>Jakarta Selatan · Surabaya Timur (ID)</span>
               </div>
             </div>
           </div>
 
-          {/* Column 2: Layanan & Solusi (3 Cols) */}
+          {/* Col 2: Portofolio & Sistem */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-teal-300 font-semibold block mb-4">
-              {lang === "id" ? "LAYANAN & SISTEM" : "SERVICES & SYSTEMS"}
+            <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold block mb-3">
+              {lang === "id" ? "PORTOFOLIO KARYA" : "SELECTED WORKS"}
             </span>
-            <ul className="space-y-2.5 text-xs text-slate-300 font-mono">
+            <ul className="space-y-2 text-xs text-zinc-300">
               <li>
                 <a
-                  href="#systems"
-                  onClick={(e) => handleSmoothScroll(e, "#systems")}
+                  href="#portofolio"
+                  onClick={(e) => handleSmoothScroll(e, "#portofolio")}
                   className="hover:text-white transition-colors block"
                 >
-                  Jasa Pembuatan Website (Next.js 15)
+                  SIAKAD Sekolah &amp; CBT Ujian
                 </a>
               </li>
               <li>
                 <a
-                  href="#systems"
-                  onClick={(e) => handleSmoothScroll(e, "#systems")}
+                  href="#portofolio"
+                  onClick={(e) => handleSmoothScroll(e, "#portofolio")}
                   className="hover:text-white transition-colors block"
                 >
-                  SIAKAD Sekolah &amp; Kampus Anti-Down
+                  Website Institusi Next.js 15
                 </a>
               </li>
               <li>
                 <a
-                  href="#systems"
-                  onClick={(e) => handleSmoothScroll(e, "#systems")}
+                  href="#portofolio"
+                  onClick={(e) => handleSmoothScroll(e, "#portofolio")}
                   className="hover:text-white transition-colors block"
                 >
-                  Mesin Cetak Rapor PDF Cloud Otomatis
+                  ERP Inventori Multi-Gudang
                 </a>
               </li>
               <li>
                 <a
-                  href="#systems"
-                  onClick={(e) => handleSmoothScroll(e, "#systems")}
+                  href="#portofolio"
+                  onClick={(e) => handleSmoothScroll(e, "#portofolio")}
                   className="hover:text-white transition-colors block"
                 >
-                  Omnichannel ERP &amp; Inventory Hub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#systems"
-                  onClick={(e) => handleSmoothScroll(e, "#systems")}
-                  className="hover:text-white transition-colors block"
-                >
-                  WhatsApp Notification Gateway &amp; Bot
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#engineering"
-                  onClick={(e) => handleSmoothScroll(e, "#engineering")}
-                  className="hover:text-white transition-colors block"
-                >
-                  Audit Database PostgreSQL RLS
+                  WhatsApp Meta Invoicing Engine
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Standar Infrastruktur (3 Cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-teal-300 font-semibold block mb-4">
-              {lang === "id" ? "STANDAR TEKNOLOGI" : "TECHNOLOGY STACK"}
-            </span>
-            <ul className="space-y-2.5 text-xs text-slate-400 font-mono">
-              <li className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-teal-400" />
-                <span>Next.js 15 App Router &amp; Edge</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-teal-400" />
-                <span>Supabase PostgreSQL RLS Isolation</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-teal-400" />
-                <span>QStash Distributed Queue Workers</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-teal-400" />
-                <span>Meta WhatsApp Cloud API Official</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-teal-400" />
-                <span>Lighthouse 95–100 &amp; Sub-second LCP</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-teal-400" />
-                <span>Zero Vendor Lock-in (Full IP Handover)</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Client Ecosystem & Access (2 Cols) */}
+          {/* Col 3: Layanan & Harga */}
           <div className="lg:col-span-2 space-y-3">
-            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-teal-300 font-semibold block mb-4">
-              {lang === "id" ? "AKSES KLIEN" : "CLIENT ACCESS"}
+            <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold block mb-3">
+              {lang === "id" ? "LAYANAN" : "SERVICES"}
             </span>
-            <ul className="space-y-2.5 text-xs text-slate-300 font-mono">
+            <ul className="space-y-2 text-xs text-zinc-300">
+              <li>
+                <a
+                  href="#layanan"
+                  onClick={(e) => handleSmoothScroll(e, "#layanan")}
+                  className="hover:text-white transition-colors block"
+                >
+                  Paket SIAKAD CBT
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#layanan"
+                  onClick={(e) => handleSmoothScroll(e, "#layanan")}
+                  className="hover:text-white transition-colors block"
+                >
+                  Paket Website Modern
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#layanan"
+                  onClick={(e) => handleSmoothScroll(e, "#layanan")}
+                  className="hover:text-white transition-colors block"
+                >
+                  Paket Custom ERP
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#layanan"
+                  onClick={(e) => handleSmoothScroll(e, "#layanan")}
+                  className="hover:text-white transition-colors block"
+                >
+                  Estimasi Biaya &amp; Termin
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Navigasi Cepat */}
+          <div className="lg:col-span-2 space-y-3">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold block mb-3">
+              {lang === "id" ? "NAVIGASI" : "NAVIGATION"}
+            </span>
+            <ul className="space-y-2 text-xs text-zinc-300">
+              <li>
+                <a
+                  href="#beranda"
+                  onClick={(e) => handleSmoothScroll(e, "#beranda")}
+                  className="hover:text-white transition-colors block"
+                >
+                  Beranda
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#alur-kerja"
+                  onClick={(e) => handleSmoothScroll(e, "#alur-kerja")}
+                  className="hover:text-white transition-colors block"
+                >
+                  Alur Kerja &amp; Garansi
+                </a>
+              </li>
               <li>
                 <Link
                   href="/portal"
-                  className="text-teal-300 font-bold hover:underline flex items-center gap-1"
-                >
-                  <span>Client Portal</span>
-                  <ArrowUpRight className="h-3 w-3" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/portal/invoices"
                   className="hover:text-white transition-colors block"
                 >
-                  Monitoring Invoice &amp; SLA
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/portal/automation"
-                  className="hover:text-white transition-colors block"
-                >
-                  Worker Antrean Webhook
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/login"
-                  className="hover:text-white transition-colors block"
-                >
-                  Masuk Portal Klien
+                  Client Portal
                 </Link>
               </li>
               <li>
                 <a
-                  href="#konsultasi"
-                  onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
-                  className="text-white hover:text-teal-200 transition-colors font-semibold block"
+                  href="#kontak"
+                  onClick={(e) => handleSmoothScroll(e, "#kontak")}
+                  className="text-emerald-400 hover:text-emerald-300 transition-colors block font-medium"
                 >
-                  Konsultasi Gratis →
+                  Mulai Konsultasi →
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* 3. GIANT ARCHITECTURAL MONOLITH WORDMARK */}
-        <div
-          className="overflow-hidden text-center select-none py-6 sm:py-8 my-4 border-y border-dashed border-white/10"
-          aria-hidden="true"
-        >
-          <span className="font-heading font-black text-[14vw] uppercase leading-none tracking-tighter text-white/[0.05] inline-block">
-            Abinest
-          </span>
-        </div>
-
-        {/* 4. BOTTOM LEGAL & BACK TO TOP BAR */}
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-white/50 font-mono">
+        {/* Bottom Bar: Copyright & Scroll to Top */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-400">
           <div>
-            © {new Date().getFullYear()} Abinest Engineering Studio. {t.footer.copyright}
+            © {new Date().getFullYear()} Abinest Engineering Studio. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-6">
-            <span>SLA 99.9% Anti-Down Guarantee</span>
-            <span>•</span>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 text-teal-300 hover:text-white transition-colors cursor-pointer group"
-              aria-label="Kembali ke bagian paling atas halaman"
-            >
-              <span>{lang === "id" ? "Kembali ke Atas" : "Back to Top"}</span>
-              <ArrowUp className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
+          >
+            <span>KEMBALI KE ATAS</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </footer>

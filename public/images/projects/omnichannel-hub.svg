@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+  <rect width="1200" height="800" rx="16" fill="#0A0E1A"/>
+  <rect x="30" y="30" width="1140" height="740" rx="14" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+  <path d="M30 44C30 36.268 36.268 30 44 30H1156C1163.73 30 1170 36.268 1170 44V76H30V44Z" fill="#131B2E"/>
+  <circle cx="60" cy="53" r="5" fill="#EF4444"/>
+  <circle cx="76" cy="53" r="5" fill="#F59E0B"/>
+  <circle cx="92" cy="53" r="5" fill="#10B981"/>
+  <text x="120" y="58" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12">erp.nusantara-retail.co.id • Multi-Store POS Ledger</text>
+
+  <text x="60" y="130" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="26" font-weight="800">ERP Inventori &amp; Kasir Multi-Cabang</text>
+  <text x="60" y="155" fill="#64748B" font-family="-apple-system, sans-serif" font-size="14">Sinkronisasi stok 5 gudang dan toko ritel secara real-time dengan proteksi PostgreSQL RLS.</text>
+
+  <!-- 3 Stats -->
+  <rect x="60" y="180" width="340" height="100" rx="10" fill="#1E293B"/>
+  <text x="85" y="215" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="13">Selisih Stok Toko Fisik</text>
+  <text x="85" y="255" fill="#10B981" font-family="-apple-system, sans-serif" font-size="32" font-weight="800">0% Drift</text>
+
+  <rect x="430" y="180" width="340" height="100" rx="10" fill="#1E293B"/>
+  <text x="455" y="215" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="13">Cabang Toko Terhubung</text>
+  <text x="455" y="255" fill="#38BDF8" font-family="-apple-system, sans-serif" font-size="32" font-weight="800">5 Cabang Aktif</text>
+
+  <rect x="800" y="180" width="340" height="100" rx="10" fill="#1E293B"/>
+  <text x="825" y="215" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="13">Penghematan Biaya SaaS</text>
+  <text x="825" y="255" fill="#F59E0B" font-family="-apple-system, sans-serif" font-size="32" font-weight="800">Rp 36 Jt / Thn</text>
+
+  <!-- Table preview -->
+  <rect x="60" y="305" width="1080" height="430" rx="12" fill="#131B2E" stroke="#1E293B"/>
+  <text x="90" y="345" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="16" font-weight="700">Daftar Stok Real-Time Antar Cabang</text>
+  
+  <rect x="90" y="370" width="1020" height="40" rx="6" fill="#1E293B"/>
+  <text x="110" y="395" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">KODE SKU</text>
+  <text x="320" y="395" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">NAMA PRODUK</text>
+  <text x="600" y="395" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">GUDANG UTAMA</text>
+  <text x="800" y="395" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">CABANG SURABAYA</text>
+  <text x="980" y="395" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">STATUS</text>
+
+  <rect x="90" y="420" width="1020" height="45" rx="6" fill="#0E1626"/>
+  <text x="110" y="448" fill="#38BDF8" font-family="monospace" font-size="12">SKU-B2B-8921</text>
+  <text x="320" y="448" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="13">Seragam Sekolah Batik Premium</text>
+  <text x="600" y="448" fill="#FFFFFF" font-family="monospace" font-size="13">450 Pcs</text>
+  <text x="800" y="448" fill="#FFFFFF" font-family="monospace" font-size="13">120 Pcs</text>
+  <text x="980" y="448" fill="#10B981" font-family="monospace" font-size="11">SINKRON</text>
+
+  <rect x="90" y="475" width="1020" height="45" rx="6" fill="#0E1626"/>
+  <text x="110" y="503" fill="#38BDF8" font-family="monospace" font-size="12">SKU-B2B-8922</text>
+  <text x="320" y="503" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="13">Buku Tulis &amp; Modul Pembelajaran</text>
+  <text x="600" y="503" fill="#FFFFFF" font-family="monospace" font-size="13">1.200 Pcs</text>
+  <text x="800" y="503" fill="#FFFFFF" font-family="monospace" font-size="13">340 Pcs</text>
+  <text x="980" y="503" fill="#10B981" font-family="monospace" font-size="11">SINKRON</text>
+</svg>

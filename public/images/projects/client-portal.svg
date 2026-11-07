@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+  <rect width="1200" height="800" rx="16" fill="#0F172A"/>
+  <rect x="30" y="30" width="1140" height="740" rx="14" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+  <path d="M30 44C30 36.268 36.268 30 44 30H1156C1163.73 30 1170 36.268 1170 44V76H30V44Z" fill="#0F172A"/>
+  <circle cx="60" cy="53" r="5" fill="#EF4444"/>
+  <circle cx="76" cy="53" r="5" fill="#F59E0B"/>
+  <circle cx="92" cy="53" r="5" fill="#10B981"/>
+  <text x="120" y="58" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="12">portal.abinest.id • Enterprise Client Partner Dashboard</text>
+
+  <text x="60" y="130" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="26" font-weight="800">Abinest Client Portal</text>
+  <text x="60" y="155" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="14">Setiap klien dapat memantau progres sprint mingguan, live server health, dan dokumen invoice.</text>
+
+  <rect x="60" y="190" width="520" height="520" rx="12" fill="#0F172A" stroke="#334155"/>
+  <text x="90" y="235" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="18" font-weight="700">Sprint Progress Proyek</text>
+  <rect x="90" y="270" width="460" height="80" rx="8" fill="#1E293B"/>
+  <text x="110" y="300" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">Sprint 1: Schema Database &amp; Auth (Selesai)</text>
+  <text x="110" y="325" fill="#10B981" font-family="monospace" font-size="12">Status: 100% Handover</text>
+
+  <rect x="90" y="370" width="460" height="80" rx="8" fill="#1E293B"/>
+  <text x="110" y="400" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">Sprint 2: Modul CBT Ujian &amp; Soal Siswa</text>
+  <text x="110" y="425" fill="#38BDF8" font-family="monospace" font-size="12">Status: Staging Review Live</text>
+
+  <rect x="610" y="190" width="530" height="520" rx="12" fill="#0F172A" stroke="#334155"/>
+  <text x="640" y="235" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="18" font-weight="700">Status Server &amp; SLA Uptime</text>
+  <rect x="640" y="270" width="470" height="120" rx="8" fill="#1E293B"/>
+  <text x="665" y="310" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="13">Uptime 90 Hari Terakhir</text>
+  <text x="665" y="355" fill="#10B981" font-family="monospace" font-size="34" font-weight="800">99.98%</text>
+
+  <rect x="640" y="410" width="470" height="80" rx="8" fill="#1E293B"/>
+  <text x="665" y="445" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">Dokumen Kontrak &amp; Termin Invoice</text>
+  <text x="665" y="470" fill="#38BDF8" font-family="monospace" font-size="12">Invoice Termin 1: Lunas (Terverifikasi)</text>
+</svg>
