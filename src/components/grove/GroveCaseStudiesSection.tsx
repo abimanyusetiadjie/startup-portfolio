@@ -172,7 +172,7 @@ export function GroveCaseStudiesSection() {
                   <div className="flex flex-wrap items-baseline gap-5 sm:gap-7">
                     {cs.stats.map((st, i) => (
                       <div key={i}>
-                        <span className="font-serif text-2xl sm:text-3xl font-normal text-emerald-400 block">
+                        <span className="font-heading text-2xl sm:text-3xl font-extrabold text-emerald-400 block tracking-tight">
                           {st.val}
                         </span>
                         <span className="text-[10px] sm:text-xs text-zinc-400 font-mono block mt-0.5">

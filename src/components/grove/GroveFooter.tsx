@@ -70,8 +70,8 @@ export function GroveFooter() {
                 className="w-2.5 h-2.5 border border-white rotate-45 shrink-0"
                 aria-hidden="true"
               />
-              <span className="font-serif italic font-normal text-3xl text-white tracking-normal">
-                abinest
+              <span className="font-heading font-bold text-3xl text-white tracking-tight">
+                Abinest<span className="text-emerald-400">.</span>
               </span>
               <span className="font-mono text-[9px] uppercase tracking-wider text-teal-300 font-semibold px-2 py-0.5 rounded-full bg-teal-950/70 border border-teal-500/30 ml-1">
                 STUDIO
@@ -261,7 +261,7 @@ export function GroveFooter() {
           className="overflow-hidden text-center select-none py-6 sm:py-8 my-4 border-y border-dashed border-white/10"
           aria-hidden="true"
         >
-          <span className="font-serif text-[14vw] font-normal uppercase leading-none tracking-tight text-white/[0.05] inline-block">
+          <span className="font-heading font-black text-[14vw] uppercase leading-none tracking-tighter text-white/[0.05] inline-block">
             Abinest
           </span>
         </div>

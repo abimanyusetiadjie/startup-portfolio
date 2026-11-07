@@ -82,7 +82,7 @@ export function GroveConsultation() {
               </span>
               <span className="w-6 h-[2px] bg-emerald-400" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
               {lang === "id"
                 ? "Ceritakan kebutuhan website atau sistem Anda."
                 : "Tell us about your system or web requirements."}

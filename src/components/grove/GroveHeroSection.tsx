@@ -59,24 +59,24 @@ export function GroveHeroSection() {
           </span>
         </motion.div>
 
-        {/* Main Display Title in Playfair Display Serif */}
+        {/* Main Display Title in Plus Jakarta Sans ExtraBold (Stripe & Linear B2B Tech Aesthetic) */}
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-normal text-white leading-[1.04] tracking-tight max-w-4xl"
+          className="font-sans text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-extrabold text-white leading-[1.06] tracking-tight max-w-4xl"
         >
           {lang === "id" ? (
             <>
               Sistem digital yang dibangun untuk{" "}
-              <span className="font-serif italic font-normal text-emerald-300">
+              <span className="text-emerald-400 font-extrabold">
                 bertahan lama.
               </span>
             </>
           ) : (
             <>
               Digital systems engineered to{" "}
-              <span className="font-serif italic font-normal text-emerald-300">
+              <span className="text-emerald-400 font-extrabold">
                 outlast trends.
               </span>
             </>
@@ -116,19 +116,19 @@ export function GroveHeroSection() {
           </a>
 
           <a
-            href="#case-study"
-            onClick={(e) => handleSmoothScroll(e, "#case-study")}
+            href="#systems"
+            onClick={(e) => handleSmoothScroll(e, "#systems")}
             className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-full border border-white/20 text-white bg-white/5 hover:bg-white/10 transition-all duration-200 text-xs sm:text-sm font-medium tracking-wide active:scale-[0.98]"
           >
-            <span>{lang === "id" ? "Lihat Studi Kasus ↓" : "View Case Studies ↓"}</span>
+            <span>{lang === "id" ? "Katalog Sistem & Solusi ↓" : "Explore Systems ↓"}</span>
           </a>
 
           <a
-            href="#systems"
-            onClick={(e) => handleSmoothScroll(e, "#systems")}
+            href="#faq"
+            onClick={(e) => handleSmoothScroll(e, "#faq")}
             className="hidden sm:inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-dashed border-white/20 text-zinc-300 hover:text-white hover:bg-white/5 transition-all duration-200 text-xs font-mono active:scale-[0.98]"
           >
-            <span>{lang === "id" ? "Katalog Sistem ↓" : "Explore Systems ↓"}</span>
+            <span>{lang === "id" ? "FAQ & Garansi ↓" : "FAQ & Warranty ↓"}</span>
           </a>
         </motion.div>
 
@@ -155,8 +155,8 @@ export function GroveHeroSection() {
           </div>
 
           <a
-            href="#trust-bar"
-            onClick={(e) => handleSmoothScroll(e, "#trust-bar")}
+            href="#systems"
+            onClick={(e) => handleSmoothScroll(e, "#systems")}
             className="hidden lg:flex items-center gap-1.5 text-[11px] text-zinc-400 hover:text-white transition-colors"
           >
             <span>EXPLORE</span>

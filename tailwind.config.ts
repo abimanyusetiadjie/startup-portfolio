@@ -54,10 +54,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ["var(--font-heading)", "sans-serif"],
-        jakarta: ["var(--font-heading)", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        heading: ["var(--font-sans)", "sans-serif"],
+        jakarta: ["var(--font-sans)", "sans-serif"],
         sans: ["var(--font-sans)", "sans-serif"],
+        serif: ["var(--font-sans)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       boxShadow: {

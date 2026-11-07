@@ -53,7 +53,7 @@ export function GroveFaqSection() {
   ];
 
   return (
-    <section className="bg-[#F8FAFC] text-slate-900 py-14 sm:py-20 font-sans border-b border-slate-200">
+    <section id="faq" className="bg-[#F8FAFC] text-slate-900 py-14 sm:py-20 font-sans border-b border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div

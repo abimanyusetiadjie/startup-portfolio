@@ -79,24 +79,15 @@ export function GroveNavbar() {
     },
     {
       num: "02",
-      title: lang === "id" ? "Studi Kasus" : "Case Studies",
+      title: lang === "id" ? "FAQ & Garansi" : "FAQ & Warranty",
       desc:
         lang === "id"
-          ? "Ujian 1.200 siswa serentak & cetak 500+ rapor PDF cloud <45s tanpa down"
-          : "1,200 simultaneous student exams & 500+ PDF report generation in <45s",
-      href: "#case-study",
+          ? "Kepemilikan kode sumber 100%, estimasi waktu pengerjaan, & SLA uptime 99.9%"
+          : "100% source code ownership, project timelines & 99.9% uptime SLA warranty",
+      href: "#faq",
     },
     {
       num: "03",
-      title: lang === "id" ? "Standar Teknis" : "Engineering Standards",
-      desc:
-        lang === "id"
-          ? "Decoupled worker, isolasi PostgreSQL RLS, & SLA uptime 99.9%"
-          : "Decoupled architecture, PostgreSQL RLS isolation & 99.9% uptime SLA",
-      href: "#engineering",
-    },
-    {
-      num: "04",
       title: "Client Portal",
       desc:
         lang === "id"
@@ -106,7 +97,7 @@ export function GroveNavbar() {
       isRoute: true,
     },
     {
-      num: "05",
+      num: "04",
       title: lang === "id" ? "Mulai Konsultasi" : "Book Consultation",
       desc:
         lang === "id"
@@ -135,15 +126,14 @@ export function GroveNavbar() {
               <span className="absolute w-1 h-1 rounded-full bg-emerald-400" />
             </div>
 
-            {/* Wordmark: Modern Engineering Studio (Bold contrast + Emerald Dot) */}
+            {/* Wordmark: Abinest Title Case + Emerald Dot */}
             <div className="flex items-center gap-2">
-              <span className="text-xl tracking-tight text-white font-semibold">
-                abi<span className="font-light text-zinc-300">nest</span>
-                <span className="text-emerald-400">.</span>
+              <span className="text-xl tracking-tight text-white font-bold">
+                Abinest<span className="text-emerald-400">.</span>
               </span>
 
               {/* Badge Studio Proporsional */}
-              <span className="px-2 py-0.5 text-[10px] font-mono font-medium tracking-widest uppercase rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="px-2 py-0.5 text-[10px] font-mono font-semibold tracking-widest uppercase rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 Studio
               </span>
             </div>
@@ -159,18 +149,18 @@ export function GroveNavbar() {
               {lang === "id" ? "Layanan & Sistem" : "Services & Systems"}
             </a>
             <a
-              href="#case-study"
-              onClick={(e) => handleSmoothScroll(e, "#case-study")}
+              href="#faq"
+              onClick={(e) => handleSmoothScroll(e, "#faq")}
               className="whitespace-nowrap hover:text-white transition-colors"
             >
-              {lang === "id" ? "Studi Kasus" : "Case Studies"}
+              {lang === "id" ? "FAQ & Garansi" : "FAQ & Warranty"}
             </a>
             <a
-              href="#engineering"
-              onClick={(e) => handleSmoothScroll(e, "#engineering")}
+              href="#konsultasi"
+              onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
               className="whitespace-nowrap hover:text-white transition-colors"
             >
-              {lang === "id" ? "Standar Teknis" : "Tech Standards"}
+              {lang === "id" ? "Mulai Konsultasi" : "Consultation"}
             </a>
           </div>
 
@@ -261,11 +251,10 @@ export function GroveNavbar() {
                   <span className="absolute w-1 h-1 rounded-full bg-emerald-400" />
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xl tracking-tight text-white font-semibold">
-                    abi<span className="font-light text-zinc-300">nest</span>
-                    <span className="text-emerald-400">.</span>
+                  <span className="text-xl tracking-tight text-white font-bold">
+                    Abinest<span className="text-emerald-400">.</span>
                   </span>
-                  <span className="px-2 py-0.5 text-[10px] font-mono font-medium tracking-widest uppercase rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <span className="px-2 py-0.5 text-[10px] font-mono font-semibold tracking-widest uppercase rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     Studio
                   </span>
                 </div>

@@ -102,7 +102,7 @@ export function GroveTrustBarSection() {
             >
               <div className="flex items-baseline gap-2">
                 <span
-                  className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight ${
+                  className={`font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
                     m.highlight ? "text-[#0F766E]" : "text-[#0F172A]"
                   }`}
                 >
