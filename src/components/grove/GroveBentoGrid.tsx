@@ -10,8 +10,9 @@ import {
   Users,
   Globe,
   ArrowUpRight,
-  Sparkles,
   CheckCircle2,
+  ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -20,9 +21,12 @@ interface ServiceCard {
   icon: typeof Activity;
   eyebrow: string;
   badge: string;
+  startingPrice: string;
+  priceNote: string;
   title: string;
   desc: string;
   metric: string;
+  previewStatus: string;
   tags: string[];
   ctaText: string;
   ctaHref: string;
@@ -49,116 +53,155 @@ export function GroveBentoGrid() {
     {
       id: "siakad",
       icon: Activity,
-      eyebrow: lang === "id" ? "EDTECH & SISTEM AKADEMIK" : "ACADEMIC EDTECH",
-      badge: "99.9% UPTIME",
+      eyebrow: lang === "id" ? "SISTEM PENDIDIKAN" : "EDUCATION INFRASTRUCTURE",
+      badge: "SLA 99.98%",
+      startingPrice: lang === "id" ? "Mulai Rp 15 Jt" : "From $950",
+      priceNote: lang === "id" ? "Beli Putus • 100% Source Code" : "One-time • Full IP",
       title:
         lang === "id"
-          ? "SIAKAD Sekolah & Yayasan Anti-Down"
-          : "Crash-Proof School & Foundation SIAKAD",
+          ? "SIAKAD & Ujian CBT Anti-Down"
+          : "High-Concurrency School SIAKAD",
       desc:
         lang === "id"
-          ? "Sistem informasi akademik yang tetap stabil saat ribuan siswa mengakses serentak. Dilengkapi buku nilai digital, CBT ujian online, dan cetak rapor instan."
-          : "Academic platform engineered to stay rock-solid under concurrent traffic. Includes digital gradebooks, online exams, and instant report card generation.",
-      metric: lang === "id" ? "0% Server Crash saat Ujian" : "0% Crash Under Peak Load",
-      tags: ["Next.js 15", "PostgreSQL RLS", "Anti-Crash"],
-      ctaText: lang === "id" ? "Konsultasi Solusi Ini" : "Consult This Solution",
+          ? "Dirancang khusus untuk menangani 1.000+ siswa ujian serentak, pengisian nilai guru, dan PPDB online tanpa risiko server crash."
+          : "Engineered to handle 1,000+ simultaneous student exams, teacher grading, and online admissions with zero server downtime.",
+      metric:
+        lang === "id"
+          ? "0% Crash Saat Ujian Serentak"
+          : "0% Crash During Peak Exams",
+      previewStatus: "LIVE CLUSTER: 1.240 Siswa Aktif • Response 42ms",
+      tags: ["Next.js 15", "PostgreSQL RLS", "PPDB & CBT"],
+      ctaText: lang === "id" ? "Konsultasi Paket SIAKAD" : "Consult SIAKAD Package",
+      ctaHref: "#konsultasi",
+    },
+    {
+      id: "website",
+      icon: Globe,
+      eyebrow: lang === "id" ? "NEXT.JS 15 APP ROUTER" : "MODERN WEB ARCHITECTURE",
+      badge: "LIGHTHOUSE 95–100",
+      startingPrice: lang === "id" ? "Mulai Rp 4,5 Jt" : "From $300",
+      priceNote: lang === "id" ? "Termasuk Domain & Cloud Setup" : "Includes Cloud Setup",
+      title:
+        lang === "id"
+          ? "Website Institusi & Korporat"
+          : "High-Conversion Corporate Web",
+      desc:
+        lang === "id"
+          ? "Website profil sekolah, yayasan, dan perusahaan dengan kecepatan muat instan (< 1 detik), struktur SEO lokal kuat, dan desain eksklusif."
+          : "Custom corporate and institutional websites with sub-second page loads, technical SEO structure, and high-converting UI.",
+      metric:
+        lang === "id"
+          ? "Skor Performa Google 95–100"
+          : "95–100 Core Web Vitals",
+      previewStatus: "SPEED INDEX: 0.7s LCP • SEO Schema Tervalidasi",
+      tags: ["Next.js 15 Edge", "SEO Ready", "Custom UI/UX"],
+      ctaText: lang === "id" ? "Konsultasi Paket Website" : "Consult Web Package",
       ctaHref: "#konsultasi",
     },
     {
       id: "whatsapp",
       icon: MessageSquare,
-      eyebrow: lang === "id" ? "OTOMASI RESMI META" : "OFFICIAL META AUTOMATION",
-      badge: "< 2 DETIK",
+      eyebrow: lang === "id" ? "META CLOUD API RESMI" : "OFFICIAL META CLOUD API",
+      badge: "< 2s DISPATCH",
+      startingPrice: lang === "id" ? "Mulai Rp 3,5 Jt" : "From $250",
+      priceNote: lang === "id" ? "Resmi Anti-Banned Nomor" : "Official Anti-Ban API",
       title:
         lang === "id"
-          ? "WhatsApp Notification Gateway & Chatbot"
-          : "WhatsApp Notification Gateway & Bot",
+          ? "Otomasi Tagihan & Bot WhatsApp"
+          : "Automated WhatsApp Billing Bot",
       desc:
         lang === "id"
-          ? "Kirim tagihan SPP otomatis, notifikasi absensi siswa, dan kwitansi resmi via Meta Cloud API langsung dari database yayasan tanpa risiko nomor diblokir."
-          : "Automate tuition reminders, student attendance alerts, and official receipts via Meta Cloud API directly from your core database with zero ban risk.",
-      metric: lang === "id" ? "< 2 Detik Pengiriman" : "< 2s Dispatch Speed",
-      tags: ["Meta Cloud API", "Otomasi SPP", "24/7 Aktif"],
-      ctaText: lang === "id" ? "Konsultasi Solusi Ini" : "Consult This Solution",
+          ? "Kirim tagihan SPP, pengumuman sekolah, bukti bayar, dan notifikasi jatuh tempo otomatis ke ribuan nomor orang tua tanpa takut terblokir."
+          : "Dispatch automated tuition invoices, payment receipts, and urgent broadcasts via official Meta Cloud API with automatic retry queues.",
+      metric:
+        lang === "id"
+          ? "Pengiriman Pesan < 2 Detik"
+          : "< 2s Message Delivery",
+      previewStatus: "WEBHOOK QUEUE: 99.9% Terkirim • Auto-Retry Aktif",
+      tags: ["Meta Cloud API", "Auto-Invoicing", "QStash Queue"],
+      ctaText: lang === "id" ? "Konsultasi Otomasi WA" : "Consult WA Automation",
       ctaHref: "#konsultasi",
     },
     {
-      id: "pdf_worker",
+      id: "pdf-worker",
       icon: FileText,
-      eyebrow: lang === "id" ? "CLOUD WORKER ASINKRON" : "CLOUD ASYNC WORKER",
-      badge: "500+ DOKUMEN / MENIT",
+      eyebrow: lang === "id" ? "BACKGROUND CLOUD WORKER" : "DECOUPLED CLOUD WORKER",
+      badge: "500+ PDF / 45s",
+      startingPrice: lang === "id" ? "Mulai Rp 4,5 Jt" : "From $300",
+      priceNote: lang === "id" ? "Modul Mandiri / Add-on SIAKAD" : "Standalone or Add-on",
       title:
         lang === "id"
-          ? "Mesin Cetak Rapor & Dokumen PDF Otomatis"
-          : "High-Speed Batch PDF Report Engine",
+          ? "Generator Rapor & Dokumen PDF"
+          : "Bulk PDF Report Card Engine",
       desc:
         lang === "id"
-          ? "Cetak ratusan hingga ribuan PDF rapor dan invoice dalam hitungan detik via antrean background queue tanpa membebani server aplikasi utama."
-          : "Generate hundreds to thousands of PDF report cards or billing invoices in seconds via decoupled queue workers without degrading app performance.",
-      metric: lang === "id" ? "< 45 Detik per 500 Rapor" : "< 45s per 500 Reports",
-      tags: ["Decoupled Queue", "Puppeteer Worker", "Supabase Storage"],
-      ctaText: lang === "id" ? "Konsultasi Solusi Ini" : "Consult This Solution",
+          ? "Cetak ratusan rapor semester, sertifikat, dan kuitansi ber-QR Code secara paralel di background tanpa membuat aplikasi utama macet."
+          : "Generate hundreds of digital report cards, certificates, and QR-verified invoices in parallel background queues without freezing the UI.",
+      metric:
+        lang === "id"
+          ? "500+ Rapor Selesai < 45 Detik"
+          : "500+ PDFs in < 45 Seconds",
+      previewStatus: "WORKER NODE: 540 PDF Selesai dalam 38 Detik",
+      tags: ["Isolated Worker", "QR Verification", "Zero UI Freeze"],
+      ctaText: lang === "id" ? "Konsultasi Modul PDF" : "Consult PDF Engine",
       ctaHref: "#konsultasi",
     },
     {
       id: "erp",
       icon: Database,
-      eyebrow: lang === "id" ? "SISTEM ENTERPRISE" : "ENTERPRISE ERP",
-      badge: "< 150MS SYNC",
+      eyebrow: lang === "id" ? "SISTEM OPERASIONAL B2B" : "ENTERPRISE OPERATIONS",
+      badge: "REAL-TIME SYNC",
+      startingPrice: lang === "id" ? "Mulai Rp 12 Jt" : "From $800",
+      priceNote: lang === "id" ? "Multi-Gudang & Kasir POS" : "Multi-Branch & POS",
       title:
         lang === "id"
-          ? "ERP & Manajemen Stok Omnichannel"
-          : "Omnichannel Inventory & ERP Hub",
+          ? "ERP & Stok Omnichannel"
+          : "Omnichannel Inventory & ERP",
       desc:
         lang === "id"
-          ? "Kelola inventori, kasir POS multi-cabang, dan sinkronisasi pesanan marketplace (Shopee, Tokopedia) dalam satu sistem yang selalu sinkron real-time."
-          : "Centralize inventory, multi-store retail POS, and e-commerce marketplace orders into one synchronized, real-time single source of truth.",
-      metric: lang === "id" ? "0% Selisih Stok Toko" : "Zero Stock Drift",
-      tags: ["Multi-Store POS", "Auto Ledger", "Real-Time Sync"],
-      ctaText: lang === "id" ? "Konsultasi Solusi Ini" : "Consult This Solution",
+          ? "Kelola inventori multi-gudang, kasir POS cabang, dan sinkronisasi pesanan dalam satu database terpusat dengan keamanan PostgreSQL RLS."
+          : "Centralize multi-branch inventory, retail POS, and financial ledgers into one synchronized database secured by PostgreSQL RLS.",
+      metric:
+        lang === "id"
+          ? "0% Selisih Stok Antar Cabang"
+          : "Zero Multi-Store Stock Drift",
+      previewStatus: "DATABASE LEDGER: 5 Cabang Tersinkronisasi Real-Time",
+      tags: ["Multi-Branch POS", "Auto Ledger", "PostgreSQL RLS"],
+      ctaText: lang === "id" ? "Konsultasi Sistem ERP" : "Consult ERP System",
       ctaHref: "#konsultasi",
     },
     {
       id: "portal",
       icon: Users,
-      eyebrow: lang === "id" ? "TRANSPARANSI PROYEK" : "PROJECT VISIBILITY",
-      badge: "LIVE STATUS",
+      eyebrow: lang === "id" ? "TRANSPARANSI PENGERJAAN" : "PROJECT VISIBILITY",
+      badge: "LIVE PORTAL",
+      startingPrice: lang === "id" ? "Gratis (Inklusif)" : "Included Free",
+      priceNote: lang === "id" ? "Untuk Seluruh Klien Abinest" : "For All Abinest Clients",
       title:
         lang === "id"
           ? "Enterprise Client Portal"
           : "Enterprise Client Portal",
       desc:
         lang === "id"
-          ? "Setiap institusi klien mendapatkan portal khusus untuk memantau progres milestone mingguan, status server, dan dokumen invoice secara transparan."
-          : "Every client partner receives dedicated credentials to inspect sprint milestone velocity, live server telemetry health, and official invoices.",
-      metric: lang === "id" ? "Transparansi 100% Proyek" : "100% Transparent Milestones",
-      tags: ["Live Telemetry", "Milestone Tracker", "Polaris UI"],
-      ctaText: lang === "id" ? "Buka Client Portal" : "Access Client Portal",
+          ? "Tidak perlu menebak-nebak progres proyek. Setiap klien mendapat akses login khusus untuk memantau milestone mingguan, status server, dan invoice."
+          : "Every client partner receives dedicated credentials to inspect weekly sprint milestones, live server health, and official invoices.",
+      metric:
+        lang === "id"
+          ? "Transparansi Progres 100%"
+          : "100% Milestone Transparency",
+      previewStatus: "PORTAL STATUS: Live Sprint & SLA Uptime Monitor",
+      tags: ["Live Telemetry", "Sprint Tracker", "Official Invoice"],
+      ctaText: lang === "id" ? "Coba Buka Client Portal" : "Open Client Portal",
       ctaHref: "/portal",
       isExternalOrRoute: true,
-    },
-    {
-      id: "website",
-      icon: Globe,
-      eyebrow: lang === "id" ? "NEXT.JS 15 APP ROUTER" : "MODERN WEB ARCHITECTURE",
-      badge: "LIGHTHOUSE 100",
-      title:
-        lang === "id"
-          ? "Website Institusi Super Cepat"
-          : "High-Performance Institutional Website",
-      desc:
-        lang === "id"
-          ? "Website profil institusi modern dengan skor Google Lighthouse 95–100, loading sub-detik, dan fondasi SEO kuat untuk kredibilitas maksimal."
-          : "Modern institutional web presence built on Next.js 15 with 95–100 Google Lighthouse scores, sub-second LCP, and strong SEO visibility.",
-      metric: lang === "id" ? "LCP < 0.8 Detik • Skor 100" : "LCP < 0.8s • Lighthouse 100",
-      tags: ["Lighthouse 95–100", "Sub-Second Load", "SEO Ready"],
-      ctaText: lang === "id" ? "Konsultasi Solusi Ini" : "Consult This Solution",
-      ctaHref: "#konsultasi",
     },
   ];
 
   return (
-    <section id="systems" className="bg-[#FFFFFF] py-14 sm:py-20 font-sans border-b border-slate-200">
+    <section
+      id="systems"
+      className="bg-[#FFFFFF] py-14 sm:py-20 font-sans border-b border-slate-200"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -173,116 +216,163 @@ export function GroveBentoGrid() {
               <span className="w-6 h-[2px] bg-[#0F766E]" aria-hidden="true" />
               <span className="text-xs font-semibold tracking-widest uppercase text-[#0F766E] font-mono">
                 {lang === "id"
-                  ? "KATALOG LAYANAN & SISTEM DIGITAL"
-                  : "DIGITAL SYSTEMS CATALOG"}
+                  ? "KATALOG LAYANAN & ESTIMASI INVESTASI"
+                  : "SYSTEMS CATALOG & TRANSPARENT PRICING"}
               </span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F172A]">
-              {lang === "id" ? "Solusi yang kami bangun." : "Solutions we engineer."}
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed font-normal">
               {lang === "id"
-                ? "Kami merancang infrastruktur digital yang cepat, aman, dan siap berkembang bersama institusi Anda."
-                : "We engineer fast, secure, and resilient digital infrastructure tailored to scale with your institution."}
-            </p>
+                ? "Solusi terukur dengan harga transparan."
+                : "Production-grade systems with transparent pricing."}
+            </h2>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-teal-50 text-[#0F766E] border border-teal-200 shadow-xs">
-              <Sparkles className="h-3.5 w-3.5 text-[#0F766E]" />
-              <span>{lang === "id" ? "Arsitektur Enterprise" : "Enterprise Architecture"}</span>
-            </span>
-          </div>
+          <p className="text-xs sm:text-sm text-slate-600 max-w-md font-normal leading-relaxed">
+            {lang === "id"
+              ? "Seluruh paket sudah termasuk penyerahan 100% source code, garansi pemeliharaan SLA 99.9%, dan akses pemantauan progres di Client Portal."
+              : "Every engagement includes 100% source code ownership, a 99.9% uptime SLA warranty, and live milestone tracking in our Client Portal."}
+          </p>
         </motion.div>
 
-        {/* 6 RINGKAS SERVICE CARDS (STAGGERED ENTRANCE + HOVER LIFT) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
-          {services.map((svc, idx) => {
-            const Icon = svc.icon;
+        {/* 6-Card Bento Grid with Starting Prices & Telemetry Previews */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {services.map((card, index) => {
+            const Icon = card.icon;
             return (
               <motion.div
-                key={svc.id}
+                key={card.id}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{
-                  duration: 0.45,
-                  delay: idx * 0.08,
+                  duration: 0.5,
+                  delay: index * 0.07,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="bg-white rounded-2xl border border-slate-200 hover:border-[#0F766E]/50 p-5 sm:p-6 flex flex-col justify-between shadow-xs hover:shadow-lg transition-all duration-300 ease-out group hover:-translate-y-1.5"
+                className="group rounded-2xl border border-slate-200/90 bg-white p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-teal-950/5 hover:border-[#0F766E]/50 hover:-translate-y-1 transition-all duration-300"
               >
                 <div>
-                  {/* Card Header Meta */}
-                  <div className="flex items-center justify-between gap-2 pb-3.5 mb-4 border-b border-slate-100">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-teal-50 border border-teal-200 text-[#0F766E] flex items-center justify-center group-hover:bg-[#0F766E] group-hover:text-white transition-colors duration-300">
-                        <Icon className="h-4 w-4" />
-                      </div>
-                      <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold tracking-wider text-[#0F766E]">
-                        {svc.eyebrow}
+                  {/* Top Row: Icon + Starting Price Pill */}
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="h-11 w-11 rounded-xl bg-[#F0FDFA] border border-[#CCFBF1] flex items-center justify-center text-[#0F766E] group-hover:bg-[#0F766E] group-hover:text-white transition-all duration-200 shrink-0">
+                      <Icon className="h-5 w-5" />
+                    </div>
+
+                    <div className="text-right">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#0F172A] text-emerald-300 border border-slate-800">
+                        {card.startingPrice}
+                      </span>
+                      <span className="block text-[10px] font-mono text-slate-500 mt-1">
+                        {card.priceNote}
                       </span>
                     </div>
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200">
-                      {svc.badge}
-                    </span>
                   </div>
 
-                  {/* Card Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] tracking-tight group-hover:text-[#0F766E] transition-colors duration-200 leading-snug">
-                    {svc.title}
+                  {/* Eyebrow & Title */}
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-[#0F766E] font-semibold mb-1">
+                    {card.eyebrow}
+                  </div>
+                  <h3 className="font-heading text-lg font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors">
+                    {card.title}
                   </h3>
 
-                  {/* Card Description (Max 2 sentences) */}
-                  <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {svc.desc}
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
+                    {card.desc}
                   </p>
 
-                  {/* Metric Highlight Badge */}
-                  <div className="mt-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-teal-50/80 border border-teal-200/80 text-[11px] font-mono font-semibold text-[#0F766E]">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[#0F766E] shrink-0" />
-                    <span>{svc.metric}</span>
+                  {/* Mini Product Telemetry Preview Bar */}
+                  <div className="mt-4 px-3 py-2 rounded-lg bg-slate-900 text-[11px] font-mono text-emerald-300 flex items-center justify-between border border-slate-800">
+                    <span className="truncate">{card.previewStatus}</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0 ml-2" />
                   </div>
                 </div>
 
-                {/* Card Footer: Tags & Action CTA */}
-                <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col gap-3">
-                  {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {svc.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-50 text-slate-600 border border-slate-200"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                <div className="mt-5 pt-4 border-t border-slate-100 space-y-3.5">
+                  {/* Outcome Metric */}
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[#0F766E]">
+                    <CheckCircle2 className="h-4 w-4 text-[#0D9488] shrink-0" />
+                    <span>{card.metric}</span>
                   </div>
 
-                  {/* Link CTA */}
-                  {svc.isExternalOrRoute ? (
-                    <Link
-                      href={svc.ctaHref}
-                      className="inline-flex items-center justify-between text-xs font-semibold text-[#0F766E] hover:text-teal-800 transition-colors pt-1 group/btn active:scale-95 duration-150"
-                    >
-                      <span>{svc.ctaText}</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    </Link>
-                  ) : (
-                    <a
-                      href={svc.ctaHref}
-                      onClick={(e) => handleSmoothScroll(e, svc.ctaHref)}
-                      className="inline-flex items-center justify-between text-xs font-semibold text-[#0F766E] hover:text-teal-800 transition-colors pt-1 group/btn active:scale-95 duration-150"
-                    >
-                      <span>{svc.ctaText}</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    </a>
-                  )}
+                  {/* Tech Tags & Action Link */}
+                  <div className="flex items-center justify-between gap-2 pt-1">
+                    <div className="flex flex-wrap gap-1">
+                      {card.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-100 text-slate-700 font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {card.isExternalOrRoute ? (
+                      <Link
+                        href={card.ctaHref}
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0F766E] hover:text-[#0D9488] transition-colors shrink-0"
+                      >
+                        <span>{card.ctaText}</span>
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </Link>
+                    ) : (
+                      <a
+                        href={card.ctaHref}
+                        onClick={(e) => handleSmoothScroll(e, card.ctaHref)}
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0F766E] hover:text-[#0D9488] transition-colors shrink-0"
+                      >
+                        <span>{card.ctaText}</span>
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
+
+        {/* COMPACT PRICING & MILESTONE PAYMENT BANNER (Target Anchor for #harga) */}
+        <motion.div
+          id="harga"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 p-5 sm:p-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5"
+        >
+          <div className="flex items-start gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-[#0F766E] text-white flex items-center justify-center shrink-0 mt-0.5">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-heading text-sm sm:text-base font-bold text-[#0F172A]">
+                {lang === "id"
+                  ? "Skema Pembayaran Aman Berbasis Milestone (Tanpa Biaya Bulanan)"
+                  : "Safe Milestone-Based Payment Terms (Zero Monthly Subscription)"}
+              </h3>
+              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                {lang === "id"
+                  ? "Termin 1 (30% Kickoff) → Termin 2 (40% Saat Demo Sistem di Client Portal) → Termin 3 (30% Serah Terima Penuh Source Code & Go-Live)."
+                  : "30% Kickoff → 40% Live Staging Demo on Client Portal → 30% Final Source Code Handover & Go-Live."}
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="#konsultasi"
+            onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0F172A] text-white text-xs font-semibold hover:bg-[#0F766E] transition-colors shrink-0"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <span>
+              {lang === "id"
+                ? "Minta Rincian RAB Proyek →"
+                : "Request Custom Quote →"}
+            </span>
+          </a>
+        </motion.div>
       </div>
     </section>
   );

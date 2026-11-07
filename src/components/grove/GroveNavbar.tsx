@@ -92,9 +92,9 @@ export function GroveNavbar() {
       title: lang === "id" ? "Harga" : "Pricing",
       desc:
         lang === "id"
-          ? "Diskusi cakupan fitur & estimasi investasi proyek secara transparan"
-          : "Transparent feature scoping and project investment estimation",
-      href: "#konsultasi",
+          ? "Estimasi harga transparan mulai dari Rp 3,5 Jt & skema termin milestone"
+          : "Transparent starting prices and milestone-based payment terms",
+      href: "#harga",
     },
     {
       num: "04",

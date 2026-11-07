@@ -218,7 +218,6 @@ export function GroveConsultation() {
 
         {/* 3 Essential Micro Guarantee Badges (Pengganti FAQ: Ringkas, Tegas, Reasuring) */}
         <motion.div
-          id="bantuan"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-40px" }}
