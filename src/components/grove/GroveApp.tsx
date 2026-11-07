@@ -7,6 +7,7 @@ import { GroveBentoGrid } from "./GroveBentoGrid";
 import { GroveFaqSection } from "./GroveFaqSection";
 import { GroveConsultation } from "./GroveConsultation";
 import { GroveFooter } from "./GroveFooter";
+import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
 
 export function GroveApp() {
   return (
@@ -29,6 +30,9 @@ export function GroveApp() {
 
         {/* 6. Footer Arsitektural Lengkap */}
         <GroveFooter />
+
+        {/* 7. Floating WhatsApp Quick Contact Hub */}
+        <GroveFloatingWhatsApp />
       </div>
     </LanguageProvider>
   );
