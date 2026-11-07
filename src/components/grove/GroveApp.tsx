@@ -4,7 +4,6 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
 import { GroveBentoGrid } from "./GroveBentoGrid";
-import { GroveFaqSection } from "./GroveFaqSection";
 import { GroveConsultation } from "./GroveConsultation";
 import { GroveFooter } from "./GroveFooter";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
@@ -22,16 +21,13 @@ export function GroveApp() {
         {/* 3. Layanan & Sistem Inti: 6 Solusi Unggulan Terukur */}
         <GroveBentoGrid />
 
-        {/* 4. FAQ & Transparansi Garansi: Jawaban untuk Keberatan Umum & SLA */}
-        <GroveFaqSection />
-
-        {/* 5. Form Konsultasi Proyek & Fast-Path WhatsApp */}
+        {/* 4. 1-Click WhatsApp Fast-Path Consultation Hub + Guarantees */}
         <GroveConsultation />
 
-        {/* 6. Footer Arsitektural Lengkap */}
+        {/* 5. Footer Arsitektural Lengkap */}
         <GroveFooter />
 
-        {/* 7. Floating WhatsApp Quick Contact Hub */}
+        {/* 6. Floating WhatsApp Quick Contact Hub */}
         <GroveFloatingWhatsApp />
       </div>
     </LanguageProvider>

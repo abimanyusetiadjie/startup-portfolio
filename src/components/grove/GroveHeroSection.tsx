@@ -123,13 +123,7 @@ export function GroveHeroSection() {
             <span>{lang === "id" ? "Katalog Sistem & Solusi ↓" : "Explore Systems ↓"}</span>
           </a>
 
-          <a
-            href="#faq"
-            onClick={(e) => handleSmoothScroll(e, "#faq")}
-            className="hidden sm:inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-dashed border-white/20 text-zinc-300 hover:text-white hover:bg-white/5 transition-all duration-200 text-xs font-mono active:scale-[0.98]"
-          >
-            <span>{lang === "id" ? "FAQ & Garansi ↓" : "FAQ & Warranty ↓"}</span>
-          </a>
+          
         </motion.div>
 
         {/* Micro Trust Strip (Pinned to Bottom) */}

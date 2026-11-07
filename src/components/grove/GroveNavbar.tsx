@@ -79,15 +79,6 @@ export function GroveNavbar() {
     },
     {
       num: "02",
-      title: lang === "id" ? "FAQ & Garansi" : "FAQ & Warranty",
-      desc:
-        lang === "id"
-          ? "Kepemilikan kode sumber 100%, estimasi waktu pengerjaan, & SLA uptime 99.9%"
-          : "100% source code ownership, project timelines & 99.9% uptime SLA warranty",
-      href: "#faq",
-    },
-    {
-      num: "03",
       title: "Client Portal",
       desc:
         lang === "id"
@@ -97,12 +88,12 @@ export function GroveNavbar() {
       isRoute: true,
     },
     {
-      num: "04",
-      title: lang === "id" ? "Mulai Konsultasi" : "Book Consultation",
+      num: "03",
+      title: lang === "id" ? "Konsultasi WhatsApp" : "WhatsApp Scoping",
       desc:
         lang === "id"
-          ? "Diskusikan kebutuhan arsitektur digital bersama tim konsultan teknologi kami"
-          : "Schedule a technical scoping session directly with our engineering team",
+          ? "Diskusikan kebutuhan arsitektur digital bersama tim insinyur kami via WhatsApp"
+          : "Schedule a technical scoping session directly with our engineering team on WhatsApp",
       href: "#konsultasi",
     },
   ];
@@ -149,18 +140,19 @@ export function GroveNavbar() {
               {lang === "id" ? "Layanan & Sistem" : "Services & Systems"}
             </a>
             <a
-              href="#faq"
-              onClick={(e) => handleSmoothScroll(e, "#faq")}
-              className="whitespace-nowrap hover:text-white transition-colors"
-            >
-              {lang === "id" ? "FAQ & Garansi" : "FAQ & Warranty"}
-            </a>
-            <a
               href="#konsultasi"
               onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
               className="whitespace-nowrap hover:text-white transition-colors"
             >
-              {lang === "id" ? "Mulai Konsultasi" : "Consultation"}
+              {lang === "id" ? "Garansi & SLA" : "SLA & Warranty"}
+            </a>
+            <a
+              href="#konsultasi"
+              onClick={(e) => handleSmoothScroll(e, "#konsultasi")}
+              className="whitespace-nowrap text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5"
+            >
+              <span>{lang === "id" ? "Konsultasi WA" : "WhatsApp Chat"}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </a>
           </div>
 
