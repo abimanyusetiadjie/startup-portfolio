@@ -1,253 +1,301 @@
 "use client";
 
-import { ArrowUpRight, ArrowDown, Shield, Server, Database, Globe, MessageSquare, Zap, Cpu } from "lucide-react";
-import { motion } from "framer-motion";
+import {
+  Cloud,
+  Shield,
+  Database,
+  Cpu,
+  Terminal,
+  Lock,
+  Server,
+  Code2,
+  Activity,
+  Sparkles,
+  Layers,
+  Globe,
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveHeroSection() {
-  const { lang } = useLanguage();
+  const { language } = useLanguage();
 
-  const handleSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
-  ) => {
-    if (targetId.startsWith("#")) {
-      e.preventDefault();
-      const element = document.getElementById(targetId.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  };
-
-  const stats = [
-    {
-      value: "99.98%",
-      label: lang === "id" ? "SLA Uptime Bergaransi" : "Guaranteed Uptime SLA",
-      detail: lang === "id" ? "Monitoring 24/7 Aktif" : "24/7 Active Telemetry",
-    },
-    {
-      value: "1.200+",
-      label: lang === "id" ? "Siswa Ujian CBT Aktif" : "Concurrent CBT Students",
-      detail: lang === "id" ? "0% Server Crash" : "Zero Server Lag",
-    },
-    {
-      value: "< 1.8s",
-      label: lang === "id" ? "Kecepatan WA Meta API" : "WA Dispatch Latency",
-      detail: lang === "id" ? "Resmi Anti-Banned" : "Official Meta Cloud",
-    },
-    {
-      value: "100%",
-      label: lang === "id" ? "Hak Milik Source Code" : "Full IP Code Ownership",
-      detail: lang === "id" ? "Tanpa Biaya Sewa Bulanan" : "Zero Monthly SaaS Rent",
-    },
-  ];
-
-  const techLogos = [
-    { name: "Next.js 15", sub: "Edge Runtime" },
-    { name: "PostgreSQL", sub: "RLS Isolated" },
-    { name: "Meta Cloud API", sub: "Official WhatsApp" },
-    { name: "Supabase", sub: "Cloud Infrastructure" },
-    { name: "Vercel", sub: "Global Serverless" },
-    { name: "Docker", sub: "Decoupled Workers" },
-    { name: "TypeScript", sub: "Type-Safe Strict" },
-  ];
+  const stats =
+    language === "id"
+      ? [
+          {
+            value: "99.9%",
+            desc: "Jaminan SLA Uptime sistem akademik & enterprise tanpa down sepanjang tahun.",
+          },
+          {
+            value: "15m",
+            desc: "Rata-rata waktu respons langsung dari tim engineer untuk penanganan kendala.",
+          },
+          {
+            value: "30%+",
+            desc: "Efisiensi beban kerja staf lewat otomasi antrean PDF & WhatsApp API.",
+          },
+          {
+            value: "200+",
+            desc: "Modul produksi, portal klien, & arsitektur cloud yang telah terimplementasi.",
+          },
+        ]
+      : [
+          {
+            value: "99.9%",
+            desc: "Guaranteed SLA uptime for mission-critical academic and enterprise systems.",
+          },
+          {
+            value: "15m",
+            desc: "Average engineer response time for critical infrastructure support.",
+          },
+          {
+            value: "30%+",
+            desc: "Operational cost & time savings via automated PDF & WhatsApp pipelines.",
+          },
+          {
+            value: "200+",
+            desc: "Production modules, custom portals, & cloud architectures deployed.",
+          },
+        ];
 
   return (
-    <section
-      id="beranda"
-      className="relative w-full bg-[#06080C] text-white pt-32 sm:pt-40 pb-16 sm:pb-20 font-sans overflow-hidden border-b border-white/10"
-    >
-      {/* Ambient Warm Amber Light Cone (Matches Reference Mockup Glow) */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[550px] bg-gradient-to-b from-[#F59E0B]/15 via-[#EA580C]/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 left-10 w-[350px] h-[350px] bg-[#D97706]/10 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-        {/* Split Grid: Copy & Actions (Left) + Tech Node Ecosystem Graphic (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          {/* Left Column: Headlines & Actions */}
+    <section id="beranda" className="relative pt-8 pb-16 overflow-hidden">
+      <div className="max-w-[1120px] mx-auto px-5 sm:px-8">
+        {/* Top Hero Split: Left Copy + Right 4x4 Circuit Matrix */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Pill Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/15 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-[#F59E0B] shadow-sm shadow-orange-500" />
-              <span className="text-[11px] font-mono tracking-widest uppercase text-amber-300 font-semibold">
-                {lang === "id"
-                  ? "YOUR TRUSTED IT & SOFTWARE PARTNER"
-                  : "YOUR TRUSTED IT & SOFTWARE PARTNER"}
+            {/* Eyebrow with orange dash */}
+            <div className="flex items-center gap-2.5">
+              <span className="w-3.5 h-[2px] bg-[#E06D3B]" />
+              <span className="text-[11px] uppercase tracking-[0.2em] text-[#8E8E93] font-medium">
+                {language === "id"
+                  ? "REKAYASA SISTEM & OTOMASI ENTERPRISE"
+                  : "IT SERVICES FOR MODERN ENTERPRISES"}
               </span>
             </div>
 
-            {/* Main Headline with Warm Amber Highlight */}
-            <h1 className="font-heading text-3xl sm:text-5xl lg:text-[3.5rem] font-bold text-white tracking-tight leading-[1.12]">
-              {lang === "id" ? (
+            {/* 3-Line Headline with Italic Serif Coral Accent */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[50px] font-medium tracking-tight text-white leading-[1.15]">
+              {language === "id" ? (
                 <>
-                  Next-Generation Software &amp;{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#FB923C] to-[#FDE68A]">
-                    Digital Systems
-                  </span>{" "}
-                  for Institutions.
+                  Anda Fokus pada{" "}
+                  <span className="font-serif italic font-normal text-[#E06D3B]">
+                    Pertumbuhan.
+                  </span>
+                  <br />
+                  Dan Kami Jalankan IT Anda
+                  <br />
+                  Tanpa Hambatan.
                 </>
               ) : (
                 <>
-                  Next-Generation Software &amp;{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] via-[#FB923C] to-[#FDE68A]">
-                    Digital Systems
-                  </span>{" "}
-                  for Institutions.
+                  You Focus on{" "}
+                  <span className="font-serif italic font-normal text-[#E06D3B]">
+                    Growth.
+                  </span>
+                  <br />
+                  And We Will Run Your IT
+                  <br />
+                  Smooth.
                 </>
               )}
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-sm sm:text-base lg:text-lg text-zinc-300 max-w-xl font-normal leading-relaxed">
-              {lang === "id"
-                ? "Studio rekayasa software terpercaya untuk sekolah, yayasan, dan bisnis. Kami membangun sistem SIAKAD anti-down saat ribuan siswa ujian serentak, website institusi Next.js 15, dan integrasi WhatsApp resmi Meta — dengan 100% kepemilikan kode sumber."
-                : "Trusted software engineering studio. We architect resilient school SIS platforms that endure peak exam load, ultra-fast Next.js 15 websites, and official Meta WhatsApp automations — delivered with 100% full source code ownership."}
+            {/* Subtitle */}
+            <p className="text-[13px] sm:text-[14px] text-[#8E8E93] max-w-[460px] leading-relaxed">
+              {language === "id"
+                ? "Kami merancang website institusi berkecepatan tinggi, SIAKAD sekolah anti-down, dan otomasi WhatsApp resmi Meta dengan kepemilikan source code 100% di tangan Anda."
+                : "From proactive SIAKAD cloud architecture and 95–100 Lighthouse web apps to official Meta WhatsApp automation — we engineer systems built to last."}
             </p>
 
-            {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            {/* Dark Matte Pill CTA */}
+            <div className="pt-1">
               <a
-                href="https://wa.me/6281234567890?text=Halo%20Abinest%20Studio,%20saya%20ingin%20konsultasi%20mengenai%20kebutuhan%20pembuatan%20website%20/%20sistem."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#EA580C] text-zinc-950 font-bold text-xs sm:text-sm hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-orange-500/25"
+                href="#kontak"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-[12px] font-medium text-white bg-[#1A1A1A] hover:bg-[#242424] border border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] transition-all"
               >
-                <span>
-                  {lang === "id"
-                    ? "Konsultasi Gratis via WhatsApp"
-                    : "Get Started on WhatsApp"}
-                </span>
-                <ArrowUpRight className="w-4 h-4 text-zinc-950" />
-              </a>
-
-              <a
-                href="#pilar"
-                onClick={(e) => handleSmoothScroll(e, "#pilar")}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-white bg-white/5 hover:bg-white/10 transition-all text-xs sm:text-sm font-medium tracking-wide active:scale-[0.98]"
-              >
-                <span>
-                  {lang === "id" ? "Lihat 4 Pilar Arsitektur ↓" : "Explore 4 Pillars ↓"}
-                </span>
+                {language === "id" ? "Mulai Sekarang" : "Get Started"}
               </a>
             </div>
           </div>
 
-          {/* Right Column: High-Tech Node Network Diagram (SVG Graphic from Reference) */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
-            {/* Ambient Backlight Glow behind Diagram */}
-            <div className="absolute inset-0 bg-[#F59E0B]/10 blur-[80px] rounded-full pointer-events-none" />
+          {/* Right Column (5 cols): Exact 4x4 Circuit Tile Grid from slice_1.png */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="relative w-[300px] sm:w-[340px] h-[300px] sm:h-[340px] flex items-center justify-center">
+              {/* Subtle ambient glow behind the circuit matrix */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute w-40 h-40 rounded-full bg-[#E06D3B]/15 blur-[60px]"
+              />
 
-            <div className="relative w-full max-w-[440px] aspect-square rounded-3xl bg-[#0D111A]/90 border border-white/15 p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between overflow-hidden">
-              {/* Circuit Grid Subtle Lines */}
-              <div className="absolute inset-0 bg-[radial-gradient(#F59E0B_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
+              {/* SVG L-Shaped Circuit Connector Lines (matching slice_1.png) */}
+              <svg
+                className="pointer-events-none absolute inset-0 w-full h-full z-20"
+                viewBox="0 0 340 340"
+                fill="none"
+              >
+                {/* Left L-Connector: from bottom of Tile(row 2, col 1) down to left of Coral Tile(row 3, col 2) */}
+                <path
+                  d="M 52 146 L 52 208 L 102 208"
+                  stroke="rgba(255,255,255,0.28)"
+                  strokeWidth="1.2"
+                />
+                <rect
+                  x="49"
+                  y="143"
+                  width="6"
+                  height="6"
+                  rx="1"
+                  fill="#121212"
+                  stroke="rgba(255,255,255,0.45)"
+                  strokeWidth="1.2"
+                />
+                <circle cx="102" cy="208" r="2.5" fill="#E06D3B" />
 
-              {/* Top Diagram Header */}
-              <div className="relative z-10 flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono">
-                <span className="text-amber-400 font-semibold tracking-wider">
-                  ABINEST DECOUPLED ARCHITECTURE
-                </span>
-                <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px]">
-                  ACTIVE
-                </span>
-              </div>
+                {/* Right L-Connector: from right of Tile(row 2, col 4) out and down to Tile(row 4, col 4) */}
+                <path
+                  d="M 304 120 L 322 120 L 322 256"
+                  stroke="rgba(255,255,255,0.28)"
+                  strokeWidth="1.2"
+                />
+                <rect
+                  x="301"
+                  y="117"
+                  width="6"
+                  height="6"
+                  rx="1"
+                  fill="#121212"
+                  stroke="rgba(255,255,255,0.45)"
+                  strokeWidth="1.2"
+                />
+                <rect
+                  x="319"
+                  y="253"
+                  width="6"
+                  height="6"
+                  rx="1"
+                  fill="#121212"
+                  stroke="rgba(255,255,255,0.45)"
+                  strokeWidth="1.2"
+                />
+              </svg>
 
-              {/* Central Core & Orbiting System Nodes */}
-              <div className="relative z-10 my-auto py-4 flex flex-col items-center justify-center">
-                {/* Center Node */}
-                <div className="relative flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-[#1E2538] to-[#0A0D15] border-2 border-amber-500/60 shadow-xl shadow-orange-500/20 z-20">
-                  <div className="text-center">
-                    <Shield className="w-7 h-7 text-amber-400 mx-auto" />
-                    <span className="text-[10px] font-mono font-bold text-white block mt-1">
-                      CORE HUB
-                    </span>
-                  </div>
+              {/* 4x4 Tile Grid */}
+              <div className="grid grid-cols-4 gap-3 sm:gap-3.5 relative z-10">
+                {/* Row 1 */}
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#161616]/40 border border-white/[0.03]" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#161616]/40 border border-white/[0.03]" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center text-white/75 shadow-inner">
+                  <Code2 className="w-5 h-5" />
+                </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#161616]/40 border border-white/[0.03]" />
+
+                {/* Row 2 */}
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/12 flex items-center justify-center text-white/80 shadow-md">
+                  <Cloud className="w-5 h-5" />
+                </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/[0.07] flex items-center justify-center text-white/60">
+                  <Terminal className="w-5 h-5" />
+                </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/[0.07] flex items-center justify-center text-white/60">
+                  <Database className="w-5 h-5" />
+                </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/12 flex items-center justify-center text-white/85 shadow-md">
+                  <Activity className="w-5 h-5" />
                 </div>
 
-                {/* Satellite Connected Cards */}
-                <div className="w-full grid grid-cols-2 gap-3 mt-5">
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
-                    <Server className="w-4 h-4 text-amber-400 shrink-0" />
-                    <div className="truncate">
-                      <span className="text-xs font-bold text-white block truncate">SIAKAD CBT</span>
-                      <span className="text-[10px] text-zinc-400 font-mono">1.200+ Siswa</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
-                    <Database className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <div className="truncate">
-                      <span className="text-xs font-bold text-white block truncate">PostgreSQL RLS</span>
-                      <span className="text-[10px] text-zinc-400 font-mono">Isolated Data</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
-                    <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0" />
-                    <div className="truncate">
-                      <span className="text-xs font-bold text-white block truncate">Meta Cloud WA</span>
-                      <span className="text-[10px] text-zinc-400 font-mono">&lt; 1.8s Dispatch</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
-                    <Globe className="w-4 h-4 text-sky-400 shrink-0" />
-                    <div className="truncate">
-                      <span className="text-xs font-bold text-white block truncate">Next.js 15 Edge</span>
-                      <span className="text-[10px] text-zinc-400 font-mono">Lighthouse 100</span>
-                    </div>
-                  </div>
+                {/* Row 3 */}
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#161616]/40 border border-white/[0.03]" />
+                {/* Coral/Orange Highlighted Target Tile (Row 3, Col 2) */}
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#2D1A12] to-[#1A120E] border border-[#E06D3B]/45 flex items-center justify-center text-[#E06D3B] shadow-[0_0_25px_rgba(224,109,59,0.25)]">
+                  <Shield className="w-5 h-5" />
                 </div>
-              </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/[0.08] flex items-center justify-center text-white/75">
+                  <Cpu className="w-5 h-5" />
+                </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/[0.08] flex items-center justify-center text-white/75">
+                  <Lock className="w-5 h-5" />
+                </div>
 
-              {/* Bottom Diagram Status */}
-              <div className="relative z-10 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                <span>Cluster: Jakarta-Edge-01</span>
-                <span className="text-amber-400">0% Downtime SLA</span>
+                {/* Row 4 */}
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/[0.07] flex items-center justify-center text-white/60">
+                  <Globe className="w-5 h-5" />
+                </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#161616]/40 border border-white/[0.03]" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/[0.07] flex items-center justify-center text-white/70">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#1A1A1A] border border-white/12 flex items-center justify-center text-white/85 shadow-md">
+                  <Layers className="w-5 h-5" />
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 4 Stats Counters (Directly Matching Reference Image Strip) */}
-        <div className="mt-14 sm:mt-16 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          {stats.map((s, idx) => (
-            <div key={idx} className="space-y-1">
-              <span className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-mono block">
-                {s.value}
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-zinc-200 block">
-                {s.label}
-              </span>
-              <span className="text-[11px] font-mono text-amber-400/90 block">
-                {s.detail}
-              </span>
+        {/* 4-Column Stats Row with Left Vertical Divider Lines (matching slice_1.png) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-16 pt-4">
+          {stats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="border-l border-white/10 pl-4 sm:pl-5 space-y-1.5"
+            >
+              <div className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
+                {stat.value}
+              </div>
+              <p className="text-[11px] sm:text-[12px] text-[#8E8E93] leading-relaxed max-w-[210px]">
+                {stat.desc}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Trusted By & Tech Stack Logo Strip */}
-        <div className="mt-14 pt-8 border-t border-white/10">
-          <span className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 block text-center mb-6 font-semibold">
-            {lang === "id"
-              ? "EKOSISTEM TEKNOLOGI & INFRASTRUKTUR CLOUD TERSTANDAR"
-              : "SUPPORTED TECH STACK & CLOUD ECOSYSTEM"}
+        {/* "Works With" Glowing Platform Bar (matching slice_1.png) */}
+        <div className="mt-20 flex flex-col items-center">
+          <span className="text-[11px] font-medium text-[#8E8E93] mb-3 tracking-wide">
+            {language === "id" ? "Kompatibel Dengan" : "Works With"}
           </span>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6">
-            {techLogos.map((tech, idx) => (
-              <div
-                key={idx}
-                className="px-4 py-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                <span className="text-xs font-bold text-zinc-200">{tech.name}</span>
-                <span className="text-[10px] font-mono text-zinc-400 hidden sm:inline">
-                  ({tech.sub})
+          <div className="relative flex items-center justify-center">
+            {/* Warm Copper Radial Glow Behind Pill */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-4 rounded-full bg-[#E06D3B]/20 blur-2xl"
+            />
+
+            <div className="relative z-10 inline-flex items-center gap-7 sm:gap-10 px-8 sm:px-10 py-3.5 rounded-2xl bg-[#1B1817]/90 border border-white/10 shadow-xl">
+              {/* Windows Icon */}
+              <div className="flex flex-col items-center gap-1 text-white hover:text-[#E06D3B] transition-colors">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+                </svg>
+                <span className="text-[8px] uppercase tracking-widest text-white/50">
+                  Windows
                 </span>
               </div>
-            ))}
+
+              {/* Apple / macOS Icon */}
+              <div className="flex items-center justify-center text-white/90 hover:text-white transition-colors">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.06.62-2.72 1.4-.58.68-1.1 1.79-.96 2.84 1.04.08 2.08-.52 2.72-1.3" />
+                </svg>
+              </div>
+
+              {/* Linux / Server Icon */}
+              <div className="flex items-center justify-center text-white/85 hover:text-white transition-colors">
+                <Server className="w-5 h-5" />
+              </div>
+
+              {/* Cloud / Android / Edge Icon */}
+              <div className="flex items-center justify-center text-white/85 hover:text-white transition-colors">
+                <Cloud className="w-5 h-5" />
+              </div>
+            </div>
           </div>
+
+          {/* Signature Centered Orange Dash Divider */}
+          <div className="w-6 h-[2px] bg-[#E06D3B] mt-14" />
         </div>
       </div>
     </section>

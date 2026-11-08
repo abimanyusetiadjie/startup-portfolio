@@ -1,154 +1,190 @@
 "use client";
 
-import { Shield, Server, Globe, Database, MessageSquare, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Activity, Lock, Headphones } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveCoreShieldSection() {
-  const { lang } = useLanguage();
+  const { language } = useLanguage();
+
+  const quadrants =
+    language === "id"
+      ? [
+          {
+            num: "01",
+            cornerPos: "top-0 left-0",
+            icon: ShieldCheck,
+            title: "Mitigasi Proaktif &\nAnti-Down Ujian",
+            desc: "Deteksi otomatis lonjakan beban ribuan siswa sebelum berdampak pada operasional sekolah.",
+          },
+          {
+            num: "02",
+            cornerPos: "top-0 right-0",
+            icon: Activity,
+            title: "Pemantauan Real-Time\n24/7 Tanpa Henti",
+            desc: "Telemetri kesehatan database, antrean worker PDF, dan webhook WhatsApp setiap detik.",
+          },
+          {
+            num: "03",
+            cornerPos: "bottom-0 left-0",
+            icon: Lock,
+            title: "Kepemilikan Penuh\n100% Source Code",
+            desc: "Tidak ada vendor lock-in. Seluruh repositori, skema database, & dokumentasi milik Anda.",
+          },
+          {
+            num: "04",
+            cornerPos: "bottom-0 right-0",
+            icon: Headphones,
+            title: "Respons Engineer\nLangsung < 15 Menit",
+            desc: "Akses komunikasi langsung dengan tim engineer inti tanpa birokrasi tiket yang lambat.",
+          },
+        ]
+      : [
+          {
+            num: "01",
+            cornerPos: "top-0 left-0",
+            icon: ShieldCheck,
+            title: "Proactive Threat &\nLoad Mitigation",
+            desc: "Automated load balancing and anomaly detection before traffic spikes impact users.",
+          },
+          {
+            num: "02",
+            cornerPos: "top-0 right-0",
+            icon: Activity,
+            title: "Real-Time Telemetry\n& Health Checks",
+            desc: "Continuous monitoring across PostgreSQL nodes, PDF queues, and WhatsApp webhooks.",
+          },
+          {
+            num: "03",
+            cornerPos: "bottom-0 left-0",
+            icon: Lock,
+            title: "100% Full Source\nCode Ownership",
+            desc: "Zero vendor lock-in. Complete repositories, database schemas, and IP belong to you.",
+          },
+          {
+            num: "04",
+            cornerPos: "bottom-0 right-0",
+            icon: Headphones,
+            title: "Direct Engineer\nResponse < 15m",
+            desc: "Instant access to senior systems engineers whenever your institution needs support.",
+          },
+        ];
 
   return (
-    <section
-      id="pilar"
-      className="bg-[#05070B] text-white py-16 sm:py-24 font-sans border-b border-white/10 relative overflow-hidden"
-    >
-      {/* Central Radiating Warm Amber Light Burst */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-tr from-[#F59E0B]/20 via-[#EA580C]/10 to-transparent blur-[130px] rounded-full pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <span className="text-xs font-mono font-semibold tracking-widest text-amber-400 uppercase">
-            {lang === "id" ? "4 PILAR REKAYASA SISTEM" : "OUR 4 ARCHITECTURAL PILLARS"}
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mt-2">
-            {lang === "id"
-              ? "Pilar kokoh di balik setiap sistem yang kami bangun."
-              : "Engineered pillars powering mission-critical systems."}
+    <section className="py-10 relative overflow-hidden">
+      <div className="max-w-[1000px] mx-auto px-5 sm:px-8">
+        {/* Centered Header */}
+        <div className="text-center max-w-xl mx-auto mb-14 space-y-2.5">
+          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[#8E8E93]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E06D3B]" />
+            <span>
+              {language === "id" ? "JAMINAN KEANDALAN" : "RELIABILITY"}
+            </span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-medium tracking-tight text-white leading-tight">
+            {language === "id" ? (
+              <>
+                Pemantauan & Dukungan 24/7
+                <br />
+                Sepanjang Tahun, 365 Hari
+              </>
+            ) : (
+              <>
+                24/7 Monitoring and Support All
+                <br />
+                Year Round, 365
+              </>
+            )}
           </h2>
-          <p className="text-sm sm:text-base text-zinc-300 mt-4 leading-relaxed font-normal">
-            {lang === "id"
-              ? "Kami merancang sistem dengan arsitektur terisolasi (decoupled). Beban berat pada satu modul tidak akan pernah melumpuhkan modul lainnya."
-              : "Every system is built on decoupled micro-services. Peak loads on one component never destabilize the rest of the infrastructure."}
+          <p className="text-[12px] sm:text-[13px] text-[#8E8E93] max-w-md mx-auto leading-relaxed">
+            {language === "id"
+              ? "Arsitektur pelindung berlapis yang menjaga sistem institusi Anda tetap stabil setiap saat."
+              : "Always-on infrastructure protection keeping your critical systems resilient around the clock."}
           </p>
         </div>
 
-        {/* 4 Pillars with Central Shield Emblem (Exact Match to Reference Image Diagram) */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto items-center">
-          {/* Card 1: Top Left - SIAKAD & CBT Server */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#0B0E17] border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-zinc-950 transition-all">
-                <Server className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-[10px] font-mono tracking-wider uppercase text-amber-400 font-bold block">
-                  PILAR 01 • SERVER STABILITY
-                </span>
-                <h3 className="font-heading text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
-                  SIAKAD &amp; CBT Ujian Anti-Down
-                </h3>
-              </div>
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mb-4">
-              {lang === "id"
-                ? "Dukungan arsitektur cloud cerdas yang mampu menampung 1.200+ siswa ujian serentak tanpa error 502 Bad Gateway dan generator rapor PDF cloud."
-                : "Decoupled cloud infrastructure handling 1,200+ concurrent exam sessions with zero downtime and isolated PDF workers."}
-            </p>
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-zinc-400">
-              <span className="text-emerald-400 font-semibold">SLA Uptime 99.98%</span>
-              <span>PostgreSQL RLS</span>
+        {/* 4-Quadrant Open Diagram with Dashed Cross-Lines & Central Dual-Glow Shield (matching slice_2 & slice_3) */}
+        <div className="relative py-6">
+          {/* Horizontal Dashed Divider Line (Desktop) */}
+          <div
+            aria-hidden="true"
+            className="hidden md:block pointer-events-none absolute top-1/2 left-8 right-8 -translate-y-1/2 border-t border-dashed border-white/12 z-0"
+          />
+          {/* Vertical Dashed Divider Line (Desktop) */}
+          <div
+            aria-hidden="true"
+            className="hidden md:block pointer-events-none absolute top-6 bottom-6 left-1/2 -translate-x-1/2 border-l border-dashed border-white/12 z-0"
+          />
+
+          {/* Central Glowing Shield Emblem at Exact Center Intersection */}
+          <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center">
+            {/* Top Warm Orange Glow */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-6 w-28 h-20 rounded-full bg-[#E06D3B]/45 blur-2xl"
+            />
+            {/* Bottom Electric Blue Glow */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-6 w-28 h-20 rounded-full bg-blue-500/45 blur-2xl"
+            />
+
+            {/* Outer Ring */}
+            <div className="relative w-24 h-24 rounded-full bg-[#121215] border border-white/15 shadow-[0_0_40px_rgba(0,0,0,0.9)] flex items-center justify-center">
+              {/* Shield Shape SVG with Brand Name Inside */}
+              <svg
+                className="w-16 h-16 text-white/20 absolute"
+                viewBox="0 0 24 24"
+                fill=" #18181C"
+                stroke="currentColor"
+                strokeWidth="1"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <span className="relative z-10 text-[10px] font-semibold tracking-tight text-white">
+                Abinest <span className="text-white/70 font-normal">IT</span>
+              </span>
             </div>
           </div>
 
-          {/* Card 2: Top Right - Next.js 15 Web Architecture */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#0B0E17] border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-zinc-950 transition-all">
-                <Globe className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-[10px] font-mono tracking-wider uppercase text-amber-400 font-bold block">
-                  PILAR 02 • HIGH VELOCITY
-                </span>
-                <h3 className="font-heading text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
-                  Website Next.js 15 Performa Tinggi
-                </h3>
-              </div>
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mb-4">
-              {lang === "id"
-                ? "Website profil sekolah, yayasan, dan korporat dengan kecepatan muat instan (< 1 detik), SEO lokal unggul, dan desain eksklusif kelas dunia."
-                : "Corporate web architecture delivering instant 0.6s page loads, perfect 100/100 Lighthouse speed scores, and local SEO dominance."}
-            </p>
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-zinc-400">
-              <span className="text-sky-400 font-semibold">Lighthouse 95–100</span>
-              <span>Next.js 15 Edge</span>
-            </div>
-          </div>
+          {/* 2x2 Quadrant Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-14 md:gap-y-24 md:gap-x-24 relative z-10">
+            {quadrants.map((q) => {
+              const Icon = q.icon;
+              return (
+                <div
+                  key={q.num}
+                  className="relative flex flex-col items-center text-center px-6 py-4"
+                >
+                  {/* Outer Corner Number Badge (01, 02, 03, 04) */}
+                  <span
+                    className={`hidden md:inline-flex absolute ${q.cornerPos} w-6 h-6 rounded bg-[#18181B] border border-white/[0.06] items-center justify-center text-[9px] font-mono text-[#8E8E93]`}
+                  >
+                    {q.num}
+                  </span>
 
-          {/* Center Circular Glowing Shield Emblem (Placed prominently in the center) */}
-          <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center pointer-events-none">
-            <div className="relative flex items-center justify-center w-28 h-28 rounded-full bg-gradient-to-tr from-[#0F1422] to-[#1C253B] border-2 border-amber-500/60 shadow-2xl shadow-orange-500/40">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#EA580C] flex flex-col items-center justify-center text-zinc-950 shadow-inner">
-                <Shield className="w-8 h-8 fill-zinc-950 stroke-zinc-950" />
-                <span className="text-[8px] font-mono font-black tracking-widest mt-0.5">
-                  CORE
-                </span>
-              </div>
-            </div>
-          </div>
+                  {/* Centered Icon */}
+                  <div className="w-8 h-8 rounded-lg bg-[#1A1A1D] border border-white/10 flex items-center justify-center text-white mb-3.5 shadow-sm">
+                    <Icon className="w-4 h-4" />
+                  </div>
 
-          {/* Card 3: Bottom Left - Custom Omnichannel ERP */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#0B0E17] border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-zinc-950 transition-all">
-                <Database className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-[10px] font-mono tracking-wider uppercase text-amber-400 font-bold block">
-                  PILAR 03 • CENTRALIZED LEDGER
-                </span>
-                <h3 className="font-heading text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
-                  ERP Stok &amp; Kasir Multi-Cabang
-                </h3>
-              </div>
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mb-4">
-              {lang === "id"
-                ? "Sinkronisasi otomatis stok antar 5 cabang toko, kasir POS kasir cepat, dan pencatatan laba-rugi tanpa selisih serta tanpa biaya sewa bulanan."
-                : "Real-time stock ledger syncing multiple warehouse branches and retail POS terminals with zero subscription fees."}
-            </p>
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-zinc-400">
-              <span className="text-amber-400 font-semibold">0% Selisih Stok</span>
-              <span>PostgreSQL RLS</span>
-            </div>
-          </div>
+                  {/* 2-Line Centered Title */}
+                  <h3 className="text-[14px] font-medium text-white leading-snug whitespace-pre-line mb-2">
+                    {q.title}
+                  </h3>
 
-          {/* Card 4: Bottom Right - Official Meta WhatsApp API */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#0B0E17] border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl group">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-zinc-950 transition-all">
-                <MessageSquare className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-[10px] font-mono tracking-wider uppercase text-amber-400 font-bold block">
-                  PILAR 04 • OFFICIAL API
-                </span>
-                <h3 className="font-heading text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
-                  Bot WhatsApp Meta Cloud Resmi
-                </h3>
-              </div>
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mb-4">
-              {lang === "id"
-                ? "Pengiriman tagihan SPP, notifikasi jatuh tempo, dan kuitansi bayar via Meta Cloud API resmi tanpa software ilegal dan 0% resiko nomor terblokir."
-                : "Automated billing dispatch, tuition reminders, and payment receipts via official Meta Cloud API with 0% risk of account suspension."}
-            </p>
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-zinc-400">
-              <span className="text-emerald-400 font-semibold">Kirim &lt; 1.8 Detik</span>
-              <span>Official Meta Verified</span>
-            </div>
+                  {/* 2-Line Centered Description */}
+                  <p className="text-[11px] sm:text-[12px] text-[#8E8E93] max-w-[240px] leading-relaxed">
+                    {q.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
+        </div>
+
+        {/* Signature Centered Orange Dash Divider */}
+        <div className="flex justify-center mt-12">
+          <div className="w-6 h-[2px] bg-[#E06D3B]" />
         </div>
       </div>
     </section>

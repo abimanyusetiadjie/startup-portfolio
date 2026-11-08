@@ -1,120 +1,130 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle, ShieldCheck } from "lucide-react";
+import { Plus, Minus, HelpCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveFaqAccordionSection() {
-  const { lang } = useLanguage();
-  const [openIndex, setOpenIndex] = useState<number>(0);
+  const { language } = useLanguage();
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      q:
-        lang === "id"
-          ? "Apakah source code benar-benar menjadi milik institusi kami 100%?"
-          : "Do we genuinely get 100% source code and IP ownership?",
-      a:
-        lang === "id"
-          ? "Ya, 100% hak milik Anda (Full Intellectual Property). Setelah pelunasan, seluruh repositori Git, skema database PostgreSQL, dan dokumentasi arsitektur diserahkan penuh. Kami tidak memungut biaya lisensi sewa bulanan per-siswa maupun per-pengguna."
-          : "Yes, 100% Full IP Ownership. Upon final milestone completion, all Git repositories, PostgreSQL database schemas, and technical docs are completely transferred to your organization with zero recurring per-seat SaaS rent.",
-    },
-    {
-      q:
-        lang === "id"
-          ? "Berapa lama estimasi waktu pengerjaan Website atau sistem SIAKAD / ERP?"
-          : "How long does it take to develop a Corporate Website or SIAKAD / ERP?",
-      a:
-        lang === "id"
-          ? "Untuk Website Institusi / Korporat Next.js 15 rata-rata selesai dalam 2–3 minggu. Untuk sistem skala enterprise seperti SIAKAD Sekolah Anti-Down atau Custom ERP berkisar antara 4–8 minggu dengan rilis modul bertahap mingguan yang dapat langsung diuji di Client Portal."
-          : "High-performance Next.js 15 websites take 2–3 weeks. Comprehensive SIAKAD platforms or custom ERPs range between 4–8 weeks with weekly staging sprint milestones.",
-    },
-    {
-      q:
-        lang === "id"
-          ? "Bagaimana sistem menjamin 0% server down saat ribuan siswa ujian serentak?"
-          : "How does the architecture prevent server crashes during concurrent exams?",
-      a:
-        lang === "id"
-          ? "Kami menerapkan arsitektur decoupled (terisolasi). Database dilindungi oleh PostgreSQL Row Level Security (RLS) dengan connection pooling teroptimasi, antrean cetak rapor dipindahkan ke cloud worker terpisah, dan frontend berjalan di Next.js 15 Edge Runtime sehingga beban berat ujian tidak memacetkan server utama."
-          : "We engineer a decoupled serverless cluster. Direct PostgreSQL connection pooling with RLS security handles heavy CBT queries while PDF workloads run on isolated background queues.",
-    },
-    {
-      q:
-        lang === "id"
-          ? "Apakah data siswa, guru, atau stok lama dari Excel bisa dimigrasi?"
-          : "Can you migrate legacy student, academic, or inventory data from Excel?",
-      a:
-        lang === "id"
-          ? "Bisa dan kami bantu penuh. Tim insinyur kami membangun skrip ETL otomatis untuk memindahkan data dari file Excel, spreadsheet CSV, maupun database MySQL/PHP lama sehingga staf Anda tidak perlu menginput ulang secara manual."
-          : "Yes. Our engineers build automated ETL migration pipelines to import your legacy Excel spreadsheets, CSVs, or old MySQL/PHP databases seamlessly.",
-    },
-    {
-      q:
-        lang === "id"
-          ? "Bagaimana skema pembayaran dan garansi pasca go-live?"
-          : "What are the payment milestones and post-launch warranties?",
-      a:
-        lang === "id"
-          ? "Pembayaran dibagi dalam 3 termin aman: 30% Kickoff & Blueprint Arsitektur → 40% Demo Live di Client Portal → 30% Serah Terima 100% Source Code & Pelatihan. Setiap proyek dilengkapi garansi pemeliharaan & bug-fixing gratis 3–6 bulan dan jaminan SLA Uptime 99.98%."
-          : "Payments follow 3 safe milestones: 30% Kickoff → 40% Staging Demo on Client Portal → 30% 100% Source Code Handover. Every system includes 3–6 months of complimentary bug-fixing and 99.98% SLA warranty.",
-    },
-  ];
+  const faqs =
+    language === "id"
+      ? [
+          {
+            q: "Berapa lama estimasi waktu pengerjaan SIAKAD atau sistem kustom?",
+            a: "Untuk Website Korporat/Institusi Next.js membutuhkan 2–3 minggu. Untuk SIAKAD Sekolah atau ERP kustom berkisar 6–10 minggu dengan rilis bertahap setiap minggu melalui Client Portal.",
+          },
+          {
+            q: "Apakah data dari sistem lama atau Excel bisa dimigrasikan secara utuh?",
+            a: "Tentu. Tim engineer kami menyediakan skrip sanitasi dan migrasi data otomatis dari Excel, CSV, maupun database SQL lama tanpa mengganggu operasional harian Anda.",
+          },
+          {
+            q: "Bagaimana skema dukungan teknis dan garansi setelah sistem Go-Live?",
+            a: "Setiap proyek dilengkapi garansi pemeliharaan dan pemantauan server 24/7 dengan SLA 99.9% serta waktu respons di bawah 15 menit untuk penanganan kendala kritis.",
+          },
+          {
+            q: "Apakah source code dan database sepenuhnya menjadi hak milik institusi kami?",
+            a: "Ya, 100% milik Anda. Kami menyerahkan repositori Git penuh, skema PostgreSQL RLS, serta dokumentasi arsitektur tanpa biaya lisensi bulanan tersembunyi.",
+          },
+          {
+            q: "Bagaimana kisaran investasi untuk memulai proyek bersama Abinest IT?",
+            a: "Website performa tinggi mulai dari Rp 8,5 Juta, Otomasi WhatsApp API mulai dari Rp 12 Juta, dan SIAKAD/Sistem Enterprise mulai dari Rp 25 Juta dengan pembayaran bertahap per milestone.",
+          },
+        ]
+      : [
+          {
+            q: "How long does a custom SIAKAD or enterprise web build take?",
+            a: "High-speed Next.js institutional websites take 2–3 weeks. Full SIAKAD or custom ERP platforms take 6–10 weeks with transparent weekly milestone releases in your Client Portal.",
+          },
+          {
+            q: "Can you migrate our existing legacy database or Excel records?",
+            a: "Yes. Our engineers build automated data sanitization and migration pipelines from Excel, CSV, or legacy SQL databases with zero operational downtime.",
+          },
+          {
+            q: "What does post-launch support and SLA monitoring look like?",
+            a: "Every deployment includes 24/7 real-time telemetry, a 99.9% uptime SLA guarantee, and < 15-minute direct engineer response times for critical incidents.",
+          },
+          {
+            q: "Do we get 100% source code and intellectual property ownership?",
+            a: "Absolutely. You receive full Git repositories, PostgreSQL RLS schemas, and deployment documentation with zero vendor lock-in.",
+          },
+          {
+            q: "How is project pricing structured?",
+            a: "Projects are billed transparently across verifiable milestones — starting from IDR 8.5M for Next.js web platforms and IDR 25M for full SIAKAD/Enterprise systems.",
+          },
+        ];
 
   return (
-    <section
-      id="faq"
-      className="bg-[#05070B] text-white py-16 sm:py-24 font-sans border-b border-white/10"
-    >
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Section Header (Matches "Ask Less, Know More" from Reference) */}
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="text-xs font-mono font-semibold tracking-widest text-amber-400 uppercase">
-            {lang === "id" ? "PERTANYAAN UMUM" : "FREQUENTLY ASKED QUESTIONS"}
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mt-2">
-            Ask Less, Know More.
+    <section id="faq" className="pt-6 pb-20 relative">
+      <div className="max-w-[720px] mx-auto px-5 sm:px-8">
+        {/* Centered Header (matching slice_3.png bottom) */}
+        <div className="text-center max-w-lg mx-auto mb-12 space-y-2.5">
+          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[#8E8E93]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E06D3B]" />
+            <span>{language === "id" ? "TANYA JAWAB" : "FAQ"}</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-medium tracking-tight text-white">
+            {language === "id"
+              ? "Tanya Lebih Sedikit. Tahu Lebih Banyak."
+              : "Ask Less. Know More."}
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-3 font-normal max-w-lg mx-auto leading-relaxed">
-            {lang === "id"
-              ? "Jawaban langsung dan transparan untuk pertanyaan paling mendasar seputar arsitektur, lisensi, dan garansi proyek."
-              : "Clear, upfront answers regarding system architecture, source code ownership, and warranties."}
+          <p className="text-[12px] sm:text-[13px] text-[#8E8E93]">
+            {language === "id"
+              ? "Jawaban transparan atas pertanyaan teknis dan investasi proyek yang paling sering diajukan."
+              : "Clear answers to common technical, security, and project delivery questions."}
           </p>
         </div>
 
-        {/* Minimalist Accordion List */}
-        <div className="space-y-3.5">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
+        {/* Minimalist Bottom-Bordered FAQ Rows (matching slice_4.png top) */}
+        <div className="divide-y divide-white/10 border-b border-white/10">
+          {faqs.map((item, idx) => {
+            const isOpen = openIdx === idx;
             return (
-              <div
-                key={idx}
-                className="rounded-2xl bg-[#0C1018] border border-white/10 overflow-hidden transition-all duration-200"
-              >
+              <div key={idx} className="py-4">
                 <button
                   type="button"
-                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/[0.02] transition-colors"
+                  onClick={() => setOpenIdx(isOpen ? null : idx)}
+                  className="w-full flex items-center justify-between gap-4 text-left group"
                 >
-                  <span className="font-heading text-sm sm:text-base font-bold text-white">
-                    {faq.q}
+                  <span className="text-[13px] sm:text-[14px] font-normal text-white/90 group-hover:text-white transition-colors">
+                    {item.q}
                   </span>
-                  <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-amber-400">
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-amber-400" : "text-zinc-400"
-                      }`}
-                    />
-                  </div>
+                  <span className="text-[#8E8E93] group-hover:text-white shrink-0 transition-colors">
+                    {isOpen ? (
+                      <Minus className="w-3.5 h-3.5" />
+                    ) : (
+                      <Plus className="w-3.5 h-3.5" />
+                    )}
+                  </span>
                 </button>
+
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-white/5 font-normal">
-                    {faq.a}
-                  </div>
+                  <p className="pt-3 pr-8 text-[12px] sm:text-[13px] text-[#8E8E93] leading-relaxed">
+                    {item.a}
+                  </p>
                 )}
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Helper Link (matching slice_4.png) */}
+        <div className="mt-8 flex items-center justify-center gap-2 text-[11px] sm:text-[12px] text-[#8E8E93]">
+          <HelpCircle className="w-3.5 h-3.5 text-[#8E8E93]" />
+          <span>
+            {language === "id"
+              ? "Masih punya pertanyaan khusus?"
+              : "Still have questions?"}
+          </span>
+          <a
+            href="#kontak"
+            className="text-white hover:text-[#E06D3B] underline underline-offset-4 transition-colors"
+          >
+            {language === "id"
+              ? "Hubungi tim engineer kami"
+              : "Reach out to our team"}
+          </a>
         </div>
       </div>
     </section>

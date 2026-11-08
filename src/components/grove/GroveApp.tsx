@@ -17,41 +17,41 @@ import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
 export function GroveApp() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#06080C] text-white flex flex-col font-sans selection:bg-amber-500 selection:text-zinc-950">
-        {/* 1. Floating Pill Navbar with Amber CTA */}
+      <div className="min-h-screen bg-[#121212] text-white flex flex-col font-sans selection:bg-[#E06D3B] selection:text-white">
+        {/* 1. Top Bar Navbar (Logo left, subtle links center, dark pill Contact Us right) */}
         <GroveNavbar />
 
-        {/* 2. Hero Section: Split Headline + Tech Node Network Diagram + Stats Counter + Partner Logo Strip */}
+        {/* 2. Hero + 4x4 Circuit Tile Matrix + 4-Col Stats + "Works With" Glowing Platform Pill */}
         <GroveHeroSection />
 
-        {/* 3. What We Do & How We Can Help You (4 Photographic/Environment Cards) */}
+        {/* 3. "What We Do, And How It Helps You" 5-Panel Horizontal Image Accordion + 3-Col Perks */}
         <GroveCapabilitiesSection />
 
-        {/* 4. Comprehensive Services for Your Digital Stack (Tech Ecosystem Grid) */}
+        {/* 4. "Comprehensive IT Services That Power Your Stack" 2-Row Staggered Colorful App Icon Matrix */}
         <GroveTechStackGrid />
 
-        {/* 5. Central Glowing Shield Architecture: Our 4 Pillars */}
+        {/* 5. "24/7 Monitoring and Support All Year Round, 365" 4-Quadrant Diagram with Central Glowing Shield */}
         <GroveCoreShieldSection />
 
-        {/* 6. Interactive Tabbed Case Studies (Deep Dive with High-Res UI Mockup) */}
+        {/* 6. "IT Support That Actually Delivers." 6-Tab Bar + Split Left Bullets / Right Control Room Image */}
         <GroveCaseStudyTabsSection />
 
-        {/* 7. Ask Less, Know More (Minimalist Accordion FAQ) */}
+        {/* 7. "Ask Less. Know More." Minimalist Bottom-Bordered FAQ Rows */}
         <GroveFaqAccordionSection />
 
-        {/* 8. Start a Project with Us (Executive Contact Form with Radiating Amber Glow) */}
+        {/* 8. "Start a Project or a Conversation" Centered Dark Glass Form Over Diagonal Orange Light Beam */}
         <GroveAmberContactSection />
 
-        {/* 9. Why The Modern Innovators Choose Us (5-Star Testimonials with Client Portraits) */}
+        {/* 9. 2-Row Staggered Testimonials Wall + 10. 3D Stacked Case Study Deck + 11. 3-Col Insights Grid */}
         <GroveTestimonialsGrid />
 
-        {/* 10. Ready to Elevate Your IT Infrastructure? (Final CTA with Warm Amber Backlight) */}
+        {/* 12. "Got a Vision or IT Need? Let's Talk." Horizon Sunrise Glow CTA */}
         <GroveFinalCtaSection />
 
-        {/* 11. Comprehensive Studio Footer with Gigantic Watermark Typography */}
+        {/* 13. Boxed 4-Col Footer with Vertical Dividers + Giant Cut-Off Copper "Abinest IT" Watermark */}
         <GroveFooter />
 
-        {/* 12. Floating WhatsApp Quick Contact Hub */}
+        {/* Floating WhatsApp Quick Contact */}
         <GroveFloatingWhatsApp />
       </div>
     </LanguageProvider>

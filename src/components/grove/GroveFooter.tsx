@@ -1,228 +1,148 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUp, ArrowUpRight, Mail, MessageSquare, MapPin, Shield } from "lucide-react";
+import { Shield, Mail, Phone, MapPin, Globe, Lock } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveFooter() {
-  const { lang } = useLanguage();
-
-  const handleSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
-  ) => {
-    if (targetId.startsWith("#")) {
-      e.preventDefault();
-      const element = document.getElementById(targetId.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const { language } = useLanguage();
 
   return (
-    <footer
-      id="tentang"
-      className="bg-[#040609] text-white pt-16 pb-8 px-4 sm:px-8 lg:px-12 font-sans relative overflow-hidden"
-    >
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Main 4-Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
-          {/* Col 1: Studio Brand */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#F59E0B] to-[#EA580C] text-zinc-950 flex items-center justify-center">
-                <Shield className="w-4 h-4 fill-zinc-950 stroke-zinc-950" />
-              </div>
-              <span className="font-heading font-bold text-2xl text-white tracking-tight">
-                Abinest<span className="text-amber-500">.</span>
-              </span>
-              <span className="text-[10px] font-mono tracking-widest uppercase text-zinc-400 ml-1">
-                SOFTWARE IT
-              </span>
+    <footer className="relative bg-[#13100E] pt-12 overflow-hidden border-t border-white/[0.06]">
+      <div className="max-w-[1000px] mx-auto px-5 sm:px-8 relative z-10">
+        {/* Boxed Rounded Footer Container with Vertical Column Dividers (matching slice_6.png) */}
+        <div className="rounded-xl bg-[#171311]/90 border border-white/[0.08] p-6 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            {/* Col 1 (4 cols): Logo + Description */}
+            <div className="md:col-span-4 md:border-r md:border-white/[0.07] md:pr-6 space-y-3">
+              <Link href="/" className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-full bg-white text-[#121212] flex items-center justify-center">
+                  <Shield className="w-3.5 h-3.5 fill-[#121212]" />
+                </div>
+                <span className="text-[14px] font-semibold text-white">
+                  Abinest <span className="font-normal text-white/75">IT</span>
+                </span>
+              </Link>
+              <p className="text-[11px] text-[#8E8E93] leading-relaxed">
+                {language === "id"
+                  ? "Mitra rekayasa perangkat lunak B2B untuk SIAKAD sekolah anti-down, website Next.js 15, dan otomasi WhatsApp resmi Meta."
+                  : "Modern enterprise IT partner specializing in zero-downtime SIAKAD platforms, Next.js 15 web apps, and Meta Cloud API automation."}
+              </p>
             </div>
 
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-sm font-normal">
-              {lang === "id"
-                ? "Studio rekayasa perangkat lunak enterprise. Kami membangun sistem SIAKAD sekolah anti-down, website institusi super cepat, dan custom ERP terintegrasi dengan 100% kepemilikan source code."
-                : "Bespoke software engineering studio architecting resilient school SIS platforms, ultra-fast websites, and custom ERPs with 100% full IP code handover."}
-            </p>
+            {/* Col 2 (2 cols): Company Links */}
+            <div className="md:col-span-2 md:border-r md:border-white/[0.07] md:pr-4 space-y-2.5">
+              <h3 className="text-[11px] font-semibold text-white">
+                {language === "id" ? "Perusahaan" : "Company"}
+              </h3>
+              <ul className="space-y-2 text-[11px] text-[#8E8E93]">
+                <li>
+                  <a href="#layanan" className="hover:text-white transition-colors">
+                    {language === "id" ? "Tentang" : "About"}
+                  </a>
+                </li>
+                <li>
+                  <a href="#wawasan" className="hover:text-white transition-colors">
+                    {language === "id" ? "Wawasan" : "Blog"}
+                  </a>
+                </li>
+                <li>
+                  <a href="#kontak" className="hover:text-white transition-colors">
+                    {language === "id" ? "Kontak" : "Contact"}
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-            <div className="pt-2 space-y-2 text-xs font-mono text-zinc-300">
-              <a
-                href="mailto:hello@abinest.id"
-                className="flex items-center gap-2 hover:text-amber-400 transition-colors"
-              >
-                <Mail className="w-3.5 h-3.5 text-amber-400" />
-                <span>hello@abinest.id</span>
-              </a>
-              <a
-                href="https://wa.me/6281234567890"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 hover:text-amber-400 transition-colors"
-              >
-                <MessageSquare className="w-3.5 h-3.5 text-amber-400" />
-                <span>WhatsApp: +62 812-3456-7890</span>
-              </a>
-              <div className="flex items-center gap-2 text-zinc-400">
-                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
-                <span>Jakarta Selatan · Surabaya Timur (ID)</span>
+            {/* Col 3 (2 cols): Services Links */}
+            <div className="md:col-span-2 md:border-r md:border-white/[0.07] md:pr-4 space-y-2.5">
+              <h3 className="text-[11px] font-semibold text-white">
+                {language === "id" ? "Layanan" : "Services"}
+              </h3>
+              <ul className="space-y-2 text-[11px] text-[#8E8E93]">
+                <li>
+                  <a href="#arsitektur" className="hover:text-white transition-colors">
+                    {language === "id" ? "SIAKAD Cloud" : "Cloud"}
+                  </a>
+                </li>
+                <li>
+                  <a href="#studi-kasus" className="hover:text-white transition-colors">
+                    {language === "id" ? "Keamanan RLS" : "Security"}
+                  </a>
+                </li>
+                <li>
+                  <Link href="/login" className="hover:text-white transition-colors">
+                    {language === "id" ? "Portal Klien" : "Client Portal"}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 4 (4 cols): Follow Us Row + Contact Info Lines */}
+            <div className="md:col-span-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-semibold text-white">
+                  {language === "id" ? "Ikuti Kami:" : "Follow Us:"}
+                </span>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://github.com/abimanyusetiadjie"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-6 h-6 rounded bg-white/[0.05] hover:bg-white/10 flex items-center justify-center text-[#8E8E93] hover:text-white transition-colors"
+                    aria-label="GitHub"
+                  >
+                    <Globe className="w-3 h-3" />
+                  </a>
+                  <Link
+                    href="/login"
+                    className="w-6 h-6 rounded bg-white/[0.05] hover:bg-white/10 flex items-center justify-center text-[#8E8E93] hover:text-white transition-colors"
+                    aria-label="Client Portal"
+                  >
+                    <Lock className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="space-y-1.5 text-[11px] text-[#8E8E93] pt-1">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5 text-[#E06D3B] shrink-0" />
+                  <span>hello@abinest.id</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-[#E06D3B] shrink-0" />
+                  <span>+62 857-0867-7918</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#E06D3B] shrink-0" />
+                  <span>Jakarta Selatan & Surabaya, Indonesia</span>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Col 2: Pilar Sistem */}
-          <div className="lg:col-span-3 space-y-3">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-semibold block mb-3">
-              {lang === "id" ? "PILAR SISTEM" : "CORE SYSTEMS"}
-            </span>
-            <ul className="space-y-2 text-xs text-zinc-300">
-              <li>
-                <a
-                  href="#pilar"
-                  onClick={(e) => handleSmoothScroll(e, "#pilar")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  SIAKAD &amp; Server CBT Anti-Down
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pilar"
-                  onClick={(e) => handleSmoothScroll(e, "#pilar")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  Website Institusi Next.js 15
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pilar"
-                  onClick={(e) => handleSmoothScroll(e, "#pilar")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  Custom ERP Stok &amp; Kasir POS
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pilar"
-                  onClick={(e) => handleSmoothScroll(e, "#pilar")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  Bot WhatsApp Meta Cloud Resmi
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Studi Kasus & Bukti */}
-          <div className="lg:col-span-2 space-y-3">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-semibold block mb-3">
-              {lang === "id" ? "STUDI KASUS" : "CASE STUDIES"}
-            </span>
-            <ul className="space-y-2 text-xs text-zinc-300">
-              <li>
-                <a
-                  href="#studi-kasus"
-                  onClick={(e) => handleSmoothScroll(e, "#studi-kasus")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  SMA Al-Hikmah (1.200 Siswa)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#studi-kasus"
-                  onClick={(e) => handleSmoothScroll(e, "#studi-kasus")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  Yayasan Bina Insan
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#studi-kasus"
-                  onClick={(e) => handleSmoothScroll(e, "#studi-kasus")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  PT Mitra Retail Nusantara
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/portal"
-                  className="text-amber-400 hover:text-amber-300 transition-colors block font-medium"
-                >
-                  Client Portal Login →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Quick Navigation */}
-          <div className="lg:col-span-2 space-y-3">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-semibold block mb-3">
-              {lang === "id" ? "NAVIGASI" : "NAVIGATION"}
-            </span>
-            <ul className="space-y-2 text-xs text-zinc-300">
-              <li>
-                <a
-                  href="#beranda"
-                  onClick={(e) => handleSmoothScroll(e, "#beranda")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  Beranda
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  onClick={(e) => handleSmoothScroll(e, "#faq")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  FAQ &amp; Garansi
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#kontak"
-                  onClick={(e) => handleSmoothScroll(e, "#kontak")}
-                  className="hover:text-amber-400 transition-colors block"
-                >
-                  Konsultasi Proyek
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
 
-        {/* Sub-bar: Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-400">
-          <div>
-            © {new Date().getFullYear()} Abinest Software IT Studio. All rights reserved.
+        {/* Copyright Row Below Box (matching slice_6.png) */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-[#8E8E93] mt-6 pb-4">
+          <p>© 2026 Abinest IT. All rights reserved.</p>
+          <div className="flex items-center gap-5">
+            <a href="#faq" className="hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#faq" className="hover:text-white transition-colors">
+              Terms of Service
+            </a>
           </div>
-
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-amber-400 transition-colors cursor-pointer"
-          >
-            <span>BACK TO TOP</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
         </div>
       </div>
 
-      {/* GIGANTIC FAINT WATERMARK TYPOGRAPHY (Exact Signature Finish from Reference Image) */}
-      <div className="w-full text-center select-none pointer-events-none mt-10 -mb-4 overflow-hidden">
-        <span className="font-heading font-black text-[4.5rem] sm:text-[7.5rem] lg:text-[11.5rem] text-white/[0.03] uppercase tracking-tighter block leading-none whitespace-nowrap">
-          SOFTWARE IT
+      {/* Giant Cut-Off Warm Copper Watermark Wordmark at Bottom Edge (matching "SoftEra IT" in slice_6.png) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none w-full overflow-hidden flex justify-center leading-none pt-2 -mb-6 sm:-mb-10"
+      >
+        <span className="text-[17vw] font-bold tracking-tight bg-gradient-to-b from-[#4E2C1B]/70 via-[#381F13]/45 to-transparent bg-clip-text text-transparent whitespace-nowrap">
+          Abinest IT
         </span>
       </div>
     </footer>

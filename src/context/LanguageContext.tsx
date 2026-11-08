@@ -15,7 +15,9 @@ import {
 
 interface LanguageContextType {
   lang: Language;
+  language: Language;
   setLang: (lang: Language) => void;
+  setLanguage: (lang: Language) => void;
   toggleLang: () => void;
   t: TranslationDictionary;
 }
@@ -56,7 +58,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const t = translations[lang];
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, toggleLang, t }}>
+    <LanguageContext.Provider
+      value={{
+        lang,
+        language: lang,
+        setLang,
+        setLanguage: setLang,
+        toggleLang,
+        t,
+      }}
+    >
       {children}
     </LanguageContext.Provider>
   );
