@@ -30,7 +30,7 @@ export function GroveFaqAccordionSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 relative bg-slate-50/60 border-t border-slate-200/80">
+    <section id="faq" className="py-24 relative bg-[#FAF9F6] border-t border-slate-200/80">
       <div className="max-w-[760px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-xl mx-auto mb-14 space-y-3">

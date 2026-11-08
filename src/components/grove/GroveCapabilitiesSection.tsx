@@ -1,26 +1,20 @@
 "use client";
 
-import { ShieldCheck, Cpu, Zap, Database, ArrowUpRight } from "lucide-react";
+import { ShieldCheck, Cpu, Zap, Database, Globe, ArrowUpRight } from "lucide-react";
 
 export function GroveCapabilitiesSection() {
   const showcasePanels = [
     {
-      title: "Arsitektur SIAKAD Anti-Down",
-      tag: "High Concurrency",
-      photo: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-      accent: "#EA580C",
-    },
-    {
-      title: "Keamanan PostgreSQL RLS",
-      tag: "Data Isolation",
-      photo: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-      accent: "#2563EB",
-    },
-    {
-      title: "Website Institusi Next.js 15",
+      title: "Website Modern Next.js 15",
       tag: "Lighthouse 95–100",
       photo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      accent: "#0D9488",
+      accent: "#D97736",
+    },
+    {
+      title: "Sistem Informasi & ERP Kustom",
+      tag: "High Concurrency",
+      photo: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+      accent: "#2563EB",
     },
     {
       title: "Otomasi WhatsApp Resmi Meta",
@@ -29,8 +23,14 @@ export function GroveCapabilitiesSection() {
       accent: "#16A34A",
     },
     {
-      title: "Portal Klien & Milestone SLA",
-      tag: "100% Transparency",
+      title: "Keamanan PostgreSQL RLS",
+      tag: "Data Isolation",
+      photo: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+      accent: "#0D9488",
+    },
+    {
+      title: "100% Hak Milik Source Code",
+      tag: "Zero Lock-In",
       photo: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
       accent: "#7C3AED",
     },
@@ -38,40 +38,40 @@ export function GroveCapabilitiesSection() {
 
   const pillars = [
     {
+      icon: Globe,
+      title: "Website Modern Berkecepatan Tinggi (< 0.8s)",
+      desc: "Company profile, landing page berkonversi tinggi, dan web portal bisnis/institusi berbasis Next.js 15. Kecepatan buka instan, desain berkelas dunia, dan optimasi SEO Google maksimal.",
+      tag: "Lighthouse 95–100",
+    },
+    {
       icon: ShieldCheck,
-      title: "Arsitektur Anti-Down & Auto-Scaling",
-      desc: "Dirancang khusus agar sistem tetap dingin dan responsif saat ribuan siswa login ujian serentak, KRS, atau PPDB massal.",
-      tag: "0% Crash Ujian",
+      title: "Sistem Informasi & ERP Kustom Terukur",
+      desc: "Aplikasi web manajemen operasional, CRM, inventaris, hingga sistem akademik (SIAKAD) dengan arsitektur terpisah. Sistem tetap stabil dan dingin saat ribuan transaksi atau pengguna serentak.",
+      tag: "99.9% SLA Uptime",
     },
     {
       icon: Zap,
-      title: "Otomasi Meta Cloud API & Worker PDF",
-      desc: "Pencetakan ratusan rapor Kurikulum Merdeka di latar belakang tanpa lag, sinkron dengan broadcast WhatsApp wali murid.",
-      tag: "< 2 Detik Pengiriman",
-    },
-    {
-      icon: Database,
-      title: "Keamanan Database RLS & IP Penuh",
-      desc: "Proteksi data sensitif institusi di level baris PostgreSQL. Seluruh kode sumber, repositori, dan skema 100% milik Anda.",
-      tag: "Zero Vendor Lock-In",
+      title: "Otomasi Alur Kerja & WhatsApp Cloud API",
+      desc: "Eliminasi pekerjaan manual berulang dengan notifikasi tagihan/invoice otomatis, reminder cerdas, bot interaktif, dan integrasi webhook resmi Meta tanpa risiko pemblokiran nomor.",
+      tag: "< 2s Delivery Rate",
     },
   ];
 
   return (
-    <section id="layanan" className="py-24 relative bg-slate-50/60 border-t border-slate-200/80">
+    <section id="layanan" className="py-24 relative bg-[#FAF9F6] border-t border-slate-200/80">
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600 bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
             NILAI &amp; PRINSIP REKAYASA ABINEST
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-[#0F172A] leading-tight">
-            Kami Bangun Sistem yang Bertahan Lama.
+            Kami Bangun Sistem Digital yang
             <br />
-            Bukan Sekadar Selesai.
+            Bertahan Lama &amp; Bebas Masalah.
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
-            Solusi software house modern untuk sekolah, yayasan, dan enterprise yang mengutamakan kecepatan akses, stabilitas server, dan keamanan data.
+            Software house &amp; konsultan teknologi untuk UMKM, korporat, dan institusi pendidikan yang membutuhkan website modern, sistem kustom, dan otomasi alur kerja tanpa downtime.
           </p>
         </div>
 

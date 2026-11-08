@@ -51,7 +51,7 @@ export function GrovePartnerPill() {
   ];
 
   return (
-    <section className="py-6 relative bg-white">
+    <section className="py-6 relative bg-[#FAF9F6]">
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8 flex flex-col items-center">
         {/* Label */}
         <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500 mb-3.5">

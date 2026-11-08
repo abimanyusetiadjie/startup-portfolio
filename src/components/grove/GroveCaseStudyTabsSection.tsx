@@ -8,48 +8,48 @@ export function GroveCaseStudyTabsSection() {
 
   const tabs = [
     {
-      label: "SIAKAD Sekolah Anti-Down",
-      title: "Sistem Informasi Akademik Berkapasitas Tinggi Tanpa Down",
-      desc: "Dirancang khusus untuk sekolah, yayasan, dan pesantren yang membutuhkan stabilitas penuh saat ujian CBT serentak, pembagian rapor, dan pendaftaran murid baru.",
+      label: "Website Modern Next.js 15",
+      title: "Website Korporat & Landing Page Konversi Tinggi Skor 95–100",
+      desc: "Kami merancang website profesional untuk perusahaan, institusi, dan UMKM menggunakan Next.js 15 App Router yang memuat dalam sekejap dan mendominasi peringkat mesin pencari.",
       bullets: [
-        "0% server crash saat 1.200+ siswa login bersamaan untuk ujian.",
-        "Generate 600+ PDF rapor Kurikulum Merdeka via background worker paralel.",
-        "Integrasi tagihan SPP otomatis dengan notifikasi WhatsApp wali murid.",
-        "Portal multi-peran terisolasi: Admin, Guru, Wali Kelas, Siswa, dan Orang Tua.",
-      ],
-      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80",
-      badge: "SIAKAD Core Tier 1",
-    },
-    {
-      label: "Website Next.js 15",
-      title: "Website Institusi Super Cepat Skor Lighthouse 95–100",
-      desc: "Website resmi sekolah dan korporat yang dibangun menggunakan Next.js 15 App Router untuk kecepatan buka halaman di bawah 1 detik dan dominasi SEO Google.",
-      bullets: [
-        "Skor Google PageSpeed & Core Web Vitals terverifikasi 95–100.",
-        "Desain eksklusif berkelas non-template yang mengangkat reputasi B2B.",
-        "Panel CMS mudah dikelola oleh tim humas tanpa keahlian koding.",
-        "Struktur Schema JSON-LD lengkap untuk optimasi pencarian lokal.",
+        "Skor Google Core Web Vitals & PageSpeed terverifikasi 95–100.",
+        "Desain visual eksklusif kelas dunia yang meningkatkan kredibilitas brand.",
+        "Panel CMS intuitif yang mudah diperbarui oleh staf non-teknis kapan saja.",
+        "Optimasi SEO teknis & Schema JSON-LD lengkap untuk visibilitas pencarian Google.",
       ],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
       badge: "Next.js 15 Edge Performance",
     },
     {
-      label: "Otomasi WhatsApp Meta",
-      title: "Integrasi Resmi Meta Cloud API & Pengiriman < 2 Detik",
-      desc: "Tinggalkan broadcast tidak resmi yang rawan pemblokiran nomor. Kami hubungkan sistem Anda langsung ke infrastruktur resmi Meta Cloud API dengan enkripsi penuh.",
+      label: "Sistem Informasi & ERP Kustom",
+      title: "Aplikasi Web & Sistem Manajemen Sesuai Alur Kerja Unik Anda",
+      desc: "Bangun sistem digital yang mengikuti proses bisnis Anda, bukan sebaliknya. Mulai dari ERP manajemen stok, CRM, dashboard operasional, hingga SIAKAD sekolah yang teruji anti-down.",
       bullets: [
-        "Notifikasi tagihan SPP, absensi, dan OTP terkirim di bawah 2 detik.",
+        "0% server crash saat lonjakan transaksi massal atau ribuan user serentak.",
+        "Hak akses multi-peran granular dengan isolasi PostgreSQL Row-Level Security.",
+        "Dashboard analitik real-time untuk pengambilan keputusan pimpinan yang akurat.",
+        "Pemrosesan dokumen & PDF otomatis di latar belakang tanpa membuat web lag.",
+      ],
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80",
+      badge: "Enterprise Custom Architecture",
+    },
+    {
+      label: "Otomasi WhatsApp & Webhook",
+      title: "Integrasi Resmi Meta Cloud API & Pengiriman < 2 Detik",
+      desc: "Tinggalkan broadcast tidak resmi yang rawan pemblokiran nomor. Kami hubungkan sistem Anda langsung ke infrastruktur resmi Meta Cloud API untuk pengiriman invoice, reminder, dan bot cerdas.",
+      bullets: [
+        "Notifikasi tagihan SPP, faktur invoice, dan OTP terkirim di bawah 2 detik.",
         "Pencegahan pesan ganda otomatis dengan kunci idempotensi kriptografis.",
         "Dasbor analitik read-receipt dan pemantauan delivery rate real-time.",
-        "Template pesan resmi terverifikasi Meta tanpa risiko blokir nomor.",
+        "Integrasi webhook ke Google Sheets, Midtrans/Xendit, dan CRM bisnis Anda.",
       ],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
       badge: "Official Meta Cloud API Pipeline",
     },
     {
-      label: "Keamanan Database & ERP",
-      title: "Isolasi Data PostgreSQL RLS & Hak Cipta 100%",
-      desc: "Keamanan data institusi dikunci langsung di level mesin PostgreSQL. Memastikan setiap peran hanya dapat mengakses haknya, lengkap dengan serah terima source code penuh.",
+      label: "Infrastruktur & Hak Milik 100%",
+      title: "Infrastruktur Cloud Andal & Hak Cipta Kode Sumber Penuh",
+      desc: "Semua sistem diserahterimakan dengan kepemilikan kode sumber penuh tanpa biaya langganan software per-user yang membebani kas perusahaan setiap bulan.",
       bullets: [
         "Kebijakan Row-Level Security (RLS) ketat di setiap tabel database.",
         "Enkripsi penuh TLS 1.3 saat transit dan enkripsi AES-256 saat tersimpan.",
@@ -64,7 +64,7 @@ export function GroveCaseStudyTabsSection() {
   const current = tabs[activeTab];
 
   return (
-    <section className="py-24 relative bg-white border-t border-slate-200/80">
+    <section id="solusi" className="py-24 relative bg-[#FAF9F6] border-t border-slate-200/80">
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-xl mx-auto mb-12 space-y-3">

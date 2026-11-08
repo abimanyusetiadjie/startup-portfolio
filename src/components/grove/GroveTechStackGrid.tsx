@@ -86,7 +86,7 @@ export function GroveTechStackGrid() {
         name: "Python",
         category: "languages",
         categoryLabel: "Backend & Data Language",
-        desc: "Worker data pipelines, pemrosesan dokumen rapor, dan skrip otomasi asinkron.",
+        desc: "Worker data pipelines, pemrosesan dokumen otomatis, AI engine, dan backend asinkron.",
         glowColor: "rgba(255, 212, 59, 0.3)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 128 128">
@@ -271,7 +271,7 @@ export function GroveTechStackGrid() {
   ];
 
   return (
-    <section id="tech-stack" className="py-24 relative overflow-hidden bg-white border-t border-slate-200/80">
+    <section id="tech-stack" className="py-24 relative overflow-hidden bg-[#FAF9F6] border-t border-slate-200/80">
       {/* Background Soft Light Amber Glow */}
       <div
         aria-hidden="true"

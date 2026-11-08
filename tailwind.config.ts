@@ -57,7 +57,7 @@ const config: Config = {
         heading: ["var(--font-sans)", "sans-serif"],
         jakarta: ["var(--font-sans)", "sans-serif"],
         sans: ["var(--font-sans)", "sans-serif"],
-        serif: ["var(--font-sans)", "sans-serif"],
+        serif: ["var(--font-serif)", "Playfair Display", "Georgia", "serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       boxShadow: {

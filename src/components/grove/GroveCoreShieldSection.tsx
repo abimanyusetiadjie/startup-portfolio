@@ -9,22 +9,22 @@ export function GroveCoreShieldSection() {
       num: "01",
       cornerPos: "top-4 left-4",
       icon: ShieldCheck,
-      title: "Mitigasi Beban Proaktif &\nAnti-Down Ujian Massal",
-      desc: "Deteksi otomatis lonjakan ribuan siswa sebelum berdampak pada operasional sekolah atau sistem penilaian.",
+      title: "Mitigasi Beban Proaktif &\nInfrastruktur Anti-Down",
+      desc: "Deteksi otomatis lonjakan pengunjung web, transaksi operasional, dan antrean data sebelum terjadi bottleneck atau gangguan server.",
     },
     {
       num: "02",
       cornerPos: "top-4 right-4",
       icon: Activity,
       title: "Pemantauan Real-Time\n24/7 Sepanjang Tahun",
-      desc: "Telemetri kesehatan database PostgreSQL, antrean background worker PDF, dan webhook WhatsApp setiap detik.",
+      desc: "Telemetri kesehatan server cloud, performa latensi API, database PostgreSQL, dan alur pengiriman WhatsApp setiap detik.",
     },
     {
       num: "03",
       cornerPos: "bottom-4 left-4",
       icon: Lock,
       title: "Kepemilikan Penuh\n100% Source Code & IP",
-      desc: "Nol vendor lock-in. Seluruh repositori Git, skema database, dan dokumentasi arsitektur menjadi aset resmi Anda.",
+      desc: "Nol vendor lock-in. Seluruh repositori Git, skema database, dan dokumentasi arsitektur menjadi aset resmi perusahaan Anda.",
     },
     {
       num: "04",
@@ -36,7 +36,7 @@ export function GroveCoreShieldSection() {
   ];
 
   return (
-    <section id="metodologi" className="py-24 relative overflow-hidden bg-slate-50/60 border-t border-slate-200/80">
+    <section id="metodologi" className="py-24 relative overflow-hidden bg-[#FAF9F6] border-t border-slate-200/80">
       {/* Background Soft Glow */}
       <div
         aria-hidden="true"

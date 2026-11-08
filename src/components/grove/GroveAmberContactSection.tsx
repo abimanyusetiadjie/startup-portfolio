@@ -26,7 +26,7 @@ export function GroveAmberContactSection() {
   };
 
   return (
-    <section id="kontak" className="py-24 relative overflow-hidden bg-white border-t border-slate-200/80">
+    <section id="kontak" className="py-24 relative overflow-hidden bg-[#FAF9F6] border-t border-slate-200/80">
       {/* Background Soft Warm Light Glow */}
       <div
         aria-hidden="true"

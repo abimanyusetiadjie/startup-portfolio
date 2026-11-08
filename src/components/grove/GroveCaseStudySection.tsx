@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export function GroveCaseStudySection() {
   return (
-    <section id="studi-kasus" className="py-24 relative bg-white border-t border-slate-200/80">
+    <section id="studi-kasus" className="py-24 relative bg-[#FAF9F6] border-t border-slate-200/80">
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-xl mx-auto mb-14 space-y-3">

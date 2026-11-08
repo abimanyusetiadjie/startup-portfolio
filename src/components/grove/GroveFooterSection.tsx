@@ -6,7 +6,7 @@ import { AbinestLogo } from "./AbinestLogo";
 
 export function GroveFooterSection() {
   return (
-    <footer className="relative bg-white border-t border-slate-200 overflow-hidden">
+    <footer className="relative bg-[#FAF9F6] border-t border-slate-200 overflow-hidden">
       {/* 1. Pre-Footer Banner in Warm Light Orange Gradient */}
       <div className="relative py-24 bg-gradient-to-b from-orange-50/70 via-amber-50/40 to-white border-b border-slate-200 overflow-hidden">
         {/* Soft Warm Radial Glow */}
