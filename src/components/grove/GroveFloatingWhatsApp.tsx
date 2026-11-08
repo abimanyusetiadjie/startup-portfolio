@@ -1,99 +1,100 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowUpRight } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
+import { MessageCircle, X, ArrowUpRight } from "lucide-react";
+
+const WHATSAPP_NUMBER = "6285708677918";
 
 export function GroveFloatingWhatsApp() {
-  const { lang } = useLanguage();
-  const [isTooltipDismissed, setIsTooltipDismissed] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const waNumber = "6281234567890";
-  const defaultMessage =
-    lang === "id"
-      ? "Halo Abinest Studio, saya ingin konsultasi mengenai pembuatan website / sistem digital."
-      : "Hello Abinest Studio, I would like to consult about a website / digital system project.";
+  const quickOptions = [
+    {
+      title: "Konsultasi Infrastruktur & Cloud",
+      text: "Halo Tim TechRoos, saya ingin berkonsultasi mengenai infrastruktur cloud & pencegahan downtime sistem kami.",
+    },
+    {
+      title: "Otomasi WhatsApp API & Workflow",
+      text: "Halo Tim TechRoos, saya ingin menanyakan integrasi resmi Meta WhatsApp Cloud API dan otomatisasi sistem.",
+    },
+    {
+      title: "Audit Keamanan & Custom SLA",
+      text: "Halo Tim TechRoos, saya ingin menjadwalkan audit sistem dan mendiskusikan paket SLA 99.9%.",
+    },
+  ];
 
-  const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(
-    defaultMessage
-  )}`;
+  const handleOpenChat = (customText?: string) => {
+    const text =
+      customText ||
+      "Halo Tim TechRoos, saya ingin mendiskusikan kebutuhan arsitektur dan sistem IT kami.";
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+    setIsOpen(false);
+  };
 
   return (
-    <aside
-      aria-label="WhatsApp Quick Contact"
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 font-sans pointer-events-none"
-    >
-      {/* Interactive Tooltip Card: HANYA TAMPIL DI DESKTOP (hidden sm:block) agar layar HP tetap lega & tidak terhalang */}
-      <AnimatePresence>
-        {!isTooltipDismissed && (
-          <motion.div
-            initial={{ opacity: 0, y: 15, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            className="hidden sm:block pointer-events-auto max-w-[260px] p-3.5 rounded-2xl bg-[#090D16]/95 text-white border border-white/15 shadow-2xl backdrop-blur-xl relative"
-          >
-            {/* Tombol Close Tooltip */}
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      {/* Quick Option Popover Card */}
+      {isOpen && (
+        <div className="mb-3 w-[320px] sm:w-[350px] rounded-2xl bg-[#121318] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-4 text-white animate-fadeIn">
+          <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-xs font-semibold">TechRoos Direct Support</span>
+            </div>
             <button
               type="button"
-              onClick={() => setIsTooltipDismissed(true)}
-              className="absolute top-2.5 right-2.5 text-zinc-400 hover:text-white p-1 rounded-full transition-colors cursor-pointer"
-              aria-label="Tutup pesan bantuan WhatsApp"
+              onClick={() => setIsOpen(false)}
+              className="p-1 rounded-md text-zinc-400 hover:text-white"
             >
-              <X className="w-3.5 h-3.5" />
+              <X className="w-4 h-4" />
             </button>
+          </div>
 
-            {/* Header Tooltip */}
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-[11px] font-mono font-semibold tracking-wider text-emerald-400 uppercase">
-                {lang === "id" ? "WhatsApp Studio" : "Studio WhatsApp"}
-              </span>
-            </div>
+          <p className="text-xs text-zinc-400 py-3 leading-relaxed">
+            Pilih topik konsultasi di bawah untuk terhubung langsung dengan tim engineer kami:
+          </p>
 
-            {/* Isi Pesan */}
-            <p className="text-xs text-zinc-200 leading-relaxed font-normal mb-2">
-              {lang === "id"
-                ? "Diskusikan kebutuhan arsitektur sistem atau website Anda langsung bersama kami."
-                : "Chat directly with our software engineering team on WhatsApp."}
-            </p>
+          <div className="space-y-2">
+            {quickOptions.map((opt, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => handleOpenChat(opt.text)}
+                className="w-full text-left p-2.5 rounded-xl bg-white/[0.04] hover:bg-orange-500/10 border border-white/[0.04] hover:border-orange-500/30 text-xs text-zinc-200 transition-all flex items-center justify-between group"
+              >
+                <span>{opt.title}</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-orange-400 transition-colors" />
+              </button>
+            ))}
+          </div>
 
-            {/* Quick Action Link */}
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-300 hover:text-emerald-200 transition-colors"
+          <div className="mt-3 pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-zinc-500">
+            <span>Rata-rata respons: &lt; 15 menit</span>
+            <button
+              type="button"
+              onClick={() => handleOpenChat()}
+              className="text-orange-400 font-medium hover:underline"
             >
-              <span>{lang === "id" ? "Mulai Chat Konsultan" : "Chat with Consultant"}</span>
-              <ArrowUpRight className="w-3 h-3" />
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              Chat Langsung
+            </button>
+          </div>
+        </div>
+      )}
 
-      {/* Main Floating WhatsApp Button (Ringkas di Mobile w-12 h-12, Proporsional di Desktop sm:w-14 sm:h-14) */}
-      <motion.a
-        href={waUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Hubungi Abinest Studio melalui WhatsApp"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="pointer-events-auto relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-xl shadow-black/50 border border-white/20 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 transition-all duration-200"
+      {/* Floating Button */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="group relative flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-emerald-600 to-emerald-500 text-white shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] hover:scale-105 transition-all duration-300"
+        aria-label="Konsultasi WhatsApp"
       >
-        {/* Official WhatsApp Vector Icon */}
-        <svg
-          viewBox="0 0 24 24"
-          className="w-6 h-6 sm:w-7 sm:h-7 fill-white drop-shadow-sm transition-transform duration-200 group-hover:scale-105"
-          aria-hidden="true"
-        >
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 20.15C10.57 20.15 9.12 19.75 7.85 19L7.55 18.82L4.43 19.64L5.26 16.59L5.06 16.28C4.24 14.97 3.8 13.46 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.05 20.15ZM16.57 14.46C16.32 14.33 15.1 13.73 14.88 13.65C14.65 13.57 14.49 13.53 14.32 13.78C14.15 14.03 13.67 14.6 13.53 14.77C13.38 14.93 13.24 14.95 12.99 14.83C12.74 14.7 11.94 14.44 10.99 13.6C10.25 12.94 9.75 12.13 9.6 11.88C9.46 11.63 9.59 11.49 9.71 11.37C9.82 11.26 9.96 11.08 10.08 10.94C10.21 10.8 10.25 10.7 10.33 10.53C10.42 10.37 10.37 10.22 10.31 10.1C10.25 9.97 9.75 8.75 9.55 8.24C9.35 7.75 9.14 7.82 8.99 7.81L8.51 7.8C8.34 7.8 8.07 7.86 7.84 8.11C7.62 8.36 6.98 8.95 6.98 10.17C6.98 11.39 7.87 12.56 8 12.73C8.12 12.9 9.75 15.4 12.24 16.48C12.83 16.74 13.29 16.89 13.65 17C14.24 17.19 14.78 17.16 15.21 17.1C15.69 17.03 16.69 16.5 16.9 15.91C17.11 15.33 17.11 14.83 17.05 14.73C16.98 14.62 16.82 14.58 16.57 14.46Z" />
-        </svg>
-      </motion.a>
-    </aside>
+        <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#0A0A0C]" />
+        <MessageCircle className="w-6 h-6 fill-current" />
+      </button>
+    </div>
   );
 }

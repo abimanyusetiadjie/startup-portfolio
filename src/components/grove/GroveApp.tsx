@@ -1,8 +1,8 @@
 "use client";
 
-import { LanguageProvider } from "@/context/LanguageContext";
 import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
+import { GrovePartnerPill } from "./GrovePartnerPill";
 import { GroveCapabilitiesSection } from "./GroveCapabilitiesSection";
 import { GroveTechStackGrid } from "./GroveTechStackGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
@@ -10,50 +10,55 @@ import { GroveCaseStudyTabsSection } from "./GroveCaseStudyTabsSection";
 import { GroveFaqAccordionSection } from "./GroveFaqAccordionSection";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
-import { GroveFinalCtaSection } from "./GroveFinalCtaSection";
-import { GroveFooter } from "./GroveFooter";
+import { GroveCaseStudySection } from "./GroveCaseStudySection";
+import { GroveInsightsSection } from "./GroveInsightsSection";
+import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
 
 export function GroveApp() {
   return (
-    <LanguageProvider>
-      <div className="min-h-screen bg-[#121212] text-white flex flex-col font-sans selection:bg-[#E06D3B] selection:text-white">
-        {/* 1. Top Bar Navbar (Logo left, subtle links center, dark pill Contact Us right) */}
-        <GroveNavbar />
+    <div className="min-h-screen bg-[#0A0A0C] text-white flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+      {/* 1. Sticky Glass Navbar */}
+      <GroveNavbar />
 
-        {/* 2. Hero + 4x4 Circuit Tile Matrix + 4-Col Stats + "Works With" Glowing Platform Pill */}
-        <GroveHeroSection />
+      {/* 2. Hero Section & 4-Metric Bar */}
+      <GroveHeroSection />
 
-        {/* 3. "What We Do, And How It Helps You" 5-Panel Horizontal Image Accordion + 3-Col Perks */}
-        <GroveCapabilitiesSection />
+      {/* 3. Trust Badges / Certified Partner */}
+      <GrovePartnerPill />
 
-        {/* 4. "Comprehensive IT Services That Power Your Stack" 2-Row Staggered Colorful App Icon Matrix */}
-        <GroveTechStackGrid />
+      {/* 4. About / Value Proposition ("We Fix. We Automate. You Level Up.") */}
+      <GroveCapabilitiesSection />
 
-        {/* 5. "24/7 Monitoring and Support All Year Round, 365" 4-Quadrant Diagram with Central Glowing Shield */}
-        <GroveCoreShieldSection />
+      {/* 5. Tech Stack & Integrations ("Connected to the Tools That Power Your Stack") */}
+      <GroveTechStackGrid />
 
-        {/* 6. "IT Support That Actually Delivers." 6-Tab Bar + Split Left Bullets / Right Control Room Image */}
-        <GroveCaseStudyTabsSection />
+      {/* 6. Core Methodology ("We Don't Just Support IT. We Fuel Growth.") */}
+      <GroveCoreShieldSection />
 
-        {/* 7. "Ask Less. Know More." Minimalist Bottom-Bordered FAQ Rows */}
-        <GroveFaqAccordionSection />
+      {/* 7. Detailed Services ("IT Support That Actually Shows Up") */}
+      <GroveCaseStudyTabsSection />
 
-        {/* 8. "Start a Project or a Conversation" Centered Dark Glass Form Over Diagonal Orange Light Beam */}
-        <GroveAmberContactSection />
+      {/* 8. Minimalist FAQ Accordion ("Ask Less. Know More.") */}
+      <GroveFaqAccordionSection />
 
-        {/* 9. 2-Row Staggered Testimonials Wall + 10. 3D Stacked Case Study Deck + 11. 3-Col Insights Grid */}
-        <GroveTestimonialsGrid />
+      {/* 9. Lead Capture Contact Form ("Good IT Starts With a Conversation") */}
+      <GroveAmberContactSection />
 
-        {/* 12. "Got a Vision or IT Need? Let's Talk." Horizon Sunrise Glow CTA */}
-        <GroveFinalCtaSection />
+      {/* 10. Client Testimonials ("Why TechRoos Clients Stick With Us") */}
+      <GroveTestimonialsGrid />
 
-        {/* 13. Boxed 4-Col Footer with Vertical Dividers + Giant Cut-Off Copper "Abinest IT" Watermark */}
-        <GroveFooter />
+      {/* 11. Featured Case Study ("Scaling Infrastructure: How We Cut Cloud Costs by 40%") */}
+      <GroveCaseStudySection />
 
-        {/* Floating WhatsApp Quick Contact */}
-        <GroveFloatingWhatsApp />
-      </div>
-    </LanguageProvider>
+      {/* 12. Latest Insights & Blog ("Our Latest Insights & Articles") */}
+      <GroveInsightsSection />
+
+      {/* 13. Pre-Footer CTA with Horizon Glow & 4-Column Main Footer with Giant Watermark */}
+      <GroveFooterSection />
+
+      {/* Floating Quick WhatsApp Action Hub */}
+      <GroveFloatingWhatsApp />
+    </div>
   );
 }

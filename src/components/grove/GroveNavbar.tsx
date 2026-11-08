@@ -2,145 +2,102 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Shield, Globe } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
+import { Box, Menu, X } from "lucide-react";
 
 export function GroveNavbar() {
-  const { language, setLanguage } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks =
-    language === "id"
-      ? [
-          { label: "Beranda", href: "#beranda", active: true },
-          { label: "Tentang", href: "#layanan" },
-          { label: "Layanan", href: "#arsitektur" },
-          { label: "Studi Kasus", href: "#studi-kasus" },
-          { label: "Wawasan", href: "#wawasan" },
-          { label: "Kontak", href: "#kontak" },
-        ]
-      : [
-          { label: "Home", href: "#beranda", active: true },
-          { label: "About", href: "#layanan" },
-          { label: "Services", href: "#arsitektur" },
-          { label: "Case Studies", href: "#studi-kasus" },
-          { label: "Blog", href: "#wawasan" },
-          { label: "Contact", href: "#kontak" },
-        ];
+  const navLinks = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Case Studies", href: "#case-studies" },
+    { label: "Blog", href: "#blog" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#121212]/90 backdrop-blur-md border-b border-white/[0.06]"
-          : "bg-transparent"
+          ? "bg-[#0A0A0C]/85 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
+          : "bg-transparent border-b border-white/[0.04]"
       }`}
     >
-      <div className="max-w-[1120px] mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
-        {/* Left: Brand Emblem + Name */}
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+        {/* Left: Hexagonal Cube White Icon + TechRoos Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-7 h-7 rounded-full bg-white text-[#121212] flex items-center justify-center font-bold text-xs shadow-sm">
-            <Shield className="w-4 h-4 fill-[#121212] stroke-[#121212]" />
+          <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:border-orange-500/50 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all">
+            <Box className="w-4 h-4 text-white" />
           </div>
-          <span className="text-[15px] font-semibold tracking-tight text-white">
-            Abinest <span className="font-normal text-white/80">IT</span>
+          <span className="text-base font-semibold tracking-tight text-white group-hover:text-zinc-200 transition-colors">
+            TechRoos
           </span>
         </Link>
 
-        {/* Center: Subtle Navigation Links (matching slice_1.png) */}
-        <nav className="hidden md:flex items-center gap-7">
+        {/* Center: Navigation Links in #A1A1AA hover white */}
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((item) => (
             <a
-              key={item.href}
+              key={item.label}
               href={item.href}
-              className={`flex items-center gap-1.5 text-[13px] transition-colors ${
-                item.active
-                  ? "text-white font-medium"
-                  : "text-[#8E8E93] hover:text-white"
-              }`}
+              className="text-[13px] font-medium text-[#A1A1AA] hover:text-white transition-colors"
             >
-              {item.active && (
-                <Shield className="w-3.5 h-3.5 text-[#8E8E93]" />
-              )}
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Right: Language Toggle + Dark Pill "Contact Us" Button */}
-        <div className="hidden md:flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => setLanguage(language === "id" ? "en" : "id")}
-            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[11px] font-medium text-[#8E8E93] hover:text-white transition-colors"
-            title="Switch Language"
-          >
-            <Globe className="w-3 h-3" />
-            <span className="uppercase">{language}</span>
-          </button>
-
+        {/* Right: Rounded Pill CTA "Get In Touch" with subtle border glow */}
+        <div className="hidden md:flex items-center">
           <a
-            href="#kontak"
-            className="inline-flex items-center justify-center px-5 py-2 rounded-full text-[12px] font-medium text-white bg-[#1A1A1A] hover:bg-[#242424] border border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-all"
+            href="#contact"
+            className="relative group inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-semibold text-white bg-[#121318] border border-white/[0.12] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] hover:border-orange-500/40 hover:shadow-[0_0_20px_rgba(249,115,22,0.25)] transition-all duration-300"
           >
-            {language === "id" ? "Hubungi Kami" : "Contact Us"}
+            <span>Get In Touch</span>
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="flex items-center gap-2 md:hidden">
-          <button
-            type="button"
-            onClick={() => setLanguage(language === "id" ? "en" : "id")}
-            className="px-2.5 py-1 rounded-full text-[11px] text-[#8E8E93] border border-white/10 uppercase"
-          >
-            {language}
-          </button>
+        {/* Mobile Hamburger Toggle */}
+        <div className="md:hidden flex items-center">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-white/80 hover:text-white border border-white/10 bg-[#1A1A1A]"
-            aria-label="Toggle Menu"
+            className="p-2 rounded-lg text-zinc-300 hover:text-white bg-[#121318] border border-white/10"
+            aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#161616] border-b border-white/10 px-6 py-5 space-y-3">
+        <div className="md:hidden bg-[#0A0A0C]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4">
           {navLinks.map((item) => (
             <a
-              key={item.href}
+              key={item.label}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-sm text-[#8E8E93] hover:text-white border-b border-white/[0.05]"
+              className="block text-sm font-medium text-[#A1A1AA] hover:text-white py-1"
             >
               {item.label}
             </a>
           ))}
-          <div className="pt-2 flex items-center justify-between gap-3">
-            <Link
-              href="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-xs text-[#8E8E93] hover:text-white"
-            >
-              {language === "id" ? "Portal Klien" : "Client Portal"}
-            </Link>
+          <div className="pt-2 border-t border-white/10">
             <a
-              href="#kontak"
+              href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-5 py-2 rounded-full text-xs font-medium text-white bg-[#1A1A1A] border border-white/15"
+              className="w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-600 shadow-[0_0_20px_rgba(249,115,22,0.3)]"
             >
-              {language === "id" ? "Hubungi Kami" : "Contact Us"}
+              Get In Touch
             </a>
           </div>
         </div>

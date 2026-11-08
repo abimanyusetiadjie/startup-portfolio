@@ -2,237 +2,92 @@
 
 import { useState } from "react";
 import { Check } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveCaseStudyTabsSection() {
-  const { language } = useLanguage();
-  // Default to middle tab (index 2) to match slice_3.png
-  const [activeTab, setActiveTab] = useState<number>(2);
+  // 4 Tabs: Managed IT, Cloud & DevOps (Active by default), Cybersecurity, Automation
+  const [activeTab, setActiveTab] = useState<number>(1);
 
-  const tabs =
-    language === "id"
-      ? [
-          {
-            label: "Arsitektur Cloud",
-            title: "Infrastruktur Cloud Elastis\nuntuk Beban Tinggi",
-            p1: "Kami merancang topologi server terdistribusi yang mampu menyerap lonjakan ribuan pengguna serentak tanpa penurunan kecepatan sedikit pun.",
-            p2: "Setiap node dikonfigurasi dengan auto-scaling dan pencadangan otomatis harian.",
-            bullets: [
-              "Load balancing otomatis lintas region dengan latensi < 35ms.",
-              "Isolasi worker asinkron agar proses berat tidak memblokir UI.",
-              "Pemulihan bencana (Disaster Recovery) instan tanpa kehilangan data.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/hero-showcase.svg",
-            caption: "Klaster Server High-Availability dengan Auto-Scaling",
-          },
-          {
-            label: "Keamanan RLS",
-            title: "Proteksi Database Berlapis\ndengan PostgreSQL RLS",
-            p1: "Keamanan data institusi tidak cukup hanya di level tampilan. Kami mengunci setiap baris data langsung di level mesin PostgreSQL.",
-            p2: "Memastikan setiap peran (Admin, Guru, Siswa, Keuangan) hanya dapat mengakses haknya.",
-            bullets: [
-              "Kebijakan Row-Level Security (RLS) ketat di setiap tabel utama.",
-              "Enkripsi penuh saat transit (TLS 1.3) dan saat tersimpan (AES-256).",
-              "Log audit aktivitas otomatis untuk kepatuhan dan transparansi.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/client-portal.svg",
-            caption: "Isolasi Data Multi-Role Berstandar Enterprise",
-          },
-          {
-            label: "SIAKAD Anti-Down",
-            title: "Sistem Akademik Proaktif yang\nMemangkas Downtime 100%",
-            p1: "Dirancang khusus untuk sekolah, yayasan, dan kampus yang membutuhkan kestabilan penuh saat ujian serentak dan pembagian rapor.",
-            p2: "Mesin pemroses PDF paralel kami mencetak ratusan rapor dalam hitungan detik di latar belakang.",
-            bullets: [
-              "0% server crash saat 1.200+ siswa login ujian bersamaan.",
-              "Generate 600+ PDF rapor Kurikulum Merdeka via background worker.",
-              "Integrasi tagihan SPP otomatis dengan pengingat WhatsApp wali murid.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/siakad-dashboard.svg",
-            caption: "Pusat Kendali SIAKAD & Antrean PDF Rapor Paralel",
-          },
-          {
-            label: "Otomasi WhatsApp",
-            title: "Integrasi Resmi Meta Cloud API\n& Pengiriman < 2 Detik",
-            p1: "Tinggalkan pengiriman broadcast manual yang rawan blokir. Kami menghubungkan sistem internal Anda langsung ke jalur resmi Meta Cloud API.",
-            p2: "Dilengkapi mekanisme anti-duplikasi (idempotency) dan pemantauan status pesan real-time.",
-            bullets: [
-              "Notifikasi tagihan, absensi, dan OTP terkirim di bawah 2 detik.",
-              "Pencegahan pesan ganda otomatis dengan kunci idempotensi.",
-              "Dasbor analitik rasio keterbacaan (read rate) secara langsung.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/whatsapp-gateway.svg",
-            caption: "Arsitektur Webhook Meta Cloud API Berkecepatan Tinggi",
-          },
-          {
-            label: "Website Next.js 15",
-            title: "Website Institusi Super Cepat\nSkor Lighthouse 95–100",
-            p1: "Website korporat dan yayasan yang dibangun dengan Next.js 15 App Router untuk kecepatan buka halaman di bawah 1 detik dan dominasi SEO.",
-            p2: "Dilengkapi Schema JSON-LD terstruktur agar mudah ditemukan calon klien di Google.",
-            bullets: [
-              "Skor Google PageSpeed & Core Web Vitals hijau (95–100).",
-              "Desain eksklusif non-template yang meningkatkan kredibilitas B2B.",
-              "Panel CMS mudah dikelola oleh tim humas tanpa keahlian koding.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/corporate-web.svg",
-            caption: "Performa Web Edge dengan Skor Lighthouse 99/100",
-          },
-          {
-            label: "Portal Klien",
-            title: "Transparansi Proyek Penuh\nLewat Client Portal",
-            p1: "Pantau setiap progres pengerjaan modul, milestone mingguan, hingga status deployment secara transparan tanpa harus menebak-nebak.",
-            p2: "Seluruh dokumentasi API dan serah terima source code terpusat di satu dasbor.",
-            bullets: [
-              "Pelacakan milestone real-time dari tahap desain hingga UAT.",
-              "Akses langsung ke staging server untuk uji coba fitur lebih awal.",
-              "Penyerahan hak kekayaan intelektual (IP) & repositori Git penuh.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/client-portal.svg",
-            caption: "Dasbor Transparansi Milestone & Manajemen SLA",
-          },
-        ]
-      : [
-          {
-            label: "Cloud Infrastructure",
-            title: "Elastic Cloud Architecture\nBuilt for Peak Loads",
-            p1: "We engineer distributed server topologies capable of absorbing thousands of concurrent users without performance degradation.",
-            p2: "Every node is configured with automated scaling and daily immutable backups.",
-            bullets: [
-              "Multi-region load balancing with < 35ms edge latency.",
-              "Isolated async workers so heavy jobs never block the UI.",
-              "Instant disaster recovery with zero data loss guarantees.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/hero-showcase.svg",
-            caption: "High-Availability Server Clusters with Auto-Scaling",
-          },
-          {
-            label: "Cybersecurity & RLS",
-            title: "Database-Level Security\nwith PostgreSQL RLS",
-            p1: "True enterprise security happens at the data layer. We enforce strict access policies directly inside the PostgreSQL engine.",
-            p2: "Ensuring every role (Admin, Faculty, Student, Finance) only accesses authorized records.",
-            bullets: [
-              "Strict Row-Level Security (RLS) across all production tables.",
-              "End-to-end TLS 1.3 encryption in transit and AES-256 at rest.",
-              "Automated audit logging for full institutional compliance.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/client-portal.svg",
-            caption: "Enterprise-Grade Multi-Role Data Isolation",
-          },
-          {
-            label: "Managed IT & SIAKAD",
-            title: "Proactive Managed IT That\nCuts Downtime to Zero",
-            p1: "Purpose-built for schools, foundations, and enterprises that demand 100% stability during concurrent exams and report cycles.",
-            p2: "Our parallel PDF engine generates hundreds of complex report cards in seconds.",
-            bullets: [
-              "0% server crashes during 1,200+ concurrent student exams.",
-              "600+ PDF report cards generated via background queues.",
-              "Automated tuition billing synced with WhatsApp parent alerts.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/siakad-dashboard.svg",
-            caption: "24/7 Operations Center & Parallel PDF Queue Engine",
-          },
-          {
-            label: "WhatsApp Automation",
-            title: "Official Meta Cloud API\nwith < 2s Delivery",
-            p1: "Eliminate fragile manual broadcasts. We connect your core systems directly to the official Meta Cloud API pipeline.",
-            p2: "Engineered with cryptographic idempotency keys and real-time delivery webhooks.",
-            bullets: [
-              "Automated invoices, attendance alerts, and OTPs in < 2 seconds.",
-              "Strict deduplication guarantees zero duplicate messages.",
-              "Live read-receipt analytics and automatic retry queues.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/whatsapp-gateway.svg",
-            caption: "High-Throughput Official Meta Cloud API Pipeline",
-          },
-          {
-            label: "Next.js 15 Web",
-            title: "Ultra-Fast Institutional Web\n95–100 Lighthouse Score",
-            p1: "Corporate and institutional web platforms built on Next.js 15 App Router for sub-second page loads and organic SEO dominance.",
-            p2: "Complete with structured JSON-LD schema markup for maximum search visibility.",
-            bullets: [
-              "Verified 95–100 Google Lighthouse & Core Web Vitals scores.",
-              "Custom bespoke visual identity that elevates B2B trust.",
-              "Intuitive headless CMS for effortless content updates.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/corporate-web.svg",
-            caption: "Edge-Rendered Web Architecture Scoring 99/100",
-          },
-          {
-            label: "Client Portal",
-            title: "Complete Project Visibility\nvia Our Client Portal",
-            p1: "Track every module sprint, weekly milestone, and deployment metric transparently without guesswork.",
-            p2: "All API documentation, staging links, and source code handovers live in one place.",
-            bullets: [
-              "Real-time milestone tracking from architecture to UAT.",
-              "Direct access to staging environments for early review.",
-              "100% intellectual property and Git repository handover.",
-            ],
-            photo:
-              "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80",
-            svgOverlay: "/images/projects/client-portal.svg",
-            caption: "Transparent Milestone Tracking & SLA Portal",
-          },
-        ];
+  const tabs = [
+    {
+      label: "Managed IT",
+      title: "Proactive Managed IT That Eliminates Friction",
+      desc: "Layanan pemeliharaan sistem menyeluruh yang bertindak sebagai departemen IT internal Anda — menangani infrastruktur harian, pembaruan keamanan, dan optimasi jaringan.",
+      bullets: [
+        "Jaminan respons insiden kritis di bawah 15 menit 24/7.",
+        "Pemeliharaan preventif dan patching otomatis lintas server.",
+        "Dukungan helpdesk tingkat lanjut untuk kelancaran operasional tim.",
+        "Laporan kesehatan sistem dan SLA berkala yang transparan.",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
+      badge: "Managed Infrastructure Tier 1",
+    },
+    {
+      label: "Cloud & DevOps",
+      title: "Custom Solutions Built to Last, Tailored",
+      desc: "Kami merekayasa arsitektur cloud terdistribusi dan pipeline CI/CD modern yang dirancang untuk menahan lonjakan beban puncak tanpa kompromi performa atau pembengkakan biaya.",
+      bullets: [
+        "Arsitektur elastis multi-region dengan load balancing cerdas.",
+        "Deployment otomatis nol-downtime via containerized Docker/K8s.",
+        "Optimasi biaya komputasi cloud dan alokasi resource dinamis.",
+        "Pencadangan data terenkripsi dan strategi Disaster Recovery instan.",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+      badge: "High-Availability Cloud Engine",
+    },
+    {
+      label: "Cybersecurity",
+      title: "Zero-Trust Security & Layered Protection",
+      desc: "Pertahanan siber proaktif berbasis prinsip Zero-Trust untuk melindungi aset digital, database institusi, dan kredensial pengguna dari ancaman internal maupun eksternal.",
+      bullets: [
+        "Kebijakan ketat Row-Level Security (RLS) di level database.",
+        "Audit kerentanan berkala dan pengujian penetrasi sistem.",
+        "Enkripsi penuh end-to-end TLS 1.3 dan penyimpanan AES-256.",
+        "Penerapan Web Application Firewall (WAF) & mitigasi DDoS.",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80",
+      badge: "Zero-Trust Security Layer",
+    },
+    {
+      label: "Automation",
+      title: "End-to-End Workflow & API Automation",
+      desc: "Otomasi proses bisnis yang menghilangkan pekerjaan repetitif dan manual melalui integrasi webhook resmi, antrean asinkron, dan pipeline komunikasi real-time.",
+      bullets: [
+        "Integrasi resmi WhatsApp Cloud API Meta untuk notifikasi instan.",
+        "Antrean pemroses background worker asinkron (PDF rapor & invoice).",
+        "Kunci idempotensi kriptografis untuk mencegah duplikasi data.",
+        "Sinkronisasi real-time antar ERP, database, dan payment gateway.",
+      ],
+      image:
+        "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80",
+      badge: "Event-Driven Automation Engine",
+    },
+  ];
 
   const current = tabs[activeTab];
 
   return (
-    <section className="py-10 relative">
-      <div className="max-w-[1040px] mx-auto px-5 sm:px-8">
+    <section className="py-20 relative">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
-        <div className="text-center max-w-xl mx-auto mb-10 space-y-2.5">
-          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[#8E8E93]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E06D3B]" />
-            <span>
-              {language === "id" ? "SOLUSI UNGGULAN" : "HOW WE DELIVER"}
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-medium tracking-tight text-white leading-tight">
-            {language === "id" ? (
-              <>
-                Dukungan & Rekayasa IT yang
-                <br />
-                Benar-Benar Memberi Hasil.
-              </>
-            ) : (
-              <>
-                IT Support That Actually
-                <br />
-                Delivers.
-              </>
-            )}
+        <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
+            TAILORED SOLUTIONS
+          </span>
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight text-white leading-tight">
+            IT Support That
+            <br />
+            Actually Shows Up
           </h2>
-          <p className="text-[12px] sm:text-[13px] text-[#8E8E93] max-w-md mx-auto leading-relaxed">
-            {language === "id"
-              ? "Dirancang untuk kecepatan, stabilitas, dan hasil bisnis yang terukur di setiap lini operasional Anda."
-              : "Engineered for speed, stability, and measurable operational impact across your organization."}
+          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+            Dukungan teknis responsif yang langsung ditangani oleh tim engineer inti tanpa birokrasi berbelit.
           </p>
         </div>
 
-        {/* 6-Tab Horizontal Selector Bar (matching slice_3.png) */}
-        <div className="flex items-center justify-start sm:justify-between gap-2 overflow-x-auto no-scrollbar py-2 px-2 mb-12 rounded-full bg-[#151517] border border-white/[0.06]">
+        {/* Horizontal Tab Navigation (4 Tabs with glowing bottom indicator on active) */}
+        <div className="flex items-center justify-center gap-2 sm:gap-4 mb-14 border-b border-white/[0.08] pb-1 overflow-x-auto no-scrollbar">
           {tabs.map((tab, idx) => {
             const isActive = activeTab === idx;
             return (
@@ -240,89 +95,88 @@ export function GroveCaseStudyTabsSection() {
                 key={idx}
                 type="button"
                 onClick={() => setActiveTab(idx)}
-                className={`whitespace-nowrap px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-[12px] font-medium transition-all ${
+                className={`relative px-5 py-3 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
                   isActive
-                    ? "bg-gradient-to-b from-[#331D14] to-[#22130D] text-white border border-[#E06D3B]/55 shadow-[0_0_20px_rgba(224,109,59,0.25)]"
-                    : "text-[#8E8E93] hover:text-white border border-transparent"
+                    ? "text-white"
+                    : "text-zinc-500 hover:text-zinc-300"
                 }`}
               >
-                {tab.label}
+                <span>{tab.label}</span>
+                {isActive && (
+                  <span className="absolute inset-x-0 -bottom-[1px] h-[2px] bg-gradient-to-r from-orange-500 to-amber-500 shadow-[0_0_12px_rgba(249,115,22,0.8)]" />
+                )}
               </button>
             );
           })}
         </div>
 
-        {/* 2-Column Split Content Below Tabs (matching slice_3.png) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Title + Paragraphs + Checkmark Bullets + Read More Button */}
-          <div className="lg:col-span-6 space-y-5">
-            <h3 className="text-xl sm:text-2xl font-medium text-white leading-snug whitespace-pre-line">
-              {current.title}
-            </h3>
+        {/* Tab Content (2 Columns) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center bg-[#121318] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] rounded-3xl p-6 sm:p-10 lg:p-12">
+          {/* Left Column (Detail Layanan: Title + Desc + 4 Bullets + CTA) */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="space-y-3">
+              <span className="inline-block px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[10px] font-mono uppercase tracking-wider text-orange-400">
+                {current.badge}
+              </span>
+              <h3 className="text-xl sm:text-3xl font-semibold tracking-tight text-white leading-snug">
+                {current.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                {current.desc}
+              </p>
+            </div>
 
-            <p className="text-[12px] sm:text-[13px] text-[#8E8E93] leading-relaxed">
-              {current.p1}
-            </p>
-            <p className="text-[12px] sm:text-[13px] text-[#8E8E93] leading-relaxed">
-              {current.p2}
-            </p>
-
-            {/* 3 Checkmark Bullets */}
-            <ul className="space-y-2.5 pt-1">
+            {/* 4 Bullet points with checkmark (✓) technical deliverables */}
+            <ul className="space-y-3 pt-2">
               {current.bullets.map((b, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-2.5 text-[12px] sm:text-[13px] text-white/90"
+                  className="flex items-start gap-3 text-xs sm:text-sm text-zinc-300"
                 >
-                  <Check className="w-4 h-4 text-[#E06D3B] shrink-0 mt-0.5" />
+                  <div className="w-5 h-5 rounded-full bg-orange-500/15 text-orange-400 flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30">
+                    <Check className="w-3 h-3" />
+                  </div>
                   <span>{b}</span>
                 </li>
               ))}
             </ul>
 
-            {/* Dark Matte Pill Button */}
-            <div className="pt-2">
+            {/* CTA Button "Learn More" */}
+            <div className="pt-3">
               <a
-                href="#kontak"
-                className="inline-flex items-center justify-center px-6 py-2 rounded-full text-[11px] font-medium text-white bg-[#1A1A1A] hover:bg-[#242424] border border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-all"
+                href="#contact"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-[#0A0A0C] border border-white/15 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] hover:border-orange-500/40 hover:shadow-[0_0_20px_rgba(249,115,22,0.25)] transition-all"
               >
-                {language === "id" ? "Pelajari Detail" : "Read More"}
+                Learn More
               </a>
             </div>
           </div>
 
-          {/* Right Column: High-Tech Control Room Photo + UI Overlay + Bottom Caption */}
+          {/* Right Column (Visual Layanan: Dark blue data center photo with matrix dots overlay) */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden border border-white/10 bg-[#0D131A] shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0A0A0C] group">
               <img
-                src={current.photo}
-                alt={current.label}
-                className="w-full h-full object-cover object-center"
+                src={current.image}
+                alt={current.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              {/* Cool cyan/dark-blue cinematic tint like slice_3.png */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/95 via-[#07192E]/40 to-[#061526]/30" />
 
-              {/* Subtle SVG Architecture Preview inside top half */}
-              <img
-                src={current.svgOverlay}
-                alt=""
+              {/* Dark Blue / Cyan Matrix Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-[#051326]/60 to-[#0A1A33]/40" />
+
+              {/* Stylized Matrix Dots Overlay Pattern */}
+              <div
                 aria-hidden="true"
-                className="absolute inset-x-4 top-4 w-[calc(100%-32px)] h-44 object-cover rounded-lg opacity-45 mix-blend-screen border border-cyan-400/20 pointer-events-none"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(56,189,248,0.25)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_90%)]"
               />
 
-              {/* Centered Bottom Caption Overlay inside Image (matching slice_3.png) */}
-              <div className="absolute inset-x-0 bottom-0 p-5 text-center">
-                <p className="text-[11px] sm:text-[12px] font-medium text-white/90 max-w-xs mx-auto leading-snug drop-shadow">
-                  {current.caption}
-                </p>
+              {/* Corner Watermark */}
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] text-zinc-400 bg-[#0A0A0C]/80 backdrop-blur-md px-3.5 py-2 rounded-lg border border-white/10">
+                <span className="font-mono text-orange-400">99.9% Uptime Verified</span>
+                <span>Active Infrastructure</span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Signature Centered Orange Dash Divider */}
-        <div className="flex justify-center mt-16">
-          <div className="w-6 h-[2px] bg-[#E06D3B]" />
         </div>
       </div>
     </section>

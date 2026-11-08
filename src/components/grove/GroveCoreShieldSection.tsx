@@ -1,190 +1,120 @@
 "use client";
 
-import { ShieldCheck, Activity, Lock, Headphones } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
+import { ShieldCheck, Cloud, Workflow, TrendingUp, Box } from "lucide-react";
 
 export function GroveCoreShieldSection() {
-  const { language } = useLanguage();
-
-  const quadrants =
-    language === "id"
-      ? [
-          {
-            num: "01",
-            cornerPos: "top-0 left-0",
-            icon: ShieldCheck,
-            title: "Mitigasi Proaktif &\nAnti-Down Ujian",
-            desc: "Deteksi otomatis lonjakan beban ribuan siswa sebelum berdampak pada operasional sekolah.",
-          },
-          {
-            num: "02",
-            cornerPos: "top-0 right-0",
-            icon: Activity,
-            title: "Pemantauan Real-Time\n24/7 Tanpa Henti",
-            desc: "Telemetri kesehatan database, antrean worker PDF, dan webhook WhatsApp setiap detik.",
-          },
-          {
-            num: "03",
-            cornerPos: "bottom-0 left-0",
-            icon: Lock,
-            title: "Kepemilikan Penuh\n100% Source Code",
-            desc: "Tidak ada vendor lock-in. Seluruh repositori, skema database, & dokumentasi milik Anda.",
-          },
-          {
-            num: "04",
-            cornerPos: "bottom-0 right-0",
-            icon: Headphones,
-            title: "Respons Engineer\nLangsung < 15 Menit",
-            desc: "Akses komunikasi langsung dengan tim engineer inti tanpa birokrasi tiket yang lambat.",
-          },
-        ]
-      : [
-          {
-            num: "01",
-            cornerPos: "top-0 left-0",
-            icon: ShieldCheck,
-            title: "Proactive Threat &\nLoad Mitigation",
-            desc: "Automated load balancing and anomaly detection before traffic spikes impact users.",
-          },
-          {
-            num: "02",
-            cornerPos: "top-0 right-0",
-            icon: Activity,
-            title: "Real-Time Telemetry\n& Health Checks",
-            desc: "Continuous monitoring across PostgreSQL nodes, PDF queues, and WhatsApp webhooks.",
-          },
-          {
-            num: "03",
-            cornerPos: "bottom-0 left-0",
-            icon: Lock,
-            title: "100% Full Source\nCode Ownership",
-            desc: "Zero vendor lock-in. Complete repositories, database schemas, and IP belong to you.",
-          },
-          {
-            num: "04",
-            cornerPos: "bottom-0 right-0",
-            icon: Headphones,
-            title: "Direct Engineer\nResponse < 15m",
-            desc: "Instant access to senior systems engineers whenever your institution needs support.",
-          },
-        ];
+  const quadrants = [
+    {
+      position: "top-left",
+      icon: ShieldCheck,
+      title: "Proactive Monitoring",
+      desc: "Pemantauan real-time 24/7 mendeteksi anomali performa dan potensi kendala sebelum pengguna Anda terpengaruh.",
+    },
+    {
+      position: "top-right",
+      icon: Cloud,
+      title: "Cloud & DevOps Scale",
+      desc: "Arsitektur cloud elastis dan CI/CD otomatis untuk menjamin skalabilitas saat lonjakan trafik beban puncak.",
+    },
+    {
+      position: "bottom-left",
+      icon: Workflow,
+      title: "Workflow Automation",
+      desc: "Pipeline otomasi cerdas yang mengeliminasi friksi manual pada operasional, integrasi API, dan pelaporan.",
+    },
+    {
+      position: "bottom-right",
+      icon: TrendingUp,
+      title: "Dedicated vCIO Strategy",
+      desc: "Konsultasi arsitektur berkelanjutan untuk menyelaraskan roadmap teknologi dengan target pertumbuhan bisnis.",
+    },
+  ];
 
   return (
-    <section className="py-10 relative overflow-hidden">
-      <div className="max-w-[1000px] mx-auto px-5 sm:px-8">
+    <section className="py-24 relative overflow-hidden">
+      {/* Background Radial Glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-r from-blue-600/10 via-orange-500/15 to-amber-500/10 blur-[130px] rounded-full"
+      />
+
+      <div className="max-w-[1100px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Centered Header */}
-        <div className="text-center max-w-xl mx-auto mb-14 space-y-2.5">
-          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[#8E8E93]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E06D3B]" />
-            <span>
-              {language === "id" ? "JAMINAN KEANDALAN" : "RELIABILITY"}
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-medium tracking-tight text-white leading-tight">
-            {language === "id" ? (
-              <>
-                Pemantauan & Dukungan 24/7
-                <br />
-                Sepanjang Tahun, 365 Hari
-              </>
-            ) : (
-              <>
-                24/7 Monitoring and Support All
-                <br />
-                Year Round, 365
-              </>
-            )}
+        <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
+            OUR APPROACH
+          </span>
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight text-white leading-tight">
+            We Don&apos;t Just Support IT.
+            <br />
+            We Fuel Growth.
           </h2>
-          <p className="text-[12px] sm:text-[13px] text-[#8E8E93] max-w-md mx-auto leading-relaxed">
-            {language === "id"
-              ? "Arsitektur pelindung berlapis yang menjaga sistem institusi Anda tetap stabil setiap saat."
-              : "Always-on infrastructure protection keeping your critical systems resilient around the clock."}
+          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+            Metodologi holistik 4 pilar yang menggabungkan keandalan infrastruktur dengan akselerasi otomatisasi.
           </p>
         </div>
 
-        {/* 4-Quadrant Open Diagram with Dashed Cross-Lines & Central Dual-Glow Shield (matching slice_2 & slice_3) */}
-        <div className="relative py-6">
-          {/* Horizontal Dashed Divider Line (Desktop) */}
+        {/* Radial Hub Layout: 4 Quadrants Around Glowing Center "TechRoos" Core */}
+        <div className="relative py-8">
+          {/* Dashed Cross Lines in Desktop */}
           <div
             aria-hidden="true"
-            className="hidden md:block pointer-events-none absolute top-1/2 left-8 right-8 -translate-y-1/2 border-t border-dashed border-white/12 z-0"
+            className="hidden md:block pointer-events-none absolute top-1/2 left-4 right-4 -translate-y-1/2 border-t border-dashed border-white/10 z-0"
           />
-          {/* Vertical Dashed Divider Line (Desktop) */}
           <div
             aria-hidden="true"
-            className="hidden md:block pointer-events-none absolute top-6 bottom-6 left-1/2 -translate-x-1/2 border-l border-dashed border-white/12 z-0"
+            className="hidden md:block pointer-events-none absolute top-4 bottom-4 left-1/2 -translate-x-1/2 border-l border-dashed border-white/10 z-0"
           />
 
-          {/* Central Glowing Shield Emblem at Exact Center Intersection */}
+          {/* Central Radial Core: Dual Blue-Orange Glow + TechRoos Emblem */}
           <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center">
-            {/* Top Warm Orange Glow */}
+            {/* Top Orange Glow */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -top-6 w-28 h-20 rounded-full bg-[#E06D3B]/45 blur-2xl"
+              className="pointer-events-none absolute -top-4 w-32 h-20 rounded-full bg-orange-500/40 blur-2xl"
             />
-            {/* Bottom Electric Blue Glow */}
+            {/* Bottom Blue Glow */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -bottom-6 w-28 h-20 rounded-full bg-blue-500/45 blur-2xl"
+              className="pointer-events-none absolute -bottom-4 w-32 h-20 rounded-full bg-blue-500/40 blur-2xl"
             />
 
-            {/* Outer Ring */}
-            <div className="relative w-24 h-24 rounded-full bg-[#121215] border border-white/15 shadow-[0_0_40px_rgba(0,0,0,0.9)] flex items-center justify-center">
-              {/* Shield Shape SVG with Brand Name Inside */}
-              <svg
-                className="w-16 h-16 text-white/20 absolute"
-                viewBox="0 0 24 24"
-                fill=" #18181C"
-                stroke="currentColor"
-                strokeWidth="1"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-              <span className="relative z-10 text-[10px] font-semibold tracking-tight text-white">
-                Abinest <span className="text-white/70 font-normal">IT</span>
+            {/* Glowing Core Hub Badge */}
+            <div className="relative w-28 h-28 rounded-full bg-[#121318] border border-white/20 shadow-[0_0_50px_rgba(249,115,22,0.35)] flex flex-col items-center justify-center p-2 group">
+              <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white mb-1 shadow-inner">
+                <Box className="w-4 h-4 text-orange-400" />
+              </div>
+              <span className="text-xs font-semibold tracking-tight text-white">
+                TechRoos
+              </span>
+              <span className="text-[9px] uppercase tracking-wider text-orange-400 font-mono">
+                Core Hub
               </span>
             </div>
           </div>
 
-          {/* 2x2 Quadrant Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-14 md:gap-y-24 md:gap-x-24 relative z-10">
-            {quadrants.map((q) => {
+          {/* 4 Quadrants Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-20 md:gap-x-24 relative z-10">
+            {quadrants.map((q, idx) => {
               const Icon = q.icon;
               return (
                 <div
-                  key={q.num}
-                  className="relative flex flex-col items-center text-center px-6 py-4"
+                  key={idx}
+                  className="bg-[#121318] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] rounded-2xl p-6 sm:p-8 space-y-3 group hover:border-orange-500/30 transition-all duration-300"
                 >
-                  {/* Outer Corner Number Badge (01, 02, 03, 04) */}
-                  <span
-                    className={`hidden md:inline-flex absolute ${q.cornerPos} w-6 h-6 rounded bg-[#18181B] border border-white/[0.06] items-center justify-center text-[9px] font-mono text-[#8E8E93]`}
-                  >
-                    {q.num}
-                  </span>
-
-                  {/* Centered Icon */}
-                  <div className="w-8 h-8 rounded-lg bg-[#1A1A1D] border border-white/10 flex items-center justify-center text-white mb-3.5 shadow-sm">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-105 transition-transform">
+                    <Icon className="w-5 h-5" />
                   </div>
-
-                  {/* 2-Line Centered Title */}
-                  <h3 className="text-[14px] font-medium text-white leading-snug whitespace-pre-line mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight">
                     {q.title}
                   </h3>
-
-                  {/* 2-Line Centered Description */}
-                  <p className="text-[11px] sm:text-[12px] text-[#8E8E93] max-w-[240px] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
                     {q.desc}
                   </p>
                 </div>
               );
             })}
           </div>
-        </div>
-
-        {/* Signature Centered Orange Dash Divider */}
-        <div className="flex justify-center mt-12">
-          <div className="w-6 h-[2px] bg-[#E06D3B]" />
         </div>
       </div>
     </section>

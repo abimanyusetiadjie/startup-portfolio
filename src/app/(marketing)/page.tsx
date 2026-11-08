@@ -5,16 +5,16 @@ const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
 
 export const metadata: Metadata = {
-  title: "Abinest | Software House & Konsultan Teknologi: Website, Sistem & Otomasi",
+  title: "TechRoos / SoftEra IT | B2B IT & Cloud Automation Studio",
   description:
-    "Abinest melayani jasa pembuatan website modern berkecepatan tinggi, sistem informasi kustom (SIAKAD Sekolah anti-down & ERP), serta otomasi WhatsApp terpadu.",
+    "We engineer proactive cloud infrastructure, mission-critical system automation, and 24/7 rapid response IT support with zero downtime.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Abinest | Software House & Konsultan Teknologi: Website, Sistem & Otomasi",
+    title: "TechRoos | B2B IT & Cloud Automation Studio",
     description:
-      "Jasa pembuatan website Next.js 95–100 Lighthouse, SIAKAD sekolah anti-down dengan cetak ratusan PDF rapor otomatis, dan integrasi WhatsApp API real-time.",
+      "You don't just need another IT guy. You need a Roos. Proactive monitoring, cloud scale, and official Meta API workflow automation.",
     url: APP_BASE_URL,
     type: "website",
   },
@@ -65,7 +65,7 @@ const jsonLdSchema = {
 
 export default function MarketingPage() {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
+    <main className="min-h-screen bg-[#0A0A0C] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
