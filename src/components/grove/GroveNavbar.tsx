@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X, Shield } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function GroveNavbar() {
@@ -55,16 +55,24 @@ export function GroveNavbar() {
 
   const navLinks = [
     {
-      label: lang === "id" ? "Portofolio" : "Works",
-      href: "#portofolio",
+      label: lang === "id" ? "Beranda" : "Home",
+      href: "#beranda",
     },
     {
-      label: lang === "id" ? "Layanan & Harga" : "Services & Pricing",
-      href: "#layanan",
+      label: lang === "id" ? "Pilar Solusi" : "Solutions",
+      href: "#pilar",
     },
     {
-      label: lang === "id" ? "Alur Kerja" : "Process",
-      href: "#alur-kerja",
+      label: lang === "id" ? "Tech Stack" : "Tech Stack",
+      href: "#tech-stack",
+    },
+    {
+      label: lang === "id" ? "Studi Kasus" : "Case Studies",
+      href: "#studi-kasus",
+    },
+    {
+      label: lang === "id" ? "FAQ" : "FAQ",
+      href: "#faq",
     },
     {
       label: lang === "id" ? "Kontak" : "Contact",
@@ -74,46 +82,48 @@ export function GroveNavbar() {
 
   return (
     <>
-      <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl font-sans transition-all duration-300">
+      <header className="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl font-sans transition-all duration-300">
         <nav
           className={`flex items-center justify-between px-5 sm:px-6 py-3 rounded-full transition-all duration-300 ${
             isScrolled
-              ? "bg-[#090D16]/95 backdrop-blur-xl border border-white/15 shadow-2xl shadow-black/80"
-              : "bg-[#090D16]/85 backdrop-blur-md border border-white/10 shadow-lg shadow-black/40"
+              ? "bg-[#07090E]/95 backdrop-blur-xl border border-white/15 shadow-2xl shadow-black/80"
+              : "bg-[#07090E]/85 backdrop-blur-md border border-white/10 shadow-xl shadow-black/40"
           }`}
         >
-          {/* Brand Wordmark */}
+          {/* Brand Logo & Wordmark with Warm Amber Glow */}
           <Link
             href="/"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2.5 group"
           >
-            <div className="w-5 h-5 rounded-md bg-white flex items-center justify-center text-[#090D16] font-bold text-xs tracking-tighter group-hover:bg-emerald-400 transition-colors">
-              A
+            <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#F59E0B] to-[#EA580C] text-zinc-950 shadow-md shadow-orange-500/20">
+              <Shield className="w-4 h-4 fill-zinc-950 stroke-zinc-950" />
             </div>
-            <span className="text-lg font-bold tracking-tight text-white">
-              Abinest<span className="text-emerald-400">.</span>
-            </span>
-            <span className="hidden sm:inline-block text-[11px] font-mono text-zinc-400 ml-1 font-normal">
-              Software Studio
-            </span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg font-bold tracking-tight text-white font-heading">
+                Abinest<span className="text-amber-500">.</span>
+              </span>
+              <span className="hidden sm:inline-block text-[10px] font-mono tracking-widest uppercase text-zinc-400">
+                SOFTWARE IT
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-7 text-xs font-medium text-zinc-300 tracking-wide">
+          <div className="hidden lg:flex items-center gap-7 text-xs font-medium text-zinc-300 tracking-wide">
             {navLinks.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="hover:text-white transition-colors"
+                className="hover:text-amber-400 transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </div>
 
-          {/* Actions: ID/EN + Client Portal + WhatsApp CTA */}
+          {/* Right Action Buttons */}
           <div className="flex items-center gap-2.5">
             {/* Language Switcher */}
             <div className="hidden sm:flex items-center p-0.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono">
@@ -122,7 +132,7 @@ export function GroveNavbar() {
                 onClick={() => setLang("id")}
                 className={`px-2 py-0.5 rounded-full transition-all ${
                   lang === "id"
-                    ? "bg-white text-zinc-950 font-bold"
+                    ? "bg-amber-500 text-zinc-950 font-bold"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
@@ -133,7 +143,7 @@ export function GroveNavbar() {
                 onClick={() => setLang("en")}
                 className={`px-2 py-0.5 rounded-full transition-all ${
                   lang === "en"
-                    ? "bg-white text-zinc-950 font-bold"
+                    ? "bg-amber-500 text-zinc-950 font-bold"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
@@ -141,30 +151,30 @@ export function GroveNavbar() {
               </button>
             </div>
 
-            {/* Client Portal Link */}
+            {/* Client Portal Ghost Button */}
             <Link
               href="/portal"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/20 hover:border-white/40 text-xs font-medium text-zinc-200 hover:text-white transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/20 hover:border-amber-400/50 text-xs font-medium text-zinc-200 hover:text-white transition-all"
             >
               <span>Client Portal</span>
               <ArrowUpRight className="w-3 h-3 text-zinc-400" />
             </Link>
 
-            {/* Direct WhatsApp Consultation */}
+            {/* Warm Amber Glowing CTA Button */}
             <a
               href="#kontak"
               onClick={(e) => handleSmoothScroll(e, "#kontak")}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-zinc-950 hover:bg-zinc-100 text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#EA580C] text-zinc-950 hover:brightness-110 text-xs font-bold transition-all shadow-md shadow-orange-500/25 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span>{lang === "id" ? "Mulai Diskusi" : "Let's Talk"}</span>
+              <span>{lang === "id" ? "Konsultasi" : "Get Started"}</span>
             </a>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Toggle */}
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
               aria-label="Buka Menu"
-              className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white hover:bg-white/15 transition-colors cursor-pointer"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white hover:bg-white/15 transition-colors cursor-pointer"
             >
               <Menu className="w-4 h-4" />
             </button>
@@ -172,7 +182,7 @@ export function GroveNavbar() {
         </nav>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Full-Screen Mobile Drawer */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -180,12 +190,17 @@ export function GroveNavbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[60] bg-[#070A11] text-white p-6 flex flex-col justify-between font-sans"
+            className="fixed inset-0 z-[60] bg-[#06080C]/98 backdrop-blur-2xl text-white p-6 flex flex-col justify-between font-sans"
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-5">
-              <span className="text-xl font-bold">
-                Abinest<span className="text-emerald-400">.</span>
-              </span>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#F59E0B] to-[#EA580C] flex items-center justify-center">
+                  <Shield className="w-4 h-4 fill-zinc-950 stroke-zinc-950" />
+                </div>
+                <span className="text-xl font-bold font-heading">
+                  Abinest<span className="text-amber-500">.</span>
+                </span>
+              </div>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(false)}
@@ -196,13 +211,13 @@ export function GroveNavbar() {
               </button>
             </div>
 
-            <div className="space-y-6 py-8">
+            <div className="space-y-5 py-6">
               {navLinks.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className="block text-2xl font-bold text-zinc-200 hover:text-white"
+                  className="block text-2xl font-bold text-zinc-200 hover:text-amber-400 transition-colors"
                 >
                   {item.label}
                 </a>
@@ -210,39 +225,19 @@ export function GroveNavbar() {
               <Link
                 href="/portal"
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-xl font-medium text-emerald-400 pt-2"
+                className="block text-xl font-semibold text-amber-400 pt-3"
               >
                 Masuk ke Client Portal →
               </Link>
             </div>
 
             <div className="border-t border-white/10 pt-5 space-y-4">
-              <div className="flex items-center justify-between text-xs text-zinc-400 font-mono">
-                <span>BAHASA / LANGUAGE</span>
-                <div className="flex gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setLang("id")}
-                    className={lang === "id" ? "text-white font-bold" : ""}
-                  >
-                    ID
-                  </button>
-                  <span>·</span>
-                  <button
-                    type="button"
-                    onClick={() => setLang("en")}
-                    className={lang === "en" ? "text-white font-bold" : ""}
-                  >
-                    EN
-                  </button>
-                </div>
-              </div>
               <a
                 href="#kontak"
                 onClick={(e) => handleSmoothScroll(e, "#kontak")}
-                className="block w-full py-3.5 text-center rounded-full bg-white text-zinc-950 font-bold text-sm"
+                className="block w-full py-3.5 text-center rounded-full bg-gradient-to-r from-[#F59E0B] to-[#EA580C] text-zinc-950 font-bold text-sm shadow-lg shadow-orange-500/20"
               >
-                {lang === "id" ? "Mulai Konsultasi Proyek" : "Book Project Scoping"}
+                {lang === "id" ? "Mulai Konsultasi Proyek" : "Book Project Consultation"}
               </a>
             </div>
           </motion.div>
