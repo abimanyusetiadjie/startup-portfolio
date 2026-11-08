@@ -1,22 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, ShieldCheck, Clock } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "6285708677918";
 
 export function GroveAmberContactSection() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [workEmail, setWorkEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [company, setCompany] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [institution, setInstitution] = useState("");
+  const [serviceType, setServiceType] = useState("Jasa Pembuatan Sistem (SIAKAD / ERP / Kustom)");
+  const [whatsapp, setWhatsapp] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const fullName = `${firstName} ${lastName}`.trim() || "Klien";
-    const text = `Halo Tim Engineer Abinest,\n\nNama: ${fullName}\nInstitusi/Perusahaan: ${company || "-"}\nEmail: ${workEmail || "-"}\nNomor Telepon: ${phone || "-"}\n\nKebutuhan Sistem:\n${message || "Ingin berdiskusi mengenai proyek SIAKAD / Website / Otomasi WhatsApp."}`;
+    const text = `Halo Tim Abinest,\n\nSaya ingin berkonsultasi mengenai kebutuhan sistem digital kami:\n• Nama: ${name.trim() || "-"}\n• Institusi / Perusahaan: ${institution.trim() || "-"}\n• Layanan yang Dibutuhkan: ${serviceType}\n• Nomor WhatsApp: ${whatsapp.trim() || "-"}\n\nMohon informasi langkah diskusi selanjutnya. Terima kasih.`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
@@ -26,8 +23,11 @@ export function GroveAmberContactSection() {
   };
 
   return (
-    <section id="kontak" className="py-24 relative overflow-hidden bg-[#FAF9F6] border-t border-slate-200/80">
-      {/* Background Soft Warm Light Glow */}
+    <section
+      id="kontak"
+      className="py-24 relative overflow-hidden bg-white border-b border-slate-200/80"
+    >
+      {/* Soft Warm Light Glows */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-20 -right-20 w-[500px] h-[340px] bg-gradient-to-l from-orange-100/60 via-amber-50/40 to-transparent blur-[90px] rounded-full"
@@ -37,130 +37,188 @@ export function GroveAmberContactSection() {
         className="pointer-events-none absolute -bottom-20 -left-20 w-[500px] h-[340px] bg-gradient-to-r from-orange-100/60 via-amber-50/40 to-transparent blur-[90px] rounded-full"
       />
 
-      <div className="max-w-[720px] mx-auto px-5 sm:px-8 relative z-10">
-        {/* Centered Header */}
-        <div className="text-center mb-12 space-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600 bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
-            KONSULTASI &amp; DISKUSI PROYEK
-          </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
-            Mulai Proyek atau
-            <br />
-            Diskusi Bersama Kami
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-            Ceritakan tantangan sistem atau kebutuhan digital institusi Anda, dan engineer kami akan memberikan estimasi serta solusi teknis dalam 15 menit.
-          </p>
-        </div>
+      <div className="max-w-[1120px] mx-auto px-5 sm:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column (6 cols): Reassurance & Trust Guarantees */}
+          <div className="lg:col-span-6 space-y-6">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+              MULAI DISKUSI TANPA RISIKO
+            </span>
 
-        {/* Clean Light Form Card */}
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white border border-slate-200 shadow-xl rounded-3xl p-6 sm:p-10 space-y-4"
-        >
-          {/* Row 1: First Name | Last Name */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-slate-700">
-                Nama Depan
-              </label>
-              <input
-                type="text"
-                required
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                placeholder="Budi"
-                className="w-full rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-100 px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all"
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-slate-700">
-                Nama Belakang
-              </label>
-              <input
-                type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                placeholder="Santoso"
-                className="w-full rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-100 px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all"
-              />
-            </div>
-          </div>
+            <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
+              Pastikan Sistem &amp; Website Institusi Anda Ditangani oleh Tim yang Tepat
+            </h2>
 
-          {/* Row 2: Email | Phone */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-slate-700">
-                Email Institusi / Perusahaan
-              </label>
-              <input
-                type="email"
-                required
-                value={workEmail}
-                onChange={(e) => setWorkEmail(e.target.value)}
-                placeholder="budi@sekolah.sch.id"
-                className="w-full rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-100 px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all"
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-slate-700">
-                Nomor WhatsApp Aktif
-              </label>
-              <input
-                type="tel"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="0812-3456-7890"
-                className="w-full rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-100 px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all"
-              />
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Anda tidak perlu menyiapkan dokumen teknis yang rumit. Cukup sampaikan kendala atau rencana Anda, dan kami akan menyiapkan saran solusi beserta estimasi biaya serta jadwal yang transparan.
+            </p>
+
+            <div className="space-y-3.5 pt-2">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-bold text-[#0F172A]">
+                    100% Kepemilikan Source Code &amp; Kontrak Resmi
+                  </h3>
+                  <p className="text-xs text-slate-600">
+                    Seluruh hak milik kode program dan jaminan SLA 99.9% tertulis jelas di dalam perjanjian kerja.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-bold text-[#0F172A]">
+                    Bebas Biaya Lisensi Bulanan yang Mengikat
+                  </h3>
+                  <p className="text-xs text-slate-600">
+                    Sekali bangun untuk dipakai jangka panjang tanpa pungutan biaya per siswa atau per user.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-sm font-bold text-[#0F172A]">
+                    Didampingi Langsung oleh Engineer Pembuat Sistem
+                  </h3>
+                  <p className="text-xs text-slate-600">
+                    Komunikasi cepat, bahasa yang mudah dipahami non-teknis, dan termasuk pelatihan staf sampai mahir.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Row 3: Company / School Name */}
-          <div className="space-y-1.5">
-            <label className="block text-xs font-semibold text-slate-700">
-              Nama Sekolah / Yayasan / Perusahaan
-            </label>
-            <input
-              type="text"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              placeholder="SMA Islam Terpadu / PT Sentra Teknologi"
-              className="w-full rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-100 px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all"
-            />
-          </div>
-
-          {/* Row 4: Message Textarea */}
-          <div className="space-y-1.5">
-            <label className="block text-xs font-semibold text-slate-700">
-              Ceritakan Kebutuhan Sistem Anda
-            </label>
-            <textarea
-              rows={4}
-              required
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Contoh: Kami butuh sistem SIAKAD untuk 1.500 siswa yang stabil saat ujian, migrasi rapor kurikulum merdeka, dan pengingat tagihan SPP via WhatsApp..."
-              className="w-full rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-100 px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 outline-none resize-none transition-all"
-            />
-          </div>
-
-          {/* Submit Row */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <button
-              type="submit"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-[0_4px_14px_rgba(249,115,22,0.35)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.45)] transition-all duration-200"
+          {/* Right Column (6 cols): Ultra-Simple 4-Field Mobile-Friendly Form */}
+          <div className="lg:col-span-6">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-[#FAF9F6] border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.06)] rounded-3xl p-6 sm:p-9 space-y-5"
             >
-              <span>Kirim &amp; Hubungkan ke WhatsApp</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
-            <div className="flex items-center gap-2 text-xs text-slate-500">
-              <Clock className="w-4 h-4 text-emerald-600" />
-              <span>Respons engineer: &lt; 15 menit</span>
-            </div>
+              <div className="pb-3 border-b border-slate-200/80">
+                <h3 className="text-lg sm:text-xl font-bold text-[#0F172A]">
+                  Formulir Konsultasi Cepat
+                </h3>
+                <p className="text-xs text-slate-600 mt-1">
+                  Isi 4 data singkat di bawah ini untuk langsung terhubung dengan tim kami.
+                </p>
+              </div>
+
+              {/* Field 1: Nama */}
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="contact-name"
+                  className="block text-xs font-bold text-[#0F172A]"
+                >
+                  1. Nama Lengkap Anda <span className="text-rose-500">*</span>
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Contoh: Drs. Ahmad Fauzi / Budi Santoso"
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
+                />
+              </div>
+
+              {/* Field 2: Institusi / Perusahaan */}
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="contact-institution"
+                  className="block text-xs font-bold text-[#0F172A]"
+                >
+                  2. Nama Sekolah / Yayasan / Perusahaan <span className="text-rose-500">*</span>
+                </label>
+                <input
+                  id="contact-institution"
+                  type="text"
+                  required
+                  value={institution}
+                  onChange={(e) => setInstitution(e.target.value)}
+                  placeholder="Contoh: SMA Islam Terpadu Al-Hikmah / PT Maju Bersama"
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
+                />
+              </div>
+
+              {/* Field 3: Layanan yang Dibutuhkan (Dropdown) */}
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="contact-service"
+                  className="block text-xs font-bold text-[#0F172A]"
+                >
+                  3. Layanan yang Dibutuhkan <span className="text-rose-500">*</span>
+                </label>
+                <select
+                  id="contact-service"
+                  value={serviceType}
+                  onChange={(e) => setServiceType(e.target.value)}
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] outline-none transition-all"
+                >
+                  <option value="Website (Sekolah / Yayasan / Perusahaan / UMKM)">
+                    Website (Sekolah / Yayasan / Perusahaan / UMKM)
+                  </option>
+                  <option value="Sistem (SIAKAD Sekolah / Sistem Yayasan / ERP / Kustom)">
+                    Sistem (SIAKAD Sekolah / Sistem Yayasan / ERP / Kustom)
+                  </option>
+                  <option value="Automasi (WhatsApp Resmi / Tagihan SPP / Laporan PDF)">
+                    Automasi (WhatsApp Resmi / Tagihan SPP / Laporan PDF)
+                  </option>
+                  <option value="Paket Lengkap (Website + Sistem + Automasi)">
+                    Paket Lengkap (Website + Sistem + Automasi)
+                  </option>
+                </select>
+              </div>
+
+              {/* Field 4: Nomor WhatsApp */}
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="contact-wa"
+                  className="block text-xs font-bold text-[#0F172A]"
+                >
+                  4. Nomor WhatsApp Aktif <span className="text-rose-500">*</span>
+                </label>
+                <input
+                  id="contact-wa"
+                  type="tel"
+                  required
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                  placeholder="Contoh: 0812-3456-7890"
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-2 space-y-3">
+                <button
+                  type="submit"
+                  className="w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-[0_8px_25px_rgba(217,119,54,0.35)] transition-all"
+                >
+                  <span>Konsultasikan Kebutuhan Sistem Anda</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+                {/* Reassuring Micro-Copy */}
+                <div className="flex items-center justify-center gap-4 text-[11px] text-slate-600 font-medium pt-1">
+                  <span className="inline-flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5 text-emerald-600" />
+                    Respons &lt;15 menit di jam kerja, tanpa komitmen
+                  </span>
+                  <span className="hidden sm:inline text-slate-300">•</span>
+                  <span className="hidden sm:inline-flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#C2672B]" />
+                    Privasi data 100% terjaga
+                  </span>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );

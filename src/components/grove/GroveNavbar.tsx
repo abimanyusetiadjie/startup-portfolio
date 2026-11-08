@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { AbinestLogo } from "./AbinestLogo";
 
 export function GroveNavbar() {
@@ -16,19 +16,20 @@ export function GroveNavbar() {
   }, []);
 
   const navLinks = [
-    { label: "Products", href: "#layanan" },
-    { label: "Solutions", href: "#tech-stack" },
-    { label: "Case Studies", href: "#studi-kasus" },
-    { label: "About", href: "#metodologi" },
-    { label: "Contact", href: "#kontak" },
+    { label: "Layanan", href: "#layanan-utama" },
+    { label: "Hasil Kerja", href: "#studi-kasus" },
+    { label: "Cara Kerja", href: "#cara-kerja" },
+    { label: "Testimoni", href: "#testimoni" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Kontak", href: "#kontak" },
   ];
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#FAF9F6]/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
-          : "bg-[#FAF9F6]/80 backdrop-blur-sm border-b border-slate-200/40"
+          ? "bg-[#FAF9F6]/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(15,23,42,0.04)]"
+          : "bg-[#FAF9F6]/85 backdrop-blur-sm border-b border-slate-200/40"
       }`}
     >
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
@@ -37,52 +38,49 @@ export function GroveNavbar() {
           <AbinestLogo size="md" showTagline={false} />
         </Link>
 
-        {/* Center: Clean Refined Navigation Links matching reference image */}
-        <nav className="hidden md:flex items-center gap-9">
+        {/* Center: Bahasa Indonesia Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-[13px] font-medium text-slate-700 hover:text-[#C2672B] transition-colors"
+              className="text-[13.5px] font-medium text-slate-700 hover:text-[#C2672B] transition-colors"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Right: "Let's Talk" rounded pill outline button matching reference image */}
+        {/* Right: Portal Klien & Sticky CTA */}
         <div className="hidden sm:flex items-center gap-3.5">
           <Link
             href="/login"
-            className="text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors mr-1"
+            className="text-xs font-semibold text-slate-600 hover:text-[#0F172A] transition-colors mr-1"
           >
             Portal Klien
           </Link>
           <a
-            href="https://wa.me/6285708677918?text=Halo%20Abinest%2C%20saya%20ingin%20berkonsultasi%20mengenai%20proyek%20sistem%2Fwebsite."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-semibold text-slate-900 bg-white hover:bg-slate-50 border border-slate-300 shadow-sm hover:border-slate-400 transition-all"
+            href="#kontak"
+            className="inline-flex items-center gap-1.5 justify-center px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-[0_4px_14px_rgba(217,119,54,0.28)] transition-all"
           >
-            Let&apos;s Talk
+            <span>Konsultasi Gratis</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <a
-            href="https://wa.me/6285708677918"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-[#D97736]"
+            href="#kontak"
+            className="px-3.5 py-2 rounded-full text-xs font-semibold text-white bg-[#D97736]"
           >
-            Talk
+            Konsultasi Gratis
           </a>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-xl text-slate-700 hover:text-slate-900 bg-white border border-slate-200"
-            aria-label="Toggle navigation"
+            aria-label="Buka menu navigasi"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -91,13 +89,13 @@ export function GroveNavbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#FAF9F6] border-b border-slate-200 px-6 py-6 space-y-3 shadow-xl">
+        <div className="lg:hidden bg-[#FAF9F6] border-b border-slate-200 px-6 py-6 space-y-3 shadow-xl">
           {navLinks.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-700 hover:text-[#C2672B] py-1.5 border-b border-slate-200/50"
+              className="block text-sm font-medium text-slate-700 hover:text-[#C2672B] py-2 border-b border-slate-200/50"
             >
               {item.label}
             </a>
@@ -106,17 +104,16 @@ export function GroveNavbar() {
             <Link
               href="/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-2.5 rounded-xl text-xs font-semibold text-slate-700 border border-slate-300 bg-white"
+              className="w-full py-2.5 text-center rounded-xl text-xs font-semibold text-slate-700 bg-white border border-slate-200"
             >
-              Portal Klien
+              Masuk Portal Klien
             </Link>
             <a
-              href="https://wa.me/6285708677918?text=Halo%20Abinest%2C%20saya%20ingin%20berkonsultasi."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center py-3 rounded-xl text-xs font-semibold text-white bg-[#D97736] shadow-md"
+              href="#kontak"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 text-center rounded-xl text-xs font-semibold text-white bg-[#D97736] shadow-md"
             >
-              Let&apos;s Talk via WhatsApp
+              Konsultasikan Kebutuhan Sistem Anda
             </a>
           </div>
         </div>

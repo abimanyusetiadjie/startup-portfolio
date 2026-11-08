@@ -5,16 +5,27 @@ const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
 
 export const metadata: Metadata = {
-  title: "Abinest | Software House & Konsultan Teknologi: Website, Sistem & Otomasi",
+  title:
+    "Abinest | Jasa Pembuatan Website, Sistem SIAKAD/ERP & Automasi WhatsApp (Jakarta & Surabaya)",
   description:
-    "Abinest melayani jasa pembuatan website modern berkecepatan tinggi, sistem informasi kustom (SIAKAD Sekolah anti-down & ERP), serta otomasi WhatsApp resmi Meta.",
+    "Software House & Konsultan IT untuk Sekolah, Yayasan, dan Bisnis. Website loading <0.8 detik, sistem SIAKAD/ERP anti-down (SLA 99.9%), & automasi WhatsApp resmi. 100% source code milik Anda tanpa biaya bulanan.",
+  keywords: [
+    "jasa pembuatan website sekolah jakarta",
+    "jasa pembuatan sistem siakad anti down",
+    "software house jakarta surabaya",
+    "jasa pembuatan sistem informasi sekolah",
+    "jasa automasi whatsapp bisnis",
+    "jasa pembuatan website yayasan",
+    "konsultan it sekolah dan umkm",
+  ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Abinest | Solusi IT Andal untuk UMKM & Institusi Anda",
+    title:
+      "Abinest | Website Cepat, Sistem SIAKAD Anti-Down & Automasi Kerja yang Pasti Beres",
     description:
-      "Kami bantu bisnis & institusi tumbuh aman dan modern: SIAKAD anti-down, website Next.js 15 skor 95–100, dan otomasi WhatsApp terpercaya.",
+      "Dipercaya 20+ Sekolah, Yayasan, dan UMKM di Jakarta & Surabaya. SLA 99.9% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code.",
     url: APP_BASE_URL,
     type: "website",
   },
@@ -29,36 +40,14 @@ const jsonLdSchema = {
       name: "Abinest Software House & Konsultan Teknologi",
       url: APP_BASE_URL,
       description:
-        "Studio rekayasa perangkat lunak B2B spesialis arsitektur web performa tinggi, sistem SIAKAD/ERP terpisah, dan otomasi bisnis WhatsApp/API.",
+        "Software House & Konsultan Teknologi spesialis Jasa Pembuatan Website, Sistem Informasi Sekolah (SIAKAD) & ERP Anti-Down, serta Automasi WhatsApp Resmi di Jakarta dan Surabaya.",
+      areaServed: ["Jakarta", "Surabaya", "Indonesia"],
       knowsAbout: [
-        "Next.js App Router",
-        "Supabase PostgreSQL Row Level Security",
-        "Academic Information System (SIAKAD)",
-        "Asynchronous PDF Report Generation",
-        "WhatsApp Business API Automation",
-        "Shopify Polaris Client Portal",
+        "Jasa Pembuatan Website Sekolah dan Perusahaan",
+        "Sistem Informasi Akademik (SIAKAD) Anti-Down",
+        "Sistem ERP Ringan dan Dashboard Internal",
+        "Automasi WhatsApp Resmi Meta Cloud API",
       ],
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": `${APP_BASE_URL}/#software`,
-      name: "SIAKAD Core + Parallel PDF Report Engine & Enterprise Client Portal",
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web Cloud (Next.js Edge & Supabase)",
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "IDR",
-        price: "15000000",
-        availability: "https://schema.org/InStock",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5.0",
-        reviewCount: "24",
-      },
-      provider: {
-        "@id": `${APP_BASE_URL}/#organization`,
-      },
     },
   ],
 };

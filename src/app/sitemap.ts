@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = (
-    process.env.NEXT_PUBLIC_APP_URL ?? "https://studio-rekayasa.triloe.id"
+    process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id"
   ).replace(/\/$/, "");
 
   const lastModified = new Date();
@@ -15,16 +15,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/jasa-pembuatan-website-jakarta`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/jasa-pembuatan-sistem-sekolah`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/jasa-automasi-whatsapp`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/login`,
       lastModified,
       changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/portal`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.6,
     },
   ];
 }
