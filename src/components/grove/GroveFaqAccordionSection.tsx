@@ -8,64 +8,73 @@ export function GroveFaqAccordionSection() {
 
   const faqs = [
     {
-      q: "How quickly do you respond to critical system issues?",
-      a: "Kami menjamin waktu respons di bawah 15 menit untuk tiket kategori P1/Kritis melalui direct channel engineer 24/7/365. Masalah operasional langsung ditangani oleh tim senior tanpa birokrasi perantara.",
+      q: "Berapa lama estimasi waktu pengerjaan SIAKAD atau sistem kustom?",
+      a: "Untuk Website Institusi Next.js 15 membutuhkan waktu 2–3 minggu. Untuk SIAKAD Sekolah atau ERP kustom berkisar antara 6–10 minggu dengan rilis modul bertahap setiap minggunya yang dapat Anda pantau langsung melalui Portal Klien.",
     },
     {
-      q: "Can you integrate with our existing internal engineering team?",
-      a: "Tentu. Kami dapat bertindak sebagai tim infrastruktur & DevOps pelengkap bagi engineer Anda (co-managed model) ataupun mengelola seluruh lifecycle arsitektur dan pemeliharaan secara mandiri (fully-managed).",
+      q: "Apakah data dari sistem lama atau file Excel bisa dimigrasikan secara utuh?",
+      a: "Tentu. Tim engineer kami menyediakan skrip sanitasi dan pemindahan data otomatis dari Excel, CSV, maupun database SQL lama. Kami menjamin tidak ada data siswa, guru, nilai, atau tagihan yang hilang atau tercecer.",
     },
     {
-      q: "What does your onboarding and migration process look like?",
-      a: "Kami memulai dengan audit arsitektur menyeluruh selama 3 hari, menyusun dokumen mitigasi risiko, melakukan simulasi migrasi staging tanpa downtime, lalu beralih ke produksi dengan pemantauan intensif.",
+      q: "Bagaimana skema garansi, pemeliharaan, dan SLA setelah sistem Go-Live?",
+      a: "Setiap proyek dilengkapi garansi pemeliharaan pasca go-live, pemantauan server 24/7 dengan SLA 99.9%, serta direct channel ke engineer senior dengan waktu respons di bawah 15 menit untuk penanganan kendala kritis.",
     },
     {
-      q: "Do you offer custom SLA packages for growing startups?",
-      a: "Ya. Setiap institusi dan startup memiliki kebutuhan beban serta siklus kritis yang berbeda (seperti masa ujian atau kampanye penjualan). Paket SLA kami fleksibel dengan jaminan uptime 99.9% hingga 99.99%.",
+      q: "Apakah source code dan database sepenuhnya menjadi hak milik institusi kami?",
+      a: "Ya, 100% hak cipta dan kepemilikan menjadi milik institusi Anda. Kami menyerahkan seluruh repositori Git, skema database PostgreSQL, dan dokumentasi arsitektur tanpa biaya lisensi bulanan tersembunyi.",
+    },
+    {
+      q: "Bagaimana kisaran investasi untuk memulai proyek bersama Abinest?",
+      a: "Website institusi performa tinggi mulai dari Rp 8,5 Juta, Otomasi WhatsApp Cloud API mulai dari Rp 12 Juta, dan SIAKAD Sekolah lengkap mulai dari Rp 25 Juta dengan sistem pembayaran bertahap berbasis milestone yang transparan.",
     },
   ];
 
   return (
-    <section id="faq" className="py-20 relative">
+    <section id="faq" className="py-24 relative bg-slate-50/60 border-t border-slate-200/80">
       <div className="max-w-[760px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-xl mx-auto mb-14 space-y-3">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
-            GOT QUESTIONS?
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600 bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+            TANYA JAWAB TEKNIS
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight text-white leading-tight">
-            Ask Less. Know More.
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
+            Tanya Lebih Sedikit.
+            <br />
+            Tahu Lebih Banyak.
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-            Transparansi penuh mengenai model kerja, kecepatan respons, dan jaminan SLA kami.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Transparansi penuh mengenai kepemilikan kode, proses pengerjaan, dan jaminan SLA kami.
           </p>
         </div>
 
-        {/* 4 Accordion Rows with Bottom Border & Plus/Minus Toggle */}
-        <div className="divide-y divide-white/10 border-t border-b border-white/10">
+        {/* Accordion Rows in Clean White Cards */}
+        <div className="space-y-3.5">
           {faqs.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div key={idx} className="py-5">
+              <div
+                key={idx}
+                className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm transition-all duration-200 hover:border-slate-300"
+              >
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between gap-4 text-left group"
                 >
-                  <span className="text-sm sm:text-base font-medium text-zinc-200 group-hover:text-white transition-colors">
+                  <span className="text-sm sm:text-base font-bold text-slate-800 group-hover:text-orange-600 transition-colors">
                     {item.q}
                   </span>
-                  <span className="w-7 h-7 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:border-orange-500/40 shrink-0 transition-colors">
+                  <span className="w-8 h-8 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 shrink-0 transition-colors">
                     {isOpen ? (
-                      <Minus className="w-3.5 h-3.5 text-orange-400" />
+                      <Minus className="w-4 h-4 text-orange-600" />
                     ) : (
-                      <Plus className="w-3.5 h-3.5" />
+                      <Plus className="w-4 h-4 text-orange-600" />
                     )}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <p className="pt-3 pr-8 text-xs sm:text-sm text-zinc-400 leading-relaxed animate-fadeIn">
+                  <p className="pt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 mt-3 animate-fadeIn">
                     {item.a}
                   </p>
                 )}
@@ -74,15 +83,17 @@ export function GroveFaqAccordionSection() {
           })}
         </div>
 
-        {/* Footer FAQ: Text below */}
-        <div className="mt-8 flex items-center justify-center gap-2 text-xs sm:text-sm text-zinc-400 text-center">
-          <MessageCircle className="w-4 h-4 text-orange-400" />
-          <span>Still have questions?</span>
+        {/* Footer FAQ */}
+        <div className="mt-10 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-600 text-center">
+          <MessageCircle className="w-4 h-4 text-orange-500" />
+          <span>Masih memiliki pertanyaan spesifik seputar sistem Anda?</span>
           <a
-            href="#contact"
-            className="text-white hover:text-orange-400 font-medium underline underline-offset-4 transition-colors"
+            href="https://wa.me/6285708677918?text=Halo%20Abinest%2C%20saya%20memiliki%20pertanyaan%20spesifik%20mengenai%20sistem."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 font-bold hover:underline"
           >
-            Contact our technical team directly.
+            Hubungi tim teknis kami langsung
           </a>
         </div>
       </div>

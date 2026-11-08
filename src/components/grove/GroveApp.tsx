@@ -17,47 +17,47 @@ import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
 
 export function GroveApp() {
   return (
-    <div className="min-h-screen bg-[#0A0A0C] text-white flex flex-col font-sans selection:bg-orange-500 selection:text-white">
-      {/* 1. Sticky Glass Navbar */}
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+      {/* 1. Header & Navigation Light Theme */}
       <GroveNavbar />
 
       {/* 2. Hero Section & 4-Metric Bar */}
       <GroveHeroSection />
 
-      {/* 3. Trust Badges / Certified Partner */}
+      {/* 3. Partner & Authority Badges */}
       <GrovePartnerPill />
 
-      {/* 4. About / Value Proposition ("We Fix. We Automate. You Level Up.") */}
+      {/* 4. Nilai Rekayasa & Layanan Unggulan */}
       <GroveCapabilitiesSection />
 
-      {/* 5. Tech Stack & Integrations ("Connected to the Tools That Power Your Stack") */}
+      {/* 5. 3D Tactile Tech Stack & Integrations Grid */}
       <GroveTechStackGrid />
 
-      {/* 6. Core Methodology ("We Don't Just Support IT. We Fuel Growth.") */}
+      {/* 6. Metodologi & Perlindungan 24/7 (Abinest Core Hub) */}
       <GroveCoreShieldSection />
 
-      {/* 7. Detailed Services ("IT Support That Actually Shows Up") */}
+      {/* 7. Tab Layanan Spesialis Interaktif */}
       <GroveCaseStudyTabsSection />
 
-      {/* 8. Minimalist FAQ Accordion ("Ask Less. Know More.") */}
+      {/* 8. FAQ Accordion Transparan */}
       <GroveFaqAccordionSection />
 
-      {/* 9. Lead Capture Contact Form ("Good IT Starts With a Conversation") */}
+      {/* 9. Formulir Konsultasi & Lead Capture */}
       <GroveAmberContactSection />
 
-      {/* 10. Client Testimonials ("Why TechRoos Clients Stick With Us") */}
+      {/* 10. Testimoni Klien Nyata (Wall of Love) */}
       <GroveTestimonialsGrid />
 
-      {/* 11. Featured Case Study ("Scaling Infrastructure: How We Cut Cloud Costs by 40%") */}
+      {/* 11. Studi Kasus Unggulan (Stacked Card) */}
       <GroveCaseStudySection />
 
-      {/* 12. Latest Insights & Blog ("Our Latest Insights & Articles") */}
+      {/* 12. Wawasan & Artikel Edukasi IT */}
       <GroveInsightsSection />
 
-      {/* 13. Pre-Footer CTA with Horizon Glow & 4-Column Main Footer with Giant Watermark */}
+      {/* 13. Pre-Footer CTA & 4-Column Footer dengan Watermark Raksasa ABINEST */}
       <GroveFooterSection />
 
-      {/* Floating Quick WhatsApp Action Hub */}
+      {/* Floating WhatsApp Direct Chat */}
       <GroveFloatingWhatsApp />
     </div>
   );

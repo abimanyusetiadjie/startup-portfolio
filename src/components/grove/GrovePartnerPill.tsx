@@ -18,7 +18,7 @@ export function GrovePartnerPill() {
           <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.64-.78 1.08-1.86.96-2.94-.93.04-2.06.62-2.72 1.4-.58.68-1.1 1.79-.96 2.84 1.04.08 2.08-.52 2.72-1.3" />
         </svg>
       ),
-      label: "Apple",
+      label: "Apple Ecosystem",
     },
     {
       name: "AWS",
@@ -28,7 +28,7 @@ export function GrovePartnerPill() {
           <path d="M19.8 14.88c-4.95 2.37-10.45 2.47-15.65.3-.2-.08-.43.08-.34.28 2.05 3.32 6.64 5.3 11.02 4.67 2.5-.36 4.88-1.5 6.84-3.25.32-.29.07-.76-.32-.61l-1.55-1.39z" />
         </svg>
       ),
-      label: "AWS",
+      label: "AWS Cloud",
     },
     {
       name: "Google Cloud",
@@ -39,35 +39,44 @@ export function GrovePartnerPill() {
       ),
       label: "Google Cloud",
     },
+    {
+      name: "Meta Cloud API",
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
+        </svg>
+      ),
+      label: "Meta Official Partner",
+    },
   ];
 
   return (
-    <section className="py-8 relative">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 flex flex-col items-center">
+    <section className="py-6 relative bg-white">
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 flex flex-col items-center">
         {/* Label */}
-        <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.25em] text-zinc-500 mb-3.5">
-          CERTIFIED PARTNER
+        <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500 mb-3.5">
+          EKOSISTEM &amp; PARTNER OTORITAS RESMI
         </span>
 
-        {/* Centered Dark Pill Container with Ambient Glow Behind */}
+        {/* Centered Light Pill Container */}
         <div className="relative">
-          {/* Ambient red-orange glow behind pill */}
+          {/* Subtle warm orange shadow behind pill */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-2 rounded-full bg-gradient-to-r from-orange-600/25 via-amber-500/25 to-red-600/20 blur-xl"
+            className="pointer-events-none absolute -inset-2 rounded-full bg-gradient-to-r from-orange-400/15 via-amber-300/15 to-orange-400/15 blur-lg"
           />
 
-          <div className="relative z-10 inline-flex flex-wrap items-center justify-center gap-8 sm:gap-14 px-8 sm:px-12 py-4 rounded-2xl bg-[#121318]/90 border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
+          <div className="relative z-10 inline-flex flex-wrap items-center justify-center gap-6 sm:gap-10 px-8 sm:px-12 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-md">
             {partners.map((p, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2.5 text-zinc-400 hover:text-white transition-colors group cursor-default"
+                className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors group cursor-default"
                 title={p.name}
               >
-                <div className="text-zinc-300 group-hover:text-white transition-colors">
+                <div className="text-slate-700 group-hover:text-orange-600 transition-colors">
                   {p.icon}
                 </div>
-                <span className="text-xs sm:text-[13px] font-medium tracking-tight text-zinc-300 group-hover:text-white transition-colors">
+                <span className="text-xs sm:text-[13px] font-semibold tracking-tight text-slate-700 group-hover:text-slate-900 transition-colors">
                   {p.label}
                 </span>
               </div>

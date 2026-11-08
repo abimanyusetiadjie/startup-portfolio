@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface TechItem {
   name: string;
@@ -19,12 +19,6 @@ export function GroveTechStackGrid() {
   const [hoveredTech, setHoveredTech] = useState<TechItem | null>(null);
 
   // 12 Primary IT Stack Technologies arranged in 6 Columns x 2 Rows
-  // Column 1: Next.js (Top) & TypeScript (Bottom)
-  // Column 2: Python (Top) & Docker (Bottom)
-  // Column 3: React 19 (Top) & PostgreSQL (Bottom)
-  // Column 4: Node.js (Top) & Tailwind CSS (Bottom)
-  // Column 5: Go / Golang (Top) & Redis (Bottom)
-  // Column 6: Supabase (Top) & Cloudflare (Bottom)
   const columns: { top: TechItem; bottom: TechItem; offsetClass: string }[] = [
     {
       offsetClass: "translate-y-0",
@@ -33,18 +27,18 @@ export function GroveTechStackGrid() {
         category: "frameworks",
         categoryLabel: "Full-Stack Framework",
         desc: "App Router, SSR, Server Components & Edge rendering berkecepatan tinggi.",
-        glowColor: "rgba(255, 255, 255, 0.4)",
+        glowColor: "rgba(15, 23, 42, 0.2)",
         svg: (
-          <svg className="w-9 h-9 sm:w-11 sm:h-11" viewBox="0 0 180 180" fill="none">
-            <circle cx="90" cy="90" r="90" fill="#000000" />
+          <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 180 180" fill="none">
+            <circle cx="90" cy="90" r="90" fill="#0F172A" />
             <path
               d="M149.508 157.291L69.1416 54H54V125.966H66.4532V69.7567L139.99 164.551C143.342 162.296 146.529 159.864 149.508 157.291Z"
-              fill="url(#next_paint0)"
+              fill="url(#next_paint0_light)"
             />
-            <rect x="115" y="54" width="12" height="72" fill="url(#next_paint1)" />
+            <rect x="115" y="54" width="12" height="72" fill="url(#next_paint1_light)" />
             <defs>
               <linearGradient
-                id="next_paint0"
+                id="next_paint0_light"
                 x1="109"
                 y1="116.5"
                 x2="144.5"
@@ -55,7 +49,7 @@ export function GroveTechStackGrid() {
                 <stop offset="1" stopColor="white" stopOpacity="0" />
               </linearGradient>
               <linearGradient
-                id="next_paint1"
+                id="next_paint1_light"
                 x1="121"
                 y1="54"
                 x2="120.799"
@@ -74,10 +68,10 @@ export function GroveTechStackGrid() {
         category: "languages",
         categoryLabel: "Type-Safe Language",
         desc: "Strict type-checking untuk integritas sistem skala enterprise tanpa runtime crash.",
-        glowColor: "rgba(49, 120, 198, 0.5)",
+        glowColor: "rgba(49, 120, 198, 0.3)",
         svg: (
-          <svg className="w-9 h-9 sm:w-11 sm:h-11 rounded-md" viewBox="0 0 128 128">
-            <rect width="128" height="128" fill="#3178C6" rx="16" />
+          <svg className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl" viewBox="0 0 128 128">
+            <rect width="128" height="128" fill="#3178C6" rx="20" />
             <path
               d="M60.6 57.6h-13v48.8h-11.8V57.6h-13v-9.8H60.6v9.8zm23.6 30.6c3.2 2.3 7 3.8 11.2 3.8 4.3 0 6.6-1.7 6.6-4.3 0-2.8-2.5-3.9-8.4-6.2-9-3.4-14.8-7.7-14.8-16.1 0-8.9 7.2-15.5 18.5-15.5 5.5 0 10.3 1.5 13.9 4l-4.5 8.7c-3.1-1.9-6.6-3.1-9.9-3.1-4 0-6.1 1.6-6.1 3.9 0 2.5 2.1 3.6 7.8 5.7 9.8 3.7 15.6 7.9 15.6 16.5 0 9.7-7.6 16.1-19.4 16.1-6.7 0-12.7-2-17.1-5.4l4.6-8.1z"
               fill="#FFFFFF"
@@ -92,10 +86,10 @@ export function GroveTechStackGrid() {
         name: "Python",
         category: "languages",
         categoryLabel: "Backend & Data Language",
-        desc: "Worker data pipelines, AI/ML parsing, dan skrip otomasi asinkron.",
-        glowColor: "rgba(255, 212, 59, 0.4)",
+        desc: "Worker data pipelines, pemrosesan dokumen rapor, dan skrip otomasi asinkron.",
+        glowColor: "rgba(255, 212, 59, 0.3)",
         svg: (
-          <svg className="w-9 h-9 sm:w-11 sm:h-11" viewBox="0 0 128 128">
+          <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 128 128">
             <path
               d="M63.5 1.5c-15.2 0-24.3 6.6-24.3 19.5v14.4h24.8v3.6H25.3C11 39 0 49.3 0 64.7c0 14.8 11.3 25.1 25.3 25.1h7.8v-11.8c0-9.6 8.3-17.9 17.9-17.9h24.6c7.9 0 14.4-6.7 14.4-14.6V21c0-12.9-9.1-19.5-26.5-19.5zm-13.6 7.7a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z"
               fill="#3776AB"
@@ -112,9 +106,9 @@ export function GroveTechStackGrid() {
         category: "devops",
         categoryLabel: "Container Engine",
         desc: "Isolasi runtime konsisten dan deployment zero-downtime lintas klaster cloud.",
-        glowColor: "rgba(36, 150, 237, 0.5)",
+        glowColor: "rgba(36, 150, 237, 0.3)",
         svg: (
-          <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 24 24" fill="#2496ED">
+          <svg className="w-11 h-11 sm:w-13 sm:h-13" viewBox="0 0 24 24" fill="#2496ED">
             <path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.119a.186.186 0 0 0 .186-.186V9.006a.186.186 0 0 0-.186-.186h-2.119a.186.186 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.186V9.006a.185.185 0 0 0-.184-.186H8.1a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.187.187 0 0 0 .185-.186V9.006a.186.186 0 0 0-.185-.186H5.136a.186.186 0 0 0-.186.185v1.888c0 .102.084.185.186.185m-2.928 0h2.119a.185.185 0 0 0 .185-.186V9.006a.185.185 0 0 0-.185-.186H2.208a.186.186 0 0 0-.186.185v1.888c0 .102.084.185.186.185M23.76 9.89c-.615-.472-1.587-.537-2.395-.18a4.34 4.34 0 0 0-.742-.782l-.4-.28-.313.38a3.15 3.15 0 0 0-.543 1.18c-.77-.12-1.928-.02-2.85.55-.42.26-.78.61-1.07 1.02H1.147a1.147 1.147 0 0 0-1.147 1.147c0 3.197 1.488 5.485 3.75 6.673 2.158 1.133 5.097 1.34 8.423.633 4.298-.915 7.15-3.565 7.747-7.228.87-.042 2.37-.282 3.18-1.52.32-.49.56-1.16.66-1.597z" />
           </svg>
         ),
@@ -127,11 +121,11 @@ export function GroveTechStackGrid() {
         category: "frameworks",
         categoryLabel: "Frontend Library",
         desc: "Komponen interaktif, client-side state modern, dan optimasi Concurrent Mode.",
-        glowColor: "rgba(97, 218, 251, 0.45)",
+        glowColor: "rgba(97, 218, 251, 0.35)",
         svg: (
-          <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="-11.5 -10.23174 23 20.46348">
-            <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
-            <g stroke="#61DAFB" strokeWidth="1" fill="none">
+          <svg className="w-11 h-11 sm:w-13 sm:h-13" viewBox="-11.5 -10.23174 23 20.46348">
+            <circle cx="0" cy="0" r="2.05" fill="#0284C7" />
+            <g stroke="#0284C7" strokeWidth="1" fill="none">
               <ellipse rx="11" ry="4.2" />
               <ellipse rx="11" ry="4.2" transform="rotate(60)" />
               <ellipse rx="11" ry="4.2" transform="rotate(120)" />
@@ -144,7 +138,7 @@ export function GroveTechStackGrid() {
         category: "databases",
         categoryLabel: "Relational Database",
         desc: "Database ACID dengan Row-Level Security (RLS) untuk isolasi data multi-role.",
-        glowColor: "rgba(51, 103, 145, 0.5)",
+        glowColor: "rgba(51, 103, 145, 0.35)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 128 128">
             <path
@@ -161,8 +155,8 @@ export function GroveTechStackGrid() {
         name: "Node.js",
         category: "languages",
         categoryLabel: "JavaScript Runtime",
-        desc: "Event-driven, asynchronous I/O backend untuk throughput API dan WebSocket tinggi.",
-        glowColor: "rgba(95, 160, 78, 0.45)",
+        desc: "Event-driven, asynchronous I/O backend untuk throughput API dan webhook WhatsApp.",
+        glowColor: "rgba(95, 160, 78, 0.35)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 128 128">
             <path
@@ -180,8 +174,8 @@ export function GroveTechStackGrid() {
         name: "Tailwind CSS",
         category: "frameworks",
         categoryLabel: "Utility-First CSS",
-        desc: "Desain sistem modern, atomic styling presisi, dan nol CSS bundle bloat.",
-        glowColor: "rgba(6, 182, 212, 0.5)",
+        desc: "Desain sistem modern, atomic styling presisi, dan skor performa web hijau.",
+        glowColor: "rgba(6, 182, 212, 0.35)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 48 48" fill="none">
             <path
@@ -199,7 +193,7 @@ export function GroveTechStackGrid() {
         category: "languages",
         categoryLabel: "High-Concurrency Language",
         desc: "Goroutines ultra-ringan untuk microservices yang membutuhkan latensi < 10ms.",
-        glowColor: "rgba(0, 173, 216, 0.45)",
+        glowColor: "rgba(0, 173, 216, 0.35)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 128 128">
             <path
@@ -214,7 +208,7 @@ export function GroveTechStackGrid() {
         category: "databases",
         categoryLabel: "In-Memory Cache",
         desc: "Penyimpanan cache sub-milidetik, sesi login instan, dan antrean Upstash QStash.",
-        glowColor: "rgba(220, 56, 45, 0.5)",
+        glowColor: "rgba(220, 56, 45, 0.35)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 128 128">
             <path
@@ -236,42 +230,13 @@ export function GroveTechStackGrid() {
         category: "databases",
         categoryLabel: "Backend as a Service",
         desc: "PostgreSQL realtime engine, built-in Auth, Edge Functions, & automated backups.",
-        glowColor: "rgba(62, 207, 142, 0.5)",
+        glowColor: "rgba(62, 207, 142, 0.35)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 109 113" fill="none">
             <path
               d="M63.7076 110.284C60.598 114.249 54.2546 112.029 54.2546 106.974V67.8962H8.68073C3.65586 67.8962 0.871089 62.0628 4.09559 58.1062L45.4194 7.3789C48.529 3.56064 54.8724 5.7807 54.8724 10.8359V49.9137H100.446C105.471 49.9137 108.256 55.7471 105.032 59.7037L63.7076 110.284Z"
-              fill="url(#supabase_paint0)"
+              fill="#3ECF8E"
             />
-            <path
-              d="M63.7076 110.284C60.598 114.249 54.2546 112.029 54.2546 106.974V67.8962H8.68073C3.65586 67.8962 0.871089 62.0628 4.09559 58.1062L45.4194 7.3789C48.529 3.56064 54.8724 5.7807 54.8724 10.8359V49.9137H100.446C105.471 49.9137 108.256 55.7471 105.032 59.7037L63.7076 110.284Z"
-              fill="url(#supabase_paint1)"
-              fillOpacity="0.2"
-            />
-            <defs>
-              <linearGradient
-                id="supabase_paint0"
-                x1="54.5"
-                y1="6.5"
-                x2="54.5"
-                y2="111.5"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#249361" />
-                <stop offset="1" stopColor="#3ECF8E" />
-              </linearGradient>
-              <linearGradient
-                id="supabase_paint1"
-                x1="22.5"
-                y1="34"
-                x2="86.5"
-                y2="84"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="white" />
-                <stop offset="1" stopColor="white" stopOpacity="0" />
-              </linearGradient>
-            </defs>
           </svg>
         ),
       },
@@ -280,7 +245,7 @@ export function GroveTechStackGrid() {
         category: "devops",
         categoryLabel: "Global Edge & WAF",
         desc: "Proteksi DDoS, caching DNS latensi rendah, dan SSL enterprise di seluruh dunia.",
-        glowColor: "rgba(243, 128, 32, 0.5)",
+        glowColor: "rgba(243, 128, 32, 0.35)",
         svg: (
           <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 128 128">
             <path
@@ -298,42 +263,42 @@ export function GroveTechStackGrid() {
   ];
 
   const filterTabs = [
-    { key: "all", label: "All Stack" },
-    { key: "languages", label: "Languages" },
-    { key: "frameworks", label: "Frameworks" },
-    { key: "databases", label: "Databases & Cache" },
+    { key: "all", label: "Semua Stack" },
+    { key: "languages", label: "Bahasa Pemrograman" },
+    { key: "frameworks", label: "Framework & Library" },
+    { key: "databases", label: "Database & Cache" },
     { key: "devops", label: "Cloud & DevOps" },
   ];
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-[#0A0A0C]">
-      {/* Background Soft Amber Radial Glow */}
+    <section id="tech-stack" className="py-24 relative overflow-hidden bg-white border-t border-slate-200/80">
+      {/* Background Soft Light Amber Glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-gradient-to-r from-orange-500/10 via-amber-500/15 to-orange-600/10 blur-[130px] rounded-full"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-gradient-to-r from-orange-100/40 via-amber-100/50 to-orange-100/40 blur-[130px] rounded-full"
       />
 
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8 relative z-10">
-        {/* Header matching exact layout of reference image */}
+        {/* Header matching exact layout of reference image in clean light mode */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-4">
-          {/* Eyebrow Pill with green indicator dot */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#131418] border border-white/10 shadow-inner">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[11px] font-semibold tracking-wide text-zinc-300">
-              Integrated with Modern IT Leaders
+          {/* Eyebrow Pill */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px] font-bold tracking-wide text-slate-700">
+              Integrated with 30+ Modern IT Leaders
             </span>
           </div>
 
-          {/* Heading H2 matching reference wording */}
-          <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-semibold tracking-tight text-white leading-[1.15]">
+          {/* Heading H2 */}
+          <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-bold tracking-tight text-[#0F172A] leading-[1.15]">
             Connected to 200+ Tools
             <br />
             That Power Your Stack
           </h2>
 
           {/* Subtitle */}
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
-            We build smarter, resilient systems by engineering with the modern programming languages, high-speed frameworks, and battle-tested databases your team relies on daily.
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Kami membangun sistem yang lebih cerdas dan stabil dengan mengintegrasikan bahasa pemrograman tangguh, framework berkecepatan tinggi, dan database cloud teruji yang diandalkan tim Anda setiap hari.
           </p>
 
           {/* Quick Filter Pill Bar */}
@@ -345,10 +310,10 @@ export function GroveTechStackGrid() {
                   key={tab.key}
                   type="button"
                   onClick={() => setActiveFilter(tab.key as any)}
-                  className={`px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition-all ${
                     active
-                      ? "bg-white text-zinc-950 font-semibold shadow-[0_0_15px_rgba(255,255,255,0.4)]"
-                      : "bg-[#131418] text-zinc-400 hover:text-white border border-white/[0.06]"
+                      ? "bg-[#0F172A] text-white shadow-md"
+                      : "bg-slate-100/80 text-slate-600 hover:text-slate-900 border border-slate-200"
                   }`}
                 >
                   {tab.label}
@@ -358,7 +323,7 @@ export function GroveTechStackGrid() {
           </div>
         </div>
 
-        {/* 6-Column Staggered Tactile Block Cards matching uploaded image */}
+        {/* 6-Column Staggered Tactile Block Cards in Clean Light Mode */}
         <div className="relative py-4 max-w-[1100px] mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 md:gap-5 items-start justify-items-center">
             {columns.map((col, colIdx) => {
@@ -376,19 +341,13 @@ export function GroveTechStackGrid() {
                   <div
                     onMouseEnter={() => setHoveredTech(col.top)}
                     onMouseLeave={() => setHoveredTech(null)}
-                    className={`relative w-full aspect-[4/5] sm:h-36 md:h-40 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#18191E] to-[#121316] border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.12),0_15px_35px_rgba(0,0,0,0.7)] group cursor-pointer ${
+                    className={`relative w-full aspect-[4/5] sm:h-36 md:h-40 rounded-2xl sm:rounded-3xl bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_10px_25px_rgba(0,0,0,0.05)] group cursor-pointer ${
                       isTopActive
-                        ? "border-white/[0.09] hover:border-white/25 hover:-translate-y-1.5 opacity-100"
-                        : "border-white/[0.04] opacity-30 grayscale"
+                        ? "border-slate-200/90 hover:border-orange-300 hover:shadow-[0_15px_35px_rgba(249,115,22,0.18)] hover:-translate-y-1.5 opacity-100"
+                        : "border-slate-100 opacity-25 grayscale"
                     }`}
-                    style={{
-                      boxShadow:
-                        hoveredTech?.name === col.top.name
-                          ? `0 0 30px ${col.top.glowColor}, inset 0 1px 1px 0 rgba(255,255,255,0.2)`
-                          : undefined,
-                    }}
                   >
-                    <div className="transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                    <div className="transition-transform duration-300 group-hover:scale-110 drop-shadow-sm">
                       {col.top.svg}
                     </div>
                   </div>
@@ -397,19 +356,13 @@ export function GroveTechStackGrid() {
                   <div
                     onMouseEnter={() => setHoveredTech(col.bottom)}
                     onMouseLeave={() => setHoveredTech(null)}
-                    className={`relative w-full aspect-[4/5] sm:h-36 md:h-40 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#18191E] to-[#121316] border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.12),0_15px_35px_rgba(0,0,0,0.7)] group cursor-pointer ${
+                    className={`relative w-full aspect-[4/5] sm:h-36 md:h-40 rounded-2xl sm:rounded-3xl bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_10px_25px_rgba(0,0,0,0.05)] group cursor-pointer ${
                       isBottomActive
-                        ? "border-white/[0.09] hover:border-white/25 hover:-translate-y-1.5 opacity-100"
-                        : "border-white/[0.04] opacity-30 grayscale"
+                        ? "border-slate-200/90 hover:border-orange-300 hover:shadow-[0_15px_35px_rgba(249,115,22,0.18)] hover:-translate-y-1.5 opacity-100"
+                        : "border-slate-100 opacity-25 grayscale"
                     }`}
-                    style={{
-                      boxShadow:
-                        hoveredTech?.name === col.bottom.name
-                          ? `0 0 30px ${col.bottom.glowColor}, inset 0 1px 1px 0 rgba(255,255,255,0.2)`
-                          : undefined,
-                    }}
                   >
-                    <div className="transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                    <div className="transition-transform duration-300 group-hover:scale-110 drop-shadow-sm">
                       {col.bottom.svg}
                     </div>
                   </div>
@@ -417,7 +370,7 @@ export function GroveTechStackGrid() {
                   {/* Vertical Connector Stems fading downwards beneath bottom card (matching photo) */}
                   <div
                     aria-hidden="true"
-                    className="w-[1.5px] h-8 sm:h-12 bg-gradient-to-b from-white/20 via-white/5 to-transparent rounded-full"
+                    className="w-[1.5px] h-8 sm:h-12 bg-gradient-to-b from-slate-300 via-slate-200 to-transparent rounded-full"
                   />
                 </div>
               );
@@ -425,37 +378,39 @@ export function GroveTechStackGrid() {
           </div>
 
           {/* Interactive Inspection Hover Info Pill */}
-          <div className="h-10 mt-2 flex items-center justify-center">
+          <div className="h-10 mt-3 flex items-center justify-center">
             {hoveredTech ? (
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#16171C] border border-white/15 text-xs text-zinc-300 animate-fadeIn shadow-lg">
-                <span className="font-semibold text-white">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs animate-fadeIn shadow-lg">
+                <span className="font-bold text-white">
                   {hoveredTech.name}
                 </span>
-                <span className="text-zinc-500">•</span>
+                <span className="text-slate-500">•</span>
                 <span className="text-orange-400 font-mono text-[11px]">
                   {hoveredTech.categoryLabel}
                 </span>
-                <span className="text-zinc-500 hidden sm:inline">•</span>
-                <span className="text-zinc-400 hidden sm:inline text-[11px]">
+                <span className="text-slate-500 hidden sm:inline">•</span>
+                <span className="text-slate-300 hidden sm:inline text-[11px]">
                   {hoveredTech.desc}
                 </span>
               </div>
             ) : (
-              <span className="text-[11px] text-zinc-600">
+              <span className="text-[11px] text-slate-500 font-medium">
                 Arahkan kursor pada kartu untuk melihat detail arsitektur teknologi
               </span>
             )}
           </div>
         </div>
 
-        {/* Bottom Centered Button with subtle orange border glow */}
+        {/* Bottom Centered Button with vibrant orange styling */}
         <div className="mt-8 flex justify-center">
           <a
-            href="#contact"
-            className="group relative inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#121318] border border-orange-500/50 shadow-[0_0_25px_rgba(249,115,22,0.25)] hover:border-orange-500 hover:shadow-[0_0_35px_rgba(249,115,22,0.45)] transition-all duration-300"
+            href="https://wa.me/6285708677918?text=Halo%20Abinest%2C%20saya%20ingin%20berkonsultasi%20mengenai%20integrasi%20stack%20teknologi%20kami."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-[0_6px_20px_rgba(249,115,22,0.35)] hover:shadow-[0_8px_25px_rgba(249,115,22,0.45)] transition-all duration-300"
           >
-            <span>Explore All Stack &amp; Integrations</span>
-            <ArrowUpRight className="w-4 h-4 text-orange-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <span>Konsultasikan Kebutuhan Stack Anda</span>
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </div>
       </div>

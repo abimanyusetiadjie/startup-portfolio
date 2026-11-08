@@ -1,93 +1,88 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 
 export function GroveCaseStudyTabsSection() {
-  // 4 Tabs: Managed IT, Cloud & DevOps (Active by default), Cybersecurity, Automation
-  const [activeTab, setActiveTab] = useState<number>(1);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const tabs = [
     {
-      label: "Managed IT",
-      title: "Proactive Managed IT That Eliminates Friction",
-      desc: "Layanan pemeliharaan sistem menyeluruh yang bertindak sebagai departemen IT internal Anda — menangani infrastruktur harian, pembaruan keamanan, dan optimasi jaringan.",
+      label: "SIAKAD Sekolah Anti-Down",
+      title: "Sistem Informasi Akademik Berkapasitas Tinggi Tanpa Down",
+      desc: "Dirancang khusus untuk sekolah, yayasan, dan pesantren yang membutuhkan stabilitas penuh saat ujian CBT serentak, pembagian rapor, dan pendaftaran murid baru.",
       bullets: [
-        "Jaminan respons insiden kritis di bawah 15 menit 24/7.",
-        "Pemeliharaan preventif dan patching otomatis lintas server.",
-        "Dukungan helpdesk tingkat lanjut untuk kelancaran operasional tim.",
-        "Laporan kesehatan sistem dan SLA berkala yang transparan.",
+        "0% server crash saat 1.200+ siswa login bersamaan untuk ujian.",
+        "Generate 600+ PDF rapor Kurikulum Merdeka via background worker paralel.",
+        "Integrasi tagihan SPP otomatis dengan notifikasi WhatsApp wali murid.",
+        "Portal multi-peran terisolasi: Admin, Guru, Wali Kelas, Siswa, dan Orang Tua.",
       ],
-      image:
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
-      badge: "Managed Infrastructure Tier 1",
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80",
+      badge: "SIAKAD Core Tier 1",
     },
     {
-      label: "Cloud & DevOps",
-      title: "Custom Solutions Built to Last, Tailored",
-      desc: "Kami merekayasa arsitektur cloud terdistribusi dan pipeline CI/CD modern yang dirancang untuk menahan lonjakan beban puncak tanpa kompromi performa atau pembengkakan biaya.",
+      label: "Website Next.js 15",
+      title: "Website Institusi Super Cepat Skor Lighthouse 95–100",
+      desc: "Website resmi sekolah dan korporat yang dibangun menggunakan Next.js 15 App Router untuk kecepatan buka halaman di bawah 1 detik dan dominasi SEO Google.",
       bullets: [
-        "Arsitektur elastis multi-region dengan load balancing cerdas.",
-        "Deployment otomatis nol-downtime via containerized Docker/K8s.",
-        "Optimasi biaya komputasi cloud dan alokasi resource dinamis.",
-        "Pencadangan data terenkripsi dan strategi Disaster Recovery instan.",
+        "Skor Google PageSpeed & Core Web Vitals terverifikasi 95–100.",
+        "Desain eksklusif berkelas non-template yang mengangkat reputasi B2B.",
+        "Panel CMS mudah dikelola oleh tim humas tanpa keahlian koding.",
+        "Struktur Schema JSON-LD lengkap untuk optimasi pencarian lokal.",
       ],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
-      badge: "High-Availability Cloud Engine",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
+      badge: "Next.js 15 Edge Performance",
     },
     {
-      label: "Cybersecurity",
-      title: "Zero-Trust Security & Layered Protection",
-      desc: "Pertahanan siber proaktif berbasis prinsip Zero-Trust untuk melindungi aset digital, database institusi, dan kredensial pengguna dari ancaman internal maupun eksternal.",
+      label: "Otomasi WhatsApp Meta",
+      title: "Integrasi Resmi Meta Cloud API & Pengiriman < 2 Detik",
+      desc: "Tinggalkan broadcast tidak resmi yang rawan pemblokiran nomor. Kami hubungkan sistem Anda langsung ke infrastruktur resmi Meta Cloud API dengan enkripsi penuh.",
       bullets: [
-        "Kebijakan ketat Row-Level Security (RLS) di level database.",
-        "Audit kerentanan berkala dan pengujian penetrasi sistem.",
-        "Enkripsi penuh end-to-end TLS 1.3 dan penyimpanan AES-256.",
-        "Penerapan Web Application Firewall (WAF) & mitigasi DDoS.",
+        "Notifikasi tagihan SPP, absensi, dan OTP terkirim di bawah 2 detik.",
+        "Pencegahan pesan ganda otomatis dengan kunci idempotensi kriptografis.",
+        "Dasbor analitik read-receipt dan pemantauan delivery rate real-time.",
+        "Template pesan resmi terverifikasi Meta tanpa risiko blokir nomor.",
       ],
-      image:
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80",
-      badge: "Zero-Trust Security Layer",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+      badge: "Official Meta Cloud API Pipeline",
     },
     {
-      label: "Automation",
-      title: "End-to-End Workflow & API Automation",
-      desc: "Otomasi proses bisnis yang menghilangkan pekerjaan repetitif dan manual melalui integrasi webhook resmi, antrean asinkron, dan pipeline komunikasi real-time.",
+      label: "Keamanan Database & ERP",
+      title: "Isolasi Data PostgreSQL RLS & Hak Cipta 100%",
+      desc: "Keamanan data institusi dikunci langsung di level mesin PostgreSQL. Memastikan setiap peran hanya dapat mengakses haknya, lengkap dengan serah terima source code penuh.",
       bullets: [
-        "Integrasi resmi WhatsApp Cloud API Meta untuk notifikasi instan.",
-        "Antrean pemroses background worker asinkron (PDF rapor & invoice).",
-        "Kunci idempotensi kriptografis untuk mencegah duplikasi data.",
-        "Sinkronisasi real-time antar ERP, database, dan payment gateway.",
+        "Kebijakan Row-Level Security (RLS) ketat di setiap tabel database.",
+        "Enkripsi penuh TLS 1.3 saat transit dan enkripsi AES-256 saat tersimpan.",
+        "Serah terima repositori Git penuh dan skema arsitektur tanpa biaya lisensi.",
+        "Pencadangan data otomatis harian dan skema Disaster Recovery instan.",
       ],
-      image:
-        "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80",
-      badge: "Event-Driven Automation Engine",
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80",
+      badge: "PostgreSQL Zero-Trust Layer",
     },
   ];
 
   const current = tabs[activeTab];
 
   return (
-    <section className="py-20 relative">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
+    <section className="py-24 relative bg-white border-t border-slate-200/80">
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
-            TAILORED SOLUTIONS
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600 bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+            SOLUSI SPESIALIS
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight text-white leading-tight">
-            IT Support That
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
+            Layanan IT yang
             <br />
-            Actually Shows Up
+            Benar-Benar Memberi Hasil
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-            Dukungan teknis responsif yang langsung ditangani oleh tim engineer inti tanpa birokrasi berbelit.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Dukungan teknis responsif yang langsung ditangani oleh tim engineer inti tanpa perantara.
           </p>
         </div>
 
-        {/* Horizontal Tab Navigation (4 Tabs with glowing bottom indicator on active) */}
-        <div className="flex items-center justify-center gap-2 sm:gap-4 mb-14 border-b border-white/[0.08] pb-1 overflow-x-auto no-scrollbar">
+        {/* Horizontal Tab Navigation in Clean Light Container */}
+        <div className="flex items-center justify-center gap-2 sm:gap-4 mb-14 border-b border-slate-200 pb-1 overflow-x-auto no-scrollbar">
           {tabs.map((tab, idx) => {
             const isActive = activeTab === idx;
             return (
@@ -95,45 +90,45 @@ export function GroveCaseStudyTabsSection() {
                 key={idx}
                 type="button"
                 onClick={() => setActiveTab(idx)}
-                className={`relative px-5 py-3 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+                className={`relative px-5 py-3 text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
                   isActive
-                    ? "text-white"
-                    : "text-zinc-500 hover:text-zinc-300"
+                    ? "text-orange-600"
+                    : "text-slate-500 hover:text-slate-900"
                 }`}
               >
                 <span>{tab.label}</span>
                 {isActive && (
-                  <span className="absolute inset-x-0 -bottom-[1px] h-[2px] bg-gradient-to-r from-orange-500 to-amber-500 shadow-[0_0_12px_rgba(249,115,22,0.8)]" />
+                  <span className="absolute inset-x-0 -bottom-[1px] h-[2.5px] bg-gradient-to-r from-orange-500 to-amber-500 shadow-[0_2px_8px_rgba(249,115,22,0.6)]" />
                 )}
               </button>
             );
           })}
         </div>
 
-        {/* Tab Content (2 Columns) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center bg-[#121318] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] rounded-3xl p-6 sm:p-10 lg:p-12">
-          {/* Left Column (Detail Layanan: Title + Desc + 4 Bullets + CTA) */}
+        {/* Tab Content 2-Column Split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center bg-slate-50/80 border border-slate-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-sm">
+          {/* Left Column */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <span className="inline-block px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[10px] font-mono uppercase tracking-wider text-orange-400">
+              <span className="inline-block px-3 py-1 rounded-full bg-orange-100 text-orange-800 border border-orange-200 text-[10px] font-mono uppercase tracking-wider font-semibold">
                 {current.badge}
               </span>
-              <h3 className="text-xl sm:text-3xl font-semibold tracking-tight text-white leading-snug">
+              <h3 className="text-xl sm:text-3xl font-bold tracking-tight text-[#0F172A] leading-snug">
                 {current.title}
               </h3>
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {current.desc}
               </p>
             </div>
 
-            {/* 4 Bullet points with checkmark (✓) technical deliverables */}
+            {/* 4 Bullet points */}
             <ul className="space-y-3 pt-2">
               {current.bullets.map((b, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-xs sm:text-sm text-zinc-300"
+                  className="flex items-start gap-3 text-xs sm:text-sm text-slate-700"
                 >
-                  <div className="w-5 h-5 rounded-full bg-orange-500/15 text-orange-400 flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30">
+                  <div className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5 border border-orange-200">
                     <Check className="w-3 h-3" />
                   </div>
                   <span>{b}</span>
@@ -141,39 +136,33 @@ export function GroveCaseStudyTabsSection() {
               ))}
             </ul>
 
-            {/* CTA Button "Learn More" */}
+            {/* CTA Button */}
             <div className="pt-3">
               <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-[#0A0A0C] border border-white/15 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] hover:border-orange-500/40 hover:shadow-[0_0_20px_rgba(249,115,22,0.25)] transition-all"
+                href="https://wa.me/6285708677918?text=Halo%20Abinest%2C%20saya%20ingin%20tahu%20lebih%20banyak%20tentang%20layanan%20ini."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-[0_4px_14px_rgba(249,115,22,0.35)] transition-all"
               >
-                Learn More
+                <span>Konsultasikan Kebutuhan Ini</span>
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Right Column (Visual Layanan: Dark blue data center photo with matrix dots overlay) */}
+          {/* Right Column: Visual Dashboard Mockup */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0A0A0C] group">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
               <img
                 src={current.image}
                 alt={current.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-              {/* Dark Blue / Cyan Matrix Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-[#051326]/60 to-[#0A1A33]/40" />
-
-              {/* Stylized Matrix Dots Overlay Pattern */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(56,189,248,0.25)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_90%)]"
-              />
-
-              {/* Corner Watermark */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] text-zinc-400 bg-[#0A0A0C]/80 backdrop-blur-md px-3.5 py-2 rounded-lg border border-white/10">
-                <span className="font-mono text-orange-400">99.9% Uptime Verified</span>
-                <span>Active Infrastructure</span>
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] text-white bg-slate-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10">
+                <span className="font-mono text-orange-400 font-semibold">99.9% Uptime SLA Verified</span>
+                <span>Abinest Systems</span>
               </div>
             </div>
           </div>

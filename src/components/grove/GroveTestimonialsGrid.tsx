@@ -5,154 +5,144 @@ import { Star } from "lucide-react";
 export function GroveTestimonialsGrid() {
   const row1 = [
     {
-      name: "Alex Rivera",
-      role: "VP of Engineering, Horizon Scale",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
-      quote:
-        "TechRoos completely transformed our deployment infrastructure. We went from weekly downtime incidents during traffic peaks to 99.99% rock-solid stability.",
+      name: "Drs. H. Ahmad Fauzi, M.Pd.",
+      role: "Kepala Sekolah SMA Islam Terpadu",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      quote: "Dengan SIAKAD Abinest, ujian serentak 1.240 siswa berjalan tanpa hambatan sedikit pun dan cetak 600 rapor Kurikulum Merdeka selesai dalam hitungan detik.",
     },
     {
-      name: "Sarah Chen",
-      role: "Chief Technology Officer, FinApex",
-      avatar:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
-      quote:
-        "Their automated database isolation and Row-Level Security policies passed our institutional audit with zero remarks. True enterprise engineering partner.",
+      name: "Hendra Wijaya, S.T.",
+      role: "Direktur Operasional Logistik & Distribusi",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      quote: "Integrasi WhatsApp Cloud API resmi mereka memangkas waktu penagihan invoice hingga 40%. Pengiriman stabil di bawah 2 detik tanpa pernah ada nomor terblokir.",
     },
     {
-      name: "Michael Ross",
-      role: "Director of IT, MedCore Health",
-      avatar:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
-      quote:
-        "Under 15-minute response times from engineers who actually understand our codebase. No outsourced runaround, just pure technical execution.",
+      name: "dr. Nadia Putri, MARS",
+      role: "Manajer Sistem Informasi Klinik & RS",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      quote: "Transparansi via Portal Klien membuat kami tenang. Setiap minggu progres terlihat nyata dan 100% source code diserahkan penuh tanpa biaya lisensi bulanan.",
     },
   ];
 
   const row2 = [
     {
-      name: "Emily Parker",
-      role: "Head of Operations, EduSphere Network",
-      avatar:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
-      quote:
-        "During our nationwide concurrent exams with 1,200+ students, the system stayed cool and responsive. Their background PDF queues saved us 40 hours a week.",
+      name: "Ir. Bambang Sutrisno",
+      role: "Ketua Yayasan Pendidikan Bina Insani",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+      quote: "Website baru kami melonjak ke skor Google Lighthouse 99 dan pendaftaran murid baru naik drastis berkat kecepatan buka halaman yang instan.",
     },
     {
-      name: "David Kim",
-      role: "Co-Founder & CEO, Nexus Logistics",
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
-      quote:
-        "The official Meta WhatsApp Cloud API automation pipeline they architected reduced our manual billing reconciliation by 50% with zero duplicate messages.",
+      name: "Clarissa Tan, MBA",
+      role: "Head of Digital, Retail Multi-Cabang",
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      quote: "Keamanan PostgreSQL RLS yang diterapkan benar-benar rapi. Tim audit internal kami sangat terkesan dengan isolasi hak akses data antar cabang.",
     },
     {
-      name: "Marcus Vance",
-      role: "VP of Product, CloudForge",
-      avatar:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
-      quote:
-        "Full intellectual property handover and 100% source code ownership. TechRoos builds systems designed to outlast ordinary vendor dependencies.",
+      name: "Rizky Pratama, M.Kom.",
+      role: "Kepala Pusat Komputer Perguruan Tinggi",
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
+      quote: "Respons tim engineer di bawah 15 menit bukan sekadar janji. Saat masa KRS puncak, server tetap dingin dan uptime tercatat 99.99%.",
     },
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
+    <section className="py-24 relative overflow-hidden bg-slate-50/60 border-t border-slate-200/80">
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-xl mx-auto mb-16 space-y-3">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
-            TESTIMONIALS
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600 bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+            TESTIMONI KLIEN NYATA
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight text-white leading-tight">
-            Why TechRoos Clients
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
+            Mengapa Pimpinan Institusi
             <br />
-            Stick With Us
+            Memilih Abinest
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-            Dipercaya oleh para pemimpin teknologi, direktur operasional, dan founder institusi digital.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Pengalaman langsung para kepala sekolah, ketua yayasan, dan pimpinan teknologi di Indonesia.
           </p>
         </div>
       </div>
 
-      {/* 2-Row Wall of Love with Subtle Offset for Infinite Feel */}
+      {/* 2-Row Wall of Love in Clean White Cards */}
       <div className="max-w-[1340px] mx-auto px-4 space-y-4">
-        {/* Row 1: 3 Full Cards with Offset */}
+        {/* Row 1 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {row1.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#121318] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] rounded-2xl p-6 sm:p-7 flex flex-col justify-between group hover:border-orange-500/30 transition-all duration-300"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-orange-200 transition-all duration-300"
             >
               <div className="space-y-4">
                 <div className="flex items-center gap-3.5">
                   <img
                     src={item.avatar}
                     alt={item.name}
-                    className="w-11 h-11 rounded-full object-cover border border-white/10"
+                    className="w-11 h-11 rounded-full object-cover border border-slate-200 shadow-sm"
                     loading="lazy"
                   />
                   <div>
-                    <h3 className="text-sm font-semibold text-white tracking-tight">
+                    <h3 className="text-sm font-bold text-[#0F172A] tracking-tight">
                       {item.name}
                     </h3>
-                    <p className="text-[11px] text-zinc-400">{item.role}</p>
+                    <p className="text-[11px] text-slate-500">{item.role}</p>
                   </div>
                 </div>
-                <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
               {/* 5 Orange Stars */}
-              <div className="flex items-center gap-1 mt-6 pt-2 border-t border-white/[0.04]">
+              <div className="flex items-center gap-1 mt-6 pt-3 border-t border-slate-100">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-3.5 h-3.5 fill-orange-400 text-orange-400"
+                    className="w-4 h-4 fill-amber-400 text-amber-400"
                   />
                 ))}
+                <span className="text-xs font-bold text-slate-700 ml-2">5.0 / 5.0</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Row 2: 3 Full Cards with Horizontal Desktop Shift */}
+        {/* Row 2: Subtle Horizontal Offset */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:translate-x-6">
           {row2.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#121318] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] rounded-2xl p-6 sm:p-7 flex flex-col justify-between group hover:border-orange-500/30 transition-all duration-300"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-orange-200 transition-all duration-300"
             >
               <div className="space-y-4">
                 <div className="flex items-center gap-3.5">
                   <img
                     src={item.avatar}
                     alt={item.name}
-                    className="w-11 h-11 rounded-full object-cover border border-white/10"
+                    className="w-11 h-11 rounded-full object-cover border border-slate-200 shadow-sm"
                     loading="lazy"
                   />
                   <div>
-                    <h3 className="text-sm font-semibold text-white tracking-tight">
+                    <h3 className="text-sm font-bold text-[#0F172A] tracking-tight">
                       {item.name}
                     </h3>
-                    <p className="text-[11px] text-zinc-400">{item.role}</p>
+                    <p className="text-[11px] text-slate-500">{item.role}</p>
                   </div>
                 </div>
-                <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
               {/* 5 Orange Stars */}
-              <div className="flex items-center gap-1 mt-6 pt-2 border-t border-white/[0.04]">
+              <div className="flex items-center gap-1 mt-6 pt-3 border-t border-slate-100">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-3.5 h-3.5 fill-orange-400 text-orange-400"
+                    className="w-4 h-4 fill-amber-400 text-amber-400"
                   />
                 ))}
+                <span className="text-xs font-bold text-slate-700 ml-2">5.0 / 5.0</span>
               </div>
             </div>
           ))}
