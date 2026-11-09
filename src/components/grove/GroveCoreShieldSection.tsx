@@ -10,120 +10,98 @@ import {
   Unlock,
   Wrench,
   ArrowRight,
+  FileCode2,
+  FolderTree,
+  Lock,
+  Sparkles,
 } from "lucide-react";
 
 export function GroveCoreShieldSection() {
   const steps = [
     {
-      step: "Langkah 01",
-      timeline: "Hari 1 – 3 · Gratis",
+      step: "01",
+      timeline: "Hari 1 – 3",
       icon: ClipboardList,
-      title: "Konsultasi & Pemetaan Kebutuhan",
-      desc: "Anda cukup menceritakan masalah dan alur kerja yang diinginkan dalam bahasa sehari-hari. Tim kami yang menerjemahkannya menjadi solusi sistem yang rapi.",
-      guarantee: "Jaminan: Diskusi awal 100% gratis tanpa ikatan apa pun.",
+      title: "Konsultasi Kebutuhan",
+      desc: "Diskusi santai mengenai alur kerja yang diinginkan tanpa istilah teknis rumit.",
+      guarantee: "100% Gratis",
     },
     {
-      step: "Langkah 02",
+      step: "02",
       timeline: "Hari 4 – 7",
       icon: FileCheck2,
-      title: "Proposal & Desain Solusi",
-      desc: "Kami menyerahkan dokumen rincian fitur, tampilan awal (mockup), jadwal pengerjaan mingguan, serta rincian biaya tetap di awal tanpa biaya tambahan tersembunyi.",
-      guarantee: "Jaminan: Kontrak kerja resmi & garansi SLA 99.9% tertulis.",
+      title: "Proposal & Mockup",
+      desc: "Kami menyerahkan desain awal, timeline mingguan, dan biaya tetap transparan.",
+      guarantee: "Kontrak Resmi",
     },
     {
-      step: "Langkah 03",
+      step: "03",
       timeline: "Minggu 2 – 6",
       icon: Laptop,
-      title: "Pembangunan & Demo Berkala",
-      desc: "Setiap minggu kami mendemokan hasil pengerjaan kepada Anda. Anda bisa memantau persentase progres dan mengajukan catatan revisi langsung lewat Portal Klien.",
-      guarantee: "Jaminan: Transparansi penuh via Portal Klien 24/7.",
+      title: "Pembangunan & Demo",
+      desc: "Setiap minggu Anda melihat demo langsung dan memantau progres via Portal Klien.",
+      guarantee: "Transparan 24/7",
     },
     {
-      step: "Langkah 04",
+      step: "04",
       timeline: "Minggu 7",
       icon: Users,
-      title: "Uji Coba & Training Staf",
-      desc: "Sebelum diluncurkan, sistem diuji kekuatan servernya agar anti-down. Kami juga melatih staf TU, guru, atau admin Anda secara langsung sampai benar-benar mahir.",
-      guarantee: "Jaminan: Buku panduan & video tutorial bahasa Indonesia.",
+      title: "Uji Beban & Training",
+      desc: "Sistem diuji agar anti-down. Staf TU dan guru kami latih sampai benar-benar mahir.",
+      guarantee: "Buku Panduan ID",
     },
     {
-      step: "Langkah 05",
+      step: "05",
       timeline: "Minggu 8 & Seterusnya",
       icon: ShieldCheck,
-      title: "Serah Terima & Pendampingan",
-      desc: "Sistem resmi beroperasi penuh. Kami menyerahkan 100% source code dan akses database kepada institusi Anda, disertai masa garansi pendampingan pasca-rilis.",
-      guarantee: "Jaminan: 100% Hak Milik Source Code & Respons <15 Menit.",
-    },
-  ];
-
-  const engagementModels = [
-    {
-      badge: "OPSI UTAMA · PALING POPULER",
-      icon: Unlock,
-      title: "1. Proyek Sekali Bayar (Kepemilikan Penuh 100%)",
-      subtitle: "Bayar sesuai pembangunan, miliki sistemnya selamanya tanpa biaya sewa bulanan.",
-      points: [
-        "Pembayaran aman secara bertahap mengikuti progres (milestone) yang sudah disepakati.",
-        "Setelah sistem selesai, 100% source code dan database diserahkan penuh menjadi aset resmi Anda.",
-        "Tidak ada biaya lisensi bulanan, tidak ada pungutan biaya per siswa atau per pengguna.",
-        "Sudah termasuk garansi pemeliharaan dan pendampingan penuh setelah sistem resmi berjalan.",
-      ],
-      highlighted: true,
-    },
-    {
-      badge: "OPSI PENDUKUNG · 100% OPSIONAL",
-      icon: Wrench,
-      title: "2. Pendampingan & Maintenance Berkala (Opsional)",
-      subtitle: "Khusus bagi institusi yang tidak memiliki staf IT internal dan ingin terima beres sepanjang tahun.",
-      points: [
-        "Tidak wajib diambil — Anda bebas mengelola sistem sendiri menggunakan tim internal Anda.",
-        "Jika diambil, tim engineer kami yang mengurus pemantauan server 24/7, backup harian, dan pembaruan keamanan.",
-        "Prioritas respons teknis di bawah 15 menit saat momen penting seperti ujian sekolah, PPDB, atau tutup buku.",
-        "Kontrak fleksibel yang bisa dihentikan kapan saja tanpa mengunci akses atau data sistem Anda.",
-      ],
-      highlighted: false,
+      title: "Serah Terima Penuh",
+      desc: "100% source code dan database diserahkan penuh menjadi aset resmi institusi Anda.",
+      guarantee: "Hak Milik 100%",
     },
   ];
 
   return (
     <section
       id="cara-kerja"
-      className="py-24 relative overflow-hidden bg-[#FAF9F6] border-b border-slate-200/80"
+      className="py-24 relative overflow-hidden bg-white border-b border-slate-200/80"
     >
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-24">
-        {/* PART 1: 5-STEP TRANSPARENT PROCESS */}
-        <div>
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        {/* ========================================================================= */}
+        {/* PART 1: VISUAL HORIZONTAL PIPELINE (5 LANGKAH KERJA)                      */}
+        {/* ========================================================================= */}
+        <div className="space-y-14">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
-              ALUR KERJA YANG JELAS &amp; MENENANGKAN
+              ALUR KERJA TRANSPARAN
             </span>
-            <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-[#0F172A] leading-tight">
-              5 Langkah Mudah dari Diskusi Awal hingga Sistem Siap Dipakai
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
+              5 Langkah Mudah Menuju Sistem yang Siap Beroperasi
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Anda tidak perlu memahami bahasa pemrograman. Kami memandu seluruh tahapan dengan jadwal yang terukur dan laporan mingguan yang transparan.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
+              Anda tidak perlu pusing memikirkan hal teknis. Kami memandu seluruh proses dari diskusi awal hingga sistem digunakan staf Anda.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+          {/* Horizontal Pipeline Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 relative">
             {steps.map((s, idx) => {
               const Icon = s.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:border-orange-200 transition-all"
+                  className="bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-orange-300 transition-all duration-200 relative group"
                 >
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#C2672B]">
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl font-black text-[#D97736]">
                         {s.step}
                       </span>
-                      <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
                         {s.timeline}
                       </span>
                     </div>
 
-                    <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#C2672B]">
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#C2672B] group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
 
@@ -136,10 +114,9 @@ export function GroveCoreShieldSection() {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3.5 border-t border-slate-100">
-                    <p className="text-[11px] font-semibold text-emerald-700 leading-snug">
-                      ✓ {s.guarantee}
-                    </p>
+                  <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center gap-1.5 text-[11px] font-bold text-emerald-700">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>{s.guarantee}</span>
                   </div>
                 </div>
               );
@@ -147,81 +124,112 @@ export function GroveCoreShieldSection() {
           </div>
         </div>
 
-        {/* PART 2: ENGAGEMENT MODEL / MODEL KERJA SAMA */}
-        <div className="pt-8 border-t border-slate-200/80">
-          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
-              MODEL KERJA SAMA TRANSPARAN
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#0F172A] leading-tight">
-              Bebas Biaya Tersembunyi &amp; Tidak Mengikat
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Kami memberikan kepastian anggaran sejak hari pertama. Pilih skema kerja sama yang paling nyaman bagi kebijakan anggaran institusi Anda.
-            </p>
-          </div>
+        {/* ========================================================================= */}
+        {/* PART 2: VISUAL PROOF OF 100% SOURCE CODE & CLIENT PORTAL OWNERSHIP        */}
+        {/* ========================================================================= */}
+        <div className="bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-[0_15px_40px_rgba(15,23,42,0.03)]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column (5 cols): Tangible Guarantees */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold uppercase tracking-wider">
+                <FileCode2 className="w-3.5 h-3.5" />
+                Jaminan Zero Vendor Lock-in
+              </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1060px] mx-auto">
-            {engagementModels.map((m, idx) => {
-              const Icon = m.icon;
-              return (
-                <div
-                  key={idx}
-                  className={`rounded-3xl p-7 sm:p-9 flex flex-col justify-between ${
-                    m.highlighted
-                      ? "bg-white border-2 border-[#D97736] shadow-[0_16px_40px_rgba(217,119,54,0.1)]"
-                      : "bg-white border border-slate-200/90 shadow-sm"
-                  }`}
+              <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
+                100% Source Code &amp; Database Menjadi Hak Milik Institusi Anda.
+              </h3>
+
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Banyak sekolah dan yayasan terjebak biaya lisensi bulanan yang terus naik setiap tahun. Di Abinest, sistem yang kami bangun adalah <strong>aset resmi institusi Anda selamanya</strong> tanpa biaya sewa per siswa atau per user.
+              </p>
+
+              <div className="space-y-3 pt-1 text-xs sm:text-sm text-slate-700 font-medium">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Serah terima full repository GitHub &amp; file backup database</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Garansi tertulis SLA 99.9% Uptime resmi bertanda tangan</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Portal Klien untuk tracking revisi, milestone, dan garansi pasca-rilis</span>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href="#kontak"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#0F172A] hover:bg-slate-800 shadow-md transition-all"
                 >
-                  <div className="space-y-5">
-                    <div className="flex items-center justify-between gap-2">
-                      <span
-                        className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
-                          m.highlighted
-                            ? "bg-[#D97736] text-white"
-                            : "bg-slate-100 text-slate-700"
-                        }`}
-                      >
-                        {m.badge}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#C2672B] flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                    </div>
+                  <span>Mulai Konsultasi Tanpa Komitmen</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
 
-                    <div className="space-y-1.5">
-                      <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A]">
-                        {m.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600">
-                        {m.subtitle}
-                      </p>
-                    </div>
+            {/* Right Column (7 cols): VISUAL TERMINAL & HANDOVER REPO PACKAGE */}
+            <div className="lg:col-span-7 relative">
+              <div className="rounded-2xl bg-slate-900 p-4 sm:p-6 shadow-[0_25px_60px_rgba(15,23,42,0.18)] ring-1 ring-slate-800 text-xs font-mono text-slate-300 space-y-4">
+                {/* Handover Terminal Bar */}
+                <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-[11px]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                    <span className="text-slate-100 font-bold">
+                      abinest-handover-package · v2.4.0 (Official Release)
+                    </span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 font-semibold border border-emerald-800/80">
+                    STATUS: FULL OWNERSHIP
+                  </span>
+                </div>
 
-                    <ul className="space-y-3 pt-2 border-t border-slate-100">
-                      {m.points.map((pt, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                          <span className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            {pt}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* File Tree Visual */}
+                <div className="space-y-1.5 text-[11px] leading-relaxed font-mono">
+                  <div className="text-emerald-400 font-bold flex items-center gap-1.5">
+                    <FolderTree className="w-3.5 h-3.5" />
+                    📁 repository/siakad-alhikmah-core/ (100% Hak Milik Klien)
+                  </div>
+                  <div className="pl-4 text-slate-400">├── 📁 src/ (Next.js 15 App Router &amp; Server Components)</div>
+                  <div className="pl-4 text-slate-400">├── 📁 database/ (PostgreSQL Schema &amp; Backup Otomatis)</div>
+                  <div className="pl-4 text-slate-400">├── 📁 automations/ (Meta Cloud API WhatsApp Webhook)</div>
+                  <div className="pl-4 text-slate-400">├── 📄 docker-compose.yml (Server Deployment Ready)</div>
+                  <div className="pl-4 text-slate-300 font-semibold">├── 📜 SERTI_GARANSI_SLA_99.9.pdf (Garansi Resmi Tertulis)</div>
+                  <div className="pl-4 text-slate-300 font-semibold">└── 📘 PANDUAN_OPERASIONAL_STAF_TU.pdf (Buku Panduan Lengkap)</div>
+                </div>
+
+                {/* Handover Proof Cards Inside Terminal */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="rounded-xl bg-slate-800/90 border border-slate-700/80 p-3 space-y-1">
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">
+                      AKSES REPOSITORY
+                    </div>
+                    <div className="text-slate-100 font-bold text-xs flex items-center gap-1.5">
+                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                      github.com/institusi-klien/siakad
+                    </div>
+                    <div className="text-[10px] text-emerald-400">
+                      Private &amp; Ditransfer 100% ke Akun Anda
+                    </div>
                   </div>
 
-                  <div className="mt-7 pt-4 border-t border-slate-100">
-                    <a
-                      href="#kontak"
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#C2672B] hover:text-[#0F172A] transition-colors"
-                    >
-                      <span>Konsultasikan Kebutuhan Sistem Anda</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
+                  <div className="rounded-xl bg-slate-800/90 border border-slate-700/80 p-3 space-y-1">
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">
+                      BIAYA BULANAN / USER
+                    </div>
+                    <div className="text-slate-100 font-bold text-xs flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                      Rp 0,- / Siswa (Tanpa Biaya Sewa)
+                    </div>
+                    <div className="text-[10px] text-slate-400">
+                      Bebas Digunakan Selamanya
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
