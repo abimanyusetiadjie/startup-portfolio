@@ -28,8 +28,8 @@ export function GroveNavbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#FAF9F6]/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(15,23,42,0.03)]"
-          : "bg-[#FAF9F6]/80 backdrop-blur-sm border-b border-slate-200/40"
+          ? "bg-[#F8FAFC]/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(15,23,42,0.03)]"
+          : "bg-[#F8FAFC]/80 backdrop-blur-sm border-b border-slate-200/40"
       }`}
     >
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
@@ -88,13 +88,13 @@ export function GroveNavbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#FAF9F6] border-b border-slate-200 px-6 py-6 space-y-3 shadow-xl">
+        <div className="lg:hidden bg-[#F8FAFC] border-b border-slate-200 px-6 py-6 space-y-3 shadow-xl">
           {navLinks.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-700 hover:text-[#C2672B] py-2 border-b border-slate-200/50"
+              className="block text-sm font-medium text-slate-700 hover:text-[#064E3B] py-2 border-b border-slate-200/50"
             >
               {item.label}
             </a>
@@ -110,7 +110,7 @@ export function GroveNavbar() {
             <a
               href="#kontak"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center py-2.5 rounded-full text-xs font-semibold text-white bg-[#D97736]"
+              className="inline-flex items-center justify-center py-2.5 rounded-full text-xs font-semibold text-white bg-[#059669] hover:bg-[#047857]"
             >
               Konsultasi Kebutuhan Anda
             </a>

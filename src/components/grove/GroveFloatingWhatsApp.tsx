@@ -64,7 +64,7 @@ export function GroveFloatingWhatsApp() {
           </div>
           <a
             href="#kontak"
-            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#D97736] shadow-md"
+            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#059669] shadow-md"
           >
             <span>Konsultasi Gratis</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -108,10 +108,10 @@ export function GroveFloatingWhatsApp() {
                   key={idx}
                   type="button"
                   onClick={() => handleOpenChat(opt.text)}
-                  className="w-full text-left p-2.5 rounded-xl bg-[#FAF9F6] hover:bg-orange-50 border border-slate-200/80 hover:border-orange-200 text-xs font-semibold text-[#0F172A] transition-all flex items-center justify-between group"
+                  className="w-full text-left p-2.5 rounded-xl bg-[#F8FAFC] hover:bg-emerald-50 border border-slate-200/80 hover:border-emerald-200 text-xs font-semibold text-[#0F172A] transition-all flex items-center justify-between group"
                 >
                   <span>{opt.title}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#C2672B] transition-colors shrink-0 ml-2" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#064E3B] transition-colors shrink-0 ml-2" />
                 </button>
               ))}
             </div>
@@ -121,7 +121,7 @@ export function GroveFloatingWhatsApp() {
               <button
                 type="button"
                 onClick={() => handleOpenChat()}
-                className="text-[#C2672B] font-bold hover:underline"
+                className="text-[#064E3B] font-bold hover:underline"
               >
                 Chat Langsung →
               </button>

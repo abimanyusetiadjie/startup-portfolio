@@ -42,7 +42,7 @@ export function GroveBentoGrid() {
         {/* Section Header: Pure Editorial, No Cluttered Badges */}
         <div className="max-w-3xl mb-14 space-y-4">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#D97736]" />
+            <span className="w-2 h-2 rounded-full bg-[#059669]" />
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Layanan Utama &amp; Kapabilitas Abinest
             </span>
@@ -50,7 +50,7 @@ export function GroveBentoGrid() {
 
           <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-[#0F172A] leading-[1.12]">
             Arsitektur Modular untuk Kebutuhan Digital yang{" "}
-            <span className="font-serif italic font-normal text-[#C2672B]">
+            <span className="font-serif italic font-normal text-[#065F46]">
               Kritis.
             </span>
           </h2>
@@ -70,13 +70,13 @@ export function GroveBentoGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="lg:col-span-7 bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
+            className="lg:col-span-7 bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
           >
             <div className="space-y-6">
               {/* Header inside Card */}
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2672B] block">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#065F46] block">
                     Pilar 01 · Skalabilitas Tinggi
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
@@ -87,7 +87,7 @@ export function GroveBentoGrid() {
                   </p>
                 </div>
                 <div className="w-10 h-10 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#0F172A] shrink-0 shadow-sm">
-                  <Server className="w-5 h-5 text-[#C2672B]" />
+                  <Server className="w-5 h-5 text-[#065F46]" />
                 </div>
               </div>
 
@@ -129,7 +129,7 @@ export function GroveBentoGrid() {
 
                 {/* Simulated Metrics Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="p-3 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/60">
                     <div className="text-[10px] font-semibold text-slate-500 uppercase">
                       Pengguna Login
                     </div>
@@ -141,7 +141,7 @@ export function GroveBentoGrid() {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/60">
                     <div className="text-[10px] font-semibold text-slate-500 uppercase">
                       CPU Server Load
                     </div>
@@ -153,7 +153,7 @@ export function GroveBentoGrid() {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/60">
                     <div className="text-[10px] font-semibold text-slate-500 uppercase">
                       Latensi Respon
                     </div>
@@ -165,7 +165,7 @@ export function GroveBentoGrid() {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/60">
                     <div className="text-[10px] font-semibold text-slate-500 uppercase">
                       Server Crash
                     </div>
@@ -195,7 +195,7 @@ export function GroveBentoGrid() {
               </div>
               <Link
                 href="/jasa-pembuatan-sistem-sekolah"
-                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#C2672B] hover:text-[#0F172A] transition-colors"
+                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#065F46] hover:text-[#0F172A] transition-colors"
               >
                 <span>Pelajari Detail Sistem Sekolah</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -211,12 +211,12 @@ export function GroveBentoGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="lg:col-span-5 bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
+            className="lg:col-span-5 bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
           >
             <div className="space-y-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2672B] block">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#065F46] block">
                     Pilar 02 · Performa &amp; SEO
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
@@ -227,7 +227,7 @@ export function GroveBentoGrid() {
                   </p>
                 </div>
                 <div className="w-10 h-10 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#0F172A] shrink-0 shadow-sm">
-                  <Globe className="w-5 h-5 text-[#C2672B]" />
+                  <Globe className="w-5 h-5 text-[#065F46]" />
                 </div>
               </div>
 
@@ -243,7 +243,7 @@ export function GroveBentoGrid() {
                 </div>
 
                 <div className="grid grid-cols-3 gap-2 text-center">
-                  <div className="p-3 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/60">
                     <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600">
                       99
                     </div>
@@ -252,7 +252,7 @@ export function GroveBentoGrid() {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/60">
                     <div className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
                       0.7s
                     </div>
@@ -261,8 +261,8 @@ export function GroveBentoGrid() {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
-                    <div className="text-2xl sm:text-3xl font-extrabold text-[#C2672B]">
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-slate-200/60">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-[#065F46]">
                       100
                     </div>
                     <div className="text-[10px] font-semibold text-slate-600 mt-0.5">
@@ -288,7 +288,7 @@ export function GroveBentoGrid() {
               </span>
               <Link
                 href="/jasa-pembuatan-website-jakarta"
-                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#C2672B] hover:text-[#0F172A] transition-colors"
+                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#065F46] hover:text-[#0F172A] transition-colors"
               >
                 <span>Lihat Fitur Website</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -304,12 +304,12 @@ export function GroveBentoGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
+            className="lg:col-span-5 bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
           >
             <div className="space-y-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2672B] block">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#065F46] block">
                     Pilar 03 · Eliminasi Kerja Manual
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
@@ -320,7 +320,7 @@ export function GroveBentoGrid() {
                   </p>
                 </div>
                 <div className="w-10 h-10 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#0F172A] shrink-0 shadow-sm">
-                  <MessageSquare className="w-5 h-5 text-[#C2672B]" />
+                  <MessageSquare className="w-5 h-5 text-[#065F46]" />
                 </div>
               </div>
 
@@ -363,7 +363,7 @@ export function GroveBentoGrid() {
               </span>
               <Link
                 href="/jasa-automasi-whatsapp"
-                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#C2672B] hover:text-[#0F172A] transition-colors"
+                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#065F46] hover:text-[#0F172A] transition-colors"
               >
                 <span>Pelajari Automasi WhatsApp</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -379,12 +379,12 @@ export function GroveBentoGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-            className="lg:col-span-7 bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
+            className="lg:col-span-7 bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
           >
             <div className="space-y-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2672B] block">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#065F46] block">
                     Kedaulatan Klien · Zero Lock-In
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
@@ -395,7 +395,7 @@ export function GroveBentoGrid() {
                   </p>
                 </div>
                 <div className="w-10 h-10 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#0F172A] shrink-0 shadow-sm">
-                  <FileCode2 className="w-5 h-5 text-[#C2672B]" />
+                  <FileCode2 className="w-5 h-5 text-[#065F46]" />
                 </div>
               </div>
 
@@ -444,7 +444,7 @@ export function GroveBentoGrid() {
               </div>
               <Link
                 href="/login"
-                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#0F172A] hover:text-[#C2672B] transition-colors"
+                className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#0F172A] hover:text-[#065F46] transition-colors"
               >
                 <span>Lihat Portal Pemantauan Klien</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

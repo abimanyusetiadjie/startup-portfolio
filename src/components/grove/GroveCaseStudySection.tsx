@@ -93,7 +93,7 @@ export function GroveCaseStudySection() {
   return (
     <section
       id="studi-kasus"
-      className="py-24 relative bg-[#FAF9F6] border-b border-slate-200/80 overflow-hidden"
+      className="py-24 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden"
     >
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-16">
         {/* Section Header */}
@@ -126,7 +126,7 @@ export function GroveCaseStudySection() {
                 {/* Header Row: Category Badge + Institution */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-2xl bg-orange-50 text-[#C2672B] flex items-center justify-center font-bold shrink-0">
+                    <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-[#065F46] flex items-center justify-center font-bold shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -175,7 +175,7 @@ export function GroveCaseStudySection() {
                   </div>
 
                   {/* High-Fidelity UI Screens based on Project Type */}
-                  <div className="bg-[#FAF9F6] rounded-b-xl p-4 sm:p-6 text-xs text-[#0F172A] font-sans">
+                  <div className="bg-[#F8FAFC] rounded-b-xl p-4 sm:p-6 text-xs text-[#0F172A] font-sans">
                     {cs.visualType === "cbt-dashboard" && (
                       <div className="space-y-4">
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -194,7 +194,7 @@ export function GroveCaseStudySection() {
                             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
                               LATENSI SISTEM
                             </span>
-                            <div className="text-xl sm:text-2xl font-black text-[#C2672B] mt-1">
+                            <div className="text-xl sm:text-2xl font-black text-[#065F46] mt-1">
                               38 ms
                             </div>
                             <div className="text-[10px] text-slate-500 font-semibold mt-0.5">
@@ -245,7 +245,7 @@ export function GroveCaseStudySection() {
                             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
                               PENDAFTAR ONLINE
                             </span>
-                            <div className="text-xl sm:text-2xl font-black text-[#C2672B] mt-1">
+                            <div className="text-xl sm:text-2xl font-black text-[#065F46] mt-1">
                               +40% Naik
                             </div>
                             <div className="text-[10px] text-slate-500 font-semibold mt-0.5">
@@ -284,7 +284,7 @@ export function GroveCaseStudySection() {
                             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
                               WAKTU ADMIN DIHEMAT
                             </span>
-                            <div className="text-xl sm:text-2xl font-black text-[#C2672B] mt-1">
+                            <div className="text-xl sm:text-2xl font-black text-[#065F46] mt-1">
                               12 Jam/Mgg
                             </div>
                             <div className="text-[10px] text-slate-500 font-semibold mt-0.5">
@@ -334,9 +334,9 @@ export function GroveCaseStudySection() {
                   {cs.metrics.map((m, mIdx) => (
                     <div
                       key={mIdx}
-                      className="rounded-2xl bg-[#FAF9F6] border border-slate-200/80 p-4 text-center"
+                      className="rounded-2xl bg-[#F8FAFC] border border-slate-200/80 p-4 text-center"
                     >
-                      <div className="text-xl sm:text-2xl font-extrabold text-[#C2672B]">
+                      <div className="text-xl sm:text-2xl font-extrabold text-[#065F46]">
                         {m.value}
                       </div>
                       <div className="text-xs font-semibold text-slate-700 mt-1">
@@ -359,7 +359,7 @@ export function GroveCaseStudySection() {
                     </p>
                   </div>
 
-                  <div className="lg:col-span-6 bg-[#FAF9F6] border border-slate-200/80 rounded-2xl p-4 flex items-center gap-3.5">
+                  <div className="lg:col-span-6 bg-[#F8FAFC] border border-slate-200/80 rounded-2xl p-4 flex items-center gap-3.5">
                     <img
                       src={cs.clientQuote.avatar}
                       alt={cs.clientQuote.author}

@@ -209,13 +209,13 @@ export function GroveTechStackGrid() {
       {/* Background Soft Light Amber Glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-gradient-to-r from-orange-100/40 via-amber-100/50 to-orange-100/40 blur-[130px] rounded-full"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-gradient-to-r from-emerald-100/30 via-teal-50/40 to-emerald-100/30 blur-[130px] rounded-full"
       />
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Header in Benefit-Driven Indonesian */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F6] border border-slate-200 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8FAFC] border border-slate-200 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[11px] font-bold tracking-wide text-slate-700 uppercase">
               FONDASI TEKNOLOGI &amp; KEAMANAN DATA
@@ -243,8 +243,8 @@ export function GroveTechStackGrid() {
                   onClick={() => setActiveFilter(tab.key as any)}
                   className={`px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition-all ${
                     active
-                      ? "bg-[#0F172A] text-white shadow-md"
-                      : "bg-[#FAF9F6] text-slate-600 hover:text-slate-900 border border-slate-200"
+                      ? "bg-[#064E3B] text-white shadow-md"
+                      : "bg-[#F8FAFC] text-slate-600 hover:text-slate-900 border border-slate-200"
                   }`}
                 >
                   {tab.label}
@@ -275,8 +275,8 @@ export function GroveTechStackGrid() {
                     className={`relative w-full aspect-square sm:h-36 md:h-40 rounded-[24px] sm:rounded-[32px] bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_10px_25px_rgba(15,23,42,0.03)] group cursor-pointer ${
                       isTopActive
                         ? col.top.isHighlighted
-                          ? "border-[#FF8A3D] shadow-[0_12px_35px_rgba(255,138,61,0.25)] ring-4 ring-[#FF8A3D]/20"
-                          : "border-slate-100/90 hover:border-orange-300 hover:shadow-[0_14px_30px_rgba(249,115,22,0.14)] hover:-translate-y-1 opacity-100"
+                          ? "border-[#059669] shadow-[0_12px_35px_rgba(5,150,105,0.25)] ring-4 ring-[#059669]/20"
+                          : "border-slate-100/90 hover:border-emerald-300 hover:shadow-[0_14px_30px_rgba(5,150,105,0.12)] hover:-translate-y-1 opacity-100"
                         : "border-slate-100 opacity-25 grayscale"
                     }`}
                   >
@@ -292,8 +292,8 @@ export function GroveTechStackGrid() {
                     className={`relative w-full aspect-square sm:h-36 md:h-40 rounded-[24px] sm:rounded-[32px] bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_10px_25px_rgba(15,23,42,0.03)] group cursor-pointer ${
                       isBottomActive
                         ? col.bottom.isHighlighted
-                          ? "border-[#FF8A3D] shadow-[0_12px_35px_rgba(255,138,61,0.25)] ring-4 ring-[#FF8A3D]/20"
-                          : "border-slate-100/90 hover:border-orange-300 hover:shadow-[0_14px_30px_rgba(249,115,22,0.14)] hover:-translate-y-1 opacity-100"
+                          ? "border-[#059669] shadow-[0_12px_35px_rgba(5,150,105,0.25)] ring-4 ring-[#059669]/20"
+                          : "border-slate-100/90 hover:border-emerald-300 hover:shadow-[0_14px_30px_rgba(5,150,105,0.12)] hover:-translate-y-1 opacity-100"
                         : "border-slate-100 opacity-25 grayscale"
                     }`}
                   >
@@ -320,7 +320,7 @@ export function GroveTechStackGrid() {
                   {hoveredTech.name}
                 </span>
                 <span className="text-slate-500">•</span>
-                <span className="text-orange-400 font-semibold text-[11px]">
+                <span className="text-emerald-400 font-semibold text-[11px]">
                   {hoveredTech.categoryLabel}
                 </span>
                 <span className="text-slate-500 hidden sm:inline">•</span>
@@ -343,9 +343,9 @@ export function GroveTechStackGrid() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-[#FAF9F6] border border-slate-200/80 p-4 space-y-2"
+                className="rounded-2xl bg-[#F8FAFC] border border-slate-200/80 p-4 space-y-2"
               >
-                <div className="w-8 h-8 rounded-lg bg-orange-50 text-[#C2672B] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#065F46] flex items-center justify-center">
                   <Icon className="w-4 h-4" />
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-[#0F172A]">

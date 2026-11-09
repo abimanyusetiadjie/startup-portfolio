@@ -71,7 +71,7 @@ export function GroveCoreShieldSection() {
         {/* ========================================================================= */}
         <div className="space-y-14">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
               ALUR KERJA TRANSPARAN
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
@@ -89,11 +89,11 @@ export function GroveCoreShieldSection() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-orange-300 transition-all duration-200 relative group"
+                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-emerald-300 transition-all duration-200 relative group"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-black text-[#D97736]">
+                      <span className="text-2xl font-black text-[#059669]">
                         {s.step}
                       </span>
                       <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
@@ -101,7 +101,7 @@ export function GroveCoreShieldSection() {
                       </span>
                     </div>
 
-                    <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#C2672B] group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#065F46] group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
 
@@ -127,7 +127,7 @@ export function GroveCoreShieldSection() {
         {/* ========================================================================= */}
         {/* PART 2: VISUAL PROOF OF 100% SOURCE CODE & CLIENT PORTAL OWNERSHIP        */}
         {/* ========================================================================= */}
-        <div className="bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-[0_15px_40px_rgba(15,23,42,0.03)]">
+        <div className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-[0_15px_40px_rgba(15,23,42,0.03)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column (5 cols): Tangible Guarantees */}
             <div className="lg:col-span-5 space-y-6">
@@ -162,7 +162,7 @@ export function GroveCoreShieldSection() {
               <div className="pt-2">
                 <a
                   href="#kontak"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#0F172A] hover:bg-slate-800 shadow-md transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#064E3B] hover:bg-[#047857] shadow-md transition-all"
                 >
                   <span>Mulai Konsultasi Tanpa Komitmen</span>
                   <ArrowRight className="w-4 h-4" />

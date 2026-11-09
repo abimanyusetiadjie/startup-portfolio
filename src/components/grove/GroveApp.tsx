@@ -16,7 +16,7 @@ import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
 
 export function GroveApp() {
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#0F172A] flex flex-col font-sans selection:bg-[#D97736] selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#059669] selection:text-white">
       {/* 1. Sticky Header & Navigation */}
       <GroveNavbar />
 

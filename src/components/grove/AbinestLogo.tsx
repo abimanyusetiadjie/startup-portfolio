@@ -57,13 +57,13 @@ export function AbinestLogo({
             strokeWidth="3"
             strokeLinecap="round"
           />
-          {/* Subtle warm terracotta accent node */}
-          <circle cx="20.5" cy="11.5" r="1.6" fill="#D97736" />
+          {/* Subtle Deep Forest / Emerald accent node */}
+          <circle cx="20.5" cy="11.5" r="1.6" fill="#059669" />
         </svg>
 
         {/* Crisp geometric wordmark 'binest' */}
         <span
-          className={`${fontSize} font-bold text-[#0F172A] -ml-0.5 group-hover:text-[#C2672B] transition-colors`}
+          className={`${fontSize} font-bold text-[#0F172A] -ml-0.5 group-hover:text-[#064E3B] transition-colors`}
           style={{ letterSpacing: "-0.03em" }}
         >
           binest

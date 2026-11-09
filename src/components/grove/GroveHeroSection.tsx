@@ -30,31 +30,31 @@ export function GroveHeroSection() {
   return (
     <section
       id="beranda"
-      className="relative pt-12 sm:pt-20 pb-20 overflow-hidden bg-[#FAF9F6]"
+      className="relative pt-12 sm:pt-20 pb-20 overflow-hidden bg-[#F8FAFC]"
     >
-      {/* Ambient Warm Sunset Backlight Diffused in Background */}
+      {/* Ambient Forest & Mint Glow Diffused in Background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-12 right-0 w-[620px] h-[520px] bg-gradient-to-br from-orange-200/40 via-amber-200/35 to-rose-100/20 blur-[140px] rounded-full"
+        className="pointer-events-none absolute top-12 right-0 w-[620px] h-[520px] bg-gradient-to-br from-emerald-100/40 via-teal-50/35 to-slate-100/20 blur-[140px] rounded-full"
       />
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Hero Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column (7 cols): Clean, Elegant Swiss Typography */}
+          {/* Left Column (7 cols): Clean, Corporate Swiss Typography */}
           <div className="lg:col-span-7 space-y-7">
             {/* Eyebrow Trust Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200 shadow-[0_2px_8px_rgba(15,23,42,0.03)]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-[0_2px_8px_rgba(15,23,42,0.03)]">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[11px] sm:text-xs font-semibold tracking-wide text-[#0F172A]">
                 Software House &amp; Konsultan Teknologi · Sekolah, Yayasan &amp; Bisnis
               </span>
             </div>
 
-            {/* Headline with Signature Terracotta Serif Italic Accent */}
+            {/* Headline with Signature Deep Forest Green Serif Italic Accent */}
             <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-extrabold tracking-tight text-[#0F172A] leading-[1.08]">
               Website Cepat, Sistem Anti-Down, &amp; Automasi yang{" "}
-              <span className="font-serif italic font-normal text-[#C2672B] tracking-normal">
+              <span className="font-serif italic font-normal text-[#065F46] tracking-normal">
                 Pasti
               </span>{" "}
               Beres.
@@ -69,7 +69,7 @@ export function GroveHeroSection() {
             <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <a
                 href="#kontak"
-                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-[0_10px_25px_rgba(217,119,54,0.32)] hover:shadow-[0_14px_32px_rgba(217,119,54,0.42)] hover:-translate-y-0.5 transition-all duration-200"
+                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-[0_10px_25px_rgba(5,150,105,0.28)] hover:shadow-[0_14px_32px_rgba(5,150,105,0.38)] hover:-translate-y-0.5 transition-all duration-200"
               >
                 <span>Konsultasikan Kebutuhan Anda</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -77,10 +77,10 @@ export function GroveHeroSection() {
 
               <a
                 href="#studi-kasus"
-                className="group inline-flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold text-[#0F172A] hover:text-[#C2672B] transition-colors py-3 px-3"
+                className="group inline-flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold text-[#0F172A] hover:text-[#064E3B] transition-colors py-3 px-3"
               >
                 <span>Lihat Hasil Kerja Kami</span>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#C2672B] group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#064E3B] group-hover:translate-x-1 transition-all" />
               </a>
             </div>
 
@@ -103,10 +103,10 @@ export function GroveHeroSection() {
 
           {/* Right Column (5 cols): 3 Floating Glassmorphism Cards Matching Reference */}
           <div className="lg:col-span-5 relative flex items-center justify-center py-6 min-h-[460px] sm:min-h-[500px]">
-            {/* Luminous Warm Amber Glow Behind Glass Cards */}
+            {/* Luminous Warm Mint & Sage Glow Behind Glass Cards */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-amber-200/35 via-orange-200/30 to-rose-100/25 blur-3xl rounded-full scale-110"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-100/35 via-teal-50/30 to-slate-100/25 blur-3xl rounded-full scale-110"
             />
 
             {/* Mobile Stack & Desktop Floating Container */}
@@ -115,7 +115,7 @@ export function GroveHeroSection() {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="sm:absolute sm:top-2 sm:right-2 w-full sm:w-[260px] rounded-3xl bg-white/75 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
+                className="sm:absolute sm:top-2 sm:right-2 w-full sm:w-[260px] rounded-3xl bg-white/80 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
               >
                 <div className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A]">
                   99.9%
@@ -137,18 +137,18 @@ export function GroveHeroSection() {
                   ease: "easeInOut",
                   delay: 0.4,
                 }}
-                className="sm:absolute sm:top-36 sm:left-2 w-full sm:w-[250px] rounded-3xl bg-white/75 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] z-10 hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
+                className="sm:absolute sm:top-36 sm:left-2 w-full sm:w-[250px] rounded-3xl bg-white/80 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] z-10 hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A]">
                     2.5k
                   </span>
-                  <span className="text-amber-500/70 text-xs select-none">✦</span>
+                  <span className="text-emerald-500 text-xs select-none">✦</span>
                 </div>
                 <div className="text-sm font-semibold text-slate-600 mt-2">
                   Active Users
                 </div>
-                {/* Delicate rising organic chart curve */}
+                {/* Delicate rising organic chart curve in emerald */}
                 <div className="mt-3 relative">
                   <svg
                     className="w-full h-8 overflow-visible"
@@ -157,11 +157,11 @@ export function GroveHeroSection() {
                   >
                     <path
                       d="M 2 20 C 25 18, 48 14, 68 8 C 82 4, 92 2, 98 2"
-                      stroke="#D97736"
+                      stroke="#059669"
                       strokeWidth="2.2"
                       strokeLinecap="round"
                     />
-                    <circle cx="98" cy="2" r="2.5" fill="#D97736" />
+                    <circle cx="98" cy="2" r="2.5" fill="#059669" />
                   </svg>
                 </div>
                 <div className="text-[11px] text-slate-400 mt-1 font-medium">
@@ -178,13 +178,13 @@ export function GroveHeroSection() {
                   ease: "easeInOut",
                   delay: 0.8,
                 }}
-                className="sm:absolute sm:bottom-2 sm:right-4 w-full sm:w-[280px] rounded-3xl bg-white/80 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.08)] z-20 hover:shadow-[0_30px_70px_rgba(15,23,42,0.12)] transition-shadow"
+                className="sm:absolute sm:bottom-2 sm:right-4 w-full sm:w-[280px] rounded-3xl bg-white/85 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.08)] z-20 hover:shadow-[0_30px_70px_rgba(15,23,42,0.12)] transition-shadow"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#C2672B]">
+                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#059669]">
                     +40%
                   </span>
-                  <span className="text-amber-500/70 text-xs select-none">✦</span>
+                  <span className="text-emerald-500 text-xs select-none">✦</span>
                 </div>
                 <div className="text-sm font-semibold text-slate-600 mt-2">
                   Efficiency Improved
@@ -198,11 +198,11 @@ export function GroveHeroSection() {
                   >
                     <path
                       d="M 2 20 C 30 18, 50 12, 72 10 C 86 8, 92 4, 98 2"
-                      stroke="#C2672B"
+                      stroke="#059669"
                       strokeWidth="2.2"
                       strokeLinecap="round"
                     />
-                    <circle cx="98" cy="2" r="2.5" fill="#C2672B" />
+                    <circle cx="98" cy="2" r="2.5" fill="#059669" />
                   </svg>
                 </div>
                 <div className="text-[11px] text-slate-400 mt-1 font-medium">
@@ -213,10 +213,10 @@ export function GroveHeroSection() {
           </div>
         </div>
 
-        {/* 4-Column Trust Bar with Hairline Borders */}
-        <div className="mt-16 pt-8 pb-8 border-y border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 bg-white/80 rounded-3xl px-6 sm:px-10 shadow-[0_4px_20px_rgba(15,23,42,0.02)] backdrop-blur-sm">
+        {/* 4-Column Trust Bar with Deep Forest Hairline Borders */}
+        <div className="mt-16 pt-8 pb-8 border-y border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 bg-white rounded-3xl px-6 sm:px-10 shadow-[0_4px_20px_rgba(15,23,42,0.02)] backdrop-blur-sm">
           {trustMetrics.map((m, idx) => (
-            <div key={idx} className="space-y-1.5 pl-3 border-l-2 border-[#D97736]">
+            <div key={idx} className="space-y-1.5 pl-3 border-l-2 border-[#059669]">
               <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0F172A]">
                 {m.value}
               </div>

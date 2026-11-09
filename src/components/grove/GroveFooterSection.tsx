@@ -15,12 +15,12 @@ import { AbinestLogo } from "./AbinestLogo";
 
 export function GroveFooterSection() {
   return (
-    <footer className="relative bg-[#FAF9F6] border-t border-slate-200 overflow-hidden pb-16 sm:pb-0">
+    <footer className="relative bg-[#F8FAFC] border-t border-slate-200 overflow-hidden pb-16 sm:pb-0">
       {/* 1. Trust Badges Banner Above Footer */}
       <div className="bg-white border-b border-slate-200/80 py-8">
         <div className="max-w-[1260px] mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#FAF9F6] border border-slate-200/80">
-            <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#C2672B] flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#065F46] flex items-center justify-center shrink-0">
               <FileCode2 className="w-5 h-5" />
             </div>
             <div>
@@ -33,7 +33,7 @@ export function GroveFooterSection() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#FAF9F6] border border-slate-200/80">
+          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
             <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
@@ -47,7 +47,7 @@ export function GroveFooterSection() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#FAF9F6] border border-slate-200/80">
+          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
             <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <Clock className="w-5 h-5" />
             </div>
@@ -87,37 +87,37 @@ export function GroveFooterSection() {
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-[13px] text-slate-600">
               <li>
-                <a href="#beranda" className="hover:text-[#C2672B] transition-colors">
+                <a href="#beranda" className="hover:text-[#064E3B] transition-colors">
                   Beranda
                 </a>
               </li>
               <li>
-                <a href="#mengapa-abinest" className="hover:text-[#C2672B] transition-colors">
+                <a href="#mengapa-abinest" className="hover:text-[#064E3B] transition-colors">
                   Mengapa Abinest
                 </a>
               </li>
               <li>
-                <a href="#layanan-utama" className="hover:text-[#C2672B] transition-colors">
+                <a href="#layanan-utama" className="hover:text-[#064E3B] transition-colors">
                   3 Pilar Layanan
                 </a>
               </li>
               <li>
-                <a href="#studi-kasus" className="hover:text-[#C2672B] transition-colors">
+                <a href="#studi-kasus" className="hover:text-[#064E3B] transition-colors">
                   Hasil Kerja &amp; Portofolio
                 </a>
               </li>
               <li>
-                <a href="#testimoni" className="hover:text-[#C2672B] transition-colors">
+                <a href="#testimoni" className="hover:text-[#064E3B] transition-colors">
                   Testimoni Klien
                 </a>
               </li>
               <li>
-                <a href="#cara-kerja" className="hover:text-[#C2672B] transition-colors">
+                <a href="#cara-kerja" className="hover:text-[#064E3B] transition-colors">
                   Cara Kerja &amp; Biaya
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-[#C2672B] transition-colors">
+                <a href="#faq" className="hover:text-[#064E3B] transition-colors">
                   Tanya Jawab (FAQ)
                 </a>
               </li>
@@ -133,7 +133,7 @@ export function GroveFooterSection() {
               <li>
                 <Link
                   href="/jasa-pembuatan-website-jakarta"
-                  className="hover:text-[#C2672B] transition-colors inline-flex items-center gap-1 font-medium"
+                  className="hover:text-[#064E3B] transition-colors inline-flex items-center gap-1 font-medium"
                 >
                   <span>Jasa Pembuatan Website Jakarta &amp; Surabaya</span>
                   <ArrowRight className="w-3 h-3" />
@@ -142,7 +142,7 @@ export function GroveFooterSection() {
               <li>
                 <Link
                   href="/jasa-pembuatan-sistem-sekolah"
-                  className="hover:text-[#C2672B] transition-colors inline-flex items-center gap-1 font-medium"
+                  className="hover:text-[#064E3B] transition-colors inline-flex items-center gap-1 font-medium"
                 >
                   <span>Jasa Pembuatan Sistem Sekolah &amp; SIAKAD</span>
                   <ArrowRight className="w-3 h-3" />
@@ -151,7 +151,7 @@ export function GroveFooterSection() {
               <li>
                 <Link
                   href="/jasa-automasi-whatsapp"
-                  className="hover:text-[#C2672B] transition-colors inline-flex items-center gap-1 font-medium"
+                  className="hover:text-[#064E3B] transition-colors inline-flex items-center gap-1 font-medium"
                 >
                   <span>Jasa Automasi WhatsApp &amp; Laporan</span>
                   <ArrowRight className="w-3 h-3" />
@@ -160,7 +160,7 @@ export function GroveFooterSection() {
               <li className="pt-2 border-t border-slate-200/60">
                 <Link
                   href="/login"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F172A] hover:text-[#C2672B] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F172A] hover:text-[#064E3B] transition-colors"
                 >
                   <Lock className="w-3.5 h-3.5 text-[#C2672B]" />
                   <span>Login Portal Klien (Tracking Progres)</span>
@@ -183,7 +183,7 @@ export function GroveFooterSection() {
                     href="https://wa.me/6285708677918"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#C2672B] transition-colors"
+                    className="hover:text-[#064E3B] transition-colors"
                   >
                     +62 857-0867-7918
                   </a>
@@ -196,7 +196,7 @@ export function GroveFooterSection() {
                   <span className="font-semibold text-[#0F172A] block">Email Resmi:</span>
                   <a
                     href="mailto:halo@abinest.id"
-                    className="hover:text-[#C2672B] transition-colors"
+                    className="hover:text-[#064E3B] transition-colors"
                   >
                     halo@abinest.id
                   </a>

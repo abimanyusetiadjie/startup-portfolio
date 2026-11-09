@@ -21,18 +21,18 @@ export function GroveCapabilitiesSection() {
   const [activeTab, setActiveTab] = useState<"website" | "sistem" | "automasi">("website");
 
   return (
-    <section id="layanan" className="py-24 relative bg-[#FAF9F6] border-b border-slate-200/80 overflow-hidden">
+    <section id="layanan" className="py-24 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden">
       {/* Ambient Warm Sunset Backlight */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-orange-200/30 via-amber-100/35 to-rose-100/20 blur-[140px] rounded-full"
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-emerald-100/35 via-teal-50/30 to-slate-100/20 blur-[140px] rounded-full"
       />
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10 space-y-16">
         {/* Section Header: Minimal Copy, High Impact */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#D97736]" />
+            <span className="w-2 h-2 rounded-full bg-[#059669]" />
             <span className="text-[11px] font-bold tracking-wider text-slate-800 uppercase">
               SHOWROOM VISUAL PRODUK ABINEST
             </span>
@@ -40,7 +40,7 @@ export function GroveCapabilitiesSection() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold tracking-tight text-[#0F172A] leading-[1.12]">
             Tampilan Nyata Sistem yang Kami{" "}
-            <span className="font-serif italic font-normal text-[#C2672B]">
+            <span className="font-serif italic font-normal text-[#065F46]">
               Bangun
             </span>{" "}
             Untuk Anda.
@@ -57,11 +57,11 @@ export function GroveCapabilitiesSection() {
               onClick={() => setActiveTab("website")}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === "website"
-                  ? "bg-[#0F172A] text-white shadow-md scale-105"
+                  ? "bg-[#064E3B] text-white shadow-md scale-105"
                   : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200"
               }`}
             >
-              <Globe className="w-4 h-4 text-[#D97736]" />
+              <Globe className="w-4 h-4 text-[#059669]" />
               <span>1. Jasa Website Kilat</span>
             </button>
 
@@ -70,11 +70,11 @@ export function GroveCapabilitiesSection() {
               onClick={() => setActiveTab("sistem")}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === "sistem"
-                  ? "bg-[#0F172A] text-white shadow-md scale-105"
+                  ? "bg-[#064E3B] text-white shadow-md scale-105"
                   : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200"
               }`}
             >
-              <Server className="w-4 h-4 text-[#D97736]" />
+              <Server className="w-4 h-4 text-[#059669]" />
               <span>2. SIAKAD &amp; Sistem Anti-Down</span>
             </button>
 
@@ -83,11 +83,11 @@ export function GroveCapabilitiesSection() {
               onClick={() => setActiveTab("automasi")}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === "automasi"
-                  ? "bg-[#0F172A] text-white shadow-md scale-105"
+                  ? "bg-[#064E3B] text-white shadow-md scale-105"
                   : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200"
               }`}
             >
-              <MessageSquare className="w-4 h-4 text-[#D97736]" />
+              <MessageSquare className="w-4 h-4 text-[#059669]" />
               <span>3. Automasi WhatsApp Resmi</span>
             </button>
           </div>
@@ -101,7 +101,7 @@ export function GroveCapabilitiesSection() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Column (5 cols): Punchy Benefits & CTAs */}
               <div className="lg:col-span-5 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-[#C2672B] border border-orange-200 text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-[#065F46] border border-emerald-200 text-xs font-bold uppercase tracking-wider">
                   <Globe className="w-3.5 h-3.5" />
                   Pilar 01 · Website Institusi &amp; Bisnis
                 </div>
@@ -116,7 +116,7 @@ export function GroveCapabilitiesSection() {
 
                 {/* 3 Visual Metric Badges */}
                 <div className="grid grid-cols-3 gap-3 pt-2">
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200 p-3 text-center">
+                  <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-3 text-center">
                     <div className="text-xl sm:text-2xl font-black text-[#0F172A]">0.7s</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 mt-0.5">Kecepatan di HP</div>
                   </div>
@@ -124,8 +124,8 @@ export function GroveCapabilitiesSection() {
                     <div className="text-xl sm:text-2xl font-black text-emerald-700">98/100</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-emerald-800 mt-0.5">Skor Lighthouse</div>
                   </div>
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200 p-3 text-center">
-                    <div className="text-xl sm:text-2xl font-black text-[#D97736]">100%</div>
+                  <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-3 text-center">
+                    <div className="text-xl sm:text-2xl font-black text-[#059669]">100%</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 mt-0.5">Source Code Milik Anda</div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export function GroveCapabilitiesSection() {
                 <div className="pt-2">
                   <a
                     href="#kontak"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-md transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-md transition-all"
                   >
                     <span>Diskusikan Pembuatan Website</span>
                     <ArrowRight className="w-4 h-4" />
@@ -162,7 +162,7 @@ export function GroveCapabilitiesSection() {
                 {/* Soft Sunset Glow */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-amber-200/30 via-orange-200/20 to-slate-200/25 blur-2xl rounded-full"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-100/30 via-teal-50/25 to-slate-200/20 blur-2xl rounded-full"
                 />
 
                 <div className="relative w-full max-w-[540px] flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -174,11 +174,11 @@ export function GroveCapabilitiesSection() {
                     </div>
 
                     {/* Phone Screen UI */}
-                    <div className="rounded-[32px] overflow-hidden bg-[#FAF9F6] border border-slate-200/60 text-[#0F172A] text-xs font-sans">
+                    <div className="rounded-[32px] overflow-hidden bg-[#F8FAFC] border border-slate-200/60 text-[#0F172A] text-xs font-sans">
                       {/* Mini Navbar */}
                       <div className="bg-white px-4 py-2.5 border-b border-slate-100 flex items-center justify-between">
                         <div className="flex items-center gap-1.5 font-bold text-[11px]">
-                          <span className="w-2 h-2 rounded-full bg-[#D97736]" />
+                          <span className="w-2 h-2 rounded-full bg-[#059669]" />
                           SMA IT Al-Hikmah
                         </div>
                         <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[9px] font-bold">
@@ -187,8 +187,8 @@ export function GroveCapabilitiesSection() {
                       </div>
 
                       {/* Phone Hero Banner */}
-                      <div className="p-4 space-y-2.5 bg-gradient-to-b from-white to-orange-50/40 border-b border-slate-100">
-                        <span className="inline-block text-[9px] font-bold uppercase tracking-wider text-[#C2672B]">
+                      <div className="p-4 space-y-2.5 bg-gradient-to-b from-white to-emerald-50/30 border-b border-slate-100">
+                        <span className="inline-block text-[9px] font-bold uppercase tracking-wider text-[#065F46]">
                           AKREDITASI A · SURABAYA
                         </span>
                         <div className="font-extrabold text-sm leading-snug text-[#0F172A]">
@@ -198,7 +198,7 @@ export function GroveCapabilitiesSection() {
                           Kurikulum Merdeka berbasis digital dengan fasilitas laboratorium modern.
                         </p>
                         <div className="flex gap-2 pt-1">
-                          <div className="px-3 py-1.5 rounded-full bg-[#D97736] text-white text-[10px] font-bold">
+                          <div className="px-3 py-1.5 rounded-full bg-[#059669] text-white text-[10px] font-bold">
                             Daftar Sekarang
                           </div>
                           <div className="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-[10px] font-semibold">
@@ -211,10 +211,10 @@ export function GroveCapabilitiesSection() {
                       <div className="p-3.5 space-y-2">
                         <div className="flex items-center justify-between text-[10px] font-bold text-slate-600">
                           <span>Kabar Prestasi Terbaru</span>
-                          <span className="text-[#D97736]">Lihat Semua</span>
+                          <span className="text-[#059669]">Lihat Semua</span>
                         </div>
                         <div className="bg-white rounded-xl border border-slate-200/80 p-2.5 flex items-center gap-2.5 shadow-sm">
-                          <div className="w-10 h-10 rounded-lg bg-orange-100 text-[#C2672B] font-bold flex items-center justify-center text-xs shrink-0">
+                          <div className="w-10 h-10 rounded-lg bg-emerald-100 text-[#065F46] font-bold flex items-center justify-center text-xs shrink-0">
                             🏆
                           </div>
                           <div>
@@ -292,7 +292,7 @@ export function GroveCapabilitiesSection() {
               <div className="lg:col-span-7 relative flex items-center justify-center">
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-amber-200/30 via-orange-200/20 to-slate-200/25 blur-2xl rounded-full"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-100/30 via-teal-50/25 to-slate-200/20 blur-2xl rounded-full"
                 />
 
                 {/* MacBook / Browser Frame */}
@@ -314,11 +314,11 @@ export function GroveCapabilitiesSection() {
                   </div>
 
                   {/* Browser Content (SIAKAD Dashboard UI) */}
-                  <div className="bg-[#FAF9F6] rounded-b-xl p-4 sm:p-5 space-y-4 text-xs font-sans">
+                  <div className="bg-[#F8FAFC] rounded-b-xl p-4 sm:p-5 space-y-4 text-xs font-sans">
                     {/* Live Concurrency Status Bar */}
                     <div className="bg-white rounded-2xl border border-slate-200 p-3 sm:p-4 flex items-center justify-between shadow-sm flex-wrap gap-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#C2672B] flex items-center justify-center font-bold">
+                        <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#065F46] flex items-center justify-center font-bold">
                           <Users className="w-5 h-5" />
                         </div>
                         <div>
@@ -389,7 +389,7 @@ export function GroveCapabilitiesSection() {
 
               {/* Right Column (5 cols): Punchy Benefits */}
               <div className="lg:col-span-5 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-[#C2672B] border border-orange-200 text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-[#065F46] border border-emerald-200 text-xs font-bold uppercase tracking-wider">
                   <Server className="w-3.5 h-3.5" />
                   Pilar 02 · Sistem &amp; SIAKAD Anti-Down
                 </div>
@@ -408,12 +408,12 @@ export function GroveCapabilitiesSection() {
                     <div className="text-xl sm:text-2xl font-black text-emerald-700">0%</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-emerald-800 mt-0.5">Crash Saat Ujian</div>
                   </div>
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200 p-3 text-center">
+                  <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-3 text-center">
                     <div className="text-xl sm:text-2xl font-black text-[#0F172A]">4 Menit</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 mt-0.5">600 Cetak Rapor PDF</div>
                   </div>
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200 p-3 text-center">
-                    <div className="text-xl sm:text-2xl font-black text-[#D97736]">99.9%</div>
+                  <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-3 text-center">
+                    <div className="text-xl sm:text-2xl font-black text-[#059669]">99.9%</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 mt-0.5">SLA Uptime Tertulis</div>
                   </div>
                 </div>
@@ -436,7 +436,7 @@ export function GroveCapabilitiesSection() {
                 <div className="pt-2">
                   <a
                     href="#kontak"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-md transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-md transition-all"
                   >
                     <span>Konsultasikan Kebutuhan Sistem</span>
                     <ArrowRight className="w-4 h-4" />
@@ -455,7 +455,7 @@ export function GroveCapabilitiesSection() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Column (5 cols): Benefits */}
               <div className="lg:col-span-5 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-[#C2672B] border border-orange-200 text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 text-[#065F46] border border-emerald-200 text-xs font-bold uppercase tracking-wider">
                   <MessageSquare className="w-3.5 h-3.5" />
                   Pilar 03 · Automasi WhatsApp &amp; Workflow
                 </div>
@@ -474,12 +474,12 @@ export function GroveCapabilitiesSection() {
                     <div className="text-xl sm:text-2xl font-black text-emerald-700">&lt;2s</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-emerald-800 mt-0.5">Kecepatan Kirim</div>
                   </div>
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200 p-3 text-center">
+                  <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-3 text-center">
                     <div className="text-xl sm:text-2xl font-black text-[#0F172A]">-12 Jam</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 mt-0.5">Kerja Manual / Mgg</div>
                   </div>
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200 p-3 text-center">
-                    <div className="text-xl sm:text-2xl font-black text-[#D97736]">0 Blokir</div>
+                  <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-3 text-center">
+                    <div className="text-xl sm:text-2xl font-black text-[#059669]">0 Blokir</div>
                     <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 mt-0.5">Resmi Meta API</div>
                   </div>
                 </div>
@@ -502,7 +502,7 @@ export function GroveCapabilitiesSection() {
                 <div className="pt-2">
                   <a
                     href="#kontak"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-md transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-md transition-all"
                   >
                     <span>Diskusikan Automasi WhatsApp</span>
                     <ArrowRight className="w-4 h-4" />
@@ -514,7 +514,7 @@ export function GroveCapabilitiesSection() {
               <div className="lg:col-span-7 relative flex items-center justify-center py-4">
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-amber-200/30 via-orange-200/20 to-slate-200/25 blur-2xl rounded-full"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-100/30 via-teal-50/25 to-slate-200/20 blur-2xl rounded-full"
                 />
 
                 {/* WhatsApp Mobile Frame */}
@@ -567,9 +567,9 @@ export function GroveCapabilitiesSection() {
                         </div>
 
                         {/* Amount Box */}
-                        <div className="bg-orange-50/70 border border-orange-200/80 rounded-xl p-2.5">
+                        <div className="bg-emerald-50/60 border border-emerald-200/80 rounded-xl p-2.5">
                           <div className="text-[10px] text-slate-500 font-medium">Total Nominal Tagihan:</div>
-                          <div className="text-base font-extrabold text-[#C2672B]">Rp 750.000,-</div>
+                          <div className="text-base font-extrabold text-[#065F46]">Rp 750.000,-</div>
                           <div className="text-[9px] text-slate-400 mt-0.5">Jatuh Tempo: 10 November 2026</div>
                         </div>
 

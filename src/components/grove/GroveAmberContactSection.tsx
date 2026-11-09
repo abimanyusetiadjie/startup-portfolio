@@ -30,18 +30,18 @@ export function GroveAmberContactSection() {
       {/* Soft Warm Light Glows */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -right-20 w-[500px] h-[340px] bg-gradient-to-l from-orange-100/60 via-amber-50/40 to-transparent blur-[90px] rounded-full"
+        className="pointer-events-none absolute -top-20 -right-20 w-[500px] h-[340px] bg-gradient-to-l from-emerald-100/40 via-teal-50/30 to-transparent blur-[90px] rounded-full"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-20 -left-20 w-[500px] h-[340px] bg-gradient-to-r from-orange-100/60 via-amber-50/40 to-transparent blur-[90px] rounded-full"
+        className="pointer-events-none absolute -bottom-20 -left-20 w-[500px] h-[340px] bg-gradient-to-r from-emerald-100/40 via-teal-50/30 to-transparent blur-[90px] rounded-full"
       />
 
       <div className="max-w-[1120px] mx-auto px-5 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column (6 cols): Reassurance & Trust Guarantees */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
               MULAI DISKUSI TANPA RISIKO
             </span>
 
@@ -96,7 +96,7 @@ export function GroveAmberContactSection() {
           <div className="lg:col-span-6">
             <form
               onSubmit={handleSubmit}
-              className="bg-[#FAF9F6] border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.06)] rounded-3xl p-6 sm:p-9 space-y-5"
+              className="bg-[#F8FAFC] border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.06)] rounded-3xl p-6 sm:p-9 space-y-5"
             >
               <div className="pb-3 border-b border-slate-200/80">
                 <h3 className="text-lg sm:text-xl font-bold text-[#0F172A]">
@@ -122,7 +122,7 @@ export function GroveAmberContactSection() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Contoh: Drs. Ahmad Fauzi / Budi Santoso"
-                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#059669] focus:ring-2 focus:ring-emerald-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
                 />
               </div>
 
@@ -141,7 +141,7 @@ export function GroveAmberContactSection() {
                   value={institution}
                   onChange={(e) => setInstitution(e.target.value)}
                   placeholder="Contoh: SMA Islam Terpadu Al-Hikmah / PT Maju Bersama"
-                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#059669] focus:ring-2 focus:ring-emerald-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
                 />
               </div>
 
@@ -157,7 +157,7 @@ export function GroveAmberContactSection() {
                   id="contact-service"
                   value={serviceType}
                   onChange={(e) => setServiceType(e.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] outline-none transition-all"
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#059669] focus:ring-2 focus:ring-emerald-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] outline-none transition-all"
                 >
                   <option value="Website (Sekolah / Yayasan / Perusahaan / UMKM)">
                     Website (Sekolah / Yayasan / Perusahaan / UMKM)
@@ -189,7 +189,7 @@ export function GroveAmberContactSection() {
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                   placeholder="Contoh: 0812-3456-7890"
-                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#D97736] focus:ring-2 focus:ring-orange-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
+                  className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#059669] focus:ring-2 focus:ring-emerald-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
                 />
               </div>
 
@@ -197,7 +197,7 @@ export function GroveAmberContactSection() {
               <div className="pt-2 space-y-3">
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-[0_8px_25px_rgba(217,119,54,0.35)] transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-[0_8px_25px_rgba(5,150,105,0.3)] transition-all"
                 >
                   <span>Konsultasikan Kebutuhan Sistem Anda</span>
                   <ArrowRight className="w-4 h-4" />
@@ -211,7 +211,7 @@ export function GroveAmberContactSection() {
                   </span>
                   <span className="hidden sm:inline text-slate-300">•</span>
                   <span className="hidden sm:inline-flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#C2672B]" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#065F46]" />
                     Privasi data 100% terjaga
                   </span>
                 </div>

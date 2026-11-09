@@ -74,7 +74,7 @@ export function GroveTestimonialsGrid() {
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
             KEPERCAYAAN PIMPINAN INSTITUSI
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-[#0F172A] leading-tight">
@@ -90,7 +90,7 @@ export function GroveTestimonialsGrid() {
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#FAF9F6] border border-slate-200/90 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300"
+              className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-emerald-200 transition-all duration-300"
             >
               <div className="space-y-4">
                 {/* Outcome Badge & Stars */}
@@ -124,7 +124,7 @@ export function GroveTestimonialsGrid() {
                   <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] truncate">
                     {item.name}
                   </h3>
-                  <p className="text-[11px] font-semibold text-[#C2672B] truncate">
+                  <p className="text-[11px] font-semibold text-[#065F46] truncate">
                     {item.role}
                   </p>
                   <p className="text-[11px] text-slate-500 truncate">

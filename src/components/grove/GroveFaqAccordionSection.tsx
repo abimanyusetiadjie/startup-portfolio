@@ -44,12 +44,12 @@ export function GroveFaqAccordionSection() {
   return (
     <section
       id="faq"
-      className="py-24 relative bg-[#FAF9F6] border-b border-slate-200/80"
+      className="py-24 relative bg-[#F8FAFC] border-b border-slate-200/80"
     >
       <div className="max-w-[860px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
+          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
             PERTANYAAN YANG SERING DIAJUKAN (FAQ)
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
@@ -69,7 +69,7 @@ export function GroveFaqAccordionSection() {
                 key={idx}
                 className={`rounded-2xl border transition-all duration-200 px-5 sm:px-6 ${
                   isOpen
-                    ? "bg-white border-orange-300 shadow-md"
+                    ? "bg-white border-emerald-300 shadow-md"
                     : "bg-white border-slate-200/90 hover:border-slate-300 shadow-sm"
                 }`}
               >
@@ -85,7 +85,7 @@ export function GroveFaqAccordionSection() {
                   <span
                     className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                       isOpen
-                        ? "bg-[#D97736] text-white"
+                        ? "bg-[#059669] text-white"
                         : "bg-slate-100 text-slate-600"
                     }`}
                   >
@@ -110,13 +110,13 @@ export function GroveFaqAccordionSection() {
         {/* Bottom Direct Question Prompt */}
         <div className="mt-10 text-center">
           <p className="text-xs sm:text-sm text-slate-600 flex items-center justify-center gap-2 flex-wrap">
-            <MessageCircle className="w-4 h-4 text-[#C2672B]" />
+            <MessageCircle className="w-4 h-4 text-[#065F46]" />
             <span>Punya pertanyaan khusus di luar daftar di atas?</span>
             <a
               href="https://wa.me/6285708677918?text=Halo%20Abinest%2C%20saya%20ingin%20bertanya%20mengenai%20layanan%20pembuatan%20website%2Fsistem%2Fautomasi."
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#C2672B] hover:text-[#0F172A] font-bold underline underline-offset-4 transition-colors"
+              className="text-[#065F46] hover:text-[#0F172A] font-bold underline underline-offset-4 transition-colors"
             >
               Tanyakan langsung ke tim engineer kami via WhatsApp →
             </a>
