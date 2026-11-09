@@ -341,7 +341,7 @@ export function GroveHeroSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full h-[280px] sm:h-[350px] md:h-[390px] lg:h-[445px] xl:h-[455px] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_16px_40px_rgba(15,23,42,0.06)] group"
+                className="relative w-full h-[290px] sm:h-[360px] md:h-[400px] lg:h-[460px] xl:h-[475px] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_16px_40px_rgba(15,23,42,0.06)] group"
               >
                 <Image
                   src={currentPillar.image}
