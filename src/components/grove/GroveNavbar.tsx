@@ -28,7 +28,6 @@ export function GroveNavbar() {
     { label: "Layanan", href: "#layanan-utama" },
     { label: "Hasil Kerja", href: "#portofolio" },
     { label: "Cara Kerja", href: "#cara-kerja" },
-    { label: "FAQ", href: "#faq" },
   ];
 
   const handleSmoothScroll = (

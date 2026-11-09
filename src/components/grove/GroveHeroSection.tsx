@@ -98,11 +98,55 @@ export function GroveHeroSection() {
           </div>
         </div>
 
-        {/* 6. Bottom 3 Value Cards in Electric Cobalt Theme */}
-        <div className="mt-12 sm:mt-14 max-w-[1060px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        {/* 6. Bottom 3 Value Cards: Responsive Split (Mobile Compact Capsule vs Desktop Distinct Cards) */}
+        
+        {/* Mobile View: Single Unified Capsule Bar (Saves 80% Vertical Space) */}
+        <div className="md:hidden mt-8 bg-white border border-slate-200/90 rounded-2xl p-3 shadow-[0_4px_20px_rgba(15,23,42,0.03)] grid grid-cols-3 divide-x divide-slate-100 text-center">
+          {/* Mobile Col 1: Web <0.8s */}
+          <div className="px-1 py-0.5 flex flex-col items-center justify-center space-y-1">
+            <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center">
+              <Zap className="w-3.5 h-3.5" />
+            </div>
+            <div className="text-[11px] font-extrabold text-[#0F172A] leading-tight">
+              &lt;0.8s Web
+            </div>
+            <div className="text-[9px] text-slate-500 font-medium">
+              SEO Ready
+            </div>
+          </div>
+
+          {/* Mobile Col 2: Sistem 99.99% */}
+          <div className="px-1 py-0.5 flex flex-col items-center justify-center space-y-1">
+            <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center">
+              <ShieldCheck className="w-3.5 h-3.5" />
+            </div>
+            <div className="text-[11px] font-extrabold text-[#0F172A] leading-tight">
+              Anti-Down
+            </div>
+            <div className="text-[9px] text-slate-500 font-medium">
+              99.99% SLA
+            </div>
+          </div>
+
+          {/* Mobile Col 3: Automasi 10x */}
+          <div className="px-1 py-0.5 flex flex-col items-center justify-center space-y-1">
+            <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center">
+              <MessageSquare className="w-3.5 h-3.5" />
+            </div>
+            <div className="text-[11px] font-extrabold text-[#0F172A] leading-tight">
+              10x Cepat
+            </div>
+            <div className="text-[9px] text-slate-500 font-medium">
+              AI &amp; Meta WA
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop View: 3 Distinct Spacious Cards in Deep Forest Green / Emerald Theme */}
+        <div className="hidden md:grid mt-12 sm:mt-14 max-w-[1060px] mx-auto grid-cols-3 gap-5 sm:gap-6">
           {/* Card 1: Website <0.8s */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-blue-300 hover:shadow-md transition-all group">
-            <div className="w-11 h-11 mx-auto rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-emerald-300 hover:shadow-md transition-all group">
+            <div className="w-11 h-11 mx-auto rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
               <Zap className="w-5 h-5" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#0F172A]">
@@ -114,8 +158,8 @@ export function GroveHeroSection() {
           </div>
 
           {/* Card 2: Sistem Anti-Down 99.99% */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-blue-300 hover:shadow-md transition-all group">
-            <div className="w-11 h-11 mx-auto rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-emerald-300 hover:shadow-md transition-all group">
+            <div className="w-11 h-11 mx-auto rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#0F172A]">
@@ -127,8 +171,8 @@ export function GroveHeroSection() {
           </div>
 
           {/* Card 3: Automasi 10x Lebih Cepat */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-blue-300 hover:shadow-md transition-all group">
-            <div className="w-11 h-11 mx-auto rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-emerald-300 hover:shadow-md transition-all group">
+            <div className="w-11 h-11 mx-auto rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
               <MessageSquare className="w-5 h-5" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#0F172A]">

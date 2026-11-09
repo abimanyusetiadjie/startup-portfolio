@@ -8,7 +8,6 @@ import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
 import { GroveTechStackGrid } from "./GroveTechStackGrid";
-import { GroveFaqAccordionSection } from "./GroveFaqAccordionSection";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
@@ -39,9 +38,6 @@ export function GroveApp() {
 
       {/* 8. 12 Squircle Tech Stack Resmi Sesuai Referensi Gambar 2 (Screen 6) */}
       <GroveTechStackGrid />
-
-      {/* 9. FAQ Kunci Institusi (Screen 7) */}
-      <GroveFaqAccordionSection />
 
       {/* 10. Final CTA + Form Konsultasi 4 Field Cepat (Screen 8) */}
       <GroveAmberContactSection />
