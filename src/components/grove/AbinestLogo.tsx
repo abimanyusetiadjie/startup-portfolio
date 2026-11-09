@@ -20,15 +20,16 @@ export function AbinestLogo({
       : "text-xl tracking-tight";
 
   return (
-    <div className={`inline-flex items-center gap-2 select-none group ${className}`}>
-      {/* Authentic Abinest Wordmark Matching the Reference UI Specification */}
-      <div className="flex items-center">
+    <div className={`inline-flex items-center gap-2.5 select-none group ${className}`}>
+      {/* Authentic Abinest Brand Identity: Monogram Icon + Full Official Wordmark */}
+      <div className="flex items-center gap-2">
         {/* Stylized bespoke geometric 'A' monogram with signature diagonal split */}
         <svg
           className={`${iconHeight} w-auto shrink-0`}
           viewBox="0 0 32 34"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           {/* Disconnected left angular slash */}
           <line
@@ -61,12 +62,11 @@ export function AbinestLogo({
           <circle cx="20.5" cy="11.5" r="1.6" fill="#2563EB" />
         </svg>
 
-        {/* Crisp geometric wordmark 'binest' */}
+        {/* Full Official Brand Wordmark 'Abinest' */}
         <span
-          className={`${fontSize} font-bold text-[#0F172A] -ml-0.5 group-hover:text-[#1D4ED8] transition-colors`}
-          style={{ letterSpacing: "-0.03em" }}
+          className={`${fontSize} font-extrabold text-[#0F172A] tracking-[-0.03em] group-hover:text-[#2563EB] transition-colors`}
         >
-          binest
+          Abinest
         </span>
       </div>
 
