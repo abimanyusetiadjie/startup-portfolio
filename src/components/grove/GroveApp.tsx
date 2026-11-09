@@ -4,7 +4,6 @@ import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
 import { GrovePartnerPill } from "./GrovePartnerPill";
 import { GroveCapabilitiesSection } from "./GroveCapabilitiesSection";
-import { GroveBentoGrid } from "./GroveBentoGrid";
 import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
@@ -20,40 +19,37 @@ export function GroveApp() {
       {/* 1. Sticky Header & Navigation */}
       <GroveNavbar />
 
-      {/* 2. Hero Section + 4-Metric Trust Bar */}
+      {/* 2. Hero Section + 4-Metric Trust Bar (Screen 1) */}
       <GroveHeroSection />
 
       {/* 3. Trusted By / Grayscale Client Institution Bar */}
       <GrovePartnerPill />
 
-      {/* 4 & 5. Problem / Pain Points + Value Proposition (Mengapa Abinest) */}
+      {/* 4. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
       <GroveCapabilitiesSection />
 
-      {/* 6. Layanan Utama - 12-Column Modular Bento Grid */}
-      <GroveBentoGrid />
-
-      {/* 7. Portfolio / 3 Case Studies Terukur + Mid-Page CTA */}
+      {/* 5. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
       <GroveCaseStudySection />
 
-      {/* 8. Testimoni Kredibel (Nama + Jabatan + Institusi + Hasil) */}
+      {/* 6. Testimoni Kredibel Terkurasi (Screen 4) */}
       <GroveTestimonialsGrid />
 
-      {/* 9 & 11. Cara Kerja (5 Langkah) + Engagement Model (2 Opsi Kerja Sama) */}
+      {/* 7. Alur Kerja 5 Langkah + Bukti 100% Source Code Handover (Screen 5) */}
       <GroveCoreShieldSection />
 
-      {/* 10. Tech Stack Resmi & Keamanan dalam Bahasa Manfaat */}
+      {/* 8. 12 Squircle Tech Stack Resmi Sesuai Referensi Gambar 2 (Screen 6) */}
       <GroveTechStackGrid />
 
-      {/* 12. FAQ (8 Pertanyaan Kunci Institusi) */}
+      {/* 9. FAQ Kunci Institusi (Screen 7) */}
       <GroveFaqAccordionSection />
 
-      {/* 13. Final CTA + Form Konsultasi 4 Field Sederhana */}
+      {/* 10. Final CTA + Form Konsultasi 4 Field Cepat (Screen 8) */}
       <GroveAmberContactSection />
 
-      {/* 14. Footer Lengkap & Badge Kepercayaan */}
+      {/* 11. Footer Lengkap & Badge Kepercayaan */}
       <GroveFooterSection />
 
-      {/* 15. Floating WhatsApp & Sticky Mobile CTA Bar */}
+      {/* 12. Floating WhatsApp & Sticky Mobile Quick Action Bar */}
       <GroveFloatingWhatsApp />
     </div>
   );

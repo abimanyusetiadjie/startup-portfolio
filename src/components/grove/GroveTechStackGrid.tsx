@@ -205,7 +205,7 @@ export function GroveTechStackGrid() {
   ];
 
   return (
-    <section id="tech-stack" className="py-24 relative overflow-hidden bg-white border-b border-slate-200/80">
+    <section id="tech-stack" className="py-14 sm:py-16 relative overflow-hidden bg-white border-b border-slate-200/80">
       {/* Background Soft Light Amber Glow */}
       <div
         aria-hidden="true"
@@ -334,29 +334,6 @@ export function GroveTechStackGrid() {
               </span>
             )}
           </div>
-        </div>
-
-        {/* 5 Non-Technical Benefit Summary Cards */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {benefitHighlights.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="rounded-2xl bg-[#F8FAFC] border border-slate-200/80 p-4 space-y-2"
-              >
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#065F46] flex items-center justify-center">
-                  <Icon className="w-4 h-4" />
-                </div>
-                <h3 className="text-xs sm:text-sm font-bold text-[#0F172A]">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            );
-          })}
         </div>
       </div>
     </section>

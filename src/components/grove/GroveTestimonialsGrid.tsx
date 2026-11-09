@@ -1,8 +1,11 @@
 "use client";
 
-import { Star, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import { Star, ShieldCheck, ChevronDown, ChevronUp } from "lucide-react";
 
 export function GroveTestimonialsGrid() {
+  const [showAll, setShowAll] = useState(false);
+
   const testimonials = [
     {
       name: "Drs. H. Ahmad Fauzi, M.Pd.",
@@ -66,36 +69,37 @@ export function GroveTestimonialsGrid() {
     },
   ];
 
+  const visibleTestimonials = showAll ? testimonials : testimonials.slice(0, 3);
+
   return (
     <section
       id="testimoni"
-      className="py-24 relative overflow-hidden bg-white border-b border-slate-200/80"
+      className="py-14 sm:py-16 relative overflow-hidden bg-white border-b border-slate-200/80"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8">
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-10">
         {/* Centered Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
             KEPERCAYAAN PIMPINAN INSTITUSI
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-[#0F172A] leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
             Apa Kata Kepala Sekolah, Ketua Yayasan, &amp; Pemilik Bisnis
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Pengalaman nyata dari para pengambil keputusan yang telah mempercayakan pembangunan website, sistem, dan automasi mereka kepada Abinest.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
+            Pengalaman nyata dari para pengambil keputusan yang telah mempercayakan website, sistem, dan automasi mereka kepada Abinest.
           </p>
         </div>
 
-        {/* 3x2 Credible Testimonial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((item, idx) => (
+        {/* 3 Prominent Cards (Expandable to 6) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {visibleTestimonials.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-emerald-200 transition-all duration-300"
+              className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-emerald-200 transition-all duration-200 animate-fadeIn"
             >
-              <div className="space-y-4">
-                {/* Outcome Badge & Stars */}
+              <div className="space-y-3.5">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                     {item.highlight}
                   </span>
@@ -106,34 +110,44 @@ export function GroveTestimonialsGrid() {
                   </div>
                 </div>
 
-                {/* Specific Outcome Quote */}
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
-              {/* Verified Author Info */}
-              <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center gap-3.5">
+              <div className="mt-5 pt-3.5 border-t border-slate-200/70 flex items-center gap-3">
                 <img
                   src={item.avatar}
                   alt={item.name}
-                  className="w-11 h-11 rounded-full object-cover border border-slate-300 shrink-0"
+                  className="w-10 h-10 rounded-full object-cover border border-slate-300 shrink-0"
                   loading="lazy"
                 />
                 <div className="min-w-0">
-                  <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] truncate">
+                  <div className="text-xs font-bold text-[#0F172A] truncate">
                     {item.name}
-                  </h3>
-                  <p className="text-[11px] font-semibold text-[#065F46] truncate">
+                  </div>
+                  <div className="text-[10px] font-semibold text-[#065F46] truncate">
                     {item.role}
-                  </p>
-                  <p className="text-[11px] text-slate-500 truncate">
+                  </div>
+                  <div className="text-[10px] text-slate-500 truncate">
                     {item.institution}
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Toggle Button to Expand / Collapse */}
+        <div className="text-center pt-2">
+          <button
+            type="button"
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 shadow-xs transition-all"
+          >
+            <span>{showAll ? "Tampilkan 3 Testimoni Saja" : "Lihat 3 Testimoni Lainnya"}</span>
+            {showAll ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
+          </button>
         </div>
       </div>
     </section>

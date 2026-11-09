@@ -17,8 +17,8 @@ export function GroveNavbar() {
 
   const navLinks = [
     { label: "Layanan", href: "#layanan-utama" },
-    { label: "Solusi", href: "#mengapa-abinest" },
     { label: "Hasil Kerja", href: "#studi-kasus" },
+    { label: "Testimoni", href: "#testimoni" },
     { label: "Cara Kerja", href: "#cara-kerja" },
     { label: "FAQ", href: "#faq" },
     { label: "Kontak", href: "#kontak" },
