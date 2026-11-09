@@ -1,262 +1,85 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  Zap,
-  Code2,
-  CheckCircle2,
-  Globe,
-  Database,
-  Bot,
-  MessageSquare,
-  Sparkles,
-  Building2,
-  ShieldCheck,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export function GroveHeroSection() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const pillars = [
+  // 3 Pilar Utama Abinest disajikan secara terstruktur, tenang, dan langsung terbaca
+  const threePillars = [
     {
-      id: "web",
-      tabLabel: "1. Modern Web",
-      tabSubtitle: "Akses Kilat <0.8s",
-      icon: Globe,
-      accentColor: "#2563EB",
-      headlineLine1: "Website Korporat Modern",
-      headlineLine2: "Tampil Berkelas, Cepat, & Kredibel.",
-      story:
-        "Membangun kehadiran digital yang meyakinkan calon klien sejak detik pertama. Halaman terbuka instan (<0.8 detik), skor SEO Google optimal, dan tampilan presisi di seluruh ukuran layar.",
-      metrics: [
-        {
-          num: "01",
-          title: "Akses Kilat <0.8 Detik",
-          desc: "Halaman ringan, tanpa lag, bebas beban plugin berat",
-        },
-        {
-          num: "02",
-          title: "Arsitektur SEO Google 100/100",
-          desc: "Struktur kode rapi untuk mendongkrak visibilitas bisnis",
-        },
-        {
-          num: "03",
-          title: "100% Hak Milik Source Code",
-          desc: "Bebas biaya sewa platform atau ketergantungan vendor",
-        },
-      ],
-      image: "/images/hero-editorial-portrait-2x.jpg",
-      imageAlt: "Implementasi Website Modern Abinest di Lapangan",
-      bottomTag: "Next.js 15 App Router · Jakarta & Surabaya",
+      num: "01",
+      title: "Website Cepat <0.8 Detik",
+      desc: "Skor Google SEO 100/100, ringan tanpa lag di semua perangkat",
     },
     {
-      id: "erp",
-      tabLabel: "2. Sistem ERP Kustom",
-      tabSubtitle: "Kendali Operasional",
-      icon: Building2,
-      accentColor: "#1D4ED8",
-      headlineLine1: "Sistem Operasional Terpadu",
-      headlineLine2: "Kendali Penuh Gudang & Finansial.",
-      story:
-        "Satukan seluruh alur bisnis—mulai dari mutasi stok multi-gudang, absensi staf, hingga laporan laba rugi real-time—dalam satu dashboard intuitif bergaransi SLA 99.99%.",
-      metrics: [
-        {
-          num: "01",
-          title: "Keandalan Sistem SLA 99.99%",
-          desc: "Server stabil dengan sistem backup otomatis harian",
-        },
-        {
-          num: "02",
-          title: "Bebas Biaya Lisensi Pengguna",
-          desc: "Tambah 100 hingga 10.000 karyawan tanpa biaya ekstra",
-        },
-        {
-          num: "03",
-          title: "Data Terenkripsi & Milik Penuh",
-          desc: "Struktur database sepenuhnya menjadi aset perusahaan Anda",
-        },
-      ],
-      image: "/images/erp-dashboard.jpg",
-      imageAlt: "Sistem ERP Multi-Gudang Abinest",
-      bottomTag: "Enterprise Core · Multi-Warehouse & Accounting",
+      num: "02",
+      title: "Sistem ERP Anti-Down 99.99%",
+      desc: "Integrasi multi-gudang, inventaris, dan keuangan real-time",
     },
     {
-      id: "ai-wa",
-      tabLabel: "3. Automasi WA & AI",
-      tabSubtitle: "Respons Non-Stop 24/7",
-      icon: Bot,
-      accentColor: "#0284C7",
-      headlineLine1: "Automasi Alur Kerja Cerdas",
-      headlineLine2: "Respons Pelanggan 24 Jam Non-Stop.",
-      story:
-        "Otomatiskan pengiriman tagihan via WhatsApp resmi Meta, integrasi reminder pembayaran, dan asisten AI pintar yang sigap melayani pertanyaan klien seketika.",
-      metrics: [
-        {
-          num: "01",
-          title: "Meta WhatsApp Cloud API Resmi",
-          desc: "Aman dari pemblokiran (anti-banned) dengan verifikasi bisnis",
-        },
-        {
-          num: "02",
-          title: "Respons Pelanggan Seketika",
-          desc: "Asisten AI aktif melayani ramah di luar jam kantor",
-        },
-        {
-          num: "03",
-          title: "Otomasi Faktur & Dokumen",
-          desc: "Pembacaan invoice instan tanpa input manual yang melelahkan",
-        },
-      ],
-      image: "/images/ai-ml-workflow.jpg",
-      imageAlt: "Automasi WhatsApp dan AI Pipeline",
-      bottomTag: "Meta WhatsApp Cloud API & AI Workflow Engine",
+      num: "03",
+      title: "Automasi WhatsApp & AI",
+      desc: "Meta Cloud API resmi 24/7, faktur otomatis & 100% hak milik kode",
     },
   ];
-
-  // Auto-advance every 6 seconds when not paused
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % pillars.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isPaused, pillars.length]);
-
-  const currentPillar = pillars[activeIdx];
 
   return (
     <section
       id="beranda"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      className="relative pt-4 sm:pt-6 pb-12 sm:pb-16 overflow-hidden bg-[#FBFBFA] border-b border-slate-200/70"
+      className="relative pt-6 sm:pt-8 pb-12 sm:pb-16 overflow-hidden bg-[#FBFBFA] border-b border-slate-200/70"
     >
-      {/* Subtle Atmospheric Grid Mesh & Texture */}
+      {/* Subtle Atmospheric Grid Mesh */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-0 overflow-hidden"
       >
-        {/* Soft Technical Dot Matrix */}
         <div
-          className="absolute inset-0 opacity-[0.22] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_25%,black_40%,transparent_85%)]"
+          className="absolute inset-0 opacity-[0.20] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_25%,black_40%,transparent_85%)]"
           style={{
             backgroundImage: `radial-gradient(rgba(37, 99, 235, 0.25) 1px, transparent 1px)`,
             backgroundSize: "28px 28px",
           }}
         />
-
-        {/* Ambient Top Glow */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-blue-100/30 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-[450px] h-[250px] bg-blue-100/30 blur-[100px] rounded-full pointer-events-none" />
       </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
-        {/* 3-Pillar Interactive Tab Switcher Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-            {pillars.map((pillar, idx) => {
-              const Icon = pillar.icon;
-              const isActive = activeIdx === idx;
-              return (
-                <button
-                  key={pillar.id}
-                  type="button"
-                  onClick={() => {
-                    setActiveIdx(idx);
-                    setIsPaused(true);
-                  }}
-                  className={`relative px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer outline-none ${
-                    isActive
-                      ? "text-[#0F172A] bg-white border border-slate-300 shadow-[0_4px_16px_rgba(15,23,42,0.06)]"
-                      : "text-slate-500 bg-slate-100/70 border border-slate-200/50 hover:text-slate-900 hover:bg-slate-200/60"
-                  }`}
-                >
-                  <div
-                    className={`w-6 h-6 rounded-lg flex items-center justify-center transition-colors ${
-                      isActive
-                        ? "bg-blue-50 text-[#2563EB]"
-                        : "bg-slate-200/80 text-slate-500"
-                    }`}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                  </div>
-                  <span>{pillar.tabLabel}</span>
-
-                  {/* Micro Progress Bar on Active Tab */}
-                  {isActive && (
-                    <motion.div
-                      key={`progress-${idx}-${isPaused}`}
-                      initial={{ width: "0%" }}
-                      animate={{ width: isPaused ? "100%" : "100%" }}
-                      transition={{
-                        duration: isPaused ? 0 : 6,
-                        ease: "linear",
-                      }}
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#2563EB] rounded-full overflow-hidden"
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex items-center gap-2 text-[11px] text-slate-400 font-medium">
-            <span
-              className={`w-1.5 h-1.5 rounded-full ${
-                isPaused ? "bg-amber-500" : "bg-emerald-500 animate-pulse"
-              }`}
-            />
-            <span>{isPaused ? "Mode Interaktif (Jeda)" : "Otomatis Berganti (6s)"}</span>
-          </div>
-        </div>
-
-        {/* Asymmetrical 2-Column Swiss Editorial Layout with Smooth Crossfade */}
+        {/* Asymmetrical 2-Column Swiss Editorial Layout (Sesuai Referensi Gambar 2) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* LEFT COLUMN: Humanized Headline, Story, Action, & Editorial Numbered Metrics (Span 7) */}
+          
+          {/* KOLOM KIRI: Headline Humanis, Misi, Aksi, & 3 Pilar Bernomor (Span 7) */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`headline-${currentPillar.id}`}
-                initial={{ opacity: 0, y: 12 }}
+            {/* 1. Headline Utama yang Humanis & Tegas */}
+            <div className="space-y-2.5">
+              <motion.h1
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-2.5"
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.12]"
               >
-                <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.1]">
-                  {currentPillar.headlineLine1}
-                  <br />
-                  <span className="text-[#2563EB]">
-                    {currentPillar.headlineLine2}
-                  </span>
-                </h1>
+                Sistem Digital yang Rapi.
+                <br />
+                <span className="inline-flex items-center gap-2.5 sm:gap-3 text-[#2563EB]">
+                  <span className="inline-block w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#2563EB] rounded-[3px] shadow-[0_2px_8px_rgba(37,99,235,0.35)] shrink-0" />
+                  <span>Operasional Bisnis yang Tenang.</span>
+                </span>
+              </motion.h1>
 
-                {/* Signature Accent Line */}
-                <div className="w-16 sm:w-20 h-1 bg-[#2563EB] rounded-full origin-left" />
-              </motion.div>
-            </AnimatePresence>
+              {/* Signature Accent Line */}
+              <div className="w-16 sm:w-20 h-1 bg-[#2563EB] rounded-full origin-left" />
+            </div>
 
-            {/* Sub-Grid: Left Story + Right 3 Numbered Metrics */}
+            {/* 2. Sub-Grid: Cerita Kiri + 3 Pilar Bernomor di Kanan */}
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-8 pt-1">
-              {/* Left Sub-Col: Value Pitch & Primary Action (Span 6) */}
+              
+              {/* Sisi Kiri: Nilai Nyata, Tombol Konsultasi, & Bukti Sosial (Span 6) */}
               <div className="sm:col-span-6 space-y-5 flex flex-col justify-between">
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={`story-${currentPillar.id}`}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.25 }}
-                    className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal min-h-[80px]"
-                  >
-                    {currentPillar.story}
-                  </motion.p>
-                </AnimatePresence>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  Kami membangun website berkecepatan tinggi, sistem ERP anti-down, dan automasi WhatsApp &amp; AI untuk perusahaan, institusi, dan bisnis berkembang — tanpa beban biaya lisensi bulanan.
+                </p>
 
-                {/* CTA Action Buttons */}
+                {/* Tombol Aksi CTA */}
                 <div className="space-y-2.5 pt-1">
                   <motion.a
                     whileHover={{ scale: 1.02 }}
@@ -277,7 +100,7 @@ export function GroveHeroSection() {
                   </a>
                 </div>
 
-                {/* Social Proof Trust Bar */}
+                {/* Bukti Sosial Klien Aktif */}
                 <div className="pt-2 flex items-center gap-3 border-t border-slate-200/80">
                   <div className="flex -space-x-2">
                     <img
@@ -304,78 +127,59 @@ export function GroveHeroSection() {
                 </div>
               </div>
 
-              {/* Right Sub-Col: Editorial Numbered Metrics 01, 02, 03 (Span 6) */}
+              {/* Sisi Kanan: 3 Pilar Utama Bernomor 01, 02, 03 (Span 6) */}
               <div className="sm:col-span-6 space-y-3.5 sm:pl-1">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`metrics-${currentPillar.id}`}
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -12 }}
-                    transition={{ duration: 0.25 }}
-                    className="space-y-3.5"
+                {threePillars.map((item) => (
+                  <div
+                    key={item.num}
+                    className="group pb-3 border-b border-slate-200/90 hover:border-blue-400 transition-colors"
                   >
-                    {currentPillar.metrics.map((item) => (
-                      <div
-                        key={item.num}
-                        className="group pb-2.5 border-b border-slate-200/90 hover:border-blue-400 transition-colors"
-                      >
-                        <div className="flex items-baseline gap-2.5">
-                          <span className="font-mono text-xs sm:text-sm font-bold text-[#2563EB] group-hover:scale-105 transition-transform">
-                            {item.num}
-                          </span>
-                          <div className="space-y-0.5">
-                            <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] group-hover:text-[#2563EB] transition-colors flex items-center gap-1.5">
-                              <span>{item.title}</span>
-                              <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </h4>
-                            <p className="text-[11px] text-slate-500 leading-snug">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
+                    <div className="flex items-baseline gap-2.5">
+                      <span className="font-mono text-xs sm:text-sm font-bold text-[#2563EB] group-hover:scale-105 transition-transform">
+                        {item.num}
+                      </span>
+                      <div className="space-y-0.5">
+                        <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] group-hover:text-[#2563EB] transition-colors flex items-center gap-1.5">
+                          <span>{item.title}</span>
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </h4>
+                        <p className="text-[11px] text-slate-500 leading-snug">
+                          {item.desc}
+                        </p>
                       </div>
-                    ))}
-                  </motion.div>
-                </AnimatePresence>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Clean, Proportional, Responsive Visual Frame (Span 5 - No Outer Floating Badges) */}
+          {/* KOLOM KANAN: Foto Visual Bersih, Proporsional, Bebas Badge Menggantung (Span 5) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`visual-${currentPillar.id}`}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[16/11] sm:aspect-[16/10] lg:aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_16px_40px_rgba(15,23,42,0.06)] group"
-              >
-                <Image
-                  src={currentPillar.image}
-                  alt={currentPillar.imageAlt}
-                  fill
-                  priority
-                  className="object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-out"
-                />
+            <div className="relative aspect-[4/3] sm:aspect-[4/3] lg:aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_16px_40px_rgba(15,23,42,0.06)] group">
+              <Image
+                src="/images/hero-editorial-portrait-2x.jpg"
+                alt="Profesional Indonesia fokus mengoperasikan sistem Abinest di lapangan"
+                fill
+                priority
+                className="object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-out"
+              />
 
-                {/* Soft Gradient Overlay for Readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent pointer-events-none" />
+              {/* Soft Gradient Overlay di Dasar Gambar */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent pointer-events-none" />
 
-                {/* Clean Bottom Label - Embedded Inside Image */}
-                <div className="absolute bottom-3.5 left-3.5 right-3.5 z-10 text-white/90 text-[11px] font-medium flex items-center justify-between pointer-events-none">
-                  <span className="bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white font-medium text-[11px]">
-                    {currentPillar.bottomTag}
-                  </span>
-                  <span className="font-mono text-[10px] text-sky-400 font-semibold bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
-                    Abinest Studio
-                  </span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+              {/* Label Minimalis di Dalam Gambar (Bukan Badge Menggantung di Luar) */}
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 z-10 text-white/90 text-[11px] font-medium flex items-center justify-between pointer-events-none">
+                <span className="bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white font-medium text-[11px]">
+                  Implementasi Sistem di Lapangan
+                </span>
+                <span className="font-mono text-[10px] text-sky-400 font-semibold bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                  Jakarta · Surabaya
+                </span>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
