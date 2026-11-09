@@ -272,11 +272,11 @@ export function GroveTechStackGrid() {
                   <div
                     onMouseEnter={() => setHoveredTech(col.top)}
                     onMouseLeave={() => setHoveredTech(null)}
-                    className={`relative w-full aspect-square sm:h-36 md:h-40 rounded-2xl sm:rounded-3xl bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_8px_20px_rgba(0,0,0,0.04)] group cursor-pointer ${
+                    className={`relative w-full aspect-square sm:h-36 md:h-40 rounded-[24px] sm:rounded-[32px] bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_10px_25px_rgba(15,23,42,0.03)] group cursor-pointer ${
                       isTopActive
                         ? col.top.isHighlighted
-                          ? "border-[#FF8A3D] shadow-[0_0_25px_rgba(255,138,61,0.25)] ring-1 ring-[#FF8A3D]/40"
-                          : "border-slate-200/80 hover:border-orange-300 hover:shadow-[0_12px_28px_rgba(249,115,22,0.18)] hover:-translate-y-1 opacity-100"
+                          ? "border-[#FF8A3D] shadow-[0_12px_35px_rgba(255,138,61,0.25)] ring-4 ring-[#FF8A3D]/20"
+                          : "border-slate-100/90 hover:border-orange-300 hover:shadow-[0_14px_30px_rgba(249,115,22,0.14)] hover:-translate-y-1 opacity-100"
                         : "border-slate-100 opacity-25 grayscale"
                     }`}
                   >
@@ -289,11 +289,11 @@ export function GroveTechStackGrid() {
                   <div
                     onMouseEnter={() => setHoveredTech(col.bottom)}
                     onMouseLeave={() => setHoveredTech(null)}
-                    className={`relative w-full aspect-square sm:h-36 md:h-40 rounded-2xl sm:rounded-3xl bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_8px_20px_rgba(0,0,0,0.04)] group cursor-pointer ${
+                    className={`relative w-full aspect-square sm:h-36 md:h-40 rounded-[24px] sm:rounded-[32px] bg-white border transition-all duration-300 p-4 flex flex-col items-center justify-center shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_10px_25px_rgba(15,23,42,0.03)] group cursor-pointer ${
                       isBottomActive
                         ? col.bottom.isHighlighted
-                          ? "border-[#FF8A3D] shadow-[0_0_25px_rgba(255,138,61,0.25)] ring-1 ring-[#FF8A3D]/40"
-                          : "border-slate-200/80 hover:border-orange-300 hover:shadow-[0_12px_28px_rgba(249,115,22,0.18)] hover:-translate-y-1 opacity-100"
+                          ? "border-[#FF8A3D] shadow-[0_12px_35px_rgba(255,138,61,0.25)] ring-4 ring-[#FF8A3D]/20"
+                          : "border-slate-100/90 hover:border-orange-300 hover:shadow-[0_14px_30px_rgba(249,115,22,0.14)] hover:-translate-y-1 opacity-100"
                         : "border-slate-100 opacity-25 grayscale"
                     }`}
                   >

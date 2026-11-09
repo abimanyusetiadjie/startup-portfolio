@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, ShieldCheck, Clock, FileCode2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export function GroveHeroSection() {
   const trustMetrics = [
@@ -29,185 +30,191 @@ export function GroveHeroSection() {
   return (
     <section
       id="beranda"
-      className="relative pt-10 sm:pt-14 pb-20 overflow-hidden bg-[#FAF9F6]"
+      className="relative pt-12 sm:pt-20 pb-20 overflow-hidden bg-[#FAF9F6]"
     >
-      {/* Ambient Warm Light Glows (85% Off-White, 10% Navy, 5% Orange Accent) */}
+      {/* Ambient Warm Sunset Backlight Diffused in Background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-10 right-6 w-[520px] h-[440px] bg-gradient-to-br from-orange-200/35 via-amber-100/30 to-slate-100/20 blur-[130px] rounded-full"
+        className="pointer-events-none absolute top-12 right-0 w-[620px] h-[520px] bg-gradient-to-br from-orange-200/40 via-amber-200/35 to-rose-100/20 blur-[140px] rounded-full"
       />
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Hero Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          {/* Left Column (7 cols): Clear, Benefit-Driven Indonesian Copywriting */}
-          <div className="lg:col-span-7 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column (7 cols): Clean, Elegant Swiss Typography */}
+          <div className="lg:col-span-7 space-y-7">
             {/* Eyebrow Trust Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200 shadow-[0_2px_8px_rgba(15,23,42,0.03)]">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[11px] sm:text-xs font-semibold tracking-wide text-[#0F172A]">
                 Software House &amp; Konsultan Teknologi · Sekolah, Yayasan &amp; Bisnis
               </span>
             </div>
 
-            {/* Headline answering What, For Whom, and What Outcome in 5 seconds */}
-            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-[#0F172A] leading-[1.12]">
-              Website Cepat, Sistem Anti-Down, &amp; Automasi Kerja yang{" "}
+            {/* Headline with Signature Terracotta Serif Italic Accent */}
+            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-extrabold tracking-tight text-[#0F172A] leading-[1.08]">
+              Website Cepat, Sistem Anti-Down, &amp; Automasi yang{" "}
               <span className="font-serif italic font-normal text-[#C2672B] tracking-normal">
                 Pasti
               </span>{" "}
-              <span className="font-extrabold text-[#0F172A]">
-                Beres.
-              </span>
+              Beres.
             </h1>
 
-            {/* Sub-headline explaining the 3 pillars + core competitive advantages */}
-            <p className="text-base sm:text-[17px] text-slate-600 max-w-[600px] leading-relaxed font-normal">
-              Kami membangun <strong className="font-semibold text-[#0F172A]">website institusi &amp; perusahaan</strong> yang cepat dibuka, <strong className="font-semibold text-[#0F172A]">sistem SIAKAD &amp; operasional</strong> yang tetap stabil di jam tersibuk, serta <strong className="font-semibold text-[#0F172A]">automasi WhatsApp &amp; laporan</strong> yang memangkas kerja manual — dengan jaminan <strong className="font-semibold text-[#0F172A]">100% source code milik Anda</strong> tanpa biaya lisensi bulanan.
+            {/* Sub-headline: Clear, Non-Technical Indonesian Copy */}
+            <p className="text-base sm:text-lg text-slate-600 max-w-[580px] leading-relaxed font-normal">
+              Kami merancang <strong className="font-semibold text-[#0F172A]">website company profile &amp; institusi</strong> yang cepat (&lt;0.8 dtk), <strong className="font-semibold text-[#0F172A]">sistem SIAKAD &amp; operasional</strong> yang anti-down saat jam sibuk, serta <strong className="font-semibold text-[#0F172A]">automasi WhatsApp resmi Meta</strong> yang memangkas kerja manual — dengan garansi <strong className="font-semibold text-[#0F172A]">100% source code milik Anda</strong> tanpa biaya sewa lisensi bulanan.
             </p>
 
-            {/* Primary & Secondary CTAs */}
+            {/* Primary & Secondary Action CTAs */}
             <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <a
                 href="#kontak"
-                className="group inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-[0_8px_25px_rgba(217,119,54,0.32)] hover:shadow-[0_12px_30px_rgba(217,119,54,0.42)] transition-all duration-200"
+                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-[0_10px_25px_rgba(217,119,54,0.32)] hover:shadow-[0_14px_32px_rgba(217,119,54,0.42)] hover:-translate-y-0.5 transition-all duration-200"
               >
-                <span>Konsultasikan Kebutuhan Sistem Anda</span>
+                <span>Konsultasikan Kebutuhan Anda</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
                 href="#studi-kasus"
-                className="group inline-flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold text-[#0F172A] hover:text-[#C2672B] transition-colors py-2.5 px-2"
+                className="group inline-flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold text-[#0F172A] hover:text-[#C2672B] transition-colors py-3 px-3"
               >
                 <span>Lihat Hasil Kerja Kami</span>
                 <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#C2672B] group-hover:translate-x-1 transition-all" />
               </a>
             </div>
 
-            {/* Reassurance Micro-Copy for Decision Makers */}
-            <div className="pt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600 font-medium border-t border-slate-200/70">
+            {/* Reassurance Micro-Copy for School Principals & Foundation Chairs */}
+            <div className="pt-3 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs text-slate-600 font-medium border-t border-slate-200/80">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Respons Engineer &lt;15 Menit (Jam Kerja)</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Pantau Progres via Portal Klien</span>
+                <span>Portal Klien untuk Tracking Transparan</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Termasuk Training Staf &amp; Dokumentasi</span>
+                <span>Termasuk Buku Panduan &amp; Training Staf</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column (5 cols): Clean Executive Proof Dashboard & Frosted Cards */}
-          <div className="lg:col-span-5 relative flex items-center justify-center py-4">
-            {/* Soft Warm Aura */}
+          {/* Right Column (5 cols): 3 Floating Glassmorphism Cards Matching Reference */}
+          <div className="lg:col-span-5 relative flex items-center justify-center py-6 min-h-[460px] sm:min-h-[500px]">
+            {/* Luminous Warm Amber Glow Behind Glass Cards */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-amber-200/30 via-orange-200/20 to-slate-200/25 blur-2xl rounded-full"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-amber-200/35 via-orange-200/30 to-rose-100/25 blur-3xl rounded-full scale-110"
             />
 
-            <div className="relative w-full max-w-[440px] space-y-4">
-              {/* Main Executive Summary Card */}
-              <div className="rounded-3xl bg-white/90 backdrop-blur-xl border border-slate-200/90 p-6 shadow-[0_20px_50px_rgba(15,23,42,0.06)]">
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#C2672B] block">
-                      RINGKASAN DAMPAK OPERASIONAL
-                    </span>
-                    <h2 className="text-sm font-bold text-[#0F172A] mt-0.5">
-                      Bukti Kinerja Sistem Klien Abinest
-                    </h2>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    SLA 99.9% Aktif
+            {/* Mobile Stack & Desktop Floating Container */}
+            <div className="relative w-full max-w-[440px] sm:h-[480px] flex flex-col sm:block gap-4">
+              {/* Card 1: 99.9% Uptime (Top Right) */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="sm:absolute sm:top-2 sm:right-2 w-full sm:w-[260px] rounded-3xl bg-white/75 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
+              >
+                <div className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A]">
+                  99.9%
+                </div>
+                <div className="text-sm font-semibold text-slate-600 mt-2">
+                  Uptime
+                </div>
+                <div className="text-[11px] text-slate-400 mt-1 font-medium">
+                  SLA Sistem Anti-Down
+                </div>
+              </motion.div>
+
+              {/* Card 2: 2.5k Active Users (Middle Left) */}
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{
+                  duration: 6.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.4,
+                }}
+                className="sm:absolute sm:top-36 sm:left-2 w-full sm:w-[250px] rounded-3xl bg-white/75 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] z-10 hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A]">
+                    2.5k
                   </span>
+                  <span className="text-amber-500/70 text-xs select-none">✦</span>
                 </div>
-
-                {/* 3 Clear Outcome Cards Inside */}
-                <div className="grid grid-cols-2 gap-3.5">
-                  {/* Stat 1: Uptime */}
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200/70 p-4">
-                    <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F172A]">
-                      99.9%
-                    </div>
-                    <div className="text-xs font-semibold text-slate-700 mt-1">
-                      Uptime Saat Ujian &amp; PPDB
-                    </div>
-                    <p className="text-[11px] text-slate-500 mt-1 leading-snug">
-                      0% crash saat 1.240+ siswa login bersamaan.
-                    </p>
-                  </div>
-
-                  {/* Stat 2: Speed & Users */}
-                  <div className="rounded-2xl bg-[#FAF9F6] border border-slate-200/70 p-4">
-                    <div className="flex items-center justify-between">
-                      <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F172A]">
-                        0.7 dtk
-                      </div>
-                      <span className="text-amber-500 text-xs font-serif select-none">
-                        ✦
-                      </span>
-                    </div>
-                    <div className="text-xs font-semibold text-slate-700 mt-1">
-                      Kecepatan Buka Web
-                    </div>
-                    <p className="text-[11px] text-slate-500 mt-1 leading-snug">
-                      Mudah diupdate sendiri oleh staf TU &amp; admin.
-                    </p>
-                  </div>
+                <div className="text-sm font-semibold text-slate-600 mt-2">
+                  Active Users
                 </div>
-
-                {/* Stat 3: Efficiency Improved (Full Width Highlight) */}
-                <div className="mt-3.5 rounded-2xl bg-gradient-to-r from-orange-50/90 via-amber-50/60 to-white border border-orange-200/80 p-4 flex items-center justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#C2672B]">
-                        -12 Jam/Mgg
-                      </span>
-                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-white text-[#C2672B] border border-orange-200">
-                        Hemat Waktu Kerja
-                      </span>
-                    </div>
-                    <div className="text-xs font-semibold text-[#0F172A] mt-1">
-                      Tagihan SPP, Invoice &amp; Rapor PDF Terkirim Otomatis via WhatsApp
-                    </div>
-                  </div>
-                  <div className="hidden sm:block shrink-0">
-                    <svg className="w-16 h-9 overflow-visible" viewBox="0 0 100 35" fill="none">
-                      <path
-                        d="M 5 30 C 30 28, 45 18, 65 20 C 80 22, 90 10, 98 4"
-                        stroke="#C2672B"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                      />
-                      <circle cx="98" cy="4" r="3" fill="#C2672B" />
-                    </svg>
-                  </div>
+                {/* Delicate rising organic chart curve */}
+                <div className="mt-3 relative">
+                  <svg
+                    className="w-full h-8 overflow-visible"
+                    viewBox="0 0 100 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M 2 20 C 25 18, 48 14, 68 8 C 82 4, 92 2, 98 2"
+                      stroke="#D97736"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                    />
+                    <circle cx="98" cy="2" r="2.5" fill="#D97736" />
+                  </svg>
                 </div>
+                <div className="text-[11px] text-slate-400 mt-1 font-medium">
+                  Siswa &amp; Staf Terkoneksi
+                </div>
+              </motion.div>
 
-                {/* Bottom Guarantee Footer Inside Card */}
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600">
-                  <span className="inline-flex items-center gap-1.5 font-medium">
-                    <FileCode2 className="w-3.5 h-3.5 text-[#0F172A]" />
-                    100% Serah Terima Source Code
+              {/* Card 3: +40% Efficiency Improved (Bottom Right) */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{
+                  duration: 6.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.8,
+                }}
+                className="sm:absolute sm:bottom-2 sm:right-4 w-full sm:w-[280px] rounded-3xl bg-white/80 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.08)] z-20 hover:shadow-[0_30px_70px_rgba(15,23,42,0.12)] transition-shadow"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#C2672B]">
+                    +40%
                   </span>
-                  <span className="inline-flex items-center gap-1 font-semibold text-emerald-700">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    Kontrak &amp; Garansi Resmi
-                  </span>
+                  <span className="text-amber-500/70 text-xs select-none">✦</span>
                 </div>
-              </div>
+                <div className="text-sm font-semibold text-slate-600 mt-2">
+                  Efficiency Improved
+                </div>
+                {/* Delicate rising organic chart curve */}
+                <div className="mt-3 relative">
+                  <svg
+                    className="w-full h-8 overflow-visible"
+                    viewBox="0 0 100 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M 2 20 C 30 18, 50 12, 72 10 C 86 8, 92 4, 98 2"
+                      stroke="#C2672B"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                    />
+                    <circle cx="98" cy="2" r="2.5" fill="#C2672B" />
+                  </svg>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-1 font-medium">
+                  Pangkas Kerja Manual TU &amp; Admin
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
 
-        {/* 4-Column Trust Bar (Metric Bar) */}
-        <div className="mt-14 pt-7 pb-7 border-y border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 bg-white rounded-2xl px-6 sm:px-8 shadow-[0_6px_25px_rgba(15,23,42,0.03)]">
+        {/* 4-Column Trust Bar with Hairline Borders */}
+        <div className="mt-16 pt-8 pb-8 border-y border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 bg-white/80 rounded-3xl px-6 sm:px-10 shadow-[0_4px_20px_rgba(15,23,42,0.02)] backdrop-blur-sm">
           {trustMetrics.map((m, idx) => (
             <div key={idx} className="space-y-1.5 pl-3 border-l-2 border-[#D97736]">
               <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0F172A]">
@@ -216,7 +223,7 @@ export function GroveHeroSection() {
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800">
                 {m.label}
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
                 {m.desc}
               </p>
             </div>

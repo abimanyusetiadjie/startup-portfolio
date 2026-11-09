@@ -17,9 +17,9 @@ export function GroveNavbar() {
 
   const navLinks = [
     { label: "Layanan", href: "#layanan-utama" },
+    { label: "Solusi", href: "#mengapa-abinest" },
     { label: "Hasil Kerja", href: "#studi-kasus" },
     { label: "Cara Kerja", href: "#cara-kerja" },
-    { label: "Testimoni", href: "#testimoni" },
     { label: "FAQ", href: "#faq" },
     { label: "Kontak", href: "#kontak" },
   ];
@@ -28,53 +28,52 @@ export function GroveNavbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#FAF9F6]/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(15,23,42,0.04)]"
-          : "bg-[#FAF9F6]/85 backdrop-blur-sm border-b border-slate-200/40"
+          ? "bg-[#FAF9F6]/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(15,23,42,0.03)]"
+          : "bg-[#FAF9F6]/80 backdrop-blur-sm border-b border-slate-200/40"
       }`}
     >
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
-        {/* Left: Abinest Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        {/* Left: Abinest Authentic Logo */}
+        <Link href="/" className="flex items-center gap-2">
           <AbinestLogo size="md" showTagline={false} />
         </Link>
 
-        {/* Center: Bahasa Indonesia Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8">
+        {/* Center: Clean Minimalist Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-9">
           {navLinks.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-[13.5px] font-medium text-slate-700 hover:text-[#C2672B] transition-colors"
+              className="text-[14px] font-medium text-slate-700 hover:text-[#0F172A] transition-colors"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Right: Portal Klien & Sticky CTA */}
-        <div className="hidden sm:flex items-center gap-3.5">
+        {/* Right: Portal Klien & Minimalist Pill Outline CTA Button */}
+        <div className="hidden sm:flex items-center gap-4">
           <Link
             href="/login"
-            className="text-xs font-semibold text-slate-600 hover:text-[#0F172A] transition-colors mr-1"
+            className="text-xs font-semibold text-slate-600 hover:text-[#0F172A] transition-colors"
           >
             Portal Klien
           </Link>
           <a
             href="#kontak"
-            className="inline-flex items-center gap-1.5 justify-center px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#D97736] hover:bg-[#C2672B] shadow-[0_4px_14px_rgba(217,119,54,0.28)] transition-all"
+            className="inline-flex items-center justify-center px-5 py-2 rounded-full text-xs sm:text-[13px] font-semibold text-[#0F172A] bg-white border border-slate-900/80 hover:bg-[#0F172A] hover:text-white transition-all duration-200 shadow-sm"
           >
-            <span>Konsultasi Gratis</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Let&apos;s Talk</span>
           </a>
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2.5">
           <a
             href="#kontak"
-            className="px-3.5 py-2 rounded-full text-xs font-semibold text-white bg-[#D97736]"
+            className="px-4 py-1.5 rounded-full text-xs font-semibold text-[#0F172A] border border-slate-900 bg-white"
           >
-            Konsultasi Gratis
+            Let&apos;s Talk
           </a>
           <button
             type="button"
@@ -104,16 +103,16 @@ export function GroveNavbar() {
             <Link
               href="/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2.5 text-center rounded-xl text-xs font-semibold text-slate-700 bg-white border border-slate-200"
+              className="text-xs font-semibold text-slate-600 py-1.5"
             >
-              Masuk Portal Klien
+              Portal Klien Login
             </Link>
             <a
               href="#kontak"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 text-center rounded-xl text-xs font-semibold text-white bg-[#D97736] shadow-md"
+              className="inline-flex items-center justify-center py-2.5 rounded-full text-xs font-semibold text-white bg-[#D97736]"
             >
-              Konsultasikan Kebutuhan Sistem Anda
+              Konsultasi Kebutuhan Anda
             </a>
           </div>
         </div>
