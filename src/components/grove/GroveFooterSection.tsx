@@ -116,11 +116,6 @@ export function GroveFooterSection() {
                   Cara Kerja &amp; Biaya
                 </a>
               </li>
-              <li>
-                <a href="#faq" className="hover:text-[#1D4ED8] transition-colors">
-                  Tanya Jawab (FAQ)
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -234,7 +229,7 @@ export function GroveFooterSection() {
             <a href="#cara-kerja" className="hover:text-[#0F172A] transition-colors">
               Kontrak &amp; Kepemilikan Kode 100%
             </a>
-            <a href="#faq" className="hover:text-[#0F172A] transition-colors">
+            <a href="#cara-kerja" className="hover:text-[#0F172A] transition-colors">
               Garansi SLA 99.9%
             </a>
           </div>
