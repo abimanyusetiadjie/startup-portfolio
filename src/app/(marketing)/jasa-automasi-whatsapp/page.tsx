@@ -75,7 +75,7 @@ export default function JasaAutomasiAiPage() {
             <div className="pt-4 flex items-center gap-4 flex-wrap">
               <a
                 href="#kontak"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-md transition-all"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all"
               >
                 <span>Konsultasikan Automasi AI Anda</span>
                 <ArrowRight className="w-4 h-4" />

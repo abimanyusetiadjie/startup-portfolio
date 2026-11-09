@@ -123,7 +123,7 @@ export default function LoginPage() {
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#64748B] hover:text-[#059669] transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#64748B] hover:text-[#2563EB] transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Kembali ke Halaman Utama</span>
@@ -139,7 +139,7 @@ export default function LoginPage() {
         >
           {/* Header */}
           <div className="space-y-2 text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-200 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#1E40AF] border border-blue-200 text-xs font-semibold">
               <ShieldCheck className="h-4 w-4" />
               <span>ABINEST CLIENT PORTAL GATE</span>
             </div>
@@ -163,7 +163,7 @@ export default function LoginPage() {
               }}
               className={`py-2 px-3 rounded-full text-xs font-semibold transition-all ${
                 authMode === "password"
-                  ? "bg-[#059669] text-white shadow-sm"
+                  ? "bg-[#2563EB] text-white shadow-sm"
                   : "text-[#64748B] hover:text-[#09090B]"
               }`}
             >
@@ -178,7 +178,7 @@ export default function LoginPage() {
               }}
               className={`py-2 px-3 rounded-full text-xs font-semibold transition-all ${
                 authMode === "magic_link"
-                  ? "bg-[#059669] text-white shadow-sm"
+                  ? "bg-[#2563EB] text-white shadow-sm"
                   : "text-[#64748B] hover:text-[#09090B]"
               }`}
             >
@@ -204,7 +204,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="direksi@perusahaan.co.id"
-                  className="w-full rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] pl-10 pr-4 py-3 text-sm text-[#09090B] placeholder:text-slate-400 focus:outline-none focus:border-[#059669] focus:bg-white transition"
+                  className="w-full rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] pl-10 pr-4 py-3 text-sm text-[#09090B] placeholder:text-slate-400 focus:outline-none focus:border-[#2563EB] focus:bg-white transition"
                 />
               </div>
             </div>
@@ -226,7 +226,7 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••••••"
-                    className="w-full rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] pl-10 pr-4 py-3 text-sm text-[#09090B] placeholder:text-slate-400 focus:outline-none focus:border-[#059669] focus:bg-white transition"
+                    className="w-full rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] pl-10 pr-4 py-3 text-sm text-[#09090B] placeholder:text-slate-400 focus:outline-none focus:border-[#2563EB] focus:bg-white transition"
                   />
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#059669] text-white font-semibold text-sm shadow-md shadow-emerald-600/20 hover:bg-[#047857] disabled:opacity-60 transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#2563EB] text-white font-semibold text-sm shadow-md shadow-blue-600/20 hover:bg-[#1D4ED8] disabled:opacity-60 transition-colors"
             >
               {isLoading ? (
                 <>
@@ -284,7 +284,7 @@ export default function LoginPage() {
           {/* Mode Demo Portal Klien (Bypass Preview) */}
           <div className="rounded-2xl bg-[#0F172A] text-white p-5 border border-slate-800 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#10B981]">
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-sky-400">
                 <Sparkles className="h-3.5 w-3.5" />
                 PORTFOLIO LIVE PREVIEW
               </span>
@@ -302,7 +302,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleBypassDemoPreview}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#059669] text-white font-bold hover:bg-[#047857] text-xs sm:text-sm hover:opacity-95 transition"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#2563EB] text-white font-bold hover:bg-[#1D4ED8] text-xs sm:text-sm hover:opacity-95 transition"
             >
               <span>Mode Demo Portal Klien (Bypass Preview)</span>
               <ArrowUpRight className="h-4 w-4" />
