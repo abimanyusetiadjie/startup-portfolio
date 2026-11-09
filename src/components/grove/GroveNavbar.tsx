@@ -10,6 +10,7 @@ export function GroveNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -19,15 +20,28 @@ export function GroveNavbar() {
   });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 16);
+      const sections = ["layanan-utama", "portofolio", "cara-kerja", "faq"];
+      const scrollPos = window.scrollY + 220;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sections[i]);
+          return;
+        }
+      }
+      if (window.scrollY < 300) setActiveSection(null);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
-    { label: "Layanan", href: "#layanan-utama" },
-    { label: "Hasil Kerja", href: "#portofolio" },
-    { label: "Cara Kerja", href: "#cara-kerja" },
+    { label: "Layanan", href: "#layanan-utama", id: "layanan-utama" },
+    { label: "Hasil Kerja", href: "#portofolio", id: "portofolio" },
+    { label: "Cara Kerja", href: "#cara-kerja", id: "cara-kerja" },
+    { label: "FAQ", href: "#faq", id: "faq" },
   ];
 
   const handleSmoothScroll = (
@@ -71,7 +85,7 @@ export function GroveNavbar() {
             className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-slate-200/50 border border-slate-200/60 backdrop-blur-xs text-[13.5px]"
           >
             {navLinks.map((item, idx) => {
-              const isHovered = hoveredIdx === idx;
+              const isSelected = hoveredIdx !== null ? hoveredIdx === idx : activeSection === item.id;
               return (
                 <a
                   key={item.label}
@@ -79,20 +93,25 @@ export function GroveNavbar() {
                   onClick={(e) => handleSmoothScroll(e, item.href)}
                   onMouseEnter={() => setHoveredIdx(idx)}
                   className={`relative px-4 py-1.5 rounded-full transition-all duration-200 font-medium select-none text-center ${
-                    isHovered
+                    isSelected
                       ? "text-slate-950 font-semibold"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   {/* Floating Spring Hover Capsule */}
-                  {isHovered && (
+                  {isSelected && (
                     <motion.span
                       layoutId="nav-hover-capsule"
                       transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                      className="absolute inset-0 rounded-full bg-white shadow-xs border border-slate-300/70 -z-10"
+                      className="absolute inset-0 rounded-full bg-white/95 border border-slate-200/90 shadow-[0_3px_12px_rgba(37,99,235,0.08),0_1px_2px_rgba(15,23,42,0.04)] -z-10"
                     />
                   )}
-                  <span className="relative z-10">{item.label}</span>
+                  <span className="relative z-10 flex items-center justify-center gap-1.5">
+                    {isSelected && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0" />
+                    )}
+                    <span>{item.label}</span>
+                  </span>
                 </a>
               );
             })}
@@ -129,16 +148,24 @@ export function GroveNavbar() {
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-2 shadow-lg">
-            {navLinks.map((item) => (
+            {navLinks.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="block text-sm font-semibold text-slate-700 hover:text-slate-950 hover:bg-slate-100 px-3 py-2 rounded-xl transition-colors"
+                className={`flex items-center justify-between text-sm font-semibold px-3.5 py-2.5 rounded-xl transition-colors ${
+                  isActive
+                    ? "text-[#1D4ED8] bg-blue-50/80 font-bold"
+                    : "text-slate-700 hover:text-slate-950 hover:bg-slate-100"
+                }`}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />}
               </a>
-            ))}
+              );
+            })}
             <div className="pt-3 flex flex-col gap-2.5 border-t border-slate-100">
               <Link
                 href="/login"
