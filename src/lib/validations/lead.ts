@@ -12,7 +12,7 @@ export type ServiceInterest = (typeof SERVICE_INTEREST_VALUES)[number];
 
 export const SERVICE_INTEREST_LABELS: Record<ServiceInterest, string> = {
   web_development: "High-Performance Web (95–100 Lighthouse)",
-  custom_siakad_erp: "Custom SIAKAD & Parallel PDF Engine",
+  custom_siakad_erp: "Custom Enterprise ERP & Multi-Warehouse",
   business_automation: "Business Automation & WA/API Gateway",
   full_ecosystem: "Full Enterprise Ecosystem (End-to-End)",
 };
@@ -20,7 +20,7 @@ export const SERVICE_INTEREST_LABELS: Record<ServiceInterest, string> = {
 export const BUDGET_RANGE_OPTIONS = [
   "< Rp 15 Juta (MVP / Landing Page)",
   "Rp 15 Juta – Rp 45 Juta (Sistem Menengah)",
-  "Rp 45 Juta – Rp 100 Juta (Enterprise / SIAKAD)",
+  "Rp 45 Juta – Rp 100 Juta (Enterprise ERP / AI Pipeline)",
   "> Rp 100 Juta (Full Custom Ecosystem)",
 ] as const;
 

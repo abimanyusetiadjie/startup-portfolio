@@ -71,7 +71,7 @@ export function GroveCoreShieldSection() {
         {/* ========================================================================= */}
         <div className="space-y-14">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#1E40AF] bg-blue-100/70 px-3.5 py-1 rounded-full border border-blue-200">
               ALUR KERJA TRANSPARAN
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
@@ -89,11 +89,11 @@ export function GroveCoreShieldSection() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-emerald-300 transition-all duration-200 relative group"
+                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 relative group"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-black text-[#059669]">
+                      <span className="text-2xl font-black text-[#2563EB]">
                         {s.step}
                       </span>
                       <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
@@ -101,7 +101,7 @@ export function GroveCoreShieldSection() {
                       </span>
                     </div>
 
-                    <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#065F46] group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1E40AF] group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
 
@@ -114,7 +114,7 @@ export function GroveCoreShieldSection() {
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center gap-1.5 text-[11px] font-bold text-emerald-700">
+                  <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center gap-1.5 text-[11px] font-bold text-blue-700">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     <span>{s.guarantee}</span>
                   </div>
@@ -131,30 +131,30 @@ export function GroveCoreShieldSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column (5 cols): Tangible Guarantees */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-200 text-xs font-bold uppercase tracking-wider">
                 <FileCode2 className="w-3.5 h-3.5" />
                 Jaminan Zero Vendor Lock-in
               </div>
 
               <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
-                100% Source Code &amp; Database Menjadi Hak Milik Institusi Anda.
+                100% Source Code &amp; Database Menjadi Hak Milik Perusahaan Anda.
               </h3>
 
               <p className="text-sm text-slate-600 leading-relaxed">
-                Banyak sekolah dan yayasan terjebak biaya lisensi bulanan yang terus naik setiap tahun. Di Abinest, sistem yang kami bangun adalah <strong>aset resmi institusi Anda selamanya</strong> tanpa biaya sewa per siswa atau per user.
+                Banyak perusahaan terjebak software impor dengan biaya sewa bulanan mahal yang terus membengkak per user. Di Abinest, sistem yang kami bangun adalah <strong>aset resmi perusahaan Anda selamanya</strong> tanpa biaya lisensi per user.
               </p>
 
               <div className="space-y-3 pt-1 text-xs sm:text-sm text-slate-700 font-medium">
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Serah terima full repository GitHub &amp; file backup database</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Garansi tertulis SLA 99.9% Uptime resmi bertanda tangan</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Portal Klien untuk tracking revisi, milestone, dan garansi pasca-rilis</span>
                 </div>
               </div>
@@ -162,7 +162,7 @@ export function GroveCoreShieldSection() {
               <div className="pt-2">
                 <a
                   href="#kontak"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#064E3B] hover:bg-[#047857] shadow-md transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all"
                 >
                   <span>Mulai Konsultasi Tanpa Komitmen</span>
                   <ArrowRight className="w-4 h-4" />
@@ -176,28 +176,28 @@ export function GroveCoreShieldSection() {
                 {/* Handover Terminal Bar */}
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-[11px]">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
                     <span className="text-slate-100 font-bold">
-                      abinest-handover-package · v2.4.0 (Official Release)
+                      abinest-handover-package · v2.4.0 (Official Enterprise Release)
                     </span>
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 font-semibold border border-emerald-800/80">
+                  <span className="px-2 py-0.5 rounded bg-blue-950 text-sky-400 font-semibold border border-blue-800/80">
                     STATUS: FULL OWNERSHIP
                   </span>
                 </div>
 
                 {/* File Tree Visual */}
                 <div className="space-y-1.5 text-[11px] leading-relaxed font-mono">
-                  <div className="text-emerald-400 font-bold flex items-center gap-1.5">
+                  <div className="text-sky-400 font-bold flex items-center gap-1.5">
                     <FolderTree className="w-3.5 h-3.5" />
-                    📁 repository/siakad-alhikmah-core/ (100% Hak Milik Klien)
+                    📁 repository/enterprise-erp-core/ (100% Hak Milik Klien)
                   </div>
-                  <div className="pl-4 text-slate-400">├── 📁 src/ (Next.js 15 App Router &amp; Server Components)</div>
-                  <div className="pl-4 text-slate-400">├── 📁 database/ (PostgreSQL Schema &amp; Backup Otomatis)</div>
-                  <div className="pl-4 text-slate-400">├── 📁 automations/ (Meta Cloud API WhatsApp Webhook)</div>
-                  <div className="pl-4 text-slate-400">├── 📄 docker-compose.yml (Server Deployment Ready)</div>
-                  <div className="pl-4 text-slate-300 font-semibold">├── 📜 SERTI_GARANSI_SLA_99.9.pdf (Garansi Resmi Tertulis)</div>
-                  <div className="pl-4 text-slate-300 font-semibold">└── 📘 PANDUAN_OPERASIONAL_STAF_TU.pdf (Buku Panduan Lengkap)</div>
+                  <div className="pl-4 text-slate-400">├── 📁 src/ (Next.js 15 &amp; High-Throughput Microservices)</div>
+                  <div className="pl-4 text-slate-400">├── 📁 database/ (PostgreSQL Schema &amp; Multi-Warehouse Sync)</div>
+                  <div className="pl-4 text-slate-400">├── 📁 automations/ (Document AI OCR &amp; Meta WhatsApp Agent)</div>
+                  <div className="pl-4 text-slate-400">├── 📄 docker-compose.yml (High-Availability Cloud Ready)</div>
+                  <div className="pl-4 text-slate-300 font-semibold">├── 📜 SERTI_GARANSI_SLA_99.99.pdf (Garansi Resmi Tertulis)</div>
+                  <div className="pl-4 text-slate-300 font-semibold">└── 📘 DOKUMENTASI_ARSITEKTUR_DAN_API.pdf (Buku Panduan Lengkap)</div>
                 </div>
 
                 {/* Handover Proof Cards Inside Terminal */}
@@ -207,10 +207,10 @@ export function GroveCoreShieldSection() {
                       AKSES REPOSITORY
                     </div>
                     <div className="text-slate-100 font-bold text-xs flex items-center gap-1.5">
-                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
-                      github.com/institusi-klien/siakad
+                      <Lock className="w-3.5 h-3.5 text-sky-400" />
+                      github.com/perusahaan-klien/enterprise-system
                     </div>
-                    <div className="text-[10px] text-emerald-400">
+                    <div className="text-[10px] text-sky-400">
                       Private &amp; Ditransfer 100% ke Akun Anda
                     </div>
                   </div>
@@ -221,7 +221,7 @@ export function GroveCoreShieldSection() {
                     </div>
                     <div className="text-slate-100 font-bold text-xs flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                      Rp 0,- / Siswa (Tanpa Biaya Sewa)
+                      Rp 0,- / Karyawan (Tanpa Biaya Lisensi)
                     </div>
                     <div className="text-[10px] text-slate-400">
                       Bebas Digunakan Selamanya

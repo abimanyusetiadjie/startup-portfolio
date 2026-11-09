@@ -7,36 +7,37 @@ const APP_BASE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(APP_BASE_URL),
   title: {
-    default: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
-    template: "%s | Abinest Engineering Studio",
+    default: "Abinest | Modern Web, Custom ERP, & AI/ML Automation Startup",
+    template: "%s | Abinest Startup Rekayasa Teknologi",
   },
   description:
-    "Infrastruktur perangkat lunak kelas enterprise: Website Next.js 100 Lighthouse, SIAKAD sekolah decoupled anti-down dengan paralel PDF worker, dan otomasi WhatsApp API.",
+    "Startup software house & studio rekayasa teknologi: Jasa Website Modern Next.js 15 (<0.8s), Sistem ERP Kustom Multi-Gudang & Finansial, serta Automasi AI & Machine Learning. 100% Hak Milik Source Code tanpa biaya sewa lisensi.",
   keywords: [
-    "Abinest Engineering Studio",
-    "Sistem SIAKAD Sekolah Modern",
-    "Parallel PDF Report Generator",
-    "Otomasi Bisnis WhatsApp API",
-    "Next.js Enterprise Development",
-    "Omnichannel Order Stock Hub",
-    "Supabase PostgreSQL RLS",
+    "Abinest Software House",
+    "Jasa Pembuatan Website Modern Next.js",
+    "Sistem ERP Kustom Enterprise Indonesia",
+    "Automasi AI Machine Learning",
+    "Document AI Invoice OCR",
+    "WhatsApp AI Agent Meta Cloud API",
+    "Next.js 15 Enterprise Architecture",
+    "PostgreSQL Multi-Warehouse ERP",
   ],
-  authors: [{ name: "Abinest Engineering Studio" }],
-  creator: "Abinest Engineering Studio",
+  authors: [{ name: "Abinest Startup Rekayasa Teknologi" }],
+  creator: "Abinest Startup Rekayasa Teknologi",
   openGraph: {
     type: "website",
     locale: "id_ID",
     url: APP_BASE_URL,
-    siteName: "Abinest Engineering Studio",
-    title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
+    siteName: "Abinest Startup Rekayasa Teknologi",
+    title: "Abinest | Modern Web, Custom ERP, & AI/ML Automation Startup",
     description:
-      "Arsitektur Web Next.js 100 Lighthouse, SIAKAD terpisah anti-down dengan mesin cetak ratusan PDF rapor otomatis, dan integrasi API/WhatsApp real-time.",
+      "Teruji di 25+ Perusahaan Nasional. SLA 99.99% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code Tanpa Biaya Lisensi Bulanan.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abinest | Studio Rekayasa Sistem Enterprise & Otomasi B2B",
+    title: "Abinest | Modern Web, Custom ERP, & AI/ML Automation Startup",
     description:
-      "Spesialis Web Modern 100 Lighthouse, SIAKAD + Parallel PDF Engine, & Otomasi WhatsApp/API B2B.",
+      "Website Berkecepatan Tinggi <0.8s, Sistem ERP Multi-Gudang Bebas Biaya Lisensi, dan Automasi AI WhatsApp Meta Cloud API.",
   },
   robots: {
     index: true,
@@ -50,7 +51,7 @@ export default function MarketingLayout({
   children: ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#0F766E] selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#2563EB] selection:text-white">
       {children}
     </div>
   );

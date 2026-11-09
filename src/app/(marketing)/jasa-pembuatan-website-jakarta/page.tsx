@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Globe, ShieldCheck, Clock, ArrowLeft } from "lucide-react";
+import { ArrowRight, CheckCircle2, Globe, ShieldCheck, Clock, ArrowLeft, Zap } from "lucide-react";
 import { GroveNavbar } from "@/components/grove/GroveNavbar";
 import { GroveAmberContactSection } from "@/components/grove/GroveAmberContactSection";
 import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
@@ -8,15 +8,15 @@ import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp"
 
 export const metadata: Metadata = {
   title:
-    "Jasa Pembuatan Website Jakarta & Surabaya — Cepat <0.8 Detik & Mudah Dikelola | Abinest",
+    "Jasa Pembuatan Website Modern Next.js 15 (<0.8s) Jakarta & Surabaya | Abinest",
   description:
-    "Jasa pembuatan website sekolah, yayasan, UMKM, dan perusahaan di Jakarta & Surabaya. Loading <0.8 detik, skor Google 95-100, mudah diupdate sendiri oleh staf admin, dan 100% source code milik Anda.",
+    "Jasa pembuatan website modern Next.js 15 berkecepatan tinggi (<0.8s), skor Google Lighthouse 100/100, SEO organik peringkat #1, dan arsitektur headless untuk korporat, startup, dan bisnis modern. 100% hak milik source code.",
   keywords: [
     "jasa pembuatan website jakarta",
     "jasa pembuatan website surabaya",
-    "jasa pembuatan website sekolah",
-    "jasa pembuatan website yayasan",
+    "jasa website next.js 15 modern",
     "jasa pembuatan website company profile",
+    "headless web development indonesia",
   ],
   alternates: {
     canonical: "/jasa-pembuatan-website-jakarta",
@@ -25,44 +25,44 @@ export const metadata: Metadata = {
 
 export default function JasaWebsitePage() {
   const benefits = [
-    "Terbuka di bawah 0,8 detik di jaringan HP sehingga calon klien atau wali murid tidak menutup halaman.",
-    "Dilengkapi dashboard pengelola berita & halaman yang semudah mengetik di Word — staf TU/admin tidak perlu paham coding.",
-    "Struktur SEO lokal (Jakarta, Surabaya, & nasional) agar institusi Anda mudah ditemukan di halaman pertama Google.",
-    "100% source code dan domain diserahkan penuh menjadi hak milik institusi Anda tanpa biaya sewa bulanan.",
+    "Halaman terbuka kilat di bawah 0,8 detik di jaringan HP calon klien dan investor (Core Web Vitals hijau sempurna).",
+    "Arsitektur Next.js 15 Server Components dengan optimasi SEO terpadu untuk mendongkrak peringkat halaman #1 Google.",
+    "Desain editorial modern dengan rasio 80% visual / 20% teks yang meningkatkan lead conversion rate hingga +180%.",
+    "100% kepemilikan source code dan repositori Git diserahkan penuh tanpa biaya sewa lisensi bulanan selamanya.",
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#0F172A] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans">
       <GroveNavbar />
 
       <main className="flex-1">
-        <section className="py-16 sm:py-20 bg-[#FAF9F6] border-b border-slate-200/80">
+        <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
           <div className="max-w-[1060px] mx-auto px-5 sm:px-8 space-y-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-[#C2672B]"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-[#065F46] transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Kembali ke Halaman Utama Abinest</span>
             </Link>
 
             <div className="space-y-4 max-w-3xl">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#C2672B] bg-orange-100/70 px-3.5 py-1 rounded-full border border-orange-200">
-                PILAR LAYANAN 01 · JAKARTA &amp; SURABAYA
+              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
+                PILAR LAYANAN 01 · MODERN WEB ARCHITECTURE
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-                Jasa Pembuatan Website Sekolah, Yayasan, &amp; Perusahaan yang Cepat dan Mudah Dikelola
+                Jasa Pembuatan Website Modern Next.js 15 Berkecepatan Tinggi (&lt;0.8s)
               </h1>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                Kami merancang website resmi untuk sekolah, yayasan pendidikan, UMKM, dan perusahaan menengah di Jakarta serta Surabaya. Dibangun dengan Next.js 15 agar terbuka kurang dari 0,8 detik dan meningkatkan kepercayaan publik maupun pendaftar PPDB.
+                Kami merancang dan membangun website resmi berkinerja tinggi untuk perusahaan nasional, fintech, dan startup modern di Jakarta serta Surabaya. Menggunakan teknologi Next.js 15 App Router dan Edge CDN agar halaman instan dibuka dan konversi bisnis melesat.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-              {benefits.map((b, i) => (
+              {benefits.map((b, idx) => (
                 <div
-                  key={i}
-                  className="bg-white border border-slate-200/90 rounded-2xl p-5 flex items-start gap-3 shadow-sm"
+                  key={idx}
+                  className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm"
                 >
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
@@ -72,23 +72,17 @@ export default function JasaWebsitePage() {
               ))}
             </div>
 
-            {/* Internal Linking to Other Pillars */}
-            <div className="pt-6 flex flex-wrap items-center gap-4 text-xs font-semibold">
-              <span className="text-slate-500">Lihat layanan Abinest lainnya:</span>
-              <Link
-                href="/jasa-pembuatan-sistem-sekolah"
-                className="text-[#C2672B] hover:underline inline-flex items-center gap-1"
+            <div className="pt-4 flex items-center gap-4 flex-wrap">
+              <a
+                href="#kontak"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-md transition-all"
               >
-                <span>Jasa Pembuatan Sistem Sekolah (SIAKAD)</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="/jasa-automasi-whatsapp"
-                className="text-[#C2672B] hover:underline inline-flex items-center gap-1"
-              >
-                <span>Jasa Automasi WhatsApp Resmi</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <span>Konsultasikan Website Anda</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <span className="text-xs text-slate-500 font-medium">
+                Selesai dalam 2–3 minggu · Garansi SLA 99.99%
+              </span>
             </div>
           </div>
         </section>

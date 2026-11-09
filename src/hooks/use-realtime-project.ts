@@ -15,17 +15,17 @@ export type RealtimeConnectionState =
   | "DISCONNECTED";
 
 const DEFAULT_DEMO_PROJECT: ProjectRow = {
-  id: "proj-alazhar-siakad-01",
-  client_id: "client-alazhar-01",
-  name: "Implementasi SIAKAD Modern Yayasan Al-Azhar",
-  slug: "implementasi-siakad-modern-yayasan-al-azhar",
-  pillar: "custom_siakad_erp",
+  id: "proj-logistik-erp-01",
+  client_id: "client-logistik-01",
+  name: "Implementasi Sistem ERP Kustom & Supply Chain PT Logistik Nusantara",
+  slug: "implementasi-erp-kustom-logistik-nusantara",
+  pillar: "custom_enterprise_erp",
   status: "qa_testing",
-  progress_percentage: 83,
-  uptime_sla: 99.98,
-  repository_url: "https://github.com/triloe-studio/siakad-core-alazhar",
-  staging_url: "https://staging.siakad-alazhar.triloe.id",
-  production_url: "https://siakad.alazhar-terpadu.sch.id",
+  progress_percentage: 88,
+  uptime_sla: 99.99,
+  repository_url: "https://github.com/abinest/erp-core-logistik-nusantara",
+  staging_url: "https://staging.erp.logistiknusantara.id",
+  production_url: "https://erp.logistiknusantara.id",
   start_date: "2026-09-01",
   target_end_date: "2026-11-30",
   created_at: "2026-09-01T08:00:00.000Z",
@@ -35,10 +35,10 @@ const DEFAULT_DEMO_PROJECT: ProjectRow = {
 const DEFAULT_DEMO_MILESTONES: MilestoneRow[] = [
   {
     id: "ms-01",
-    project_id: "proj-alazhar-siakad-01",
-    title: "Arsitektur Database Terpisah & Kebijakan PostgreSQL RLS",
+    project_id: "proj-logistik-erp-01",
+    title: "Arsitektur PostgreSQL Multi-Warehouse & Role-Based Access Control (RBAC)",
     description:
-      "Isolasi penuh skema Administrasi/SPP dari LMS/Ujian beserta kebijakan RLS untuk Admin, Guru, dan Siswa.",
+      "Isolasi hak akses bertingkat untuk Direksi, Kepala Gudang, Staff Finance, dan Tim Lapangan.",
     is_completed: true,
     completed_at: "2026-09-14T10:15:00.000Z",
     sort_order: 1,
@@ -47,10 +47,10 @@ const DEFAULT_DEMO_MILESTONES: MilestoneRow[] = [
   },
   {
     id: "ms-02",
-    project_id: "proj-alazhar-siakad-01",
-    title: "Modul Akademik, Penilaian Kurikulum Merdeka & Absensi",
+    project_id: "proj-logistik-erp-01",
+    title: "Modul Sinkronisasi Inventori 18.000 SKU & Latensi <35ms",
     description:
-      "Dashboard input nilai guru dengan validasi skema ketat dan sinkronisasi instan.",
+      "Sinkronisasi real-time stok antar 4 gudang cabang Jakarta, Surabaya, Bandung, & Semarang.",
     is_completed: true,
     completed_at: "2026-10-02T14:20:00.000Z",
     sort_order: 2,
@@ -59,10 +59,10 @@ const DEFAULT_DEMO_MILESTONES: MilestoneRow[] = [
   },
   {
     id: "ms-03",
-    project_id: "proj-alazhar-siakad-01",
-    title: "Parallel PDF Report Engine (Upstash QStash + Supabase Storage)",
+    project_id: "proj-logistik-erp-01",
+    title: "Pipeline Document AI Invoice OCR & Rekonsiliasi Otomatis",
     description:
-      "Worker asinkron pencetak 500+ PDF rapor paralel di bawah 45 detik dengan proteksi Signed URL 60 menit.",
+      "Ekstraksi faktur supplier otomatis dengan akurasi 99.7% memangkas waktu kerja manual finance.",
     is_completed: true,
     completed_at: "2026-10-19T16:45:00.000Z",
     sort_order: 3,
@@ -71,10 +71,10 @@ const DEFAULT_DEMO_MILESTONES: MilestoneRow[] = [
   },
   {
     id: "ms-04",
-    project_id: "proj-alazhar-siakad-01",
-    title: "Integrasi WhatsApp Notification Gateway & Payment VA/QRIS",
+    project_id: "proj-logistik-erp-01",
+    title: "Integrasi WhatsApp Meta Cloud API Resmi & Notifikasi Dispatch",
     description:
-      "Pengiriman notifikasi tagihan SPP otomatis dan rekonsiliasi pembayaran real-time.",
+      "Notifikasi status pengiriman kontainer otomatis ke nomor WhatsApp klien korporat secara instan.",
     is_completed: true,
     completed_at: "2026-10-29T11:10:00.000Z",
     sort_order: 4,
@@ -83,10 +83,10 @@ const DEFAULT_DEMO_MILESTONES: MilestoneRow[] = [
   },
   {
     id: "ms-05",
-    project_id: "proj-alazhar-siakad-01",
-    title: "Load Testing 2.500 Siswa Serentak & Security Audit",
+    project_id: "proj-logistik-erp-01",
+    title: "Automated Load Testing 10.000 Transaksi Serentak & Security Audit",
     description:
-      "Simulasi beban puncak ujian semester serentak dengan target 0% crash dan latensi API <100ms.",
+      "Simulasi lonjakan beban transaksi order masif dengan target 0% downtime dan SLA 99.99%.",
     is_completed: true,
     completed_at: "2026-11-03T09:30:00.000Z",
     sort_order: 5,
@@ -95,10 +95,10 @@ const DEFAULT_DEMO_MILESTONES: MilestoneRow[] = [
   },
   {
     id: "ms-06",
-    project_id: "proj-alazhar-siakad-01",
-    title: "Deployment Produksi Multi-Kampus & Serah Terima Dokumentasi",
+    project_id: "proj-logistik-erp-01",
+    title: "Deployment Cloud High-Availability & Handover 100% Source Code",
     description:
-      "Peluncuran penuh ke domain produksi yayasan beserta pelatihan tim IT internal.",
+      "Peluncuran produksi resmi, transfer kepemilikan repository GitHub, dan pelatihan staf operasional.",
     is_completed: false,
     completed_at: null,
     sort_order: 6,

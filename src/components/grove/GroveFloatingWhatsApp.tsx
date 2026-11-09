@@ -24,16 +24,16 @@ export function GroveFloatingWhatsApp() {
 
   const quickOptions = [
     {
-      title: "1. Jasa Pembuatan Website (Sekolah / Yayasan / Bisnis)",
-      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Pembuatan Website yang cepat dan mudah dikelola.",
+      title: "1. Jasa Pembuatan Website Modern (<0.8s, Next.js 15)",
+      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Pembuatan Website Modern berkecepatan tinggi (<0.8s) dan SEO 100/100.",
     },
     {
-      title: "2. Jasa Pembuatan Sistem (SIAKAD / ERP Anti-Down)",
-      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Pembuatan Sistem (SIAKAD / ERP) dengan jaminan anti-down.",
+      title: "2. Sistem ERP Enterprise Kustom (Multi-Gudang & Finansial)",
+      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan Sistem ERP Kustom Multi-Gudang & Inventori tanpa biaya lisensi bulanan.",
     },
     {
-      title: "3. Jasa Automasi (WhatsApp Tagihan SPP / Laporan PDF)",
-      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Automasi WhatsApp resmi dan otomatisasi laporan kerja.",
+      title: "3. Automasi AI & Machine Learning (Document AI + WhatsApp)",
+      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Automasi AI (Document AI invoice OCR & WhatsApp AI Agent Meta resmi).",
     },
   ];
 
@@ -58,13 +58,13 @@ export function GroveFloatingWhatsApp() {
             <div className="text-[11px] font-bold text-[#0F172A] truncate">
               Siap Diskusi Kebutuhan Anda?
             </div>
-            <div className="text-[10px] text-emerald-700 font-medium truncate">
+            <div className="text-[10px] text-blue-700 font-medium truncate">
               ● Respons &lt;15 menit · Tanpa komitmen
             </div>
           </div>
           <a
             href="#kontak"
-            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#059669] shadow-md"
+            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-md transition-colors"
           >
             <span>Konsultasi Gratis</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -108,10 +108,10 @@ export function GroveFloatingWhatsApp() {
                   key={idx}
                   type="button"
                   onClick={() => handleOpenChat(opt.text)}
-                  className="w-full text-left p-2.5 rounded-xl bg-[#F8FAFC] hover:bg-emerald-50 border border-slate-200/80 hover:border-emerald-200 text-xs font-semibold text-[#0F172A] transition-all flex items-center justify-between group"
+                  className="w-full text-left p-2.5 rounded-xl bg-[#F8FAFC] hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 text-xs font-semibold text-[#0F172A] transition-all flex items-center justify-between group"
                 >
                   <span>{opt.title}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#064E3B] transition-colors shrink-0 ml-2" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1D4ED8] transition-colors shrink-0 ml-2" />
                 </button>
               ))}
             </div>
@@ -121,7 +121,7 @@ export function GroveFloatingWhatsApp() {
               <button
                 type="button"
                 onClick={() => handleOpenChat()}
-                className="text-[#064E3B] font-bold hover:underline"
+                className="text-[#2563EB] font-bold hover:underline"
               >
                 Chat Langsung →
               </button>
@@ -133,7 +133,7 @@ export function GroveFloatingWhatsApp() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-[0_8px_25px_rgba(16,185,129,0.35)] hover:shadow-[0_10px_35px_rgba(16,185,129,0.5)] transition-all duration-300"
+          className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-gradient-to-r from-[#128C7E] to-[#25D366] hover:from-[#0E7166] hover:to-[#20BA5A] text-white shadow-[0_10px_30px_rgba(37,211,102,0.35)] hover:shadow-[0_12px_35px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105"
           aria-label="Konsultasi WhatsApp Abinest"
         >
           <span className="relative flex h-2.5 w-2.5">

@@ -79,9 +79,9 @@ export function GroveTestimonialsGrid() {
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[11px] font-bold tracking-wider text-slate-800 uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1E40AF]">
+            <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+            <span className="text-[11px] font-bold tracking-wider uppercase">
               KEPERCAYAAN EKSEKUTIF BISNIS
             </span>
           </div>
@@ -100,7 +100,7 @@ export function GroveTestimonialsGrid() {
           {visibleTestimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_10px_30px_rgba(15,23,42,0.03)] hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between"
+              className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_10px_30px_rgba(15,23,42,0.03)] hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between"
             >
               <div className="space-y-4">
                 {/* Star rating + Verified Badge */}
@@ -113,8 +113,8 @@ export function GroveTestimonialsGrid() {
                       />
                     ))}
                   </div>
-                  <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80">
-                    <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                  <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200/80">
+                    <ShieldCheck className="w-3 h-3 text-blue-600" />
                     Terverifikasi
                   </span>
                 </div>
@@ -141,7 +141,7 @@ export function GroveTestimonialsGrid() {
                   <div className="text-xs font-bold text-[#0F172A] truncate">
                     {t.name}
                   </div>
-                  <div className="text-[11px] font-medium text-emerald-700 truncate">
+                  <div className="text-[11px] font-medium text-blue-700 truncate">
                     {t.role}
                   </div>
                   <div className="text-[10px] text-slate-400 truncate">

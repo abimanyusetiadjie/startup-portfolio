@@ -30,37 +30,37 @@ export function GroveHeroSection() {
         <div
           className="absolute inset-0 opacity-[0.18] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,black_30%,transparent_80%)]"
           style={{
-            backgroundImage: `radial-gradient(rgba(5, 150, 105, 0.25) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(rgba(37, 99, 235, 0.25) 1px, transparent 1px)`,
             backgroundSize: "28px 28px",
           }}
         />
 
-        {/* Soft emerald atmospheric ambient diffused glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[760px] h-[440px] bg-gradient-to-b from-emerald-100/35 via-teal-50/20 to-transparent blur-[120px] rounded-full" />
+        {/* Soft cobalt atmospheric ambient diffused glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[760px] h-[440px] bg-gradient-to-b from-blue-100/35 via-sky-50/20 to-transparent blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Main Centered Content Container */}
         <div className="max-w-[880px] mx-auto text-center space-y-6 sm:space-y-7">
-          {/* Headline with Signature Italic Accent on "Beres" (Matching Image) */}
+          {/* Headline with Signature Italic Accent on "Beres" */}
           <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-extrabold tracking-tight text-[#0F172A] leading-[1.12]">
             Website, Sistem &amp; Automasi yang<br />
-            <span className="font-serif italic font-normal text-[#065F46] tracking-normal">
+            <span className="font-serif italic font-normal text-[#1D4ED8] tracking-normal">
               Beres
             </span>{" "}
             yang Ribet.
           </h1>
 
-          {/* 3. Subtitle (Matching Image) */}
+          {/* 3. Subtitle */}
           <p className="text-base sm:text-lg text-slate-600 max-w-[680px] mx-auto leading-relaxed font-normal">
             Kami membangun website cepat, sistem anti-down, dan automasi WhatsApp &amp; AI untuk bisnis, perusahaan, dan UMKM — tanpa biaya sewa lisensi bulanan.
           </p>
 
-          {/* 4. Two CTA Buttons (Matching Image, Colored in Emerald Theme) */}
+          {/* 4. Two CTA Buttons (Colored in Electric Cobalt Theme) */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <a
               href="#kontak"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-[0_10px_25px_rgba(5,150,105,0.25)] hover:-translate-y-0.5 transition-all duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] hover:-translate-y-0.5 transition-all duration-200"
             >
               Konsultasikan Kebutuhan Anda
             </a>
@@ -98,11 +98,11 @@ export function GroveHeroSection() {
           </div>
         </div>
 
-        {/* 6. Bottom 3 Value Cards in Green Theme (Matching Image Exactly) */}
+        {/* 6. Bottom 3 Value Cards in Electric Cobalt Theme */}
         <div className="mt-12 sm:mt-14 max-w-[1060px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {/* Card 1: Website <0.8s */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-emerald-300 hover:shadow-md transition-all group">
-            <div className="w-11 h-11 mx-auto rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-blue-300 hover:shadow-md transition-all group">
+            <div className="w-11 h-11 mx-auto rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
               <Zap className="w-5 h-5" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#0F172A]">
@@ -114,8 +114,8 @@ export function GroveHeroSection() {
           </div>
 
           {/* Card 2: Sistem Anti-Down 99.99% */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-emerald-300 hover:shadow-md transition-all group">
-            <div className="w-11 h-11 mx-auto rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-blue-300 hover:shadow-md transition-all group">
+            <div className="w-11 h-11 mx-auto rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#0F172A]">
@@ -127,8 +127,8 @@ export function GroveHeroSection() {
           </div>
 
           {/* Card 3: Automasi 10x Lebih Cepat */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-emerald-300 hover:shadow-md transition-all group">
-            <div className="w-11 h-11 mx-auto rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(15,23,42,0.02)] hover:border-blue-300 hover:shadow-md transition-all group">
+            <div className="w-11 h-11 mx-auto rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
               <MessageSquare className="w-5 h-5" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#0F172A]">

@@ -33,7 +33,7 @@ export function GroveFaqAccordionSection() {
     },
     {
       q: "7. Staf kami bukan orang IT. Apakah ada training sampai mereka lancar mengoperasikan?",
-      a: "Pasti. Kami merancang tampilan sistem agar sesederhana mungkin untuk staf non-teknis. Sebelum serah terima, kami mengadakan sesi pelatihan (training) langsung untuk staf TU, guru, maupun admin Anda, lengkap dengan buku panduan praktis dan video rekaman tutorial berbahasa Indonesia.",
+      a: "Pasti. Kami merancang tampilan sistem agar sesederhana mungkin untuk staf non-teknis. Sebelum serah terima, kami mengadakan sesi pelatihan (training) langsung untuk staf operasional, tim finance, tim gudang, maupun admin bisnis Anda, lengkap dengan buku panduan praktis dan video rekaman tutorial berbahasa Indonesia.",
     },
     {
       q: "8. Bagaimana cara memulai dan bagaimana tahapan pembayarannya?",
@@ -49,14 +49,14 @@ export function GroveFaqAccordionSection() {
       <div className="max-w-[860px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
+          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#1E40AF] bg-blue-100/70 px-3.5 py-1 rounded-full border border-blue-200">
             PERTANYAAN YANG SERING DIAJUKAN (FAQ)
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
             Jawaban Jelas untuk Kepastian &amp; Ketenangan Anda
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Hal-hal penting yang paling sering ditanyakan oleh Kepala Sekolah, Ketua Yayasan, dan Pemilik Bisnis sebelum memulai proyek bersama kami.
+            Hal-hal penting yang paling sering ditanyakan oleh Direktur Operasional, Founder, VP Marketing, dan Pemilik Bisnis sebelum memulai proyek bersama kami.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export function GroveFaqAccordionSection() {
                 key={idx}
                 className={`rounded-2xl border transition-all duration-200 px-5 sm:px-6 ${
                   isOpen
-                    ? "bg-white border-emerald-300 shadow-md"
+                    ? "bg-white border-blue-300 shadow-md"
                     : "bg-white border-slate-200/90 hover:border-slate-300 shadow-sm"
                 }`}
               >
@@ -85,7 +85,7 @@ export function GroveFaqAccordionSection() {
                   <span
                     className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                       isOpen
-                        ? "bg-[#059669] text-white"
+                        ? "bg-[#2563EB] text-white"
                         : "bg-slate-100 text-slate-600"
                     }`}
                   >
@@ -110,13 +110,13 @@ export function GroveFaqAccordionSection() {
         {/* Bottom Direct Question Prompt */}
         <div className="mt-10 text-center">
           <p className="text-xs sm:text-sm text-slate-600 flex items-center justify-center gap-2 flex-wrap">
-            <MessageCircle className="w-4 h-4 text-[#065F46]" />
+            <MessageCircle className="w-4 h-4 text-[#2563EB]" />
             <span>Punya pertanyaan khusus di luar daftar di atas?</span>
             <a
               href="https://wa.me/6285708677918?text=Halo%20Abinest%2C%20saya%20ingin%20bertanya%20mengenai%20layanan%20pembuatan%20website%2Fsistem%2Fautomasi."
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#065F46] hover:text-[#0F172A] font-bold underline underline-offset-4 transition-colors"
+              className="text-[#2563EB] hover:text-[#1D4ED8] font-bold underline underline-offset-4 transition-colors"
             >
               Tanyakan langsung ke tim engineer kami via WhatsApp →
             </a>

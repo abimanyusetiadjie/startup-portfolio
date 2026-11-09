@@ -18,6 +18,7 @@ export type LeadStatus =
 
 export type ServicePillar =
   | "high_perf_web"
+  | "custom_enterprise_erp"
   | "custom_siakad_erp"
   | "business_automation";
 

@@ -65,7 +65,7 @@ export function PortalShell({ children }: PortalShellProps) {
           ],
         },
       ]}
-      name="Yayasan Al-Azhar"
+      name="PT Logistik Nusantara"
       detail="Enterprise Client • SIAKAD Core"
       initials="YA"
       open={userMenuActive}
@@ -103,7 +103,7 @@ export function PortalShell({ children }: PortalShellProps) {
           },
           {
             url: "/portal/automation",
-            label: "Worker PDF SIAKAD & Webhook",
+            label: "Document AI & Webhook Queue",
             icon: AutomationIcon,
             selected: pathname.startsWith("/portal/automation"),
             badge: "QStash",

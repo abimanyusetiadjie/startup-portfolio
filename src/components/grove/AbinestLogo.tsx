@@ -57,13 +57,13 @@ export function AbinestLogo({
             strokeWidth="3"
             strokeLinecap="round"
           />
-          {/* Subtle Deep Forest / Emerald accent node */}
-          <circle cx="20.5" cy="11.5" r="1.6" fill="#059669" />
+          {/* Subtle Electric Cobalt accent node */}
+          <circle cx="20.5" cy="11.5" r="1.6" fill="#2563EB" />
         </svg>
 
         {/* Crisp geometric wordmark 'binest' */}
         <span
-          className={`${fontSize} font-bold text-[#0F172A] -ml-0.5 group-hover:text-[#064E3B] transition-colors`}
+          className={`${fontSize} font-bold text-[#0F172A] -ml-0.5 group-hover:text-[#1D4ED8] transition-colors`}
           style={{ letterSpacing: "-0.03em" }}
         >
           binest
@@ -71,7 +71,7 @@ export function AbinestLogo({
       </div>
 
       {showTagline && (
-        <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.16em] text-emerald-800 font-bold pl-2.5 border-l border-slate-300">
+        <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.16em] text-blue-900 font-bold pl-2.5 border-l border-slate-300">
           Web · ERP · AI/ML
         </span>
       )}

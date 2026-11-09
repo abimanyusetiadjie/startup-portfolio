@@ -103,7 +103,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     nav: {
       announcement: "Jasa Pembuatan Website, Sistem & Otomasi Bisnis • Jaminan SLA Uptime 99.9% • Konsultasi Gratis",
       systems: "Layanan & Sistem",
-      caseStudy: "Studi Kasus SIAKAD",
+      caseStudy: "Studi Kasus Enterprise ERP",
       standards: "Standar Layanan",
       portal: "Client Portal",
       clientLogin: "Masuk Klien",
@@ -114,12 +114,12 @@ export const translations: Record<Language, TranslationDictionary> = {
       headlinePrefix: "Jasa pembuatan website, sistem & otomasi bisnis yang ",
       headlineHighlight: "andal & cepat.",
       subtitle:
-        "Abinest adalah software house dan konsultan teknologi terpercaya. Kami melayani pembuatan website modern berkecepatan tinggi, sistem informasi enterprise (SIAKAD & ERP) anti-lelet, serta bot otomasi WhatsApp untuk mengoptimalkan operasional bisnis Anda.",
+        "Abinest adalah software house dan konsultan teknologi terpercaya. Kami melayani pembuatan website modern berkecepatan tinggi, sistem ERP enterprise kustom multi-gudang, serta bot otomasi WhatsApp untuk mengoptimalkan operasional bisnis Anda.",
       ctaPrimary: "Mulai Konsultasi Gratis →",
       ctaSecondary: "Buka Client Portal (/portal) →",
       featureBar: [
         { title: "Website Modern Super Cepat", desc: "Next.js 15 • Skor Lighthouse 95–100" },
-        { title: "SIAKAD & ERP Anti-Down", desc: "Kapasitas ribuan pengguna serentak" },
+        { title: "Custom ERP Anti-Down", desc: "Kapasitas ribuan transaksi serentak" },
         { title: "Mesin Rapor PDF Otomatis", desc: "500+ PDF tercetak dalam <45 detik" },
         { title: "Otomasi WhatsApp API", desc: "Kirim tagihan & pesan instan <2 detik" },
       ],
@@ -144,10 +144,10 @@ export const translations: Record<Language, TranslationDictionary> = {
         {
           id: "siakad-core",
           badge: "Sistem Pendidikan",
-          name: "SIAKAD Sekolah & Kampus Modern",
+          name: "Custom Enterprise ERP & Multi-Warehouse",
           metric: "SLA 99.9%",
           subtitle: "Buku nilai digital, modul SPP & ujian serentak tanpa server down",
-          ctaLabel: "Konsultasi Jasa SIAKAD",
+          ctaLabel: "Konsultasi Sistem ERP",
         },
         {
           id: "pdf-worker",
@@ -177,12 +177,12 @@ export const translations: Record<Language, TranslationDictionary> = {
     },
     caseStudy: {
       eyebrow: "STUDI KASUS PEMBUATAN SISTEM",
-      title: "Sistem SIAKAD yang Tetap Cepat Saat 1.200 Siswa Mengakses Bersamaan.",
-      desc: "Masalah umum sekolah dan yayasan: website down saat pembagian rapor dan ujian. Kami merancang arsitektur sistem modern yang memisahkan beban cetak PDF ke server background, sehingga sistem utama tetap lancar dan responsif.",
+      title: "Sistem ERP Multi-Gudang yang Mengotomasi 18.000 SKU.",
+      desc: "Masalah umum perusahaan: sistem down saat sinkronisasi stok dan lonjakan transaksi akhir bulan. Kami merancang arsitektur terpadu dengan koneksi pooling PostgreSQL, sehingga operasional gudang dan finance selalu lancar.",
       stat1Number: "0%",
       stat1Label: "Server crash saat pembagian rapor serentak",
       stat2Number: "< 45s",
-      stat2Label: "Selesai cetak 500+ PDF rapor siswa sekali klik",
+      stat2Label: "Sinkronisasi 18.000 SKU 4 cabang <35ms",
       cta: "Konsultasikan Kebutuhan Sistem Anda →",
     },
     standards: {
@@ -199,7 +199,7 @@ export const translations: Record<Language, TranslationDictionary> = {
         {
           num: "02",
           title: "Keamanan Data Terjamin (PostgreSQL Row Level Security)",
-          desc: "Data sensitif siswa, nilai akademik, dan keuangan yayasan dilindungi enkripsi ketat. Hanya akun berwenang yang dapat mengakses data terkait.",
+          desc: "Data transaksi finansial, inventori gudang, dan rahasia bisnis dilindungi enkripsi ketat. Hanya akun berwenang yang dapat mengakses data terkait.",
         },
         {
           num: "03",
@@ -212,24 +212,24 @@ export const translations: Record<Language, TranslationDictionary> = {
       eyebrow: "KONSULTASI GRATIS DENGAN KONSULTAN KAMI",
       title: "Ceritakan Kebutuhan Website atau Sistem Anda.",
       subtitle:
-        "Diskusikan ide proyek pembuatan website, sistem manajemen sekolah/kantor, atau otomasi bisnis Anda langsung bersama konsultan Abinest tanpa biaya komitmen awal.",
+        "Diskusikan ide proyek pembuatan website, sistem ERP kustom operasional, atau otomasi bisnis Anda langsung bersama konsultan Abinest tanpa biaya komitmen awal.",
       form: {
         nameLabel: "Nama Lengkap & Jabatan",
-        namePlaceholder: "contoh: Bpk. Hendra (Kepala Yayasan / Pemilik Bisnis)",
+        namePlaceholder: "contoh: Bpk. Hendra Kusuma (Direktur / Founder Bisnis)",
         emailLabel: "Email Anda",
         emailPlaceholder: "hendra@perusahaan.com",
         phoneLabel: "Nomor WhatsApp (Aktif)",
         phonePlaceholder: "081234567890",
         systemLabel: "Layanan yang Anda Butuhkan",
         options: [
-          { val: "custom_siakad_erp", label: "Jasa Pembuatan SIAKAD Sekolah & Kampus Modern" },
-          { val: "custom_siakad_erp", label: "Jasa Pembuatan Sistem ERP / Manajemen Bisnis" },
+          { val: "custom_enterprise_erp", label: "Sistem ERP Kustom Multi-Gudang & Finansial" },
+          { val: "custom_enterprise_erp", label: "Automasi AI & WhatsApp Agent Resmi Meta" },
           { val: "whatsapp_gateway_bot", label: "Jasa Otomasi WhatsApp & Notifikasi Pelanggan" },
           { val: "custom_web_app", label: "Jasa Pembuatan Website Perusahaan & Landing Page Modern" },
         ],
         noteLabel: "Deskripsi Singkat / Masalah yang Ingin Diselesaikan",
         notePlaceholder:
-          "Ceritakan kebutuhan Anda (misal: ingin buat website sekolah baru, sistem absensi online, kirim tagihan WhatsApp otomatis, dll.)",
+          "Ceritakan kebutuhan Anda (misal: ingin buat website modern <0.8s, sistem ERP multi-cabang, atau automasi invoice AI, kirim tagihan WhatsApp otomatis, dll.)",
         submitBtn: "Kirim Permintaan Konsultasi Gratis →",
         submittingBtn: "Sedang Mengirimkan Data...",
         successTitle: "Permintaan Konsultasi Berhasil Terkirim!",
@@ -240,7 +240,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     },
     footer: {
       studioTagline:
-        "Software house & konsultan teknologi yang melayani jasa pembuatan website modern, sistem informasi manajemen (SIAKAD/ERP), dan otomasi bisnis terintegrasi.",
+        "Software house & konsultan teknologi yang melayani jasa pembuatan website modern, sistem ERP kustom & automasi AI/ML, dan otomasi bisnis terintegrasi.",
       col1Title: "Layanan Kami",
       col2Title: "Infrastruktur",
       col3Title: "Akses Klien",
@@ -256,7 +256,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     nav: {
       announcement: "Web, System & Automation Engineering Services • 99.9% Uptime SLA • Free Consultation",
       systems: "Services & Systems",
-      caseStudy: "SIAKAD Case Study",
+      caseStudy: "Enterprise ERP Case Study",
       standards: "Our Standards",
       portal: "Client Portal",
       clientLogin: "Client Login",
@@ -267,12 +267,12 @@ export const translations: Record<Language, TranslationDictionary> = {
       headlinePrefix: "Custom web development, systems & business automation built to be ",
       headlineHighlight: "fast & resilient.",
       subtitle:
-        "Abinest is a software house and IT consulting partner. We build lightning-fast modern websites, crash-proof institutional information systems (SIAKAD & ERP), and resilient WhatsApp automation to scale your operations.",
+        "Abinest is a software house and IT consulting partner. We build lightning-fast modern websites, crash-proof enterprise information systems (Custom ERP & AI), and resilient WhatsApp automation to scale your operations.",
       ctaPrimary: "Start Free Consultation →",
       ctaSecondary: "Open Client Portal (/portal) →",
       featureBar: [
         { title: "Superfast Modern Web", desc: "Next.js 15 • Lighthouse score 95–100" },
-        { title: "Crash-Proof SIAKAD & ERP", desc: "Built for thousands of simultaneous users" },
+        { title: "Crash-Proof Custom ERP", desc: "High throughput multi-warehouse architecture" },
         { title: "Automated PDF Report Engine", desc: "500+ student PDFs generated in <45s" },
         { title: "WhatsApp API Automation", desc: "Automated invoices & alerts under 2s" },
       ],
@@ -297,10 +297,10 @@ export const translations: Record<Language, TranslationDictionary> = {
         {
           id: "siakad-core",
           badge: "Education System",
-          name: "Modern School & Campus SIAKAD",
+          name: "Custom Enterprise ERP System",
           metric: "SLA 99.9%",
           subtitle: "Digital gradebook, tuition billing, and exam portal with zero crash risk",
-          ctaLabel: "Consult SIAKAD System",
+          ctaLabel: "Consult ERP System",
         },
         {
           id: "pdf-worker",
@@ -330,7 +330,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     },
     caseStudy: {
       eyebrow: "SYSTEM ENGINEERING CASE STUDY",
-      title: "A SIAKAD System That Remains Fast Under 1,200 Simultaneous Users.",
+      title: "A Custom ERP System Managing 18,000 SKUs Seamlessly.",
       desc: "The common bottleneck for schools and foundations: crashes during report releases and exam sign-ups. We engineered a modern architecture separating PDF generation into asynchronous background workers, keeping the main app fast and fluid.",
       stat1Number: "0%",
       stat1Label: "Server downtime during peak report releases",
@@ -375,8 +375,8 @@ export const translations: Record<Language, TranslationDictionary> = {
         phonePlaceholder: "081234567890",
         systemLabel: "Service You Need",
         options: [
-          { val: "custom_siakad_erp", label: "Custom School & Campus SIAKAD System" },
-          { val: "custom_siakad_erp", label: "Custom ERP & Business Management Software" },
+          { val: "custom_enterprise_erp", label: "Custom Enterprise ERP & Supply Chain" },
+          { val: "custom_enterprise_erp", label: "Applied AI Automation & Meta WhatsApp Agent" },
           { val: "whatsapp_gateway_bot", label: "WhatsApp Automation & Customer Notification" },
           { val: "custom_web_app", label: "Modern Corporate Website & Landing Page" },
         ],
