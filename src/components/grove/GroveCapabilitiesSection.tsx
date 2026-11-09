@@ -28,54 +28,24 @@ export function GroveCapabilitiesSection() {
       icon: Globe,
       link: "#kontak",
       visual: (
-        <div className="relative w-full h-[240px] sm:h-[260px] bg-slate-900 rounded-2xl p-3 border border-slate-800 shadow-inner flex flex-col justify-between overflow-hidden">
-          {/* Top Browser Bar */}
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] text-slate-400">
+        <div className="relative w-full h-[240px] sm:h-[260px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner group bg-slate-900">
+          <Image
+            src="/images/capabilities/capabilities-web-preview.jpg"
+            alt="Modern Web Architecture by Abinest"
+            fill
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          />
+          {/* Soft Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+          {/* Floating Performance Badge */}
+          <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-900/90 backdrop-blur-md rounded-xl p-2.5 border border-slate-700/80 text-white flex items-center justify-between text-[10px]">
             <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full bg-rose-500" />
-              <div className="w-2 h-2 rounded-full bg-amber-500" />
-              <div className="w-2 h-2 rounded-full bg-emerald-500" />
+              <Zap className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+              <span className="font-bold truncate">Edge CDN &amp; SEO 100/100</span>
             </div>
-            <span className="font-mono text-[9px] text-slate-300">https://abinest.id/fast-web</span>
-            <span className="text-sky-400 font-bold bg-blue-950/80 px-1.5 py-0.5 rounded border border-blue-800 text-[9px]">
-              100 SPEED
+            <span className="text-sky-400 font-bold bg-blue-500/20 px-2 py-0.5 rounded border border-blue-500/40 shrink-0">
+              &lt;0.8s FCP
             </span>
-          </div>
-
-          {/* Browser Interior Preview */}
-          <div className="bg-[#F8FAFC] rounded-xl p-3.5 text-slate-900 space-y-2.5 my-auto">
-            <div className="flex items-center justify-between text-[10px]">
-              <span className="font-extrabold text-[#1D4ED8] flex items-center gap-1">
-                <Zap className="w-3 h-3 text-blue-600" />
-                Edge CDN Jakarta &amp; Surabaya
-              </span>
-              <span className="text-blue-700 font-bold bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">
-                0.38s FCP
-              </span>
-            </div>
-            <div className="text-xs font-bold text-[#0F172A] leading-tight">
-              Ultra-Fast Responsive Digital Platform
-            </div>
-            <div className="grid grid-cols-3 gap-1.5 text-center pt-1">
-              <div className="bg-white p-1.5 rounded-lg border border-slate-200 text-[10px]">
-                <div className="font-black text-blue-600">0.38s</div>
-                <div className="text-[8px] text-slate-400 font-medium">FCP Load</div>
-              </div>
-              <div className="bg-white p-1.5 rounded-lg border border-slate-200 text-[10px]">
-                <div className="font-black text-blue-600">100/100</div>
-                <div className="text-[8px] text-slate-400 font-medium">SEO Score</div>
-              </div>
-              <div className="bg-white p-1.5 rounded-lg border border-slate-200 text-[10px]">
-                <div className="font-black text-slate-900">0.00</div>
-                <div className="text-[8px] text-slate-400 font-medium">Zero CLS</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Footer Telemetry */}
-          <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-slate-800">
-            <span>Next.js 15 App Router</span>
-            <span className="text-sky-400 font-semibold">100% Mobile Ready</span>
           </div>
         </div>
       ),
@@ -91,7 +61,7 @@ export function GroveCapabilitiesSection() {
       visual: (
         <div className="relative w-full h-[240px] sm:h-[260px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner group">
           <Image
-            src="/images/erp-dashboard.jpg"
+            src="/images/capabilities/capabilities-erp-preview.jpg"
             alt="Custom Enterprise ERP System Dashboard by Abinest"
             fill
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
@@ -120,7 +90,7 @@ export function GroveCapabilitiesSection() {
       visual: (
         <div className="relative w-full h-[240px] sm:h-[260px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner group">
           <Image
-            src="/images/ai-ml-workflow.jpg"
+            src="/images/capabilities/capabilities-aiml-preview.jpg"
             alt="Applied AI & Machine Learning Pipeline by Abinest"
             fill
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
