@@ -284,9 +284,9 @@ export function GroveTechStackGrid() {
   return (
     <section
       id="tech-stack"
-      className="py-10 sm:py-12 relative overflow-hidden bg-white border-b border-slate-200/80"
+      className="py-6 sm:py-7 relative overflow-hidden bg-white border-b border-slate-200/80"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-lg bg-blue-50 text-[#1E40AF] flex items-center justify-center shrink-0">
             <Cpu className="w-3.5 h-3.5" />

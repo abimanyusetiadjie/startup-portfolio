@@ -3,11 +3,12 @@
 import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
 import { GrovePartnerPill } from "./GrovePartnerPill";
+import { GroveTechStackGrid } from "./GroveTechStackGrid";
 import { GroveCapabilitiesSection } from "./GroveCapabilitiesSection";
 import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
-import { GroveTechStackGrid } from "./GroveTechStackGrid";
+import { GroveFaqAccordionSection } from "./GroveFaqAccordionSection";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
@@ -21,25 +22,28 @@ export function GroveApp() {
       {/* 2. Hero Section + 4-Metric Trust Bar (Screen 1) */}
       <GroveHeroSection />
 
-      {/* 3. Trusted By / Grayscale Client Institution Bar */}
+      {/* 3. Trusted By / Client Institutions Ribbon (Moving Left ←) */}
       <GrovePartnerPill />
 
-      {/* 4. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
-      <GroveCapabilitiesSection />
-
-      {/* 5. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
-      <GroveCaseStudySection />
-
-      {/* 6. Testimoni Kredibel Terkurasi (Screen 4) */}
-      <GroveTestimonialsGrid />
-
-      {/* 7. Alur Kerja 5 Langkah + Bukti 100% Source Code Handover (Screen 5) */}
-      <GroveCoreShieldSection />
-
-      {/* 8. 12 Squircle Tech Stack Resmi Sesuai Referensi Gambar 2 (Screen 6) */}
+      {/* 4. Tech Stack & Engineering Architecture Ribbon (Moving Right →) */}
       <GroveTechStackGrid />
 
-      {/* 10. Final CTA + Form Konsultasi 4 Field Cepat (Screen 8) */}
+      {/* 5. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
+      <GroveCapabilitiesSection />
+
+      {/* 6. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
+      <GroveCaseStudySection />
+
+      {/* 7. Testimoni Kredibel Terkurasi (Screen 4) */}
+      <GroveTestimonialsGrid />
+
+      {/* 8. Alur Kerja 5 Langkah + Bukti 100% Source Code Handover (Screen 5) */}
+      <GroveCoreShieldSection />
+
+      {/* 9. FAQ Accordion 8 Pertanyaan Terpenting Klien (#faq) */}
+      <GroveFaqAccordionSection />
+
+      {/* 10. Final CTA + Form Konsultasi 4 Field Cepat (#kontak) */}
       <GroveAmberContactSection />
 
       {/* 11. Footer Lengkap & Badge Kepercayaan */}
