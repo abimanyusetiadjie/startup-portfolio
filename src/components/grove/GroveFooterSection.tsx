@@ -12,6 +12,7 @@ import {
   Lock,
 } from "lucide-react";
 import { AbinestLogo } from "./AbinestLogo";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function GroveFooterSection() {
   return (
@@ -171,7 +172,7 @@ export function GroveFooterSection() {
             </h3>
             <div className="space-y-2.5 text-xs text-slate-600">
               <div className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold text-[#0F172A] block">WhatsApp Konsultasi:</span>
                   <a

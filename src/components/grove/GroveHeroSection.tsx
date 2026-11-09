@@ -5,16 +5,16 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
-  ShieldCheck,
   Zap,
   Code2,
+  CheckCircle2,
   Globe,
   Database,
   Bot,
   MessageSquare,
   Sparkles,
   Building2,
-  TrendingUp,
+  ShieldCheck,
 } from "lucide-react";
 
 export function GroveHeroSection() {
@@ -25,137 +25,95 @@ export function GroveHeroSection() {
     {
       id: "web",
       tabLabel: "1. Modern Web",
-      tabSubtitle: "<0.8s Super Cepat",
+      tabSubtitle: "Akses Kilat <0.8s",
       icon: Globe,
-      accentColor: "#059669",
-      headlineLine1: "Website Cepat & Modern.",
-      headlineLine2: "Konversi Nyata Tanpa Lemot.",
+      accentColor: "#2563EB",
+      headlineLine1: "Website Korporat Modern",
+      headlineLine2: "Tampil Berkelas, Cepat, & Kredibel.",
       story:
-        "Website korporat berkecepatan <0.8 detik dengan SEO Google 100/100 untuk melipatgandakan kredibilitas serta penjualan bisnis Anda.",
-      kpis: [
+        "Membangun kehadiran digital yang meyakinkan calon klien sejak detik pertama. Halaman terbuka instan (<0.8 detik), skor SEO Google optimal, dan tampilan presisi di seluruh ukuran layar.",
+      metrics: [
         {
-          value: "<0.8s",
-          label: "Loading Speed",
-          sub: "Core Web Vitals Hijau",
-          icon: Zap,
+          num: "01",
+          title: "Akses Kilat <0.8 Detik",
+          desc: "Halaman ringan, tanpa lag, bebas beban plugin berat",
         },
         {
-          value: "100/100",
-          label: "Skor Google SEO",
-          sub: "Ranking Organik Cepat",
-          icon: Globe,
+          num: "02",
+          title: "Arsitektur SEO Google 100/100",
+          desc: "Struktur kode rapi untuk mendongkrak visibilitas bisnis",
         },
         {
-          value: "100%",
-          label: "Hak Milik Kode",
-          sub: "Bebas Biaya Sewa CMS",
-          icon: Code2,
+          num: "03",
+          title: "100% Hak Milik Source Code",
+          desc: "Bebas biaya sewa platform atau ketergantungan vendor",
         },
       ],
       image: "/images/hero-editorial-portrait-2x.jpg",
       imageAlt: "Implementasi Website Modern Abinest di Lapangan",
       bottomTag: "Next.js 15 App Router · Jakarta & Surabaya",
-      badge1: {
-        title: "Kecepatan <0.8s Terverifikasi",
-        subtitle: "Google PageSpeed Skor 100/100",
-        icon: Zap,
-        pulse: true,
-      },
-      badge2: {
-        title: "100% Hak Milik Source Code",
-        subtitle: "Zero Vendor Lock-in",
-        icon: Code2,
-      },
     },
     {
       id: "erp",
-      tabLabel: "2. Custom ERP",
-      tabSubtitle: "Anti-Down 99.99%",
+      tabLabel: "2. Sistem ERP Kustom",
+      tabSubtitle: "Kendali Operasional",
       icon: Building2,
-      accentColor: "#059669",
-      headlineLine1: "Sistem ERP Kustom.",
-      headlineLine2: "Operasional Bisnis Tenang.",
+      accentColor: "#1D4ED8",
+      headlineLine1: "Sistem Operasional Terpadu",
+      headlineLine2: "Kendali Penuh Gudang & Finansial.",
       story:
-        "Integrasi multi-gudang, inventaris otomatis, dan finansial terpadu tanpa biaya sewa lisensi per user selamanya.",
-      kpis: [
+        "Satukan seluruh alur bisnis—mulai dari mutasi stok multi-gudang, absensi staf, hingga laporan laba rugi real-time—dalam satu dashboard intuitif bergaransi SLA 99.99%.",
+      metrics: [
         {
-          value: "99.99%",
-          label: "SLA Anti-Down",
-          sub: "Monitoring 24/7",
-          icon: ShieldCheck,
+          num: "01",
+          title: "Keandalan Sistem SLA 99.99%",
+          desc: "Server stabil dengan sistem backup otomatis harian",
         },
         {
-          value: "Rp 0",
-          label: "Lisensi Bulanan",
-          sub: "User Tak Terbatas",
-          icon: Database,
+          num: "02",
+          title: "Bebas Biaya Lisensi Pengguna",
+          desc: "Tambah 100 hingga 10.000 karyawan tanpa biaya ekstra",
         },
         {
-          value: "18.000+",
-          label: "Kapasitas SKU",
-          sub: "Multi-Gudang Terpusat",
-          icon: Building2,
+          num: "03",
+          title: "Data Terenkripsi & Milik Penuh",
+          desc: "Struktur database sepenuhnya menjadi aset perusahaan Anda",
         },
       ],
       image: "/images/erp-dashboard.jpg",
       imageAlt: "Sistem ERP Multi-Gudang Abinest",
-      bottomTag: "Enterprise Architecture · Zero Downtime",
-      badge1: {
-        title: "SLA 99.99% Uptime Aktif",
-        subtitle: "Multi-Gudang Terintegrasi",
-        icon: ShieldCheck,
-        pulse: true,
-      },
-      badge2: {
-        title: "Zero Biaya Lisensi User",
-        subtitle: "Unlimited Staff Access",
-        icon: Database,
-      },
+      bottomTag: "Enterprise Core · Multi-Warehouse & Accounting",
     },
     {
       id: "ai-wa",
       tabLabel: "3. Automasi WA & AI",
-      tabSubtitle: "Respons Instan 24/7",
+      tabSubtitle: "Respons Non-Stop 24/7",
       icon: Bot,
-      accentColor: "#059669",
-      headlineLine1: "Automasi AI & WhatsApp.",
-      headlineLine2: "Respons 10x Lebih Cepat.",
+      accentColor: "#0284C7",
+      headlineLine1: "Automasi Alur Kerja Cerdas",
+      headlineLine2: "Respons Pelanggan 24 Jam Non-Stop.",
       story:
-        "Otomasi pesan invoice WhatsApp resmi Meta API dan AI Agent cerdas untuk melayani pelanggan 24 jam non-stop.",
-      kpis: [
+        "Otomatiskan pengiriman tagihan via WhatsApp resmi Meta, integrasi reminder pembayaran, dan asisten AI pintar yang sigap melayani pertanyaan klien seketika.",
+      metrics: [
         {
-          value: "<1 Detik",
-          label: "Respons Pelanggan",
-          sub: "AI Agent 24 Jam Non-Stop",
-          icon: Sparkles,
+          num: "01",
+          title: "Meta WhatsApp Cloud API Resmi",
+          desc: "Aman dari pemblokiran (anti-banned) dengan verifikasi bisnis",
         },
         {
-          value: "Resmi",
-          label: "Meta WhatsApp API",
-          sub: "Centang Hijau Anti-Banned",
-          icon: MessageSquare,
+          num: "02",
+          title: "Respons Pelanggan Seketika",
+          desc: "Asisten AI aktif melayani ramah di luar jam kantor",
         },
         {
-          value: "99.7%",
-          label: "Akurasi OCR AI",
-          sub: "Ekstraksi Invoice Otomatis",
-          icon: TrendingUp,
+          num: "03",
+          title: "Otomasi Faktur & Dokumen",
+          desc: "Pembacaan invoice instan tanpa input manual yang melelahkan",
         },
       ],
       image: "/images/ai-ml-workflow.jpg",
       imageAlt: "Automasi WhatsApp dan AI Pipeline",
-      bottomTag: "AI Automation · Meta Cloud API Resmi",
-      badge1: {
-        title: "Meta WhatsApp Cloud API",
-        subtitle: "Verifikasi Centang Hijau Bisnis",
-        icon: MessageSquare,
-        pulse: true,
-      },
-      badge2: {
-        title: "AI Agent Aktif 24/7",
-        subtitle: "Otomasi Alur Kerja Bisnis",
-        icon: Sparkles,
-      },
+      bottomTag: "Meta WhatsApp Cloud API & AI Workflow Engine",
     },
   ];
 
@@ -182,14 +140,17 @@ export function GroveHeroSection() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-0 overflow-hidden"
       >
+        {/* Soft Technical Dot Matrix */}
         <div
-          className="absolute inset-0 opacity-[0.20] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_25%,black_40%,transparent_85%)]"
+          className="absolute inset-0 opacity-[0.22] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_25%,black_40%,transparent_85%)]"
           style={{
-            backgroundImage: `radial-gradient(rgba(5, 150, 105, 0.22) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(rgba(37, 99, 235, 0.25) 1px, transparent 1px)`,
             backgroundSize: "28px 28px",
           }}
         />
-        <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-emerald-100/40 blur-[100px] rounded-full pointer-events-none" />
+
+        {/* Ambient Top Glow */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-blue-100/30 blur-[100px] rounded-full pointer-events-none" />
       </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
@@ -207,24 +168,22 @@ export function GroveHeroSection() {
                     setActiveIdx(idx);
                     setIsPaused(true);
                   }}
-                  className={`relative px-4 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2.5 cursor-pointer outline-none ${
+                  className={`relative px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer outline-none ${
                     isActive
-                      ? "text-white bg-[#064E3B] shadow-[0_4px_16px_rgba(6,78,59,0.25)] border border-[#065F46]"
-                      : "text-slate-600 bg-white/80 border border-slate-200 hover:text-slate-900 hover:bg-slate-100"
+                      ? "text-[#0F172A] bg-white border border-slate-300 shadow-[0_4px_16px_rgba(15,23,42,0.06)]"
+                      : "text-slate-500 bg-slate-100/70 border border-slate-200/50 hover:text-slate-900 hover:bg-slate-200/60"
                   }`}
                 >
                   <div
                     className={`w-6 h-6 rounded-lg flex items-center justify-center transition-colors ${
                       isActive
-                        ? "bg-emerald-500/20 text-emerald-200"
-                        : "bg-slate-100 text-slate-500"
+                        ? "bg-blue-50 text-[#2563EB]"
+                        : "bg-slate-200/80 text-slate-500"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
                   </div>
-                  <div className="text-left">
-                    <span className="block leading-none">{pillar.tabLabel}</span>
-                  </div>
+                  <span>{pillar.tabLabel}</span>
 
                   {/* Micro Progress Bar on Active Tab */}
                   {isActive && (
@@ -236,7 +195,7 @@ export function GroveHeroSection() {
                         duration: isPaused ? 0 : 6,
                         ease: "linear",
                       }}
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-emerald-400 rounded-full overflow-hidden"
+                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#2563EB] rounded-full overflow-hidden"
                     />
                   )}
                 </button>
@@ -244,7 +203,7 @@ export function GroveHeroSection() {
             })}
           </div>
 
-          <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium bg-white/70 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/80 w-fit">
+          <div className="flex items-center gap-2 text-[11px] text-slate-400 font-medium">
             <span
               className={`w-1.5 h-1.5 rounded-full ${
                 isPaused ? "bg-amber-500" : "bg-emerald-500 animate-pulse"
@@ -254,11 +213,10 @@ export function GroveHeroSection() {
           </div>
         </div>
 
-        {/* 2-Column High-Impact Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* LEFT COLUMN: Clean Typography, Punchy Micro-Copy, & 3 Visual KPI Cards (Span 7) */}
+        {/* Asymmetrical 2-Column Swiss Editorial Layout with Smooth Crossfade */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* LEFT COLUMN: Humanized Headline, Story, Action, & Editorial Numbered Metrics (Span 7) */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
-            {/* Dynamic Headline with Zero Orphan Words & Clean Emerald Accent */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={`headline-${currentPillar.id}`}
@@ -266,114 +224,125 @@ export function GroveHeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-3"
+                className="space-y-2.5"
               >
-                <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.12]">
+                <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.1]">
                   {currentPillar.headlineLine1}
                   <br />
-                  <span className="text-[#059669]">
+                  <span className="text-[#2563EB]">
                     {currentPillar.headlineLine2}
                   </span>
                 </h1>
 
-                {/* Micro-Copy: Short, Punchy, High Impact (~12 Words) */}
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-[580px] pt-1">
-                  {currentPillar.story}
-                </p>
+                {/* Signature Accent Line */}
+                <div className="w-16 sm:w-20 h-1 bg-[#2563EB] rounded-full origin-left" />
               </motion.div>
             </AnimatePresence>
 
-            {/* 3 Visual KPI Stat Cards: 80% Visual Proof, Instant Comprehension */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`kpi-${currentPillar.id}`}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-3 gap-2.5 sm:gap-3.5 pt-1"
-              >
-                {currentPillar.kpis.map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={item.label}
-                      className="bg-white/95 border border-slate-200/90 rounded-2xl p-3 sm:p-4 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:border-emerald-300 hover:shadow-[0_4px_16px_rgba(5,150,105,0.08)] transition-all duration-200 group"
-                    >
-                      <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-                        <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0 group-hover:bg-[#059669] group-hover:text-white transition-colors">
-                          <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                        </div>
-                        <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 font-mono">
-                          0{idx + 1}
-                        </span>
-                      </div>
-                      <div className="text-lg sm:text-2xl font-black text-[#0F172A] tracking-tight group-hover:text-[#059669] transition-colors leading-tight">
-                        {item.value}
-                      </div>
-                      <div className="text-[11px] sm:text-xs font-bold text-slate-800 mt-1 leading-snug">
-                        {item.label}
-                      </div>
-                      <div className="text-[10px] text-slate-400 font-medium leading-tight mt-0.5 hidden sm:block">
-                        {item.sub}
-                      </div>
-                    </div>
-                  );
-                })}
-              </motion.div>
-            </AnimatePresence>
+            {/* Sub-Grid: Left Story + Right 3 Numbered Metrics */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-8 pt-1">
+              {/* Left Sub-Col: Value Pitch & Primary Action (Span 6) */}
+              <div className="sm:col-span-6 space-y-5 flex flex-col justify-between">
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`story-${currentPillar.id}`}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal min-h-[80px]"
+                  >
+                    {currentPillar.story}
+                  </motion.p>
+                </AnimatePresence>
 
-            {/* High-Converting CTA Action & Social Proof Bar */}
-            <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
-              <div className="flex items-center gap-3">
-                <motion.a
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  href="#kontak"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold text-white bg-[#059669] hover:bg-[#047857] shadow-[0_10px_25px_rgba(5,150,105,0.25)] transition-all duration-200 cursor-pointer"
-                >
-                  <span>Konsultasikan Kebutuhan Anda</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.a>
+                {/* CTA Action Buttons */}
+                <div className="space-y-2.5 pt-1">
+                  <motion.a
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    href="#kontak"
+                    className="group w-full inline-flex items-center justify-between px-6 py-3.5 rounded-2xl text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all duration-200"
+                  >
+                    <span>Konsultasikan Kebutuhan Anda</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </motion.a>
 
-                <a
-                  href="#portofolio"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#059669] transition-colors px-2 py-2"
-                >
-                  <span>Lihat Hasil Kerja</span>
-                  <span>→</span>
-                </a>
+                  <a
+                    href="#portofolio"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#2563EB] transition-colors pl-1"
+                  >
+                    <span>Lihat Portofolio Hasil Kerja</span>
+                    <span className="text-slate-400">→</span>
+                  </a>
+                </div>
+
+                {/* Social Proof Trust Bar */}
+                <div className="pt-2 flex items-center gap-3 border-t border-slate-200/80">
+                  <div className="flex -space-x-2">
+                    <img
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+                      alt="Avatar 1"
+                      className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                      alt="Avatar 2"
+                      className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
+                    />
+                    <img
+                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
+                      alt="Avatar 3"
+                      className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
+                    />
+                  </div>
+                  <div className="text-[11px] sm:text-xs font-medium text-slate-700">
+                    <span className="font-bold text-[#0F172A]">25+ Klien Aktif</span>
+                    <span className="text-slate-400 mx-1.5">·</span>
+                    <span className="text-[#2563EB] font-semibold">99.99% SLA</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Social Proof Trust Bar */}
-              <div className="sm:ml-auto flex items-center gap-2.5 sm:border-l sm:border-slate-200/80 sm:pl-4 pt-1 sm:pt-0">
-                <div className="flex -space-x-2">
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
-                    alt="Avatar 1"
-                    className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-                    alt="Avatar 2"
-                    className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
-                    alt="Avatar 3"
-                    className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
-                  />
-                </div>
-                <div className="text-[11px] sm:text-xs font-medium text-slate-600">
-                  <span className="font-bold text-[#0F172A]">25+ Klien Aktif</span>
-                  <span className="text-slate-300 mx-1.5">·</span>
-                  <span className="text-[#059669] font-bold">99.99% SLA</span>
-                </div>
+              {/* Right Sub-Col: Editorial Numbered Metrics 01, 02, 03 (Span 6) */}
+              <div className="sm:col-span-6 space-y-3.5 sm:pl-1">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`metrics-${currentPillar.id}`}
+                    initial={{ opacity: 0, x: 12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -12 }}
+                    transition={{ duration: 0.25 }}
+                    className="space-y-3.5"
+                  >
+                    {currentPillar.metrics.map((item) => (
+                      <div
+                        key={item.num}
+                        className="group pb-2.5 border-b border-slate-200/90 hover:border-blue-400 transition-colors"
+                      >
+                        <div className="flex items-baseline gap-2.5">
+                          <span className="font-mono text-xs sm:text-sm font-bold text-[#2563EB] group-hover:scale-105 transition-transform">
+                            {item.num}
+                          </span>
+                          <div className="space-y-0.5">
+                            <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] group-hover:text-[#2563EB] transition-colors flex items-center gap-1.5">
+                              <span>{item.title}</span>
+                              <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </h4>
+                            <p className="text-[11px] text-slate-500 leading-snug">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: High-Resolution Visual Asset with Live Telemetry Badges (Span 5) */}
+          {/* RIGHT COLUMN: Clean, Proportional, Responsive Visual Frame (Span 5 - No Outer Floating Badges) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <AnimatePresence mode="wait">
               <motion.div
@@ -382,7 +351,7 @@ export function GroveHeroSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[4/3.8] sm:aspect-[4/3.5] lg:aspect-[4/4.2] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.08)] group"
+                className="relative aspect-[16/11] sm:aspect-[16/10] lg:aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_16px_40px_rgba(15,23,42,0.06)] group"
               >
                 <Image
                   src={currentPillar.image}
@@ -395,64 +364,17 @@ export function GroveHeroSection() {
                 {/* Soft Gradient Overlay for Readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent pointer-events-none" />
 
-                {/* Bottom Pillar Label */}
-                <div className="absolute bottom-3.5 left-3.5 right-3.5 z-10 text-white/90 text-[11px] font-medium flex items-center justify-between">
-                  <span className="bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white font-semibold text-[10px] sm:text-xs">
+                {/* Clean Bottom Label - Embedded Inside Image */}
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 z-10 text-white/90 text-[11px] font-medium flex items-center justify-between pointer-events-none">
+                  <span className="bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white font-medium text-[11px]">
                     {currentPillar.bottomTag}
                   </span>
-                  <span className="font-mono text-[10px] text-emerald-400 font-semibold bg-emerald-950/60 backdrop-blur-xs px-2 py-0.5 rounded border border-emerald-500/30">
-                    Abinest Enterprise
+                  <span className="font-mono text-[10px] text-sky-400 font-semibold bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                    Abinest Studio
                   </span>
                 </div>
               </motion.div>
             </AnimatePresence>
-
-            {/* Dynamic Floating Living Badge 1: Top Left Float */}
-            <motion.div
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-              className="absolute -top-3.5 -left-3 sm:-left-5 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl p-2.5 sm:p-3 shadow-[0_10px_30px_rgba(15,23,42,0.08)] flex items-center gap-2.5 z-20"
-            >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
-                {(() => {
-                  const Icon = currentPillar.badge1.icon;
-                  return <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />;
-                })()}
-              </div>
-              <div className="pr-1">
-                <div className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5 whitespace-nowrap">
-                  <span>{currentPillar.badge1.title}</span>
-                  {currentPillar.badge1.pulse && (
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  )}
-                </div>
-                <div className="text-[10px] text-slate-500 font-medium">
-                  {currentPillar.badge1.subtitle}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Dynamic Floating Living Badge 2: Bottom Right Float */}
-            <motion.div
-              animate={{ y: [4, -4, 4] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute -bottom-3.5 -right-2 sm:-right-4 bg-slate-900/95 text-white backdrop-blur-md border border-slate-800 rounded-2xl p-2.5 sm:p-3 shadow-[0_15px_35px_rgba(0,0,0,0.3)] flex items-center gap-2.5 z-20"
-            >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
-                {(() => {
-                  const Icon = currentPillar.badge2.icon;
-                  return <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />;
-                })()}
-              </div>
-              <div className="pr-1">
-                <div className="text-xs font-bold text-white whitespace-nowrap">
-                  {currentPillar.badge2.title}
-                </div>
-                <div className="text-[10px] text-slate-400 font-medium">
-                  {currentPillar.badge2.subtitle}
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>
