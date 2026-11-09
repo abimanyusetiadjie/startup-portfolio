@@ -32,7 +32,7 @@ export function GroveNavbar() {
           : "bg-[#F8FAFC]/80 backdrop-blur-sm border-b border-slate-200/40"
       }`}
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
         {/* Left: Abinest Authentic Logo */}
         <Link href="/" className="flex items-center gap-2">
           <AbinestLogo size="md" showTagline={false} />

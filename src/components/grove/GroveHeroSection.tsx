@@ -30,27 +30,19 @@ export function GroveHeroSection() {
   return (
     <section
       id="beranda"
-      className="relative pt-12 sm:pt-20 pb-20 overflow-hidden bg-[#F8FAFC]"
+      className="relative pt-3 sm:pt-6 pb-12 sm:pb-16 overflow-hidden bg-[#F8FAFC]"
     >
       {/* Ambient Forest & Mint Glow Diffused in Background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-12 right-0 w-[620px] h-[520px] bg-gradient-to-br from-emerald-100/40 via-teal-50/35 to-slate-100/20 blur-[140px] rounded-full"
+        className="pointer-events-none absolute top-4 right-0 w-[580px] h-[480px] bg-gradient-to-br from-emerald-100/40 via-teal-50/35 to-slate-100/20 blur-[130px] rounded-full"
       />
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Hero Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column (7 cols): Clean, Corporate Swiss Typography */}
-          <div className="lg:col-span-7 space-y-7">
-            {/* Eyebrow Trust Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-[0_2px_8px_rgba(15,23,42,0.03)]">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[11px] sm:text-xs font-semibold tracking-wide text-[#0F172A]">
-                Software House &amp; Konsultan Teknologi · Sekolah, Yayasan &amp; Bisnis
-              </span>
-            </div>
-
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
             {/* Headline with Signature Deep Forest Green Serif Italic Accent */}
             <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-extrabold tracking-tight text-[#0F172A] leading-[1.08]">
               Website Cepat, Sistem Anti-Down, &amp; Automasi yang{" "}
@@ -143,7 +135,9 @@ export function GroveHeroSection() {
                   <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A]">
                     2.5k
                   </span>
-                  <span className="text-emerald-500 text-xs select-none">✦</span>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+                    Online
+                  </span>
                 </div>
                 <div className="text-sm font-semibold text-slate-600 mt-2">
                   Active Users
@@ -184,7 +178,9 @@ export function GroveHeroSection() {
                   <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#059669]">
                     +40%
                   </span>
-                  <span className="text-emerald-500 text-xs select-none">✦</span>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+                    Efisiensi
+                  </span>
                 </div>
                 <div className="text-sm font-semibold text-slate-600 mt-2">
                   Efficiency Improved
@@ -214,7 +210,7 @@ export function GroveHeroSection() {
         </div>
 
         {/* 4-Column Trust Bar with Deep Forest Hairline Borders */}
-        <div className="mt-16 pt-8 pb-8 border-y border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 bg-white rounded-3xl px-6 sm:px-10 shadow-[0_4px_20px_rgba(15,23,42,0.02)] backdrop-blur-sm">
+        <div className="mt-8 sm:mt-10 pt-6 pb-6 border-y border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 bg-white rounded-3xl px-6 sm:px-10 shadow-[0_4px_20px_rgba(15,23,42,0.02)] backdrop-blur-sm">
           {trustMetrics.map((m, idx) => (
             <div key={idx} className="space-y-1.5 pl-3 border-l-2 border-[#059669]">
               <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0F172A]">
