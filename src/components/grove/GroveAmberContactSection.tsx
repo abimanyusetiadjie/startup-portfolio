@@ -25,7 +25,7 @@ export function GroveAmberContactSection() {
   return (
     <section
       id="kontak"
-      className="py-24 relative overflow-hidden bg-white border-b border-slate-200/80"
+      className="py-14 sm:py-16 relative overflow-hidden bg-white border-b border-slate-200/80"
     >
       {/* Soft Warm Light Glows */}
       <div
@@ -46,7 +46,7 @@ export function GroveAmberContactSection() {
             </span>
 
             <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-bold tracking-tight text-[#0F172A] leading-tight">
-              Pastikan Sistem &amp; Website Institusi Anda Ditangani oleh Tim yang Tepat
+              Wujudkan Website, Sistem ERP, &amp; Automasi AI Anda Bersama Tim yang Tepat
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -121,7 +121,7 @@ export function GroveAmberContactSection() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Contoh: Drs. Ahmad Fauzi / Budi Santoso"
+                  placeholder="Contoh: Budi Santoso / Hendra Kusuma"
                   className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#059669] focus:ring-2 focus:ring-emerald-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
                 />
               </div>
@@ -140,7 +140,7 @@ export function GroveAmberContactSection() {
                   required
                   value={institution}
                   onChange={(e) => setInstitution(e.target.value)}
-                  placeholder="Contoh: SMA Islam Terpadu Al-Hikmah / PT Maju Bersama"
+                  placeholder="Contoh: PT Finansial Prima Mandiri / CV Sentosa Retail"
                   className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#059669] focus:ring-2 focus:ring-emerald-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] placeholder:text-slate-400 outline-none transition-all"
                 />
               </div>
@@ -159,17 +159,17 @@ export function GroveAmberContactSection() {
                   onChange={(e) => setServiceType(e.target.value)}
                   className="w-full rounded-xl bg-white border border-slate-300 focus:border-[#059669] focus:ring-2 focus:ring-emerald-100 px-4 py-3.5 text-xs sm:text-sm text-[#0F172A] outline-none transition-all"
                 >
-                  <option value="Website (Sekolah / Yayasan / Perusahaan / UMKM)">
-                    Website (Sekolah / Yayasan / Perusahaan / UMKM)
+                  <option value="Website Modern (Next.js / Headless / Company Profile)">
+                    Website Modern (Next.js / Headless / Company Profile)
                   </option>
-                  <option value="Sistem (SIAKAD Sekolah / Sistem Yayasan / ERP / Kustom)">
-                    Sistem (SIAKAD Sekolah / Sistem Yayasan / ERP / Kustom)
+                  <option value="Sistem ERP Kustom (Supply Chain / Inventory / Multi-Warehouse)">
+                    Sistem ERP Kustom (Supply Chain / Inventory / Multi-Warehouse)
                   </option>
-                  <option value="Automasi (WhatsApp Resmi / Tagihan SPP / Laporan PDF)">
-                    Automasi (WhatsApp Resmi / Tagihan SPP / Laporan PDF)
+                  <option value="Automasi AI & ML (Document AI / WhatsApp Agent Meta)">
+                    Automasi AI &amp; ML (Document AI / WhatsApp Agent Meta)
                   </option>
-                  <option value="Paket Lengkap (Website + Sistem + Automasi)">
-                    Paket Lengkap (Website + Sistem + Automasi)
+                  <option value="Solusi Terpadu (Website + ERP + Automasi AI)">
+                    Solusi Terpadu (Website + ERP + Automasi AI)
                   </option>
                 </select>
               </div>

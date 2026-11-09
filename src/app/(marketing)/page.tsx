@@ -6,26 +6,26 @@ const APP_BASE_URL =
 
 export const metadata: Metadata = {
   title:
-    "Abinest | Jasa Pembuatan Website, Sistem SIAKAD/ERP & Automasi WhatsApp (Jakarta & Surabaya)",
+    "Abinest | Modern Web, Custom ERP, & AI/ML Automation Startup",
   description:
-    "Software House & Konsultan IT untuk Sekolah, Yayasan, dan Bisnis. Website loading <0.8 detik, sistem SIAKAD/ERP anti-down (SLA 99.9%), & automasi WhatsApp resmi. 100% source code milik Anda tanpa biaya bulanan.",
+    "Startup software house & studio rekayasa teknologi: Jasa Website Modern Next.js 15 (<0.8s), Sistem ERP Kustom Multi-Gudang & Keuangan, serta Automasi AI & Machine Learning. 100% Hak Milik Source Code tanpa biaya sewa lisensi.",
   keywords: [
-    "jasa pembuatan website sekolah jakarta",
-    "jasa pembuatan sistem siakad anti down",
+    "jasa pembuatan website modern",
+    "sistem erp kustom indonesia",
+    "automasi ai machine learning startup",
     "software house jakarta surabaya",
-    "jasa pembuatan sistem informasi sekolah",
-    "jasa automasi whatsapp bisnis",
-    "jasa pembuatan website yayasan",
-    "konsultan it sekolah dan umkm",
+    "jasa custom software enterprise",
+    "document ai invoice ocr",
+    "whatsapp ai agent meta resmi",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title:
-      "Abinest | Website Cepat, Sistem SIAKAD Anti-Down & Automasi Kerja yang Pasti Beres",
+      "Abinest | Solusi Digital Presisi: Web Modern, ERP Kustom & Automasi AI/ML",
     description:
-      "Dipercaya 20+ Sekolah, Yayasan, dan UMKM di Jakarta & Surabaya. SLA 99.9% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code.",
+      "Teruji di 25+ Perusahaan Nasional. SLA 99.99% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code Tanpa Biaya Lisensi Bulanan.",
     url: APP_BASE_URL,
     type: "website",
   },
@@ -37,16 +37,16 @@ const jsonLdSchema = {
     {
       "@type": "Organization",
       "@id": `${APP_BASE_URL}/#organization`,
-      name: "Abinest Software House & Konsultan Teknologi",
+      name: "Abinest Startup Rekayasa Teknologi",
       url: APP_BASE_URL,
       description:
-        "Software House & Konsultan Teknologi spesialis Jasa Pembuatan Website, Sistem Informasi Sekolah (SIAKAD) & ERP Anti-Down, serta Automasi WhatsApp Resmi di Jakarta dan Surabaya.",
+        "Startup Rekayasa Teknologi spesialis Jasa Pembuatan Website Modern Next.js 15, Sistem ERP Kustom Terpadu, serta Automasi AI & Machine Learning di Indonesia.",
       areaServed: ["Jakarta", "Surabaya", "Indonesia"],
       knowsAbout: [
-        "Jasa Pembuatan Website Sekolah dan Perusahaan",
-        "Sistem Informasi Akademik (SIAKAD) Anti-Down",
-        "Sistem ERP Ringan dan Dashboard Internal",
-        "Automasi WhatsApp Resmi Meta Cloud API",
+        "Jasa Pembuatan Website Modern Next.js",
+        "Sistem ERP Kustom Multi-Gudang & Keuangan",
+        "Automasi AI & Machine Learning Terapan",
+        "WhatsApp AI Agent Resmi Meta Cloud API",
       ],
     },
   ],
@@ -54,7 +54,7 @@ const jsonLdSchema = {
 
 export default function MarketingPage() {
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#0F172A] selection:bg-[#D97736] selection:text-white">
+    <main className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#059669] selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}

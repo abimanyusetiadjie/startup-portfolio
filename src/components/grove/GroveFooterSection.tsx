@@ -42,7 +42,7 @@ export function GroveFooterSection() {
                 Jaminan Tertulis SLA 99.9% Uptime
               </div>
               <div className="text-[11px] text-slate-600">
-                Sistem anti-down di momen kritis ujian, PPDB, &amp; rapor.
+                Sistem anti-down di momen kritis lonjakan transaksi bisnis.
               </div>
             </div>
           </div>
@@ -72,11 +72,11 @@ export function GroveFooterSection() {
               <AbinestLogo size="md" showTagline={true} />
             </Link>
             <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed max-w-sm">
-              Software House &amp; Konsultan Teknologi terpercaya untuk Sekolah, Yayasan Pendidikan, UMKM, dan Perusahaan Menengah di Indonesia. Spesialis pembuatan Website Cepat, Sistem SIAKAD &amp; ERP Anti-Down, serta Automasi WhatsApp Resmi.
+              Software House &amp; Studio Rekayasa Teknologi untuk Bisnis, Startup, dan Perusahaan Nasional. Spesialis pembuatan Website Modern Berkecepatan Tinggi, Sistem ERP Kustom, serta Automasi AI &amp; Machine Learning Terapan.
             </p>
             <div className="pt-1 flex items-center gap-2 text-xs font-semibold text-emerald-700">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>20+ Proyek Sekolah, Yayasan &amp; Bisnis Terselesaikan</span>
+              <span>25+ Implementasi Produksi Enterprise Terselesaikan</span>
             </div>
           </div>
 

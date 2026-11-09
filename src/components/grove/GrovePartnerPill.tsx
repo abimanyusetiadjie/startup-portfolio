@@ -6,40 +6,40 @@ import { Building2, GraduationCap, ShieldCheck, Briefcase, Award, Landmark, Chec
 export function GrovePartnerPill() {
   const clientInstitutions = [
     {
-      name: "SMA IT Al-Hikmah",
-      city: "Surabaya",
-      type: "Sekolah & CBT",
-      icon: GraduationCap,
-    },
-    {
-      name: "Yayasan Bina Insani",
-      city: "Jakarta Selatan",
-      type: "Yayasan & PPDB",
-      icon: Landmark,
-    },
-    {
-      name: "PT Maju Bersama",
+      name: "PT Logistik Nusantara",
       city: "Jakarta Barat",
-      type: "Distribusi & Logistik",
+      type: "Supply Chain & Fleet ERP",
       icon: Briefcase,
     },
     {
-      name: "Klinik Medika Nusantara",
-      city: "Tangerang Selatan",
-      type: "Sistem Antrean & Rekam Medis",
+      name: "PT Finansial Prima Mandiri",
+      city: "Jakarta Selatan",
+      type: "Fintech Web Platform",
+      icon: Building2,
+    },
+    {
+      name: "PT Sentosa Manufaktur Global",
+      city: "Surabaya",
+      type: "Custom ERP & Inventory",
       icon: ShieldCheck,
     },
     {
-      name: "SMK Industri Karya",
-      city: "Sidoarjo",
-      type: "Sistem Kelulusan",
+      name: "Medika AI Diagnostik",
+      city: "Tangerang Selatan",
+      type: "Document AI & OCR",
       icon: Award,
     },
     {
-      name: "CV Sentosa Retail",
+      name: "PT Retail Multi-Cabang",
       city: "Surabaya",
-      type: "Multi-Cabang POS",
-      icon: Building2,
+      type: "Omnichannel POS & ML",
+      icon: Landmark,
+    },
+    {
+      name: "Yayasan Pendidikan Bina Insani",
+      city: "Jakarta",
+      type: "Digital Portal & Web",
+      icon: GraduationCap,
     },
   ];
 

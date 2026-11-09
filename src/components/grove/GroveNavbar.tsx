@@ -50,7 +50,7 @@ export function GroveNavbar() {
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
         {/* Left: Abinest Authentic Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <AbinestLogo size="md" showTagline={false} />
+          <AbinestLogo size="md" showTagline={true} />
         </Link>
 
         {/* Center: Clean Minimalist Navigation Links */}

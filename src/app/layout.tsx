@@ -27,11 +27,11 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Abinest | Software House & Konsultan Sistem, Website & Otomasi Bisnis",
+    default: "Abinest | Modern Web, Custom ERP, & AI/ML Automation Startup",
     template: "%s | Abinest",
   },
   description:
-    "Abinest adalah software house dan konsultan teknologi terpercaya yang melayani jasa pembuatan website modern Next.js, pengembangan sistem informasi enterprise (SIAKAD & ERP) anti-down, dan bot otomasi WhatsApp bisnis.",
+    "Abinest adalah startup software house & studio rekayasa teknologi: Spesialis pembuatan Website Modern Berkecepatan Tinggi, Sistem ERP Kustom Terpadu, dan Automasi AI & Machine Learning. 100% Hak Milik Source Code tanpa biaya sewa lisensi.",
 };
 
 export default function RootLayout({

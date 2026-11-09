@@ -47,7 +47,7 @@ export function GroveCoreShieldSection() {
       timeline: "Minggu 7",
       icon: Users,
       title: "Uji Beban & Training",
-      desc: "Sistem diuji agar anti-down. Staf TU dan guru kami latih sampai benar-benar mahir.",
+      desc: "Sistem diuji agar anti-down. Tim operasional dan admin bisnis Anda kami latih sampai benar-benar mahir.",
       guarantee: "Buku Panduan ID",
     },
     {
@@ -63,9 +63,9 @@ export function GroveCoreShieldSection() {
   return (
     <section
       id="cara-kerja"
-      className="py-24 relative overflow-hidden bg-white border-b border-slate-200/80"
+      className="py-14 sm:py-16 relative overflow-hidden bg-white border-b border-slate-200/80"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-24">
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-16">
         {/* ========================================================================= */}
         {/* PART 1: VISUAL HORIZONTAL PIPELINE (5 LANGKAH KERJA)                      */}
         {/* ========================================================================= */}

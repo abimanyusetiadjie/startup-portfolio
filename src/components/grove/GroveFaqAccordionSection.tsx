@@ -8,20 +8,20 @@ export function GroveFaqAccordionSection() {
 
   const faqs = [
     {
-      q: "1. Berapa lama waktu pengerjaan website, sistem SIAKAD/ERP, atau automasi?",
-      a: "Untuk pembuatan Website Sekolah, Yayasan, atau Company Profile membutuhkan waktu 2–3 minggu. Untuk Jasa Automasi WhatsApp & Laporan membutuhkan waktu 2–4 minggu. Sedangkan untuk Sistem Informasi Akademik (SIAKAD) atau ERP kustom berkisar antara 6–10 minggu dengan demo hasil pengerjaan setiap minggu yang dapat Anda pantau langsung lewat Portal Klien.",
+      q: "1. Berapa lama waktu pengerjaan Website Modern, Sistem ERP, atau Automasi AI/ML?",
+      a: "Untuk pembuatan Website Modern Next.js (Company Profile, SaaS landing, atau e-commerce) membutuhkan waktu 2–3 minggu. Untuk pipeline Automasi AI & WhatsApp Agent Meta resmi berkisar antara 2–4 minggu. Sedangkan untuk Sistem ERP Enterprise kustom (multi-warehouse, inventory, accounting) berkisar antara 6–10 minggu dengan sprint demo setiap minggu via Portal Klien.",
     },
     {
       q: "2. Apakah source code dan database sepenuhnya menjadi milik institusi kami?",
       a: "Ya, 100% menjadi hak milik resmi institusi atau perusahaan Anda. Setelah proyek selesai, kami menyerahkan seluruh kode program (source code), struktur database, beserta dokumentasi lengkapnya. Anda bebas mengembangkan atau mengelolanya sendiri di masa depan tanpa ketergantungan pada kami (zero vendor lock-in).",
     },
     {
-      q: "3. Bagaimana jaminan jika sistem down saat momen penting seperti ujian atau PPDB?",
-      a: "Setiap sistem yang kami bangun dilengkapi jaminan tertulis SLA 99.9% Uptime. Sebelum sistem dipakai ujian serentak atau PPDB, kami melakukan simulasi beban ribuan pengguna sekaligus. Jika terjadi kendala teknis di jam kerja, tim engineer inti kami langsung menangani dalam waktu kurang dari 15 menit.",
+      q: "3. Bagaimana jaminan keandalan sistem saat lonjakan transaksi tinggi (SLA)?",
+      a: "Setiap sistem kami dilengkapi jaminan tertulis SLA 99.99% Uptime. Sebelum sistem dideploy ke lingkungan produksi, tim engineer kami melakukan automated load testing puluhan ribu transaksi serentak. Jika ada kebutuhan teknis mendesak di jam operasional, tim engineer inti kami langsung merespons dalam waktu kurang dari 15 menit.",
     },
     {
-      q: "4. Apakah ada biaya lisensi bulanan atau biaya per siswa yang wajib dibayar terus?",
-      a: "Tidak ada. Berbeda dengan sistem sewa (SaaS) yang menagih biaya per siswa setiap bulan, di Abinest Anda cukup membayar biaya pembangunan sistem satu kali sesuai kesepakatan. Anda hanya perlu menyiapkan biaya server/domain tahunan standar (atau menggunakan server milik institusi Anda sendiri).",
+      q: "4. Apakah ada biaya lisensi bulanan per-user yang wajib dibayar terus-menerus?",
+      a: "Sama sekali tidak ada. Berbeda dengan software ERP impor (SaaS) yang mengenakan tagihan lisensi puluhan dolar per user setiap bulan, di Abinest Anda membayar biaya pembangunan satu kali. Perusahaan Anda bebas menambah 100 atau 10.000 karyawan tanpa biaya lisensi software tambahan selamanya.",
     },
     {
       q: "5. Apakah bisa mengajukan revisi jika di tengah jalan ada penyesuaian?",
@@ -29,7 +29,7 @@ export function GroveFaqAccordionSection() {
     },
     {
       q: "6. Apakah data kami aman dan apakah data lama dari Excel bisa dipindahkan?",
-      a: "Sangat aman. Database dilengkapi pengamanan berlapis di mana setiap jabatan (Kepala Sekolah, Guru, Admin Keuangan, Siswa) hanya bisa melihat data sesuai wewenangnya, ditambah backup otomatis setiap hari. Tim kami juga membantu memindahkan data lama Anda dari file Excel atau sistem terdahulu sampai rapi dan siap pakai.",
+      a: "Keamanan dan kerahasiaan data perusahaan Anda adalah prioritas utama kami. Untuk sistem ERP, akses dibatasi oleh Role-Based Access Control (RBAC) ketat dan enkripsi database harian. Untuk automasi AI & Machine Learning, seluruh data diisolasi dalam private environment (zero data retention) dan data bisnis Anda TIDAK PERNAH digunakan untuk melatih model AI publik.",
     },
     {
       q: "7. Staf kami bukan orang IT. Apakah ada training sampai mereka lancar mengoperasikan?",
@@ -44,11 +44,11 @@ export function GroveFaqAccordionSection() {
   return (
     <section
       id="faq"
-      className="py-24 relative bg-[#F8FAFC] border-b border-slate-200/80"
+      className="py-14 sm:py-16 relative bg-[#F8FAFC] border-b border-slate-200/80"
     >
       <div className="max-w-[860px] mx-auto px-5 sm:px-8">
         {/* Centered Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
           <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#065F46] bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">
             PERTANYAAN YANG SERING DIAJUKAN (FAQ)
           </span>

@@ -71,8 +71,8 @@ export function AbinestLogo({
       </div>
 
       {showTagline && (
-        <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.16em] text-slate-500 font-semibold pl-2.5 border-l border-slate-300">
-          Software House &amp; Konsultan
+        <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.16em] text-emerald-800 font-bold pl-2.5 border-l border-slate-300">
+          Web · ERP · AI/ML
         </span>
       )}
     </div>
