@@ -14,11 +14,11 @@ export function GroveTechStackGrid() {
   const techStacks: TechItem[] = [
     {
       name: "Next.js 15",
-      category: "Web Framework",
-      benefit: "Website <0.8 Detik",
+      category: "Fullstack Web",
+      benefit: "<0.8s Fast Core",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 180 180" fill="none">
-          <circle cx="90" cy="90" r="90" fill="#0F172A" />
+          <circle cx="90" cy="90" r="88" fill="#030712" stroke="#334155" strokeWidth="4" />
           <path
             d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.16 149.508 157.52Z"
             fill="url(#tech_next_g1)"
@@ -53,8 +53,8 @@ export function GroveTechStackGrid() {
     },
     {
       name: "TypeScript",
-      category: "Type-Safe Core",
-      benefit: "Sistem Bebas Bug",
+      category: "Type-Safe",
+      benefit: "Zero Runtime Bug",
       svg: (
         <svg className="w-5 h-5 rounded-md overflow-hidden" viewBox="0 0 128 128" fill="none">
           <path fill="#3178C6" d="M1.5 1.5h125v125H1.5z" />
@@ -67,18 +67,18 @@ export function GroveTechStackGrid() {
     },
     {
       name: "React 19",
-      category: "Frontend UI",
-      benefit: "Dashboard Intuitif",
+      category: "Modern UI Core",
+      benefit: "Smooth Reactivity",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
-          <circle cx="64" cy="64" r="11" fill="#087EA4" />
+          <circle cx="64" cy="64" r="11" fill="#00D8FF" />
           <ellipse
             cx="64"
             cy="64"
             rx="20"
             ry="54"
             fill="none"
-            stroke="#087EA4"
+            stroke="#00D8FF"
             strokeWidth="5.5"
             transform="rotate(30 64 64)"
           />
@@ -88,7 +88,7 @@ export function GroveTechStackGrid() {
             rx="20"
             ry="54"
             fill="none"
-            stroke="#087EA4"
+            stroke="#00D8FF"
             strokeWidth="5.5"
             transform="rotate(90 64 64)"
           />
@@ -98,7 +98,7 @@ export function GroveTechStackGrid() {
             rx="20"
             ry="54"
             fill="none"
-            stroke="#087EA4"
+            stroke="#00D8FF"
             strokeWidth="5.5"
             transform="rotate(150 64 64)"
           />
@@ -112,7 +112,7 @@ export function GroveTechStackGrid() {
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
           <path
-            fill="#336791"
+            fill="#4B9CD3"
             d="M115.731 77.44c-13.925 2.873-14.882-1.842-14.882-1.842 14.703-21.816 20.849-49.51 15.545-56.287C101.924.823 76.875 9.566 76.457 9.793l-.135.024c-2.751-.571-5.83-.911-9.291-.967-6.301-.103-11.08 1.652-14.707 4.402 0 0-44.684-18.408-42.606 23.151.442 8.842 12.672 66.899 27.26 49.363 5.332-6.412 10.483-11.834 10.483-11.834 2.559 1.699 5.622 2.567 8.833 2.255l.25-.212c-.078.796-.042 1.575.1 2.497-3.758 4.199-2.654 4.936-10.167 6.482-7.602 1.566-3.136 4.355-.22 5.084 3.534.884 11.712 2.136 17.237-5.598l-.221.882c1.473 1.18 2.507 7.672 2.334 13.557-.174 5.885-.29 9.926.871 13.082 1.16 3.156 2.316 10.256 12.192 8.14 8.252-1.768 12.528-6.351 13.124-13.995.422-5.435 1.377-4.631 1.438-9.49l.767-2.3c.884-7.367.14-9.743 5.225-8.638l1.235.108c3.742.17 8.639-.602 11.514-1.938 6.19-2.871 9.861-7.667 3.758-6.408z"
           />
         </svg>
@@ -120,12 +120,12 @@ export function GroveTechStackGrid() {
     },
     {
       name: "Python",
-      category: "Machine Learning",
-      benefit: "Automasi Invoice & OCR",
+      category: "AI & Automasi",
+      benefit: "Pipeline Invoice & OCR",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
           <linearGradient
-            id="py_g1"
+            id="py_dark_g1"
             gradientUnits="userSpaceOnUse"
             x1="70.252"
             y1="1237.476"
@@ -137,7 +137,7 @@ export function GroveTechStackGrid() {
             <stop offset="1" stopColor="#306998" />
           </linearGradient>
           <linearGradient
-            id="py_g2"
+            id="py_dark_g2"
             gradientUnits="userSpaceOnUse"
             x1="209.474"
             y1="1098.811"
@@ -149,12 +149,12 @@ export function GroveTechStackGrid() {
             <stop offset="1" stopColor="#FFE873" />
           </linearGradient>
           <path
-            fill="url(#py_g1)"
+            fill="url(#py_dark_g1)"
             d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"
             transform="translate(0 10.26)"
           />
           <path
-            fill="url(#py_g2)"
+            fill="url(#py_dark_g2)"
             d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"
             transform="translate(0 10.26)"
           />
@@ -197,7 +197,7 @@ export function GroveTechStackGrid() {
     },
     {
       name: "Tailwind CSS",
-      category: "Responsive UI",
+      category: "Design System",
       benefit: "100% Mobile Ready",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
@@ -211,7 +211,7 @@ export function GroveTechStackGrid() {
     {
       name: "Go (Golang)",
       category: "High-Throughput",
-      benefit: "Ribuan Transaksi Serentak",
+      benefit: "50k+ Req/Detik",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
           <path
@@ -224,7 +224,7 @@ export function GroveTechStackGrid() {
     {
       name: "Redis",
       category: "In-Memory Cache",
-      benefit: "Akses Data Tanpa Lag",
+      benefit: "<1ms Ultra-Low Lag",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
           <path
@@ -245,7 +245,7 @@ export function GroveTechStackGrid() {
     {
       name: "Supabase",
       category: "Cloud Database",
-      benefit: "Backup Otomatis Harian",
+      benefit: "Realtime Sync & Backup",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
           <path
@@ -261,8 +261,8 @@ export function GroveTechStackGrid() {
     },
     {
       name: "Cloudflare",
-      category: "DDoS & WAF Shield",
-      benefit: "Perlindungan Siber 24/7",
+      category: "Global Edge WAF",
+      benefit: "Proteksi Siber 24/7",
       svg: (
         <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
           <path
@@ -284,26 +284,43 @@ export function GroveTechStackGrid() {
   return (
     <section
       id="tech-stack"
-      className="py-6 sm:py-7 relative overflow-hidden bg-white border-b border-slate-200/80"
+      className="py-7 sm:py-8 relative overflow-hidden bg-[#0A0E17] border-y border-slate-800 text-white selection:bg-sky-500 selection:text-white"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-lg bg-blue-50 text-[#1E40AF] flex items-center justify-center shrink-0">
-            <Cpu className="w-3.5 h-3.5" />
+      {/* Top Laser Highlight Line */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent pointer-events-none" />
+
+      {/* Ambient Blue Radial Spotlight */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_0%,rgba(37,99,235,0.22),transparent_75%)] pointer-events-none" />
+
+      {/* Cyber Grid Dot Matrix Texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+
+      {/* Bottom Subtle Divider Line */}
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent pointer-events-none" />
+
+      {/* Header Bar */}
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 mb-4 sm:mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 relative z-10">
+        <div className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-400/30 text-sky-400 flex items-center justify-center shrink-0 shadow-[0_0_14px_rgba(56,189,248,0.25)]">
+            <Cpu className="w-4 h-4" />
           </div>
           <div>
-            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] text-slate-700">
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-slate-200">
               FONDASI TEKNOLOGI &amp; ARSITEKTUR KELAS INDUSTRI
             </p>
           </div>
         </div>
-        <p className="text-xs text-slate-500 font-medium">
-          Standar Resmi Teruji Global · Bebas Biaya Sewa Lisensi Selamanya
-        </p>
+        <div className="flex items-center gap-2 text-xs">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[11px] font-medium text-emerald-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            100% Hak Milik Source Code
+          </span>
+          <span className="text-slate-400 hidden sm:inline">· Standar Teruji Global · Bebas Biaya Sewa Lisensi</span>
+        </div>
       </div>
 
-      {/* Marquee Track moving towards the right */}
-      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+      {/* Marquee Track moving towards the right with smooth edge fade */}
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)] z-10">
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{
@@ -311,24 +328,24 @@ export function GroveTechStackGrid() {
             ease: "linear",
             repeat: Infinity,
           }}
-          className="flex gap-3 sm:gap-4 w-max hover:[animation-play-state:paused]"
+          className="flex gap-3.5 sm:gap-4 w-max hover:[animation-play-state:paused]"
         >
           {duplicatedTech.map((item, idx) => (
             <div
               key={idx}
-              className="group flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 shadow-[0_2px_8px_rgba(15,23,42,0.02)] hover:border-blue-300 hover:bg-white hover:shadow-md transition-all duration-200 cursor-default shrink-0"
+              className="group relative flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-sky-500/60 hover:bg-slate-800/90 hover:shadow-[0_0_24px_rgba(56,189,248,0.22)] transition-all duration-300 cursor-default shrink-0 backdrop-blur-sm"
             >
-              <div className="w-8 h-8 rounded-xl bg-white border border-slate-200/60 flex items-center justify-center p-1 group-hover:scale-105 group-hover:border-blue-200 transition-all shrink-0 shadow-2xs">
+              <div className="w-9 h-9 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center p-1.5 group-hover:scale-105 group-hover:border-sky-400/40 transition-all shrink-0 shadow-inner">
                 {item.svg}
               </div>
-              <div className="pr-1">
-                <div className="text-xs font-bold text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors whitespace-nowrap">
+              <div className="pr-1.5">
+                <div className="text-xs sm:text-[13px] font-bold text-white group-hover:text-sky-300 transition-colors whitespace-nowrap">
                   {item.name}
                 </div>
-                <div className="text-[10px] text-slate-500 font-medium flex items-center gap-1.5 whitespace-nowrap">
+                <div className="text-[10px] text-slate-400 font-medium flex items-center gap-1.5 whitespace-nowrap">
                   <span>{item.category}</span>
-                  <span className="text-slate-300">•</span>
-                  <span className="text-blue-700 font-semibold">{item.benefit}</span>
+                  <span className="text-slate-600">•</span>
+                  <span className="text-sky-400 font-semibold">{item.benefit}</span>
                 </div>
               </div>
             </div>
