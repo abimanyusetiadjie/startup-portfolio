@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
+import { AbinestLogo } from "@/components/grove/AbinestLogo";
 
 type AuthMode = "password" | "magic_link";
 
@@ -138,7 +139,10 @@ export default function LoginPage() {
           className="rounded-3xl bg-white p-8 border border-[#E2E8F0] shadow-soft-lg space-y-6"
         >
           {/* Header */}
-          <div className="space-y-2 text-center">
+          <div className="space-y-3 text-center flex flex-col items-center">
+            <Link href="/" className="inline-block transition-transform hover:scale-105 mb-1">
+              <AbinestLogo size="lg" />
+            </Link>
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#1E40AF] border border-blue-200 text-xs font-semibold">
               <ShieldCheck className="h-4 w-4" />
               <span>ABINEST CLIENT PORTAL GATE</span>

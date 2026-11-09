@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   },
   description:
     "Abinest adalah startup software house & studio rekayasa teknologi: Spesialis pembuatan Website Modern Berkecepatan Tinggi, Sistem ERP Kustom Terpadu, dan Automation AI/ML. 100% Hak Milik Source Code tanpa biaya sewa lisensi.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/images/abinest-icon-only-hd.png" },
+    ],
+  },
 };
 
 export default function RootLayout({

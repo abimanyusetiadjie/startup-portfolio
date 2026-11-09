@@ -129,6 +129,12 @@ export function PortalShell({ children }: PortalShellProps) {
 
   return (
     <Frame
+      logo={{
+        width: 110,
+        topBarSource: "/images/abinest-horizontal-light-hd.png",
+        url: "/",
+        accessibilityLabel: "Abinest",
+      }}
       topBar={topBarMarkup}
       navigation={navigationMarkup}
       showMobileNavigation={mobileNavigationActive}
