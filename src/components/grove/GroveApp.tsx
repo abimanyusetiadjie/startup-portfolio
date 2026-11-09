@@ -4,7 +4,7 @@ import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
 import { GrovePartnerPill } from "./GrovePartnerPill";
 import { GroveCapabilitiesSection } from "./GroveCapabilitiesSection";
-import { GroveCaseStudyTabsSection } from "./GroveCaseStudyTabsSection";
+import { GroveBentoGrid } from "./GroveBentoGrid";
 import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
@@ -29,8 +29,8 @@ export function GroveApp() {
       {/* 4 & 5. Problem / Pain Points + Value Proposition (Mengapa Abinest) */}
       <GroveCapabilitiesSection />
 
-      {/* 6. Layanan Utama - 3 Pilar Besar (Website, Sistem, Automasi) */}
-      <GroveCaseStudyTabsSection />
+      {/* 6. Layanan Utama - 12-Column Modular Bento Grid */}
+      <GroveBentoGrid />
 
       {/* 7. Portfolio / 3 Case Studies Terukur + Mid-Page CTA */}
       <GroveCaseStudySection />

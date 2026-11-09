@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -44,7 +45,7 @@ export default function RootLayout({
       className={`scroll-smooth ${plusJakartaSans.variable} ${playfairDisplay.variable} ${jetBrainsMono.variable}`}
     >
       <body className="font-sans antialiased text-slate-900 bg-[#FAF9F6] selection:bg-[#D97736] selection:text-white">
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );
