@@ -62,7 +62,7 @@ export function GroveNavbar() {
       {/* Dynamic Scroll Progress Bar */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#1D4ED8] via-[#2563EB] to-[#38BDF8] origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#064E3B] via-[#059669] to-[#10B981] origin-left z-[60]"
       />
 
       <header
@@ -102,12 +102,12 @@ export function GroveNavbar() {
                     <motion.span
                       layoutId="nav-hover-capsule"
                       transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                      className="absolute inset-0 rounded-full bg-white/95 border border-slate-200/90 shadow-[0_3px_12px_rgba(37,99,235,0.08),0_1px_2px_rgba(15,23,42,0.04)] -z-10"
+                      className="absolute inset-0 rounded-full bg-white/95 border border-slate-200/90 shadow-[0_3px_12px_rgba(5,150,105,0.1),0_1px_2px_rgba(15,23,42,0.04)] -z-10"
                     />
                   )}
                   <span className="relative z-10 flex items-center justify-center gap-1.5">
                     {isSelected && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#059669] shrink-0" />
                     )}
                     <span>{item.label}</span>
                   </span>
@@ -156,12 +156,12 @@ export function GroveNavbar() {
                 onClick={(e) => handleSmoothScroll(e, item.href)}
                 className={`flex items-center justify-between text-sm font-semibold px-3.5 py-2.5 rounded-xl transition-colors ${
                   isActive
-                    ? "text-[#1D4ED8] bg-blue-50/80 font-bold"
+                    ? "text-[#065F46] bg-emerald-50 font-bold"
                     : "text-slate-700 hover:text-slate-950 hover:bg-slate-100"
                 }`}
               >
                 <span>{item.label}</span>
-                {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />}
+                {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#059669]" />}
               </a>
               );
             })}
