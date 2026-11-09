@@ -35,9 +35,9 @@ export function GroveFloatingWhatsApp() {
       text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan Sistem ERP Kustom Multi-Gudang & Finansial tanpa biaya lisensi bulanan.",
     },
     {
-      title: "3. Automasi WA & AI (Meta Cloud API)",
+      title: "3. Automasi AI/ML (Meta API & OCR)",
       desc: "Chatbot AI 24/7, centang hijau & otomasi invoice OCR",
-      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Automasi AI (Invoice OCR & WhatsApp AI Agent Meta Cloud API resmi).",
+      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Automasi AI/ML (Invoice OCR & WhatsApp AI Agent Meta Cloud API resmi).",
     },
   ];
 

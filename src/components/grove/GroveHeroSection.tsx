@@ -79,33 +79,33 @@ export function GroveHeroSection() {
     },
     {
       id: "ai-wa",
-      tabLabel: "3. Automasi WA & AI",
-      tabSubtitle: "Respons Non-Stop 24/7",
+      tabLabel: "3. Automasi AI/ML",
+      tabSubtitle: "Model Cerdas & Efisiensi Alur Kerja",
       icon: Bot,
       accentColor: "#0284C7",
-      headlineLine1: "Automasi Alur Kerja Cerdas",
-      headlineLine2: "Respons Pelanggan 24 Jam Non-Stop.",
+      headlineLine1: "Automasi AI/ML Cerdas",
+      headlineLine2: "Operasional 10x Lebih Cepat & Akurat.",
       story:
-        "Otomatiskan pengiriman tagihan via WhatsApp resmi Meta, integrasi reminder pembayaran, dan asisten AI pintar yang sigap melayani pertanyaan klien seketika.",
+        "Otomatiskan alur kerja manual bisnis Anda dengan model AI cerdas: ekstraksi data faktur instan via Document AI OCR, analisis prediktif, serta integrasi WhatsApp AI Agent resmi Meta 24/7.",
       metrics: [
         {
           num: "01",
-          title: "Meta WhatsApp Cloud API Resmi",
-          desc: "Aman dari pemblokiran (anti-banned) dengan verifikasi bisnis",
+          title: "Document AI OCR Presisi 99.7%",
+          desc: "Ekstraksi data faktur dan dokumen instan tanpa salah input manual",
         },
         {
           num: "02",
-          title: "Respons Pelanggan Seketika",
-          desc: "Asisten AI aktif melayani ramah di luar jam kantor",
+          title: "Model Cerdas & WhatsApp AI Agent",
+          desc: "Asisten cerdas aktif melayani transaksi via Meta Cloud API resmi",
         },
         {
           num: "03",
-          title: "Otomasi Faktur & Dokumen",
-          desc: "Pembacaan invoice instan tanpa input manual yang melelahkan",
+          title: "Integrasi Alur Kerja Otonom",
+          desc: "Sinkronisasi pipa data otomatis langsung ke sistem operasional ERP",
         },
       ],
       image: "/images/ai-ml-workflow.jpg",
-      imageAlt: "Automasi WhatsApp dan AI Pipeline",
+      imageAlt: "Pipeline Automasi AI dan Machine Learning Abinest",
     },
   ];
 
