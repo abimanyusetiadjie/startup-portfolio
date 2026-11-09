@@ -2,12 +2,20 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { AbinestLogo } from "./AbinestLogo";
 
 export function GroveNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -25,8 +33,15 @@ export function GroveNavbar() {
   ];
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+    <>
+      {/* Dynamic Scroll Progress Bar */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-emerald-500 via-teal-400 to-[#064E3B] origin-left z-[60]"
+      />
+
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-[#F8FAFC]/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(15,23,42,0.03)]"
           : "bg-[#F8FAFC]/80 backdrop-blur-sm border-b border-slate-200/40"
@@ -118,5 +133,6 @@ export function GroveNavbar() {
         </div>
       )}
     </header>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe,
   Server,
@@ -118,11 +119,12 @@ export function GroveCapabilitiesSection() {
           </div>
         </div>
 
+        <AnimatePresence mode="wait">
         {/* ========================================================================= */}
         {/* PILAR 01: JASA PEMBUATAN WEBSITE                                          */}
         {/* ========================================================================= */}
         {activeTab === "website" && (
-          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)] animate-fadeIn">
+          <motion.div key="website" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: 0.22 }} className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               {/* Left Column (5 cols): Punchy Benefits */}
               <div className="lg:col-span-5 space-y-5">
@@ -267,14 +269,14 @@ export function GroveCapabilitiesSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* ========================================================================= */}
         {/* PILAR 02: JASA SISTEM (SIAKAD & LIVE CONCURRENCY TEST SIMULATOR)          */}
         {/* ========================================================================= */}
         {activeTab === "sistem" && (
-          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)] animate-fadeIn">
+          <motion.div key="sistem" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: 0.22 }} className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               {/* Left Column (7 cols): MacBook UI Frame + LIVE INTERACTIVE SIMULATOR */}
               <div className="lg:col-span-7">
@@ -434,14 +436,14 @@ export function GroveCapabilitiesSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* ========================================================================= */}
         {/* PILAR 03: JASA AUTOMASI (WHATSAPP META CLOUD API & LIVE TEST DISPATCH)    */}
         {/* ========================================================================= */}
         {activeTab === "automasi" && (
-          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)] animate-fadeIn">
+          <motion.div key="automasi" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: 0.22 }} className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               {/* Left Column (5 cols): Punchy Benefits */}
               <div className="lg:col-span-5 space-y-5">
@@ -573,8 +575,9 @@ export function GroveCapabilitiesSection() {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </section>
   );

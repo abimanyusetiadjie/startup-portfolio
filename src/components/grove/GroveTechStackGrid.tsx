@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ArrowRight, ShieldCheck, Zap, Cloud, MessageSquare, DatabaseBackup } from "lucide-react";
 
 interface TechItem {
@@ -18,6 +18,17 @@ export function GroveTechStackGrid() {
     "all" | "languages" | "frameworks" | "databases" | "devops"
   >("all");
   const [hoveredTech, setHoveredTech] = useState<TechItem | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
 
   // 12 Authentic Official IT Stack Technologies in exact 6 Columns x 2 Rows layout
   const columns: { top: TechItem; bottom: TechItem; offsetClass: string }[] = [
@@ -255,7 +266,18 @@ export function GroveTechStackGrid() {
         </div>
 
         {/* 6-Column Staggered Tactile Block Cards in Clean Light Mode */}
-        <div className="relative py-4 max-w-[1100px] mx-auto">
+        <div
+          ref={containerRef}
+          onMouseMove={handleMouseMove}
+          className="relative py-4 max-w-[1100px] mx-auto group"
+        >
+          {/* Dynamic Cursor Spotlight Light */}
+          <div
+            className="pointer-events-none absolute -inset-4 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+            style={{
+              background: `radial-gradient(450px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(5, 150, 105, 0.08), transparent 80%)`,
+            }}
+          />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 md:gap-5 items-start justify-items-center">
             {columns.map((col, colIdx) => {
               const isTopActive =

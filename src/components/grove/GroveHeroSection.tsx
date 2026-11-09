@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { GroveHeroCockpit } from "./GroveHeroCockpit";
 
 export function GroveHeroSection() {
   const trustMetrics = [
@@ -93,119 +94,9 @@ export function GroveHeroSection() {
             </div>
           </div>
 
-          {/* Right Column (5 cols): 3 Floating Glassmorphism Cards Matching Reference */}
-          <div className="lg:col-span-5 relative flex items-center justify-center py-6 min-h-[460px] sm:min-h-[500px]">
-            {/* Luminous Warm Mint & Sage Glow Behind Glass Cards */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-100/35 via-teal-50/30 to-slate-100/25 blur-3xl rounded-full scale-110"
-            />
-
-            {/* Mobile Stack & Desktop Floating Container */}
-            <div className="relative w-full max-w-[440px] sm:h-[480px] flex flex-col sm:block gap-4">
-              {/* Card 1: 99.9% Uptime (Top Right) */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="sm:absolute sm:top-2 sm:right-2 w-full sm:w-[260px] rounded-3xl bg-white/80 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
-              >
-                <div className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A]">
-                  99.9%
-                </div>
-                <div className="text-sm font-semibold text-slate-600 mt-2">
-                  Uptime
-                </div>
-                <div className="text-[11px] text-slate-400 mt-1 font-medium">
-                  SLA Sistem Anti-Down
-                </div>
-              </motion.div>
-
-              {/* Card 2: 2.5k Active Users (Middle Left) */}
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{
-                  duration: 6.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.4,
-                }}
-                className="sm:absolute sm:top-36 sm:left-2 w-full sm:w-[250px] rounded-3xl bg-white/80 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_20px_50px_rgba(15,23,42,0.06)] z-10 hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] transition-shadow"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A]">
-                    2.5k
-                  </span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
-                    Online
-                  </span>
-                </div>
-                <div className="text-sm font-semibold text-slate-600 mt-2">
-                  Active Users
-                </div>
-                {/* Delicate rising organic chart curve in emerald */}
-                <div className="mt-3 relative">
-                  <svg
-                    className="w-full h-8 overflow-visible"
-                    viewBox="0 0 100 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M 2 20 C 25 18, 48 14, 68 8 C 82 4, 92 2, 98 2"
-                      stroke="#059669"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="98" cy="2" r="2.5" fill="#059669" />
-                  </svg>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-1 font-medium">
-                  Siswa &amp; Staf Terkoneksi
-                </div>
-              </motion.div>
-
-              {/* Card 3: +40% Efficiency Improved (Bottom Right) */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{
-                  duration: 6.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.8,
-                }}
-                className="sm:absolute sm:bottom-2 sm:right-4 w-full sm:w-[280px] rounded-3xl bg-white/85 backdrop-blur-xl border border-white/90 p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.08)] z-20 hover:shadow-[0_30px_70px_rgba(15,23,42,0.12)] transition-shadow"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#059669]">
-                    +40%
-                  </span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
-                    Efisiensi
-                  </span>
-                </div>
-                <div className="text-sm font-semibold text-slate-600 mt-2">
-                  Efficiency Improved
-                </div>
-                {/* Delicate rising organic chart curve */}
-                <div className="mt-3 relative">
-                  <svg
-                    className="w-full h-8 overflow-visible"
-                    viewBox="0 0 100 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M 2 20 C 30 18, 50 12, 72 10 C 86 8, 92 4, 98 2"
-                      stroke="#059669"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="98" cy="2" r="2.5" fill="#059669" />
-                  </svg>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-1 font-medium">
-                  Pangkas Kerja Manual TU &amp; Admin
-                </div>
-              </motion.div>
-            </div>
+          {/* Right Column (5 cols): Interactive Modern Dynamic Cockpit */}
+          <div className="lg:col-span-5 relative flex items-center justify-center py-2">
+            <GroveHeroCockpit />
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ShieldCheck,
   Building2,
@@ -158,8 +159,8 @@ export function GroveCaseStudySection() {
           </div>
         </div>
 
-        {/* SINGLE COMPACT INTERACTIVE SHOWCASE CARD (TIGHT & DENSE) */}
-        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)] space-y-6 animate-fadeIn">
+        <AnimatePresence mode="wait">
+        <motion.div key={currentCase.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.22 }} className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_15px_40px_rgba(15,23,42,0.04)] space-y-6">
           {/* Header Row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
             <div className="flex items-center gap-3">
@@ -276,7 +277,8 @@ export function GroveCaseStudySection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

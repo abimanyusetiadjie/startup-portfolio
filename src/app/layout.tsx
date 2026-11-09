@@ -44,7 +44,7 @@ export default function RootLayout({
       lang="id"
       className={`scroll-smooth ${plusJakartaSans.variable} ${playfairDisplay.variable} ${jetBrainsMono.variable}`}
     >
-      <body className="font-sans antialiased text-slate-900 bg-[#FAF9F6] selection:bg-[#D97736] selection:text-white">
+      <body className="font-sans antialiased text-slate-900 bg-[#F8FAFC] selection:bg-[#059669] selection:text-white">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
