@@ -113,8 +113,13 @@ export function GroveFooterSection() {
                 </a>
               </li>
               <li>
-                <a href="#cara-kerja" className="hover:text-[#1D4ED8] transition-colors">
-                  Cara Kerja &amp; Biaya
+                <a href="#cara-kerja" className="hover:text-[#059669] transition-colors">
+                  Alur &amp; Cara Kerja
+                </a>
+              </li>
+              <li>
+                <a href="#harga" className="hover:text-[#059669] transition-colors font-medium">
+                  Paket Harga &amp; Investasi
                 </a>
               </li>
             </ul>
