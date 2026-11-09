@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Zap, ShieldCheck, MessageSquare } from "lucide-react";
 
@@ -9,21 +10,39 @@ export function GroveHeroSection() {
       id="beranda"
       className="relative pt-8 sm:pt-12 pb-16 sm:pb-20 overflow-hidden bg-[#F8FAFC]"
     >
-      {/* Ambient Diffused Backlight Glow */}
+      {/* Ambient Diffused Background Image & Subtle Mesh */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[400px] bg-gradient-to-b from-emerald-100/40 via-teal-50/30 to-transparent blur-[120px] rounded-full -z-0"
-      />
+        className="pointer-events-none absolute inset-0 -z-0 overflow-hidden"
+      >
+        {/* Dedicated High-Key Atmospheric Background Image with Soft Radial Mask */}
+        <div className="absolute inset-0 opacity-[0.35] mix-blend-multiply [mask-image:radial-gradient(ellipse_75%_65%_at_50%_35%,black_40%,transparent_90%)]">
+          <Image
+            src="/images/hero-ambient-bg.jpg"
+            alt="Hero Background Ambient Texture"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
+
+        {/* Subtle dot matrix / technical grid pattern with smooth radial fade */}
+        <div
+          className="absolute inset-0 opacity-[0.18] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,black_30%,transparent_80%)]"
+          style={{
+            backgroundImage: `radial-gradient(rgba(5, 150, 105, 0.25) 1px, transparent 1px)`,
+            backgroundSize: "28px 28px",
+          }}
+        />
+
+        {/* Soft emerald atmospheric ambient diffused glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[760px] h-[440px] bg-gradient-to-b from-emerald-100/35 via-teal-50/20 to-transparent blur-[120px] rounded-full" />
+      </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Main Centered Content Container */}
         <div className="max-w-[880px] mx-auto text-center space-y-6 sm:space-y-7">
-          {/* 1. Eyebrow Pill Badge (Matching Image) */}
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-[11px] sm:text-xs font-semibold text-slate-700 shadow-xs">
-            <span>100% Hak Milik Source Code · SLA 99.99%</span>
-          </div>
-
-          {/* 2. Headline with Signature Italic Accent on "Beres" (Matching Image) */}
+          {/* Headline with Signature Italic Accent on "Beres" (Matching Image) */}
           <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-extrabold tracking-tight text-[#0F172A] leading-[1.12]">
             Website, Sistem &amp; Automasi yang<br />
             <span className="font-serif italic font-normal text-[#065F46] tracking-normal">
