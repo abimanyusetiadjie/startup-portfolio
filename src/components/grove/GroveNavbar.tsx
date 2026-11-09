@@ -62,7 +62,7 @@ export function GroveNavbar() {
       {/* Dynamic Scroll Progress Bar */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#064E3B] via-[#059669] to-[#10B981] origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2563EB] via-[#1D4ED8] to-[#38BDF8] origin-left z-[60]"
       />
 
       <header

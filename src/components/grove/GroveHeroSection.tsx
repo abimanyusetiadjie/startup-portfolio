@@ -166,7 +166,7 @@ export function GroveHeroSection() {
       id="beranda"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative pt-6 sm:pt-10 pb-14 sm:pb-18 overflow-hidden bg-[#FBFBFA] border-b border-slate-200/70"
+      className="relative pt-4 sm:pt-6 pb-12 sm:pb-16 overflow-hidden bg-[#FBFBFA] border-b border-slate-200/70"
     >
       {/* Subtle Atmospheric Grid Mesh & Texture */}
       <div
@@ -187,16 +187,8 @@ export function GroveHeroSection() {
       </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
-        {/* Top Editorial Rule */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full h-px bg-slate-200/90 mb-6 sm:mb-8 origin-left"
-        />
-
         {/* 3-Pillar Interactive Tab Switcher Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 sm:mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
           <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
             {pillars.map((pillar, idx) => {
               const Icon = pillar.icon;
