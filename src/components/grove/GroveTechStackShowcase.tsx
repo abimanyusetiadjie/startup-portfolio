@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
 
 interface TechItem {
   name: string;
@@ -332,12 +331,11 @@ export function GroveTechStackShowcase() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[240px] bg-blue-100/30 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header: ONLY "OUR TECH STACK" */}
-        <div className="text-center max-w-xl mx-auto mb-5 sm:mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/90 text-blue-700 text-xs sm:text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-2xs">
-            <Zap className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
-            <span>OUR TECH STACK</span>
-          </span>
+        {/* Header: Executive H1 Typography for OUR TECH STACK */}
+        <div className="text-center max-w-xl mx-auto mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0F172A] uppercase select-text">
+            OUR TECH STACK
+          </h1>
         </div>
 
         {/* Dual Animated Marquee Tracks (Crisp White Squircle Cards) */}
