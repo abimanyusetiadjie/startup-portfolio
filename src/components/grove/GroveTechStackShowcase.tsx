@@ -371,7 +371,7 @@ export function GroveTechStackShowcase() {
               {duplicatedTrack1.map((item, idx) => (
                 <div
                   key={`track1-${idx}`}
-                  className="group relative flex flex-col items-center justify-center w-26 h-26 sm:w-30 sm:h-30 md:w-32 md:h-32 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-blue-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
+                  className="group relative flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-blue-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
                 >
                   {/* Soft Ambient Inner Glow on Hover */}
                   <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-blue-500/0 via-transparent to-blue-500/0 group-hover:from-blue-500/10 group-hover:to-indigo-500/10 transition-colors pointer-events-none" />
@@ -407,7 +407,7 @@ export function GroveTechStackShowcase() {
               {duplicatedTrack2.map((item, idx) => (
                 <div
                   key={`track2-${idx}`}
-                  className="group relative flex flex-col items-center justify-center w-26 h-26 sm:w-30 sm:h-30 md:w-32 md:h-32 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-sky-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
+                  className="group relative flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-sky-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
                 >
                   {/* Soft Ambient Inner Glow on Hover */}
                   <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-sky-500/0 via-transparent to-sky-500/0 group-hover:from-sky-500/10 group-hover:to-cyan-500/10 transition-colors pointer-events-none" />
