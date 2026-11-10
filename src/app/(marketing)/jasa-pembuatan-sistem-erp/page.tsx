@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Jasa Pembuatan Sistem ERP Enterprise & Multi-Warehouse Kustom | Abinest",
   description:
-    "Jasa pembuatan Sistem ERP Kustom terpadu: Multi-Gudang, Manajemen Inventori, Rekonsiliasi Finansial, dan Supply Chain dengan SLA 99.99% Uptime. 100% Hak Milik Source Code tanpa biaya sewa lisensi per user selamanya.",
+    "Jasa pembuatan Sistem ERP Kustom terpadu: Multi-Gudang, Manajemen Inventori, Rekonsiliasi Finansial, dan Supply Chain dengan SLA 99.9% Uptime. 100% Hak Milik Source Code tanpa biaya sewa lisensi per user selamanya.",
   keywords: [
     "jasa pembuatan sistem erp indonesia",
     "custom erp enterprise software",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function JasaSistemErpPage() {
   const benefits = [
-    "Jaminan SLA 99.99% Uptime: Sistem tetap kokoh stabil saat ribuan staf gudang, kasir POS, dan tim finance bertransaksi serentak.",
+    "Jaminan SLA 99.9% Uptime: Sistem tetap kokoh stabil saat ribuan staf gudang, kasir POS, dan tim finance bertransaksi serentak.",
     "Sinkronisasi multi-gudang dan cabang secara real-time dengan latensi <35ms berbasis arsitektur PostgreSQL pooling.",
     "Hak akses ketat berbasis peran (Role-Based Access Control) untuk Direksi, Kepala Gudang, Staf Finance, dan Audit.",
     "100% kepemilikan source code diserahkan penuh ke perusahaan Anda tanpa biaya sewa lisensi bulanan per user selamanya.",

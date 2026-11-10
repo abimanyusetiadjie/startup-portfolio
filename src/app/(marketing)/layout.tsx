@@ -31,7 +31,15 @@ export const metadata: Metadata = {
     siteName: "Abinest Startup Rekayasa Teknologi",
     title: "Abinest | Modern Web, Custom ERP, & AI/ML Automation Startup",
     description:
-      "Teruji di 25+ Perusahaan Nasional. SLA 99.99% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code Tanpa Biaya Lisensi Bulanan.",
+      "Teruji di 25+ Perusahaan Nasional. SLA 99.9% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code Tanpa Biaya Lisensi Bulanan.",
+    images: [
+      {
+        url: "/images/abinest-horizontal-dark-hd.png",
+        width: 1200,
+        height: 630,
+        alt: "Abinest Startup Rekayasa Teknologi",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

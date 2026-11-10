@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title:
       "Abinest | Solusi Digital Presisi: Web Modern, ERP Kustom & Automasi AI/ML",
     description:
-      "Teruji di 25+ Perusahaan Nasional. SLA 99.99% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code Tanpa Biaya Lisensi Bulanan.",
+      "Teruji di 25+ Perusahaan Nasional. SLA 99.9% Uptime, Respons Engineer <15 Menit, dan 100% Kepemilikan Source Code Tanpa Biaya Lisensi Bulanan.",
     url: APP_BASE_URL,
     type: "website",
   },
