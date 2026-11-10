@@ -331,11 +331,11 @@ export function GroveTechStackShowcase() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[240px] bg-blue-100/30 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header: Executive H1 Typography for OUR TECH STACK */}
+        {/* Header: Title Case with Electric Blue Accent */}
         <div className="text-center max-w-xl mx-auto mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0F172A] uppercase select-text">
-            OUR TECH STACK
-          </h1>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 select-text">
+            Our Tech <span className="text-blue-600">Stack</span><span className="text-blue-600">.</span>
+          </h2>
         </div>
 
         {/* Dual Animated Marquee Tracks (Crisp White Squircle Cards) */}
