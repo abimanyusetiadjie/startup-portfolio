@@ -53,11 +53,6 @@ export function GroveFooterSection() {
                 </a>
               </li>
               <li>
-                <a href="#testimoni" className="hover:text-[#1D4ED8] transition-colors">
-                  Testimoni Klien
-                </a>
-              </li>
-              <li>
                 <a href="#cara-kerja" className="hover:text-[#1D4ED8] transition-colors">
                   Alur &amp; Cara Kerja
                 </a>

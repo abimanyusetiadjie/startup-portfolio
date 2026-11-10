@@ -19,7 +19,6 @@ const NAV_LINKS = [
   { label: "Pilar Layanan", href: "#layanan" },
   { label: "Arsitektur Teknis", href: "#keunggulan-teknis" },
   { label: "Studi Kasus", href: "#studi-kasus" },
-  { label: "Testimoni", href: "#testimoni" },
 ] as const;
 
 export function MarketingNavbar() {

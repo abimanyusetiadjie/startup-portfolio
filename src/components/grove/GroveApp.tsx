@@ -5,7 +5,6 @@ import { GroveHeroSection } from "./GroveHeroSection";
 import { GrovePartnerPill } from "./GrovePartnerPill";
 import { GroveCapabilitiesSection } from "./GroveCapabilitiesSection";
 import { GroveCaseStudySection } from "./GroveCaseStudySection";
-import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
 import { GrovePricingSection } from "./GrovePricingSection";
 import { GroveTechStackShowcase } from "./GroveTechStackShowcase";
@@ -31,10 +30,7 @@ export function GroveApp() {
       {/* 5. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
       <GroveCaseStudySection />
 
-      {/* 6. Testimoni Kredibel Terkurasi (Screen 4) */}
-      <GroveTestimonialsGrid />
-
-      {/* 7. Alur Kerja 5 Langkah + Skema Terima Beres vs Beli Putus (Screen 5) */}
+      {/* 6. Alur Kerja 5 Langkah + Bento Studio Grid */}
       <GroveCoreShieldSection />
 
       {/* 8. Section Paket Harga / Investasi Transparan (#harga) */}
