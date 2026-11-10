@@ -4,14 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ShieldCheck,
   Briefcase,
   ArrowRight,
   Globe,
   Database,
   School,
-  Sparkles,
-  ExternalLink,
+  Lock,
 } from "lucide-react";
 
 export function GroveCaseStudySection() {
@@ -21,20 +19,20 @@ export function GroveCaseStudySection() {
     {
       id: "modern-web",
       tabTitle: "1. Web Korporat (<0.8s)",
-      tag: "HEADLESS WEB & LEAD GENERATION",
+      tag: "FINANCIAL & INVESTMENT WEB",
       clientSector: "Sektor Pembiayaan & Investasi",
       location: "Jakarta Selatan, DKI Jakarta",
       icon: Globe,
       headline: "Website Modern Memuat Kilat 0,5 Detik & Konversi Inbound Naik +180%",
       imagePreview: "/images/case-studies/modern-web-finance.jpg",
       fallbackImage: "/images/capabilities/capabilities-web-preview.jpg",
-      visualUrl: "preview.abinest.id/modern-web-architecture",
+      visualUrl: "apexcapital.co.id",
       metrics: [
         { value: "0,5s", label: "Loading Speed HP", note: "Sebelumnya >6.8 detik" },
         { value: "+180%", label: "Leads Inbound", note: "Pengunjung tanpa drop-off" },
         { value: "100/100", label: "Google PageSpeed", note: "Lolos Core Web Vitals" },
       ],
-      challengeBrief: "CMS lama berat (>6.8s di HP), calon investor keluar sebelum web selesai memuat, dan peringkat SEO tertinggal.",
+      challengeBrief: "CMS lama berat (>6.8s di HP), calon investor keluar sebelum web selesai memuat, dan SEO tertinggal.",
       solutionBrief: "Arsitektur Next.js Edge SSR dengan automated CDN caching & struktur data ramah bot pencarian Google.",
       impactBrief: "Halaman terbuka kilat 0.5 detik, bounce rate anjlok 65%, dan leads konsultasi naik 1.8x dalam 60 hari.",
       clientQuote: {
@@ -47,14 +45,14 @@ export function GroveCaseStudySection() {
     {
       id: "siakad-sekolah",
       tabTitle: "2. SIAKAD Anti-Down (Sekolah)",
-      tag: "HIGH-CONCURRENCY ARCHITECTURE",
+      tag: "DIGITAL CAMPUS & EXAM PORTAL",
       clientSector: "Yayasan Pendidikan & Sekolah Unggulan",
       location: "Jawa Timur & Jawa Barat",
       icon: School,
       headline: "SIAKAD Sekolah Anti-Down: 1.240 Siswa Ujian Serentak 0% Server Crash",
       imagePreview: "/images/case-studies/siakad-education-portal.jpg",
       fallbackImage: "/images/capabilities/capabilities-erp-preview.jpg",
-      visualUrl: "preview.abinest.id/siakad-high-concurrency",
+      visualUrl: "siakad.bina-insan.sch.id",
       metrics: [
         { value: "1.240", label: "Siswa Login Serentak", note: "Ujian online tanpa lag" },
         { value: "0% Crash", label: "Uptime Selama Ujian", note: "Database auto-failover" },
@@ -73,14 +71,14 @@ export function GroveCaseStudySection() {
     {
       id: "erp-multigudang",
       tabTitle: "3. Custom ERP Multi-Gudang",
-      tag: "ENTERPRISE ERP & ZERO LICENSE",
+      tag: "ENTERPRISE SUPPLY CHAIN & LOGISTICS",
       clientSector: "Distribusi Nasional & Rantai Pasok",
       location: "Jakarta Barat & Surabaya",
       icon: Database,
       headline: "Sistem ERP Multi-Gudang Mengotomasi 18.000 SKU & Menghemat 40 Jam/Minggu",
       imagePreview: "/images/case-studies/erp-multi-warehouse.jpg",
       fallbackImage: "/images/capabilities/capabilities-aiml-preview.jpg",
-      visualUrl: "preview.abinest.id/enterprise-multi-warehouse",
+      visualUrl: "erp.nexus-distribusi.com",
       metrics: [
         { value: "0% Selisih", label: "Real-Time 4 Gudang", note: "Barcode scanner terpadu" },
         { value: "40 Jam", label: "Hemat per Minggu", note: "Rekonsiliasi otomatis" },
@@ -104,12 +102,12 @@ export function GroveCaseStudySection() {
   return (
     <section
       id="portofolio"
-      className="py-14 sm:py-20 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden"
+      className="py-12 sm:py-16 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden"
     >
       {/* Background Soft Mesh Ambient */}
       <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none" />
 
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-10">
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
         {/* Section Header & Tabs */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1E40AF]">
@@ -149,7 +147,7 @@ export function GroveCaseStudySection() {
           </div>
         </div>
 
-        {/* MASTER STUDIO SPLIT CARD (OPSI 1: 60% IMAGE DOMINANT, 40% COMPACT INFO) */}
+        {/* MASTER STUDIO SPLIT CARD (CLEAN SCREENSHOT FOCUS - NO CLUTTER, NO STRANGE BADGES) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentCase.id}
@@ -160,50 +158,42 @@ export function GroveCaseStudySection() {
             className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_20px_50px_rgba(15,23,42,0.06)]"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-              {/* LEFT COLUMN: Large, Dominant Image Showcase (7 Cols / ~58%) */}
-              <div className="lg:col-span-7 flex flex-col justify-between">
-                <div className="rounded-3xl bg-slate-900 border border-slate-800 p-3 sm:p-4 shadow-xl flex-1 flex flex-col justify-between overflow-hidden group">
-                  {/* Browser Bar */}
-                  <div className="bg-slate-800/90 rounded-2xl px-3.5 py-2 flex items-center justify-between text-slate-400 text-xs mb-3">
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      <div className="w-2.5 h-2.5 rounded-full bg-rose-500/90" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-amber-500/90" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/90" />
+              {/* LEFT COLUMN: Clean, High-Resolution UI Screenshot in Subtle Window Frame (7 Cols / ~58%) */}
+              <div className="lg:col-span-7 flex flex-col justify-center">
+                <div className="rounded-2xl bg-white border border-slate-300/80 shadow-[0_12px_32px_rgba(15,23,42,0.08)] overflow-hidden flex flex-col group">
+                  {/* Clean, Realistic Browser Navigation Header (No clunky badges) */}
+                  <div className="bg-slate-100/90 border-b border-slate-200 px-3.5 py-2.5 flex items-center justify-between text-slate-500">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
                     </div>
-                    <div className="px-3 py-1 rounded-lg bg-slate-900 text-slate-300 text-[10.5px] font-mono flex items-center gap-1.5 border border-slate-700/60 truncate max-w-[200px] sm:max-w-xs">
-                      <ShieldCheck className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-                      <span className="truncate">https://{currentCase.visualUrl}</span>
+                    
+                    {/* Clean Minimalist URL Pill */}
+                    <div className="px-3.5 py-0.5 rounded-md bg-white border border-slate-200/80 text-[11px] font-mono text-slate-600 flex items-center gap-1.5 shadow-2xs">
+                      <Lock className="w-3 h-3 text-emerald-600" />
+                      <span className="font-medium">https://{currentCase.visualUrl}</span>
                     </div>
-                    <span className="text-[9.5px] font-bold text-emerald-400 flex items-center gap-1 shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="hidden sm:inline">SLA 99.9% LIVE</span>
-                    </span>
+
+                    <div className="w-10" />
                   </div>
 
-                  {/* High-Resolution Expansive Image Frame (Tinggi 420px - 500px!) */}
-                  <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[460px] xl:h-[490px] rounded-2xl overflow-hidden bg-slate-950">
+                  {/* Clean Direct UI Screenshot Container */}
+                  <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[460px] xl:h-[480px] bg-slate-100 overflow-hidden">
                     <Image
                       src={currentCase.imagePreview}
                       alt={currentCase.headline}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-103"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                       sizes="(max-width: 1024px) 100vw, 58vw"
                       priority
                       onError={(e) => {
-                        // Fallback gracefully if newly generated asset is still loading
                         const target = e.target as HTMLImageElement;
                         if (target.src !== currentCase.fallbackImage) {
                           target.src = currentCase.fallbackImage;
                         }
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
-                  </div>
-
-                  {/* Browser Mockup Footer */}
-                  <div className="pt-2.5 px-1.5 flex items-center justify-between text-[11px] text-slate-400 font-mono">
-                    <span className="text-slate-400">Arsitektur Produksi Kustom</span>
-                    <span className="text-sky-400 font-bold">100% Hak Milik Klien ✓</span>
                   </div>
                 </div>
               </div>
@@ -211,7 +201,7 @@ export function GroveCaseStudySection() {
               {/* RIGHT COLUMN: Compact Info & Impact Panel (5 Cols / ~42%) */}
               <div className="lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-5">
                 {/* Sector Header & Tag */}
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   <div className="flex items-center justify-between gap-2 flex-wrap">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#1E40AF] flex items-center justify-center font-bold border border-blue-200 shrink-0">
@@ -227,8 +217,8 @@ export function GroveCaseStudySection() {
                       </div>
                     </div>
 
-                    <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">
-                      Implementasi Valid
+                    <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold tracking-wide">
+                      {currentCase.tag}
                     </span>
                   </div>
 
@@ -258,7 +248,7 @@ export function GroveCaseStudySection() {
                   ))}
                 </div>
 
-                {/* Ultra-Concise Story: 3 Punchy Impact Bullets (Bukan Paragraf Panjang) */}
+                {/* Ultra-Concise Story: 3 Punchy Impact Bullets */}
                 <div className="space-y-2 p-3 sm:p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 text-[11.5px] leading-snug">
                   <div className="flex items-start gap-2">
                     <span className="text-rose-600 font-bold shrink-0">✕ Kendala:</span>
