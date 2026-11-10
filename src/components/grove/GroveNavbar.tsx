@@ -118,13 +118,7 @@ export function GroveNavbar() {
           </nav>
 
           {/* Right: Actions & High-Converting CTA Button */}
-          <div className="hidden sm:flex items-center gap-3">
-            <Link
-              href="/login"
-              className="text-xs font-semibold text-slate-600 hover:text-slate-950 hover:bg-slate-100 px-3.5 py-1.5 rounded-full transition-all duration-200"
-            >
-              Portal Klien
-            </Link>
+          <div className="hidden sm:flex items-center">
             <a
               href="#kontak"
               onClick={(e) => handleSmoothScroll(e, "#kontak")}
@@ -168,12 +162,6 @@ export function GroveNavbar() {
             })}
 
             <div className="pt-3 mt-2 border-t border-slate-100 flex flex-col gap-2">
-              <Link
-                href="/login"
-                className="w-full text-center py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl border border-slate-200"
-              >
-                Portal Klien (Tracking Progres)
-              </Link>
               <a
                 href="#kontak"
                 onClick={(e) => handleSmoothScroll(e, "#kontak")}

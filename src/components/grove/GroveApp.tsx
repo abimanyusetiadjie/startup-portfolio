@@ -8,7 +8,6 @@ import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
 import { GrovePricingSection } from "./GrovePricingSection";
-import { GroveEngineeringTrustSection } from "./GroveEngineeringTrustSection";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
@@ -40,10 +39,7 @@ export function GroveApp() {
       {/* 9. Section Paket Harga / Investasi Transparan (#harga) */}
       <GrovePricingSection />
 
-      {/* 10. Standar Rekayasa Tim & Interactive FAQ (#faq) */}
-      <GroveEngineeringTrustSection />
-
-      {/* 11. Final CTA + Form Konsultasi Cepat (#kontak) */}
+      {/* 10. Final CTA + Form Konsultasi Cepat (#kontak) */}
       <GroveAmberContactSection />
 
       {/* 11. Footer Lengkap & Badge Kepercayaan */}
