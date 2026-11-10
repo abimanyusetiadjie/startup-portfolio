@@ -8,6 +8,7 @@ import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
 import { GrovePricingSection } from "./GrovePricingSection";
+import { GroveTechStackShowcase } from "./GroveTechStackShowcase";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
@@ -27,17 +28,20 @@ export function GroveApp() {
       {/* 4. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
       <GroveCapabilitiesSection />
 
-      {/* 6. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
+      {/* 5. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
       <GroveCaseStudySection />
 
-      {/* 7. Testimoni Kredibel Terkurasi (Screen 4) */}
+      {/* 6. Testimoni Kredibel Terkurasi (Screen 4) */}
       <GroveTestimonialsGrid />
 
-      {/* 8. Alur Kerja 5 Langkah + Bukti 100% Source Code Handover (Screen 5) */}
+      {/* 7. Alur Kerja 5 Langkah + Skema Terima Beres vs Beli Putus (Screen 5) */}
       <GroveCoreShieldSection />
 
-      {/* 9. Section Paket Harga / Investasi Transparan (#harga) */}
+      {/* 8. Section Paket Harga / Investasi Transparan (#harga) */}
       <GrovePricingSection />
+
+      {/* 9. Tech Stack & Server Architecture Showcase (#tech-stack) */}
+      <GroveTechStackShowcase />
 
       {/* 10. Final CTA + Form Konsultasi Cepat (#kontak) */}
       <GroveAmberContactSection />

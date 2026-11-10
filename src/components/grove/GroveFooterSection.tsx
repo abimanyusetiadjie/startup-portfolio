@@ -117,6 +117,11 @@ export function GroveFooterSection() {
                 </a>
               </li>
               <li>
+                <a href="#tech-stack" className="hover:text-[#1D4ED8] transition-colors font-medium">
+                  Teknologi &amp; Arsitektur
+                </a>
+              </li>
+              <li>
                 <a href="#kontak" className="hover:text-[#1D4ED8] transition-colors font-medium">
                   Konsultasi Gratis
                 </a>
