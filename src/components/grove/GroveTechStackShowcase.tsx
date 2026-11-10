@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Layers, Server, Code2, Database } from "lucide-react";
+import { Zap } from "lucide-react";
 
 interface TechItem {
   name: string;
@@ -325,147 +325,110 @@ export function GroveTechStackShowcase() {
   return (
     <section
       id="tech-stack"
-      className="py-20 sm:py-28 relative overflow-hidden bg-[#0A0E1A] text-white selection:bg-blue-600 selection:text-white border-t border-slate-800/80"
+      className="py-12 sm:py-16 md:py-20 relative bg-[#F8FAFC] overflow-hidden"
     >
-      {/* 1. Subtle High-Tech Laser & Background Glows */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(37,99,235,0.18),transparent_70%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(#1E293B_1px,transparent_1px)] [background-size:28px_28px] opacity-30 pointer-events-none" />
+      {/* Soft Ambient Bridge to blend naturally between Pricing (#F8FAFC) and Contact (#FFFFFF) */}
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Executive Bento Island Showcase Container */}
+        <div className="relative rounded-[28px] sm:rounded-[36px] bg-[#0B1120] border border-slate-800/90 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.45)] overflow-hidden py-12 sm:py-16 md:py-20 text-white">
+          {/* Subtle Cyber Laser Line & Electric Cobalt Ambient Radial Glow */}
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_0%,rgba(37,99,235,0.20),transparent_72%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(#1E293B_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none" />
 
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
-        {/* 2. Centered Section Header (Directly matching the benchmark aesthetic) */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wider uppercase mb-4">
-            <Zap className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
-            <span>Fondasi Arsitektur &amp; Tooling Kelas Industri</span>
+          {/* Centered Section Header */}
+          <div className="text-center max-w-3xl mx-auto px-5 sm:px-8 mb-10 sm:mb-14 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wider uppercase mb-3.5 shadow-xs">
+              <Zap className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+              <span>Arsitektur &amp; Tooling Kelas Industri</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.2] mb-3.5">
+              Didukung Ekosistem Teknologi Modern yang{" "}
+              <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
+                Cepat, Andal &amp; Bebas Biaya Sewa
+              </span>
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
+              Kami merekayasa sistem Anda di atas bahasa pemrograman, framework, dan cloud server standar global. 
+              Tanpa ketergantungan lisensi bulanan, siap menangani puluhan ribu transaksi tanpa hambatan.
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.18] mb-4">
-            Didukung Ekosistem Teknologi Modern yang{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
-              Cepat, Andal &amp; Bebas Biaya Sewa
-            </span>
-          </h2>
-
-          <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
-            Kami merekayasa sistem Anda di atas bahasa pemrograman, framework, dan cloud server standar global. 
-            Tanpa ketergantungan lisensi bulanan, siap menangani puluhan ribu transaksi tanpa hambatan.
-          </p>
-        </div>
-      </div>
-
-      {/* 3. Visual Tech Tiles Showcases (Dual Animated Moving Tracks) */}
-      <div className="relative w-full overflow-hidden space-y-4 sm:space-y-6 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        {/* Track 1: Moving Towards Left (←) */}
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 36,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-          className="flex gap-4 sm:gap-5 w-max hover:[animation-play-state:paused] py-1 cursor-grab active:cursor-grabbing"
-        >
-          {duplicatedTrack1.map((item, idx) => (
-            <div
-              key={`track1-${idx}`}
-              className="group relative flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl sm:rounded-3xl bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800/90 hover:border-blue-500/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-105 hover:-translate-y-1.5 p-3 shrink-0 backdrop-blur-md"
+          {/* Visual Tech Tiles Showcase (Dual Animated Moving Tracks) */}
+          <div className="relative w-full overflow-hidden space-y-3.5 sm:space-y-5 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            {/* Track 1: Moving Towards Left (←) */}
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                duration: 36,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+              className="flex gap-3.5 sm:gap-4 w-max hover:[animation-play-state:paused] py-1 cursor-grab active:cursor-grabbing"
             >
-              {/* Soft Ambient Inner Glow on Hover */}
-              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-blue-500/0 via-transparent to-blue-500/0 group-hover:from-blue-500/10 group-hover:to-indigo-500/10 transition-colors pointer-events-none" />
-              
-              {/* Brand Logo */}
-              <div className="shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
-                {item.icon}
-              </div>
+              {duplicatedTrack1.map((item, idx) => (
+                <div
+                  key={`track1-${idx}`}
+                  className="group relative flex flex-col items-center justify-center w-26 h-26 sm:w-30 sm:h-30 md:w-32 md:h-32 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-blue-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
+                >
+                  {/* Soft Ambient Inner Glow on Hover */}
+                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-blue-500/0 via-transparent to-blue-500/0 group-hover:from-blue-500/10 group-hover:to-indigo-500/10 transition-colors pointer-events-none" />
 
-              {/* Title & Micro Role */}
-              <div className="mt-2 sm:mt-2.5 text-center">
-                <p className="text-xs sm:text-[13px] font-bold text-slate-200 group-hover:text-white transition-colors truncate max-w-[100px] sm:max-w-[120px]">
-                  {item.name}
-                </p>
-                <span className="inline-block text-[9px] sm:text-[10px] font-medium text-blue-400/90 tracking-tight">
-                  {item.role}
-                </span>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+                  {/* Brand Logo */}
+                  <div className="shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
+                    {item.icon}
+                  </div>
 
-        {/* Track 2: Moving Towards Right (→) */}
-        <motion.div
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{
-            duration: 40,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-          className="flex gap-4 sm:gap-5 w-max hover:[animation-play-state:paused] py-1 cursor-grab active:cursor-grabbing"
-        >
-          {duplicatedTrack2.map((item, idx) => (
-            <div
-              key={`track2-${idx}`}
-              className="group relative flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl sm:rounded-3xl bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800/90 hover:border-sky-500/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-105 hover:-translate-y-1.5 p-3 shrink-0 backdrop-blur-md"
+                  {/* Title & Micro Role */}
+                  <div className="mt-2 text-center">
+                    <p className="text-xs sm:text-[12.5px] font-bold text-slate-200 group-hover:text-white transition-colors truncate max-w-[95px] sm:max-w-[110px]">
+                      {item.name}
+                    </p>
+                    <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-blue-400/90 tracking-tight">
+                      {item.role}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Track 2: Moving Towards Right (→) */}
+            <motion.div
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{
+                duration: 40,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+              className="flex gap-3.5 sm:gap-4 w-max hover:[animation-play-state:paused] py-1 cursor-grab active:cursor-grabbing"
             >
-              {/* Soft Ambient Inner Glow on Hover */}
-              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-sky-500/0 via-transparent to-sky-500/0 group-hover:from-sky-500/10 group-hover:to-cyan-500/10 transition-colors pointer-events-none" />
+              {duplicatedTrack2.map((item, idx) => (
+                <div
+                  key={`track2-${idx}`}
+                  className="group relative flex flex-col items-center justify-center w-26 h-26 sm:w-30 sm:h-30 md:w-32 md:h-32 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-sky-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
+                >
+                  {/* Soft Ambient Inner Glow on Hover */}
+                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-sky-500/0 via-transparent to-sky-500/0 group-hover:from-sky-500/10 group-hover:to-cyan-500/10 transition-colors pointer-events-none" />
 
-              {/* Brand Logo */}
-              <div className="shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
-                {item.icon}
-              </div>
+                  {/* Brand Logo */}
+                  <div className="shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
+                    {item.icon}
+                  </div>
 
-              {/* Title & Micro Role */}
-              <div className="mt-2 sm:mt-2.5 text-center">
-                <p className="text-xs sm:text-[13px] font-bold text-slate-200 group-hover:text-white transition-colors truncate max-w-[100px] sm:max-w-[120px]">
-                  {item.name}
-                </p>
-                <span className="inline-block text-[9px] sm:text-[10px] font-medium text-emerald-400/90 tracking-tight">
-                  {item.role}
-                </span>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* 4. Bottom Engineering Guarantees Bar (3 B2B Proof Points) */}
-      <div className="max-w-[1100px] mx-auto px-5 sm:px-8 mt-14 sm:mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 pt-8 border-t border-slate-800/70">
-          <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-900/40 border border-slate-800/60">
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-              <ShieldCheck className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-white mb-0.5">Zero Vendor Lock-In</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Source code 100% milik Anda. Bebas di-host di server internal, VPS lokal, atau cloud global manapun.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-900/40 border border-slate-800/60">
-            <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
-              <Zap className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-white mb-0.5">Tangguh &amp; Rendah Latensi</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Dioptimasi dengan in-memory cache Redis dan pooling database untuk respons kilat &lt;0.5 detik.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3.5 p-4 rounded-xl bg-slate-900/40 border border-slate-800/60">
-            <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
-              <Layers className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-white mb-0.5">Dokumentasi &amp; CI/CD Siap Pakai</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Dilengkapi pipeline automated build Docker, skema OpenAPI, dan panduan deployment lengkap untuk tim Anda.
-              </p>
-            </div>
+                  {/* Title & Micro Role */}
+                  <div className="mt-2 text-center">
+                    <p className="text-xs sm:text-[12.5px] font-bold text-slate-200 group-hover:text-white transition-colors truncate max-w-[95px] sm:max-w-[110px]">
+                      {item.name}
+                    </p>
+                    <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-emerald-400/90 tracking-tight">
+                      {item.role}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
