@@ -195,7 +195,7 @@ export function GroveHeroCockpit() {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                      Next.js 15 · Headless Web Architecture
+                      Next.js · Headless Web Architecture
                     </span>
                     <h4 className="text-base font-extrabold text-[#0F172A]">
                       Ultra-Fast Web &amp; Digital Experience

@@ -13,7 +13,7 @@ interface TechItem {
 export function GroveTechStackGrid() {
   const techStacks: TechItem[] = [
     {
-      name: "Next.js 15",
+      name: "Next.js",
       category: "Fullstack Web",
       benefit: "<0.8s Core",
       svg: (

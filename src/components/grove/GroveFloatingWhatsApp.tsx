@@ -25,7 +25,7 @@ export function GroveFloatingWhatsApp() {
 
   const quickOptions = [
     {
-      title: "1. Website Modern (<0.8s, Next.js 15)",
+      title: "1. Website Modern (<0.8s, Next.js)",
       desc: "Kecepatan tinggi, SEO 100/100, 100% hak milik kode",
       text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Pembuatan Website Modern berkecepatan tinggi (<0.8s) dan skor SEO 100/100.",
     },

@@ -17,7 +17,7 @@ export function GroveCapabilitiesSection() {
   const capabilities = [
     {
       id: "web",
-      tag: "Next.js 15 · Headless Web",
+      tag: "Next.js · Headless Web",
       title: "Modern Web Architecture",
       desc: "Website korporat berkecepatan tinggi (<0.8 detik), SEO Google 100/100, dan UI/UX konversi tinggi untuk melipatgandakan leads bisnis Anda.",
       badges: ["<0.8s Loading", "SEO 100/100", "Zero Bloat"],

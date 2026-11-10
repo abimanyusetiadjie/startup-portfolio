@@ -37,7 +37,7 @@ export function GroveCaseStudySection() {
         { value: "100 / 100", label: "Skor Google PageSpeed & SEO", note: "Lolos Core Web Vitals" },
       ],
       beforeStory: "Website lama memakai CMS berat yang memuat >6.8 detik di perangkat mobile. Calon klien dan investor keluar sebelum proposal selesai terbuka, dan peringkat Google tertinggal di halaman belakang.",
-      solutionStory: "Abinest merekayasa ulang seluruh web dengan Next.js 15 Edge SSR, Edge CDN Caching otomatis, serta arsitektur SEO terstruktur yang ramah bot mesin pencari Google.",
+      solutionStory: "Abinest merekayasa ulang seluruh web dengan Next.js Edge SSR, Edge CDN Caching otomatis, serta arsitektur SEO terstruktur yang ramah bot mesin pencari Google.",
       impactStory: "Halaman terbuka instan dalam 0.5 detik, bounce rate anjlok hingga 65%, dan jumlah formulir konsultasi masuk meningkat 1.8 kali lipat dalam 60 hari pertama pasca-rilis.",
       clientQuote: {
         text: "Website kami kini langsung terbuka sekejap mata di smartphone calon investor. Peringkat Google melesat ke halaman pertama dan leads masuk konsisten setiap hari.",

@@ -27,7 +27,7 @@ export function GroveTechStackShowcase() {
       ),
     },
     {
-      name: "Next.js 15",
+      name: "Next.js",
       category: "Framework",
       role: "React Server Engine",
       icon: (
