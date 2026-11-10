@@ -325,27 +325,19 @@ export function GroveTechStackShowcase() {
   return (
     <section
       id="tech-stack"
-      className="py-10 sm:py-14 relative bg-[#F8FAFC] border-y border-slate-200/80 overflow-hidden"
+      className="py-8 sm:py-10 relative bg-[#F8FAFC] border-y border-slate-200/80 overflow-hidden"
     >
       {/* Background Soft Mesh Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[260px] bg-blue-100/35 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[240px] bg-blue-100/30 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Compact & Professional Header */}
-        <div className="text-center max-w-2xl mx-auto mb-7 sm:mb-9">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/90 text-blue-700 text-[11px] font-bold tracking-wider uppercase mb-2.5 shadow-2xs">
+        {/* Header: ONLY "OUR TECH STACK" */}
+        <div className="text-center max-w-xl mx-auto mb-5 sm:mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/90 text-blue-700 text-xs sm:text-[12px] font-extrabold tracking-[0.18em] uppercase shadow-2xs">
             <Zap className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
             <span>OUR TECH STACK</span>
-          </div>
-
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F172A] tracking-tight">
-            Fondasi Bahasa, Framework &amp; Server Kelas Industri
-          </h2>
-
-          <p className="text-xs sm:text-[13px] text-slate-500 mt-1 max-w-lg mx-auto font-normal">
-            Arsitektur cepat, stabil, dan minim latensi tanpa ketergantungan lisensi bulanan pihak ketiga.
-          </p>
+          </span>
         </div>
 
         {/* Dual Animated Marquee Tracks (Crisp White Squircle Cards) */}

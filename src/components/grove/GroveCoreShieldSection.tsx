@@ -2,7 +2,6 @@
 
 import {
   CheckCircle2,
-  XCircle,
   ClipboardList,
   FileCheck2,
   Laptop,
@@ -14,7 +13,6 @@ import {
   Lock,
   Sparkles,
   PackageCheck,
-  Scale,
   FileText,
   Palette,
   Terminal,
@@ -24,44 +22,6 @@ import {
 
 
 export function GroveCoreShieldSection() {
-  const comparisonRows = [
-    {
-      metric: "Pengelolaan Server & Perawatan IT",
-      abinest: "Bebas Pilih: Bisa terima beres dirawat tim engineer kami, atau dikelola mandiri oleh tim IT Anda.",
-      saas: "Wajib ikut server vendor luar negeri, data tersandera dan lambat diakses dari jaringan lokal Indonesia.",
-      agency: "Sering lepas tangan setelah website selesai, server dibiarkan tanpa backup rutin.",
-      highlight: true,
-    },
-    {
-      metric: "Biaya Tambah User / Karyawan / Siswa",
-      abinest: "Rp 0 / User: Bebas tambah 1.000 hingga 10.000 user tanpa pungutan biaya lisensi per kepala.",
-      saas: "Iuran terus membengkak (Rp 50.000 – Rp 350.000 / user / bulan), membatasi pertumbuhan bisnis.",
-      agency: "Sering meminta biaya lisensi instance tambahan saat jumlah pengguna membludak.",
-      highlight: true,
-    },
-    {
-      metric: "Kepemilikan Data & Kemerdekaan Kode",
-      abinest: "100% Milik Anda: Backup database bisa diunduh kapan saja, dan source code bebas diambil alih.",
-      saas: "Data Tersandera: Jika berhenti bayar sewa bulanan, sistem dimatikan dan data perusahaan hilang.",
-      agency: "Source code sengaja ditahan sebagai alasan perpanjangan kontrak wajib setiap tahun.",
-      highlight: true,
-    },
-    {
-      metric: "Kustomisasi Alur Operasional Bisnis",
-      abinest: "100% Mengikuti SOP unik bisnis Anda tanpa kompromi template kaku.",
-      saas: "Kaku: Alur operasional bisnis Anda yang dipaksa mengalah pada keterbatasan software impor.",
-      agency: "Terbatas pada plugin CMS umum yang mudah konflik dan rentan peretasan.",
-      highlight: false,
-    },
-    {
-      metric: "Kecepatan Bantuan & SLA Respons",
-      abinest: "Respons <15 menit di jam operasional langsung bersama tim senior engineer via WhatsApp grup.",
-      saas: "Mengisi tiket antrean customer service umum luar negeri (estimasi balasan 2–3 hari kerja).",
-      agency: "Tidak ada jaminan SLA tertulis, sulit dihubungi setelah pelunasan proyek.",
-      highlight: false,
-    },
-  ];
-
   return (
     <section
       id="cara-kerja"
@@ -512,88 +472,6 @@ export function GroveCoreShieldSection() {
                 <span className="text-[11px] text-slate-500 font-medium">Aset Digital Mandiri</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ========================================================================= */}
-        {/* PART 2: MASTER COMPARISON TABLE (FLEKSIBILITAS ABINEST vs SEWA BULANAN)   */}
-        {/* ========================================================================= */}
-        <div id="perbandingan" className="space-y-8 pt-4">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1E40AF]">
-              <Scale className="w-3.5 h-3.5 text-blue-600" />
-              <span className="text-[11px] font-bold tracking-wider uppercase">
-                ANALISA TOTAL COST OF OWNERSHIP (TCO)
-              </span>
-            </div>
-
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-              Bandingkan: Solusi Fleksibel Abinest vs Software Sewa Bulanan
-            </h2>
-
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
-              Pahami mengapa solusi fleksibel Abinest jauh lebih aman, transparan, dan melindungi aset bisnis jangka panjang dibanding sistem sewa SaaS impor konvensional.
-            </p>
-          </div>
-
-          {/* Responsive Comparison Table Container */}
-          <div className="overflow-x-auto rounded-3xl border border-slate-200/90 shadow-sm bg-white">
-            <table className="w-full text-left border-collapse min-w-[700px]">
-              <thead>
-                <tr className="border-b border-slate-200 bg-slate-50/80 text-xs">
-                  <th className="py-4 px-5 font-bold text-slate-700 w-1/4">
-                    Kriteria Evaluasi
-                  </th>
-                  <th className="py-4 px-5 font-bold text-[#1D4ED8] bg-blue-50/70 border-x border-blue-100 w-1/3">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#2563EB]" />
-                      <span className="text-sm">Skema Abinest (Fleksibel)</span>
-                      <span className="px-2 py-0.5 rounded text-[10px] bg-blue-600 text-white font-extrabold">
-                        Rekomendasi
-                      </span>
-                    </div>
-                  </th>
-                  <th className="py-4 px-5 font-bold text-slate-500 w-1/4">
-                    Software Sewa SaaS (Impor)
-                  </th>
-                  <th className="py-4 px-5 font-bold text-slate-500 w-1/5">
-                    Agensi Konvensional
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-xs">
-                {comparisonRows.map((row, rIdx) => (
-                  <tr
-                    key={rIdx}
-                    className={`hover:bg-slate-50/50 transition-colors ${
-                      row.highlight ? "bg-blue-50/10" : ""
-                    }`}
-                  >
-                    <td className="py-4 px-5 font-bold text-[#0F172A]">
-                      {row.metric}
-                    </td>
-                    <td className="py-4 px-5 bg-blue-50/40 border-x border-blue-100 font-semibold text-[#0F172A]">
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-                        <span>{row.abinest}</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-5 text-slate-600">
-                      <div className="flex items-start gap-2">
-                        <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                        <span>{row.saas}</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-5 text-slate-500">
-                      <div className="flex items-start gap-2">
-                        <XCircle className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
-                        <span>{row.agency}</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
