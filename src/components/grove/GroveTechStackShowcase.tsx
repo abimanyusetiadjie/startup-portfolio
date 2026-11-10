@@ -18,7 +18,7 @@ export function GroveTechStackShowcase() {
       category: "Language",
       role: "Strict Type Safety",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <rect width="128" height="128" rx="16" fill="#3178C6" />
           <path
             fill="#fff"
@@ -32,19 +32,19 @@ export function GroveTechStackShowcase() {
       category: "Framework",
       role: "React Server Engine",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 180 180" fill="none">
-          <circle cx="90" cy="90" r="88" fill="#030712" stroke="#475569" strokeWidth="4" />
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 180 180" fill="none">
+          <circle cx="90" cy="90" r="88" fill="#0F172A" stroke="#334155" strokeWidth="3" />
           <path
             d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.16 149.508 157.52Z"
-            fill="url(#ts_next_g1)"
+            fill="url(#ts_next_light_g1)"
           />
-          <rect x="115" y="54" width="12" height="72" fill="url(#ts_next_g2)" />
+          <rect x="115" y="54" width="12" height="72" fill="url(#ts_next_light_g2)" />
           <defs>
-            <linearGradient id="ts_next_g1" x1="109" y1="116.5" x2="144.5" y2="160.5" gradientUnits="userSpaceOnUse">
+            <linearGradient id="ts_next_light_g1" x1="109" y1="116.5" x2="144.5" y2="160.5" gradientUnits="userSpaceOnUse">
               <stop stopColor="white" />
               <stop offset="1" stopColor="white" stopOpacity="0" />
             </linearGradient>
-            <linearGradient id="ts_next_g2" x1="121" y1="54" x2="120.799" y2="106.875" gradientUnits="userSpaceOnUse">
+            <linearGradient id="ts_next_light_g2" x1="121" y1="54" x2="120.799" y2="106.875" gradientUnits="userSpaceOnUse">
               <stop stopColor="white" />
               <stop offset="1" stopColor="white" stopOpacity="0" />
             </linearGradient>
@@ -57,22 +57,22 @@ export function GroveTechStackShowcase() {
       category: "Language",
       role: "AI & OCR Processing",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
-          <linearGradient id="ts_py_g1" gradientUnits="userSpaceOnUse" x1="70.25" y1="1237.4" x2="170.6" y2="1151" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
+          <linearGradient id="ts_py_light_g1" gradientUnits="userSpaceOnUse" x1="70.25" y1="1237.4" x2="170.6" y2="1151" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
             <stop offset="0" stopColor="#5A9FD4" />
             <stop offset="1" stopColor="#306998" />
           </linearGradient>
-          <linearGradient id="ts_py_g2" gradientUnits="userSpaceOnUse" x1="209.4" y1="1098.8" x2="173.6" y2="1149.5" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
+          <linearGradient id="ts_py_light_g2" gradientUnits="userSpaceOnUse" x1="209.4" y1="1098.8" x2="173.6" y2="1149.5" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
             <stop offset="0" stopColor="#FFD43B" />
             <stop offset="1" stopColor="#FFE873" />
           </linearGradient>
           <path
-            fill="url(#ts_py_g1)"
+            fill="url(#ts_py_light_g1)"
             d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"
             transform="translate(0 10.26)"
           />
           <path
-            fill="url(#ts_py_g2)"
+            fill="url(#ts_py_light_g2)"
             d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"
             transform="translate(0 10.26)"
           />
@@ -84,11 +84,11 @@ export function GroveTechStackShowcase() {
       category: "Framework",
       role: "Client Performance",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
-          <circle cx="64" cy="64" r="11" fill="#00D8FF" />
-          <ellipse cx="64" cy="64" rx="20" ry="54" fill="none" stroke="#00D8FF" strokeWidth="5.5" transform="rotate(30 64 64)" />
-          <ellipse cx="64" cy="64" rx="20" ry="54" fill="none" stroke="#00D8FF" strokeWidth="5.5" transform="rotate(90 64 64)" />
-          <ellipse cx="64" cy="64" rx="20" ry="54" fill="none" stroke="#00D8FF" strokeWidth="5.5" transform="rotate(150 64 64)" />
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
+          <circle cx="64" cy="64" r="11" fill="#00B4D8" />
+          <ellipse cx="64" cy="64" rx="20" ry="54" fill="none" stroke="#00B4D8" strokeWidth="5.5" transform="rotate(30 64 64)" />
+          <ellipse cx="64" cy="64" rx="20" ry="54" fill="none" stroke="#00B4D8" strokeWidth="5.5" transform="rotate(90 64 64)" />
+          <ellipse cx="64" cy="64" rx="20" ry="54" fill="none" stroke="#00B4D8" strokeWidth="5.5" transform="rotate(150 64 64)" />
         </svg>
       ),
     },
@@ -97,7 +97,7 @@ export function GroveTechStackShowcase() {
       category: "Language",
       role: "50k+ Req/s Microservices",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
             fill="#00ADD8"
             d="M37.5 45c-15.2 0-27.5 12.3-27.5 27.5S22.3 100 37.5 100c12.2 0 22.5-7.9 26-19h-12c-2.7 5.1-8 8.6-14 8.6-8.8 0-16-7.2-16-16s7.2-16 16-16c6.1 0 11.4 3.5 14 8.6h12c-3.5-11.1-13.8-19-26-19zm53 0c-15.2 0-27.5 12.3-27.5 27.5S75.3 100 90.5 100c15.2 0 27.5-12.3 27.5-27.5S105.7 45 90.5 45zm0 10.4c9.4 0 17.1 7.7 17.1 17.1s-7.7 17.1-17.1 17.1-17.1-7.7-17.1-17.1 7.7-17.1 17.1-17.1zM5 33h26v6H5zm14-14h17v6H19zM2 47h19v6H2z"
@@ -110,9 +110,9 @@ export function GroveTechStackShowcase() {
       category: "Framework",
       role: "Zero-Bloat UI System",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
-            fill="#38bdf8"
+            fill="#0ea5e9"
             d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0"
           />
         </svg>
@@ -123,9 +123,9 @@ export function GroveTechStackShowcase() {
       category: "Language",
       role: "Event-Driven Backend",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
-            fill="#5FA04E"
+            fill="#417E38"
             d="M66.958.825a6.07 6.07 0 0 0-6.035 0L11.103 29.76c-1.895 1.072-2.96 3.095-2.96 5.24v57.988c0 2.143 1.183 4.167 2.958 5.24l49.82 28.934a6.07 6.07 0 0 0 6.036 0l49.82-28.935c1.894-1.072 2.958-3.096 2.958-5.24V35c0-2.144-1.183-4.167-2.958-5.24z"
           />
           <path
@@ -140,7 +140,7 @@ export function GroveTechStackShowcase() {
       category: "Framework",
       role: "Async REST & OpenAPI",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <circle cx="64" cy="64" r="60" fill="#009688" />
           <path
             d="M72 16L32 72h24l-8 40 48-60H72l8-36z"
@@ -154,7 +154,7 @@ export function GroveTechStackShowcase() {
       category: "Framework",
       role: "Flexible Schema Query",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
             fill="#E10098"
             d="M64 12l45 26v52L64 116 19 90V38l45-26zm0 10.6L27.6 40.5v47L64 105.4l36.4-17.9v-47L64 22.6z"
@@ -177,7 +177,7 @@ export function GroveTechStackShowcase() {
       category: "Database",
       role: "ACID Enterprise DB",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
             fill="#336791"
             d="M115.731 77.44c-13.925 2.873-14.882-1.842-14.882-1.842 14.703-21.816 20.849-49.51 15.545-56.287C101.924.823 76.875 9.566 76.457 9.793l-.135.024c-2.751-.571-5.83-.911-9.291-.967-6.301-.103-11.08 1.652-14.707 4.402 0 0-44.684-18.408-42.606 23.151.442 8.842 12.672 66.899 27.26 49.363 5.332-6.412 10.483-11.834 10.483-11.834 2.559 1.699 5.622 2.567 8.833 2.255l.25-.212c-.078.796-.042 1.575.1 2.497-3.758 4.199-2.654 4.936-10.167 6.482-7.602 1.566-3.136 4.355-.22 5.084 3.534.884 11.712 2.136 17.237-5.598l-.221.882c1.473 1.18 2.507 7.672 2.334 13.557-.174 5.885-.29 9.926.871 13.082 1.16 3.156 2.316 10.256 12.192 8.14 8.252-1.768 12.528-6.351 13.124-13.995.422-5.435 1.377-4.631 1.438-9.49l.767-2.3c.884-7.367.14-9.743 5.225-8.638l1.235.108c3.742.17 8.639-.602 11.514-1.938 6.19-2.871 9.861-7.667 3.758-6.408z"
@@ -190,7 +190,7 @@ export function GroveTechStackShowcase() {
       category: "DevOps",
       role: "Containerized Engine",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
             fill="#028BB8"
             d="M110.4 55.1c.8-5.9-3.6-10.5-6.4-12.7-3.1 3.6-3.6 13.2 1.3 17.2-2.8 2.4-8.5 4.7-14.5 4.7H18.6c-.6 6.2.5 11.9 3 16.8l.8 1.5c.5.9 1.1 1.7 1.7 2.6 3 .2 5.7.3 8.2.2 4.9-.1 8.9-.7 12-1.7.5-.2.9.1 1.1.5.2.5-.1.9-.5 1.1-.4.1-.8.3-1.3.4-2.4.7-5 1.1-8.3 1.3h-.6c-1.3.1-2.7.1-4.2.1-1.6 0-3.1 0-4.9-.1 6 6.8 15.4 10.8 27.2 10.8 25 0 46.2-11.1 55.5-35.9 6.7.7 13.1-1 16-6.7-4.5-2.7-10.5-1.8-13.9-.1z"
@@ -207,7 +207,7 @@ export function GroveTechStackShowcase() {
       category: "Database",
       role: "<1ms Ultra-Fast Cache",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
             fill="#D82C20"
             d="M121.8 80.5C115.1 84 80.4 98.2 73 102.1c-7.4 3.9-11.5 3.8-17.3 1-5.8-2.8-42.7-17.7-49.4-20.9C-.3 79-.5 76.8 6 74.3c6.5-2.6 43.2-17 51-19.7 7.8-2.8 10.4-2.9 17-.5s41.1 16.1 47.6 18.5c6.7 2.4 6.9 4.4.2 7.9z"
@@ -228,7 +228,7 @@ export function GroveTechStackShowcase() {
       category: "Database",
       role: "Realtime Data Sync",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
             fill="#3ECF8E"
             d="M53.484 2.128c3.267-4.117 9.905-1.862 9.977 3.396l.508 76.907H12.902c-9.365 0-14.587-10.817-8.764-18.149z"
@@ -245,7 +245,7 @@ export function GroveTechStackShowcase() {
       category: "Cloud & Server",
       role: "Global CDN & Anti-DDoS",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <path
             fill="#F38020"
             d="M87.295 89.022c.763-2.617.472-5.015-.8-6.796-1.163-1.635-3.125-2.58-5.488-2.689l-44.737-.581c-.291 0-.545-.145-.691-.363s-.182-.509-.109-.8c.145-.436.581-.763 1.054-.8l45.137-.581c5.342-.254 11.157-4.579 13.192-9.885l2.58-6.723c.109-.291.145-.581.073-.872-2.906-13.158-14.644-22.97-28.672-22.97-12.938 0-23.913 8.359-27.838 19.952a13.35 13.35 0 0 0-9.267-2.58c-6.215.618-11.193 5.597-11.811 11.811-.145 1.599-.036 3.162.327 4.615C10.104 70.051 2 78.337 2 88.549c0 .909.073 1.817.182 2.726a.895.895 0 0 0 .872.763h82.57c.472 0 .909-.327 1.054-.8l.617-2.216z"
@@ -262,7 +262,7 @@ export function GroveTechStackShowcase() {
       category: "Integration",
       role: "Official WA Gateway",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <circle cx="64" cy="64" r="60" fill="#25D366" />
           <path
             fill="#fff"
@@ -276,7 +276,7 @@ export function GroveTechStackShowcase() {
       category: "Cloud & Server",
       role: "Hardened Production OS",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <circle cx="64" cy="64" r="60" fill="#E95420" />
           <circle cx="64" cy="64" r="32" fill="none" stroke="#fff" strokeWidth="10" />
           <circle cx="28" cy="64" r="9" fill="#fff" />
@@ -290,7 +290,7 @@ export function GroveTechStackShowcase() {
       category: "Cloud & Server",
       role: "Elastic Cloud Infra",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <rect width="128" height="128" rx="16" fill="#232F3E" />
           <path
             fill="#FF9900"
@@ -307,7 +307,7 @@ export function GroveTechStackShowcase() {
       category: "Cloud & Server",
       role: "Reverse Proxy Engine",
       icon: (
-        <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 128 128" fill="none">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
           <polygon points="64,8 116,36 116,92 64,120 12,92 12,36" fill="#009639" />
           <path
             fill="#fff"
@@ -325,111 +325,96 @@ export function GroveTechStackShowcase() {
   return (
     <section
       id="tech-stack"
-      className="py-12 sm:py-16 md:py-20 relative bg-[#F8FAFC] overflow-hidden"
+      className="py-10 sm:py-14 relative bg-[#F8FAFC] border-y border-slate-200/80 overflow-hidden"
     >
-      {/* Soft Ambient Bridge to blend naturally between Pricing (#F8FAFC) and Contact (#FFFFFF) */}
+      {/* Background Soft Mesh Accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[260px] bg-blue-100/35 blur-[100px] rounded-full pointer-events-none" />
+
       <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Executive Bento Island Showcase Container */}
-        <div className="relative rounded-[28px] sm:rounded-[36px] bg-[#0B1120] border border-slate-800/90 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.45)] overflow-hidden py-12 sm:py-16 md:py-20 text-white">
-          {/* Subtle Cyber Laser Line & Electric Cobalt Ambient Radial Glow */}
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_0%,rgba(37,99,235,0.20),transparent_72%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(#1E293B_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none" />
-
-          {/* Centered Section Header */}
-          <div className="text-center max-w-3xl mx-auto px-5 sm:px-8 mb-10 sm:mb-14 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wider uppercase mb-3.5 shadow-xs">
-              <Zap className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
-              <span>Arsitektur &amp; Tooling Kelas Industri</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.2] mb-3.5">
-              Didukung Ekosistem Teknologi Modern yang{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
-                Cepat, Andal &amp; Bebas Biaya Sewa
-              </span>
-            </h2>
-
-            <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
-              Kami merekayasa sistem Anda di atas bahasa pemrograman, framework, dan cloud server standar global. 
-              Tanpa ketergantungan lisensi bulanan, siap menangani puluhan ribu transaksi tanpa hambatan.
-            </p>
+        {/* Compact & Professional Header */}
+        <div className="text-center max-w-2xl mx-auto mb-7 sm:mb-9">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/90 text-blue-700 text-[11px] font-bold tracking-wider uppercase mb-2.5 shadow-2xs">
+            <Zap className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
+            <span>OUR TECH STACK</span>
           </div>
 
-          {/* Visual Tech Tiles Showcase (Dual Animated Moving Tracks) */}
-          <div className="relative w-full overflow-hidden space-y-3.5 sm:space-y-5 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-            {/* Track 1: Moving Towards Left (←) */}
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                duration: 36,
-                ease: "linear",
-                repeat: Infinity,
-              }}
-              className="flex gap-3.5 sm:gap-4 w-max hover:[animation-play-state:paused] py-1 cursor-grab active:cursor-grabbing"
-            >
-              {duplicatedTrack1.map((item, idx) => (
-                <div
-                  key={`track1-${idx}`}
-                  className="group relative flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-blue-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
-                >
-                  {/* Soft Ambient Inner Glow on Hover */}
-                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-blue-500/0 via-transparent to-blue-500/0 group-hover:from-blue-500/10 group-hover:to-indigo-500/10 transition-colors pointer-events-none" />
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F172A] tracking-tight">
+            Fondasi Bahasa, Framework &amp; Server Kelas Industri
+          </h2>
 
-                  {/* Brand Logo */}
-                  <div className="shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
-                    {item.icon}
-                  </div>
+          <p className="text-xs sm:text-[13px] text-slate-500 mt-1 max-w-lg mx-auto font-normal">
+            Arsitektur cepat, stabil, dan minim latensi tanpa ketergantungan lisensi bulanan pihak ketiga.
+          </p>
+        </div>
 
-                  {/* Title & Micro Role */}
-                  <div className="mt-2 text-center">
-                    <p className="text-xs sm:text-[12.5px] font-bold text-slate-200 group-hover:text-white transition-colors truncate max-w-[95px] sm:max-w-[110px]">
-                      {item.name}
-                    </p>
-                    <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-blue-400/90 tracking-tight">
-                      {item.role}
-                    </span>
-                  </div>
+        {/* Dual Animated Marquee Tracks (Crisp White Squircle Cards) */}
+        <div className="relative w-full overflow-hidden space-y-3 sm:space-y-3.5 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+          {/* Track 1: Moving Towards Left (←) */}
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 34,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            className="flex gap-3 sm:gap-3.5 w-max hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
+          >
+            {duplicatedTrack1.map((item, idx) => (
+              <div
+                key={`track1-${idx}`}
+                className="group relative flex flex-col items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white hover:bg-slate-50/90 border border-slate-200/90 hover:border-blue-400/80 shadow-[0_2px_6px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.09)] transition-all duration-200 hover:scale-105 hover:-translate-y-1 p-2.5 shrink-0"
+              >
+                {/* Brand Logo */}
+                <div className="shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-2xs">
+                  {item.icon}
                 </div>
-              ))}
-            </motion.div>
 
-            {/* Track 2: Moving Towards Right (→) */}
-            <motion.div
-              animate={{ x: ["-50%", "0%"] }}
-              transition={{
-                duration: 40,
-                ease: "linear",
-                repeat: Infinity,
-              }}
-              className="flex gap-3.5 sm:gap-4 w-max hover:[animation-play-state:paused] py-1 cursor-grab active:cursor-grabbing"
-            >
-              {duplicatedTrack2.map((item, idx) => (
-                <div
-                  key={`track2-${idx}`}
-                  className="group relative flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl sm:rounded-3xl bg-[#111827]/90 hover:bg-[#1A2234] border border-slate-800 hover:border-sky-500/60 shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-3 shrink-0 backdrop-blur-md"
-                >
-                  {/* Soft Ambient Inner Glow on Hover */}
-                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-sky-500/0 via-transparent to-sky-500/0 group-hover:from-sky-500/10 group-hover:to-cyan-500/10 transition-colors pointer-events-none" />
-
-                  {/* Brand Logo */}
-                  <div className="shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
-                    {item.icon}
-                  </div>
-
-                  {/* Title & Micro Role */}
-                  <div className="mt-2 text-center">
-                    <p className="text-xs sm:text-[12.5px] font-bold text-slate-200 group-hover:text-white transition-colors truncate max-w-[95px] sm:max-w-[110px]">
-                      {item.name}
-                    </p>
-                    <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-emerald-400/90 tracking-tight">
-                      {item.role}
-                    </span>
-                  </div>
+                {/* Title & Micro Role */}
+                <div className="mt-2 text-center">
+                  <p className="text-xs sm:text-[12.5px] font-bold text-[#0F172A] group-hover:text-blue-600 transition-colors truncate max-w-[84px] sm:max-w-[100px]">
+                    {item.name}
+                  </p>
+                  <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-slate-500 group-hover:text-blue-600/90 tracking-tight">
+                    {item.role}
+                  </span>
                 </div>
-              ))}
-            </motion.div>
-          </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Track 2: Moving Towards Right (→) */}
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{
+              duration: 38,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            className="flex gap-3 sm:gap-3.5 w-max hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
+          >
+            {duplicatedTrack2.map((item, idx) => (
+              <div
+                key={`track2-${idx}`}
+                className="group relative flex flex-col items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white hover:bg-slate-50/90 border border-slate-200/90 hover:border-blue-400/80 shadow-[0_2px_6px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.09)] transition-all duration-200 hover:scale-105 hover:-translate-y-1 p-2.5 shrink-0"
+              >
+                {/* Brand Logo */}
+                <div className="shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-2xs">
+                  {item.icon}
+                </div>
+
+                {/* Title & Micro Role */}
+                <div className="mt-2 text-center">
+                  <p className="text-xs sm:text-[12.5px] font-bold text-[#0F172A] group-hover:text-blue-600 transition-colors truncate max-w-[84px] sm:max-w-[100px]">
+                    {item.name}
+                  </p>
+                  <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-slate-500 group-hover:text-blue-600/90 tracking-tight">
+                    {item.role}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
