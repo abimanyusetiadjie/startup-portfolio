@@ -15,7 +15,161 @@ import {
   Sparkles,
   PackageCheck,
   Scale,
+  FileText,
+  Palette,
+  Terminal,
+  Gauge,
+  KeyRound,
 } from "lucide-react";
+
+
+function DeliverableHalfPeek({ index }: { index: number }) {
+  if (index === 0) {
+    return (
+      <div className="w-[185px] rounded-xl bg-[#0B1220] text-white p-2.5 shadow-2xl border border-slate-700/80 font-mono text-[9px]">
+        <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800">
+          <span className="flex items-center gap-1 text-sky-400 font-bold truncate">
+            <FileText className="w-2.5 h-2.5 shrink-0" />
+            <span className="truncate">BLUEPRINT_v1.pdf</span>
+          </span>
+          <span className="px-1 py-0.5 bg-emerald-500/20 text-emerald-300 text-[8px] font-semibold rounded shrink-0">
+            APPROVED
+          </span>
+        </div>
+        <div className="space-y-1 text-slate-300 text-[8.5px]">
+          <div className="flex items-center justify-between">
+            <span className="text-slate-400">Arsitektur:</span>
+            <span className="text-white font-semibold">Modular Cloud</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-slate-400">RAB Kunci:</span>
+            <span className="text-emerald-400 font-bold">Rp 0 Overbudget</span>
+          </div>
+        </div>
+        <div className="mt-2 pt-1 border-t border-slate-800/80 flex items-center justify-between text-[8px] text-slate-400">
+          <span>Estimasi: 3 Pekan</span>
+          <span className="text-blue-400 font-semibold">Sistem Arsitek ✓</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <div className="w-[185px] rounded-xl bg-[#0B1220] text-white p-2.5 shadow-2xl border border-slate-700/80 text-[9px]">
+        <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800 font-mono text-[8px]">
+          <span className="flex items-center gap-1 text-purple-400 font-bold truncate">
+            <Palette className="w-2.5 h-2.5 shrink-0" />
+            <span className="truncate">FIGMA_PROTOTYPE</span>
+          </span>
+          <span className="px-1 py-0.5 bg-purple-500/20 text-purple-300 rounded shrink-0">
+            #1440px
+          </span>
+        </div>
+        <div className="p-1.5 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+          <div className="flex items-center justify-between text-[8px]">
+            <span className="text-slate-300">UX Flow Kustom</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          </div>
+          <div className="h-1.5 w-full bg-slate-700 rounded-full overflow-hidden">
+            <div className="w-4/5 h-full bg-gradient-to-r from-purple-500 to-blue-500" />
+          </div>
+        </div>
+        <div className="mt-2 flex items-center justify-between text-[8px] text-sky-300 font-semibold">
+          <span>Garansi SLA 99.9%</span>
+          <span className="text-emerald-400 font-bold">Legal Materai ✓</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 2) {
+    return (
+      <div className="w-[185px] rounded-xl bg-[#0B1220] text-white p-2.5 shadow-2xl border border-slate-700/80 font-mono text-[9px]">
+        <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800 text-[8px]">
+          <span className="flex items-center gap-1 text-emerald-400 font-bold truncate">
+            <Terminal className="w-2.5 h-2.5 shrink-0" />
+            <span className="truncate">STAGING_SERVER</span>
+          </span>
+          <span className="px-1 py-0.5 bg-emerald-500/20 text-emerald-300 rounded shrink-0">
+            LIVE 24/7
+          </span>
+        </div>
+        <div className="space-y-1 text-slate-300 text-[8.5px]">
+          <div className="text-slate-400 truncate">
+            staging.abinest.id
+          </div>
+          <div className="flex items-center gap-1 text-emerald-400 text-[8px]">
+            <span>✓ 32/32 Modules Passed</span>
+          </div>
+        </div>
+        <div className="mt-2 pt-1 border-t border-slate-800/80 flex items-center justify-between text-[8px] text-slate-400">
+          <span>Branch: main-v1</span>
+          <span className="text-blue-400 font-semibold">Uji Tiap Pekan ✓</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 3) {
+    return (
+      <div className="w-[185px] rounded-xl bg-[#0B1220] text-white p-2.5 shadow-2xl border border-slate-700/80 font-mono text-[9px]">
+        <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800 text-[8px]">
+          <span className="flex items-center gap-1 text-amber-400 font-bold truncate">
+            <Gauge className="w-2.5 h-2.5 shrink-0" />
+            <span className="truncate">LOAD_STRESS_TEST</span>
+          </span>
+          <span className="px-1 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-bold shrink-0">
+            99.9% PASS
+          </span>
+        </div>
+        <div className="space-y-1 text-slate-300 text-[8.5px]">
+          <div className="flex items-center justify-between">
+            <span className="text-slate-400">Response Speed:</span>
+            <span className="text-emerald-400 font-bold">&lt;0.8 Detik</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-slate-400">Concurrent User:</span>
+            <span className="text-white font-semibold">10,000 Req/s</span>
+          </div>
+        </div>
+        <div className="mt-2 pt-1 border-t border-slate-800/80 flex items-center justify-between text-[8px] text-slate-400">
+          <span>Google Core Vitals</span>
+          <span className="text-emerald-400 font-bold">100/100 ✓</span>
+        </div>
+      </div>
+    );
+  }
+
+  // index === 4 (Step 05)
+  return (
+    <div className="w-[185px] rounded-xl bg-[#0B1220] text-white p-2.5 shadow-2xl border border-slate-700/80 font-mono text-[9px]">
+      <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800 text-[8px]">
+        <span className="flex items-center gap-1 text-blue-400 font-bold truncate">
+          <KeyRound className="w-2.5 h-2.5 shrink-0" />
+          <span className="truncate">100%_OWNERSHIP</span>
+        </span>
+        <span className="px-1 py-0.5 bg-blue-500/20 text-blue-300 rounded font-bold shrink-0">
+          DELIVERED
+        </span>
+      </div>
+      <div className="space-y-1 text-slate-300 text-[8.5px]">
+        <div className="flex items-center justify-between">
+          <span className="text-slate-400">Git Repository:</span>
+          <span className="text-white font-semibold">Full Transfer</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-slate-400">Database Dump:</span>
+          <span className="text-emerald-400 font-bold">PostgreSQL .sql</span>
+        </div>
+      </div>
+      <div className="mt-2 pt-1 border-t border-slate-800/80 flex items-center justify-between text-[8px] text-slate-400">
+        <span>Zero Biaya Sewa</span>
+        <span className="text-emerald-400 font-bold">Hak Milik Penuh ✓</span>
+      </div>
+    </div>
+  );
+}
 
 export function GroveCoreShieldSection() {
   const steps = [
@@ -126,26 +280,41 @@ export function GroveCoreShieldSection() {
             </p>
           </div>
 
-          {/* Horizontal Pipeline Steps */}
+                    {/* Horizontal Pipeline Steps */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 relative">
             {steps.map((s, idx) => {
               const Icon = s.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 relative group"
+                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-blue-400/80 hover:-translate-y-1.5 transition-all duration-300 relative group overflow-hidden"
                 >
-                  <div className="space-y-3.5">
+                  {/* Interactive Deliverable Half-Peek Mockup (Reveals with Ambient Glow on Hover) */}
+                  <div
+                    className="absolute -bottom-6 -right-6 w-[185px] pointer-events-none select-none transition-all duration-500 ease-out z-0 translate-y-8 translate-x-6 rotate-6 opacity-0 scale-90 blur-[1px] group-hover:translate-y-0 group-hover:translate-x-0 group-hover:rotate-0 group-hover:opacity-100 group-hover:scale-100 group-hover:blur-0"
+                    aria-hidden="true"
+                  >
+                    {/* Ambient Glow Aura */}
+                    <div className="absolute inset-0 bg-blue-500/25 blur-xl rounded-full scale-125 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Miniature Artifact Card */}
+                    <div className="relative shadow-[0_16px_36px_rgba(15,23,42,0.30)] rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+                      <DeliverableHalfPeek index={idx} />
+                    </div>
+                  </div>
+
+                  {/* Card Main Foreground Content */}
+                  <div className="space-y-3.5 relative z-10">
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-black text-[#2563EB]">
                         {s.step}
                       </span>
-                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200">
+                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200 shadow-2xs">
                         {s.timeline}
                       </span>
                     </div>
 
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1E40AF] group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1E40AF] group-hover:scale-110 group-hover:bg-[#2563EB] group-hover:text-white transition-all duration-300 shadow-xs">
                       <Icon className="w-5 h-5" />
                     </div>
 
@@ -159,10 +328,15 @@ export function GroveCoreShieldSection() {
 
                     {/* Output Fisik Deliverable Badge */}
                     <div className="pt-2">
-                      <div className="p-2 rounded-xl bg-blue-50/70 border border-blue-200/60 text-[10.5px] text-[#1E40AF]">
-                        <div className="font-bold uppercase tracking-wider text-[9px] text-blue-600 flex items-center gap-1">
-                          <PackageCheck className="w-3 h-3" />
-                          <span>Deliverable Fisik:</span>
+                      <div className="p-2.5 rounded-xl bg-blue-50/80 border border-blue-200/70 text-[10.5px] text-[#1E40AF] group-hover:bg-white/95 group-hover:border-blue-300 group-hover:shadow-xs transition-all duration-300">
+                        <div className="font-bold uppercase tracking-wider text-[9px] text-blue-600 flex items-center justify-between">
+                          <span className="flex items-center gap-1">
+                            <PackageCheck className="w-3 h-3" />
+                            <span>Deliverable Fisik:</span>
+                          </span>
+                          <span className="text-[8px] font-semibold text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Preview ↗
+                          </span>
                         </div>
                         <div className="font-semibold text-slate-800 mt-0.5">
                           {s.deliverable}
@@ -171,9 +345,15 @@ export function GroveCoreShieldSection() {
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center gap-1.5 text-[11px] font-bold text-blue-700">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>{s.guarantee}</span>
+                  {/* Bottom Guarantee Row */}
+                  <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-between text-[11px] font-bold text-blue-700 relative z-10">
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>{s.guarantee}</span>
+                    </div>
+                    <span className="text-[9.5px] text-slate-400 group-hover:text-blue-600 font-semibold transition-colors hidden sm:inline">
+                      Bukti Fisik
+                    </span>
                   </div>
                 </div>
               );
