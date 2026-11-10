@@ -69,8 +69,8 @@ export function GroveNavbar() {
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#F8FAFC]/95 backdrop-blur-md border-b border-slate-200/90 shadow-[0_4px_20px_rgba(15,23,42,0.04)]"
-            : "bg-[#F8FAFC]/80 backdrop-blur-sm border-b border-slate-200/40"
+            ? "bg-white/95 backdrop-blur-lg border-b border-slate-200/80 shadow-[0_4px_24px_rgba(15,23,42,0.04)]"
+            : "bg-white/85 backdrop-blur-md border-b border-slate-200/50 shadow-[0_1px_3px_rgba(15,23,42,0.02)]"
         }`}
       >
         <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
@@ -82,7 +82,7 @@ export function GroveNavbar() {
           {/* Center: Interactive Sliding Pill Navigation Menu */}
           <nav
             onMouseLeave={() => setHoveredIdx(null)}
-            className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-slate-200/50 border border-slate-200/60 backdrop-blur-xs text-[13.5px]"
+            className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-slate-100/90 border border-slate-200/80 backdrop-blur-xs text-[13.5px]"
           >
             {navLinks.map((item, idx) => {
               const isSelected = hoveredIdx !== null ? hoveredIdx === idx : activeSection === item.id;
@@ -103,7 +103,7 @@ export function GroveNavbar() {
                     <motion.span
                       layoutId="nav-hover-capsule"
                       transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                      className="absolute inset-0 rounded-full bg-white/95 border border-slate-200/90 shadow-[0_3px_12px_rgba(5,150,105,0.1),0_1px_2px_rgba(15,23,42,0.04)] -z-10"
+                      className="absolute inset-0 rounded-full bg-white border border-slate-200/90 shadow-[0_2px_8px_rgba(15,23,42,0.08)] -z-10"
                     />
                   )}
                   <span className="relative z-10 flex items-center justify-center gap-1.5">
@@ -121,14 +121,14 @@ export function GroveNavbar() {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               href="/login"
-              className="text-xs font-semibold text-slate-600 hover:text-slate-950 hover:bg-slate-200/60 px-3.5 py-1.5 rounded-full transition-all duration-200"
+              className="text-xs font-semibold text-slate-600 hover:text-slate-950 hover:bg-slate-100 px-3.5 py-1.5 rounded-full transition-all duration-200"
             >
               Portal Klien
             </Link>
             <a
               href="#kontak"
               onClick={(e) => handleSmoothScroll(e, "#kontak")}
-              className="inline-flex items-center justify-center gap-1.5 px-5 py-2 rounded-full text-xs sm:text-[13px] font-semibold text-white bg-[#0F172A] hover:bg-slate-800 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-200 shadow-xs group"
+              className="inline-flex items-center justify-center gap-1.5 px-5 py-2 rounded-full text-xs sm:text-[13px] font-semibold text-white bg-[#0B1220] hover:bg-slate-800 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all duration-200 shadow-xs group"
             >
               <span>Konsultasi Gratis</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
