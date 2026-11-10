@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { X, ArrowUpRight, CheckCheck, Clock } from "lucide-react";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-const WHATSAPP_NUMBER = "6285708677918";
+const WHATSAPP_NUMBER = "6281398589745";
 
 export function GroveFloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);

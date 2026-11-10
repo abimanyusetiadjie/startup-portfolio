@@ -131,12 +131,12 @@ export function GroveFooterSection() {
                 <div>
                   <span className="font-semibold text-[#0F172A] block">WhatsApp Konsultasi:</span>
                   <a
-                    href="https://wa.me/6285708677918"
+                    href="https://wa.me/6281398589745"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#1D4ED8] transition-colors font-medium"
                   >
-                    +62 857-0867-7918
+                    +62 813-9858-9745
                   </a>
                 </div>
               </div>

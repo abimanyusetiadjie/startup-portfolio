@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-const WHATSAPP_NUMBER = "6285708677918";
+const WHATSAPP_NUMBER = "6281398589745";
 
 type PricingMode = "beli-putus" | "terima-beres";
 

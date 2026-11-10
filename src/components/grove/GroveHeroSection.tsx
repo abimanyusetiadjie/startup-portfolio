@@ -11,7 +11,7 @@ import {
   Bot,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "6285708677918";
+const WHATSAPP_NUMBER = "6281398589745";
 
 export function GroveHeroSection() {
   const [activeIdx, setActiveIdx] = useState(0);
