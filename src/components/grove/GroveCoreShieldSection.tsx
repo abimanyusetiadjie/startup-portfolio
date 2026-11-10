@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   CheckCircle2,
   ClipboardList,
@@ -9,9 +10,7 @@ import {
   Users,
   ShieldCheck,
   PackageCheck,
-  Eye,
   X,
-  Sparkles,
   Rocket,
 } from "lucide-react";
 
@@ -37,35 +36,11 @@ export function GroveCoreShieldSection() {
       guarantee: "100% Gratis",
       popupAlignment: "left-0 sm:left-0",
       arrowAlignment: "left-8",
-      previewHeader: "BLUEPRINT_SPEC_v1.0.pdf",
+      imageSrc: "/images/steps/step-01-blueprint.jpg",
+      previewHeader: "Blueprint & Anggaran RAB",
       previewBadge: "APPROVED ✓",
       previewBadgeColor: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-      renderPreviewContent: () => (
-        <div className="space-y-2.5 font-mono">
-          <div className="p-2 rounded-xl bg-slate-900 border border-sky-500/30 text-center">
-            <div className="flex items-center justify-between gap-1 text-[9.5px]">
-              <div className="flex-1 p-1.5 rounded-lg bg-slate-800 border border-sky-500/30">
-                <div className="text-[7.5px] text-slate-400">CLIENT</div>
-                <div className="font-bold text-sky-300">Web / App</div>
-              </div>
-              <div className="text-slate-500 text-xs font-bold">──▶</div>
-              <div className="flex-1 p-1.5 rounded-lg bg-slate-800 border border-teal-500/30">
-                <div className="text-[7.5px] text-slate-400">CORE</div>
-                <div className="font-bold text-[#00C9A7]">Next.js API</div>
-              </div>
-              <div className="text-slate-500 text-xs font-bold">──▶</div>
-              <div className="flex-1 p-1.5 rounded-lg bg-slate-800 border border-blue-500/30">
-                <div className="text-[7.5px] text-slate-400">DB</div>
-                <div className="font-bold text-[#2496ED]">Postgres</div>
-              </div>
-            </div>
-          </div>
-          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[9px]">
-            <span className="text-emerald-400 font-bold">RAB Kunci: Rp 0 Overbudget</span>
-            <span className="text-slate-400 font-medium">Arsitek Abinest ✓</span>
-          </div>
-        </div>
-      ),
+      caption: "Cetak biru arsitektur sistem dan rincian RAB kunci Rp 0 biaya tak terduga.",
     },
     {
       step: "02",
@@ -84,34 +59,11 @@ export function GroveCoreShieldSection() {
       guarantee: "Legal Bermaterai",
       popupAlignment: "left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2",
       arrowAlignment: "left-1/2 -translate-x-1/2",
-      previewHeader: "Figma // #Main_Prototype_1440",
-      previewBadge: "100% INTERAKTIF",
+      imageSrc: "/images/steps/step-02-contract.jpg",
+      previewHeader: "Kontrak Resmi & Prototype",
+      previewBadge: "LEGAL MATERAI",
       previewBadgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-      renderPreviewContent: () => (
-        <div className="space-y-2.5">
-          <div className="rounded-xl bg-slate-900 border border-slate-700/80 p-2 space-y-1.5">
-            <div className="flex items-center justify-between text-[10px]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#00C9A7]" />
-                <span className="font-bold text-slate-200">SOP Alur Bisnis Kustom</span>
-              </div>
-              <span className="text-[9px] text-purple-400 font-mono">↗ Active</span>
-            </div>
-            <div className="grid grid-cols-3 gap-1 h-5 text-[8px] text-center">
-              <div className="rounded bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400">Nav</div>
-              <div className="rounded bg-purple-950/70 border border-purple-500/50 flex items-center justify-center text-purple-300 font-bold">Dashboard</div>
-              <div className="rounded bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400">Data Grid</div>
-            </div>
-          </div>
-          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[9px]">
-            <span className="text-sky-300 font-bold flex items-center gap-1">
-              <ShieldCheck className="w-3 h-3 text-sky-400" />
-              <span>Garansi SLA 99.9% Uptime</span>
-            </span>
-            <span className="text-emerald-400 font-bold">Legal Materai ✓</span>
-          </div>
-        </div>
-      ),
+      caption: "Perjanjian SLA 99.9% uptime berbadan hukum dan mockup antarmuka interaktif.",
     },
     {
       step: "03",
@@ -130,25 +82,11 @@ export function GroveCoreShieldSection() {
       guarantee: "Uji Coba Tiap Hari",
       popupAlignment: "left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2",
       arrowAlignment: "left-1/2 -translate-x-1/2",
-      previewHeader: "staging.abinest.id/portal",
+      imageSrc: "/images/steps/step-03-staging.jpg",
+      previewHeader: "Live Staging Server",
       previewBadge: "LIVE 24/7",
       previewBadgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-      renderPreviewContent: () => (
-        <div className="space-y-2 font-mono text-[9px]">
-          <div className="flex items-center justify-between text-slate-200 bg-slate-900 px-2 py-1.5 rounded-lg border border-slate-800">
-            <span>Sprint 03: Modul Transaksi &amp; AI</span>
-            <span className="text-emerald-400 font-bold">100% PASS</span>
-          </div>
-          <div className="flex items-center justify-between text-slate-400 bg-slate-900/60 px-2 py-1 rounded-lg border border-slate-800/80">
-            <span>Audit Progres Mingguan</span>
-            <span className="text-sky-400">Portal Klien ✓</span>
-          </div>
-          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[9px] text-slate-400">
-            <span>Branch: main-v1.0</span>
-            <span className="text-blue-400 font-bold">Transparan Tanpa Rahasia</span>
-          </div>
-        </div>
-      ),
+      caption: "Server staging aktif untuk uji coba langsung tiap modul pekanan.",
     },
     {
       step: "04",
@@ -167,29 +105,11 @@ export function GroveCoreShieldSection() {
       guarantee: "Garansi Anti-Down",
       popupAlignment: "left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2",
       arrowAlignment: "left-1/2 -translate-x-1/2",
-      previewHeader: "STRESS_TEST // k6 Engine",
+      imageSrc: "/images/steps/step-04-testing.jpg",
+      previewHeader: "Uji Beban & Panduan Staf",
       previewBadge: "ANTI-DOWN 99.9%",
       previewBadgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-      renderPreviewContent: () => (
-        <div className="space-y-2 font-mono">
-          <div className="grid grid-cols-2 gap-2 text-center">
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <div className="text-[7.5px] text-slate-400 uppercase">Respons Speed</div>
-              <div className="text-base font-black text-emerald-400">&lt;0.8 Detik</div>
-              <div className="text-[7.5px] text-slate-500">Core Web Vitals</div>
-            </div>
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <div className="text-[7.5px] text-slate-400 uppercase">Kapasitas Uji</div>
-              <div className="text-base font-black text-sky-400">10,000 Req/s</div>
-              <div className="text-[7.5px] text-slate-500">0% Error Lulus</div>
-            </div>
-          </div>
-          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[9px]">
-            <span className="text-emerald-400 font-bold">Score: 100/100/100</span>
-            <span className="text-slate-400">Buku Panduan + Video HD</span>
-          </div>
-        </div>
-      ),
+      caption: "Laporan uji kecepatan <0.8 detik serta video panduan operasional staf.",
     },
     {
       step: "05",
@@ -208,29 +128,11 @@ export function GroveCoreShieldSection() {
       guarantee: "100% Hak Milik",
       popupAlignment: "right-0 sm:right-0",
       arrowAlignment: "right-8",
-      previewHeader: "ENTERPRISE_VAULT // OWNERSHIP",
+      imageSrc: "/images/steps/step-05-handover.jpg",
+      previewHeader: "100% Hak Milik Klien",
       previewBadge: "ZERO LOCK-IN",
       previewBadgeColor: "bg-rose-500/20 text-rose-300 border-rose-500/30",
-      renderPreviewContent: () => (
-        <div className="space-y-2 font-mono">
-          <div className="grid grid-cols-2 gap-2 text-left">
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800 space-y-0.5">
-              <div className="text-[7.5px] text-slate-400">REPOSITORY</div>
-              <div className="text-[10px] font-bold text-white truncate">GitHub Private</div>
-              <div className="text-[7.5px] text-emerald-400 font-bold">✓ Root Access 100%</div>
-            </div>
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800 space-y-0.5">
-              <div className="text-[7.5px] text-slate-400">DATABASE</div>
-              <div className="text-[10px] font-bold text-white truncate">PostgreSQL Dump</div>
-              <div className="text-[7.5px] text-emerald-400 font-bold">✓ Schema Asli</div>
-            </div>
-          </div>
-          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[9px]">
-            <span className="text-emerald-400 font-bold">Aset Sah Milik Anda</span>
-            <span className="text-slate-400">Rp 0 Biaya Sewa ✓</span>
-          </div>
-        </div>
-      ),
+      caption: "Source code lengkap, database dump asli, dan kontrol server diserahkan utuh.",
     },
   ];
 
@@ -255,7 +157,7 @@ export function GroveCoreShieldSection() {
             5 Langkah Cepat Menuju Sistem Siap Operasi
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-lg mx-auto font-normal">
-            Sistem Anda siap beroperasi penuh dalam waktu kurang dari 14 hari. Arahkan kursor ke tiap kotak untuk melihat bukti fisik pekerjaannya.
+            Sistem Anda siap beroperasi penuh dalam waktu kurang dari 14 hari. Arahkan kursor ke tiap kotak untuk melihat foto bukti fisik deliverable-nya.
           </p>
         </div>
 
@@ -269,14 +171,14 @@ export function GroveCoreShieldSection() {
                 onClick={() => setActiveModalStep(idx)}
                 className={`bg-white border-2 ${s.borderColor} ${s.borderHover} rounded-3xl p-4.5 sm:p-5 flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group cursor-pointer`}
               >
-                {/* FLOATING HOVER POP-UP (Desktop Hover) */}
+                {/* FLOATING HOVER POP-UP (Desktop Hover with Real HD Photo) */}
                 <div
-                  className={`hidden lg:block absolute bottom-[calc(100%+14px)] ${s.popupAlignment} w-[310px] pointer-events-none group-hover:pointer-events-auto opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50`}
+                  className={`hidden lg:block absolute bottom-[calc(100%+14px)] ${s.popupAlignment} w-[300px] pointer-events-none group-hover:pointer-events-auto opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50`}
                 >
-                  <div className="rounded-2xl bg-[#0B1220] border border-slate-700/90 shadow-[0_20px_45px_rgba(15,23,42,0.38)] p-3.5 text-white select-none relative">
+                  <div className="rounded-2xl bg-[#0B1220] border border-slate-700/90 shadow-[0_20px_45px_rgba(15,23,42,0.4)] p-3 text-white select-none relative">
                     {/* Pop-up Header */}
                     <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[10px] font-mono">
-                      <div className="flex items-center gap-1.5 text-sky-400 font-bold truncate max-w-[190px]">
+                      <div className="flex items-center gap-1.5 text-sky-400 font-bold truncate max-w-[180px]">
                         <PackageCheck className="w-3.5 h-3.5 shrink-0" />
                         <span className="truncate">{s.previewHeader}</span>
                       </div>
@@ -285,10 +187,21 @@ export function GroveCoreShieldSection() {
                       </span>
                     </div>
 
-                    {/* Pop-up Visual Content */}
-                    <div className="py-1">
-                      {s.renderPreviewContent()}
+                    {/* Real Compressed HD Photo */}
+                    <div className="relative w-full h-[155px] rounded-xl overflow-hidden bg-slate-900 mb-2 border border-slate-800">
+                      <Image
+                        src={s.imageSrc}
+                        alt={s.title}
+                        fill
+                        className="object-cover object-center"
+                        sizes="300px"
+                      />
                     </div>
+
+                    {/* Caption */}
+                    <p className="text-[10px] text-slate-300 leading-snug">
+                      {s.caption}
+                    </p>
 
                     {/* Bottom Triangle Arrow pointing to card */}
                     <div
@@ -341,7 +254,7 @@ export function GroveCoreShieldSection() {
                       <span>{s.guarantee}</span>
                     </div>
                     <span className="text-[9.5px] font-semibold text-slate-400 group-hover:text-blue-600 transition-colors">
-                      Preview ↗
+                      Lihat Foto ↗
                     </span>
                   </div>
                 </div>
@@ -355,56 +268,58 @@ export function GroveCoreShieldSection() {
       {activeModalStep !== null && (
         <div
           onClick={() => setActiveModalStep(null)}
-          className="lg:hidden fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="lg:hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md rounded-3xl bg-[#0B1220] border border-slate-700/90 shadow-2xl p-5 text-white relative animate-in zoom-in-95 duration-200"
+            className="w-full max-w-sm rounded-3xl bg-[#0B1220] border border-slate-700/90 shadow-2xl p-4.5 text-white relative animate-in zoom-in-95 duration-200"
           >
             {/* Close Button */}
             <button
               onClick={() => setActiveModalStep(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700 cursor-pointer"
               aria-label="Tutup Pratinjau"
             >
               <X className="w-4 h-4" />
             </button>
 
             {/* Modal Title */}
-            <div className="space-y-1 mb-4 pr-8">
+            <div className="space-y-1 mb-3 pr-8">
               <span className="text-[10px] font-bold uppercase tracking-wider text-sky-400">
                 Tahap {steps[activeModalStep].step} · {steps[activeModalStep].timeline}
               </span>
-              <h3 className="text-lg font-bold text-white">
+              <h3 className="text-base font-bold text-white">
                 {steps[activeModalStep].title}
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-[11.5px] text-slate-300">
                 {steps[activeModalStep].deliverable}
               </p>
             </div>
 
-            {/* Modal Visual Content */}
-            <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800 mb-4">
-              <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[10px] font-mono">
-                <span className="text-sky-400 font-bold truncate">
-                  {steps[activeModalStep].previewHeader}
-                </span>
-                <span className={`px-2 py-0.5 rounded-full text-[8.5px] font-bold border ${steps[activeModalStep].previewBadgeColor}`}>
-                  {steps[activeModalStep].previewBadge}
-                </span>
-              </div>
-              {steps[activeModalStep].renderPreviewContent()}
+            {/* Modal Real Photo Content */}
+            <div className="relative w-full h-[180px] rounded-2xl overflow-hidden bg-slate-900 mb-3 border border-slate-800">
+              <Image
+                src={steps[activeModalStep].imageSrc}
+                alt={steps[activeModalStep].title}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 640px) 100vw, 400px"
+              />
             </div>
 
+            <p className="text-xs text-slate-300 leading-relaxed mb-4">
+              {steps[activeModalStep].caption}
+            </p>
+
             {/* Modal Footer */}
-            <div className="flex items-center justify-between text-xs pt-1">
+            <div className="flex items-center justify-between text-xs pt-1 border-t border-slate-800">
               <span className="text-emerald-400 font-bold flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>{steps[activeModalStep].guarantee}</span>
               </span>
               <button
                 onClick={() => setActiveModalStep(null)}
-                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs"
+                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs cursor-pointer"
               >
                 Tutup
               </button>
