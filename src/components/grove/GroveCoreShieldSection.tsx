@@ -9,14 +9,10 @@ import {
   Users,
   ShieldCheck,
   PackageCheck,
-  FileText,
-  Palette,
-  Terminal,
-  Gauge,
-  KeyRound,
   Eye,
   X,
   Sparkles,
+  Rocket,
 } from "lucide-react";
 
 export function GroveCoreShieldSection() {
@@ -26,17 +22,19 @@ export function GroveCoreShieldSection() {
   const steps = [
     {
       step: "01",
-      timeline: "Hari 1 – 3",
+      timeline: "Hari 1 – 2",
       icon: ClipboardList,
       color: "blue",
-      accentHex: "#2563EB",
-      accentBg: "bg-blue-50",
-      accentText: "text-[#2563EB]",
-      title: "Konsultasi Kebutuhan",
-      desc: "Diskusi mendalam alur operasional bisnis Anda langsung bersama sistem arsitek tanpa perantara sales.",
-      deliverable: "Dokumen Blueprint & RAB Transparan",
-      guarantee: "100% Konsultasi Gratis",
-      guaranteeSub: "Tahap Awal",
+      borderColor: "border-blue-500",
+      borderHover: "hover:border-blue-600",
+      accentBg: "bg-blue-100/80",
+      accentText: "text-blue-600",
+      badgeBg: "bg-blue-50 text-blue-700 border-blue-200",
+      deliverableBg: "bg-blue-50/70 border-blue-200/80 text-blue-900",
+      title: "Konsultasi & RAB",
+      desc: "Analisis alur bisnis dan penentuan anggaran pasti tanpa biaya tersembunyi.",
+      deliverable: "Dokumen Blueprint & RAB",
+      guarantee: "100% Gratis",
       popupAlignment: "left-0 sm:left-0",
       arrowAlignment: "left-8",
       previewHeader: "BLUEPRINT_SPEC_v1.0.pdf",
@@ -71,17 +69,19 @@ export function GroveCoreShieldSection() {
     },
     {
       step: "02",
-      timeline: "Hari 4 – 7",
+      timeline: "Hari 3 – 4",
       icon: FileCheck2,
       color: "purple",
-      accentHex: "#9333EA",
-      accentBg: "bg-purple-50",
+      borderColor: "border-purple-500",
+      borderHover: "hover:border-purple-600",
+      accentBg: "bg-purple-100/80",
       accentText: "text-purple-600",
-      title: "Desain & Kontrak SLA",
-      desc: "Penyusunan prototype interaktif, timeline mingguan, dan perjanjian garansi SLA tertulis bertanda tangan.",
-      deliverable: "Figma Prototype & Kontrak Resmi",
-      guarantee: "Kontrak Bertanda Tangan",
-      guaranteeSub: "Kepastian Hukum",
+      badgeBg: "bg-purple-50 text-purple-700 border-purple-200",
+      deliverableBg: "bg-purple-50/70 border-purple-200/80 text-purple-900",
+      title: "Desain & Kontrak",
+      desc: "Finalisasi prototype tampilan dan penandatanganan garansi SLA tertulis.",
+      deliverable: "Prototype Figma & Kontrak",
+      guarantee: "Legal Bermaterai",
       popupAlignment: "left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2",
       arrowAlignment: "left-1/2 -translate-x-1/2",
       previewHeader: "Figma // #Main_Prototype_1440",
@@ -115,17 +115,19 @@ export function GroveCoreShieldSection() {
     },
     {
       step: "03",
-      timeline: "Minggu 2 – 6",
+      timeline: "Hari 5 – 9",
       icon: Laptop,
       color: "emerald",
-      accentHex: "#10B981",
-      accentBg: "bg-emerald-50",
+      borderColor: "border-emerald-500",
+      borderHover: "hover:border-emerald-600",
+      accentBg: "bg-emerald-100/80",
       accentText: "text-emerald-600",
-      title: "Sprint & Akses Staging",
-      desc: "Pembangunan sistem secara modular. Anda dapat menguji fitur langsung tiap pekan secara real-time via Portal.",
-      deliverable: "Server Staging & Laporan Sprint",
-      guarantee: "Transparan 24/7",
-      guaranteeSub: "Uji Tiap Pekan",
+      badgeBg: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      deliverableBg: "bg-emerald-50/70 border-emerald-200/80 text-emerald-900",
+      title: "Sprint & Staging",
+      desc: "Pembangunan sistem cepat dan uji coba fitur secara live via server staging.",
+      deliverable: "Akses Staging Server",
+      guarantee: "Uji Coba Tiap Hari",
       popupAlignment: "left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2",
       arrowAlignment: "left-1/2 -translate-x-1/2",
       previewHeader: "staging.abinest.id/portal",
@@ -150,17 +152,19 @@ export function GroveCoreShieldSection() {
     },
     {
       step: "04",
-      timeline: "Minggu 7",
+      timeline: "Hari 10 – 11",
       icon: Users,
       color: "amber",
-      accentHex: "#F59E0B",
-      accentBg: "bg-amber-50",
+      borderColor: "border-amber-500",
+      borderHover: "hover:border-amber-600",
+      accentBg: "bg-amber-100/80",
       accentText: "text-amber-600",
+      badgeBg: "bg-amber-50 text-amber-700 border-amber-200",
+      deliverableBg: "bg-amber-50/70 border-amber-200/80 text-amber-900",
       title: "Uji Beban & Training",
-      desc: "Stress-testing sistem agar anti-down pada lonjakan traffic, serta pendampingan staf hingga benar-benar mahir.",
-      deliverable: "Laporan Load Test & Modul Training",
-      guarantee: "Garansi Sistem Siap Pakai",
-      guaranteeSub: "Staf Terlatih Mandiri",
+      desc: "Tes ketahanan lonjakan trafik dan pelatihan staf sampai siap pakai mandiri.",
+      deliverable: "Hasil Uji & Modul Video",
+      guarantee: "Garansi Anti-Down",
       popupAlignment: "left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2",
       arrowAlignment: "left-1/2 -translate-x-1/2",
       previewHeader: "STRESS_TEST // k6 Engine",
@@ -189,22 +193,24 @@ export function GroveCoreShieldSection() {
     },
     {
       step: "05",
-      timeline: "Minggu 8 & Seterusnya",
+      timeline: "Hari 12 – 14",
       icon: ShieldCheck,
-      color: "blue",
-      accentHex: "#2563EB",
-      accentBg: "bg-blue-50",
-      accentText: "text-[#2563EB]",
-      title: "Serah Terima Penuh",
-      desc: "100% source code, database, dan kontrol server diserahkan utuh menjadi aset resmi institusi Anda.",
-      deliverable: "Full Git Repo & PostgreSQL Dump",
-      guarantee: "Hak Milik 100% Mutlak",
-      guaranteeSub: "Aset Digital Mandiri",
+      color: "rose",
+      borderColor: "border-rose-500",
+      borderHover: "hover:border-rose-600",
+      accentBg: "bg-rose-100/80",
+      accentText: "text-rose-600",
+      badgeBg: "bg-rose-50 text-rose-700 border-rose-200",
+      deliverableBg: "bg-rose-50/70 border-rose-200/80 text-rose-900",
+      title: "Serah Terima & Rilis",
+      desc: "Penyerahan 100% source code, database, dan sistem langsung go-live resmi.",
+      deliverable: "Full Git Repo & DB Dump",
+      guarantee: "100% Hak Milik",
       popupAlignment: "right-0 sm:right-0",
       arrowAlignment: "right-8",
       previewHeader: "ENTERPRISE_VAULT // OWNERSHIP",
       previewBadge: "ZERO LOCK-IN",
-      previewBadgeColor: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+      previewBadgeColor: "bg-rose-500/20 text-rose-300 border-rose-500/30",
       renderPreviewContent: () => (
         <div className="space-y-2 font-mono">
           <div className="grid grid-cols-2 gap-2 text-left">
@@ -231,36 +237,39 @@ export function GroveCoreShieldSection() {
   return (
     <section
       id="cara-kerja"
-      className="py-14 sm:py-20 relative bg-white border-b border-slate-200/80 overflow-visible"
+      className="py-12 sm:py-16 relative bg-white border-b border-slate-200/80 overflow-visible"
     >
       {/* Background Soft Mesh Ambient */}
       <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10 sm:space-y-12">
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#1E40AF] bg-blue-100/70 px-3.5 py-1 rounded-full border border-blue-200">
-            ALUR KERJA TRANSPARAN
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
-            5 Langkah Terstruktur Menuju Sistem Siap Operasi
+        <div className="text-center max-w-2xl mx-auto space-y-2.5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-100/70 border border-blue-200 text-[#1E40AF]">
+            <Rocket className="w-3.5 h-3.5 text-blue-600" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.16em]">
+              ALUR KERJA KILAT · SIAP &lt;14 HARI KERJA
+            </span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
+            5 Langkah Cepat Menuju Sistem Siap Operasi
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
-            Setiap tahapan memiliki output fisik (<em>deliverable</em>) yang jelas dan terverifikasi. Arahkan kursor ke kartu mana pun untuk melihat pratinjau bukti fisik pekerjaannya.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-lg mx-auto font-normal">
+            Sistem Anda siap beroperasi penuh dalam waktu kurang dari 14 hari. Arahkan kursor ke tiap kotak untuk melihat bukti fisik pekerjaannya.
           </p>
         </div>
 
-        {/* 5-Column Linear Clean Grid with Desktop Hover Pop-ups */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 pt-4 sm:pt-6 relative">
+        {/* 5-Column Linear Clean Grid with Bold Distinct Borders */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 pt-2 sm:pt-4 relative">
           {steps.map((s, idx) => {
             const Icon = s.icon;
             return (
               <div
                 key={idx}
                 onClick={() => setActiveModalStep(idx)}
-                className="bg-white border border-slate-200/90 hover:border-blue-400 rounded-3xl p-5 sm:p-5.5 flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group cursor-pointer"
+                className={`bg-white border-2 ${s.borderColor} ${s.borderHover} rounded-3xl p-4.5 sm:p-5 flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group cursor-pointer`}
               >
-                {/* FLOATING HOVER POP-UP (Appears on Hover on Desktop) */}
+                {/* FLOATING HOVER POP-UP (Desktop Hover) */}
                 <div
                   className={`hidden lg:block absolute bottom-[calc(100%+14px)] ${s.popupAlignment} w-[310px] pointer-events-none group-hover:pointer-events-auto opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50`}
                 >
@@ -289,62 +298,50 @@ export function GroveCoreShieldSection() {
                 </div>
 
                 {/* Card Top: Number, Timeline & Icon */}
-                <div className="space-y-3.5">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
                     <span className={`text-2xl font-black ${s.accentText}`}>
                       {s.step}
                     </span>
-                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${s.badgeBg}`}>
                       {s.timeline}
                     </span>
                   </div>
 
-                  <div className={`w-10 h-10 rounded-2xl ${s.accentBg} flex items-center justify-center ${s.accentText} group-hover:scale-105 transition-transform shadow-2xs`}>
-                    <Icon className="w-5 h-5" />
+                  <div className={`w-9 h-9 rounded-xl ${s.accentBg} flex items-center justify-center ${s.accentText} group-hover:scale-105 transition-transform shadow-2xs`}>
+                    <Icon className="w-4.5 h-4.5" />
                   </div>
 
                   <div className="space-y-1">
                     <h3 className="text-base font-bold text-[#0F172A] leading-snug group-hover:text-blue-600 transition-colors">
                       {s.title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    <p className="text-[11.5px] text-slate-600 leading-snug font-normal line-clamp-2">
                       {s.desc}
                     </p>
                   </div>
 
                   {/* Output Deliverable Badge */}
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] text-slate-800">
-                    <div className="font-bold uppercase tracking-wider text-[8.5px] text-blue-600 flex items-center gap-1">
-                      <PackageCheck className="w-3 h-3 text-blue-600" />
-                      <span>Deliverable Fisik:</span>
+                  <div className={`p-2 rounded-xl border text-[11px] ${s.deliverableBg}`}>
+                    <div className="font-bold uppercase tracking-wider text-[8px] opacity-80 flex items-center gap-1">
+                      <PackageCheck className="w-3 h-3 shrink-0" />
+                      <span>Output:</span>
                     </div>
-                    <div className="font-semibold text-slate-900 mt-0.5 text-[11.5px] leading-snug">
+                    <div className="font-bold mt-0.5 text-[11px] leading-snug truncate">
                       {s.deliverable}
                     </div>
                   </div>
                 </div>
 
                 {/* Card Bottom: Guarantee & Hover Hint */}
-                <div className="mt-4 pt-3 border-t border-slate-200/80 flex flex-col gap-2">
+                <div className="mt-3.5 pt-2.5 border-t border-slate-200 flex flex-col gap-1.5">
                   <div className="flex items-center justify-between text-[11px] font-bold text-slate-700">
                     <div className="flex items-center gap-1 text-emerald-600">
                       <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                       <span>{s.guarantee}</span>
                     </div>
-                    <span className="text-[10px] text-slate-400 font-normal">
-                      {s.guaranteeSub}
-                    </span>
-                  </div>
-
-                  {/* Interactive Trigger Badge */}
-                  <div className="flex items-center justify-between pt-1">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-blue-600 group-hover:text-blue-700">
-                      <Eye className="w-3 h-3" />
-                      <span className="hidden lg:inline">Arahkan kursor lihat bukti</span>
-                      <span className="lg:hidden">Ketuk lihat bukti fisik</span>
-                    </span>
-                    <span className="text-[10px] text-slate-400 group-hover:translate-x-0.5 transition-transform">
-                      →
+                    <span className="text-[9.5px] font-semibold text-slate-400 group-hover:text-blue-600 transition-colors">
+                      Preview ↗
                     </span>
                   </div>
                 </div>
@@ -354,7 +351,7 @@ export function GroveCoreShieldSection() {
         </div>
       </div>
 
-      {/* MOBILE / TOUCH PREVIEW MODAL (Opens on Tap on Mobile/Tablet) */}
+      {/* MOBILE / TOUCH PREVIEW MODAL */}
       {activeModalStep !== null && (
         <div
           onClick={() => setActiveModalStep(null)}
