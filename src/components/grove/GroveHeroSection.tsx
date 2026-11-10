@@ -31,8 +31,8 @@ export function GroveHeroSection() {
         "Bantu UMKM, toko online, hingga yayasan memiliki website profesional tanpa beban biaya langganan bulanan. Tampilan kredibel di HP pelanggan, teroptimasi Google SEO lokal agar mudah ditemukan calon pembeli, dan memudahkan pelanggan langsung chat WhatsApp untuk transaksi.",
       waMessage:
         "Halo Tim Abinest, saya tertarik konsultasi Website Modern untuk UMKM / Bisnis saya. Boleh diskusi konsep dan anggarannya?",
-      image: "/images/hero-editorial-portrait-2x.jpg",
-      imageAlt: "Implementasi Website Modern Abinest untuk UMKM dan Bisnis",
+      image: "/images/hero-pillar-web.webp",
+      imageAlt: "Modern Web Engineering & Minimalist Workstation Abinest",
     },
     {
       id: "erp",
@@ -46,8 +46,8 @@ export function GroveHeroSection() {
         "Solusi operasional terjangkau untuk UMKM ritel, kafe, distributor, hingga sekolah. Pantau stok barang masuk-keluar, kelola kasir kasbon/tunai, dan lihat laporan laba rugi harian otomatis dari HP Anda—tanpa beban biaya lisensi bulanan per kasir atau staf selamanya.",
       waMessage:
         "Halo Tim Abinest, saya ingin konsultasi kebutuhan Sistem Kasir POS / ERP untuk UMKM / Bisnis kami (pantau stok & cabang).",
-      image: "/images/hero-editorial-portrait-2x.jpg",
-      imageAlt: "Sistem Kasir POS dan ERP Operasional UMKM Abinest",
+      image: "/images/hero-pillar-erp.webp",
+      imageAlt: "Sistem ERP & Operasional Terpadu Abinest",
     },
     {
       id: "ai-wa",
@@ -61,8 +61,8 @@ export function GroveHeroSection() {
         "Otomatiskan customer service UMKM dengan AI resmi Meta WhatsApp API. Balas pesan pelanggan <1 detik, kirim katalog produk, jawab pertanyaan umum, hingga rekap pesanan otomatis 24 jam nonstop tanpa perlu repot bayar lembur admin shift malam.",
       waMessage:
         "Halo Tim Abinest, saya tertarik implementasi WhatsApp AI Agent resmi Meta untuk melayani chat pelanggan UMKM 24/7. Boleh minta demonya?",
-      image: "/images/hero-editorial-portrait-2x.jpg",
-      imageAlt: "Pipeline WhatsApp AI Agent dan Automasi Operasional Abinest",
+      image: "/images/hero-pillar-aiml.webp",
+      imageAlt: "Automasi AI/ML & WhatsApp CS Cerdas Abinest",
     },
   ];
 
