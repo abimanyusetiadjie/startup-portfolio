@@ -22,7 +22,7 @@ export function GroveNavbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 16);
-      const sections = ["layanan-utama", "portofolio", "cara-kerja", "perbandingan", "harga", "faq"];
+      const sections = ["layanan-utama", "portofolio", "cara-kerja", "harga"];
       const scrollPos = window.scrollY + 220;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -41,9 +41,7 @@ export function GroveNavbar() {
     { label: "Layanan", href: "#layanan-utama", id: "layanan-utama" },
     { label: "Hasil Kerja", href: "#portofolio", id: "portofolio" },
     { label: "Cara Kerja", href: "#cara-kerja", id: "cara-kerja" },
-    { label: "Bandingkan", href: "#perbandingan", id: "perbandingan" },
     { label: "Harga", href: "#harga", id: "harga" },
-    { label: "FAQ", href: "#faq", id: "faq" },
   ];
 
   const handleSmoothScroll = (

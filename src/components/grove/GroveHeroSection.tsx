@@ -133,7 +133,7 @@ export function GroveHeroSection() {
       id="beranda"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative pt-4 sm:pt-6 pb-12 sm:pb-16 overflow-hidden bg-[#FBFBFA] border-b border-slate-200/70"
+      className="relative pt-8 sm:pt-12 pb-12 sm:pb-16 overflow-hidden bg-[#FBFBFA] border-b border-slate-200/70"
     >
       {/* Subtle Atmospheric Grid Mesh */}
       <div
@@ -151,30 +151,6 @@ export function GroveHeroSection() {
       </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
-        {/* Permanent High-Impact Positioning Badge (Clarifies Identity in <2 Seconds) */}
-        <div className="flex flex-wrap items-center justify-between gap-2.5 mb-5 pb-3.5 border-b border-slate-200/70">
-          <div className="flex items-center gap-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[#1E40AF] text-xs font-bold shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
-              <span>Studio Rekayasa Software &amp; AI B2B</span>
-            </div>
-            <span className="text-xs text-slate-600 font-semibold hidden md:inline">
-              Modern Web · Custom ERP &amp; SIAKAD · Automasi AI/ML
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3 text-xs text-slate-500 font-medium">
-            <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
-              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
-              100% Hak Milik Source Code
-            </span>
-            <span className="text-slate-300 hidden sm:inline">|</span>
-            <span className="hidden sm:inline">Zero Biaya Sewa Bulanan</span>
-            <span className="text-slate-300 hidden sm:inline">|</span>
-            <span className="text-blue-700 font-bold hidden sm:inline">SLA 99.9% Terikat Kontrak</span>
-          </div>
-        </div>
-
         {/* 3-Pillar Interactive Tab Switcher Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
           <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">

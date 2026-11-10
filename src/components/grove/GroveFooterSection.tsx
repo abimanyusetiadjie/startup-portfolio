@@ -112,18 +112,13 @@ export function GroveFooterSection() {
                 </a>
               </li>
               <li>
-                <a href="#perbandingan" className="hover:text-[#1D4ED8] transition-colors font-medium">
-                  Bandingkan vs SaaS
-                </a>
-              </li>
-              <li>
                 <a href="#harga" className="hover:text-[#1D4ED8] transition-colors font-medium">
-                  Paket Investasi
+                  Paket Harga &amp; Investasi
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-[#1D4ED8] transition-colors font-medium">
-                  Standar Tim &amp; FAQ
+                <a href="#kontak" className="hover:text-[#1D4ED8] transition-colors font-medium">
+                  Konsultasi Gratis
                 </a>
               </li>
             </ul>
@@ -239,7 +234,7 @@ export function GroveFooterSection() {
             <a href="#cara-kerja" className="hover:text-[#0F172A] transition-colors">
               Kontrak &amp; Kepemilikan Kode 100%
             </a>
-            <a href="#perbandingan" className="hover:text-[#0F172A] transition-colors">
+            <a href="#cara-kerja" className="hover:text-[#0F172A] transition-colors">
               Garansi SLA 99.9%
             </a>
           </div>
