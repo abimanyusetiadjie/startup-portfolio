@@ -6,9 +6,6 @@ import {
   Database,
   BrainCircuit,
   ArrowRight,
-  Zap,
-  Bot,
-  Activity,
   Clock,
   Building,
 } from "lucide-react";
@@ -26,25 +23,14 @@ export function GroveCapabilitiesSection() {
       icon: Globe,
       waMessage: "Halo Tim Abinest, saya tertarik mendiskusikan arsitektur Website Modern (<0.8s load) & 100% hak milik kode untuk perusahaan kami.",
       visual: (
-        <div className="relative w-full h-[240px] sm:h-[260px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner group bg-slate-900">
+        <div className="relative w-full h-[220px] sm:h-[240px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group bg-slate-100">
           <Image
-            src="/images/capabilities/capabilities-web-preview.jpg"
+            src="/images/hero-web.webp"
             alt="Modern Web Architecture by Abinest"
             fill
+            sizes="(max-width: 1024px) 100vw, 33vw"
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
-          {/* Soft Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-          {/* Floating Performance Badge */}
-          <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-900/90 backdrop-blur-md rounded-xl p-2.5 border border-slate-700/80 text-white flex items-center justify-between text-[10px]">
-            <div className="flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-              <span className="font-bold truncate">Edge CDN &amp; SEO 100/100</span>
-            </div>
-            <span className="text-sky-400 font-bold bg-blue-500/20 px-2 py-0.5 rounded border border-blue-500/40 shrink-0">
-              &lt;0.8s FCP
-            </span>
-          </div>
         </div>
       ),
     },
@@ -59,23 +45,14 @@ export function GroveCapabilitiesSection() {
       icon: Database,
       waMessage: "Halo Tim Abinest, saya tertarik konsultasi Custom ERP / SIAKAD Sekolah tanpa biaya lisensi bulanan.",
       visual: (
-        <div className="relative w-full h-[240px] sm:h-[260px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner group">
+        <div className="relative w-full h-[220px] sm:h-[240px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group bg-slate-100">
           <Image
-            src="/images/capabilities/capabilities-erp-preview.jpg"
+            src="/images/erp-dashboard.webp"
             alt="Custom Enterprise ERP System Dashboard by Abinest"
             fill
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
           />
-          {/* Floating Live Telemetry Badge */}
-          <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-900/90 backdrop-blur-md rounded-xl p-2.5 border border-slate-700/80 text-white flex items-center justify-between text-[10px]">
-            <div className="flex items-center gap-1.5">
-              <Activity className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-              <span className="font-bold truncate">Multi-Warehouse Live Feed</span>
-            </div>
-            <span className="text-sky-400 font-bold bg-blue-500/20 px-2 py-0.5 rounded border border-blue-500/40 shrink-0">
-              99.8% Stok Akurat
-            </span>
-          </div>
         </div>
       ),
     },
@@ -90,23 +67,14 @@ export function GroveCapabilitiesSection() {
       icon: BrainCircuit,
       waMessage: "Halo Tim Abinest, saya tertarik konsultasi implementasi Automasi AI/ML (Document OCR / Meta WhatsApp AI Agent).",
       visual: (
-        <div className="relative w-full h-[240px] sm:h-[260px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner group">
+        <div className="relative w-full h-[220px] sm:h-[240px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group bg-slate-900">
           <Image
-            src="/images/capabilities/capabilities-aiml-preview.jpg"
+            src="/images/ai-ml-workflow.webp"
             alt="Applied AI & Machine Learning Pipeline by Abinest"
             fill
+            sizes="(max-width: 1024px) 100vw, 33vw"
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
-          {/* Floating AI Status Badge */}
-          <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-900/90 backdrop-blur-md rounded-xl p-2.5 border border-slate-700/80 text-white flex items-center justify-between text-[10px]">
-            <div className="flex items-center gap-1.5">
-              <Bot className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-              <span className="font-bold truncate">Document AI &amp; Meta Agent</span>
-            </div>
-            <span className="text-sky-400 font-bold bg-blue-500/20 px-2 py-0.5 rounded border border-blue-500/40 shrink-0">
-              0.8s Response
-            </span>
-          </div>
         </div>
       ),
     },
