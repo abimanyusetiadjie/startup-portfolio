@@ -49,7 +49,7 @@ export function GroveEngineeringTrustSection() {
 
   const techMatrix = [
     {
-      name: "Next.js & React 19",
+      name: "Next.js & React",
       role: "Fullstack Web & Edge SSR",
       spec: "Server Components · Load <0.8 Detik",
     },

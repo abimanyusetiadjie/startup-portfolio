@@ -66,7 +66,7 @@ export function GroveTechStackGrid() {
       ),
     },
     {
-      name: "React 19",
+      name: "React",
       category: "Modern UI",
       benefit: "Interactive",
       svg: (

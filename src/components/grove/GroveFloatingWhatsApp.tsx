@@ -25,19 +25,19 @@ export function GroveFloatingWhatsApp() {
 
   const quickOptions = [
     {
-      title: "1. Website Modern (<0.8s, Next.js)",
-      desc: "Kecepatan tinggi, SEO 100/100, 100% hak milik kode",
-      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Pembuatan Website Modern berkecepatan tinggi (<0.8s) dan skor SEO 100/100.",
+      title: "1. Website Modern",
+      desc: "Company profile, landing page dan portofolio bisnis",
+      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan Website Modern untuk kebutuhan usaha/bisnis kami.",
     },
     {
-      title: "2. Custom ERP Enterprise (Multi-Gudang)",
-      desc: "Integrasi stok, keuangan & zero lisensi user",
-      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan Sistem ERP Kustom Multi-Gudang & Finansial tanpa biaya lisensi bulanan.",
+      title: "2. Custom ERP & Kasir POS",
+      desc: "Sistem stok barang, kasir toko dan laporan keuangan",
+      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Sistem ERP Kustom / Kasir POS untuk operasional bisnis kami.",
     },
     {
-      title: "3. Automasi AI/ML (Meta API & OCR)",
-      desc: "Chatbot AI 24/7, centang hijau & otomasi invoice OCR",
-      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai Automasi AI/ML (Invoice OCR & WhatsApp AI Agent Meta Cloud API resmi).",
+      title: "3. Automasi AI & WhatsApp",
+      desc: "Asisten CS cerdas 24 jam nonstop dan baca dokumen",
+      text: "Halo Tim Abinest, saya ingin berkonsultasi mengenai WhatsApp AI Agent resmi Meta dan automasi sistem.",
     },
   ];
 
