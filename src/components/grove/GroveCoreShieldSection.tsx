@@ -26,38 +26,38 @@ import {
 export function GroveCoreShieldSection() {
   const comparisonRows = [
     {
-      metric: "Total Biaya 3 Tahun (TCO)",
-      abinest: "Investasi sekali di awal. Hemat hingga 70%+ dalam 3 tahun tanpa iuran bulanan.",
-      saas: "Biaya sewa bulanan terus membengkak (Rp 20–80 Jt/tahun) seiring bertambahnya user.",
-      agency: "Biaya awal murah tapi ada tagihan tersembunyi untuk maintenance bulanan.",
+      metric: "Pengelolaan Server & Perawatan IT",
+      abinest: "Bebas Pilih: Bisa terima beres dirawat tim engineer kami, atau dikelola mandiri oleh tim IT Anda.",
+      saas: "Wajib ikut server vendor luar negeri, data tersandera dan lambat diakses dari jaringan lokal Indonesia.",
+      agency: "Sering lepas tangan setelah website selesai, server dibiarkan tanpa backup rutin.",
       highlight: true,
     },
     {
-      metric: "Kepemilikan Source Code & Data",
-      abinest: "100% Hak Milik Klien. Git repo, database dump & root access diserahkan penuh.",
-      saas: "0% Kepemilikan. Data tersandera di server vendor luar negeri.",
-      agency: "Source code ditahan sebagai alasan kontrak maintenance tahunan.",
+      metric: "Biaya Tambah User / Karyawan / Siswa",
+      abinest: "Rp 0 / User: Bebas tambah 1.000 hingga 10.000 user tanpa pungutan biaya lisensi per kepala.",
+      saas: "Iuran terus membengkak (Rp 50.000 – Rp 350.000 / user / bulan), membatasi pertumbuhan bisnis.",
+      agency: "Sering meminta biaya lisensi instance tambahan saat jumlah pengguna membludak.",
       highlight: true,
     },
     {
-      metric: "Tambah Karyawan / Siswa / User",
-      abinest: "Rp 0 (Bebas tambah 1.000 hingga 10.000 user tanpa biaya ekstra sepeser pun).",
-      saas: "Dikenakan biaya tambahan per user (Rp 50.000 - Rp 350.000 / user / bulan).",
-      agency: "Sering meminta biaya lisensi instance tambahan saat user bertambah.",
+      metric: "Kepemilikan Data & Kemerdekaan Kode",
+      abinest: "100% Milik Anda: Backup database bisa diunduh kapan saja, dan source code bebas diambil alih.",
+      saas: "Data Tersandera: Jika berhenti bayar sewa bulanan, sistem dimatikan dan data perusahaan hilang.",
+      agency: "Source code sengaja ditahan sebagai alasan perpanjangan kontrak wajib setiap tahun.",
       highlight: true,
     },
     {
-      metric: "Kustomisasi Alur Kerja Bisnis",
-      abinest: "100% Kustom sesuai SOP unik bisnis Anda tanpa batasan template.",
-      saas: "Kaku. Bisnis Anda yang harus mengalah dan menyesuaikan alur software.",
-      agency: "Terbatas pada plugin CMS umum yang mudah konflik dan lambat.",
+      metric: "Kustomisasi Alur Operasional Bisnis",
+      abinest: "100% Mengikuti SOP unik bisnis Anda tanpa kompromi template kaku.",
+      saas: "Kaku: Alur operasional bisnis Anda yang dipaksa mengalah pada keterbatasan software impor.",
+      agency: "Terbatas pada plugin CMS umum yang mudah konflik dan rentan peretasan.",
       highlight: false,
     },
     {
-      metric: "Respons Perbaikan & SLA",
-      abinest: "Garansi SLA 99.9% tertulis, respons engineer <15 menit di jam kerja.",
-      saas: "Tiket antrean customer service umum (estimasi 2 – 3 hari kerja).",
-      agency: "Tidak ada jaminan SLA tertulis, sulit dihubungi setelah pelunasan.",
+      metric: "Kecepatan Bantuan & SLA Respons",
+      abinest: "Respons <15 menit di jam operasional langsung bersama tim senior engineer via WhatsApp grup.",
+      saas: "Mengisi tiket antrean customer service umum luar negeri (estimasi balasan 2–3 hari kerja).",
+      agency: "Tidak ada jaminan SLA tertulis, sulit dihubungi setelah pelunasan proyek.",
       highlight: false,
     },
   ];
@@ -516,116 +516,199 @@ export function GroveCoreShieldSection() {
         </div>
 
         {/* ========================================================================= */}
-        {/* PART 2: VISUAL PROOF OF 100% SOURCE CODE & CLIENT PORTAL OWNERSHIP        */}
+        {/* PART 2: DUA SKEMA KEMITRAAN FLEKSIBEL (SESUAI KESIAPAN BISNIS ANDA)       */}
         {/* ========================================================================= */}
-        <div className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-[0_15px_40px_rgba(15,23,42,0.03)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Column (5 cols): Tangible Guarantees */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-200 text-xs font-bold uppercase tracking-wider">
-                <FileCode2 className="w-3.5 h-3.5" />
-                Jaminan Zero Vendor Lock-in
+        <div className="space-y-10">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#1E40AF] bg-blue-100/70 px-3.5 py-1 rounded-full border border-blue-200">
+              FLEKSIBILITAS KEMITRAAN &amp; KEPEMILIKAN
+            </span>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
+              Tidak Punya Tim IT Sendiri? Tenang.
+              <br />
+              <span className="text-[#2563EB]">
+                Anda Bebas Memilih: Terima Beres atau Beli Putus.
+              </span>
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
+              Kami memahami bahwa sistem dan website membutuhkan server, domain, keamanan, dan perawatan teknis berkala. Apapun skala bisnis Anda, Abinest menyesuaikan dengan kesiapan tim Anda—bukan sebaliknya.
+            </p>
+          </div>
+
+          {/* 2 Choice Cards: Opsi Terima Beres vs Opsi Beli Putus */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 items-stretch">
+            {/* OPSI A: Terima Beres (Managed Cloud & Pemeliharaan Rutin) */}
+            <div className="relative rounded-3xl bg-white border-2 border-[#2563EB] p-7 sm:p-9 shadow-[0_16px_36px_rgba(37,99,235,0.08)] flex flex-col justify-between space-y-6">
+              {/* Highlight Badge */}
+              <div className="absolute -top-3.5 left-7 bg-[#2563EB] text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+                <Sparkles className="w-3 h-3 text-sky-200" />
+                <span>Paling Disukai Sekolah &amp; Bisnis Non-IT</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
-                100% Source Code &amp; Database Menjadi Hak Milik Perusahaan Anda.
-              </h3>
-
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                Banyak perusahaan terjebak software sewa bulanan impor yang mahal dan membatasi jumlah user. Di Abinest, sistem yang kami bangun adalah <strong>aset resmi perusahaan Anda selamanya</strong> tanpa biaya lisensi per user.
-              </p>
-
-              <div className="space-y-3 pt-1 text-xs sm:text-sm text-slate-700 font-medium">
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Serah terima full repository GitHub &amp; file backup database PostgreSQL</span>
+              <div className="space-y-4 pt-1">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#2563EB] flex items-center justify-center font-bold text-lg border border-blue-200/80 shadow-2xs">
+                    ☁️
+                  </div>
+                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-200">
+                    Opsi A: Managed Cloud
+                  </span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Garansi tertulis SLA 99.9% Uptime resmi bertanda tangan</span>
+
+                <div>
+                  <h3 className="text-2xl font-black text-[#0F172A] tracking-tight">
+                    Skema &ldquo;Terima Beres&rdquo;
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-blue-700 font-semibold mt-0.5">
+                    Server Dedicated, Cloud, &amp; Maintenance Kami Rawat Penuh
+                  </p>
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-2 font-normal">
+                    Pilihan sempurna bagi yayasan, sekolah, pabrik, atau pemilik bisnis yang belum memiliki divisi programmer sendiri. Anda cukup login dan fokus menjalankan bisnis.
+                  </p>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Portal Klien untuk tracking revisi, sprint milestone, dan garansi pasca-rilis</span>
+
+                <div className="pt-2 border-t border-slate-100 space-y-2.5 text-xs text-slate-700">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                    <span><strong>Server Cloud Dedicated</strong> kami sediakan, konfigurasi, dan pantau 24/7.</span>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                    <span><strong>Garansi Anti-Down SLA 99.9% Uptime</strong> tertulis resmi bertanda tangan.</span>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                    <span><strong>Backup Database Otomatis Harian</strong> ke multi-lokasi aman dari bencana data.</span>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                    <span><strong>Update Keamanan &amp; Patch Bug Rutin</strong> berkala tanpa biaya tak terduga.</span>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                    <span><strong>Respons Prioritas via WhatsApp &lt;15 Menit</strong> langsung bersama engineer.</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-4 border-t border-slate-100 space-y-3">
+                <div className="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-200/70 text-xs text-slate-700 flex items-center justify-between">
+                  <span className="font-semibold text-slate-800">Biaya Rawatan Server:</span>
+                  <span className="font-bold text-[#1D4ED8]">Biaya Flat Terjangkau (Rp 0 per-user)</span>
+                </div>
+
                 <a
-                  href="#kontak"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all"
+                  href="https://wa.me/6285708677918?text=Halo%20Tim%20Abinest%2C%20saya%20tertarik%20dengan%20Skema%20Terima%20Beres%20(Managed%20Cloud)%20agar%20tidak%20perlu%20pusing%20mikirin%20server.%20Boleh%20minta%20info%20detailnya%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_4px_16px_rgba(37,99,235,0.2)] transition-all cursor-pointer"
                 >
-                  <span>Mulai Konsultasi Tanpa Komitmen</span>
+                  <span>Pilih Skema Terima Beres via WhatsApp</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
-            {/* Right Column (7 cols): VISUAL TERMINAL & HANDOVER REPO PACKAGE */}
-            <div className="lg:col-span-7 relative">
-              <div className="rounded-2xl bg-slate-900 p-4 sm:p-6 shadow-[0_25px_60px_rgba(15,23,42,0.18)] ring-1 ring-slate-800 text-xs font-mono text-slate-300 space-y-4">
-                {/* Handover Terminal Bar */}
-                <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-[11px]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-                    <span className="text-slate-100 font-bold">
-                      abinest-handover-package · v2.4.0 (Official Enterprise Release)
-                    </span>
+            {/* OPSI B: Beli Putus / Mandiri (100% Full Source Code & Self-Hosted) */}
+            <div className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-9 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-6">
+              <div className="space-y-4 pt-1">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-lg border border-slate-200 shadow-2xs">
+                    💻
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-blue-950 text-sky-400 font-semibold border border-blue-800/80">
-                    STATUS: FULL OWNERSHIP
+                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                    Opsi B: Self-Hosted Mandiri
                   </span>
                 </div>
 
-                {/* File Tree Visual */}
-                <div className="space-y-1.5 text-[11px] leading-relaxed font-mono">
-                  <div className="text-sky-400 font-bold flex items-center gap-1.5">
-                    <FolderTree className="w-3.5 h-3.5" />
-                    📁 repository/core-system/ (100% Hak Milik Klien)
-                  </div>
-                  <div className="pl-4 text-slate-400">├── 📁 src/ (Next.js 15 &amp; High-Throughput Microservices)</div>
-                  <div className="pl-4 text-slate-400">├── 📁 database/ (PostgreSQL Schema &amp; Connection Pooling)</div>
-                  <div className="pl-4 text-slate-400">├── 📁 automations/ (Document AI OCR &amp; Meta WhatsApp Agent)</div>
-                  <div className="pl-4 text-slate-400">├── 📄 docker-compose.yml (High-Availability Cloud Ready)</div>
-                  <div className="pl-4 text-slate-300 font-semibold">├── 📜 SERTI_GARANSI_SLA_99.9.pdf (Garansi Resmi Tertulis)</div>
-                  <div className="pl-4 text-slate-300 font-semibold">└── 📘 DOKUMENTASI_ARSITEKTUR_DAN_API.pdf (Buku Panduan Lengkap)</div>
+                <div>
+                  <h3 className="text-2xl font-black text-[#0F172A] tracking-tight">
+                    Skema &ldquo;Beli Putus / Mandiri&rdquo;
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-slate-600 font-semibold mt-0.5">
+                    100% Source Code &amp; Database Ditransfer Penuh ke Server Anda
+                  </p>
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-2 font-normal">
+                    Pilihan tepat untuk korporat atau startup yang telah memiliki tim IT/DevOps internal dan ingin memegang kendali penuh atas infrastruktur server mandiri.
+                  </p>
                 </div>
 
-                {/* Handover Proof Cards Inside Terminal */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                  <div className="rounded-xl bg-slate-800/90 border border-slate-700/80 p-3 space-y-1">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">
-                      AKSES REPOSITORY
-                    </div>
-                    <div className="text-slate-100 font-bold text-xs flex items-center gap-1.5">
-                      <Lock className="w-3.5 h-3.5 text-sky-400" />
-                      github.com/perusahaan-klien/system
-                    </div>
-                    <div className="text-[10px] text-sky-400">
-                      Private &amp; Ditransfer 100% ke Akun Anda
-                    </div>
+                <div className="pt-2 border-t border-slate-100 space-y-2.5 text-xs text-slate-700">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>100% Full Source Code Git</strong> kami serahkan utuh ke akun repositori Anda.</span>
                   </div>
-
-                  <div className="rounded-xl bg-slate-800/90 border border-slate-700/80 p-3 space-y-1">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">
-                      BIAYA BULANAN / USER
-                    </div>
-                    <div className="text-slate-100 font-bold text-xs flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                      Rp 0,- / Karyawan (Tanpa Biaya Lisensi)
-                    </div>
-                    <div className="text-[10px] text-slate-400">
-                      Bebas Digunakan Selamanya
-                    </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Skema Database PostgreSQL</strong> &amp; migration dump diserahterimakan penuh.</span>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Deploy di Server Sendiri</strong> (Cloud AWS, GCP, VPS, atau Server Fisik Kantor).</span>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Buku Panduan &amp; Dokumentasi API</strong> komprehensif untuk tim engineer Anda.</span>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Bebas Biaya Langganan Selamanya</strong>: Lepas tanggung jawab operasional rutin.</span>
                   </div>
                 </div>
               </div>
+
+              <div className="pt-4 border-t border-slate-100 space-y-3">
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center justify-between">
+                  <span className="font-semibold text-slate-800">Biaya Rutin ke Abinest:</span>
+                  <span className="font-bold text-emerald-700">Rp 0,- / Bulan (Aset Mandiri)</span>
+                </div>
+
+                <a
+                  href="https://wa.me/6285708677918?text=Halo%20Tim%20Abinest%2C%20perusahaan%20kami%20tertarik%20dengan%20Skema%20Beli%20Putus%20(100%25%20Hak%20Milik%20Source%20Code)%20untuk%20dikelola%20tim%20IT%20internal%20kami.%20Boleh%20diskusi%20lebih%20lanjut%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0F172A] hover:bg-slate-800 transition-all cursor-pointer"
+                >
+                  <span>Pilih Skema Beli Putus via WhatsApp</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
+          </div>
+
+          {/* KLAUSUL EMAS: Jaminan Fleksibilitas Tanpa Keterikatan (Zero Vendor Lock-in) */}
+          <div className="rounded-3xl p-6 sm:p-7 bg-gradient-to-r from-blue-50/80 via-white to-sky-50/80 border border-blue-200/90 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#2563EB] text-white flex items-center justify-center shrink-0 shadow-sm text-xl">
+                🛡️
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <h4 className="text-base sm:text-lg font-black text-[#0F172A]">
+                    Klausul Emas Abinest: Mulai Terima Beres, Ambil Alih Kapan Saja
+                  </h4>
+                  <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-[#1E40AF] text-[10px] font-extrabold hidden md:inline">
+                    Zero Lock-In
+                  </span>
+                </div>
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                  Banyak klien kami memulai dari skema <strong>Terima Beres</strong> agar sistem langsung beroperasi lancar tanpa beban teknis. Di masa depan, jika institusi Anda sudah merekrut tim IT sendiri, <strong>seluruh source code dan database bebas Anda ambil alih 100% kapan saja</strong> tanpa biaya penalti atau tebusan data sepeser pun.
+                </p>
+              </div>
+            </div>
+            <a
+              href="#kontak"
+              className="px-5 py-2.5 rounded-xl bg-white hover:bg-blue-50 text-[#2563EB] text-xs font-bold border border-blue-300 shrink-0 whitespace-nowrap shadow-2xs transition-colors"
+            >
+              Konsultasikan Skema Anda →
+            </a>
           </div>
         </div>
 
         {/* ========================================================================= */}
-        {/* PART 3: MASTER COMPARISON TABLE (ABINEST vs SOFTWARE SEWA SAAS)           */}
+        {/* PART 3: MASTER COMPARISON TABLE (FLEKSIBILITAS ABINEST vs SEWA BULANAN)   */}
         {/* ========================================================================= */}
         <div id="perbandingan" className="space-y-8 pt-4">
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -637,11 +720,11 @@ export function GroveCoreShieldSection() {
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-              Abinest (100% Hak Milik) vs Software Sewa Bulanan
+              Bandingkan: Solusi Fleksibel Abinest vs Software Sewa Bulanan
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
-              Bandingkan secara objektif mengapa kepemilikan kode program dari Abinest jauh lebih menguntungkan untuk pertumbuhan jangka panjang bisnis Anda.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
+              Pahami mengapa solusi fleksibel Abinest jauh lebih aman, transparan, dan melindungi aset bisnis jangka panjang dibanding sistem sewa SaaS impor konvensional.
             </p>
           </div>
 
@@ -656,7 +739,7 @@ export function GroveCoreShieldSection() {
                   <th className="py-4 px-5 font-bold text-[#1D4ED8] bg-blue-50/70 border-x border-blue-100 w-1/3">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#2563EB]" />
-                      <span className="text-sm">Abinest Studio</span>
+                      <span className="text-sm">Skema Abinest (Fleksibel)</span>
                       <span className="px-2 py-0.5 rounded text-[10px] bg-blue-600 text-white font-extrabold">
                         Rekomendasi
                       </span>
