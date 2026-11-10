@@ -13,107 +13,56 @@ import {
 
 const WHATSAPP_NUMBER = "6285708677918";
 
-const waMessages: Record<string, string> = {
-  web: "Halo Tim Abinest, saya ingin konsultasi kebutuhan Website Korporat Modern berkecepatan tinggi (<0.8s load) & 100% hak milik source code.",
-  erp: "Halo Tim Abinest, saya ingin konsultasi kebutuhan Sistem ERP Kustom / SIAKAD / Manajemen Operasional dengan garansi SLA 99.9%.",
-  "ai-wa": "Halo Tim Abinest, saya ingin konsultasi implementasi Automasi AI/ML (Document OCR & WhatsApp AI Agent resmi Meta).",
-};
-
 export function GroveHeroSection() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // 3 Fokus Utama Abinest dengan Copywriting Humanis, Elegan, dan Terukur
+  // 3 Layanan Utama Abinest dengan Copywriting Inklusif untuk UMKM & Korporat
   const pillars = [
     {
       id: "web",
-      tabLabel: "1. Modern Web",
+      tabLabel: "1. Web UMKM & Bisnis",
       tabSubtitle: "Akses Kilat <0.8s",
       icon: Globe,
       accentColor: "#2563EB",
-      headlineLine1: "Website Korporat Modern",
+      headlineLine1: "Website Modern untuk UMKM & Bisnis",
       headlineLine2: "Tampil Berkelas, Cepat, & Kredibel.",
       story:
-        "Membangun kehadiran digital yang meyakinkan calon klien sejak detik pertama. Halaman terbuka instan (<0.8 detik), skor SEO Google optimal, dan tampilan presisi di seluruh ukuran layar.",
-      metrics: [
-        {
-          num: "01",
-          title: "Akses Kilat <0.8 Detik",
-          desc: "Halaman ringan, tanpa lag, bebas beban plugin berat",
-        },
-        {
-          num: "02",
-          title: "Arsitektur SEO Google 100/100",
-          desc: "Struktur kode rapi untuk mendongkrak visibilitas bisnis",
-        },
-        {
-          num: "03",
-          title: "100% Hak Milik Source Code",
-          desc: "Bebas biaya sewa platform atau ketergantungan vendor",
-        },
-      ],
+        "Bantu UMKM, toko online, hingga yayasan memiliki website profesional tanpa beban biaya langganan bulanan. Tampilan kredibel di HP pelanggan, teroptimasi Google SEO lokal agar mudah ditemukan calon pembeli, dan memudahkan pelanggan langsung chat WhatsApp untuk transaksi.",
+      waMessage:
+        "Halo Tim Abinest, saya tertarik konsultasi Website Modern untuk UMKM / Bisnis saya. Boleh diskusi konsep dan anggarannya?",
       image: "/images/hero-editorial-portrait-2x.jpg",
-      imageAlt: "Implementasi Website Modern Abinest di Lapangan",
+      imageAlt: "Implementasi Website Modern Abinest untuk UMKM dan Bisnis",
     },
     {
       id: "erp",
-      tabLabel: "2. Sistem ERP Kustom",
-      tabSubtitle: "Kendali Operasional",
+      tabLabel: "2. Kasir POS & ERP",
+      tabSubtitle: "Otomasi Operasional",
       icon: Building2,
       accentColor: "#1D4ED8",
-      headlineLine1: "Sistem Operasional Terpadu",
-      headlineLine2: "Kendali Penuh Gudang & Finansial.",
+      headlineLine1: "Sistem Kasir POS & ERP Kustom",
+      headlineLine2: "Otomatiskan Stok, Toko, & Keuangan.",
       story:
-        "Satukan seluruh alur bisnis—mulai dari mutasi stok multi-gudang, absensi staf, hingga laporan laba rugi real-time—dalam satu dashboard intuitif bergaransi SLA 99.99%.",
-      metrics: [
-        {
-          num: "01",
-          title: "Keandalan Sistem SLA 99.99%",
-          desc: "Server stabil dengan sistem backup otomatis harian",
-        },
-        {
-          num: "02",
-          title: "Bebas Biaya Lisensi Pengguna",
-          desc: "Tambah 100 hingga 10.000 karyawan tanpa biaya ekstra",
-        },
-        {
-          num: "03",
-          title: "Data Terenkripsi & Milik Penuh",
-          desc: "Struktur database sepenuhnya menjadi aset perusahaan Anda",
-        },
-      ],
+        "Solusi operasional terjangkau untuk UMKM ritel, kafe, distributor, hingga sekolah. Pantau stok barang masuk-keluar, kelola kasir kasbon/tunai, dan lihat laporan laba rugi harian otomatis dari HP Anda—tanpa beban biaya lisensi bulanan per kasir atau staf selamanya.",
+      waMessage:
+        "Halo Tim Abinest, saya ingin konsultasi kebutuhan Sistem Kasir POS / ERP untuk UMKM / Bisnis kami (pantau stok & cabang).",
       image: "/images/erp-dashboard.jpg",
-      imageAlt: "Sistem ERP Multi-Gudang Abinest",
+      imageAlt: "Sistem Kasir POS dan ERP Operasional UMKM Abinest",
     },
     {
       id: "ai-wa",
-      tabLabel: "3. Automasi AI/ML",
-      tabSubtitle: "Model Cerdas & Efisiensi Alur Kerja",
+      tabLabel: "3. WhatsApp AI & Automasi",
+      tabSubtitle: "CS Cerdas 24 Jam Nonstop",
       icon: Bot,
       accentColor: "#0284C7",
-      headlineLine1: "Automasi AI/ML Cerdas",
-      headlineLine2: "Operasional 10x Lebih Cepat & Akurat.",
+      headlineLine1: "WhatsApp AI Agent & Automasi",
+      headlineLine2: "Admin CS Cerdas 24 Jam Nonstop.",
       story:
-        "Otomatiskan alur kerja manual bisnis Anda dengan model AI cerdas: ekstraksi data faktur instan via Document AI OCR, analisis prediktif, serta integrasi WhatsApp AI Agent resmi Meta 24/7.",
-      metrics: [
-        {
-          num: "01",
-          title: "Document AI OCR Presisi 99.7%",
-          desc: "Ekstraksi data faktur dan dokumen instan tanpa salah input manual",
-        },
-        {
-          num: "02",
-          title: "Model Cerdas & WhatsApp AI Agent",
-          desc: "Asisten cerdas aktif melayani transaksi via Meta Cloud API resmi",
-        },
-        {
-          num: "03",
-          title: "Integrasi Alur Kerja Otonom",
-          desc: "Sinkronisasi pipa data otomatis langsung ke sistem operasional ERP",
-        },
-      ],
+        "Otomatiskan customer service UMKM dengan AI resmi Meta WhatsApp API. Balas pesan pelanggan <1 detik, kirim katalog produk, jawab pertanyaan umum, hingga rekap pesanan otomatis 24 jam nonstop tanpa perlu repot bayar lembur admin shift malam.",
+      waMessage:
+        "Halo Tim Abinest, saya tertarik implementasi WhatsApp AI Agent resmi Meta untuk melayani chat pelanggan UMKM 24/7. Boleh minta demonya?",
       image: "/images/ai-ml-workflow.jpg",
-      imageAlt: "Pipeline Automasi AI dan Machine Learning Abinest",
+      imageAlt: "Pipeline WhatsApp AI Agent dan Automasi Operasional Abinest",
     },
   ];
 
@@ -211,10 +160,11 @@ export function GroveHeroSection() {
         </div>
 
         {/* Asymmetrical 2-Column Swiss Editorial Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* KOLOM KIRI: Headline Humanis, Misi, Aksi, & 3 Pilar Bernomor (Span 7) */}
+          {/* KOLOM KIRI: Full Width Editorial Flow (Span 7) - Lapang & Humanis */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
+            {/* Headline Dinamis */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={`headline-${currentPillar.id}`}
@@ -222,9 +172,9 @@ export function GroveHeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-2.5"
+                className="space-y-3"
               >
-                <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.12]">
+                <h1 className="text-3xl sm:text-5xl lg:text-[50px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.14]">
                   {currentPillar.headlineLine1}
                   <br />
                   <span className="text-[#2563EB]">
@@ -237,108 +187,85 @@ export function GroveHeroSection() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Sub-Grid: Cerita Kiri + 3 Pilar Bernomor di Kanan */}
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-8 pt-1">
-              {/* Sisi Kiri: Nilai Nyata, Tombol Konsultasi, & Bukti Sosial (Span 6) */}
-              <div className="sm:col-span-6 space-y-5 flex flex-col justify-between">
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={`story-${currentPillar.id}`}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.25 }}
-                    className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal min-h-[80px]"
-                  >
-                    {currentPillar.story}
-                  </motion.p>
-                </AnimatePresence>
+            {/* Paragraf Cerita & Manfaat Nyata (Lebar Penuh & Mudah Dibaca) */}
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={`story-${currentPillar.id}`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25 }}
+                className="text-sm sm:text-base lg:text-[16.5px] text-slate-600 leading-relaxed font-normal max-w-2xl"
+              >
+                {currentPillar.story}
+              </motion.p>
+            </AnimatePresence>
 
-                {/* Tombol Aksi CTA */}
-                <div className="space-y-2.5 pt-1">
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                      waMessages[currentPillar.id] || waMessages.web
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group w-full inline-flex items-center justify-between px-6 py-3.5 rounded-2xl text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all duration-200"
-                  >
-                    <span>Konsultasikan via WhatsApp</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </motion.a>
+            {/* Tombol Aksi CTA & Link Hasil Kerja */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                  currentPillar.waMessage
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all duration-200 cursor-pointer"
+              >
+                <span>Konsultasikan via WhatsApp</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
 
-                  <a
-                    href="#portofolio"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#2563EB] transition-colors pl-1"
-                  >
-                    <span>Lihat Bukti Kasus Before–After</span>
-                    <span className="text-slate-400">→</span>
-                  </a>
-                </div>
+              <a
+                href="#portofolio"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-2xl text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#2563EB] bg-slate-100/80 hover:bg-slate-200/80 border border-slate-200/60 transition-all text-center"
+              >
+                <span>Lihat Hasil Kerja &amp; Demo</span>
+                <span className="text-slate-400">→</span>
+              </a>
+            </div>
 
-                {/* Bukti Sosial Klien Aktif (Zero Broken Images) */}
-                <div className="pt-2 flex items-center gap-3 border-t border-slate-200/80">
-                  <div className="flex -space-x-1.5">
-                    <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-blue-600 to-indigo-700 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
-                      PT
-                    </div>
-                    <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-slate-700 to-slate-900 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
-                      YK
-                    </div>
-                    <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-sky-600 to-blue-700 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
-                      CV
-                    </div>
-                  </div>
-                  <div className="text-[11px] sm:text-xs font-medium text-slate-700">
-                    <span className="font-bold text-[#0F172A]">25+ Klien Aktif</span>
-                    <span className="text-slate-400 mx-1.5">·</span>
-                    <span className="text-[#2563EB] font-semibold">SLA 99.9% Terikat Kontrak</span>
-                  </div>
-                </div>
+            {/* 3 Micro-Trust Pills (Pengganti 3 Kotak Poin yang Lebih Ringkas & Rapi) */}
+            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 font-semibold shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>Investasi Ramah UMKM</span>
               </div>
 
-              {/* Sisi Kanan: 3 Nilai Utama Bernomor 01, 02, 03 (Span 6) */}
-              <div className="sm:col-span-6 space-y-3.5 sm:pl-1">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`metrics-${currentPillar.id}`}
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -12 }}
-                    transition={{ duration: 0.25 }}
-                    className="space-y-3.5"
-                  >
-                    {currentPillar.metrics.map((item) => (
-                      <div
-                        key={item.num}
-                        className="group pb-2.5 border-b border-slate-200/90 hover:border-blue-400 transition-colors"
-                      >
-                        <div className="flex items-baseline gap-2.5">
-                          <span className="font-mono text-xs sm:text-sm font-bold text-[#2563EB] group-hover:scale-105 transition-transform">
-                            {item.num}
-                          </span>
-                          <div className="space-y-0.5">
-                            <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] group-hover:text-[#2563EB] transition-colors flex items-center gap-1.5">
-                              <span>{item.title}</span>
-                              <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </h4>
-                            <p className="text-[11px] text-slate-500 leading-snug">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </motion.div>
-                </AnimatePresence>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-800 font-semibold shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                <span>Siap Operasi 14 Hari</span>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200/90 text-slate-700 font-semibold shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-slate-600 shrink-0" />
+                <span>100% Hak Milik Tanpa Sewa</span>
+              </div>
+            </div>
+
+            {/* Bukti Sosial Klien Aktif (UMKM & Institusi) */}
+            <div className="pt-3 flex items-center gap-3 border-t border-slate-200/80">
+              <div className="flex -space-x-1.5">
+                <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-emerald-500 to-teal-600 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
+                  UMKM
+                </div>
+                <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-blue-600 to-indigo-700 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+                  PT
+                </div>
+                <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-slate-700 to-slate-900 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+                  CV
+                </div>
+              </div>
+              <div className="text-[11px] sm:text-xs font-medium text-slate-700">
+                <span className="font-bold text-[#0F172A]">25+ UMKM &amp; Institusi Aktif</span>
+                <span className="text-slate-400 mx-1.5">·</span>
+                <span className="text-[#2563EB] font-semibold">Garansi SLA Anti-Down 99.9%</span>
               </div>
             </div>
           </div>
 
-          {/* KOLOM KANAN: Ukuran Foto Pas & Murni Bersih dari Badge Apapun (Span 5) */}
+          {/* KOLOM KANAN: Visual Editorial Portrait Pas & Proporsional (Span 5) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <AnimatePresence mode="wait">
               <motion.div
@@ -347,7 +274,7 @@ export function GroveHeroSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full h-[290px] sm:h-[360px] md:h-[400px] lg:h-[460px] xl:h-[475px] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_16px_40px_rgba(15,23,42,0.06)] group"
+                className="relative w-full h-[320px] sm:h-[390px] md:h-[440px] lg:h-[480px] xl:h-[500px] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_16px_40px_rgba(15,23,42,0.06)] group"
               >
                 <Image
                   src={currentPillar.image}
