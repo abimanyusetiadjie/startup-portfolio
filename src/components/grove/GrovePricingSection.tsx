@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Globe,
@@ -9,7 +10,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Sparkles,
-  Layers,
   Code2,
   Clock,
   Database,
@@ -18,7 +18,11 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const WHATSAPP_NUMBER = "6285708677918";
 
+type PricingMode = "beli-putus" | "terima-beres";
+
 export function GrovePricingSection() {
+  const [pricingMode, setPricingMode] = useState<PricingMode>("beli-putus");
+
   const pricingTiers = [
     {
       id: "web",
@@ -29,7 +33,10 @@ export function GrovePricingSection() {
       priceNum: "1.5 – 3.5",
       priceUnit: "Juta",
       priceSuffix: "start from",
-      priceSubNote: "Sekali Bayar · 100% Hak Milik",
+      subNotes: {
+        "beli-putus": "Sekali Bayar · 100% Hak Milik Permanen",
+        "terima-beres": "Terima Beres · Managed Cloud & Maintenance",
+      },
       icon: Globe,
       accentColor: "#2563EB",
       isPopular: false,
@@ -49,13 +56,28 @@ export function GrovePricingSection() {
           note: "Navigasi kilat tanpa lemot di koneksi 4G",
         },
       ],
-      features: [
-        "Kecepatan <0.8s & Skor Google SEO 100/100",
-        "100% Hak Milik Source Code (Zero Biaya Sewa)",
-        "Desain Eksklusif Mobile-First & Direct WhatsApp",
-      ],
-      waMessage:
-        "Halo Tim Abinest, saya tertarik paket Modern Web & Company Profile. Boleh minta info detail dan mendiskusikan konsep website kami?",
+      features: {
+        "beli-putus": [
+          "Kecepatan <0.8s & Skor Google SEO 100/100",
+          "100% Full Source Code Git (Zero Biaya Sewa)",
+          "Bebas Deploy Mandiri di Server / Hosting Sendiri",
+        ],
+        "terima-beres": [
+          "Kecepatan <0.8s & Skor Google SEO 100/100",
+          "Dedicated Cloud Server + Backup Harian Otomatis",
+          "Maintenance Teknis & Patch Bug Rutin Kami Rawat",
+        ],
+      },
+      ctaLabel: {
+        "beli-putus": "Konsultasi Beli Putus",
+        "terima-beres": "Konsultasi Terima Beres",
+      },
+      waMessages: {
+        "beli-putus":
+          "Halo Tim Abinest, saya tertarik paket Modern Web & Landing System dengan skema Beli Putus (100% Hak Milik Permanen). Boleh konsultasi detailnya?",
+        "terima-beres":
+          "Halo Tim Abinest, saya tertarik paket Modern Web & Landing System dengan skema Terima Beres (Managed Cloud & Support). Boleh info fasilitas perawatannya?",
+      },
     },
     {
       id: "erp",
@@ -66,7 +88,10 @@ export function GrovePricingSection() {
       priceNum: "4 – 12",
       priceUnit: "Juta",
       priceSuffix: "start from",
-      priceSubNote: "Sesuai Modul · Zero Biaya Lisensi",
+      subNotes: {
+        "beli-putus": "Sesuai Modul · Zero Biaya Lisensi Selamanya",
+        "terima-beres": "Terima Beres · Garansi SLA 99.9% Uptime",
+      },
       icon: Building2,
       accentColor: "#1D4ED8",
       isPopular: true,
@@ -86,13 +111,28 @@ export function GrovePricingSection() {
           note: "Laporan laba rugi real-time & multi-outlet",
         },
       ],
-      features: [
-        "Zero Biaya Lisensi User (Bebas Tambah 1.000+ Karyawan/Siswa)",
-        "Garansi Tertulis SLA Anti-Down 99.9% Uptime",
-        "Database PostgreSQL Dedicated & Backup Harian Otomatis",
-      ],
-      waMessage:
-        "Halo Tim Abinest, saya ingin berkonsultasi mengenai Custom ERP / SIAKAD Sekolah (range 4 - 12 Juta) untuk kebutuhan operasional kami.",
+      features: {
+        "beli-putus": [
+          "Zero Biaya Lisensi User (Bebas Tambah 1.000+ Karyawan/Siswa)",
+          "100% Full Source Code & Database PostgreSQL Lengkap",
+          "Self-Hosted Mandiri (Server AWS, GCP, VPS, atau Server Kantor)",
+        ],
+        "terima-beres": [
+          "Zero Biaya Lisensi User (Bebas Tambah 1.000+ Karyawan/Siswa)",
+          "Garansi Anti-Down SLA 99.9% Uptime Tertulis Resmi",
+          "Server Dedicated, Backup Harian & Siaga Engineer <15 Menit",
+        ],
+      },
+      ctaLabel: {
+        "beli-putus": "Konsultasi Beli Putus",
+        "terima-beres": "Konsultasi Terima Beres",
+      },
+      waMessages: {
+        "beli-putus":
+          "Halo Tim Abinest, saya ingin berkonsultasi mengenai Custom ERP / SIAKAD dengan skema Beli Putus (100% Hak Milik & Database Mandiri).",
+        "terima-beres":
+          "Halo Tim Abinest, saya ingin berkonsultasi mengenai Custom ERP / SIAKAD dengan skema Terima Beres (Managed Cloud & SLA 99.9%).",
+      },
     },
     {
       id: "ai-ml",
@@ -103,7 +143,10 @@ export function GrovePricingSection() {
       priceNum: "5",
       priceUnit: "Juta+",
       priceSuffix: "start from",
-      priceSubNote: "Meta API Resmi · Document AI OCR",
+      subNotes: {
+        "beli-putus": "Sekali Bayar · Source Code & Model Penuh",
+        "terima-beres": "Terima Beres · Managed Host & Bot 24/7",
+      },
       icon: Bot,
       accentColor: "#2563EB",
       isPopular: false,
@@ -123,13 +166,28 @@ export function GrovePricingSection() {
           note: "Sinkronisasi pipa data langsung ke database ERP",
         },
       ],
-      features: [
-        "Resmi Meta WhatsApp Cloud API (Anti-Banned)",
-        "AI Agent Cerdas Terlatih Sesuai SOP Institusi",
-        "Document AI OCR Faktur Otomatis (Akurasi 99.7%)",
-      ],
-      waMessage:
-        "Halo Tim Abinest, saya tertarik paket Automation AI/ML mulai 5 Juta. Boleh minta demo teknis dan konsultasi alur kerja sistem kami?",
+      features: {
+        "beli-putus": [
+          "Resmi Meta WhatsApp Cloud API (Anti-Banned)",
+          "100% Source Code & Script Otomasi Jadi Aset Perusahaan",
+          "Integrasi Langsung ke Server & Database Internal Anda",
+        ],
+        "terima-beres": [
+          "Resmi Meta WhatsApp Cloud API (Anti-Banned)",
+          "Hosting Bot Siaga 24/7 & Pemantauan Error Otomatis",
+          "Maintenance AI & Pembaruan Knowledge Base SOP Berkala",
+        ],
+      },
+      ctaLabel: {
+        "beli-putus": "Konsultasi Beli Putus",
+        "terima-beres": "Konsultasi Terima Beres",
+      },
+      waMessages: {
+        "beli-putus":
+          "Halo Tim Abinest, saya tertarik paket Automation AI/ML dengan skema Beli Putus (100% Source Code & integrasi mandiri). Boleh demo teknisnya?",
+        "terima-beres":
+          "Halo Tim Abinest, saya tertarik paket Automation AI/ML dengan skema Terima Beres (Managed Bot & Server Siaga 24/7). Boleh demo teknisnya?",
+      },
     },
   ];
 
@@ -163,7 +221,7 @@ export function GrovePricingSection() {
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[#1E40AF] text-xs font-bold tracking-wide uppercase shadow-2xs">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse" />
             <span>Paket Investasi Transparan</span>
@@ -173,142 +231,74 @@ export function GrovePricingSection() {
             Investasi Teknologi Terukur.
             <br />
             <span className="text-[#2563EB]">
-              100% Hak Milik Tanpa Biaya Sewa Bulanan.
+              Tersedia Pilihan Beli Putus atau Terima Beres.
             </span>
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-xl mx-auto">
-            Semua paket mencakup <strong className="text-[#0F172A] font-semibold">100% kepemilikan source code</strong>, bebas biaya sewa lisensi tahunan, dan pendampingan implementasi penuh hingga staf Anda mahir.
+            Pilih model kepemilikan sesuai kesiapan institusi Anda: 100% kepemilikan aset mandiri tanpa biaya sewa, atau terima beres dengan server dan perawatan penuh.
           </p>
         </div>
 
         {/* ========================================================================= */}
-        {/* DUAL-SCHEME OWNERSHIP SELECTOR (TERIMA BERES vs BELI PUTUS)               */}
+        {/* TWO-BUTTON SCHEME SELECTOR (2 TOMBOL PILIHAN SAJA)                        */}
         {/* ========================================================================= */}
-        <div className="mb-10 sm:mb-12 space-y-4">
-          <div className="text-center max-w-xl mx-auto space-y-1">
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#2563EB]">
-              FLEKSIBILITAS IMPLEMENTASI
-            </span>
-            <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] tracking-tight">
-              Pilih Skema Sesuai Kesiapan Tim Anda:
-            </h3>
-            <p className="text-xs text-slate-500">
-              Setiap paket harga di bawah dapat Anda ambil dengan 2 pilihan model operasional:
+        <div className="flex flex-col items-center justify-center mb-10 sm:mb-12">
+          {/* Pill Toggle */}
+          <div className="inline-flex p-1.5 rounded-full bg-slate-200/90 border border-slate-300/80 shadow-inner max-w-full">
+            <button
+              type="button"
+              onClick={() => setPricingMode("beli-putus")}
+              className={`px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                pricingMode === "beli-putus"
+                  ? "bg-[#0F172A] text-white shadow-md shadow-slate-900/20"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-300/50"
+              }`}
+            >
+              <Code2 className="w-4 h-4 text-emerald-400" />
+              <span>Beli Putus (100% Permanen)</span>
+              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-extrabold uppercase tracking-wide">
+                Aset Mandiri
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setPricingMode("terima-beres")}
+              className={`px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                pricingMode === "terima-beres"
+                  ? "bg-[#2563EB] text-white shadow-md shadow-blue-600/25"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-300/50"
+              }`}
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              <span>Sewa / Terima Beres</span>
+              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-white/20 text-blue-100 text-[10px] font-extrabold uppercase tracking-wide">
+                Siap Pakai
+              </span>
+            </button>
+          </div>
+
+          {/* Dynamic 1-line note */}
+          <motion.div
+            key={pricingMode}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="mt-3.5 text-center px-4 max-w-2xl"
+          >
+            <p className="text-xs sm:text-[13px] text-slate-600">
+              {pricingMode === "beli-putus" ? (
+                <span>
+                  <strong className="text-[#0F172A] font-semibold">Skema Beli Putus 100%:</strong> Seluruh source code &amp; database diserahkan utuh ke server Anda tanpa biaya sewa bulanan selamanya.
+                </span>
+              ) : (
+                <span>
+                  <strong className="text-[#0F172A] font-semibold">Skema Sewa / Terima Beres:</strong> Server cloud dedicated, SLA 99.9% uptime, backup harian &amp; maintenance teknis kami rawat penuh. Anda tinggal pakai.
+                </span>
+              )}
             </p>
-          </div>
-
-          {/* 2 Compact Option Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
-            {/* Opsi 1: Skema Terima Beres */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-white border-2 border-[#2563EB] shadow-[0_12px_28px_rgba(37,99,235,0.08)] relative flex flex-col justify-between space-y-4 group">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center font-bold text-base border border-blue-200/80 shadow-2xs">
-                      ☁️
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-[#2563EB] uppercase tracking-wider block">
-                        Opsi A: Managed Cloud
-                      </span>
-                      <h4 className="text-base sm:text-lg font-black text-[#0F172A] leading-tight">
-                        Skema &ldquo;Terima Beres&rdquo;
-                      </h4>
-                    </div>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-blue-100/80 text-[#1E40AF] text-[9.5px] font-bold border border-blue-200 shrink-0">
-                    Paling Praktis
-                  </span>
-                </div>
-
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Server Dedicated, Cloud, &amp; Maintenance teknis kami rawat penuh. Pilihan sempurna jika Anda belum memiliki tim programmer internal. Anda cukup login dan fokus berbisnis.
-                </p>
-
-                <div className="space-y-1.5 text-xs text-slate-700 pt-1 border-t border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
-                    <span>Server Cloud Dedicated 24/7 &amp; SLA 99.9%</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
-                    <span>Backup Database Otomatis Harian &amp; Patch Bug Rutin</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
-                    <span>Dukungan Engineer Siaga via WhatsApp &lt;15 Menit</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium">Biaya Rawat Server:</span>
-                <span className="font-bold text-[#1D4ED8]">Biaya Flat Terjangkau (Rp 0 per-user)</span>
-              </div>
-            </div>
-
-            {/* Opsi 2: Skema Beli Putus */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all relative flex flex-col justify-between space-y-4 group">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-base border border-slate-200 shadow-2xs">
-                      💻
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
-                        Opsi B: Self-Hosted Mandiri
-                      </span>
-                      <h4 className="text-base sm:text-lg font-black text-[#0F172A] leading-tight">
-                        Skema &ldquo;Beli Putus / Mandiri&rdquo;
-                      </h4>
-                    </div>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[9.5px] font-bold border border-slate-200 shrink-0">
-                    Aset 100% Mandiri
-                  </span>
-                </div>
-
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  100% Source code &amp; database PostgreSQL diserahkan utuh ke server Anda. Pilihan tepat jika institusi Anda telah memiliki tim IT/DevOps internal sendiri.
-                </p>
-
-                <div className="space-y-1.5 text-xs text-slate-700 pt-1 border-t border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>100% Full Source Code Git &amp; Skema Database Penuh</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Deploy Bebas di Server Sendiri (AWS, GCP, VPS, Server Kantor)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Bebas Biaya Langganan Selamanya (Rp 0 / Bulan)</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium">Biaya Rutin ke Abinest:</span>
-                <span className="font-bold text-emerald-700">Rp 0,- / Bulan (Lepas Tanggung Jawab)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Klausul Emas Banner */}
-          <div className="max-w-4xl mx-auto p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 via-white to-sky-50/90 border border-blue-200/90 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-2xs">
-            <div className="flex items-center gap-2.5">
-              <span className="text-base shrink-0">🛡️</span>
-              <p className="text-slate-700 leading-relaxed font-normal">
-                <strong className="text-[#0F172A] font-bold">Klausul Emas Abinest:</strong> Anda bebas memulai dari skema <strong>Terima Beres</strong> agar langsung jalan. Di masa depan, jika sudah punya tim IT, <strong>seluruh source code &amp; database bebas Anda ambil alih 100%</strong> kapan saja tanpa penalti (Zero Lock-In).
-              </p>
-            </div>
-            <span className="px-2.5 py-1 rounded-lg bg-white text-[#2563EB] text-[10.5px] font-bold border border-blue-200 shrink-0 shadow-2xs whitespace-nowrap">
-              Bebas Pindah Kapan Saja ✓
-            </span>
-          </div>
+          </motion.div>
         </div>
 
         {/* 3-Column Compact & Aesthetic Pricing Grid */}
@@ -316,6 +306,10 @@ export function GrovePricingSection() {
           {pricingTiers.map((tier, idx) => {
             const Icon = tier.icon;
             const isHighlight = tier.isPopular;
+            const currentSubNote = tier.subNotes[pricingMode];
+            const currentFeatures = tier.features[pricingMode];
+            const currentCtaLabel = tier.ctaLabel[pricingMode];
+            const currentWaMsg = tier.waMessages[pricingMode];
 
             return (
               <motion.div
@@ -323,77 +317,76 @@ export function GrovePricingSection() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.08 }}
-                className={`relative rounded-3xl bg-white flex flex-col justify-between transition-all duration-300 ${
+                transition={{ duration: 0.35, delay: idx * 0.1 }}
+                className={`relative rounded-3xl bg-white border transition-all duration-300 flex flex-col justify-between ${
                   isHighlight
-                    ? "border-2 border-[#2563EB] shadow-[0_16px_36px_rgba(37,99,235,0.12)] ring-4 ring-blue-500/10 lg:-translate-y-2"
-                    : "border border-slate-200/90 shadow-[0_4px_16px_rgba(15,23,42,0.03)] hover:border-blue-300 hover:shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
+                    ? "border-2 border-[#2563EB] shadow-[0_16px_40px_rgba(37,99,235,0.12)] -translate-y-1 sm:-translate-y-2 z-10"
+                    : "border-slate-200/90 shadow-sm hover:shadow-md hover:border-slate-300"
                 }`}
               >
-                {/* Popular Highlight Badge */}
+                {/* Popular Pill Badge */}
                 {isHighlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2563EB] text-white text-[10.5px] font-extrabold uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow-sm flex items-center gap-1.5 whitespace-nowrap">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#2563EB] text-white text-[10.5px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm flex items-center gap-1.5 whitespace-nowrap">
                     <Sparkles className="w-3 h-3 text-sky-200" />
-                    <span>Paling Banyak Dipilih</span>
+                    <span>{tier.badge}</span>
                   </div>
                 )}
 
-                <div className="p-5 sm:p-6 space-y-4 sm:space-y-5">
-                  {/* Card Header: Icon & Category Tag */}
-                  <div className="flex items-center justify-between gap-3">
+                <div className="p-5 sm:p-6 space-y-4">
+                  {/* Top Bar: Icon & Category Tag */}
+                  <div className="flex items-center justify-between gap-2">
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                      className={`w-10 h-10 rounded-2xl flex items-center justify-center font-bold ${
                         isHighlight
-                          ? "bg-[#2563EB] text-white shadow-sm"
-                          : "bg-blue-50 text-[#2563EB]"
+                          ? "bg-blue-600 text-white shadow-sm"
+                          : "bg-blue-50 text-[#2563EB] border border-blue-200/70"
                       }`}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10.5px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full tracking-wide">
+
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                       {tier.tag}
                     </span>
                   </div>
 
-                  {/* Title */}
+                  {/* Title & Description */}
                   <div>
-                    <h3 className="text-lg sm:text-xl font-black text-[#0F172A] tracking-tight leading-snug">
+                    <h3 className="text-xl font-bold text-[#0F172A] tracking-tight">
                       {tier.title}
                     </h3>
-                    <p className="text-xs text-slate-500 leading-snug mt-1">
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed font-normal">
                       {tier.summary}
                     </p>
                   </div>
 
-                  {/* Price Display Block */}
-                  <div className="p-3.5 rounded-2xl bg-[#F8FAFC] border border-slate-200/70">
-                    <div className="flex items-baseline justify-between gap-2">
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-xs font-bold text-slate-400">
-                          {tier.currency}
-                        </span>
-                        <span className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight leading-none">
-                          {tier.priceNum}
-                        </span>
-                        <span className="text-sm sm:text-base font-extrabold text-slate-700 ml-0.5">
-                          {tier.priceUnit}
-                        </span>
-                      </div>
-                      <span className="text-[10px] font-bold text-[#1E40AF] bg-blue-100/70 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                  {/* Dynamic Price Display */}
+                  <div className="pt-2 pb-1 border-t border-slate-100">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-sm font-semibold text-slate-400">
+                        {tier.currency}
+                      </span>
+                      <span className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A]">
+                        {tier.priceNum}
+                      </span>
+                      <span className="text-lg font-bold text-slate-700">
+                        {tier.priceUnit}
+                      </span>
+                      <span className="text-[10.5px] uppercase font-bold text-[#2563EB] bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/60 ml-auto">
                         {tier.priceSuffix}
                       </span>
                     </div>
-                    <div className="text-[10px] text-slate-500 font-medium mt-1 flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3 text-[#2563EB]" />
-                      <span>{tier.priceSubNote}</span>
+
+                    {/* Subnote updates dynamically with mode */}
+                    <div className="text-[11px] text-slate-500 font-medium mt-1">
+                      {currentSubNote}
                     </div>
                   </div>
 
-                  {/* 3 Contoh Solusi */}
-                  <div className="space-y-1.5 pt-1">
-                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
-                      <Layers className="w-3 h-3 text-[#2563EB]" />
-                      <span>3 Contoh Solusi:</span>
+                  {/* 3 Real Solution Examples */}
+                  <div className="space-y-1.5 pt-1 border-t border-slate-100">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                      3 Contoh Solusi:
                     </div>
                     <div className="space-y-1.5">
                       {tier.examples.map((ex, exIdx) => (
@@ -415,10 +408,10 @@ export function GrovePricingSection() {
                     </div>
                   </div>
 
-                  {/* Key Feature Checklist */}
+                  {/* Key Feature Checklist (Updates dynamically with mode) */}
                   <div className="pt-1 border-t border-slate-100">
                     <ul className="space-y-1.5 text-xs text-slate-700">
-                      {tier.features.map((feat, fIdx) => (
+                      {currentFeatures.map((feat, fIdx) => (
                         <li key={fIdx} className="flex items-center gap-2">
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                           <span className="leading-snug">{feat}</span>
@@ -432,7 +425,7 @@ export function GrovePricingSection() {
                 <div className="p-5 sm:p-6 pt-0 mt-2">
                   <button
                     type="button"
-                    onClick={() => handleOpenWa(tier.waMessage)}
+                    onClick={() => handleOpenWa(currentWaMsg)}
                     className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 shadow-sm cursor-pointer ${
                       isHighlight
                         ? "bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:scale-[1.01]"
@@ -440,7 +433,7 @@ export function GrovePricingSection() {
                     }`}
                   >
                     <WhatsAppIcon className="w-4 h-4 text-white" />
-                    <span>Konsultasi Paket Ini</span>
+                    <span>{currentCtaLabel}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-blue-200" />
                   </button>
 
