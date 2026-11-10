@@ -5,8 +5,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  ShieldCheck,
-  FileCode2,
   ArrowRight,
   Lock,
 } from "lucide-react";
@@ -16,54 +14,7 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 export function GroveFooterSection() {
   return (
     <footer className="relative bg-[#F8FAFC] border-t border-slate-200 overflow-hidden pb-16 sm:pb-0">
-      {/* 1. Trust Badges Banner Above Footer */}
-      <div className="bg-white border-b border-slate-200/80 py-8">
-        <div className="max-w-[1260px] mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1E40AF] flex items-center justify-center shrink-0">
-              <FileCode2 className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xs sm:text-sm font-bold text-[#0F172A]">
-                100% Kepemilikan Source Code
-              </div>
-              <div className="text-[11px] text-slate-600">
-                Hak milik penuh di tangan klien, bebas biaya sewa bulanan.
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xs sm:text-sm font-bold text-[#0F172A]">
-                Jaminan Tertulis SLA 99.9% Uptime
-              </div>
-              <div className="text-[11px] text-slate-600">
-                Sistem anti-down di momen kritis lonjakan transaksi bisnis.
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-              <Clock className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xs sm:text-sm font-bold text-[#0F172A]">
-                Respons Engineer &lt;15 Menit
-              </div>
-              <div className="text-[11px] text-slate-600">
-                Didampingi langsung tim pembuat sistem di jam kerja.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Main 4-Column Footer */}
+      {/* Main 4-Column Footer */}
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 pt-16 pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-slate-200">
           {/* Col 1 (4 cols): Abinest Brand Identity */}

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, ShieldCheck, Clock, CheckCircle2, MessageSquare, PhoneCall, HelpCircle } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, CheckCircle2, PhoneCall, HelpCircle } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const WHATSAPP_NUMBER = "6285708677918";
 
@@ -136,9 +137,9 @@ Mohon informasi langkah konsultasi & estimasi biayanya. Terima kasih!`;
                 href={directWaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition-all shrink-0 cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition-all shrink-0 cursor-pointer"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
                 <span>Chat WhatsApp</span>
               </a>
             </div>
@@ -272,7 +273,7 @@ Mohon informasi langkah konsultasi & estimasi biayanya. Terima kasih!`;
                   type="submit"
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all cursor-pointer active:scale-[0.99]"
                 >
-                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   <span>Kirim ke WhatsApp Tim Abinest</span>
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
