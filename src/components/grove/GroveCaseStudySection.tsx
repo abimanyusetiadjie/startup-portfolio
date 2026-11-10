@@ -9,12 +9,9 @@ import {
   ArrowRight,
   Globe,
   Database,
-  BrainCircuit,
-  AlertCircle,
-  Cpu,
-  TrendingUp,
   School,
-  CheckCircle2,
+  Sparkles,
+  ExternalLink,
 } from "lucide-react";
 
 export function GroveCaseStudySection() {
@@ -29,18 +26,19 @@ export function GroveCaseStudySection() {
       location: "Jakarta Selatan, DKI Jakarta",
       icon: Globe,
       headline: "Website Modern Memuat Kilat 0,5 Detik & Konversi Inbound Naik +180%",
-      imagePreview: "/images/capabilities/capabilities-web-preview.jpg",
+      imagePreview: "/images/case-studies/modern-web-finance.jpg",
+      fallbackImage: "/images/capabilities/capabilities-web-preview.jpg",
       visualUrl: "preview.abinest.id/modern-web-architecture",
       metrics: [
-        { value: "0,5 Detik", label: "Loading Speed di HP Klien", note: "Sebelumnya >6.8 detik" },
-        { value: "+180%", label: "Kenaikan Leads Organik", note: "Pengunjung tidak lagi drop-off" },
-        { value: "100 / 100", label: "Skor Google PageSpeed & SEO", note: "Lolos Core Web Vitals" },
+        { value: "0,5s", label: "Loading Speed HP", note: "Sebelumnya >6.8 detik" },
+        { value: "+180%", label: "Leads Inbound", note: "Pengunjung tanpa drop-off" },
+        { value: "100/100", label: "Google PageSpeed", note: "Lolos Core Web Vitals" },
       ],
-      beforeStory: "Website lama memakai CMS berat yang memuat >6.8 detik di perangkat mobile. Calon klien dan investor keluar sebelum proposal selesai terbuka, dan peringkat Google tertinggal di halaman belakang.",
-      solutionStory: "Abinest merekayasa ulang seluruh web dengan Next.js Edge SSR, Edge CDN Caching otomatis, serta arsitektur SEO terstruktur yang ramah bot mesin pencari Google.",
-      impactStory: "Halaman terbuka instan dalam 0.5 detik, bounce rate anjlok hingga 65%, dan jumlah formulir konsultasi masuk meningkat 1.8 kali lipat dalam 60 hari pertama pasca-rilis.",
+      challengeBrief: "CMS lama berat (>6.8s di HP), calon investor keluar sebelum web selesai memuat, dan peringkat SEO tertinggal.",
+      solutionBrief: "Arsitektur Next.js Edge SSR dengan automated CDN caching & struktur data ramah bot pencarian Google.",
+      impactBrief: "Halaman terbuka kilat 0.5 detik, bounce rate anjlok 65%, dan leads konsultasi naik 1.8x dalam 60 hari.",
       clientQuote: {
-        text: "Website kami kini langsung terbuka sekejap mata di smartphone calon investor. Peringkat Google melesat ke halaman pertama dan leads masuk konsisten setiap hari.",
+        text: "Website kami kini langsung terbuka sekejap mata di smartphone calon investor. Peringkat Google melesat dan leads masuk konsisten setiap hari.",
         author: "Hendra Kusuma, S.E., M.B.A.",
         role: "VP of Digital Growth · Sektor Finansial",
         monogram: "HK",
@@ -54,20 +52,21 @@ export function GroveCaseStudySection() {
       location: "Jawa Timur & Jawa Barat",
       icon: School,
       headline: "SIAKAD Sekolah Anti-Down: 1.240 Siswa Ujian Serentak 0% Server Crash",
-      imagePreview: "/images/capabilities/capabilities-erp-preview.jpg",
+      imagePreview: "/images/case-studies/siakad-education-portal.jpg",
+      fallbackImage: "/images/capabilities/capabilities-erp-preview.jpg",
       visualUrl: "preview.abinest.id/siakad-high-concurrency",
       metrics: [
-        { value: "1.240 Siswa", label: "Login Serentak Tanpa Lag", note: "Ujian online & pemilihan modul" },
-        { value: "0% Crash", label: "Uptime 100% Selama Ujian", note: "Auto-failover database" },
-        { value: "4 Menit", label: "600 PDF Rapor Terbit", note: "Sebelumnya butuh 4 hari kerja" },
+        { value: "1.240", label: "Siswa Login Serentak", note: "Ujian online tanpa lag" },
+        { value: "0% Crash", label: "Uptime Selama Ujian", note: "Database auto-failover" },
+        { value: "4 Menit", label: "600 Rapor Digital", note: "Sebelumnya butuh 4 hari" },
       ],
-      beforeStory: "Setiap pekan ujian semester atau pendaftaran peserta didik baru (PPDB), server sekolah langganan down dan guru panik. Rekap 600 buku rapor siswa memakan waktu berhari-hari kerja lembur.",
-      solutionStory: "Abinest mengimplementasikan arsitektur database connection pooling PostgreSQL dengan background worker queue untuk mengisolasi beban ujian dari server utama rapor.",
-      impactStory: "1.240 siswa ujian serentak tanpa lag, server stabil 0% error, dan seluruh rapor digital format PDF selesai digenerate secara otonom dalam 4 menit bersih.",
+      challengeBrief: "Server sekolah langganan down tiap ujian semester & PPDB, serta rekap 600 buku rapor guru lembur berhari-hari.",
+      solutionBrief: "Database connection pooling PostgreSQL & worker queue untuk mengisolasi beban lonjakan ujian dari rapor.",
+      impactBrief: "1.240 siswa ujian online serentak lancar tanpa hambatan, dan 600 rapor digital PDF selesai dalam 4 menit.",
       clientQuote: {
-        text: "Kepala sekolah dan guru tidak lagi pusing server down saat ujian online serentak. Rapor semester selesai dalam hitungan menit, dan 100% sistem ini menjadi aset hak milik yayasan kami.",
+        text: "Tidak ada lagi drama server down saat ujian online serentak. Rapor semester selesai dalam hitungan menit dan 100% jadi aset yayasan kami.",
         author: "Drs. H. Mulyadi, M.Pd.",
-        role: "Ketua Dewan Pembina Yayasan Pendidikan",
+        role: "Ketua Dewan Pembina Yayasan",
         monogram: "MY",
       },
     },
@@ -79,18 +78,19 @@ export function GroveCaseStudySection() {
       location: "Jakarta Barat & Surabaya",
       icon: Database,
       headline: "Sistem ERP Multi-Gudang Mengotomasi 18.000 SKU & Menghemat 40 Jam/Minggu",
-      imagePreview: "/images/capabilities/capabilities-aiml-preview.jpg",
+      imagePreview: "/images/case-studies/erp-multi-warehouse.jpg",
+      fallbackImage: "/images/capabilities/capabilities-aiml-preview.jpg",
       visualUrl: "preview.abinest.id/enterprise-multi-warehouse",
       metrics: [
-        { value: "0% Selisih", label: "Sinkronisasi 4 Gudang Real-Time", note: "Barcode scanner terintegrasi" },
-        { value: "40 Jam/Mgg", label: "Waktu Rekonsiliasi Dihemat", note: "Laporan harian otomatis" },
-        { value: "Rp 0 Lisensi", label: "Bebas Biaya Per-User Selamanya", note: "100% Hak Milik Klien" },
+        { value: "0% Selisih", label: "Real-Time 4 Gudang", note: "Barcode scanner terpadu" },
+        { value: "40 Jam", label: "Hemat per Minggu", note: "Rekonsiliasi otomatis" },
+        { value: "Rp 0", label: "Biaya Lisensi User", note: "100% Hak Milik Klien" },
       ],
-      beforeStory: "Perusahaan terbebani biaya software impor puluhan juta per bulan yang membatasi jumlah akun karyawan. Sinkronisasi antar 4 gudang lambat dan rentan salah hitung stok fisik.",
-      solutionStory: "Abinest membangun ERP kustom dari nol dengan PostgreSQL clustering, multi-location audit trail, dan integrasi WhatsApp reminder faktur otomatis.",
-      impactStory: "Bebas biaya lisensi bulanan selamanya, rekonsiliasi stok selesai otomatis dalam hitungan detik, dan perusahaan menghemat ratusan juta rupiah per tahun.",
+      challengeBrief: "Biaya software sewa impor puluhan juta per bulan, sinkronisasi stok 4 gudang lambat, dan sering selisih fisik.",
+      solutionBrief: "ERP kustom berbasis PostgreSQL clustering, multi-location audit trail, serta integrasi reminder WA otomatis.",
+      impactBrief: "Bebas lisensi per-user selamanya, rekonsiliasi stok otomatis seketika, dan menghemat ratusan juta rupiah per tahun.",
       clientQuote: {
-        text: "Kami bebas menambah ratusan staf tanpa cemas biaya lisensi per-user yang membengkak. Sistem stabil, transparan, dan seluruh data terlindungi sebagai aset bisnis kami.",
+        text: "Kami bebas menambah ratusan staf tanpa cemas biaya lisensi per-user yang membengkak. Sistem stabil dan data terlindungi penuh.",
         author: "Ir. Bambang Sutrisno, M.M.",
         role: "Direktur Operasional & Supply Chain",
         monogram: "BS",
@@ -104,10 +104,13 @@ export function GroveCaseStudySection() {
   return (
     <section
       id="portofolio"
-      className="py-14 sm:py-16 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden"
+      className="py-14 sm:py-20 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-8">
-        {/* Section Header */}
+      {/* Background Soft Mesh Ambient */}
+      <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none" />
+
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-10">
+        {/* Section Header & Tabs */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1E40AF]">
             <Briefcase className="w-3.5 h-3.5 text-blue-600" />
@@ -120,8 +123,8 @@ export function GroveCaseStudySection() {
             Bukti Kinerja Nyata di Lapangan
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
-            Pelajari bagaimana arsitektur rekayasa Abinest menyelesaikan kendala operasional nyata dan melipatgandakan efisiensi institusi klien.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
+            Pelajari bagaimana arsitektur kustom Abinest menyelesaikan kendala operasional nyata dan melipatgandakan efisiensi institusi klien.
           </p>
 
           {/* Interactive Case Switcher Tabs */}
@@ -133,10 +136,10 @@ export function GroveCaseStudySection() {
                   key={cs.id}
                   type="button"
                   onClick={() => setSelectedCaseIdx(idx)}
-                  className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-bold transition-all cursor-pointer ${
                     active
-                      ? "bg-[#2563EB] text-white shadow-md scale-102"
-                      : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200"
+                      ? "bg-[#2563EB] text-white shadow-md shadow-blue-500/20 scale-102"
+                      : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300"
                   }`}
                 >
                   {cs.tabTitle}
@@ -146,143 +149,154 @@ export function GroveCaseStudySection() {
           </div>
         </div>
 
-        {/* Master Case Card */}
+        {/* MASTER STUDIO SPLIT CARD (OPSI 1: 60% IMAGE DOMINANT, 40% COMPACT INFO) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentCase.id}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
+            exit={{ opacity: 0, y: -14 }}
             transition={{ duration: 0.22 }}
-            className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_15px_40px_rgba(15,23,42,0.04)] space-y-6"
+            className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_20px_50px_rgba(15,23,42,0.06)]"
           >
-            {/* Header Row */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1E40AF] flex items-center justify-center font-bold shrink-0 border border-blue-200">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-[#0F172A]">
-                      {currentCase.clientSector}
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-semibold border border-blue-200">
-                      Implementasi Terverifikasi
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+              {/* LEFT COLUMN: Large, Dominant Image Showcase (7 Cols / ~58%) */}
+              <div className="lg:col-span-7 flex flex-col justify-between">
+                <div className="rounded-3xl bg-slate-900 border border-slate-800 p-3 sm:p-4 shadow-xl flex-1 flex flex-col justify-between overflow-hidden group">
+                  {/* Browser Bar */}
+                  <div className="bg-slate-800/90 rounded-2xl px-3.5 py-2 flex items-center justify-between text-slate-400 text-xs mb-3">
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <div className="w-2.5 h-2.5 rounded-full bg-rose-500/90" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-amber-500/90" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/90" />
+                    </div>
+                    <div className="px-3 py-1 rounded-lg bg-slate-900 text-slate-300 text-[10.5px] font-mono flex items-center gap-1.5 border border-slate-700/60 truncate max-w-[200px] sm:max-w-xs">
+                      <ShieldCheck className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                      <span className="truncate">https://{currentCase.visualUrl}</span>
+                    </div>
+                    <span className="text-[9.5px] font-bold text-emerald-400 flex items-center gap-1 shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="hidden sm:inline">SLA 99.9% LIVE</span>
                     </span>
                   </div>
-                  <div className="text-xs text-slate-500">{currentCase.location}</div>
+
+                  {/* High-Resolution Expansive Image Frame (Tinggi 420px - 500px!) */}
+                  <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[460px] xl:h-[490px] rounded-2xl overflow-hidden bg-slate-950">
+                    <Image
+                      src={currentCase.imagePreview}
+                      alt={currentCase.headline}
+                      fill
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-103"
+                      sizes="(max-width: 1024px) 100vw, 58vw"
+                      priority
+                      onError={(e) => {
+                        // Fallback gracefully if newly generated asset is still loading
+                        const target = e.target as HTMLImageElement;
+                        if (target.src !== currentCase.fallbackImage) {
+                          target.src = currentCase.fallbackImage;
+                        }
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Browser Mockup Footer */}
+                  <div className="pt-2.5 px-1.5 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+                    <span className="text-slate-400">Arsitektur Produksi Kustom</span>
+                    <span className="text-sky-400 font-bold">100% Hak Milik Klien ✓</span>
+                  </div>
                 </div>
               </div>
 
-              <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider self-start sm:self-auto">
-                {currentCase.tag}
-              </span>
-            </div>
+              {/* RIGHT COLUMN: Compact Info & Impact Panel (5 Cols / ~42%) */}
+              <div className="lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-5">
+                {/* Sector Header & Tag */}
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#1E40AF] flex items-center justify-center font-bold border border-blue-200 shrink-0">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-[#0F172A] leading-tight">
+                          {currentCase.clientSector}
+                        </div>
+                        <div className="text-[10.5px] text-slate-500">
+                          {currentCase.location}
+                        </div>
+                      </div>
+                    </div>
 
-            {/* Headline */}
-            <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0F172A] leading-snug">
-              {currentCase.headline}
-            </h3>
+                    <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">
+                      Implementasi Valid
+                    </span>
+                  </div>
 
-            {/* 3 Prominent Quantitative Metrics Bar */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {currentCase.metrics.map((m, mIdx) => (
-                <div
-                  key={mIdx}
-                  className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-4 text-center space-y-0.5 shadow-2xs"
+                  {/* Headline */}
+                  <h3 className="text-lg sm:text-xl lg:text-[22px] font-extrabold tracking-tight text-[#0F172A] leading-snug">
+                    {currentCase.headline}
+                  </h3>
+                </div>
+
+                {/* 3 Prominent Quantitative Metrics */}
+                <div className="grid grid-cols-3 gap-2">
+                  {currentCase.metrics.map((m, mIdx) => (
+                    <div
+                      key={mIdx}
+                      className="rounded-2xl bg-[#F8FAFC] border border-slate-200/90 p-2.5 sm:p-3 text-center space-y-0.5 shadow-2xs"
+                    >
+                      <div className="text-lg sm:text-xl font-black text-[#2563EB]">
+                        {m.value}
+                      </div>
+                      <div className="text-[10.5px] font-bold text-slate-800 leading-tight">
+                        {m.label}
+                      </div>
+                      <div className="text-[9px] text-slate-500 font-medium truncate">
+                        {m.note}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Ultra-Concise Story: 3 Punchy Impact Bullets (Bukan Paragraf Panjang) */}
+                <div className="space-y-2 p-3 sm:p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 text-[11.5px] leading-snug">
+                  <div className="flex items-start gap-2">
+                    <span className="text-rose-600 font-bold shrink-0">✕ Kendala:</span>
+                    <span className="text-slate-600">{currentCase.challengeBrief}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold shrink-0">⚡ Solusi:</span>
+                    <span className="text-slate-700">{currentCase.solutionBrief}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-700 font-bold shrink-0">✓ Dampak:</span>
+                    <span className="text-slate-900 font-semibold">{currentCase.impactBrief}</span>
+                  </div>
+                </div>
+
+                {/* Compact Testimonial Quote */}
+                <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-2xl p-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-2xs">
+                    {currentCase.clientQuote.monogram}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[11px] text-slate-700 italic leading-snug line-clamp-2">
+                      &ldquo;{currentCase.clientQuote.text}&rdquo;
+                    </p>
+                    <div className="text-[10.5px] font-bold text-[#0F172A] mt-0.5">
+                      {currentCase.clientQuote.author} <span className="font-normal text-slate-500">· {currentCase.clientQuote.role}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Direct Action Link */}
+                <a
+                  href="#kontak"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-2xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] shadow-sm transition-all"
                 >
-                  <div className="text-2xl sm:text-3xl font-black text-[#2563EB]">
-                    {m.value}
-                  </div>
-                  <div className="text-xs font-bold text-slate-800">
-                    {m.label}
-                  </div>
-                  <div className="text-[10.5px] text-slate-500 font-medium">
-                    {m.note}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Visual Frame & Live Preview Bar */}
-            <div className="rounded-2xl bg-slate-900 p-3 sm:p-4 shadow-[0_20px_50px_rgba(15,23,42,0.16)] ring-1 ring-slate-800">
-              <div className="bg-slate-800 rounded-t-xl px-3.5 py-2 flex items-center justify-between text-slate-400 text-xs mb-1">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-rose-500" />
-                  <div className="w-2 h-2 rounded-full bg-amber-500" />
-                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                </div>
-                <div className="px-3 py-0.5 rounded-md bg-slate-900 text-slate-300 text-[10px] font-mono flex items-center gap-1.5">
-                  <ShieldCheck className="w-3 h-3 text-sky-400" />
-                  <span>https://{currentCase.visualUrl}</span>
-                </div>
-                <span className="text-[10px] font-bold text-sky-400 hidden sm:inline">
-                  GARANSI SLA 99.9% AKTIF
-                </span>
-              </div>
-
-              <div className="relative w-full h-[220px] sm:h-[280px] rounded-b-xl overflow-hidden my-1">
-                <Image
-                  src={currentCase.imagePreview}
-                  alt={currentCase.headline}
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-            </div>
-
-            {/* HIGH-IMPACT 3-COLUMN BEFORE vs SOLUTION vs IMPACT */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-              {/* Box 1: Kondisi Sebelum */}
-              <div className="rounded-2xl p-4 bg-rose-50/60 border border-rose-200/80 space-y-2">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-rose-800">
-                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
-                  <span>Tantangan (Sebelum Abinest)</span>
-                </div>
-                <p className="text-xs text-rose-950/80 leading-relaxed">
-                  {currentCase.beforeStory}
-                </p>
-              </div>
-
-              {/* Box 2: Solusi Arsitektur */}
-              <div className="rounded-2xl p-4 bg-blue-50/60 border border-blue-200/80 space-y-2">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-blue-800">
-                  <Cpu className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Solusi Arsitektur Abinest</span>
-                </div>
-                <p className="text-xs text-blue-950/80 leading-relaxed">
-                  {currentCase.solutionStory}
-                </p>
-              </div>
-
-              {/* Box 3: Dampak Nyata */}
-              <div className="rounded-2xl p-4 bg-emerald-50/60 border border-emerald-200/80 space-y-2">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-800">
-                  <TrendingUp className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Dampak Nyata Terukur</span>
-                </div>
-                <p className="text-xs text-emerald-950/80 leading-relaxed">
-                  {currentCase.impactStory}
-                </p>
-              </div>
-            </div>
-
-            {/* Testimonial Quote Row */}
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-4 flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs border border-white">
-                {currentCase.clientQuote.monogram}
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs text-slate-700 italic leading-snug">
-                  &ldquo;{currentCase.clientQuote.text}&rdquo;
-                </p>
-                <div className="text-[11px] font-bold text-[#0F172A] mt-1">
-                  {currentCase.clientQuote.author}
-                </div>
-                <div className="text-[10px] text-slate-500">
-                  {currentCase.clientQuote.role}
-                </div>
+                  <span>Konsultasikan Solusi Serupa</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </motion.div>
