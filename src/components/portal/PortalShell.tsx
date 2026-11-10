@@ -58,7 +58,7 @@ export function PortalShell({ children }: PortalShellProps) {
               icon: ExitIcon,
               onAction: () => {
                 document.cookie =
-                  "triloe_portal_demo=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                  "abinest_portal_demo=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
                 router.push("/login");
               },
             },

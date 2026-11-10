@@ -94,16 +94,31 @@ export function AbinestLogo({
         />
       </svg>
 
-      {/* Official Abinest Wordmark in Plus Jakarta Sans */}
+      {/* Official Abinest Wordmark in Plus Jakarta Sans with dual-color hover split */}
       {!iconOnly && (
         <span
-          className={`${fontSize} font-extrabold font-sans tracking-[-0.02em] leading-none transition-colors duration-200 ${
-            isDark
-              ? "text-white group-hover:text-[#00E5BE]"
-              : "text-[#0B1220] group-hover:text-[#2496ED]"
-          }`}
+          className={`${fontSize} font-extrabold font-sans tracking-[-0.02em] leading-none inline-flex items-baseline`}
         >
-          Abinest
+          {/* "Abi" in Docker Blue on hover */}
+          <span
+            className={`transition-colors duration-300 ease-out ${
+              isDark
+                ? "text-white group-hover:text-[#38BDF8]"
+                : "text-[#0B1220] group-hover:text-[#2496ED]"
+            }`}
+          >
+            Abi
+          </span>
+          {/* "nest" in Teal Mint on hover */}
+          <span
+            className={`transition-colors duration-300 ease-out ${
+              isDark
+                ? "text-white group-hover:text-[#00E5BE]"
+                : "text-[#0B1220] group-hover:text-[#00C9A7]"
+            }`}
+          >
+            nest
+          </span>
         </span>
       )}
 

@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import type { Database } from "@/types/database.types";
 
-export const PORTAL_DEMO_COOKIE = "triloe_portal_demo";
+export const PORTAL_DEMO_COOKIE = "abinest_portal_demo";
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({

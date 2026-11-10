@@ -42,7 +42,7 @@ export default function LoginPage() {
 
   const handleBypassDemoPreview = () => {
     document.cookie =
-      "triloe_portal_demo=true; path=/; max-age=86400; SameSite=Lax";
+      "abinest_portal_demo=true; path=/; max-age=86400; SameSite=Lax";
     router.push("/portal?demo=true");
   };
 
