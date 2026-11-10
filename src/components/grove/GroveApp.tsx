@@ -9,13 +9,14 @@ import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
 import { GrovePricingSection } from "./GrovePricingSection";
+import { GroveEngineeringTrustSection } from "./GroveEngineeringTrustSection";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
 
 export function GroveApp() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#059669] selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#2563EB] selection:text-white">
       {/* 1. Sticky Header & Navigation */}
       <GroveNavbar />
 
@@ -43,7 +44,10 @@ export function GroveApp() {
       {/* 9. Section Paket Harga / Investasi Transparan (#harga) */}
       <GrovePricingSection />
 
-      {/* 10. Final CTA + Form Konsultasi 4 Field Cepat (#kontak) */}
+      {/* 10. Standar Rekayasa Tim & Interactive FAQ (#faq) */}
+      <GroveEngineeringTrustSection />
+
+      {/* 11. Final CTA + Form Konsultasi Cepat (#kontak) */}
       <GroveAmberContactSection />
 
       {/* 11. Footer Lengkap & Badge Kepercayaan */}

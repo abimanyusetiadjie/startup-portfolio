@@ -11,6 +11,14 @@ import {
   Bot,
 } from "lucide-react";
 
+const WHATSAPP_NUMBER = "6285708677918";
+
+const waMessages: Record<string, string> = {
+  web: "Halo Tim Abinest, saya ingin konsultasi kebutuhan Website Korporat Modern berkecepatan tinggi (<0.8s load) & 100% hak milik source code.",
+  erp: "Halo Tim Abinest, saya ingin konsultasi kebutuhan Sistem ERP Kustom / SIAKAD / Manajemen Operasional dengan garansi SLA 99.9%.",
+  "ai-wa": "Halo Tim Abinest, saya ingin konsultasi implementasi Automasi AI/ML (Document OCR & WhatsApp AI Agent resmi Meta).",
+};
+
 export function GroveHeroSection() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -143,6 +151,30 @@ export function GroveHeroSection() {
       </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
+        {/* Permanent High-Impact Positioning Badge (Clarifies Identity in <2 Seconds) */}
+        <div className="flex flex-wrap items-center justify-between gap-2.5 mb-5 pb-3.5 border-b border-slate-200/70">
+          <div className="flex items-center gap-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[#1E40AF] text-xs font-bold shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
+              <span>Studio Rekayasa Software &amp; AI B2B</span>
+            </div>
+            <span className="text-xs text-slate-600 font-semibold hidden md:inline">
+              Modern Web · Custom ERP &amp; SIAKAD · Automasi AI/ML
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 text-xs text-slate-500 font-medium">
+            <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
+              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+              100% Hak Milik Source Code
+            </span>
+            <span className="text-slate-300 hidden sm:inline">|</span>
+            <span className="hidden sm:inline">Zero Biaya Sewa Bulanan</span>
+            <span className="text-slate-300 hidden sm:inline">|</span>
+            <span className="text-blue-700 font-bold hidden sm:inline">SLA 99.9% Terikat Kontrak</span>
+          </div>
+        </div>
+
         {/* 3-Pillar Interactive Tab Switcher Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
           <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
@@ -251,10 +283,14 @@ export function GroveHeroSection() {
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    href="#kontak"
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      waMessages[currentPillar.id] || waMessages.web
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group w-full inline-flex items-center justify-between px-6 py-3.5 rounded-2xl text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all duration-200"
                   >
-                    <span>Konsultasikan Kebutuhan Anda</span>
+                    <span>Konsultasikan via WhatsApp</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </motion.a>
 
@@ -262,34 +298,28 @@ export function GroveHeroSection() {
                     href="#portofolio"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-[#2563EB] transition-colors pl-1"
                   >
-                    <span>Lihat Portofolio Hasil Kerja</span>
+                    <span>Lihat Bukti Kasus Before–After</span>
                     <span className="text-slate-400">→</span>
                   </a>
                 </div>
 
-                {/* Bukti Sosial Klien Aktif */}
+                {/* Bukti Sosial Klien Aktif (Zero Broken Images) */}
                 <div className="pt-2 flex items-center gap-3 border-t border-slate-200/80">
-                  <div className="flex -space-x-2">
-                    <img
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
-                      alt="Avatar 1"
-                      className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
-                    />
-                    <img
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-                      alt="Avatar 2"
-                      className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
-                    />
-                    <img
-                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
-                      alt="Avatar 3"
-                      className="w-7 h-7 rounded-full border-2 border-white object-cover shadow-2xs"
-                    />
+                  <div className="flex -space-x-1.5">
+                    <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-blue-600 to-indigo-700 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+                      PT
+                    </div>
+                    <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-slate-700 to-slate-900 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+                      YK
+                    </div>
+                    <div className="w-7 h-7 rounded-full border-2 border-white bg-gradient-to-br from-sky-600 to-blue-700 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+                      CV
+                    </div>
                   </div>
                   <div className="text-[11px] sm:text-xs font-medium text-slate-700">
                     <span className="font-bold text-[#0F172A]">25+ Klien Aktif</span>
                     <span className="text-slate-400 mx-1.5">·</span>
-                    <span className="text-[#2563EB] font-semibold">99.99% SLA</span>
+                    <span className="text-[#2563EB] font-semibold">SLA 99.9% Terikat Kontrak</span>
                   </div>
                 </div>
               </div>

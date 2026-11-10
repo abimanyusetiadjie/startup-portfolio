@@ -22,7 +22,7 @@ export function GroveNavbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 16);
-      const sections = ["layanan-utama", "portofolio", "cara-kerja", "harga"];
+      const sections = ["layanan-utama", "portofolio", "cara-kerja", "perbandingan", "harga", "faq"];
       const scrollPos = window.scrollY + 220;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -41,7 +41,9 @@ export function GroveNavbar() {
     { label: "Layanan", href: "#layanan-utama", id: "layanan-utama" },
     { label: "Hasil Kerja", href: "#portofolio", id: "portofolio" },
     { label: "Cara Kerja", href: "#cara-kerja", id: "cara-kerja" },
+    { label: "Bandingkan", href: "#perbandingan", id: "perbandingan" },
     { label: "Harga", href: "#harga", id: "harga" },
+    { label: "FAQ", href: "#faq", id: "faq" },
   ];
 
   const handleSmoothScroll = (
@@ -60,10 +62,10 @@ export function GroveNavbar() {
 
   return (
     <>
-      {/* Dynamic Scroll Progress Bar (Emerald Green Gradient) */}
+      {/* Dynamic Scroll Progress Bar (Electric Cobalt Gradient) */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#059669] via-[#10B981] to-[#34D399] origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#60A5FA] origin-left z-[60]"
       />
 
       <header
@@ -108,7 +110,7 @@ export function GroveNavbar() {
                   )}
                   <span className="relative z-10 flex items-center justify-center gap-1.5">
                     {isSelected && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#059669] shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0" />
                     )}
                     <span>{item.label}</span>
                   </span>
@@ -157,12 +159,12 @@ export function GroveNavbar() {
                   onClick={(e) => handleSmoothScroll(e, item.href)}
                   className={`flex items-center justify-between text-sm font-semibold px-3.5 py-2.5 rounded-xl transition-colors ${
                     isActive
-                      ? "text-[#065F46] bg-emerald-50 font-bold"
+                      ? "text-[#1D4ED8] bg-blue-50 font-bold"
                       : "text-slate-700 hover:text-slate-950 hover:bg-slate-100"
                   }`}
                 >
                   <span>{item.label}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#059669]" />}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />}
                 </a>
               );
             })}
@@ -177,7 +179,7 @@ export function GroveNavbar() {
               <a
                 href="#kontak"
                 onClick={(e) => handleSmoothScroll(e, "#kontak")}
-                className="w-full text-center py-2.5 text-xs font-bold text-white bg-[#059669] rounded-xl shadow-sm"
+                className="w-full text-center py-2.5 text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl shadow-sm transition-colors"
               >
                 Konsultasi Gratis Sekarang
               </a>

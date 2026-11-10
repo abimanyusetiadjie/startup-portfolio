@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   Mail,
-  Phone,
   MapPin,
   Clock,
   ShieldCheck,
@@ -35,7 +34,7 @@ export function GroveFooterSection() {
           </div>
 
           <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-            <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -73,7 +72,7 @@ export function GroveFooterSection() {
               <AbinestLogo size="md" showTagline={true} />
             </Link>
             <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed max-w-sm">
-              Software House &amp; Studio Rekayasa Teknologi untuk Bisnis, Startup, dan Perusahaan Nasional. Spesialis pembuatan Website Modern Berkecepatan Tinggi, Sistem ERP Kustom, serta Automasi AI &amp; Machine Learning Terapan.
+              Software House &amp; Studio Rekayasa Teknologi untuk Bisnis, Startup, dan Institusi Nasional. Spesialis pembuatan Website Modern Berkecepatan Tinggi, Sistem ERP Kustom, serta Automasi AI &amp; Machine Learning Terapan.
             </p>
             <div className="pt-1 flex items-center gap-2 text-xs font-semibold text-blue-700">
               <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
@@ -93,17 +92,12 @@ export function GroveFooterSection() {
                 </a>
               </li>
               <li>
-                <a href="#mengapa-abinest" className="hover:text-[#1D4ED8] transition-colors">
-                  Mengapa Abinest
-                </a>
-              </li>
-              <li>
                 <a href="#layanan-utama" className="hover:text-[#1D4ED8] transition-colors">
                   3 Pilar Layanan
                 </a>
               </li>
               <li>
-                <a href="#studi-kasus" className="hover:text-[#1D4ED8] transition-colors">
+                <a href="#portofolio" className="hover:text-[#1D4ED8] transition-colors">
                   Hasil Kerja &amp; Portofolio
                 </a>
               </li>
@@ -113,13 +107,23 @@ export function GroveFooterSection() {
                 </a>
               </li>
               <li>
-                <a href="#cara-kerja" className="hover:text-[#059669] transition-colors">
+                <a href="#cara-kerja" className="hover:text-[#1D4ED8] transition-colors">
                   Alur &amp; Cara Kerja
                 </a>
               </li>
               <li>
-                <a href="#harga" className="hover:text-[#059669] transition-colors font-medium">
-                  Paket Harga &amp; Investasi
+                <a href="#perbandingan" className="hover:text-[#1D4ED8] transition-colors font-medium">
+                  Bandingkan vs SaaS
+                </a>
+              </li>
+              <li>
+                <a href="#harga" className="hover:text-[#1D4ED8] transition-colors font-medium">
+                  Paket Investasi
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-[#1D4ED8] transition-colors font-medium">
+                  Standar Tim &amp; FAQ
                 </a>
               </li>
             </ul>
@@ -184,7 +188,7 @@ export function GroveFooterSection() {
                     href="https://wa.me/6285708677918"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#1D4ED8] transition-colors"
+                    className="hover:text-[#1D4ED8] transition-colors font-medium"
                   >
                     +62 857-0867-7918
                   </a>
@@ -235,7 +239,7 @@ export function GroveFooterSection() {
             <a href="#cara-kerja" className="hover:text-[#0F172A] transition-colors">
               Kontrak &amp; Kepemilikan Kode 100%
             </a>
-            <a href="#cara-kerja" className="hover:text-[#0F172A] transition-colors">
+            <a href="#perbandingan" className="hover:text-[#0F172A] transition-colors">
               Garansi SLA 99.9%
             </a>
           </div>

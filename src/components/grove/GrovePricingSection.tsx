@@ -22,114 +22,114 @@ export function GrovePricingSection() {
   const pricingTiers = [
     {
       id: "web",
-      tag: "UMKM & Personal",
-      badge: "Siap 3-5 Hari",
-      title: "Website & Landing Page",
+      tag: "Korporat & Institusi",
+      badge: "Siap 2-3 Minggu",
+      title: "Modern Web & Landing System",
       currency: "Rp",
-      priceNum: "500",
-      priceUnit: "Ribu",
+      priceNum: "1.5 – 3.5",
+      priceUnit: "Juta",
       priceSuffix: "start from",
       priceSubNote: "Sekali Bayar · 100% Hak Milik",
       icon: Globe,
-      accentColor: "#059669",
+      accentColor: "#2563EB",
       isPopular: false,
       summary:
-        "Website modern berkecepatan tinggi (<0.8 detik) & Google SEO 100/100 untuk melipatgandakan kredibilitas bisnis Anda.",
+        "Website modern berkecepatan tinggi (<0.8 detik) & Google SEO 100/100 untuk melipatgandakan kredibilitas dan konversi bisnis Anda.",
       examples: [
         {
-          label: "Landing Page Produk & UMKM",
-          note: "Toko kuliner, fashion, f&b, & jasa",
+          label: "Company Profile Korporat & Yayasan",
+          note: "Tampilan berkelas, kredibel, & ramah investor",
         },
         {
-          label: "Portofolio & Personal Branding",
-          note: "Dokter, lawyer, konsultan, kreator",
+          label: "High-Converting Landing Page",
+          note: "Optimasi form penawaran & integrasi WA langsung",
         },
         {
-          label: "Katalog & Brosur Digital",
-          note: "Showroom motor/mobil, mebel, dsb",
+          label: "Katalog & Portofolio Digital",
+          note: "Navigasi kilat tanpa lemot di koneksi 4G",
         },
       ],
       features: [
         "Kecepatan <0.8s & Skor Google SEO 100/100",
         "100% Hak Milik Source Code (Zero Biaya Sewa)",
-        "Desain Eksklusif Mobile-First & Direct WA",
+        "Desain Eksklusif Mobile-First & Direct WhatsApp",
       ],
       waMessage:
-        "Halo Tim Abinest, saya tertarik paket Pembuatan Website Modern mulai 500 Ribu. Boleh minta info detail & diskusikan konsep bisnis saya?",
+        "Halo Tim Abinest, saya tertarik paket Modern Web & Company Profile. Boleh minta info detail dan mendiskusikan konsep website kami?",
     },
     {
       id: "erp",
-      tag: "UMKM s/d Enterprise",
+      tag: "Bisnis, Pabrik & Sekolah",
       badge: "Paling Banyak Dipilih",
-      title: "Custom ERP & Sistem Operasional",
+      title: "Custom ERP & SIAKAD Sistem",
       currency: "Rp",
-      priceNum: "2 – 10",
+      priceNum: "4 – 12",
       priceUnit: "Juta",
       priceSuffix: "start from",
       priceSubNote: "Sesuai Modul · Zero Biaya Lisensi",
       icon: Building2,
-      accentColor: "#047857",
+      accentColor: "#1D4ED8",
       isPopular: true,
       summary:
-        "Sistem operasional kustom dari kasir POS multi-outlet hingga ERP multi-gudang anti-down 99.99% tanpa iuran lisensi bulanan.",
+        "Sistem operasional kustom dari kasir POS, SIAKAD sekolah anti-down, hingga ERP multi-gudang tanpa biaya lisensi per user selamanya.",
       examples: [
         {
-          label: "Kasir POS & Stok Cabang (Mulai 2 Jt)",
-          note: "Stok real-time, struk, kas harian",
+          label: "SIAKAD Sekolah & Ujian Anti-Down",
+          note: "1.200+ siswa ujian serentak, cetak rapor kilat",
         },
         {
-          label: "Gudang & Logistik (Mulai 4 - 6 Jt)",
-          note: "Batch tracking, barcode, surat jalan",
+          label: "ERP Multi-Gudang & Logistik",
+          note: "Sinkronisasi cabang, barcode, surat jalan & faktur",
         },
         {
-          label: "Enterprise ERP Terpadu (Mulai 8 - 10 Jt)",
-          note: "Multi-gudang, payroll, keuangan, pajak",
+          label: "Kasir POS & Keuangan Multi-Cabang",
+          note: "Laporan laba rugi real-time & multi-outlet",
         },
       ],
       features: [
-        "Zero Biaya Lisensi User (Bebas Tambah Karyawan)",
-        "SLA Anti-Down 99.99% Uptime & Audit Trail",
-        "Multi-Gudang & Sinkronisasi Stok Real-Time",
+        "Zero Biaya Lisensi User (Bebas Tambah 1.000+ Karyawan/Siswa)",
+        "Garansi Tertulis SLA Anti-Down 99.9% Uptime",
+        "Database PostgreSQL Dedicated & Backup Harian Otomatis",
       ],
       waMessage:
-        "Halo Tim Abinest, saya ingin berkonsultasi mengenai Sistem Kustom / ERP Operasional (range 2 - 10 Juta) untuk kebutuhan bisnis kami.",
+        "Halo Tim Abinest, saya ingin berkonsultasi mengenai Custom ERP / SIAKAD Sekolah (range 4 - 12 Juta) untuk kebutuhan operasional kami.",
     },
     {
       id: "ai-ml",
-      tag: "AI & Machine Learning",
+      tag: "Applied AI & Scale-Up",
       badge: "Otonom 24/7",
-      title: "Automation AI/ML",
+      title: "Automation AI/ML & Meta Agent",
       currency: "Rp",
-      priceNum: "3",
+      priceNum: "5",
       priceUnit: "Juta+",
       priceSuffix: "start from",
-      priceSubNote: "Meta API Resmi · Model Cerdas 24/7",
+      priceSubNote: "Meta API Resmi · Document AI OCR",
       icon: Bot,
-      accentColor: "#059669",
+      accentColor: "#2563EB",
       isPopular: false,
       summary:
-        "Otomatiskan alur kerja manual dengan WhatsApp AI Agent resmi Meta dan ekstraksi faktur Document AI OCR non-stop 24 jam.",
+        "Otomatiskan alur kerja manual dengan WhatsApp AI Agent resmi Meta dan ekstraksi ribuan dokumen via Document AI OCR non-stop 24 jam.",
       examples: [
         {
-          label: "Chatbot WA Sales & CS Resmi (Mulai 3 Jt)",
-          note: "Respon instan <1s, katalog, order 24/7",
+          label: "Document AI OCR Extractor",
+          note: "Baca ribuan invoice & faktur akurasi 99.7%",
         },
         {
-          label: "Document AI OCR Extractor (Mulai 4 - 6 Jt)",
-          note: "Baca ribuan invoice PDF akurasi 99.7%",
+          label: "WhatsApp AI Agent Resmi Meta",
+          note: "Respons kilat <1s, katalog & customer care 24/7",
         },
         {
-          label: "Workflow & Auto-Faktur (Mulai 5 Jt+)",
-          note: "Reminder tagihan WA & rekonsiliasi DB",
+          label: "Integrasi Workflow Otomatis",
+          note: "Sinkronisasi pipa data langsung ke database ERP",
         },
       ],
       features: [
-        "Resmi Meta WhatsApp Cloud API (Centang Hijau)",
-        "AI Agent Cerdas Terlatih Sesuai SOP Perusahaan",
+        "Resmi Meta WhatsApp Cloud API (Anti-Banned)",
+        "AI Agent Cerdas Terlatih Sesuai SOP Institusi",
         "Document AI OCR Faktur Otomatis (Akurasi 99.7%)",
       ],
       waMessage:
-        "Halo Tim Abinest, saya tertarik paket Automation AI/ML mulai 3 Juta. Boleh minta demo teknis dan konsultasi alur kerja sistem kami?",
+        "Halo Tim Abinest, saya tertarik paket Automation AI/ML mulai 5 Juta. Boleh minta demo teknis dan konsultasi alur kerja sistem kami?",
     },
   ];
 
@@ -154,31 +154,31 @@ export function GrovePricingSection() {
         <div
           className="absolute inset-0 opacity-[0.20] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_30%,black_30%,transparent_80%)]"
           style={{
-            backgroundImage: `radial-gradient(rgba(5, 150, 105, 0.22) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(rgba(37, 99, 235, 0.22) 1px, transparent 1px)`,
             backgroundSize: "32px 32px",
           }}
         />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-100/30 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-blue-100/30 blur-[120px] rounded-full pointer-events-none" />
       </div>
 
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-[#065F46] text-xs font-bold tracking-wide uppercase shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#059669] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[#1E40AF] text-xs font-bold tracking-wide uppercase shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse" />
             <span>Paket Investasi Transparan</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-[-0.03em] leading-tight">
             Investasi Teknologi Terukur.
             <br />
-            <span className="text-[#059669]">
-              Mulai dari Skala UMKM hingga Perusahaan.
+            <span className="text-[#2563EB]">
+              100% Hak Milik Tanpa Biaya Sewa Bulanan.
             </span>
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-xl mx-auto">
-            Semua paket mencakup <strong className="text-[#0F172A] font-semibold">100% hak milik source code</strong>, bebas biaya sewa lisensi tahunan, dan asistensi implementasi penuh.
+            Semua paket mencakup <strong className="text-[#0F172A] font-semibold">100% kepemilikan source code</strong>, bebas biaya sewa lisensi tahunan, dan pendampingan implementasi penuh hingga staf Anda mahir.
           </p>
         </div>
 
@@ -197,14 +197,14 @@ export function GrovePricingSection() {
                 transition={{ duration: 0.35, delay: idx * 0.08 }}
                 className={`relative rounded-3xl bg-white flex flex-col justify-between transition-all duration-300 ${
                   isHighlight
-                    ? "border-2 border-[#059669] shadow-[0_16px_36px_rgba(5,150,105,0.12)] ring-4 ring-emerald-500/10 lg:-translate-y-2"
-                    : "border border-slate-200/90 shadow-[0_4px_16px_rgba(15,23,42,0.03)] hover:border-emerald-300 hover:shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
+                    ? "border-2 border-[#2563EB] shadow-[0_16px_36px_rgba(37,99,235,0.12)] ring-4 ring-blue-500/10 lg:-translate-y-2"
+                    : "border border-slate-200/90 shadow-[0_4px_16px_rgba(15,23,42,0.03)] hover:border-blue-300 hover:shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
                 }`}
               >
                 {/* Popular Highlight Badge */}
                 {isHighlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#065F46] text-white text-[10.5px] font-extrabold uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow-sm flex items-center gap-1.5 whitespace-nowrap">
-                    <Sparkles className="w-3 h-3 text-emerald-300" />
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2563EB] text-white text-[10.5px] font-extrabold uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow-sm flex items-center gap-1.5 whitespace-nowrap">
+                    <Sparkles className="w-3 h-3 text-sky-200" />
                     <span>Paling Banyak Dipilih</span>
                   </div>
                 )}
@@ -215,8 +215,8 @@ export function GrovePricingSection() {
                     <div
                       className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
                         isHighlight
-                          ? "bg-[#065F46] text-white shadow-sm"
-                          : "bg-emerald-50 text-[#059669]"
+                          ? "bg-[#2563EB] text-white shadow-sm"
+                          : "bg-blue-50 text-[#2563EB]"
                       }`}
                     >
                       <Icon className="w-5 h-5" />
@@ -236,7 +236,7 @@ export function GrovePricingSection() {
                     </p>
                   </div>
 
-                  {/* Aesthetic Price Display Block */}
+                  {/* Price Display Block */}
                   <div className="p-3.5 rounded-2xl bg-[#F8FAFC] border border-slate-200/70">
                     <div className="flex items-baseline justify-between gap-2">
                       <div className="flex items-baseline gap-1">
@@ -250,29 +250,29 @@ export function GrovePricingSection() {
                           {tier.priceUnit}
                         </span>
                       </div>
-                      <span className="text-[10px] font-bold text-[#065F46] bg-emerald-100/70 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                      <span className="text-[10px] font-bold text-[#1E40AF] bg-blue-100/70 px-2 py-0.5 rounded-md uppercase tracking-wider">
                         {tier.priceSuffix}
                       </span>
                     </div>
                     <div className="text-[10px] text-slate-500 font-medium mt-1 flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3 text-[#059669]" />
+                      <ShieldCheck className="w-3 h-3 text-[#2563EB]" />
                       <span>{tier.priceSubNote}</span>
                     </div>
                   </div>
 
-                  {/* 3 Contoh Implementasi (Compact Capsule List) */}
+                  {/* 3 Contoh Solusi */}
                   <div className="space-y-1.5 pt-1">
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
-                      <Layers className="w-3 h-3 text-[#059669]" />
+                      <Layers className="w-3 h-3 text-[#2563EB]" />
                       <span>3 Contoh Solusi:</span>
                     </div>
                     <div className="space-y-1.5">
                       {tier.examples.map((ex, exIdx) => (
                         <div
                           key={exIdx}
-                          className="text-xs bg-slate-50/80 hover:bg-emerald-50/50 p-2 rounded-xl border border-slate-200/60 transition-colors flex items-start gap-2"
+                          className="text-xs bg-slate-50/80 hover:bg-blue-50/50 p-2 rounded-xl border border-slate-200/60 transition-colors flex items-start gap-2"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#059669] shrink-0 mt-1.5" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0 mt-1.5" />
                           <div className="min-w-0">
                             <span className="font-bold text-[#0F172A] block leading-tight">
                               {ex.label}
@@ -286,12 +286,12 @@ export function GrovePricingSection() {
                     </div>
                   </div>
 
-                  {/* Key Feature Checklist (3 Compact Items) */}
+                  {/* Key Feature Checklist */}
                   <div className="pt-1 border-t border-slate-100">
                     <ul className="space-y-1.5 text-xs text-slate-700">
                       {tier.features.map((feat, fIdx) => (
                         <li key={fIdx} className="flex items-center gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#059669] shrink-0" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                           <span className="leading-snug">{feat}</span>
                         </li>
                       ))}
@@ -306,13 +306,13 @@ export function GrovePricingSection() {
                     onClick={() => handleOpenWa(tier.waMessage)}
                     className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all duration-200 shadow-sm cursor-pointer ${
                       isHighlight
-                        ? "bg-[#065F46] hover:bg-[#044E39] text-white shadow-[0_4px_16px_rgba(6,95,70,0.2)] hover:scale-[1.01]"
+                        ? "bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:scale-[1.01]"
                         : "bg-[#0F172A] hover:bg-slate-800 text-white hover:scale-[1.01]"
                     }`}
                   >
                     <WhatsAppIcon className="w-4 h-4 text-white" />
                     <span>Konsultasi Paket Ini</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-emerald-300" />
+                    <ArrowRight className="w-3.5 h-3.5 text-blue-200" />
                   </button>
 
                   <div className="text-center text-[9.5px] text-slate-400 mt-1.5 font-medium">
@@ -324,11 +324,11 @@ export function GrovePricingSection() {
           })}
         </div>
 
-        {/* 4 Core Guarantees Banner (Compact Bar) */}
+        {/* 4 Core Guarantees Banner */}
         <div className="mt-10 sm:mt-12 bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center shrink-0">
                 <Code2 className="w-4 h-4" />
               </div>
               <div className="min-w-0">
@@ -342,7 +342,7 @@ export function GrovePricingSection() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center shrink-0">
                 <Database className="w-4 h-4" />
               </div>
               <div className="min-w-0">
@@ -356,12 +356,12 @@ export function GrovePricingSection() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <div className="min-w-0">
                 <h4 className="text-xs font-bold text-[#0F172A] truncate">
-                  SLA Anti-Down 99.99%
+                  SLA Anti-Down 99.9%
                 </h4>
                 <p className="text-[10px] text-slate-500 truncate">
                   Stabilitas sistem terjamin 24/7
@@ -370,7 +370,7 @@ export function GrovePricingSection() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#059669] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center shrink-0">
                 <Clock className="w-4 h-4" />
               </div>
               <div className="min-w-0">
@@ -378,7 +378,7 @@ export function GrovePricingSection() {
                   Free Konsultasi &amp; Demo
                 </h4>
                 <p className="text-[10px] text-slate-500 truncate">
-                  Langsung dengan senior engineer
+                  Langsung dengan lead engineer
                 </p>
               </div>
             </div>

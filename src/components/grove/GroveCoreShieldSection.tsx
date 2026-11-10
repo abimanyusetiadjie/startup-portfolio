@@ -2,18 +2,19 @@
 
 import {
   CheckCircle2,
+  XCircle,
   ClipboardList,
   FileCheck2,
   Laptop,
   Users,
   ShieldCheck,
-  Unlock,
-  Wrench,
   ArrowRight,
   FileCode2,
   FolderTree,
   Lock,
   Sparkles,
+  PackageCheck,
+  Scale,
 } from "lucide-react";
 
 export function GroveCoreShieldSection() {
@@ -23,23 +24,26 @@ export function GroveCoreShieldSection() {
       timeline: "Hari 1 – 3",
       icon: ClipboardList,
       title: "Konsultasi Kebutuhan",
-      desc: "Diskusi santai mengenai alur kerja yang diinginkan tanpa istilah teknis rumit.",
+      desc: "Diskusi mendalam mengenai alur operasional bisnis Anda langsung bersama sistem arsitek.",
+      deliverable: "Dokumen Blueprint & RAB Transparan",
       guarantee: "100% Gratis",
     },
     {
       step: "02",
       timeline: "Hari 4 – 7",
       icon: FileCheck2,
-      title: "Proposal & Mockup",
-      desc: "Kami menyerahkan desain awal, timeline mingguan, dan biaya tetap transparan.",
-      guarantee: "Kontrak Resmi",
+      title: "Desain & Kontrak SLA",
+      desc: "Penyusunan prototype interaktif, timeline mingguan, dan perjanjian garansi SLA bertanda tangan.",
+      deliverable: "Figma Prototype & Kontrak Resmi",
+      guarantee: "Kontrak Bertanda Tangan",
     },
     {
       step: "03",
       timeline: "Minggu 2 – 6",
       icon: Laptop,
-      title: "Pembangunan & Demo",
-      desc: "Setiap minggu Anda melihat demo langsung dan memantau progres via Portal Klien.",
+      title: "Sprint & Akses Staging",
+      desc: "Pembangunan sistem secara modular. Anda dapat menguji fitur langsung tiap pekan via Portal Klien.",
+      deliverable: "Server Staging & Laporan Sprint",
       guarantee: "Transparan 24/7",
     },
     {
@@ -47,7 +51,8 @@ export function GroveCoreShieldSection() {
       timeline: "Minggu 7",
       icon: Users,
       title: "Uji Beban & Training",
-      desc: "Sistem diuji agar anti-down. Tim operasional dan admin bisnis Anda kami latih sampai benar-benar mahir.",
+      desc: "Stress-testing sistem agar anti-down pada lonjakan traffic, serta pelatihan staf hingga benar-benar mahir.",
+      deliverable: "Laporan Load Test & Modul Training",
       guarantee: "Buku Panduan ID",
     },
     {
@@ -55,30 +60,69 @@ export function GroveCoreShieldSection() {
       timeline: "Minggu 8 & Seterusnya",
       icon: ShieldCheck,
       title: "Serah Terima Penuh",
-      desc: "100% source code dan database diserahkan penuh menjadi aset resmi institusi Anda.",
+      desc: "100% source code, skema database, dan kontrol server diserahkan utuh menjadi aset resmi institusi Anda.",
+      deliverable: "Full Git Repo & DB Dump",
       guarantee: "Hak Milik 100%",
+    },
+  ];
+
+  const comparisonRows = [
+    {
+      metric: "Total Biaya 3 Tahun (TCO)",
+      abinest: "Investasi sekali di awal. Hemat hingga 70%+ dalam 3 tahun tanpa iuran bulanan.",
+      saas: "Biaya sewa bulanan terus membengkak (Rp 20–80 Jt/tahun) seiring bertambahnya user.",
+      agency: "Biaya awal murah tapi ada tagihan tersembunyi untuk maintenance bulanan.",
+      highlight: true,
+    },
+    {
+      metric: "Kepemilikan Source Code & Data",
+      abinest: "100% Hak Milik Klien. Git repo, database dump & root access diserahkan penuh.",
+      saas: "0% Kepemilikan. Data tersandera di server vendor luar negeri.",
+      agency: "Source code ditahan sebagai alasan kontrak maintenance tahunan.",
+      highlight: true,
+    },
+    {
+      metric: "Tambah Karyawan / Siswa / User",
+      abinest: "Rp 0 (Bebas tambah 1.000 hingga 10.000 user tanpa biaya ekstra sepeser pun).",
+      saas: "Dikenakan biaya tambahan per user (Rp 50.000 - Rp 350.000 / user / bulan).",
+      agency: "Sering meminta biaya lisensi instance tambahan saat user bertambah.",
+      highlight: true,
+    },
+    {
+      metric: "Kustomisasi Alur Kerja Bisnis",
+      abinest: "100% Kustom sesuai SOP unik bisnis Anda tanpa batasan template.",
+      saas: "Kaku. Bisnis Anda yang harus mengalah dan menyesuaikan alur software.",
+      agency: "Terbatas pada plugin CMS umum yang mudah konflik dan lambat.",
+      highlight: false,
+    },
+    {
+      metric: "Respons Perbaikan & SLA",
+      abinest: "Garansi SLA 99.9% tertulis, respons engineer <15 menit di jam kerja.",
+      saas: "Tiket antrean customer service umum (estimasi 2 – 3 hari kerja).",
+      agency: "Tidak ada jaminan SLA tertulis, sulit dihubungi setelah pelunasan.",
+      highlight: false,
     },
   ];
 
   return (
     <section
       id="cara-kerja"
-      className="py-14 sm:py-16 relative overflow-hidden bg-white border-b border-slate-200/80"
+      className="py-14 sm:py-20 relative overflow-hidden bg-white border-b border-slate-200/80"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-16">
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-16 sm:space-y-20">
         {/* ========================================================================= */}
-        {/* PART 1: VISUAL HORIZONTAL PIPELINE (5 LANGKAH KERJA)                      */}
+        {/* PART 1: VISUAL HORIZONTAL PIPELINE (5 LANGKAH KERJA & DELIVERABLE FISIK) */}
         {/* ========================================================================= */}
-        <div className="space-y-14">
+        <div className="space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#1E40AF] bg-blue-100/70 px-3.5 py-1 rounded-full border border-blue-200">
               ALUR KERJA TRANSPARAN
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
-              5 Langkah Mudah Menuju Sistem yang Siap Beroperasi
+              5 Langkah Terstruktur Menuju Sistem Siap Operasi
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
-              Anda tidak perlu pusing memikirkan hal teknis. Kami memandu seluruh proses dari diskusi awal hingga sistem digunakan staf Anda.
+              Setiap tahapan memiliki output fisik (*deliverable*) yang jelas sehingga Anda memegang kendali penuh atas investasi teknologi bisnis Anda.
             </p>
           </div>
 
@@ -89,9 +133,9 @@ export function GroveCoreShieldSection() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 relative group"
+                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 relative group"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3.5">
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-black text-[#2563EB]">
                         {s.step}
@@ -101,7 +145,7 @@ export function GroveCoreShieldSection() {
                       </span>
                     </div>
 
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1E40AF] group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1E40AF] group-hover:scale-105 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
 
@@ -109,9 +153,22 @@ export function GroveCoreShieldSection() {
                       {s.title}
                     </h3>
 
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
                       {s.desc}
                     </p>
+
+                    {/* Output Fisik Deliverable Badge */}
+                    <div className="pt-2">
+                      <div className="p-2 rounded-xl bg-blue-50/70 border border-blue-200/60 text-[10.5px] text-[#1E40AF]">
+                        <div className="font-bold uppercase tracking-wider text-[9px] text-blue-600 flex items-center gap-1">
+                          <PackageCheck className="w-3 h-3" />
+                          <span>Deliverable Fisik:</span>
+                        </div>
+                        <div className="font-semibold text-slate-800 mt-0.5">
+                          {s.deliverable}
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center gap-1.5 text-[11px] font-bold text-blue-700">
@@ -140,14 +197,14 @@ export function GroveCoreShieldSection() {
                 100% Source Code &amp; Database Menjadi Hak Milik Perusahaan Anda.
               </h3>
 
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Banyak perusahaan terjebak software impor dengan biaya sewa bulanan mahal yang terus membengkak per user. Di Abinest, sistem yang kami bangun adalah <strong>aset resmi perusahaan Anda selamanya</strong> tanpa biaya lisensi per user.
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                Banyak perusahaan terjebak software sewa bulanan impor yang mahal dan membatasi jumlah user. Di Abinest, sistem yang kami bangun adalah <strong>aset resmi perusahaan Anda selamanya</strong> tanpa biaya lisensi per user.
               </p>
 
               <div className="space-y-3 pt-1 text-xs sm:text-sm text-slate-700 font-medium">
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Serah terima full repository GitHub &amp; file backup database</span>
+                  <span>Serah terima full repository GitHub &amp; file backup database PostgreSQL</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
@@ -155,7 +212,7 @@ export function GroveCoreShieldSection() {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Portal Klien untuk tracking revisi, milestone, dan garansi pasca-rilis</span>
+                  <span>Portal Klien untuk tracking revisi, sprint milestone, dan garansi pasca-rilis</span>
                 </div>
               </div>
 
@@ -190,13 +247,13 @@ export function GroveCoreShieldSection() {
                 <div className="space-y-1.5 text-[11px] leading-relaxed font-mono">
                   <div className="text-sky-400 font-bold flex items-center gap-1.5">
                     <FolderTree className="w-3.5 h-3.5" />
-                    📁 repository/enterprise-erp-core/ (100% Hak Milik Klien)
+                    📁 repository/core-system/ (100% Hak Milik Klien)
                   </div>
                   <div className="pl-4 text-slate-400">├── 📁 src/ (Next.js 15 &amp; High-Throughput Microservices)</div>
-                  <div className="pl-4 text-slate-400">├── 📁 database/ (PostgreSQL Schema &amp; Multi-Warehouse Sync)</div>
+                  <div className="pl-4 text-slate-400">├── 📁 database/ (PostgreSQL Schema &amp; Connection Pooling)</div>
                   <div className="pl-4 text-slate-400">├── 📁 automations/ (Document AI OCR &amp; Meta WhatsApp Agent)</div>
                   <div className="pl-4 text-slate-400">├── 📄 docker-compose.yml (High-Availability Cloud Ready)</div>
-                  <div className="pl-4 text-slate-300 font-semibold">├── 📜 SERTI_GARANSI_SLA_99.99.pdf (Garansi Resmi Tertulis)</div>
+                  <div className="pl-4 text-slate-300 font-semibold">├── 📜 SERTI_GARANSI_SLA_99.9.pdf (Garansi Resmi Tertulis)</div>
                   <div className="pl-4 text-slate-300 font-semibold">└── 📘 DOKUMENTASI_ARSITEKTUR_DAN_API.pdf (Buku Panduan Lengkap)</div>
                 </div>
 
@@ -208,7 +265,7 @@ export function GroveCoreShieldSection() {
                     </div>
                     <div className="text-slate-100 font-bold text-xs flex items-center gap-1.5">
                       <Lock className="w-3.5 h-3.5 text-sky-400" />
-                      github.com/perusahaan-klien/enterprise-system
+                      github.com/perusahaan-klien/system
                     </div>
                     <div className="text-[10px] text-sky-400">
                       Private &amp; Ditransfer 100% ke Akun Anda
@@ -230,6 +287,88 @@ export function GroveCoreShieldSection() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* PART 3: MASTER COMPARISON TABLE (ABINEST vs SOFTWARE SEWA SAAS)           */}
+        {/* ========================================================================= */}
+        <div id="perbandingan" className="space-y-8 pt-4">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1E40AF]">
+              <Scale className="w-3.5 h-3.5 text-blue-600" />
+              <span className="text-[11px] font-bold tracking-wider uppercase">
+                ANALISA TOTAL COST OF OWNERSHIP (TCO)
+              </span>
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
+              Abinest (100% Hak Milik) vs Software Sewa Bulanan
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
+              Bandingkan secara objektif mengapa kepemilikan kode program dari Abinest jauh lebih menguntungkan untuk pertumbuhan jangka panjang bisnis Anda.
+            </p>
+          </div>
+
+          {/* Responsive Comparison Table Container */}
+          <div className="overflow-x-auto rounded-3xl border border-slate-200/90 shadow-sm bg-white">
+            <table className="w-full text-left border-collapse min-w-[700px]">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50/80 text-xs">
+                  <th className="py-4 px-5 font-bold text-slate-700 w-1/4">
+                    Kriteria Evaluasi
+                  </th>
+                  <th className="py-4 px-5 font-bold text-[#1D4ED8] bg-blue-50/70 border-x border-blue-100 w-1/3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#2563EB]" />
+                      <span className="text-sm">Abinest Studio</span>
+                      <span className="px-2 py-0.5 rounded text-[10px] bg-blue-600 text-white font-extrabold">
+                        Rekomendasi
+                      </span>
+                    </div>
+                  </th>
+                  <th className="py-4 px-5 font-bold text-slate-500 w-1/4">
+                    Software Sewa SaaS (Impor)
+                  </th>
+                  <th className="py-4 px-5 font-bold text-slate-500 w-1/5">
+                    Agensi Konvensional
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-xs">
+                {comparisonRows.map((row, rIdx) => (
+                  <tr
+                    key={rIdx}
+                    className={`hover:bg-slate-50/50 transition-colors ${
+                      row.highlight ? "bg-blue-50/10" : ""
+                    }`}
+                  >
+                    <td className="py-4 px-5 font-bold text-[#0F172A]">
+                      {row.metric}
+                    </td>
+                    <td className="py-4 px-5 bg-blue-50/40 border-x border-blue-100 font-semibold text-[#0F172A]">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
+                        <span>{row.abinest}</span>
+                      </div>
+                    </td>
+                    <td className="py-4 px-5 text-slate-600">
+                      <div className="flex items-start gap-2">
+                        <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                        <span>{row.saas}</span>
+                      </div>
+                    </td>
+                    <td className="py-4 px-5 text-slate-500">
+                      <div className="flex items-start gap-2">
+                        <XCircle className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                        <span>{row.agency}</span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

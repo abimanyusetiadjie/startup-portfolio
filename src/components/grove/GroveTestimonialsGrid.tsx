@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Star, ShieldCheck, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { Star, ShieldCheck, ChevronDown, ChevronUp } from "lucide-react";
 
 export function GroveTestimonialsGrid() {
   const [showAll, setShowAll] = useState(false);
@@ -9,63 +9,75 @@ export function GroveTestimonialsGrid() {
   const testimonials = [
     {
       name: "Hendra Kusuma, S.E., M.B.A.",
-      role: "VP of Marketing & Digital Growth",
-      institution: "PT Finansial Prima Mandiri · Jakarta",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      role: "VP of Digital Growth",
+      institution: "Institusi Finansial & Pembiayaan · Jakarta",
+      monogram: "HK",
+      avatarBg: "from-blue-600 to-indigo-700",
+      verifiedBadge: "Kontrak SLA Aktif",
       highlight: "Website Loading 0,5s & Inbound Leads +180%",
+      metricImpact: "+180% Leads Organik",
       quote:
-        "Website korporat kami sekarang langsung terbuka dalam sekejap mata di HP calon klien dan investor. Skor Google PageSpeed 100/100 benar-benar mengangkat peringkat SEO kami di halaman satu Google, menghasilkan kenaikan leads hampir 2x lipat.",
+        "Website korporat kami sekarang langsung terbuka dalam sekejap mata di HP calon klien dan investor. Skor Google PageSpeed 100/100 benar-benar mengangkat visibilitas kami di Google, menghasilkan lonjakan leads inbound hingga 1.8 kali lipat.",
+    },
+    {
+      name: "Drs. H. Mulyadi, M.Pd.",
+      role: "Ketua Dewan Pembina Yayasan",
+      institution: "Yayasan Pendidikan & Sekolah · Jawa Timur",
+      monogram: "MY",
+      avatarBg: "from-indigo-600 to-purple-700",
+      verifiedBadge: "SIAKAD Anti-Down",
+      highlight: "1.240 Siswa Ujian Serentak 0% Server Crash",
+      metricImpact: "1.240 User Serentak 0% Lag",
+      quote:
+        "Sebelumnya server sekolah selalu tumbang setiap kali ada ujian semester online serentak. Bersama Abinest, 1.200 lebih siswa lancar mengerjakan ujian tanpa satu pun error, dan rapor PDF selesai dicetak dalam hitungan menit.",
     },
     {
       name: "Ir. Bambang Sutrisno, M.M.",
       role: "Direktur Operasional & Supply Chain",
-      institution: "PT Logistik Nusantara · Jakarta Barat",
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+      institution: "Distribusi Logistik Multi-Gudang · Jakarta Barat",
+      monogram: "BS",
+      avatarBg: "from-slate-700 to-slate-900",
+      verifiedBadge: "100% Hak Milik Kode",
       highlight: "Hemat Ratusan Juta Tanpa Biaya Lisensi User",
+      metricImpact: "Rp 0 Lisensi Bulanan",
       quote:
-        "Sebelumnya kami terbebani biaya software ERP luar negeri puluhan juta tiap bulan yang membatasi jumlah user. Bersama Abinest, kami memiliki sistem ERP kustom multi-gudang dengan 100% kepemilikan source code tanpa biaya sewa lisensi selamanya.",
+        "Sebelumnya kami terbebani biaya software impor puluhan juta tiap bulan yang membatasi jumlah akun karyawan. Abinest membangun sistem ERP kustom multi-gudang dengan 100% kepemilikan source code tanpa iuran lisensi selamanya.",
     },
     {
       name: "Sandra Wijaya, S.Ak., B.A.",
       role: "Head of Finance & Automation",
-      institution: "Sentosa Retail & Supply Chain · Surabaya",
-      avatar:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      institution: "Sentosa Retail & SCM · Surabaya",
+      monogram: "SW",
+      avatarBg: "from-cyan-600 to-blue-700",
+      verifiedBadge: "Document AI OCR",
       highlight: "Automasi AI Memproses 6.000 Faktur Otomatis",
+      metricImpact: "Hemat 40 Jam/Minggu",
       quote:
-        "Pipeline Document AI dan WhatsApp Agent resmi Meta dari Abinest memangkas waktu kerja finance kami hingga 40 jam per minggu. Ribuan invoice PDF supplier terekstraksi dalam hitungan detik dengan akurasi 99.7% tanpa salah input angka.",
+        "Pipeline Document AI OCR dari Abinest memangkas waktu kerja finance kami secara dramatis. Ribuan invoice PDF supplier terekstraksi dalam hitungan detik dengan akurasi 99.7% tanpa salah ketik manual.",
     },
     {
       name: "dr. Nadia Putri, MARS",
       role: "Direktur Operasional",
-      institution: "Medika AI Diagnostik & Healthcare Hub · Tangerang",
-      avatar:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      institution: "Medika Healthcare Hub · Tangerang",
+      monogram: "NP",
+      avatarBg: "from-blue-700 to-teal-800",
+      verifiedBadge: "SLA 99.9% Terikat",
       highlight: "100% Source Code & Portal Klien Transparan",
+      metricImpact: "SLA Response <15 Menit",
       quote:
-        "Yang paling membuat kami tenang bermitra dengan Abinest adalah transparansi Portal Klien. Setiap minggu progres sprint terlihat jelas, dan di akhir proyek seluruh repositori Git serta dokumentasi API diserahkan penuh menjadi aset perusahaan kami.",
-    },
-    {
-      name: "Clarissa Tan, B.Bus.",
-      role: "Managing Director",
-      institution: "PT Retail Sentosa Global · Surabaya",
-      avatar:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-      highlight: "Sinkronisasi 5 Cabang & AI Forecasting",
-      quote:
-        "Dulu tim kami sering selisih data stok saat menyatukan laporan dari 5 cabang berbeda. Sekarang sistem ERP kustom otomatis menyinkronkan stok dan memprediksi kebutuhan restock dengan Machine Learning secara akurat.",
+        "Yang paling membuat kami tenang bermitra dengan Abinest adalah transparansi Portal Klien. Setiap minggu progres sprint terlihat jelas, dan di akhir proyek seluruh repositori Git serta dokumentasi API diserahkan penuh menjadi aset kami.",
     },
     {
       name: "Rizky Pratama, M.Kom.",
       role: "VP of Engineering",
-      institution: "PT Digital Sinergi Nusantara · Bandung",
-      avatar:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
+      institution: "PT Digital Sinergi · Bandung",
+      monogram: "RP",
+      avatarBg: "from-blue-800 to-slate-900",
+      verifiedBadge: "Clean Architecture",
       highlight: "Respons Engineer <15 Menit & Arsitektur Solid",
+      metricImpact: "Code Quality 100%",
       quote:
-        "Standar rekayasa perangkat lunak Abinest sangat rapi: Clean Architecture, TypeScript type-safe, dan Docker containerized. Janji respons tim engineering di bawah 15 menit saat jam kerja benar-benar ditepati dengan luar biasa.",
+        "Standar rekayasa perangkat lunak Abinest sangat rapi: Clean Architecture, TypeScript type-safe, dan Docker containerized. Janji respons tim engineering di bawah 15 menit saat jam operasional benar-benar ditepati.",
     },
   ];
 
@@ -91,7 +103,7 @@ export function GroveTestimonialsGrid() {
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
-            Testimoni jujur dari direktur operasional, pimpinan marketing, dan kepala finance yang telah membuktikan efisiensi sistem Abinest.
+            Testimoni jujur dari direktur operasional, yayasan pendidikan, dan pimpinan finance yang telah membuktikan keandalan sistem Abinest.
           </p>
         </div>
 
@@ -100,67 +112,70 @@ export function GroveTestimonialsGrid() {
           {visibleTestimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_10px_30px_rgba(15,23,42,0.03)] hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between"
+              className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between space-y-4"
             >
-              <div className="space-y-4">
-                {/* Star rating + Verified Badge */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-amber-400 text-amber-400"
-                      />
-                    ))}
+              <div className="space-y-3">
+                {/* Header: Verified Monogram + Verified Badge */}
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${t.avatarBg} text-white font-black text-xs flex items-center justify-center shrink-0 shadow-xs border border-white`}
+                    >
+                      {t.monogram}
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="text-sm font-bold text-[#0F172A] leading-tight truncate">
+                        {t.name}
+                      </h4>
+                      <p className="text-[11px] text-slate-500 truncate mt-0.5">
+                        {t.role}
+                      </p>
+                    </div>
                   </div>
-                  <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200/80">
-                    <ShieldCheck className="w-3 h-3 text-blue-600" />
-                    Terverifikasi
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 whitespace-nowrap">
+                    {t.verifiedBadge}
                   </span>
                 </div>
 
-                {/* Highlight Title */}
-                <h3 className="text-sm sm:text-base font-extrabold text-[#0F172A] leading-snug">
-                  &ldquo;{t.highlight}&rdquo;
-                </h3>
+                <div className="text-[11px] text-slate-500 font-medium pb-2 border-b border-slate-100">
+                  {t.institution}
+                </div>
 
-                {/* Quote Body */}
+                {/* Measurable Metric Impact Box */}
+                <div className="bg-blue-50/60 border border-blue-200/70 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#1E40AF]">{t.highlight}</span>
+                  <span className="text-[10px] font-extrabold bg-[#2563EB] text-white px-2 py-0.5 rounded-md">
+                    {t.metricImpact}
+                  </span>
+                </div>
+
+                {/* Quote Text */}
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  {t.quote}
+                  &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
 
-              {/* Author Info */}
-              <div className="pt-5 mt-4 border-t border-slate-100 flex items-center gap-3">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-10 h-10 rounded-full object-cover border border-slate-200 shrink-0"
-                />
-                <div className="min-w-0">
-                  <div className="text-xs font-bold text-[#0F172A] truncate">
-                    {t.name}
-                  </div>
-                  <div className="text-[11px] font-medium text-blue-700 truncate">
-                    {t.role}
-                  </div>
-                  <div className="text-[10px] text-slate-400 truncate">
-                    {t.institution}
-                  </div>
+              {/* 5-Star Rating */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="flex items-center gap-1 text-amber-500">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                  ))}
                 </div>
+                <span className="font-medium text-slate-500">Hasil Terverifikasi</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Expandable Drawer Toggle */}
+        {/* Toggle Button */}
         <div className="text-center pt-2">
           <button
             type="button"
             onClick={() => setShowAll(!showAll)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-slate-700 bg-white border border-slate-300 hover:border-slate-400 hover:bg-slate-50 transition-colors shadow-xs"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 transition-colors shadow-2xs cursor-pointer"
           >
-            <span>{showAll ? "Tampilkan 3 Cerita Utama Saja" : "Lihat 3 Cerita Klien Lainnya"}</span>
+            <span>{showAll ? "Tampilkan Lebih Sedikit" : "Lihat 3 Testimoni Lainnya"}</span>
             {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
         </div>
