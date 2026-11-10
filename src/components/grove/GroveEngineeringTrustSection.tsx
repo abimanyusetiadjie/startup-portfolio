@@ -12,6 +12,12 @@ import {
   Headphones,
   Award,
   Terminal,
+  Zap,
+  Database,
+  Cloud,
+  Bot,
+  Server,
+  Code2,
 } from "lucide-react";
 
 export function GroveEngineeringTrustSection() {
@@ -38,6 +44,49 @@ export function GroveEngineeringTrustSection() {
       experience: "Ekstraksi Ribuan Faktur Akurasi 99.7%",
       standards: "Private Model · Zero Data Leakage",
       monogram: "AI",
+    },
+  ];
+
+  const techMatrix = [
+    {
+      name: "Next.js 15 & React 19",
+      role: "Fullstack Web & Edge SSR",
+      spec: "Server Components · Load <0.8 Detik",
+    },
+    {
+      name: "TypeScript (Strict)",
+      role: "Type Safety Architecture",
+      spec: "100% Type-Safe · Zero Silent Bugs",
+    },
+    {
+      name: "PostgreSQL Pooling",
+      role: "Enterprise Database Core",
+      spec: "ACID Compliant · Multi-Warehouse Sync",
+    },
+    {
+      name: "Docker Container",
+      role: "Infrastructure as Code",
+      spec: "Cloud-Ready · Instant Auto-Failover",
+    },
+    {
+      name: "Python Document AI",
+      role: "OCR & Machine Learning",
+      spec: "Ekstraksi Invoice Akurasi 99.7%",
+    },
+    {
+      name: "Go (Golang)",
+      role: "High-Throughput Services",
+      spec: "Low-Latency Background Worker Queue",
+    },
+    {
+      name: "Redis In-Memory",
+      role: "Distributed Cache",
+      spec: "Sub-Millisecond Read Latency (<1ms)",
+    },
+    {
+      name: "Cloudflare & Meta API",
+      role: "Security & Communication",
+      spec: "DDoS Shield · WhatsApp Cloud API Resmi",
     },
   ];
 
@@ -73,7 +122,7 @@ export function GroveEngineeringTrustSection() {
       id="faq"
       className="py-14 sm:py-20 relative bg-white border-b border-slate-200/80 overflow-hidden"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-14">
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1E40AF]">
@@ -84,7 +133,7 @@ export function GroveEngineeringTrustSection() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
-            Transparansi Tim &amp; Jawaban Pertanyaan Anda
+            Transparansi Tim &amp; Standar Rekayasa
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
@@ -92,7 +141,7 @@ export function GroveEngineeringTrustSection() {
           </p>
         </div>
 
-        {/* 2-Column Grid: Team Engineering Leadership (Left) + Critical FAQ (Right) */}
+        {/* 2-Column Grid: Team Leadership (Left) + Critical FAQ (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* LEFT: Engineering Team & Technical Rigor (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
@@ -106,7 +155,7 @@ export function GroveEngineeringTrustSection() {
                   Arsitek di Balik Sistem Anda
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Sistem Anda dibangun langsung oleh praktisi rekayasa berpengalaman, bukan diserahkan ke freelancer pihak ketiga tanpa pengawasan.
+                  Sistem Anda dibangun langsung oleh praktisi rekayasa berpengalaman, bukan diserahkan ke pihak ketiga tanpa pengawasan.
                 </p>
               </div>
 
@@ -195,6 +244,48 @@ export function GroveEngineeringTrustSection() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* CLEAN ARCHITECTURE & TECHNOLOGY MATRIX (REPLACES NOISY TICKER)            */}
+        {/* ========================================================================= */}
+        <div className="pt-6 border-t border-slate-200/80 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] tracking-tight">
+                Fondasi Teknologi &amp; Arsitektur Kelas Industri
+              </h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Standar teknologi modern tanpa dependensi usang, memastikan kecepatan maksimal dan keamanan aset kode Anda.
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold shrink-0 self-start sm:self-auto">
+              <span className="w-2 h-2 rounded-full bg-blue-600" />
+              <span>Zero Bloatware · 100% Hak Milik</span>
+            </div>
+          </div>
+
+          {/* 8-Tile Clean Tech Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            {techMatrix.map((t, idx) => (
+              <div
+                key={idx}
+                className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-blue-400 hover:bg-white hover:shadow-sm transition-all duration-200 group"
+              >
+                <div className="flex items-center justify-between pb-2">
+                  <span className="text-xs font-extrabold text-[#0F172A] group-hover:text-[#2563EB] transition-colors truncate">
+                    {t.name}
+                  </span>
+                </div>
+                <p className="text-[11px] font-semibold text-blue-700 leading-snug">
+                  {t.role}
+                </p>
+                <p className="text-[10px] text-slate-500 mt-1 leading-tight">
+                  {t.spec}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

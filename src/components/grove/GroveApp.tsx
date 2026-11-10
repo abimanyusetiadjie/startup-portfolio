@@ -3,7 +3,6 @@
 import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
 import { GrovePartnerPill } from "./GrovePartnerPill";
-import { GroveTechStackGrid } from "./GroveTechStackGrid";
 import { GroveCapabilitiesSection } from "./GroveCapabilitiesSection";
 import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveTestimonialsGrid } from "./GroveTestimonialsGrid";
@@ -23,13 +22,10 @@ export function GroveApp() {
       {/* 2. Hero Section + 4-Metric Trust Bar (Screen 1) */}
       <GroveHeroSection />
 
-      {/* 3. Trusted By / Client Institutions Ribbon (Moving Left ←) */}
+      {/* 3. Trusted Production Deployments Ribbon (Single Sleek Executive Bar) */}
       <GrovePartnerPill />
 
-      {/* 4. Tech Stack & Engineering Architecture Ribbon (Moving Right →) */}
-      <GroveTechStackGrid />
-
-      {/* 5. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
+      {/* 4. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
       <GroveCapabilitiesSection />
 
       {/* 6. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
