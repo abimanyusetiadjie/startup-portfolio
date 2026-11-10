@@ -182,6 +182,135 @@ export function GrovePricingSection() {
           </p>
         </div>
 
+        {/* ========================================================================= */}
+        {/* DUAL-SCHEME OWNERSHIP SELECTOR (TERIMA BERES vs BELI PUTUS)               */}
+        {/* ========================================================================= */}
+        <div className="mb-10 sm:mb-12 space-y-4">
+          <div className="text-center max-w-xl mx-auto space-y-1">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#2563EB]">
+              FLEKSIBILITAS IMPLEMENTASI
+            </span>
+            <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] tracking-tight">
+              Pilih Skema Sesuai Kesiapan Tim Anda:
+            </h3>
+            <p className="text-xs text-slate-500">
+              Setiap paket harga di bawah dapat Anda ambil dengan 2 pilihan model operasional:
+            </p>
+          </div>
+
+          {/* 2 Compact Option Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
+            {/* Opsi 1: Skema Terima Beres */}
+            <div className="p-5 sm:p-6 rounded-3xl bg-white border-2 border-[#2563EB] shadow-[0_12px_28px_rgba(37,99,235,0.08)] relative flex flex-col justify-between space-y-4 group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center font-bold text-base border border-blue-200/80 shadow-2xs">
+                      ☁️
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-[#2563EB] uppercase tracking-wider block">
+                        Opsi A: Managed Cloud
+                      </span>
+                      <h4 className="text-base sm:text-lg font-black text-[#0F172A] leading-tight">
+                        Skema &ldquo;Terima Beres&rdquo;
+                      </h4>
+                    </div>
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-blue-100/80 text-[#1E40AF] text-[9.5px] font-bold border border-blue-200 shrink-0">
+                    Paling Praktis
+                  </span>
+                </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Server Dedicated, Cloud, &amp; Maintenance teknis kami rawat penuh. Pilihan sempurna jika Anda belum memiliki tim programmer internal. Anda cukup login dan fokus berbisnis.
+                </p>
+
+                <div className="space-y-1.5 text-xs text-slate-700 pt-1 border-t border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                    <span>Server Cloud Dedicated 24/7 &amp; SLA 99.9%</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                    <span>Backup Database Otomatis Harian &amp; Patch Bug Rutin</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                    <span>Dukungan Engineer Siaga via WhatsApp &lt;15 Menit</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">Biaya Rawat Server:</span>
+                <span className="font-bold text-[#1D4ED8]">Biaya Flat Terjangkau (Rp 0 per-user)</span>
+              </div>
+            </div>
+
+            {/* Opsi 2: Skema Beli Putus */}
+            <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all relative flex flex-col justify-between space-y-4 group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-base border border-slate-200 shadow-2xs">
+                      💻
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                        Opsi B: Self-Hosted Mandiri
+                      </span>
+                      <h4 className="text-base sm:text-lg font-black text-[#0F172A] leading-tight">
+                        Skema &ldquo;Beli Putus / Mandiri&rdquo;
+                      </h4>
+                    </div>
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[9.5px] font-bold border border-slate-200 shrink-0">
+                    Aset 100% Mandiri
+                  </span>
+                </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  100% Source code &amp; database PostgreSQL diserahkan utuh ke server Anda. Pilihan tepat jika institusi Anda telah memiliki tim IT/DevOps internal sendiri.
+                </p>
+
+                <div className="space-y-1.5 text-xs text-slate-700 pt-1 border-t border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>100% Full Source Code Git &amp; Skema Database Penuh</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>Deploy Bebas di Server Sendiri (AWS, GCP, VPS, Server Kantor)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>Bebas Biaya Langganan Selamanya (Rp 0 / Bulan)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <span className="text-slate-500 font-medium">Biaya Rutin ke Abinest:</span>
+                <span className="font-bold text-emerald-700">Rp 0,- / Bulan (Lepas Tanggung Jawab)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Klausul Emas Banner */}
+          <div className="max-w-4xl mx-auto p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 via-white to-sky-50/90 border border-blue-200/90 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-2xs">
+            <div className="flex items-center gap-2.5">
+              <span className="text-base shrink-0">🛡️</span>
+              <p className="text-slate-700 leading-relaxed font-normal">
+                <strong className="text-[#0F172A] font-bold">Klausul Emas Abinest:</strong> Anda bebas memulai dari skema <strong>Terima Beres</strong> agar langsung jalan. Di masa depan, jika sudah punya tim IT, <strong>seluruh source code &amp; database bebas Anda ambil alih 100%</strong> kapan saja tanpa penalti (Zero Lock-In).
+              </p>
+            </div>
+            <span className="px-2.5 py-1 rounded-lg bg-white text-[#2563EB] text-[10.5px] font-bold border border-blue-200 shrink-0 shadow-2xs whitespace-nowrap">
+              Bebas Pindah Kapan Saja ✓
+            </span>
+          </div>
+        </div>
+
         {/* 3-Column Compact & Aesthetic Pricing Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-7 items-stretch">
           {pricingTiers.map((tier, idx) => {
