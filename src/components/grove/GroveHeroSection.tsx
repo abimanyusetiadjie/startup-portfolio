@@ -36,11 +36,11 @@ export function GroveHeroSection() {
     },
     {
       id: "erp",
-      tabLabel: "2. Kasir POS & ERP",
+      tabLabel: "2. Sistem ERP & UMKM",
       tabSubtitle: "Otomasi Operasional",
       icon: Building2,
       accentColor: "#1D4ED8",
-      headlineLine1: "Sistem Kasir POS & ERP Kustom",
+      headlineLine1: "Sistem ERP & Operasional UMKM",
       headlineLine2: "Otomatiskan Stok, Toko, & Keuangan.",
       story:
         "Solusi operasional terjangkau untuk UMKM ritel, kafe, distributor, hingga sekolah. Pantau stok barang masuk-keluar, kelola kasir kasbon/tunai, dan lihat laporan laba rugi harian otomatis dari HP Anda—tanpa beban biaya lisensi bulanan per kasir atau staf selamanya.",
@@ -51,11 +51,11 @@ export function GroveHeroSection() {
     },
     {
       id: "ai-wa",
-      tabLabel: "3. WhatsApp AI & Automasi",
+      tabLabel: "3. Automasi AI/ML",
       tabSubtitle: "CS Cerdas 24 Jam Nonstop",
       icon: Bot,
       accentColor: "#0284C7",
-      headlineLine1: "WhatsApp AI Agent & Automasi",
+      headlineLine1: "Automasi AI/ML & WhatsApp",
       headlineLine2: "Admin CS Cerdas 24 Jam Nonstop.",
       story:
         "Otomatiskan customer service UMKM dengan AI resmi Meta WhatsApp API. Balas pesan pelanggan <1 detik, kirim katalog produk, jawab pertanyaan umum, hingga rekap pesanan otomatis 24 jam nonstop tanpa perlu repot bayar lembur admin shift malam.",
