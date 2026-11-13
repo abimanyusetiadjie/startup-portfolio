@@ -1,29 +1,37 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import {
   Globe,
   Database,
   BrainCircuit,
   ArrowRight,
   Clock,
-  Building,
+  CheckCircle2,
+  Layers,
+  Table2,
 } from "lucide-react";
+
+const WHATSAPP_NUMBER = "6281398589745";
 
 export function GroveCapabilitiesSection() {
   const capabilities = [
     {
       id: "web",
+      stepTag: "PILAR 01",
       tag: "Next.js · Headless Web",
       title: "Modern Web Architecture",
       desc: "Website korporat berkecepatan tinggi (<0.8 detik), SEO Google 100/100, dan UI/UX konversi tinggi untuk melipatgandakan leads bisnis Anda.",
       badges: ["<0.8s Loading", "SEO 100/100", "Zero Bloat"],
-      delivery: "2 – 3 Minggu",
-      fitFor: "Korporat & Institusi",
+      delivery: "7 – 14 Hari Kerja",
+      fitFor: "UMKM, Sekolah & Korporat",
+      priceHint: "Mulai Rp 1.5 Juta",
       icon: Globe,
-      waMessage: "Halo Tim Abinest, saya tertarik mendiskusikan arsitektur Website Modern (<0.8s load) & 100% hak milik kode untuk perusahaan kami.",
+      waMessage:
+        "Halo Tim Abinest, saya tertarik mendiskusikan arsitektur Website Modern (<0.8s load) & 100% hak milik kode untuk perusahaan kami.",
       visual: (
-        <div className="relative w-full h-[220px] sm:h-[240px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group bg-slate-100">
+        <div className="relative w-full h-[210px] sm:h-[225px] bg-slate-100 border-b border-slate-200 overflow-hidden group">
           <Image
             src="/images/hero-web.webp"
             alt="Modern Web Architecture by Abinest"
@@ -36,16 +44,19 @@ export function GroveCapabilitiesSection() {
     },
     {
       id: "erp",
+      stepTag: "PILAR 02",
       tag: "Enterprise ERP · Multi-Warehouse",
       title: "Custom Enterprise ERP & SIAKAD",
       desc: "Sistem operasional terpadu: multi-gudang, inventori, SIAKAD sekolah, & faktur otomatis tanpa biaya lisensi per user selamanya — 100% hak milik kode program.",
       badges: ["Multi-Gudang", "Bebas Lisensi User", "SLA 99.9%"],
-      delivery: "4 – 8 Minggu",
+      delivery: "2 – 8 Minggu",
       fitFor: "Distribusi, Pabrik & Sekolah",
+      priceHint: "Mulai Rp 4 Juta",
       icon: Database,
-      waMessage: "Halo Tim Abinest, saya tertarik konsultasi Custom ERP / SIAKAD Sekolah tanpa biaya lisensi bulanan.",
+      waMessage:
+        "Halo Tim Abinest, saya tertarik konsultasi Custom ERP / SIAKAD Sekolah tanpa biaya lisensi bulanan.",
       visual: (
-        <div className="relative w-full h-[220px] sm:h-[240px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group bg-slate-100">
+        <div className="relative w-full h-[210px] sm:h-[225px] bg-slate-100 border-b border-slate-200 overflow-hidden group">
           <Image
             src="/images/erp-dashboard.webp"
             alt="Custom Enterprise ERP System Dashboard by Abinest"
@@ -58,16 +69,19 @@ export function GroveCapabilitiesSection() {
     },
     {
       id: "aiml",
+      stepTag: "PILAR 03",
       tag: "Applied AI & Machine Learning",
       title: "Automasi AI & Machine Learning",
       desc: "Ekstraksi faktur otomatis via Document AI OCR (akurasi 99.7%) dan chatbot agen AI WhatsApp resmi Meta untuk memangkas kerja manual bisnis Anda.",
       badges: ["Document AI OCR", "Meta WhatsApp API", "Private Model"],
-      delivery: "2 – 4 Minggu",
+      delivery: "1 – 4 Minggu",
       fitFor: "Finance & Customer Care",
+      priceHint: "Mulai Rp 5 Juta+",
       icon: BrainCircuit,
-      waMessage: "Halo Tim Abinest, saya tertarik konsultasi implementasi Automasi AI/ML (Document OCR / Meta WhatsApp AI Agent).",
+      waMessage:
+        "Halo Tim Abinest, saya tertarik konsultasi implementasi Automasi AI/ML (Document OCR / Meta WhatsApp AI Agent).",
       visual: (
-        <div className="relative w-full h-[220px] sm:h-[240px] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group bg-slate-900">
+        <div className="relative w-full h-[210px] sm:h-[225px] bg-slate-900 border-b border-slate-200 overflow-hidden group">
           <Image
             src="/images/ai-ml-workflow.webp"
             alt="Applied AI & Machine Learning Pipeline by Abinest"
@@ -80,92 +94,262 @@ export function GroveCapabilitiesSection() {
     },
   ];
 
+  const comparisonRows = [
+    {
+      aspect: "Masalah Utama yang Diselesaikan",
+      web: "Website lambat, tampilan kurang meyakinkan, & sulit muncul di Google lokal.",
+      erp: "Stok sering selisih, rekap keuangan manual, & server ujian/PPDB sering down.",
+      aiml: "Admin kewalahan balas chat WhatsApp & salah ketik saat input ratusan faktur.",
+    },
+    {
+      aspect: "Target Pengguna Ideal",
+      web: "UMKM, Profil Perusahaan, Yayasan, Sekolah, & Landing Page Produk.",
+      erp: "Distributor Multi-Gudang, Ritel/POS, Klinik, & Kampus / SIAKAD Sekolah.",
+      aiml: "Tim Finance/Akuntansi, Customer Service 24/7, & Funnel Sales B2B.",
+    },
+    {
+      aspect: "Estimasi Waktu Siap Pakai",
+      web: "7 – 14 Hari Kerja",
+      erp: "2 – 8 Minggu (Bertahap per Modul)",
+      aiml: "1 – 4 Minggu",
+    },
+    {
+      aspect: "Standar Kinerja & Keandalan",
+      web: "Loading <0.8 detik · Google PageSpeed 95–100",
+      erp: "Jaminan SLA 99.9% Uptime · Database PostgreSQL",
+      aiml: "Meta Cloud API Resmi · Respon Bot <1 detik",
+    },
+    {
+      aspect: "Hak Milik Source Code",
+      web: "✓ 100% Milik Klien (Git Repo)",
+      erp: "✓ 100% Milik Klien + DB Dump",
+      aiml: "✓ 100% Script & Prompt Milik Klien",
+    },
+    {
+      aspect: "Biaya Lisensi Per-User / Bulanan",
+      web: "Rp 0 (Skema Beli Putus)",
+      erp: "Rp 0 (Unlimited Staf / Siswa)",
+      aiml: "Rp 0 Lisensi Software (Bayar Pemakaian API)",
+    },
+  ];
+
   return (
     <section
       id="layanan-utama"
-      className="py-14 sm:py-16 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden"
+      className="py-14 sm:py-16 relative bg-white border-b border-slate-300/80 overflow-hidden"
     >
       <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-10 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-xl mx-auto space-y-3">
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.38, ease: "easeOut" }}
+          className="text-center max-w-2xl mx-auto space-y-3"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#1D4ED8] text-[11px] font-bold uppercase tracking-wider">
+            <Layers className="w-3.5 h-3.5" />
+            <span>3 PILAR SOLUSI TERPADU</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
             Layanan Rekayasa Digital
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-            Tiga pilar solusi terpadu dengan kepemilikan 100% kode program dan garansi SLA 99.9%.
+            Tiga pilar solusi terstruktur dengan kepemilikan 100% kode program, batasan ruang lingkup yang jelas, dan garansi SLA 99.9%.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3-Column Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7">
-          {capabilities.map((item) => {
+        {/* 3-Column Card Grid (Bootstrap Card Anatomy: Header -> Media -> Body -> List Group -> Footer) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
+          {capabilities.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={item.id}
-                className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-[0_10px_30px_rgba(15,23,42,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.12 }}
+                transition={{ duration: 0.38, delay: idx * 0.08, ease: "easeOut" }}
+                whileHover={{ y: -4 }}
+                className="ui-card overflow-hidden hover:border-blue-400 hover:shadow-lg transition-all duration-200 group"
               >
-                {/* 1. Visual Showcase */}
-                <div className="w-full mb-5">
-                  {item.visual}
+                {/* 1. Card Header */}
+                <div className="ui-card-header">
+                  <div className="inline-flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-200 text-[#2563EB] flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-extrabold text-[#0F172A] tracking-wide">
+                      {item.stepTag}
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-md bg-white border border-slate-300 text-[10.5px] font-bold text-slate-700">
+                    {item.tag}
+                  </span>
                 </div>
 
-                {/* 2. Text Content */}
-                <div className="space-y-3.5">
-                  {/* Category Pill Tag */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#1E40AF] border border-blue-200 text-[11px] font-bold">
-                    <Icon className="w-3.5 h-3.5 text-blue-600" />
-                    <span>{item.tag}</span>
+                {/* 2. Uncluttered Card Visual */}
+                {item.visual}
+
+                {/* 3. Card Body */}
+                <div className="ui-card-body flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] group-hover:text-[#2563EB] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-extrabold text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors leading-snug">
-                    {item.title}
-                  </h3>
-
-                  {/* Benefit Description */}
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
-
-                  {/* Delivery & Target Fit Meta */}
-                  <div className="flex items-center justify-between text-[11px] py-1.5 px-2.5 rounded-xl bg-slate-50 border border-slate-200/70 text-slate-600">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-blue-600" />
-                      <span>Delivery: <strong className="text-slate-900 font-bold">{item.delivery}</strong></span>
+                  {/* Bootstrap List-Group Flush Specification Box */}
+                  <div className="ui-list-group text-xs bg-slate-50/50">
+                    <div className="px-3.5 py-2 flex items-center justify-between gap-2">
+                      <span className="text-slate-500 font-medium flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-[#2563EB]" />
+                        Waktu Rilis
+                      </span>
+                      <span className="font-bold text-[#0F172A]">{item.delivery}</span>
                     </div>
-                    <span className="text-[10.5px] text-blue-700 font-semibold">{item.fitFor}</span>
+                    <div className="px-3.5 py-2 flex items-center justify-between gap-2">
+                      <span className="text-slate-500 font-medium">Cocok Untuk</span>
+                      <span className="font-bold text-blue-700 text-right">{item.fitFor}</span>
+                    </div>
+                    <div className="px-3.5 py-2 flex items-center justify-between gap-2 bg-white">
+                      <span className="text-slate-500 font-medium">Estimasi Awal</span>
+                      <span className="font-extrabold text-[#0F172A]">{item.priceHint}</span>
+                    </div>
                   </div>
 
-                  {/* Feature Pill Tags */}
-                  <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                  {/* Feature Tags */}
+                  <div className="flex flex-wrap items-center gap-1.5">
                     {item.badges.map((b, bIdx) => (
                       <span
                         key={bIdx}
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200"
+                        className="text-[10.5px] font-semibold px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200"
                       >
                         {b}
                       </span>
                     ))}
                   </div>
-
-                  {/* CTA Action Button */}
-                  <div className="pt-2 border-t border-slate-100">
-                    <a
-                      href={`https://wa.me/6281398589745?text=${encodeURIComponent(item.waMessage)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold text-white bg-[#0B1220] hover:bg-[#1D4ED8] transition-colors shadow-xs group-hover:shadow-md"
-                    >
-                      <span>Diskusikan Arsitektur Ini</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                    </a>
-                  </div>
                 </div>
-              </div>
+
+                {/* 4. Card Footer */}
+                <div className="ui-card-footer">
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.waMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] transition-colors shadow-2xs"
+                  >
+                    <span>Diskusikan Arsitektur Ini</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </a>
+                </div>
+              </motion.div>
             );
           })}
         </div>
+
+        {/* Crisp Bootstrap-Style Service Comparison Matrix */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.12 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="ui-card overflow-hidden"
+        >
+          <div className="ui-card-header bg-slate-100/80 flex-wrap">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-[#2563EB] text-white flex items-center justify-center shrink-0">
+                <Table2 className="w-4 h-4" />
+              </div>
+              <div>
+                <h3 className="text-sm sm:text-base font-extrabold text-[#0F172A] leading-tight">
+                  Tabel Perbandingan Layanan &amp; Spesifikasi Teknis
+                </h3>
+                <p className="text-[11px] sm:text-xs text-slate-500">
+                  Bandingkan kecocokan tiap pilar berdasarkan kebutuhan dan target waktu usaha Anda.
+                </p>
+              </div>
+            </div>
+            <span className="px-2.5 py-1 rounded-md bg-white border border-slate-300 text-[11px] font-bold text-slate-700">
+              100% Transparan
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse min-w-[740px] text-xs sm:text-[13px]">
+              <thead>
+                <tr className="bg-[#0F172A] text-white border-b border-slate-300 divide-x divide-slate-700/80">
+                  <th className="py-3.5 px-4 font-bold w-[22%]">Aspek Perbandingan</th>
+                  <th className="py-3.5 px-4 font-bold w-[26%]">
+                    <span className="text-sky-300 block text-[10px] uppercase tracking-wider font-mono">
+                      Pilar 01
+                    </span>
+                    Modern Web (&lt;0.8s)
+                  </th>
+                  <th className="py-3.5 px-4 font-bold w-[26%] bg-[#1E3A8A]">
+                    <span className="text-sky-200 block text-[10px] uppercase tracking-wider font-mono">
+                      Pilar 02 · Terpopuler
+                    </span>
+                    Custom ERP &amp; SIAKAD
+                  </th>
+                  <th className="py-3.5 px-4 font-bold w-[26%]">
+                    <span className="text-sky-300 block text-[10px] uppercase tracking-wider font-mono">
+                      Pilar 03
+                    </span>
+                    Automasi AI &amp; WhatsApp
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 text-slate-700">
+                {comparisonRows.map((row, rIdx) => (
+                  <tr
+                    key={rIdx}
+                    className={`divide-x divide-slate-200 transition-colors hover:bg-blue-50/40 ${
+                      rIdx % 2 === 1 ? "bg-slate-50/60" : "bg-white"
+                    }`}
+                  >
+                    <td className="py-3 px-4 font-bold text-[#0F172A] align-top">
+                      {row.aspect}
+                    </td>
+                    <td className="py-3 px-4 align-top leading-relaxed">
+                      {row.web.startsWith("✓") ? (
+                        <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-700">
+                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                          <span>{row.web.replace("✓ ", "")}</span>
+                        </span>
+                      ) : (
+                        row.web
+                      )}
+                    </td>
+                    <td className="py-3 px-4 align-top leading-relaxed bg-blue-50/25 font-medium text-slate-800">
+                      {row.erp.startsWith("✓") ? (
+                        <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-700">
+                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                          <span>{row.erp.replace("✓ ", "")}</span>
+                        </span>
+                      ) : (
+                        row.erp
+                      )}
+                    </td>
+                    <td className="py-3 px-4 align-top leading-relaxed">
+                      {row.aiml.startsWith("✓") ? (
+                        <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-700">
+                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                          <span>{row.aiml.replace("✓ ", "")}</span>
+                        </span>
+                      ) : (
+                        row.aiml
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

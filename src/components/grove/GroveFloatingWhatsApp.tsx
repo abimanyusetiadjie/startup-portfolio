@@ -86,9 +86,9 @@ export function GroveFloatingWhatsApp() {
       >
         {/* Quick Option Popover Card */}
         {isOpen && (
-          <div className="mb-3 w-[320px] sm:w-[380px] rounded-3xl bg-white border border-slate-200 shadow-2xl overflow-hidden text-slate-800 animate-in fade-in slide-in-from-bottom-3 duration-200">
+          <div className="mb-3 w-[320px] sm:w-[380px] rounded-2xl bg-white border border-slate-300 shadow-2xl overflow-hidden text-slate-800 animate-in fade-in slide-in-from-bottom-3 duration-200">
             {/* WhatsApp Styled Brand Header */}
-            <div className="bg-[#075E54] text-white p-4 flex items-center justify-between">
+            <div className="bg-[#075E54] border-b border-emerald-950/30 text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-inner">
                   <WhatsAppIcon className="w-6 h-6 text-white" />
@@ -107,7 +107,7 @@ export function GroveFloatingWhatsApp() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-xl text-emerald-200/80 hover:text-white hover:bg-white/10 transition-colors"
+                className="p-1.5 rounded-lg text-emerald-200/80 hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Tutup jendela chat"
               >
                 <X className="w-4 h-4" />
@@ -117,7 +117,7 @@ export function GroveFloatingWhatsApp() {
             {/* Chat Dialog Body */}
             <div className="p-4 bg-[#F8FAFC] space-y-3">
               {/* WhatsApp Message Bubble Simulation */}
-              <div className="bg-white rounded-2xl rounded-tl-sm p-3.5 shadow-xs border border-slate-200/80 space-y-1.5">
+              <div className="bg-white rounded-xl rounded-tl-sm p-3.5 shadow-xs border border-slate-300/80 space-y-1.5">
                 <p className="text-xs text-slate-700 leading-relaxed font-normal">
                   Halo! 👋 Terima kasih telah mengunjungi Abinest.
                   <br />
@@ -130,20 +130,20 @@ export function GroveFloatingWhatsApp() {
                 </div>
               </div>
 
-              {/* 3 Quick Option Buttons */}
-              <div className="space-y-2 pt-1">
+              {/* 3 Quick Option Buttons in Divided List Group */}
+              <div className="ui-list-group border-slate-300">
                 {quickOptions.map((opt, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => handleOpenChat(opt.text)}
-                    className="w-full text-left p-2.5 rounded-xl bg-white hover:bg-emerald-50/70 border border-slate-200 hover:border-emerald-300 text-xs transition-all duration-150 flex items-center justify-between group shadow-2xs cursor-pointer"
+                    className="w-full text-left p-3 bg-white hover:bg-emerald-50/70 text-xs transition-all duration-150 flex items-center justify-between group cursor-pointer"
                   >
                     <div className="min-w-0 pr-2">
                       <div className="font-bold text-[#0F172A] group-hover:text-[#065F46] transition-colors truncate">
                         {opt.title}
                       </div>
-                      <div className="text-[10px] text-slate-500 truncate mt-0.5">
+                      <div className="text-[10.5px] text-slate-500 truncate mt-0.5">
                         {opt.desc}
                       </div>
                     </div>
@@ -154,11 +154,11 @@ export function GroveFloatingWhatsApp() {
             </div>
 
             {/* Modal Bottom Action Bar */}
-            <div className="p-3 bg-white border-t border-slate-100 flex items-center gap-2">
+            <div className="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => handleOpenChat()}
-                className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] active:scale-98 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] active:scale-98 text-white font-bold text-xs sm:text-sm shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
                 <span>Mulai Chat di WhatsApp Langsung</span>

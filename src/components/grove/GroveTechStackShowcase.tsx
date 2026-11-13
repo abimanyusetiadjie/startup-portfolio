@@ -463,22 +463,36 @@ export function GroveTechStackShowcase() {
   return (
     <section
       id="tech-stack"
-      className="py-8 sm:py-10 relative bg-[#F8FAFC] border-y border-slate-200/80 overflow-hidden"
+      className="py-12 sm:py-14 relative bg-[#F8FAFC] border-b border-slate-300/80 overflow-hidden"
     >
-      {/* Background Soft Mesh Accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[240px] bg-blue-100/30 blur-[100px] rounded-full pointer-events-none" />
-
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header: Title Case with Electric Blue Accent */}
-        <div className="text-center max-w-xl mx-auto mb-6 sm:mb-8">
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+        {/* Structured Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.36, ease: "easeOut" }}
+          className="text-center max-w-2xl mx-auto space-y-2.5"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-slate-300 text-slate-700 text-[11px] font-bold uppercase tracking-wider shadow-2xs">
+            <span>INFRASTRUKTUR &amp; STANDAR PRODUKSI</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 select-text">
-            Our Tech <span className="text-blue-600">Stack</span><span className="text-blue-600">.</span>
+            Our Tech <span className="text-[#2563EB]">Stack</span>.
           </h2>
-        </div>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
+            Kombinasi bahasa, framework, database, dan mesin automasi teruji industri untuk menjamin kecepatan, stabilitas, dan keamanan data jangka panjang.
+          </p>
+        </motion.div>
 
-        {/* Dual Animated Marquee Tracks (Crisp White Squircle Cards) */}
-        <div className="relative w-full overflow-hidden space-y-3 sm:space-y-3.5 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+        {/* Crisp Bordered Container for Dual Marquee Tracks */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.38, ease: "easeOut" }}
+          className="relative w-full overflow-hidden rounded-2xl border border-slate-300 bg-white py-5 shadow-xs space-y-3.5 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]"
+        >
           {/* Track 1: Moving Towards Left (←) */}
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
@@ -487,24 +501,25 @@ export function GroveTechStackShowcase() {
               ease: "linear",
               repeat: Infinity,
             }}
-            className="flex gap-3 sm:gap-3.5 w-max hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
+            className="flex gap-3 sm:gap-3.5 w-max will-change-transform hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
           >
             {duplicatedTrack1.map((item, idx) => (
               <div
                 key={`track1-${idx}`}
-                className="group relative flex flex-col items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white hover:bg-slate-50/90 border border-slate-200/90 hover:border-blue-400/80 shadow-[0_2px_6px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.09)] transition-all duration-200 hover:scale-105 hover:-translate-y-1 p-2.5 shrink-0"
+                className="group relative flex flex-col justify-between w-28 sm:w-32 rounded-xl bg-white border border-slate-300 hover:border-[#2563EB] shadow-2xs hover:shadow-md transition-all duration-200 overflow-hidden shrink-0"
               >
-                {/* Brand Logo */}
-                <div className="shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-2xs">
-                  {item.icon}
-                </div>
-
-                {/* Title & Micro Role */}
-                <div className="mt-2 text-center">
-                  <p className="text-xs sm:text-[12.5px] font-bold text-[#0F172A] group-hover:text-blue-600 transition-colors truncate max-w-[84px] sm:max-w-[100px]">
+                <div className="flex flex-col items-center justify-center pt-3.5 pb-2.5 px-2">
+                  <div className="shrink-0 transition-transform duration-200 group-hover:scale-110">
+                    {item.icon}
+                  </div>
+                  <p className="mt-2 text-xs font-extrabold text-[#0F172A] group-hover:text-[#2563EB] transition-colors truncate max-w-full">
                     {item.name}
                   </p>
-                  <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-slate-500 group-hover:text-blue-600/90 tracking-tight">
+                </div>
+
+                {/* Mini Card Footer Strip */}
+                <div className="bg-slate-50 border-t border-slate-200 px-2 py-1 text-center">
+                  <span className="block text-[9.5px] font-semibold text-slate-600 truncate">
                     {item.role}
                   </span>
                 </div>
@@ -520,31 +535,32 @@ export function GroveTechStackShowcase() {
               ease: "linear",
               repeat: Infinity,
             }}
-            className="flex gap-3 sm:gap-3.5 w-max hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
+            className="flex gap-3 sm:gap-3.5 w-max will-change-transform hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
           >
             {duplicatedTrack2.map((item, idx) => (
               <div
                 key={`track2-${idx}`}
-                className="group relative flex flex-col items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white hover:bg-slate-50/90 border border-slate-200/90 hover:border-blue-400/80 shadow-[0_2px_6px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.09)] transition-all duration-200 hover:scale-105 hover:-translate-y-1 p-2.5 shrink-0"
+                className="group relative flex flex-col justify-between w-28 sm:w-32 rounded-xl bg-white border border-slate-300 hover:border-[#2563EB] shadow-2xs hover:shadow-md transition-all duration-200 overflow-hidden shrink-0"
               >
-                {/* Brand Logo */}
-                <div className="shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-2xs">
-                  {item.icon}
-                </div>
-
-                {/* Title & Micro Role */}
-                <div className="mt-2 text-center">
-                  <p className="text-xs sm:text-[12.5px] font-bold text-[#0F172A] group-hover:text-blue-600 transition-colors truncate max-w-[84px] sm:max-w-[100px]">
+                <div className="flex flex-col items-center justify-center pt-3.5 pb-2.5 px-2">
+                  <div className="shrink-0 transition-transform duration-200 group-hover:scale-110">
+                    {item.icon}
+                  </div>
+                  <p className="mt-2 text-xs font-extrabold text-[#0F172A] group-hover:text-[#2563EB] transition-colors truncate max-w-full">
                     {item.name}
                   </p>
-                  <span className="inline-block text-[9px] sm:text-[9.5px] font-medium text-slate-500 group-hover:text-blue-600/90 tracking-tight">
+                </div>
+
+                {/* Mini Card Footer Strip */}
+                <div className="bg-slate-50 border-t border-slate-200 px-2 py-1 text-center">
+                  <span className="block text-[9.5px] font-semibold text-slate-600 truncate">
                     {item.role}
                   </span>
                 </div>
               </div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

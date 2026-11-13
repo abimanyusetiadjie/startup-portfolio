@@ -102,15 +102,18 @@ export function GroveCaseStudySection() {
   return (
     <section
       id="portofolio"
-      className="py-12 sm:py-16 relative bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden"
+      className="py-12 sm:py-16 relative bg-[#F8FAFC] border-b border-slate-300/80 overflow-hidden"
     >
-      {/* Background Soft Mesh Ambient */}
-      <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none" />
-
       <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
-        {/* Section Header & Tabs */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1E40AF]">
+        {/* Section Header & Bordered Tab Switcher */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.38, ease: "easeOut" }}
+          className="text-center max-w-2xl mx-auto space-y-3"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#1E40AF]">
             <Briefcase className="w-3.5 h-3.5 text-blue-600" />
             <span className="text-[11px] font-bold tracking-wider uppercase">
               STUDI KASUS &amp; BUKTI KINERJA NYATA
@@ -125,172 +128,178 @@ export function GroveCaseStudySection() {
             Pelajari bagaimana arsitektur kustom Abinest menyelesaikan kendala operasional nyata dan melipatgandakan efisiensi institusi klien.
           </p>
 
-          {/* Interactive Case Switcher Tabs */}
-          <div className="pt-2 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-            {cases.map((cs, idx) => {
-              const active = selectedCaseIdx === idx;
-              return (
-                <button
-                  key={cs.id}
-                  type="button"
-                  onClick={() => setSelectedCaseIdx(idx)}
-                  className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-bold transition-all cursor-pointer ${
-                    active
-                      ? "bg-[#2563EB] text-white shadow-md shadow-blue-500/20 scale-102"
-                      : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300"
-                  }`}
-                >
-                  {cs.tabTitle}
-                </button>
-              );
-            })}
+          {/* Crisp Bordered Tab Bar — Always 1 row on mobile & desktop */}
+          <div className="pt-2 flex items-center justify-center">
+            <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto gap-1 p-1 sm:p-1.5 rounded-xl bg-white border border-slate-300 shadow-2xs">
+              {cases.map((cs, idx) => {
+                const active = selectedCaseIdx === idx;
+                return (
+                  <button
+                    key={cs.id}
+                    type="button"
+                    onClick={() => setSelectedCaseIdx(idx)}
+                    className={`px-2 sm:px-4 py-2 rounded-lg text-[11px] sm:text-[13px] font-bold transition-all cursor-pointer truncate ${
+                      active
+                        ? "bg-[#2563EB] text-white shadow-xs"
+                        : "text-slate-600 hover:text-[#0F172A] hover:bg-slate-100"
+                    }`}
+                  >
+                    {cs.tabTitle}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* MASTER STUDIO SPLIT CARD (CLEAN SCREENSHOT FOCUS - NO CLUTTER, NO STRANGE BADGES) */}
+        {/* MASTER STRUCTURED CASE STUDY CARD (Card Header + 12-Col Body) */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.12 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
         <AnimatePresence mode="wait">
           <motion.div
             key={currentCase.id}
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.22 }}
-            className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_20px_50px_rgba(15,23,42,0.06)]"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.2 }}
+            className="ui-card overflow-hidden shadow-md"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-              {/* LEFT COLUMN: Clean, High-Resolution UI Screenshot in Subtle Window Frame (7 Cols / ~58%) */}
-              <div className="lg:col-span-7 flex flex-col justify-center">
-                <div className="rounded-2xl bg-white border border-slate-300/80 shadow-[0_12px_32px_rgba(15,23,42,0.08)] overflow-hidden flex flex-col group">
-                  {/* Clean, Realistic Browser Navigation Header (No clunky badges) */}
-                  <div className="bg-slate-100/90 border-b border-slate-200 px-3.5 py-2.5 flex items-center justify-between text-slate-500">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                    </div>
-                    
-                    {/* Clean Minimalist URL Pill */}
-                    <div className="px-3.5 py-0.5 rounded-md bg-white border border-slate-200/80 text-[11px] font-mono text-slate-600 flex items-center gap-1.5 shadow-2xs">
-                      <Lock className="w-3 h-3 text-emerald-600" />
-                      <span className="font-medium">https://{currentCase.visualUrl}</span>
-                    </div>
-
-                    <div className="w-10" />
+            {/* Card Header Bar */}
+            <div className="ui-card-header flex-wrap">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center font-bold border border-blue-200 shrink-0">
+                  <Icon className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0F172A] leading-tight">
+                    {currentCase.clientSector}
                   </div>
-
-                  {/* Clean Direct UI Screenshot Container */}
-                  <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[460px] xl:h-[480px] bg-slate-100 overflow-hidden">
-                    <Image
-                      src={currentCase.imagePreview}
-                      alt={currentCase.headline}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                      sizes="(max-width: 1024px) 100vw, 58vw"
-                      priority
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        if (target.src !== currentCase.fallbackImage) {
-                          target.src = currentCase.fallbackImage;
-                        }
-                      }}
-                    />
+                  <div className="text-[11px] text-slate-500">
+                    {currentCase.location}
                   </div>
                 </div>
               </div>
 
-              {/* RIGHT COLUMN: Compact Info & Impact Panel (5 Cols / ~42%) */}
-              <div className="lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-5">
-                {/* Sector Header & Tag */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between gap-2 flex-wrap">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#1E40AF] flex items-center justify-center font-bold border border-blue-200 shrink-0">
-                        <Icon className="w-4 h-4" />
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded-md bg-white border border-slate-300 text-slate-700 text-[10.5px] font-bold tracking-wide">
+                  {currentCase.tag}
+                </span>
+                <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10.5px] font-bold">
+                  Implementasi Terverifikasi
+                </span>
+              </div>
+            </div>
+
+            {/* Card Body: 12-Col Split Layout */}
+            <div className="ui-card-body">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+                {/* LEFT COLUMN: Clean Screenshot Card (No Mac Dots, Clean URL Header Strip) */}
+                <div className="lg:col-span-7 flex flex-col justify-center">
+                  <div className="rounded-xl bg-white border border-slate-300 shadow-xs overflow-hidden flex flex-col group">
+                    <div className="bg-slate-50 border-b border-slate-200 px-3.5 py-2 flex items-center justify-between text-slate-600">
+                      <div className="inline-flex items-center gap-1.5 text-[11px] font-mono">
+                        <Lock className="w-3 h-3 text-emerald-600 shrink-0" />
+                        <span className="font-semibold text-slate-700">https://{currentCase.visualUrl}</span>
                       </div>
-                      <div>
-                        <div className="text-xs font-bold text-[#0F172A] leading-tight">
-                          {currentCase.clientSector}
-                        </div>
-                        <div className="text-[10.5px] text-slate-500">
-                          {currentCase.location}
-                        </div>
-                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Pratinjau Sistem Live
+                      </span>
                     </div>
 
-                    <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold tracking-wide">
-                      {currentCase.tag}
-                    </span>
+                    <div className="relative w-full h-[300px] sm:h-[380px] lg:h-[440px] bg-slate-100 overflow-hidden">
+                      <Image
+                        src={currentCase.imagePreview}
+                        alt={currentCase.headline}
+                        fill
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                        sizes="(max-width: 1024px) 100vw, 58vw"
+                        priority
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (target.src !== currentCase.fallbackImage) {
+                            target.src = currentCase.fallbackImage;
+                          }
+                        }}
+                      />
+                    </div>
                   </div>
+                </div>
 
-                  {/* Headline */}
+                {/* RIGHT COLUMN: Structured Specs, Divided Stats, List Group Story & Quote */}
+                <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
                   <h3 className="text-lg sm:text-xl lg:text-[22px] font-extrabold tracking-tight text-[#0F172A] leading-snug">
                     {currentCase.headline}
                   </h3>
-                </div>
 
-                {/* 3 Prominent Quantitative Metrics */}
-                <div className="grid grid-cols-3 gap-2">
-                  {currentCase.metrics.map((m, mIdx) => (
-                    <div
-                      key={mIdx}
-                      className="rounded-2xl bg-[#F8FAFC] border border-slate-200/90 p-2.5 sm:p-3 text-center space-y-0.5 shadow-2xs"
-                    >
-                      <div className="text-lg sm:text-xl font-black text-[#2563EB]">
-                        {m.value}
+                  {/* 3-Cell Divided Metric Grid */}
+                  <div className="grid grid-cols-3 border border-slate-300 rounded-xl divide-x divide-slate-200 bg-slate-50 overflow-hidden">
+                    {currentCase.metrics.map((m, mIdx) => (
+                      <div key={mIdx} className="p-2.5 sm:p-3 text-center space-y-0.5">
+                        <div className="text-base sm:text-xl font-black text-[#2563EB]">
+                          {m.value}
+                        </div>
+                        <div className="text-[10.5px] font-bold text-slate-800 leading-tight">
+                          {m.label}
+                        </div>
+                        <div className="text-[9.5px] text-slate-500 font-medium truncate">
+                          {m.note}
+                        </div>
                       </div>
-                      <div className="text-[10.5px] font-bold text-slate-800 leading-tight">
-                        {m.label}
-                      </div>
-                      <div className="text-[9px] text-slate-500 font-medium truncate">
-                        {m.note}
-                      </div>
+                    ))}
+                  </div>
+
+                  {/* Bootstrap List-Group Story */}
+                  <div className="ui-list-group text-[11.5px] leading-snug">
+                    <div className="px-3.5 py-2.5 flex items-start gap-2">
+                      <span className="text-rose-600 font-bold shrink-0">✕ Kendala:</span>
+                      <span className="text-slate-600">{currentCase.challengeBrief}</span>
                     </div>
-                  ))}
-                </div>
-
-                {/* Ultra-Concise Story: 3 Punchy Impact Bullets */}
-                <div className="space-y-2 p-3 sm:p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 text-[11.5px] leading-snug">
-                  <div className="flex items-start gap-2">
-                    <span className="text-rose-600 font-bold shrink-0">✕ Kendala:</span>
-                    <span className="text-slate-600">{currentCase.challengeBrief}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold shrink-0">⚡ Solusi:</span>
-                    <span className="text-slate-700">{currentCase.solutionBrief}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-emerald-700 font-bold shrink-0">✓ Dampak:</span>
-                    <span className="text-slate-900 font-semibold">{currentCase.impactBrief}</span>
-                  </div>
-                </div>
-
-                {/* Compact Testimonial Quote */}
-                <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-2xl p-3 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-2xs">
-                    {currentCase.clientQuote.monogram}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[11px] text-slate-700 italic leading-snug line-clamp-2">
-                      &ldquo;{currentCase.clientQuote.text}&rdquo;
-                    </p>
-                    <div className="text-[10.5px] font-bold text-[#0F172A] mt-0.5">
-                      {currentCase.clientQuote.author} <span className="font-normal text-slate-500">· {currentCase.clientQuote.role}</span>
+                    <div className="px-3.5 py-2.5 flex items-start gap-2 bg-slate-50/50">
+                      <span className="text-blue-600 font-bold shrink-0">⚡ Solusi:</span>
+                      <span className="text-slate-700">{currentCase.solutionBrief}</span>
+                    </div>
+                    <div className="px-3.5 py-2.5 flex items-start gap-2 bg-emerald-50/40">
+                      <span className="text-emerald-700 font-bold shrink-0">✓ Dampak:</span>
+                      <span className="text-slate-900 font-semibold">{currentCase.impactBrief}</span>
                     </div>
                   </div>
-                </div>
 
-                {/* Direct Action Link */}
-                <a
-                  href="#kontak"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-2xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] shadow-sm transition-all"
-                >
-                  <span>Konsultasikan Solusi Serupa</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                  {/* Crisp Callout Testimonial */}
+                  <div className="bg-slate-50 border border-slate-200 border-l-4 border-l-[#2563EB] rounded-r-xl p-3 flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-[#2563EB] text-white font-bold text-xs flex items-center justify-center shrink-0">
+                      {currentCase.clientQuote.monogram}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[11px] text-slate-700 italic leading-snug line-clamp-2">
+                        &ldquo;{currentCase.clientQuote.text}&rdquo;
+                      </p>
+                      <div className="text-[10.5px] font-bold text-[#0F172A] mt-0.5">
+                        {currentCase.clientQuote.author}{" "}
+                        <span className="font-normal text-slate-500">
+                          · {currentCase.clientQuote.role}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Full-width Primary Action Button */}
+                  <a
+                    href="#kontak"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] shadow-xs transition-colors"
+                  >
+                    <span>Konsultasikan Solusi Serupa</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

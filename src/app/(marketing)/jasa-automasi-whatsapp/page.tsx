@@ -36,18 +36,18 @@ export default function JasaAutomasiAiPage() {
       <GroveNavbar />
 
       <main className="flex-1">
-        <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
+        <section className="py-14 sm:py-20 bg-[#F8FAFC] border-b border-slate-300/80">
           <div className="max-w-[1060px] mx-auto px-5 sm:px-8 space-y-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-[#1D4ED8] transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-700 hover:text-[#1D4ED8] hover:border-blue-300 transition-colors shadow-2xs"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3.5 h-3.5" />
               <span>Kembali ke Halaman Utama Abinest</span>
             </Link>
 
             <div className="space-y-4 max-w-3xl">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.18em] text-[#1E40AF] bg-blue-100/70 px-3.5 py-1 rounded-full border border-blue-200">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E40AF] bg-blue-50 px-3 py-1 rounded-md border border-blue-200">
                 PILAR LAYANAN 03 · APPLIED AI &amp; META CLOUD AUTOMATION
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
@@ -58,13 +58,13 @@ export default function JasaAutomasiAiPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
               {benefits.map((b, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm"
+                  className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-300 shadow-2xs"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#2563EB] shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
                     {b}
                   </p>
@@ -72,15 +72,15 @@ export default function JasaAutomasiAiPage() {
               ))}
             </div>
 
-            <div className="pt-4 flex items-center gap-4 flex-wrap">
+            <div className="pt-2 flex items-center gap-4 flex-wrap">
               <a
                 href="#kontak"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-sm transition-all"
               >
                 <span>Konsultasikan Automasi AI Anda</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="text-xs text-slate-500 font-medium">
+              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs text-slate-600 font-semibold">
                 Resmi Meta Cloud API · Akurasi OCR 99.7%
               </span>
             </div>
