@@ -11,6 +11,7 @@ import {
   HeroShowcaseFrame,
   HeroSyncedDescription,
   HeroSyncedHeadline,
+  HeroSyncedIntro,
 } from "../HeroCarouselParts";
 
 export function MobileHeroSection() {
@@ -37,22 +38,18 @@ export function MobileHeroSection() {
       <div className="relative z-10 max-w-md mx-auto space-y-6">
         <div className="space-y-3">
           <p className="text-[12px] font-semibold text-blue-600 tracking-wide">
-            Abinest · Studio Teknologi Indonesia
+            Abinest · Software House Indonesia
           </p>
 
           <HeroSyncedHeadline
-            activeIdx={slideIdx}
-            onSelect={setSlideIdx}
-            conjunction="&"
             className="text-[25px] sm:text-[30px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.18]"
           />
 
-          <p className="text-[14.5px] text-slate-600 leading-relaxed">
-            Dari <span className="font-semibold text-slate-900">UMKM</span>,{" "}
-            <span className="font-semibold text-slate-900">personal brand</span>, hingga{" "}
-            <span className="font-semibold text-slate-900">perusahaan besar</span>—kami
-            membangun teknologi yang ikut tumbuh bersama bisnis Anda.
-          </p>
+          <HeroSyncedIntro
+            activeIdx={slideIdx}
+            onSelect={setSlideIdx}
+            className="text-[14.5px] text-slate-600 leading-relaxed"
+          />
 
           <HeroSyncedDescription
             activeIdx={slideIdx}

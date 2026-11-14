@@ -12,6 +12,7 @@ import {
   HeroShowcaseFrame,
   HeroSyncedDescription,
   HeroSyncedHeadline,
+  HeroSyncedIntro,
 } from "./HeroCarouselParts";
 
 export function GroveHeroSection() {
@@ -50,22 +51,18 @@ export function GroveHeroSection() {
             className="col-span-6 space-y-6"
           >
             <p className="text-[13px] font-semibold text-blue-600 tracking-wide">
-              Abinest · Studio Teknologi Indonesia
+              Abinest · Software House Indonesia
             </p>
 
             <HeroSyncedHeadline
-              activeIdx={activeIdx}
-              onSelect={setActiveIdx}
-              conjunction="dan"
               className="text-[40px] xl:text-[46px] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.12]"
             />
 
-            <p className="text-[17px] text-slate-600 leading-relaxed max-w-lg">
-              Dari <span className="font-semibold text-slate-900">UMKM</span> yang baru
-              merintis, <span className="font-semibold text-slate-900">personal brand</span>,
-              hingga <span className="font-semibold text-slate-900">perusahaan besar</span>
-              —kami membangun teknologi yang ikut tumbuh bersama bisnis Anda.
-            </p>
+            <HeroSyncedIntro
+              activeIdx={activeIdx}
+              onSelect={setActiveIdx}
+              className="text-[17px] text-slate-600 leading-relaxed max-w-lg"
+            />
 
             <HeroSyncedDescription
               activeIdx={activeIdx}

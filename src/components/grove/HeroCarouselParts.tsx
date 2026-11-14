@@ -5,78 +5,72 @@ import { motion } from "framer-motion";
 import { HERO_SLIDES } from "./hero-slides";
 
 interface HeroSyncedHeadlineProps {
-  activeIdx: number;
-  conjunction: "dan" | "&";
   className: string;
-  onSelect?: (idx: number) => void;
 }
 
 /**
- * Editorial kinetic headline whose active phrase illuminates with the
- * signature Abinest Cobalt-to-Teal spectrum and responds to direct clicks.
+ * Primary editorial headline with Abinest Cobalt-to-Teal accent framing.
  */
-export function HeroSyncedHeadline({
+export function HeroSyncedHeadline({ className }: HeroSyncedHeadlineProps) {
+  return (
+    <h1 className={className}>
+      Kami Membangun Sistem yang{" "}
+      <span className="bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 bg-clip-text text-transparent">
+        Bekerja Untuk Anda.
+      </span>
+    </h1>
+  );
+}
+
+interface HeroSyncedIntroProps {
+  activeIdx: number;
+  onSelect?: (idx: number) => void;
+  className: string;
+}
+
+/**
+ * Interactive lead copy synced with the hero carousel so each highlighted
+ * capability responds to clicks and active slide transitions.
+ */
+export function HeroSyncedIntro({
   activeIdx,
-  conjunction,
-  className,
   onSelect,
-}: HeroSyncedHeadlineProps) {
+  className,
+}: HeroSyncedIntroProps) {
   const segmentStyle = (idx: number) => {
     const isActive = activeIdx === idx;
-    return `inline transition-all duration-300 ${onSelect ? "cursor-pointer" : ""} ${
+    return `inline transition-colors duration-300 ${
+      onSelect ? "cursor-pointer" : ""
+    } ${
       isActive
-        ? "bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 bg-clip-text text-transparent"
-        : "text-slate-900 hover:text-blue-600"
+        ? "font-semibold text-blue-600 underline decoration-blue-600/40 underline-offset-4"
+        : "font-semibold text-slate-900 hover:text-blue-600"
     }`;
   };
 
+  const renderSegment = (idx: number, label: string) => (
+    <span
+      role={onSelect ? "button" : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+      onClick={() => onSelect?.(idx)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect?.(idx);
+        }
+      }}
+      className={segmentStyle(idx)}
+    >
+      {label}
+    </span>
+  );
+
   return (
-    <h1 className={className}>
-      <span
-        role={onSelect ? "button" : undefined}
-        tabIndex={onSelect ? 0 : undefined}
-        onClick={() => onSelect?.(0)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            onSelect?.(0);
-          }
-        }}
-        className={segmentStyle(0)}
-      >
-        Website Cepat
-      </span>
-      <span className="text-slate-400">, </span>
-      <span
-        role={onSelect ? "button" : undefined}
-        tabIndex={onSelect ? 0 : undefined}
-        onClick={() => onSelect?.(1)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            onSelect?.(1);
-          }
-        }}
-        className={segmentStyle(1)}
-      >
-        Sistem ERP/SIAKAD/POS
-      </span>
-      <span className="text-slate-400">, {conjunction} </span>
-      <span
-        role={onSelect ? "button" : undefined}
-        tabIndex={onSelect ? 0 : undefined}
-        onClick={() => onSelect?.(2)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            onSelect?.(2);
-          }
-        }}
-        className={segmentStyle(2)}
-      >
-        Automasi AI/ML.
-      </span>
-    </h1>
+    <p className={className}>
+      {renderSegment(0, "Website")}, {renderSegment(1, "ERP, SIAKAD, POS")},
+      hingga {renderSegment(2, "Automasi AI/ML")}. Dibangun cepat, aman, dan
+      siap bertumbuh bersama bisnis Anda.
+    </p>
   );
 }
 
