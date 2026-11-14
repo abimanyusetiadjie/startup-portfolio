@@ -22,6 +22,7 @@ import {
   ShieldCheck,
   Calculator,
 } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const WHATSAPP_NUMBER = "6281398589745";
@@ -1098,6 +1099,12 @@ export function GroveInteractiveDemoHub() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(demoOrderWaText)}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source: "interactive_demo",
+                  label: "order_demo_cta",
+                })
+              }
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-sm transition-all cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />

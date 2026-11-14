@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import {
   HERO_SLIDES,
   buildHeroWaHref,
@@ -77,6 +78,12 @@ export function MobileHeroSection() {
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackWhatsAppClick({
+                source: "hero_mobile",
+                label: HERO_SLIDES[slideIdx]?.id,
+              })
+            }
             className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white text-[14px] font-semibold flex items-center justify-center gap-2 shadow-sm shadow-blue-600/20 transition-all"
           >
             <span>Konsultasi via WhatsApp</span>

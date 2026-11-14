@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { X, ArrowUpRight } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const WHATSAPP_NUMBER = "6281398589745";
@@ -56,7 +57,11 @@ export function GroveFloatingWhatsApp() {
     },
   ];
 
-  const handleOpenChat = (customText?: string) => {
+  const handleOpenChat = (customText?: string, topic?: string) => {
+    trackWhatsAppClick({
+      source: "floating_widget",
+      label: topic ?? "direct_open",
+    });
     const text =
       customText ||
       "Halo Tim Abinest, saya ingin berkonsultasi mengenai kebutuhan sistem digital untuk perusahaan kami.";
@@ -99,7 +104,7 @@ export function GroveFloatingWhatsApp() {
               <button
                 key={opt.title}
                 type="button"
-                onClick={() => handleOpenChat(opt.text)}
+                onClick={() => handleOpenChat(opt.text, opt.title)}
                 className="w-full text-left px-4 py-3 bg-white hover:bg-slate-50 transition-colors flex items-center justify-between gap-3 cursor-pointer"
               >
                 <div className="min-w-0">

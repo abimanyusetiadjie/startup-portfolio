@@ -44,5 +44,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/kebijakan-privasi`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/syarat-ketentuan`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
   ];
 }

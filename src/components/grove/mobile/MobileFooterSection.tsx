@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { AbinestLogo } from "../AbinestLogo";
 
 export function MobileFooterSection() {
@@ -63,8 +64,13 @@ export function MobileFooterSection() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/proposal-generator" className="hover:text-sky-400 transition-colors">
-                  Generator Proposal
+                <Link href="/kebijakan-privasi" className="hover:text-sky-400 transition-colors">
+                  Kebijakan Privasi
+                </Link>
+              </li>
+              <li>
+                <Link href="/syarat-ketentuan" className="hover:text-sky-400 transition-colors">
+                  Syarat &amp; Ketentuan
                 </Link>
               </li>
             </ul>
@@ -77,6 +83,12 @@ export function MobileFooterSection() {
               href="https://wa.me/6281398589745"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackWhatsAppClick({
+                  source: "footer_mobile",
+                  label: "direct_number",
+                })
+              }
               className="font-semibold text-white hover:text-sky-400 transition-colors"
             >
               +62 813-9858-9745

@@ -16,6 +16,7 @@ import {
   Target,
   ExternalLink,
 } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const WHATSAPP_NUMBER = "6281398589745";
@@ -438,6 +439,12 @@ Saya ingin mengklaim *Preview Simulasi Gratis* & berdiskusi langkah penerapannya
                 href={claimAuditWaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackWhatsAppClick({
+                    source: "audit_calculator",
+                    service: businessType,
+                  })
+                }
                 className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-sm transition-all cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />

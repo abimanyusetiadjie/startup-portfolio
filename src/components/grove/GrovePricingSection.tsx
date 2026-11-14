@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { getPricingCardTheme } from "./pricing-theme";
 import { useModalEffects } from "./use-modal-effects";
 
@@ -240,6 +241,13 @@ export function GrovePricingSection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source: "pricing_desktop",
+                      service: tier.title,
+                      label: pricingMode,
+                    })
+                  }
                   className={`mt-7 w-full h-11 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${theme.button}`}
                 >
                   <span>Konsultasikan Paket Ini</span>

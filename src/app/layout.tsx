@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
 
@@ -31,9 +32,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/images/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: "/images/abinest-icon-only-hd.png" },
+      { url: "/images/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
 };
@@ -49,6 +52,7 @@ export default function RootLayout({
       className={`scroll-smooth overflow-x-hidden ${plusJakartaSans.variable} ${jetBrainsMono.variable}`}
     >
       <body className="font-sans antialiased text-slate-900 bg-[#F8FAFC] selection:bg-[#2563EB] selection:text-white overflow-x-hidden">
+        <GoogleAnalytics />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

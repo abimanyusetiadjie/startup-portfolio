@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { AbinestLogo } from "./AbinestLogo";
 
 export function GroveFooterSection() {
@@ -95,6 +96,12 @@ export function GroveFooterSection() {
                   href="https://wa.me/6281398589745"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source: "footer_desktop",
+                      label: "direct_number",
+                    })
+                  }
                   className="hover:text-sky-400 transition-colors"
                 >
                   +62 813-9858-9745
@@ -116,7 +123,15 @@ export function GroveFooterSection() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
           <p>© {year} Abinest Digital Systems. Seluruh hak cipta dilindungi.</p>
-          <p>Jakarta &amp; Surabaya · Indonesia</p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/kebijakan-privasi" className="hover:text-sky-400 transition-colors">
+              Kebijakan Privasi
+            </Link>
+            <Link href="/syarat-ketentuan" className="hover:text-sky-400 transition-colors">
+              Syarat &amp; Ketentuan
+            </Link>
+            <span>Jakarta &amp; Surabaya · Indonesia</span>
+          </div>
         </div>
       </div>
     </footer>

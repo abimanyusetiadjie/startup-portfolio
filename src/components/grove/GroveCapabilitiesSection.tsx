@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { useModalEffects } from "./use-modal-effects";
 
 const WHATSAPP_NUMBER = "6281398589745";
@@ -147,6 +148,12 @@ export function GroveCapabilitiesSection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source: "capabilities_card",
+                      service: item.title,
+                    })
+                  }
                   className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors"
                 >
                   <span>Diskusikan layanan</span>

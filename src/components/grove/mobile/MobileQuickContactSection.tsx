@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, Plus, Minus } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import {
   buildConsultationWaUrl,
   normalizeIndonesianPhoneForWa,
@@ -59,6 +60,11 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
 
     const waUrl = buildConsultationWaUrl(message);
     setFallbackWaUrl(waUrl);
+    trackWhatsAppClick({
+      source: "contact_form_mobile",
+      service: serviceType,
+      label: showExtras ? budget : "quick_submit",
+    });
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
 

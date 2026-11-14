@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import {
   ABINEST_WHATSAPP_NUMBER,
   buildConsultationWaUrl,
@@ -57,6 +58,11 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
 
     const waUrl = buildConsultationWaUrl(text);
     setFallbackWaUrl(waUrl);
+    trackWhatsAppClick({
+      source: "contact_form_desktop",
+      service: serviceType,
+      label: budgetRange,
+    });
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
 
@@ -86,6 +92,12 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                   href={`https://wa.me/${ABINEST_WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source: "contact_sidebar_number",
+                      label: "direct_wa_link",
+                    })
+                  }
                   className="font-semibold text-slate-900 hover:text-blue-600"
                 >
                   +62 813-9858-9745

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { getPricingCardTheme } from "../pricing-theme";
 import { useModalEffects } from "../use-modal-effects";
 
@@ -303,6 +304,12 @@ export function MobileSolutionsPricingSection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source: "pricing_mobile",
+                      label: mode,
+                    })
+                  }
                   className={`mt-6 w-full h-11 rounded-xl text-[13.5px] font-semibold flex items-center justify-center gap-1.5 transition-colors ${theme.button}`}
                 >
                   <span>Konsultasikan Paket Ini</span>
