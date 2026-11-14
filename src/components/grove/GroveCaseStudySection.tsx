@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight, X } from "lucide-react";
+import { useModalEffects } from "./use-modal-effects";
 
 interface CaseItem {
   id: string;
@@ -14,6 +15,7 @@ interface CaseItem {
   fullTitle: string;
   imagePreview: string;
   fallbackImage: string;
+  modalObjectPosition: string;
   metrics: { value: string; label: string }[];
   summary: string;
   quote: string;
@@ -29,6 +31,7 @@ const cases: CaseItem[] = [
     fullTitle: "Waktu Muat 0,5 Detik dan Pertumbuhan Prospek +180%",
     imagePreview: "/images/case-studies/modern-web-finance.jpg",
     fallbackImage: "/images/capabilities/capabilities-web-preview.jpg",
+    modalObjectPosition: "object-[58%_50%]",
     metrics: [
       { value: "0,5 detik", label: "Waktu Muat Seluler" },
       { value: "+180%", label: "Prospek Masuk" },
@@ -48,6 +51,7 @@ const cases: CaseItem[] = [
     fullTitle: "Ujian Daring 1.240 Siswa Berjalan Stabil Tanpa Gangguan",
     imagePreview: "/images/case-studies/siakad-education-portal.jpg",
     fallbackImage: "/images/capabilities/capabilities-erp-preview.jpg",
+    modalObjectPosition: "object-[56%_45%]",
     metrics: [
       { value: "1.240", label: "Siswa Serentak" },
       { value: "0%", label: "Gangguan Sistem" },
@@ -67,6 +71,7 @@ const cases: CaseItem[] = [
     fullTitle: "Sinkronisasi 18.000 Barang dan Efisiensi 40 Jam Kerja per Minggu",
     imagePreview: "/images/case-studies/erp-multi-warehouse.jpg",
     fallbackImage: "/images/capabilities/capabilities-aiml-preview.jpg",
+    modalObjectPosition: "object-[55%_35%]",
     metrics: [
       { value: "0%", label: "Selisih 4 Gudang" },
       { value: "40 jam", label: "Hemat per Minggu" },
@@ -82,6 +87,7 @@ const cases: CaseItem[] = [
 
 export function GroveCaseStudySection() {
   const [selectedCase, setSelectedCase] = useState<CaseItem | null>(null);
+  useModalEffects(Boolean(selectedCase), () => setSelectedCase(null));
 
   return (
     <section
@@ -100,7 +106,7 @@ export function GroveCaseStudySection() {
         </div>
 
         {/* Grid Bento 3 Kolom Visual-First (Minim Teks & Tanpa Overlay pada Gambar) */}
-        <div className="grid grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
           {cases.map((item, idx) => (
             <motion.article
               key={item.id}
@@ -158,70 +164,80 @@ export function GroveCaseStudySection() {
       {/* Modal Detail Ringkas (Terbuka hanya saat kartu diklik) */}
       {selectedCase && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="case-study-modal-title"
           onClick={() => setSelectedCase(null)}
-          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-6 animate-in fade-in duration-150"
+          className="fixed inset-0 z-50 bg-slate-950/55 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in zoom-in-95 duration-150"
+            className="w-full max-w-[840px] max-h-[calc(100dvh-2rem)] sm:max-h-[85dvh] overflow-y-auto overscroll-contain bg-white rounded-2xl shadow-2xl border border-slate-200 grid grid-cols-1 md:grid-cols-12"
           >
-            <div className="relative aspect-[16/9] w-full bg-slate-100">
+            <div className="relative md:col-span-6 h-44 sm:h-52 md:h-auto md:min-h-[360px] w-full bg-slate-100 overflow-hidden">
               <Image
                 src={selectedCase.imagePreview}
                 alt={selectedCase.fullTitle}
                 fill
-                sizes="680px"
-                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 420px"
+                className={`object-cover ${selectedCase.modalObjectPosition}`}
               />
             </div>
 
-            <div className="p-7 space-y-5">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-semibold text-blue-600 block mb-1">
-                    {selectedCase.sector}
-                  </span>
-                  <h3 className="text-xl font-extrabold text-slate-900 leading-snug">
-                    {selectedCase.fullTitle}
-                  </h3>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setSelectedCase(null)}
-                  className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-                  aria-label="Tutup detail studi kasus"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-
-              <div className="grid grid-cols-3 gap-4 py-4 border-y border-slate-100">
-                {selectedCase.metrics.map((m) => (
-                  <div key={m.label}>
-                    <div className="text-2xl font-black tracking-tight text-slate-900">
-                      {m.value}
-                    </div>
-                    <div className="text-xs text-slate-500 mt-0.5">{m.label}</div>
+            <div className="md:col-span-6 p-5 lg:p-6 space-y-3 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <span className="text-[11.5px] font-semibold text-blue-600 block mb-0.5">
+                      {selectedCase.sector}
+                    </span>
+                    <h3
+                      id="case-study-modal-title"
+                      className="text-[17px] lg:text-[18px] font-extrabold text-slate-900 leading-snug"
+                    >
+                      {selectedCase.fullTitle}
+                    </h3>
                   </div>
-                ))}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCase(null)}
+                    className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                    aria-label="Tutup detail studi kasus"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2.5 py-2.5 border-y border-slate-100">
+                  {selectedCase.metrics.map((m) => (
+                    <div key={m.label}>
+                      <div className="text-base lg:text-[18px] font-black tracking-tight text-slate-900">
+                        {m.value}
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5 leading-tight">
+                        {m.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-[13px] text-slate-600 leading-relaxed">
+                  {selectedCase.summary}
+                </p>
+
+                <blockquote className="text-[12.5px] text-slate-600 italic leading-relaxed border-l-2 border-slate-200 pl-3">
+                  &ldquo;{selectedCase.quote}&rdquo;
+                  <footer className="not-italic text-xs font-semibold text-slate-900 mt-1">
+                    — {selectedCase.author}
+                  </footer>
+                </blockquote>
               </div>
 
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {selectedCase.summary}
-              </p>
-
-              <blockquote className="text-[13.5px] text-slate-600 italic leading-relaxed border-l-2 border-slate-200 pl-3.5">
-                &ldquo;{selectedCase.quote}&rdquo;
-                <footer className="not-italic text-xs font-semibold text-slate-900 mt-1">
-                  — {selectedCase.author}
-                </footer>
-              </blockquote>
-
-              <div className="flex items-center gap-4 pt-1">
+              <div className="flex flex-wrap items-center gap-3 pt-1.5">
                 <Link
                   href="/demo"
                   onClick={() => setSelectedCase(null)}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold transition-colors"
                 >
                   <span>Coba Simulasi Demo</span>
                   <ArrowRight className="w-3.5 h-3.5" />

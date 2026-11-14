@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
 import { getPricingCardTheme } from "./pricing-theme";
+import { useModalEffects } from "./use-modal-effects";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
@@ -132,6 +133,7 @@ export function GrovePricingSection() {
   const [pricingMode, setPricingMode] = useState<PricingMode>("beli-putus");
   const [showCompareModal, setShowCompareModal] = useState(false);
   const isBeliPutus = pricingMode === "beli-putus";
+  useModalEffects(showCompareModal, () => setShowCompareModal(false));
 
   return (
     <section
@@ -262,26 +264,32 @@ export function GrovePricingSection() {
       {/* Modal Perbandingan Ringkas */}
       {showCompareModal && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="pricing-compare-modal-title"
           onClick={() => setShowCompareModal(false)}
-          className="fixed inset-0 z-50 bg-slate-950/45 backdrop-blur-xs flex items-center justify-center p-6 animate-in fade-in duration-150"
+          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 p-7 space-y-5 animate-in zoom-in-95 duration-150"
+            className="w-full max-w-2xl max-h-[calc(100dvh-2rem)] sm:max-h-[85dvh] overflow-y-auto overscroll-contain bg-white rounded-2xl shadow-2xl border border-slate-200 p-5 sm:p-6 space-y-4"
           >
-            <div className="flex items-start justify-between gap-4 pb-4 border-b border-slate-100">
+            <div className="flex items-start justify-between gap-4 pb-3.5 border-b border-slate-100">
               <div>
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3
+                  id="pricing-compare-modal-title"
+                  className="text-lg sm:text-xl font-bold text-slate-900"
+                >
                   Perbandingan Beli Putus dan Terima Beres
                 </h3>
-                <p className="text-sm text-slate-500 mt-0.5">
+                <p className="text-[13px] sm:text-sm text-slate-500 mt-0.5">
                   Sesuaikan dengan kesiapan tim teknis dan anggaran operasional Anda.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setShowCompareModal(false)}
-                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 cursor-pointer"
                 aria-label="Tutup perbandingan"
               >
                 <X className="w-4 h-4" />
@@ -290,17 +298,17 @@ export function GrovePricingSection() {
 
             <div className="divide-y divide-slate-100">
               {schemeComparisonRows.map((row) => (
-                <div key={row.aspect} className="py-3.5 grid grid-cols-12 gap-4 text-sm">
-                  <div className="col-span-4 font-semibold text-slate-900">
+                <div key={row.aspect} className="py-3 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 text-[13px] sm:text-sm">
+                  <div className="sm:col-span-4 font-semibold text-slate-900">
                     {row.aspect}
                   </div>
-                  <div className="col-span-4 text-slate-600">
+                  <div className="sm:col-span-4 text-slate-600">
                     <span className="block text-[11px] font-bold uppercase tracking-wide text-teal-700 mb-0.5">
                       Beli Putus
                     </span>
                     {row.beliPutus}
                   </div>
-                  <div className="col-span-4 text-slate-600">
+                  <div className="sm:col-span-4 text-slate-600">
                     <span className="block text-[11px] font-bold uppercase tracking-wide text-blue-700 mb-0.5">
                       Terima Beres
                     </span>

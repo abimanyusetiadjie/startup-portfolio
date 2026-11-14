@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, X } from "lucide-react";
+import { useModalEffects } from "../use-modal-effects";
 
 interface CaseItem {
   id: string;
@@ -70,6 +71,7 @@ const caseList: CaseItem[] = [
 
 export function MobileCaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState<CaseItem | null>(null);
+  useModalEffects(Boolean(selectedCase), () => setSelectedCase(null));
 
   return (
     <section
@@ -145,19 +147,25 @@ export function MobileCaseStudiesSection() {
 
       {selectedCase && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-case-modal-title"
           onClick={() => setSelectedCase(null)}
-          className="fixed inset-0 z-[70] bg-slate-950/50 backdrop-blur-xs flex items-end justify-center animate-in fade-in duration-150"
+          className="fixed inset-0 z-[70] bg-slate-950/50 backdrop-blur-sm flex items-end justify-center"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md bg-white rounded-t-3xl max-h-[85vh] overflow-y-auto p-5 pb-8 space-y-4 shadow-2xl animate-in slide-in-from-bottom-4 duration-200"
+            className="w-full max-w-md bg-white rounded-t-3xl max-h-[82dvh] overflow-y-auto overscroll-contain p-5 pb-8 space-y-4 shadow-2xl"
           >
             <div className="flex items-start justify-between gap-3 pb-3 border-b border-slate-100">
               <div>
                 <span className="text-[11.5px] font-semibold text-blue-600">
                   {selectedCase.sector}
                 </span>
-                <h3 className="text-[17px] font-bold text-slate-900 leading-snug mt-0.5">
+                <h3
+                  id="mobile-case-modal-title"
+                  className="text-[17px] font-bold text-slate-900 leading-snug mt-0.5"
+                >
                   {selectedCase.title}
                 </h3>
               </div>

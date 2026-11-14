@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
+import { useModalEffects } from "./use-modal-effects";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
@@ -81,6 +82,7 @@ const serviceComparisonRows = [
 
 export function GroveCapabilitiesSection() {
   const [showCompareModal, setShowCompareModal] = useState(false);
+  useModalEffects(showCompareModal, () => setShowCompareModal(false));
 
   return (
     <section
@@ -170,33 +172,39 @@ export function GroveCapabilitiesSection() {
       {/* Modal Perbandingan 3 Layanan (Bahasa Gamblang Non-IT) */}
       {showCompareModal && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="capabilities-compare-modal-title"
           onClick={() => setShowCompareModal(false)}
-          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-6 animate-in fade-in duration-150"
+          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-4xl max-h-[85vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col animate-in zoom-in-95 duration-150"
+            className="w-full max-w-4xl max-h-[calc(100dvh-2rem)] sm:max-h-[85dvh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col"
           >
-            <div className="px-7 py-5 border-b border-slate-100 flex items-start justify-between gap-4 shrink-0">
+            <div className="px-5 sm:px-7 py-4 sm:py-5 border-b border-slate-100 flex items-start justify-between gap-4 shrink-0">
               <div>
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3
+                  id="capabilities-compare-modal-title"
+                  className="text-lg sm:text-xl font-bold text-slate-900"
+                >
                   Perbandingan Pilihan Layanan Abinest
                 </h3>
-                <p className="text-sm text-slate-500 mt-0.5">
+                <p className="text-[13px] sm:text-sm text-slate-500 mt-0.5">
                   Ringkasan sederhana tanpa istilah teknis untuk membantu Anda memilih solusi paling pas.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setShowCompareModal(false)}
-                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 cursor-pointer"
                 aria-label="Tutup tabel perbandingan"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="overflow-y-auto px-7 py-5">
+            <div className="overflow-y-auto overflow-x-auto overscroll-contain px-5 sm:px-7 py-4 sm:py-5">
               <table className="w-full text-left border-collapse text-[13.5px]">
                 <thead>
                   <tr className="border-b border-slate-200 text-slate-900">
