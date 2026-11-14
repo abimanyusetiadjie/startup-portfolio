@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
+import { getPricingCardTheme } from "./pricing-theme";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
@@ -180,18 +181,7 @@ export function GrovePricingSection() {
         <div className="grid grid-cols-3 gap-7 items-stretch">
           {pricingTiers.map((tier, idx) => {
             const Icon = tier.icon;
-            const ringStyle = tier.isPopular
-              ? isBeliPutus
-                ? "ring-2 ring-teal-600 shadow-[0_12px_36px_rgba(13,148,136,0.08)]"
-                : "ring-2 ring-blue-600 shadow-[0_12px_36px_rgba(37,99,235,0.08)]"
-              : "border border-slate-200/90 shadow-[0_2px_12px_rgba(15,23,42,0.03)]";
-
-            const accentColor = isBeliPutus ? "text-teal-600" : "text-blue-600";
-            const btnClass = tier.isPopular
-              ? isBeliPutus
-                ? "bg-teal-600 hover:bg-teal-700 text-white"
-                : "bg-blue-600 hover:bg-blue-700 text-white"
-              : "bg-slate-900 hover:bg-slate-800 text-white";
+            const theme = getPricingCardTheme(tier.isPopular, isBeliPutus);
 
             return (
               <motion.article
@@ -200,42 +190,42 @@ export function GrovePricingSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.32, delay: idx * 0.06 }}
-                className={`rounded-2xl bg-white p-7 flex flex-col justify-between transition-all ${ringStyle}`}
+                className={`rounded-2xl p-7 flex flex-col justify-between transition-all ${theme.card}`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4">
                     <div className="flex items-center gap-2.5">
-                      <Icon className={`w-4 h-4 ${accentColor}`} />
-                      <h3 className="text-lg font-bold text-slate-900">
+                      <Icon className={`w-4 h-4 ${theme.icon}`} />
+                      <h3 className={`text-lg font-bold ${theme.title}`}>
                         {tier.title}
                       </h3>
                     </div>
                     {tier.isPopular && (
-                      <span
-                        className={`text-xs font-semibold ${
-                          isBeliPutus ? "text-teal-700" : "text-blue-600"
-                        }`}
-                      >
+                      <span className={`text-xs font-semibold ${theme.badge}`}>
                         Populer
                       </span>
                     )}
                   </div>
 
                   <div className="space-y-1.5">
-                    <div className="text-[30px] font-black tracking-tight text-slate-900">
+                    <div
+                      className={`text-[30px] font-black tracking-tight ${theme.price}`}
+                    >
                       {tier.price}
                     </div>
-                    <p className="text-[13.5px] text-slate-600 leading-relaxed">
+                    <p className={`text-[13.5px] leading-relaxed ${theme.summary}`}>
                       {tier.summary}
                     </p>
                   </div>
 
-                  <div className="border-t border-slate-100 my-5" />
+                  <div className={`border-t my-5 ${theme.divider}`} />
 
-                  <ul className="space-y-3 text-[13.5px] text-slate-700">
+                  <ul className={`space-y-3 text-[13.5px] ${theme.featureText}`}>
                     {tier.features[pricingMode].map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2.5">
-                        <Check className={`w-4 h-4 shrink-0 mt-0.5 ${accentColor}`} />
+                        <Check
+                          className={`w-4 h-4 shrink-0 mt-0.5 ${theme.check}`}
+                        />
                         <span className="leading-snug">{feat}</span>
                       </li>
                     ))}
@@ -248,7 +238,7 @@ export function GrovePricingSection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-7 w-full h-11 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${btnClass}`}
+                  className={`mt-7 w-full h-11 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${theme.button}`}
                 >
                   <span>Konsultasikan Paket Ini</span>
                   <ArrowRight className="w-4 h-4" />

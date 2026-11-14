@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
+import { getPricingCardTheme } from "../pricing-theme";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
@@ -192,7 +193,7 @@ export function MobileSolutionsPricingSection() {
     <section
       id="m-layanan"
       data-section="layanan-utama"
-      className="bg-[#F8FAFC] py-10 border-b border-slate-200/70"
+      className="bg-[#F1F5F9] py-10 border-b border-slate-200/90"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1">
@@ -205,7 +206,7 @@ export function MobileSolutionsPricingSection() {
         </div>
 
         <div id="m-harga" data-section="harga" className="px-5 space-y-2.5 scroll-mt-16">
-          <div className="grid grid-cols-2 p-1 rounded-xl bg-slate-200/70">
+          <div className="grid grid-cols-2 p-1 rounded-xl bg-slate-200/90">
             <button
               type="button"
               onClick={() => setMode("beli-putus")}
@@ -245,37 +246,24 @@ export function MobileSolutionsPricingSection() {
         >
           {packages.map((pkg) => {
             const Icon = pkg.icon;
-            const ringStyle = pkg.popular
-              ? isBeliPutus
-                ? "ring-2 ring-teal-600 shadow-[0_8px_24px_rgba(13,148,136,0.08)]"
-                : "ring-2 ring-blue-600 shadow-[0_8px_24px_rgba(37,99,235,0.08)]"
-              : "border border-slate-200/90 shadow-[0_2px_12px_rgba(15,23,42,0.04)]";
-
-            const accentColor = isBeliPutus ? "text-teal-600" : "text-blue-600";
-            const btnClass = pkg.popular
-              ? isBeliPutus
-                ? "bg-teal-600 hover:bg-teal-700 text-white"
-                : "bg-blue-600 hover:bg-blue-700 text-white"
-              : "bg-slate-900 hover:bg-slate-800 text-white";
+            const theme = getPricingCardTheme(pkg.popular, isBeliPutus);
 
             return (
               <article
                 key={pkg.id}
-                className={`w-[82vw] max-w-[330px] shrink-0 snap-center rounded-2xl bg-white p-5 flex flex-col justify-between transition-all ${ringStyle}`}
+                className={`w-[82vw] max-w-[330px] shrink-0 snap-center rounded-2xl p-5 flex flex-col justify-between transition-all ${theme.card}`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3.5">
                     <div className="flex items-center gap-2">
-                      <Icon className={`w-4 h-4 ${accentColor}`} />
-                      <h3 className="text-[15.5px] font-bold text-slate-900">
+                      <Icon className={`w-4 h-4 ${theme.icon}`} />
+                      <h3 className={`text-[15.5px] font-bold ${theme.title}`}>
                         {pkg.title}
                       </h3>
                     </div>
                     {pkg.popular && (
                       <span
-                        className={`text-[11px] font-semibold ${
-                          isBeliPutus ? "text-teal-700" : "text-blue-600"
-                        }`}
+                        className={`text-[11px] font-semibold ${theme.badge}`}
                       >
                         Populer
                       </span>
@@ -283,20 +271,24 @@ export function MobileSolutionsPricingSection() {
                   </div>
 
                   <div className="mb-2">
-                    <div className="text-[25px] font-black tracking-tight text-slate-900">
+                    <div
+                      className={`text-[25px] font-black tracking-tight ${theme.price}`}
+                    >
                       {pkg.price}
                     </div>
-                    <p className="text-[13px] text-slate-600 leading-snug mt-1">
+                    <p className={`text-[13px] leading-snug mt-1 ${theme.summary}`}>
                       {pkg.tagline}
                     </p>
                   </div>
 
-                  <div className="border-t border-slate-100 my-4" />
+                  <div className={`border-t my-4 ${theme.divider}`} />
 
-                  <ul className="space-y-2.5 text-[13px] text-slate-700">
+                  <ul className={`space-y-2.5 text-[13px] ${theme.featureText}`}>
                     {pkg.features[mode].map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2.5">
-                        <Check className={`w-4 h-4 shrink-0 mt-0.5 ${accentColor}`} />
+                        <Check
+                          className={`w-4 h-4 shrink-0 mt-0.5 ${theme.check}`}
+                        />
                         <span className="leading-snug">{feat}</span>
                       </li>
                     ))}
@@ -309,7 +301,7 @@ export function MobileSolutionsPricingSection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-6 w-full h-11 rounded-xl text-[13.5px] font-semibold flex items-center justify-center gap-1.5 transition-colors ${btnClass}`}
+                  className={`mt-6 w-full h-11 rounded-xl text-[13.5px] font-semibold flex items-center justify-center gap-1.5 transition-colors ${theme.button}`}
                 >
                   <span>Konsultasikan Paket Ini</span>
                   <ArrowRight className="w-4 h-4" />

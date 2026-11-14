@@ -1,50 +1,41 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
-const WHATSAPP_NUMBER = "6281398589745";
-
-const showcaseSlides = [
-  {
-    src: "/images/hero-web.webp",
-    alt: "Arsitektur Situs Web Modern Abinest",
-  },
-  {
-    src: "/images/erp-dashboard.webp",
-    alt: "Dashboard Sistem ERP dan Operasional Terpadu",
-  },
-  {
-    src: "/images/ai-ml-workflow.webp",
-    alt: "Automasi WhatsApp Resmi Meta dan Pembaca Dokumen AI",
-  },
-];
+import {
+  HERO_SLIDES,
+  buildHeroWaHref,
+  useHeroSlideCarousel,
+} from "./hero-slides";
+import {
+  HeroShowcaseFrame,
+  HeroSyncedDescription,
+  HeroSyncedHeadline,
+} from "./HeroCarouselParts";
 
 export function GroveHeroSection() {
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % showcaseSlides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan situs web, sistem ERP, atau automasi AI untuk bisnis kami."
-  )}`;
+  const { activeIdx, setActiveIdx, setIsPaused } = useHeroSlideCarousel();
+  const waHref = buildHeroWaHref(HERO_SLIDES[activeIdx]);
 
   return (
     <section
       id="beranda"
       data-section="beranda"
-      className="relative bg-white pt-16 pb-20 xl:pt-20 xl:pb-24 border-b border-slate-200/70"
+      className="relative overflow-hidden bg-white pt-16 pb-20 xl:pt-20 xl:pb-24 border-b border-slate-200/80"
     >
-      <div className="max-w-[1200px] mx-auto px-8">
-        <div className="grid grid-cols-12 gap-12 items-center">
+      {/* Subtle Ambient Blue/Teal Tint Behind Hero Visual */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute inset-0 bg-[radial-gradient(ellipse_58%_78%_at_78%_48%,rgba(37,99,235,0.055),rgba(13,148,136,0.03)_48%,transparent_76%)]"
+      />
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-8">
+        <div
+          className="grid grid-cols-12 gap-12 items-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Kolom Kiri: Tipografi Tenang, Jelas & Lapang */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -56,14 +47,17 @@ export function GroveHeroSection() {
               Studio Rekayasa Web, ERP &amp; Automasi AI
             </p>
 
-            <h1 className="text-[44px] xl:text-[50px] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.1]">
-              Situs Web Cepat, Sistem ERP, dan{" "}
-              <span className="text-blue-600">Automasi AI.</span>
-            </h1>
+            <HeroSyncedHeadline
+              activeIdx={activeIdx}
+              conjunction="dan"
+              className="text-[44px] xl:text-[50px] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.1]"
+            />
 
-            <p className="text-[17px] text-slate-600 leading-relaxed max-w-lg font-normal">
-              Kami merancang sistem digital khusus sesuai alur kerja perusahaan Anda—tanpa biaya lisensi per pengguna dan siap digunakan dalam 14 hari kerja.
-            </p>
+            <HeroSyncedDescription
+              activeIdx={activeIdx}
+              onSelect={setActiveIdx}
+              variant="desktop"
+            />
 
             <div className="flex items-center gap-3.5 pt-1">
               <a
@@ -113,33 +107,22 @@ export function GroveHeroSection() {
             </div>
           </motion.div>
 
-          {/* Kolom Kanan: Visual Showcase Murni */}
+          {/* Kolom Kanan: Visual Showcase Murni dengan Latar Titik Halus */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.08, ease: "easeOut" }}
-            className="col-span-6"
+            className="col-span-6 relative"
           >
-            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-[0_20px_50px_rgba(15,23,42,0.09)] border border-slate-200/70">
-              {showcaseSlides.map((slide, idx) => (
-                <div
-                  key={slide.src}
-                  aria-hidden={idx !== activeIdx}
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    idx === activeIdx ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-                  }`}
-                >
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    priority
-                    sizes="(max-width: 1200px) 50vw, 560px"
-                    className="object-cover object-center"
-                  />
-                </div>
-              ))}
-            </div>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none select-none absolute -inset-7 bg-[radial-gradient(rgba(100,116,139,0.22)_1px,transparent_1px)] [background-size:18px_18px] [mask-image:radial-gradient(ellipse_78%_78%_at_50%_50%,black_35%,transparent_80%)]"
+            />
+            <HeroShowcaseFrame
+              activeIdx={activeIdx}
+              sizes="(max-width: 1200px) 50vw, 560px"
+              className="relative z-10 aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-[0_20px_50px_rgba(15,23,42,0.09)] border border-slate-200/70"
+            />
           </motion.div>
         </div>
       </div>

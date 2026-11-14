@@ -465,7 +465,7 @@ export function GroveTechStackShowcase() {
     <section
       id="tech-stack"
       data-section="tech-stack"
-      className="py-14 bg-[#F8FAFC] border-b border-slate-200/70 overflow-hidden"
+      className="py-14 bg-[#F1F5F9] border-b border-slate-200/90 overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-6">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">

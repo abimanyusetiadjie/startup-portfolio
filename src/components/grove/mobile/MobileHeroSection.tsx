@@ -1,83 +1,63 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
-const WHATSAPP_NUMBER = "6281398589745";
-
-const heroSlides = [
-  {
-    src: "/images/hero-web.webp",
-    alt: "Arsitektur Situs Web Modern Abinest",
-  },
-  {
-    src: "/images/erp-dashboard.webp",
-    alt: "Dashboard Sistem ERP dan Kasir Terpadu",
-  },
-  {
-    src: "/images/ai-ml-workflow.webp",
-    alt: "Automasi WhatsApp Resmi Meta dan Pembaca Dokumen AI",
-  },
-];
+import {
+  HERO_SLIDES,
+  buildHeroWaHref,
+  useHeroSlideCarousel,
+} from "../hero-slides";
+import {
+  HeroShowcaseFrame,
+  HeroSyncedDescription,
+  HeroSyncedHeadline,
+} from "../HeroCarouselParts";
 
 export function MobileHeroSection() {
-  const [slideIdx, setSlideIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSlideIdx((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan situs web, sistem ERP, atau automasi AI untuk bisnis kami."
-  )}`;
+  const { activeIdx: slideIdx, setActiveIdx: setSlideIdx } =
+    useHeroSlideCarousel();
+  const waHref = buildHeroWaHref(HERO_SLIDES[slideIdx]);
 
   return (
     <section
       id="m-beranda"
       data-section="beranda"
-      className="bg-white pt-6 pb-10 px-5 border-b border-slate-100"
+      className="relative overflow-hidden bg-white pt-6 pb-10 px-5 border-b border-slate-200/70"
     >
-      <div className="max-w-md mx-auto space-y-6">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_70%,rgba(37,99,235,0.05),rgba(13,148,136,0.025)_48%,transparent_78%)]"
+      />
+      <div className="relative z-10 max-w-md mx-auto space-y-6">
         <div className="space-y-3">
           <p className="text-[12px] font-semibold text-blue-600 tracking-wide">
             Studio Rekayasa Web, ERP &amp; Automasi AI
           </p>
 
-          <h1 className="text-[28px] sm:text-[32px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.16]">
-            Situs Web Cepat, Sistem ERP, &amp;{" "}
-            <span className="text-blue-600">Automasi AI.</span>
-          </h1>
+          <HeroSyncedHeadline
+            activeIdx={slideIdx}
+            conjunction="&"
+            className="text-[28px] sm:text-[32px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.16]"
+          />
 
-          <p className="text-[14.5px] text-slate-600 leading-relaxed font-normal">
-            Sistem khusus sesuai alur bisnis Anda tanpa biaya lisensi per pengguna, selesai dalam 14 hari kerja.
-          </p>
+          <HeroSyncedDescription
+            activeIdx={slideIdx}
+            onSelect={setSlideIdx}
+            variant="mobile"
+          />
         </div>
 
-        {/* Clean Visual Frame */}
-        <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-[0_12px_32px_rgba(15,23,42,0.08)]">
-          {heroSlides.map((slide, idx) => (
-            <div
-              key={slide.src}
-              aria-hidden={idx !== slideIdx}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                idx === slideIdx ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-              }`}
-            >
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                priority
-                sizes="(max-width: 768px) 92vw, 440px"
-                className="object-cover object-center"
-              />
-            </div>
-          ))}
+        {/* Clean Visual Frame with Subtle Architectural Dot Backdrop */}
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -inset-3 bg-[radial-gradient(rgba(100,116,139,0.2)_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black_30%,transparent_80%)]"
+          />
+          <HeroShowcaseFrame
+            activeIdx={slideIdx}
+            sizes="(max-width: 768px) 92vw, 440px"
+            className="relative z-10 aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-[0_12px_32px_rgba(15,23,42,0.08)] border border-slate-200/60"
+          />
         </div>
 
         {/* CTA Actions */}

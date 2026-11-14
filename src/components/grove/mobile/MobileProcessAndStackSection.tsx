@@ -76,7 +76,7 @@ export function MobileProcessAndStackSection() {
     <section
       id="m-cara-kerja"
       data-section="cara-kerja"
-      className="bg-[#F8FAFC] py-10 px-5 border-b border-slate-200/70"
+      className="bg-[#F1F5F9] py-10 px-5 border-b border-slate-200/90"
     >
       <div className="max-w-md mx-auto space-y-8">
         <div className="space-y-4">

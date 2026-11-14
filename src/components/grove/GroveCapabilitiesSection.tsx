@@ -86,7 +86,7 @@ export function GroveCapabilitiesSection() {
     <section
       id="layanan-utama"
       data-section="layanan-utama"
-      className="py-20 bg-[#F8FAFC] border-b border-slate-200/70"
+      className="py-20 bg-[#F1F5F9] border-b border-slate-200/90"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-12">
         <motion.div
