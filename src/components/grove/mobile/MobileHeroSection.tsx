@@ -37,7 +37,7 @@ export function MobileHeroSection() {
       <div className="relative z-10 max-w-md mx-auto space-y-6">
         <div className="space-y-3">
           <p className="text-[12px] font-semibold text-blue-600 tracking-wide">
-            Studio Rekayasa Website, ERP/SIAKAD/POS &amp; AI/ML
+            Abinest · Studio Teknologi Indonesia
           </p>
 
           <HeroSyncedHeadline
@@ -46,6 +46,13 @@ export function MobileHeroSection() {
             conjunction="&"
             className="text-[25px] sm:text-[30px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.18]"
           />
+
+          <p className="text-[14.5px] text-slate-600 leading-relaxed">
+            Dari <span className="font-semibold text-slate-900">UMKM</span>,{" "}
+            <span className="font-semibold text-slate-900">personal brand</span>, hingga{" "}
+            <span className="font-semibold text-slate-900">perusahaan besar</span>—kami
+            membangun teknologi yang ikut tumbuh bersama bisnis Anda.
+          </p>
 
           <HeroSyncedDescription
             activeIdx={slideIdx}

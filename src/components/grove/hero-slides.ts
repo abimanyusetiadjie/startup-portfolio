@@ -24,9 +24,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     src: "/images/hero-web.webp",
     alt: "Arsitektur Website Cepat Modern Abinest",
     desktopDesc:
-      "Website perusahaan dan halaman penawaran berkecepatan kilat (<0,8 detik), rapi di ponsel, ramah pencarian Google, dan 100% hak milik Anda.",
+      "Terbuka kurang dari 0,8 detik, tampil meyakinkan di HP, dan mudah ditemukan di Google.",
     mobileDesc:
-      "Website usaha & halaman penawaran cepat (<0,8 detik), rapi di HP, ramah Google, dan 100% hak milik Anda.",
+      "Terbuka <0,8 detik, meyakinkan di HP, dan mudah ditemukan di Google.",
     waMessage:
       "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan Website Cepat untuk bisnis kami.",
   },
@@ -37,9 +37,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     src: "/images/erp-dashboard.webp",
     alt: "Dasbor Sistem ERP, SIAKAD, dan Kasir POS Terpadu",
     desktopDesc:
-      "Satu sistem terpadu untuk stok multi-gudang (ERP), kasir toko (POS), dan portal sekolah (SIAKAD)—100% hak milik penuh tanpa biaya per pengguna.",
+      "Stok, kasir, keuangan, hingga nilai siswa rapi dalam satu dasbor—tanpa biaya per pengguna.",
     mobileDesc:
-      "Kelola stok multi-gudang (ERP), kasir toko (POS), & portal SIAKAD sekolah tanpa biaya bulanan per staf.",
+      "Stok, kasir, keuangan, hingga nilai siswa dalam satu dasbor—tanpa biaya per pengguna.",
     waMessage:
       "Halo Tim Abinest, saya ingin berkonsultasi mengenai Sistem ERP, SIAKAD, atau POS Kasir tanpa biaya lisensi per pengguna.",
   },
@@ -50,9 +50,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     src: "/images/ai-ml-workflow.webp",
     alt: "Automasi AI/ML WhatsApp Bisnis Resmi dan Pembaca Dokumen",
     desktopDesc:
-      "Asisten pelanggan otomatis 24 jam di WhatsApp Bisnis resmi serta sistem baca faktur & prediksi data berbasis AI/ML yang terhubung ke operasional usaha.",
+      "Chat pelanggan dibalas 24 jam dan nota terbaca otomatis—tim Anda fokus ke hal yang lebih penting.",
     mobileDesc:
-      "Asisten chat WhatsApp resmi 24 jam & pembaca nota otomatis berbasis AI/ML yang terhubung langsung ke stok Anda.",
+      "Chat pelanggan dibalas 24 jam, nota terbaca otomatis—tim fokus ke hal penting.",
     waMessage:
       "Halo Tim Abinest, saya ingin berkonsultasi mengenai implementasi Automasi AI/ML dan WhatsApp Bisnis resmi.",
   },
