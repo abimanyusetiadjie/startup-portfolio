@@ -24,10 +24,16 @@ export function GroveHeroSection() {
       data-section="beranda"
       className="relative overflow-hidden bg-white pt-16 pb-20 xl:pt-20 xl:pb-24 border-b border-slate-200/80"
     >
-      {/* Subtle Ambient Blue/Teal Tint Behind Hero Visual */}
+      {/* Subtle Dynamic Ambient Glow Tuned to Active Pillar */}
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none absolute inset-0 bg-[radial-gradient(ellipse_58%_78%_at_78%_48%,rgba(37,99,235,0.055),rgba(13,148,136,0.03)_48%,transparent_76%)]"
+        className={`pointer-events-none select-none absolute inset-0 transition-all duration-700 ${
+          activeIdx === 1
+            ? "bg-[radial-gradient(ellipse_58%_78%_at_78%_48%,rgba(13,148,136,0.065),rgba(37,99,235,0.03)_48%,transparent_76%)]"
+            : activeIdx === 2
+            ? "bg-[radial-gradient(ellipse_58%_78%_at_78%_48%,rgba(79,70,229,0.06),rgba(14,165,233,0.035)_48%,transparent_76%)]"
+            : "bg-[radial-gradient(ellipse_58%_78%_at_78%_48%,rgba(37,99,235,0.06),rgba(13,148,136,0.03)_48%,transparent_76%)]"
+        }`}
       />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-8">
@@ -44,13 +50,14 @@ export function GroveHeroSection() {
             className="col-span-6 space-y-6"
           >
             <p className="text-[13px] font-semibold text-blue-600 tracking-wide">
-              Studio Rekayasa Web, ERP &amp; Automasi AI
+              Studio Rekayasa Website, ERP/SIAKAD/POS &amp; AI/ML
             </p>
 
             <HeroSyncedHeadline
               activeIdx={activeIdx}
+              onSelect={setActiveIdx}
               conjunction="dan"
-              className="text-[44px] xl:text-[50px] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.1]"
+              className="text-[40px] xl:text-[46px] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.12]"
             />
 
             <HeroSyncedDescription

@@ -19,11 +19,11 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Abinest | Jasa Pembuatan Situs Web, Sistem ERP, & Automasi AI",
+    default: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
     template: "%s | Abinest",
   },
   description:
-    "Studio rekayasa perangkat lunak untuk bisnis Indonesia: pembuatan situs web berkecepatan tinggi, sistem ERP kustom, dan automasi WhatsApp AI. Kepemilikan kode program 100% milik klien tanpa biaya lisensi per pengguna.",
+    "Studio rekayasa perangkat lunak untuk bisnis Indonesia: pembuatan website cepat (<0,8 detik), sistem ERP/SIAKAD/POS kustom, dan automasi AI/ML WhatsApp. Kepemilikan penuh tanpa biaya lisensi per pengguna.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },

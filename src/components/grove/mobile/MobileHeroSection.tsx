@@ -26,18 +26,25 @@ export function MobileHeroSection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_70%,rgba(37,99,235,0.05),rgba(13,148,136,0.025)_48%,transparent_78%)]"
+        className={`pointer-events-none select-none absolute inset-0 transition-all duration-700 ${
+          slideIdx === 1
+            ? "bg-[radial-gradient(ellipse_90%_55%_at_50%_70%,rgba(13,148,136,0.06),rgba(37,99,235,0.025)_48%,transparent_78%)]"
+            : slideIdx === 2
+            ? "bg-[radial-gradient(ellipse_90%_55%_at_50%_70%,rgba(79,70,229,0.055),rgba(14,165,233,0.03)_48%,transparent_78%)]"
+            : "bg-[radial-gradient(ellipse_90%_55%_at_50%_70%,rgba(37,99,235,0.055),rgba(13,148,136,0.025)_48%,transparent_78%)]"
+        }`}
       />
       <div className="relative z-10 max-w-md mx-auto space-y-6">
         <div className="space-y-3">
           <p className="text-[12px] font-semibold text-blue-600 tracking-wide">
-            Studio Rekayasa Web, ERP &amp; Automasi AI
+            Studio Rekayasa Website, ERP/SIAKAD/POS &amp; AI/ML
           </p>
 
           <HeroSyncedHeadline
             activeIdx={slideIdx}
+            onSelect={setSlideIdx}
             conjunction="&"
-            className="text-[28px] sm:text-[32px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.16]"
+            className="text-[25px] sm:text-[30px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.18]"
           />
 
           <HeroSyncedDescription
@@ -80,7 +87,7 @@ export function MobileHeroSection() {
               ·
             </span>
             <Link href="/audit-gratis" className="hover:text-blue-600 transition-colors py-1">
-              Kalkulator Biaya
+              Audit Gratis
             </Link>
           </div>
         </div>

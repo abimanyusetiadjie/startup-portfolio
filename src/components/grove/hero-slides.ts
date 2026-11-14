@@ -20,41 +20,41 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "web",
     number: "01",
-    label: "Situs Web",
+    label: "Website Cepat",
     src: "/images/hero-web.webp",
-    alt: "Arsitektur Situs Web Modern Abinest",
+    alt: "Arsitektur Website Cepat Modern Abinest",
     desktopDesc:
-      "Situs web perusahaan dan landing page berkecepatan tinggi (<0,8 detik), rapi di ponsel, ramah pencarian Google, dan 100% hak milik Anda.",
+      "Website perusahaan dan halaman penawaran berkecepatan kilat (<0,8 detik), rapi di ponsel, ramah pencarian Google, dan 100% hak milik Anda.",
     mobileDesc:
-      "Situs web perusahaan & landing page cepat (<0,8 detik), rapi di HP, ramah Google, dan 100% milik Anda.",
+      "Website usaha & halaman penawaran cepat (<0,8 detik), rapi di HP, ramah Google, dan 100% hak milik Anda.",
     waMessage:
-      "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan Situs Web Modern untuk bisnis kami.",
+      "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan Website Cepat untuk bisnis kami.",
   },
   {
     id: "erp",
     number: "02",
-    label: "Sistem ERP",
+    label: "ERP · SIAKAD · POS",
     src: "/images/erp-dashboard.webp",
-    alt: "Dashboard Sistem ERP dan Operasional Terpadu",
+    alt: "Dasbor Sistem ERP, SIAKAD, dan Kasir POS Terpadu",
     desktopDesc:
-      "Dasbor stok multi-gudang, kasir POS, keuangan, hingga portal SIAKAD terintegrasi—100% hak milik penuh tanpa biaya lisensi per pengguna.",
+      "Satu sistem terpadu untuk stok multi-gudang (ERP), kasir toko (POS), dan portal sekolah (SIAKAD)—100% hak milik penuh tanpa biaya per pengguna.",
     mobileDesc:
-      "Kelola stok multi-gudang, kasir, keuangan, & SIAKAD sekolah dalam satu dasbor tanpa biaya per staf.",
+      "Kelola stok multi-gudang (ERP), kasir toko (POS), & portal SIAKAD sekolah tanpa biaya bulanan per staf.",
     waMessage:
-      "Halo Tim Abinest, saya ingin berkonsultasi mengenai Sistem ERP Kustom atau SIAKAD tanpa biaya lisensi per pengguna.",
+      "Halo Tim Abinest, saya ingin berkonsultasi mengenai Sistem ERP, SIAKAD, atau POS Kasir tanpa biaya lisensi per pengguna.",
   },
   {
     id: "aiml",
     number: "03",
-    label: "Automasi AI",
+    label: "Automasi AI/ML",
     src: "/images/ai-ml-workflow.webp",
-    alt: "Automasi WhatsApp Resmi Meta dan Pembaca Dokumen AI",
+    alt: "Automasi AI/ML WhatsApp Bisnis Resmi dan Pembaca Dokumen",
     desktopDesc:
-      "Asisten pelanggan 24 jam via WhatsApp Cloud API resmi Meta dan pembaca faktur AI otomatis yang terhubung langsung ke operasional bisnis.",
+      "Asisten pelanggan otomatis 24 jam di WhatsApp Bisnis resmi serta sistem baca faktur & prediksi data berbasis AI/ML yang terhubung ke operasional usaha.",
     mobileDesc:
-      "Asisten chat WhatsApp resmi 24 jam dan pembaca faktur AI otomatis yang terhubung ke stok usaha Anda.",
+      "Asisten chat WhatsApp resmi 24 jam & pembaca nota otomatis berbasis AI/ML yang terhubung langsung ke stok Anda.",
     waMessage:
-      "Halo Tim Abinest, saya ingin berkonsultasi mengenai implementasi Automasi AI dan WhatsApp Bisnis resmi Meta.",
+      "Halo Tim Abinest, saya ingin berkonsultasi mengenai implementasi Automasi AI/ML dan WhatsApp Bisnis resmi.",
   },
 ];
 
