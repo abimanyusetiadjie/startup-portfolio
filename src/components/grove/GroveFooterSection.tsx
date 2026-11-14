@@ -108,6 +108,33 @@ export function GroveFooterSection() {
                   <ArrowRight className="w-3 h-3 shrink-0" />
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/demo"
+                  className="hover:text-[#1D4ED8] transition-colors inline-flex items-center gap-1 font-bold text-[#1D4ED8]"
+                >
+                  <span>Simulasi Demo Interaktif (/demo)</span>
+                  <ArrowRight className="w-3 h-3 shrink-0" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/audit-gratis"
+                  className="hover:text-[#1D4ED8] transition-colors inline-flex items-center gap-1 font-bold text-emerald-700"
+                >
+                  <span>Audit &amp; Kalkulator Sistem Gratis</span>
+                  <ArrowRight className="w-3 h-3 shrink-0" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tools/proposal-generator"
+                  className="hover:text-[#1D4ED8] transition-colors inline-flex items-center gap-1 font-medium"
+                >
+                  <span>Generator Proposal &amp; Kit Sales</span>
+                  <ArrowRight className="w-3 h-3 shrink-0" />
+                </Link>
+              </li>
               <li className="pt-2">
                 <Link
                   href="/login"

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -315,26 +316,37 @@ export function GroveHeroSection() {
             </AnimatePresence>
 
             {/* Primary & Secondary Action Buttons */}
-            <div className="grid grid-cols-1 sm:flex sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                  currentPillar.waMessage
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] border border-blue-700 shadow-sm transition-all duration-150 cursor-pointer"
-              >
-                <span>Konsultasikan via WhatsApp</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </a>
+            <div className="space-y-2">
+              <div className="grid grid-cols-1 sm:flex sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                    currentPillar.waMessage
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] border border-blue-700 shadow-sm transition-all duration-150 cursor-pointer"
+                >
+                  <span>Konsultasikan via WhatsApp</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
 
-              <a
-                href="#layanan-utama"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:text-[#0F172A] bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 shadow-2xs transition-all text-center"
-              >
-                <span>Bandingkan 3 Layanan</span>
-                <span className="text-slate-400">↓</span>
-              </a>
+                <Link
+                  href="/demo"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-slate-800 hover:text-[#1D4ED8] bg-white hover:bg-blue-50/70 border border-slate-300 hover:border-[#2563EB] shadow-2xs transition-all text-center"
+                >
+                  <span>Coba Demo Interaktif →</span>
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-[11.5px] sm:text-xs font-medium text-slate-600">
+                <span>Ingin estimasi biaya &amp; penghematan 3 tahun?</span>
+                <Link
+                  href="/audit-gratis"
+                  className="font-bold text-[#2563EB] hover:underline inline-flex items-center gap-0.5"
+                >
+                  <span>Hitung di Audit Gratis →</span>
+                </Link>
+              </div>
             </div>
 
             {/* Strictly 3-Column Horizontal Guarantee Grid on Both Mobile & Desktop */}

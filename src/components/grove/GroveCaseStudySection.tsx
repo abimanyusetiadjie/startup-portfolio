@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Briefcase,
@@ -286,14 +287,23 @@ export function GroveCaseStudySection() {
                     </div>
                   </div>
 
-                  {/* Full-width Primary Action Button */}
-                  <a
-                    href="#kontak"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] shadow-xs transition-colors"
-                  >
-                    <span>Konsultasikan Solusi Serupa</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                  {/* Action Button Pair */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <a
+                      href="#kontak"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] shadow-xs transition-colors"
+                    >
+                      <span>Konsultasikan Solusi Serupa</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                    <Link
+                      href="/demo"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-[13px] font-bold text-[#1D4ED8] bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors"
+                    >
+                      <span>Coba Simulasi Live (/demo)</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
