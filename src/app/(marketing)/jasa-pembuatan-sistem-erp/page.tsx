@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Database, ShieldCheck, ArrowLeft } from "lucide-react";
+import { ArrowRight, Check, ArrowLeft } from "lucide-react";
 import { GroveNavbar } from "@/components/grove/GroveNavbar";
 import { GroveAmberContactSection } from "@/components/grove/GroveAmberContactSection";
 import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
 
 export const metadata: Metadata = {
-  title:
-    "Jasa Pembuatan Sistem ERP Enterprise & Multi-Warehouse Kustom | Abinest",
+  title: "Jasa Pembuatan Sistem ERP Kustom & Multi-Gudang | Abinest",
   description:
-    "Jasa pembuatan Sistem ERP Kustom terpadu: Multi-Gudang, Manajemen Inventori, Rekonsiliasi Finansial, dan Supply Chain dengan SLA 99.9% Uptime. 100% Hak Milik Source Code tanpa biaya sewa lisensi per user selamanya.",
+    "Jasa pembuatan sistem ERP kustom untuk inventori multi-gudang, kasir POS, keuangan, dan SIAKAD sekolah dengan SLA 99,9%. 100% hak milik kode program tanpa biaya lisensi pengguna.",
   keywords: [
     "jasa pembuatan sistem erp indonesia",
-    "custom erp enterprise software",
+    "sistem erp kustom",
     "sistem multi gudang inventori",
-    "jasa custom software supply chain",
-    "erp bebas biaya lisensi user",
+    "erp tanpa biaya lisensi",
   ],
   alternates: {
     canonical: "/jasa-pembuatan-sistem-erp",
@@ -25,63 +23,61 @@ export const metadata: Metadata = {
 
 export default function JasaSistemErpPage() {
   const benefits = [
-    "Jaminan SLA 99.9% Uptime: Sistem tetap kokoh stabil saat ribuan staf gudang, kasir POS, dan tim finance bertransaksi serentak.",
-    "Sinkronisasi multi-gudang dan cabang secara real-time dengan latensi <35ms berbasis arsitektur PostgreSQL pooling.",
-    "Hak akses ketat berbasis peran (Role-Based Access Control) untuk Direksi, Kepala Gudang, Staf Finance, dan Audit.",
-    "100% kepemilikan source code diserahkan penuh ke perusahaan Anda tanpa biaya sewa lisensi bulanan per user selamanya.",
+    "Jaminan ketersediaan server 99,9% untuk operasional kasir, gudang, dan tim keuangan serentak.",
+    "Sinkronisasi stok multi-gudang secara seketika berbasis arsitektur basis data PostgreSQL.",
+    "Pengaturan hak akses berjenjang untuk direksi, kepala gudang, kasir, dan auditor.",
+    "100% hak milik kode program tanpa pungutan biaya lisensi per pengguna.",
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans">
       <GroveNavbar />
 
       <main className="flex-1">
-        <section className="py-14 sm:py-20 bg-[#F8FAFC] border-b border-slate-300/80">
-          <div className="max-w-[1060px] mx-auto px-5 sm:px-8 space-y-8">
+        <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
+          <div className="max-w-4xl mx-auto px-5 sm:px-8 space-y-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-700 hover:text-[#1D4ED8] hover:border-blue-300 transition-colors shadow-2xs"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Kembali ke Halaman Utama Abinest</span>
+              <span>Kembali ke Beranda</span>
             </Link>
 
-            <div className="space-y-4 max-w-3xl">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E40AF] bg-blue-50 px-3 py-1 rounded-md border border-blue-200">
-                PILAR LAYANAN 02 · ENTERPRISE ERP &amp; SUPPLY CHAIN
-              </span>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-                Jasa Pembuatan Sistem ERP Kustom &amp; Operasional Multi-Gudang Anti-Down
+            <div className="space-y-4 max-w-2xl">
+              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
+                Layanan 02 · Sistem ERP &amp; SIAKAD Kustom
+              </p>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+                Sistem ERP Kustom &amp; Operasional Multi-Gudang
               </h1>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                Kendalikan seluruh rantai pasok bisnis Anda dari satu dashboard terpadu. Kami membangun sistem ERP kustom yang disesuaikan 100% dengan alur kerja riil perusahaan Anda tanpa biaya sewa software impor yang mahal.
+                Kendalikan stok, transaksi cabang, dan laporan keuangan perusahaan Anda dalam satu dasbor terpadu sesuai alur kerja internal tanpa beban lisensi per staf.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {benefits.map((b, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-300 shadow-2xs"
+                  className="flex items-start gap-3 p-5 rounded-2xl bg-white border border-slate-200/80"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-[#2563EB] shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                    {b}
-                  </p>
+                  <Check className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
+                  <p className="text-sm text-slate-700 leading-relaxed">{b}</p>
                 </div>
               ))}
             </div>
 
-            <div className="pt-2 flex items-center gap-4 flex-wrap">
+            <div className="flex flex-wrap items-center gap-5 pt-2">
               <a
                 href="#kontak"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-sm transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 <span>Konsultasikan Sistem ERP Anda</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs text-slate-600 font-semibold">
-                100% Hak Milik Source Code · SLA 99.99% Uptime
+              <span className="text-sm text-slate-500">
+                100% hak milik kode · SLA 99,9%
               </span>
             </div>
           </div>

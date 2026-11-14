@@ -3,314 +3,241 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Briefcase,
-  ArrowRight,
-  Globe,
-  Database,
-  School,
-  Lock,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, ArrowRight, X } from "lucide-react";
+
+interface CaseItem {
+  id: string;
+  sector: string;
+  impactHeadline: string;
+  subMetric: string;
+  fullTitle: string;
+  imagePreview: string;
+  fallbackImage: string;
+  metrics: { value: string; label: string }[];
+  summary: string;
+  quote: string;
+  author: string;
+}
+
+const cases: CaseItem[] = [
+  {
+    id: "modern-web",
+    sector: "Situs Web Finansial · Jakarta",
+    impactHeadline: "+180% Prospek Masuk",
+    subMetric: "Waktu muat HP 0,5 detik · Skor Google 100/100",
+    fullTitle: "Waktu Muat 0,5 Detik dan Pertumbuhan Prospek +180%",
+    imagePreview: "/images/case-studies/modern-web-finance.jpg",
+    fallbackImage: "/images/capabilities/capabilities-web-preview.jpg",
+    metrics: [
+      { value: "0,5 detik", label: "Waktu Muat Seluler" },
+      { value: "+180%", label: "Prospek Masuk" },
+      { value: "100/100", label: "Skor Google PageSpeed" },
+    ],
+    summary:
+      "Kami memindahkan situs web dari sistem lama yang lambat (6,8 detik di HP) ke arsitektur web berkecepatan tinggi yang ramah pencarian Google. Pengunjung yang langsung keluar turun 65% dalam 60 hari.",
+    quote:
+      "Situs kami kini langsung terbuka di ponsel calon investor, dan permintaan konsultasi masuk lebih konsisten setiap hari.",
+    author: "Hendra Kusuma, Sektor Finansial",
+  },
+  {
+    id: "siakad-sekolah",
+    sector: "Portal SIAKAD · Pendidikan",
+    impactHeadline: "1.240 Siswa Serentak",
+    subMetric: "Ujian daring 0% tumbang · 600 rapor selesai 4 menit",
+    fullTitle: "Ujian Daring 1.240 Siswa Berjalan Stabil Tanpa Gangguan",
+    imagePreview: "/images/case-studies/siakad-education-portal.jpg",
+    fallbackImage: "/images/capabilities/capabilities-erp-preview.jpg",
+    metrics: [
+      { value: "1.240", label: "Siswa Serentak" },
+      { value: "0%", label: "Gangguan Sistem" },
+      { value: "4 menit", label: "Terbit 600 Rapor" },
+    ],
+    summary:
+      "Memisahkan jalur akses ujian daring dari proses pencetakan rapor digital agar ratusan siswa dapat mengerjakan soal bersamaan dengan lancar.",
+    quote:
+      "Tidak ada lagi kendala aplikasi melambat saat ujian berlangsung. Rekap rapor semester kini selesai dalam hitungan menit.",
+    author: "Drs. H. Mulyadi, Pembina Yayasan Pendidikan",
+  },
+  {
+    id: "erp-multigudang",
+    sector: "ERP Multi-Gudang · Distribusi",
+    impactHeadline: "Hemat 40 Jam/Minggu",
+    subMetric: "0% selisih stok 4 gudang · Rp0 biaya per staf",
+    fullTitle: "Sinkronisasi 18.000 Barang dan Efisiensi 40 Jam Kerja per Minggu",
+    imagePreview: "/images/case-studies/erp-multi-warehouse.jpg",
+    fallbackImage: "/images/capabilities/capabilities-aiml-preview.jpg",
+    metrics: [
+      { value: "0%", label: "Selisih 4 Gudang" },
+      { value: "40 jam", label: "Hemat per Minggu" },
+      { value: "Rp0", label: "Biaya Lisensi Staf" },
+    ],
+    summary:
+      "Menggantikan aplikasi berlangganan mahal dengan sistem stok & kasir kustom yang terhubung ke pemindai barcode dan pengingat otomatis ke WhatsApp.",
+    quote:
+      "Kami bebas menambah ratusan staf operasional tanpa memikirkan pembengkakan biaya sewa per karyawan.",
+    author: "Ir. Bambang Sutrisno, Direktur Operasional",
+  },
+];
 
 export function GroveCaseStudySection() {
-  const [selectedCaseIdx, setSelectedCaseIdx] = useState(0);
-
-  const cases = [
-    {
-      id: "modern-web",
-      tabTitle: "1. Web Korporat (<0.8s)",
-      tag: "FINANCIAL & INVESTMENT WEB",
-      clientSector: "Sektor Pembiayaan & Investasi",
-      location: "Jakarta Selatan, DKI Jakarta",
-      icon: Globe,
-      headline: "Website Modern Memuat Kilat 0,5 Detik & Konversi Inbound Naik +180%",
-      imagePreview: "/images/case-studies/modern-web-finance.jpg",
-      fallbackImage: "/images/capabilities/capabilities-web-preview.jpg",
-      visualUrl: "apexcapital.co.id",
-      metrics: [
-        { value: "0,5s", label: "Loading Speed HP", note: "Sebelumnya >6.8 detik" },
-        { value: "+180%", label: "Leads Inbound", note: "Pengunjung tanpa drop-off" },
-        { value: "100/100", label: "Google PageSpeed", note: "Lolos Core Web Vitals" },
-      ],
-      challengeBrief: "CMS lama berat (>6.8s di HP), calon investor keluar sebelum web selesai memuat, dan SEO tertinggal.",
-      solutionBrief: "Arsitektur Next.js Edge SSR dengan automated CDN caching & struktur data ramah bot pencarian Google.",
-      impactBrief: "Halaman terbuka kilat 0.5 detik, bounce rate anjlok 65%, dan leads konsultasi naik 1.8x dalam 60 hari.",
-      clientQuote: {
-        text: "Website kami kini langsung terbuka sekejap mata di smartphone calon investor. Peringkat Google melesat dan leads masuk konsisten setiap hari.",
-        author: "Hendra Kusuma, S.E., M.B.A.",
-        role: "VP of Digital Growth · Sektor Finansial",
-        monogram: "HK",
-      },
-    },
-    {
-      id: "siakad-sekolah",
-      tabTitle: "2. SIAKAD Anti-Down (Sekolah)",
-      tag: "DIGITAL CAMPUS & EXAM PORTAL",
-      clientSector: "Yayasan Pendidikan & Sekolah Unggulan",
-      location: "Jawa Timur & Jawa Barat",
-      icon: School,
-      headline: "SIAKAD Sekolah Anti-Down: 1.240 Siswa Ujian Serentak 0% Server Crash",
-      imagePreview: "/images/case-studies/siakad-education-portal.jpg",
-      fallbackImage: "/images/capabilities/capabilities-erp-preview.jpg",
-      visualUrl: "siakad.bina-insan.sch.id",
-      metrics: [
-        { value: "1.240", label: "Siswa Login Serentak", note: "Ujian online tanpa lag" },
-        { value: "0% Crash", label: "Uptime Selama Ujian", note: "Database auto-failover" },
-        { value: "4 Menit", label: "600 Rapor Digital", note: "Sebelumnya butuh 4 hari" },
-      ],
-      challengeBrief: "Server sekolah langganan down tiap ujian semester & PPDB, serta rekap 600 buku rapor guru lembur berhari-hari.",
-      solutionBrief: "Database connection pooling PostgreSQL & worker queue untuk mengisolasi beban lonjakan ujian dari rapor.",
-      impactBrief: "1.240 siswa ujian online serentak lancar tanpa hambatan, dan 600 rapor digital PDF selesai dalam 4 menit.",
-      clientQuote: {
-        text: "Tidak ada lagi drama server down saat ujian online serentak. Rapor semester selesai dalam hitungan menit dan 100% jadi aset yayasan kami.",
-        author: "Drs. H. Mulyadi, M.Pd.",
-        role: "Ketua Dewan Pembina Yayasan",
-        monogram: "MY",
-      },
-    },
-    {
-      id: "erp-multigudang",
-      tabTitle: "3. Custom ERP Multi-Gudang",
-      tag: "ENTERPRISE SUPPLY CHAIN & LOGISTICS",
-      clientSector: "Distribusi Nasional & Rantai Pasok",
-      location: "Jakarta Barat & Surabaya",
-      icon: Database,
-      headline: "Sistem ERP Multi-Gudang Mengotomasi 18.000 SKU & Menghemat 40 Jam/Minggu",
-      imagePreview: "/images/case-studies/erp-multi-warehouse.jpg",
-      fallbackImage: "/images/capabilities/capabilities-aiml-preview.jpg",
-      visualUrl: "erp.nexus-distribusi.com",
-      metrics: [
-        { value: "0% Selisih", label: "Real-Time 4 Gudang", note: "Barcode scanner terpadu" },
-        { value: "40 Jam", label: "Hemat per Minggu", note: "Rekonsiliasi otomatis" },
-        { value: "Rp 0", label: "Biaya Lisensi User", note: "100% Hak Milik Klien" },
-      ],
-      challengeBrief: "Biaya software sewa impor puluhan juta per bulan, sinkronisasi stok 4 gudang lambat, dan sering selisih fisik.",
-      solutionBrief: "ERP kustom berbasis PostgreSQL clustering, multi-location audit trail, serta integrasi reminder WA otomatis.",
-      impactBrief: "Bebas lisensi per-user selamanya, rekonsiliasi stok otomatis seketika, dan menghemat ratusan juta rupiah per tahun.",
-      clientQuote: {
-        text: "Kami bebas menambah ratusan staf tanpa cemas biaya lisensi per-user yang membengkak. Sistem stabil dan data terlindungi penuh.",
-        author: "Ir. Bambang Sutrisno, M.M.",
-        role: "Direktur Operasional & Supply Chain",
-        monogram: "BS",
-      },
-    },
-  ];
-
-  const currentCase = cases[selectedCaseIdx];
-  const Icon = currentCase.icon;
+  const [selectedCase, setSelectedCase] = useState<CaseItem | null>(null);
 
   return (
     <section
       id="portofolio"
-      className="py-12 sm:py-16 relative bg-[#F8FAFC] border-b border-slate-300/80 overflow-hidden"
+      data-section="portofolio"
+      className="py-20 bg-white border-b border-slate-200/70"
     >
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
-        {/* Section Header & Bordered Tab Switcher */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.38, ease: "easeOut" }}
-          className="text-center max-w-2xl mx-auto space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#1E40AF]">
-            <Briefcase className="w-3.5 h-3.5 text-blue-600" />
-            <span className="text-[11px] font-bold tracking-wider uppercase">
-              STUDI KASUS &amp; BUKTI KINERJA NYATA
-            </span>
-          </div>
-
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
-            Bukti Kinerja Nyata di Lapangan
+      <div className="max-w-[1200px] mx-auto px-8 space-y-12">
+        <div className="max-w-xl space-y-2.5">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
+            Studi Kasus Pilihan
           </h2>
-
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
-            Pelajari bagaimana arsitektur kustom Abinest menyelesaikan kendala operasional nyata dan melipatgandakan efisiensi institusi klien.
+          <p className="text-[15.5px] text-slate-600 leading-relaxed">
+            Dampak langsung yang dirasakan klien pada kecepatan, ketahanan, dan efisiensi operasional.
           </p>
+        </div>
 
-          {/* Crisp Bordered Tab Bar — Always 1 row on mobile & desktop */}
-          <div className="pt-2 flex items-center justify-center">
-            <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto gap-1 p-1 sm:p-1.5 rounded-xl bg-white border border-slate-300 shadow-2xs">
-              {cases.map((cs, idx) => {
-                const active = selectedCaseIdx === idx;
-                return (
-                  <button
-                    key={cs.id}
-                    type="button"
-                    onClick={() => setSelectedCaseIdx(idx)}
-                    className={`px-2 sm:px-4 py-2 rounded-lg text-[11px] sm:text-[13px] font-bold transition-all cursor-pointer truncate ${
-                      active
-                        ? "bg-[#2563EB] text-white shadow-xs"
-                        : "text-slate-600 hover:text-[#0F172A] hover:bg-slate-100"
-                    }`}
-                  >
-                    {cs.tabTitle}
-                  </button>
-                );
-              })}
+        {/* Grid Bento 3 Kolom Visual-First (Minim Teks & Tanpa Overlay pada Gambar) */}
+        <div className="grid grid-cols-3 gap-7">
+          {cases.map((item, idx) => (
+            <motion.article
+              key={item.id}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.35, delay: idx * 0.06 }}
+              onClick={() => setSelectedCase(item)}
+              className="group rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_14px_34px_rgba(15,23,42,0.08)] transition-all overflow-hidden flex flex-col justify-between cursor-pointer"
+            >
+              <div>
+                {/* Pure Clean Image Frame — Strictly Zero Badge or Text Overlay */}
+                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                  <Image
+                    src={item.imagePreview}
+                    alt={item.fullTitle}
+                    fill
+                    sizes="(max-width: 1200px) 33vw, 380px"
+                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                    priority={idx === 0}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (target.src !== item.fallbackImage) {
+                        target.src = item.fallbackImage;
+                      }
+                    }}
+                  />
+                </div>
+
+                {/* Ultra-Minimal Result Typography */}
+                <div className="p-6 space-y-1.5">
+                  <span className="text-xs font-semibold text-blue-600 block">
+                    {item.sector}
+                  </span>
+                  <h3 className="text-[22px] font-extrabold tracking-tight text-slate-900 leading-snug">
+                    {item.impactHeadline}
+                  </h3>
+                  <p className="text-[13.5px] text-slate-500">
+                    {item.subMetric}
+                  </p>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-1">
+                <span className="inline-flex items-center gap-1 text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  <span>Lihat studi kasus</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </span>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal Detail Ringkas (Terbuka hanya saat kartu diklik) */}
+      {selectedCase && (
+        <div
+          onClick={() => setSelectedCase(null)}
+          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-6 animate-in fade-in duration-150"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in zoom-in-95 duration-150"
+          >
+            <div className="relative aspect-[16/9] w-full bg-slate-100">
+              <Image
+                src={selectedCase.imagePreview}
+                alt={selectedCase.fullTitle}
+                fill
+                sizes="680px"
+                className="object-cover object-center"
+              />
+            </div>
+
+            <div className="p-7 space-y-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <span className="text-xs font-semibold text-blue-600 block mb-1">
+                    {selectedCase.sector}
+                  </span>
+                  <h3 className="text-xl font-extrabold text-slate-900 leading-snug">
+                    {selectedCase.fullTitle}
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCase(null)}
+                  className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                  aria-label="Tutup detail studi kasus"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 py-4 border-y border-slate-100">
+                {selectedCase.metrics.map((m) => (
+                  <div key={m.label}>
+                    <div className="text-2xl font-black tracking-tight text-slate-900">
+                      {m.value}
+                    </div>
+                    <div className="text-xs text-slate-500 mt-0.5">{m.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {selectedCase.summary}
+              </p>
+
+              <blockquote className="text-[13.5px] text-slate-600 italic leading-relaxed border-l-2 border-slate-200 pl-3.5">
+                &ldquo;{selectedCase.quote}&rdquo;
+                <footer className="not-italic text-xs font-semibold text-slate-900 mt-1">
+                  — {selectedCase.author}
+                </footer>
+              </blockquote>
+
+              <div className="flex items-center gap-4 pt-1">
+                <Link
+                  href="/demo"
+                  onClick={() => setSelectedCase(null)}
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold transition-colors"
+                >
+                  <span>Coba Simulasi Demo</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <a
+                  href="#kontak"
+                  onClick={() => setSelectedCase(null)}
+                  className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >
+                  Konsultasikan Solusi Serupa →
+                </a>
+              </div>
             </div>
           </div>
-        </motion.div>
-
-        {/* MASTER STRUCTURED CASE STUDY CARD (Card Header + 12-Col Body) */}
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.12 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-        >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentCase.id}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.2 }}
-            className="ui-card overflow-hidden shadow-md"
-          >
-            {/* Card Header Bar */}
-            <div className="ui-card-header flex-wrap">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center font-bold border border-blue-200 shrink-0">
-                  <Icon className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-[13px] font-bold text-[#0F172A] leading-tight">
-                    {currentCase.clientSector}
-                  </div>
-                  <div className="text-[11px] text-slate-500">
-                    {currentCase.location}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-md bg-white border border-slate-300 text-slate-700 text-[10.5px] font-bold tracking-wide">
-                  {currentCase.tag}
-                </span>
-                <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10.5px] font-bold">
-                  Implementasi Terverifikasi
-                </span>
-              </div>
-            </div>
-
-            {/* Card Body: 12-Col Split Layout */}
-            <div className="ui-card-body">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-                {/* LEFT COLUMN: Clean Screenshot Card (No Mac Dots, Clean URL Header Strip) */}
-                <div className="lg:col-span-7 flex flex-col justify-center">
-                  <div className="rounded-xl bg-white border border-slate-300 shadow-xs overflow-hidden flex flex-col group">
-                    <div className="bg-slate-50 border-b border-slate-200 px-3.5 py-2 flex items-center justify-between text-slate-600">
-                      <div className="inline-flex items-center gap-1.5 text-[11px] font-mono">
-                        <Lock className="w-3 h-3 text-emerald-600 shrink-0" />
-                        <span className="font-semibold text-slate-700">https://{currentCase.visualUrl}</span>
-                      </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Pratinjau Sistem Live
-                      </span>
-                    </div>
-
-                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/10] lg:aspect-auto lg:h-[400px] bg-slate-100 overflow-hidden">
-                      <Image
-                        src={currentCase.imagePreview}
-                        alt={currentCase.headline}
-                        fill
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          if (target.src !== currentCase.fallbackImage) {
-                            target.src = currentCase.fallbackImage;
-                          }
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* RIGHT COLUMN: Structured Specs, Divided Stats, List Group Story & Quote */}
-                <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
-                  <h3 className="text-lg sm:text-xl lg:text-[22px] font-extrabold tracking-tight text-[#0F172A] leading-snug">
-                    {currentCase.headline}
-                  </h3>
-
-                  {/* 3-Cell Divided Metric Grid */}
-                  <div className="grid grid-cols-3 border border-slate-300 rounded-xl divide-x divide-slate-200 bg-slate-50 overflow-hidden">
-                    {currentCase.metrics.map((m, mIdx) => (
-                      <div key={mIdx} className="p-2.5 sm:p-3 text-center space-y-0.5">
-                        <div className="text-base sm:text-xl font-black text-[#2563EB]">
-                          {m.value}
-                        </div>
-                        <div className="text-[10.5px] font-bold text-slate-800 leading-tight">
-                          {m.label}
-                        </div>
-                        <div className="text-[9.5px] text-slate-500 font-medium truncate">
-                          {m.note}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Bootstrap List-Group Story */}
-                  <div className="ui-list-group text-[11.5px] leading-snug">
-                    <div className="px-3.5 py-2.5 flex items-start gap-2">
-                      <span className="text-rose-600 font-bold shrink-0">✕ Kendala:</span>
-                      <span className="text-slate-600">{currentCase.challengeBrief}</span>
-                    </div>
-                    <div className="px-3.5 py-2.5 flex items-start gap-2 bg-slate-50/50">
-                      <span className="text-blue-600 font-bold shrink-0">⚡ Solusi:</span>
-                      <span className="text-slate-700">{currentCase.solutionBrief}</span>
-                    </div>
-                    <div className="px-3.5 py-2.5 flex items-start gap-2 bg-emerald-50/40">
-                      <span className="text-emerald-700 font-bold shrink-0">✓ Dampak:</span>
-                      <span className="text-slate-900 font-semibold">{currentCase.impactBrief}</span>
-                    </div>
-                  </div>
-
-                  {/* Crisp Callout Testimonial */}
-                  <div className="bg-slate-50 border border-slate-200 border-l-4 border-l-[#2563EB] rounded-r-xl p-3 flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#2563EB] text-white font-bold text-xs flex items-center justify-center shrink-0">
-                      {currentCase.clientQuote.monogram}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-[11px] text-slate-700 italic leading-snug line-clamp-2">
-                        &ldquo;{currentCase.clientQuote.text}&rdquo;
-                      </p>
-                      <div className="text-[10.5px] font-bold text-[#0F172A] mt-0.5">
-                        {currentCase.clientQuote.author}{" "}
-                        <span className="font-normal text-slate-500">
-                          · {currentCase.clientQuote.role}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Action Button Pair */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <a
-                      href="#kontak"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] shadow-xs transition-colors"
-                    >
-                      <span>Konsultasikan Solusi Serupa</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                    <Link
-                      href="/demo"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-[13px] font-bold text-[#1D4ED8] bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors"
-                    >
-                      <span>Coba Simulasi Live (/demo)</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-        </motion.div>
-      </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -1,885 +1,327 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Globe,
-  Building2,
-  Bot,
-  CheckCircle2,
-  ArrowRight,
-  ShieldCheck,
-  Sparkles,
-  Code2,
-  Clock,
-  Database,
-  Cloud,
-  Scale,
-} from "lucide-react";
-import { WhatsAppIcon } from "./WhatsAppIcon";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
 type PricingMode = "beli-putus" | "terima-beres";
 
+const pricingTiers = [
+  {
+    id: "web",
+    icon: Globe,
+    isPopular: false,
+    title: "Situs Web Bisnis",
+    price: "Rp1,5–3,5 juta",
+    summary:
+      "Profil perusahaan dan halaman penawaran produk yang terbuka sekejap (<1 detik) & mudah dicari di Google.",
+    features: {
+      "beli-putus": [
+        "Terbuka cepat (<0,8 detik) & rapi di layar HP pembeli",
+        "100% seluruh file web menjadi hak milik penuh Anda",
+        "Bebas dipasang di layanan hosting mana pun pilihan Anda",
+        "Estimasi pengerjaan selesai 7–14 hari kerja",
+      ],
+      "terima-beres": [
+        "Terbuka cepat (<0,8 detik) & rapi di layar HP pembeli",
+        "Sudah termasuk alamat domain (.com/.id) dan sewa hosting",
+        "Ubah teks, tambah foto, dan perawatan kami yang urus",
+        "Estimasi pengerjaan selesai 7–14 hari kerja",
+      ],
+    },
+    waMessages: {
+      "beli-putus":
+        "Halo Tim Abinest, saya tertarik paket Situs Web Bisnis (Skema Beli Putus). Boleh diskusi detail kebutuhannya?",
+      "terima-beres":
+        "Halo Tim Abinest, saya tertarik paket Situs Web Bisnis (Skema Terima Beres). Boleh diskusi fasilitas perawatannya?",
+    },
+  },
+  {
+    id: "erp",
+    icon: Building2,
+    isPopular: true,
+    title: "Sistem ERP & SIAKAD",
+    price: "Rp4–12 juta",
+    summary:
+      "Aplikasi kasir toko, stok barang multi-gudang, dan portal nilai/SPP sekolah tanpa iuran per karyawan.",
+    features: {
+      "beli-putus": [
+        "Gratis biaya tambahan per kasir, staf, atau siswa selamanya",
+        "100% file aplikasi & seluruh data tersimpan milik Anda penuh",
+        "Bebas dipasang di server kantor sendiri atau sewa cloud pribadi",
+        "Bisa mulai dipakai bertahap per bagian dalam 2–8 minggu",
+      ],
+      "terima-beres": [
+        "Gratis biaya tambahan per kasir, staf, atau siswa selamanya",
+        "Jaminan aplikasi tetap aktif 99,9% nyaris tanpa gangguan",
+        "Penyimpanan khusus lengkap dengan pencadangan data otomatis harian",
+        "Bantuan tim teknis langsung via WhatsApp kurang dari 15 menit",
+      ],
+    },
+    waMessages: {
+      "beli-putus":
+        "Halo Tim Abinest, saya tertarik paket Sistem ERP & SIAKAD (Skema Beli Putus). Boleh konsultasi kebutuhan modulnya?",
+      "terima-beres":
+        "Halo Tim Abinest, saya tertarik paket Sistem ERP & SIAKAD (Skema Terima Beres). Boleh konsultasi kebutuhan modulnya?",
+    },
+  },
+  {
+    id: "ai-ml",
+    icon: Bot,
+    isPopular: false,
+    title: "Automasi AI & WhatsApp",
+    price: "Mulai Rp5 juta",
+    summary:
+      "Asisten balas chat WhatsApp resmi 24 jam serta pindah data nota/faktur otomatis tanpa ketik manual.",
+    features: {
+      "beli-putus": [
+        "Terhubung resmi ke jalur WhatsApp Bisnis (Meta Resmi)",
+        "Baca foto & PDF faktur otomatis tanpa ketik ulang (akurasi 99,7%)",
+        "Seluruh pengaturan balasan & alur kerja milik usaha Anda",
+        "Tersambung langsung dengan daftar stok & harga toko Anda",
+      ],
+      "terima-beres": [
+        "Membalas pertanyaan pelanggan 24 jam dalam hitungan <1 detik",
+        "Pemantauan mesin pembaca nota & koneksi WhatsApp kami jaga penuh",
+        "Penyesuaian gaya bahasa & jawaban AI kami bantu rapikan berkala",
+        "Pemeliharaan rutin serta laporan rekap chat masuk tiap bulan",
+      ],
+    },
+    waMessages: {
+      "beli-putus":
+        "Halo Tim Abinest, saya tertarik implementasi Automasi AI & WhatsApp (Skema Beli Putus). Boleh lihat demonya?",
+      "terima-beres":
+        "Halo Tim Abinest, saya tertarik implementasi Automasi AI & WhatsApp (Skema Terima Beres). Boleh lihat demonya?",
+    },
+  },
+];
+
+const schemeComparisonRows = [
+  {
+    aspect: "Hak Milik Aplikasi & Data",
+    beliPutus:
+      "100% file program & seluruh catatan data usaha diserahkan utuh menjadi aset Anda selamanya.",
+    terimaBeres: "Hak penggunaan penuh selama masa kontrak berlangganan aktif.",
+  },
+  {
+    aspect: "Biaya Bulanan",
+    beliPutus: "Rp0 selamanya (cukup bayar pembuatan di awal sesuai kesepakatan).",
+    terimaBeres:
+      "Iuran ringan per bulan (sudah termasuk sewa tempat penyimpanan data & perawatan rutin).",
+  },
+  {
+    aspect: "Pengurus Server & Teknis",
+    beliPutus:
+      "Dipasang di hosting atau komputer kantor milik Anda sendiri (cocok jika punya tim IT).",
+    terimaBeres:
+      "Seluruh urusan server, cadangan data harian, & perbaikan ditangani penuh oleh tim Abinest.",
+  },
+  {
+    aspect: "Paling Cocok Untuk",
+    beliPutus:
+      "Perusahaan atau yayasan yang ingin memiliki aset digital mandiri tanpa beban sewa bulanan.",
+    terimaBeres:
+      "Pemilik usaha atau sekolah yang ingin sistem langsung siap pakai tanpa perlu merekrut staf IT.",
+  },
+];
+
 export function GrovePricingSection() {
   const [pricingMode, setPricingMode] = useState<PricingMode>("beli-putus");
-  const [activeTierIdx, setActiveTierIdx] = useState(0);
-  const [showMobileComparison, setShowMobileComparison] = useState(false);
-  const pricingSliderRef = useRef<HTMLDivElement>(null);
-
-  const scrollToTier = (idx: number) => {
-    setActiveTierIdx(idx);
-    const container = pricingSliderRef.current;
-    if (!container) return;
-    const child = container.children[idx] as HTMLElement | undefined;
-    if (child) {
-      const containerRect = container.getBoundingClientRect();
-      const childRect = child.getBoundingClientRect();
-      const targetLeft =
-        container.scrollLeft +
-        (childRect.left - containerRect.left) -
-        (container.clientWidth - child.clientWidth) / 2;
-      container.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handlePricingScroll = () => {
-    const container = pricingSliderRef.current;
-    if (!container) return;
-    const containerRect = container.getBoundingClientRect();
-    const containerCenter = containerRect.left + container.clientWidth / 2;
-    let closestIdx = 0;
-    let minDistance = Infinity;
-    Array.from(container.children).forEach((el, idx) => {
-      const rect = (el as HTMLElement).getBoundingClientRect();
-      const elCenter = rect.left + rect.width / 2;
-      const dist = Math.abs(containerCenter - elCenter);
-      if (dist < minDistance) {
-        minDistance = dist;
-        closestIdx = idx;
-      }
-    });
-    if (closestIdx !== activeTierIdx) {
-      setActiveTierIdx(closestIdx);
-    }
-  };
-
-  const tierQuickTabs = ["1. Web Bisnis", "2. ERP UMKM ★", "3. Automasi AI"];
-
-  const pricingTiers = [
-    {
-      id: "web",
-      icon: Globe,
-      isPopular: false,
-      headerTag: {
-        "beli-putus": "PAKET WEB · ASET MANDIRI",
-        "terima-beres": "PAKET WEB · MANAGED CLOUD",
-      },
-      title: "Modern Web & Landing System",
-      currency: "Rp",
-      priceNum: "1.5 – 3.5",
-      priceUnit: "Juta",
-      priceSuffix: "start from",
-      summary:
-        "Website berkecepatan tinggi (<0.8s) & Google SEO 100/100 untuk melipatgandakan kredibilitas dan konversi penjualan institusi Anda.",
-      tags: {
-        "beli-putus": "100% Hak Milik",
-        "terima-beres": "Managed Cloud",
-      },
-      subNotes: {
-        "beli-putus": "Sekali Bayar · 100% Hak Milik Permanen",
-        "terima-beres": "Terima Beres · Managed Cloud & Maintenance",
-      },
-      examples: {
-        "beli-putus": [
-          {
-            label: "Company Profile Korporat & Yayasan",
-            note: "100% Source code Git diserahkan utuh",
-          },
-          {
-            label: "High-Converting Landing Page",
-            note: "Deploy bebas di hosting/server sendiri",
-          },
-          {
-            label: "Katalog & Portofolio Digital",
-            note: "Bebas biaya sewa bulanan selamanya",
-          },
-        ],
-        "terima-beres": [
-          {
-            label: "Company Profile Korporat & Yayasan",
-            note: "Cloud server dedicated & domain kami kelola",
-          },
-          {
-            label: "High-Converting Landing Page",
-            note: "Update banner & maintenance teknis berkala",
-          },
-          {
-            label: "Katalog & Portofolio Digital",
-            note: "Backup otomatis & pemantauan anti-down 24/7",
-          },
-        ],
-      },
-      features: {
-        "beli-putus": [
-          "Kecepatan <0.8s & Skor Google SEO 100/100",
-          "100% Full Source Code Git & Hak Cipta Mutlak",
-          "Bebas Deploy di Hosting / VPS Sendiri (Zero Lock-in)",
-        ],
-        "terima-beres": [
-          "Kecepatan <0.8s & Skor Google SEO 100/100",
-          "Dedicated Cloud Server + Setup Domain & SSL Gratis",
-          "Maintenance Teknis & Patch Bug Rutin Kami Rawat",
-        ],
-      },
-      ctaLabel: {
-        "beli-putus": "Ambil Skema Beli Putus",
-        "terima-beres": "Pilih Skema Terima Beres",
-      },
-      waMessages: {
-        "beli-putus":
-          "Halo Tim Abinest, saya tertarik paket Modern Web & Landing System dengan skema Beli Putus (100% Hak Milik Permanen). Boleh konsultasi detailnya?",
-        "terima-beres":
-          "Halo Tim Abinest, saya tertarik paket Modern Web & Landing System dengan skema Terima Beres (Managed Cloud & Support). Boleh info fasilitas perawatannya?",
-      },
-    },
-    {
-      id: "erp",
-      icon: Building2,
-      isPopular: true,
-      headerTag: {
-        "beli-putus": "PALING BANYAK DIPILIH · ZERO BIAYA BULANAN",
-        "terima-beres": "PALING BANYAK DIPILIH · GARANSI ANTI-DOWN",
-      },
-      title: "Custom ERP & SIAKAD Sistem",
-      currency: "Rp",
-      priceNum: "4 – 12",
-      priceUnit: "Juta",
-      priceSuffix: "start from",
-      summary:
-        "Sistem operasional kustom dari kasir POS, SIAKAD sekolah anti-down, hingga ERP multi-gudang tanpa biaya lisensi per user selamanya.",
-      tags: {
-        "beli-putus": "PostgreSQL & Source Code Penuh",
-        "terima-beres": "Dedicated Cloud & SLA 99.9%",
-      },
-      subNotes: {
-        "beli-putus": "Sesuai Modul · Zero Biaya Lisensi Selamanya",
-        "terima-beres": "Terima Beres · Garansi SLA 99.9% Uptime",
-      },
-      examples: {
-        "beli-putus": [
-          {
-            label: "SIAKAD Sekolah & Ujian Anti-Down",
-            note: "Database PostgreSQL & dump asli diserahkan",
-          },
-          {
-            label: "ERP Multi-Gudang & Logistik",
-            note: "Unlimited user tanpa pungutan per-kepala",
-          },
-          {
-            label: "Kasir POS & Keuangan Multi-Cabang",
-            note: "Self-hosted di server internal / cloud mandiri",
-          },
-        ],
-        "terima-beres": [
-          {
-            label: "SIAKAD Sekolah & Ujian Anti-Down",
-            note: "Garansi ujian lancar tanpa server down",
-          },
-          {
-            label: "ERP Multi-Gudang & Logistik",
-            note: "Backup database harian otomatis multi-lokasi",
-          },
-          {
-            label: "Kasir POS & Keuangan Multi-Cabang",
-            note: "Engineer siaga via WhatsApp <15 menit",
-          },
-        ],
-      },
-      features: {
-        "beli-putus": [
-          "Zero Biaya Lisensi User (Bebas Tambah 10.000+ Siswa/Karyawan)",
-          "Full Source Code & Skema Database PostgreSQL Lengkap",
-          "Bebas Hosting di Server Kantor / AWS / VPS Pribadi",
-        ],
-        "terima-beres": [
-          "Zero Biaya Lisensi User (Bebas Tambah 10.000+ Siswa/Karyawan)",
-          "Garansi Tertulis Anti-Down SLA 99.9% Uptime Resmi",
-          "Server Dedicated, Backup Harian & Siaga Engineer <15 Menit",
-        ],
-      },
-      ctaLabel: {
-        "beli-putus": "Ambil Skema Beli Putus",
-        "terima-beres": "Pilih Skema Terima Beres",
-      },
-      waMessages: {
-        "beli-putus":
-          "Halo Tim Abinest, saya ingin berkonsultasi mengenai Custom ERP / SIAKAD dengan skema Beli Putus (100% Hak Milik & Database Mandiri).",
-        "terima-beres":
-          "Halo Tim Abinest, saya ingin berkonsultasi mengenai Custom ERP / SIAKAD dengan skema Terima Beres (Managed Cloud & SLA 99.9%).",
-      },
-    },
-    {
-      id: "ai-ml",
-      icon: Bot,
-      isPopular: false,
-      headerTag: {
-        "beli-putus": "PAKET OTOMASI · PIPELINE MANDIRI",
-        "terima-beres": "PAKET OTOMASI · BOT SIAGA 24/7",
-      },
-      title: "Automation AI/ML & Meta Agent",
-      currency: "Rp",
-      priceNum: "5",
-      priceUnit: "Juta+",
-      priceSuffix: "start from",
-      summary:
-        "Otomatiskan alur kerja manual dengan WhatsApp AI Agent resmi Meta dan ekstraksi ribuan dokumen via Document AI OCR non-stop 24 jam.",
-      tags: {
-        "beli-putus": "Kode & Pipeline Asli",
-        "terima-beres": "Server Bot Siaga 24/7",
-      },
-      subNotes: {
-        "beli-putus": "Sekali Bayar · Source Code & Model Penuh",
-        "terima-beres": "Terima Beres · Managed Host & Bot 24/7",
-      },
-      examples: {
-        "beli-putus": [
-          {
-            label: "Document AI OCR Extractor",
-            note: "Pipeline ekstraksi dokumen mandiri tanpa sewa",
-          },
-          {
-            label: "WhatsApp AI Agent Resmi Meta",
-            note: "Script bot terhubung ke Cloud API akun perusahaan",
-          },
-          {
-            label: "Integrasi Workflow Otomatis",
-            note: "Akses webhook & database internal 100% privat",
-          },
-        ],
-        "terima-beres": [
-          {
-            label: "Document AI OCR Extractor",
-            note: "Server OCR dokumen dipantau & dituning otomatis",
-          },
-          {
-            label: "WhatsApp AI Agent Resmi Meta",
-            note: "Bot online 24 jam nonstop tanpa server lokal",
-          },
-          {
-            label: "Integrasi Workflow Otomatis",
-            note: "Monitoring error & retry otomatis jika webhook fail",
-          },
-        ],
-      },
-      features: {
-        "beli-putus": [
-          "Resmi Meta WhatsApp Cloud API (Anti-Banned)",
-          "100% Script Otomasi & Prompt AI Jadi Aset Institusi",
-          "Integrasi Langsung ke Server & Database Internal Anda",
-        ],
-        "terima-beres": [
-          "Resmi Meta WhatsApp Cloud API (Anti-Banned)",
-          "Hosting Bot Siaga 24/7 & Pemantauan Error Otomatis",
-          "Maintenance Prompt AI & Penyesuaian SOP Berkala",
-        ],
-      },
-      ctaLabel: {
-        "beli-putus": "Ambil Skema Beli Putus",
-        "terima-beres": "Pilih Skema Terima Beres",
-      },
-      waMessages: {
-        "beli-putus":
-          "Halo Tim Abinest, saya tertarik paket Automation AI/ML dengan skema Beli Putus (100% Source Code & integrasi mandiri). Boleh demo teknisnya?",
-        "terima-beres":
-          "Halo Tim Abinest, saya tertarik paket Automation AI/ML dengan skema Terima Beres (Managed Bot & Server Siaga 24/7). Boleh demo teknisnya?",
-      },
-    },
-  ];
-
-  const schemeComparisonRows = [
-    {
-      aspect: "Kepemilikan Source Code & Database",
-      beliPutus: "✓ 100% Full Git Repo & DB Dump diserahkan utuh ke klien",
-      terimaBeres: "✓ Kode tetap milik klien, hak akses & backup terbuka",
-    },
-    {
-      aspect: "Biaya Langganan / Lisensi Per-User",
-      beliPutus: "Rp 0 selamanya (unlimited staf, siswa, & cabang)",
-      terimaBeres: "Rp 0 biaya per-user · hanya biaya perawatan & cloud terukur",
-    },
-    {
-      aspect: "Infrastruktur Server & Domain",
-      beliPutus: "Di-deploy ke VPS / Cloud / Server kantor milik klien sendiri",
-      terimaBeres: "Dikelola penuh di server dedicated Abinest + SSL & Backup harian",
-    },
-    {
-      aspect: "Garansi Maintenance & Tanggap Darurat",
-      beliPutus: "Garansi bug-fix awal + dokumentasi lengkap tim IT internal",
-      terimaBeres: "Jaminan SLA 99.9% uptime + engineer siaga <15 menit",
-    },
-    {
-      aspect: "Paling Cocok Untuk",
-      beliPutus: "Institusi / bisnis yang sudah punya tim IT atau server sendiri",
-      terimaBeres: "Pemilik usaha / sekolah yang ingin langsung pakai tanpa urus server",
-    },
-  ];
-
-  const handleOpenWa = (message: string) => {
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
-
+  const [showCompareModal, setShowCompareModal] = useState(false);
   const isBeliPutus = pricingMode === "beli-putus";
 
   return (
     <section
       id="harga"
-      className="relative py-10 sm:py-20 bg-[#F8FAFC] border-b border-slate-300/80 overflow-hidden"
+      data-section="harga"
+      className="py-20 bg-white border-b border-slate-200/70"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 relative z-10 space-y-6 sm:space-y-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.38, ease: "easeOut" }}
-          className="text-center max-w-3xl mx-auto space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#1E40AF] text-[11px] font-bold tracking-wider uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2496ED] animate-pulse" />
-            <span>Paket Investasi Transparan</span>
+      <div className="max-w-[1200px] mx-auto px-8 space-y-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="space-y-2.5 max-w-xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
+              Investasi yang Transparan
+            </h2>
+            <p className="text-[15.5px] text-slate-600 leading-relaxed">
+              {isBeliPutus
+                ? "Skema Beli Putus: aplikasi dan seluruh data usaha diserahkan utuh tanpa biaya bulanan."
+                : "Skema Terima Beres: server, cadangan data harian, dan perawatan sistem kami tangani penuh."}
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-[-0.03em] leading-tight">
-            Investasi Teknologi Terukur.
-            <br />
-            <span className={isBeliPutus ? "text-[#0D9488]" : "text-[#2563EB]"}>
-              Tersedia Pilihan Beli Putus atau Terima Beres.
-            </span>
-          </h2>
-
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-xl mx-auto">
-            Pilih model kepemilikan sesuai kesiapan institusi Anda: 100% kepemilikan aset mandiri tanpa biaya sewa, atau terima beres dengan server dan perawatan penuh.
-          </p>
-        </motion.div>
-
-        {/* Crisp Segmented Mode Switcher + Bootstrap Callout Alert */}
-        <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="grid grid-cols-2 sm:inline-flex w-full sm:w-auto p-1 sm:p-1.5 rounded-xl bg-white border border-slate-300 shadow-xs gap-1 sm:gap-1.5">
+          <div className="inline-flex p-1 rounded-xl bg-slate-100 shrink-0 self-start md:self-auto">
             <button
               type="button"
               onClick={() => setPricingMode("beli-putus")}
-              className={`px-2.5 sm:px-6 py-2.5 rounded-lg text-[11px] sm:text-sm font-bold transition-all duration-150 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer ${
+              className={`px-5 py-2 rounded-lg text-[13px] font-semibold transition-all cursor-pointer ${
                 isBeliPutus
-                  ? "bg-[#0D9488] text-white shadow-xs"
-                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                  ? "bg-white text-slate-900 shadow-xs"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-              <span className="truncate">Beli Putus (100%)</span>
-              <span
-                className={`hidden sm:inline-block px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase tracking-wide ${
-                  isBeliPutus
-                    ? "bg-white/20 text-white"
-                    : "bg-teal-50 text-teal-800 border border-teal-200"
-                }`}
-              >
-                Aset Mandiri
-              </span>
+              Beli Putus
             </button>
-
             <button
               type="button"
               onClick={() => setPricingMode("terima-beres")}
-              className={`px-2.5 sm:px-6 py-2.5 rounded-lg text-[11px] sm:text-sm font-bold transition-all duration-150 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer ${
+              className={`px-5 py-2 rounded-lg text-[13px] font-semibold transition-all cursor-pointer ${
                 !isBeliPutus
-                  ? "bg-[#2563EB] text-white shadow-xs"
-                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                  ? "bg-white text-slate-900 shadow-xs"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              <Cloud className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-              <span className="truncate">Sewa / Terima Beres</span>
-              <span
-                className={`hidden sm:inline-block px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase tracking-wide ${
-                  !isBeliPutus
-                    ? "bg-white/20 text-white"
-                    : "bg-blue-50 text-blue-800 border border-blue-200"
-                }`}
-              >
-                Siap Pakai
-              </span>
+              Terima Beres
             </button>
           </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={pricingMode}
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={{ duration: 0.18 }}
-              className="w-full max-w-2xl"
-            >
-              {isBeliPutus ? (
-                <div className="px-4 py-2.5 rounded-xl bg-teal-50/80 border border-teal-300 border-l-4 border-l-[#0D9488] text-teal-950 text-xs sm:text-[13px] flex items-center gap-2.5 shadow-2xs">
-                  <ShieldCheck className="w-4 h-4 text-[#0D9488] shrink-0" />
-                  <span>
-                    <strong className="font-bold">Skema Beli Putus 100%:</strong> Seluruh source code &amp; database diserahkan utuh tanpa biaya sewa bulanan selamanya.
-                  </span>
-                </div>
-              ) : (
-                <div className="px-4 py-2.5 rounded-xl bg-blue-50/80 border border-blue-300 border-l-4 border-l-[#2563EB] text-blue-950 text-xs sm:text-[13px] flex items-center gap-2.5 shadow-2xs">
-                  <Cloud className="w-4 h-4 text-[#2563EB] shrink-0" />
-                  <span>
-                    <strong className="font-bold">Skema Sewa / Terima Beres:</strong> Server cloud dedicated, garansi SLA 99.9% uptime &amp; maintenance teknis kami rawat penuh.
-                  </span>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
         </div>
 
-        {/* Mobile Package Quick Tabs & Swipe Indicator (< lg) */}
-        <div className="lg:hidden space-y-2 !mt-5">
-          <div className="grid grid-cols-3 gap-1.5 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xs">
-            {tierQuickTabs.map((label, idx) => (
-              <button
-                key={label}
-                type="button"
-                onClick={() => scrollToTier(idx)}
-                className={`py-2 px-1.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
-                  activeTierIdx === idx
-                    ? isBeliPutus
-                      ? "bg-[#0D9488] text-white shadow-xs"
-                      : "bg-[#2563EB] text-white shadow-xs"
-                    : "bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-          <div className="flex items-center justify-between px-1 text-[11px] font-medium text-slate-500">
-            <div className="flex items-center gap-1.5">
-              {pricingTiers.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  aria-label={`Pilih Paket ${idx + 1}`}
-                  onClick={() => scrollToTier(idx)}
-                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                    activeTierIdx === idx
-                      ? isBeliPutus
-                        ? "w-5 bg-[#0D9488]"
-                        : "w-5 bg-[#2563EB]"
-                      : "w-1.5 bg-slate-300"
-                  }`}
-                />
-              ))}
-              <span className="ml-1 text-[10.5px] font-bold text-slate-600">
-                Paket {activeTierIdx + 1} / {pricingTiers.length}
-              </span>
-            </div>
-            <span className="text-blue-600 font-semibold">Geser kartu harga ke samping →</span>
-          </div>
-        </div>
-
-        {/* 3-Column Pricing Cards on Desktop, Horizontal Scroll-Snap Slider on Mobile */}
-        <div
-          ref={pricingSliderRef}
-          onScroll={handlePricingScroll}
-          className="flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth no-scrollbar gap-4 lg:gap-6 items-stretch -mx-5 px-5 pt-1 pb-3 lg:mx-0 lg:px-0 lg:pt-0 lg:pb-0 !mt-3 lg:!mt-10"
-        >
+        <div className="grid grid-cols-3 gap-7 items-stretch">
           {pricingTiers.map((tier, idx) => {
             const Icon = tier.icon;
-            const isHighlight = tier.isPopular;
-            const currentHeaderTag = tier.headerTag[pricingMode];
-            const currentTag = tier.tags[pricingMode];
-            const currentSubNote = tier.subNotes[pricingMode];
-            const currentExamples = tier.examples[pricingMode];
-            const currentFeatures = tier.features[pricingMode];
-            const currentCtaLabel = tier.ctaLabel[pricingMode];
-            const currentWaMsg = tier.waMessages[pricingMode];
-
-            const highlightBorder = isBeliPutus
-              ? "border-2 border-[#0D9488] shadow-[0_14px_35px_rgba(13,148,136,0.14)]"
-              : "border-2 border-[#2563EB] shadow-[0_14px_35px_rgba(37,99,235,0.14)]";
-
-            const bannerClass = isHighlight
+            const ringStyle = tier.isPopular
               ? isBeliPutus
-                ? "bg-[#0D9488] text-white border-b border-teal-700"
-                : "bg-[#2563EB] text-white border-b border-blue-700"
-              : "bg-slate-100 text-slate-700 border-b border-slate-200";
+                ? "ring-2 ring-teal-600 shadow-[0_12px_36px_rgba(13,148,136,0.08)]"
+                : "ring-2 ring-blue-600 shadow-[0_12px_36px_rgba(37,99,235,0.08)]"
+              : "border border-slate-200/90 shadow-[0_2px_12px_rgba(15,23,42,0.03)]";
+
+            const accentColor = isBeliPutus ? "text-teal-600" : "text-blue-600";
+            const btnClass = tier.isPopular
+              ? isBeliPutus
+                ? "bg-teal-600 hover:bg-teal-700 text-white"
+                : "bg-blue-600 hover:bg-blue-700 text-white"
+              : "bg-slate-900 hover:bg-slate-800 text-white";
 
             return (
-              <motion.div
+              <motion.article
                 key={tier.id}
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.08 }}
-                className={`w-[86vw] max-w-[350px] sm:w-[370px] shrink-0 snap-center lg:w-auto lg:max-w-none lg:shrink rounded-2xl bg-white overflow-hidden flex flex-col justify-between transition-all duration-200 ${
-                  isHighlight
-                    ? highlightBorder
-                    : "border border-slate-300 shadow-xs hover:border-slate-400 hover:shadow-md"
-                }`}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.32, delay: idx * 0.06 }}
+                className={`rounded-2xl bg-white p-7 flex flex-col justify-between transition-all ${ringStyle}`}
               >
-                {/* 1. Integrated Top Card Banner */}
-                <div className={`px-4 sm:px-5 py-2.5 text-[10.5px] font-extrabold uppercase tracking-wider flex items-center justify-between gap-2 ${bannerClass}`}>
-                  <span className="inline-flex items-center gap-1.5 truncate">
-                    {isHighlight && <Sparkles className="w-3.5 h-3.5 shrink-0" />}
-                    <span className="truncate">{currentHeaderTag}</span>
-                  </span>
-                  <span className="shrink-0 opacity-85">0{idx + 1}</span>
-                </div>
-
-                {/* 2. Structured Card Header (Title, Summary & Price Block) */}
-                <div className="px-4 py-4 sm:px-5 sm:py-5 bg-slate-50/70 border-b border-slate-200 space-y-3 sm:space-y-4">
-                  <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-4">
                     <div className="flex items-center gap-2.5">
-                      <div
-                        className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 border ${
-                          isHighlight
-                            ? isBeliPutus
-                              ? "bg-teal-50 text-[#0D9488] border-teal-200"
-                              : "bg-blue-50 text-[#2563EB] border-blue-200"
-                            : "bg-white text-slate-700 border-slate-300"
-                        }`}
-                      >
-                        <Icon className="w-[18px] h-[18px]" />
-                      </div>
-                      <h3 className="text-lg font-extrabold text-[#0F172A] tracking-tight leading-snug">
+                      <Icon className={`w-4 h-4 ${accentColor}`} />
+                      <h3 className="text-lg font-bold text-slate-900">
                         {tier.title}
                       </h3>
                     </div>
-                  </div>
-
-                  {/* Price Row */}
-                  <div className="p-3.5 rounded-xl bg-white border border-slate-200 space-y-1">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-xs font-bold text-slate-500">
-                        {tier.currency}
-                      </span>
-                      <span className="text-3xl sm:text-4xl font-black tracking-tight text-[#0F172A]">
-                        {tier.priceNum}
-                      </span>
-                      <span className="text-base font-bold text-slate-700">
-                        {tier.priceUnit}
-                      </span>
+                    {tier.isPopular && (
                       <span
-                        className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-md border ml-auto ${
-                          isBeliPutus
-                            ? "bg-teal-50 text-teal-800 border-teal-200"
-                            : "bg-blue-50 text-blue-800 border-blue-200"
+                        className={`text-xs font-semibold ${
+                          isBeliPutus ? "text-teal-700" : "text-blue-600"
                         }`}
                       >
-                        {tier.priceSuffix}
+                        Populer
                       </span>
-                    </div>
-                    <div
-                      className={`text-[11px] font-bold ${
-                        isBeliPutus ? "text-teal-700" : "text-blue-700"
-                      }`}
-                    >
-                      {currentSubNote} · {currentTag}
-                    </div>
+                    )}
                   </div>
 
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {tier.summary}
-                  </p>
-                </div>
-
-                {/* 3. Card Body (List Group + Feature Checklist) */}
-                <div className="p-4 sm:p-5 flex-1 space-y-3 sm:space-y-4">
                   <div className="space-y-1.5">
-                    <div className="text-[10.5px] font-bold uppercase tracking-wider text-slate-500">
-                      3 Contoh Implementasi Nyata:
+                    <div className="text-[30px] font-black tracking-tight text-slate-900">
+                      {tier.price}
                     </div>
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={pricingMode}
-                        initial={{ opacity: 0, y: 2 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -2 }}
-                        transition={{ duration: 0.16 }}
-                        className="ui-list-group bg-slate-50/40"
-                      >
-                        {currentExamples.map((ex, exIdx) => (
-                          <div key={exIdx} className="px-3 py-2.5 flex items-start gap-2 text-xs">
-                            <span
-                              className={`w-1.5 h-1.5 rounded-full shrink-0 mt-1.5 ${
-                                isBeliPutus ? "bg-[#0D9488]" : "bg-[#2563EB]"
-                              }`}
-                            />
-                            <div className="min-w-0">
-                              <span className="font-bold text-[#0F172A] block leading-tight">
-                                {ex.label}
-                              </span>
-                              <span className="text-[10.5px] text-slate-500 block leading-tight mt-0.5">
-                                {ex.note}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </motion.div>
-                    </AnimatePresence>
+                    <p className="text-[13.5px] text-slate-600 leading-relaxed">
+                      {tier.summary}
+                    </p>
                   </div>
 
-                  <div className="pt-2 border-t border-slate-200">
-                    <AnimatePresence mode="wait">
-                      <motion.ul
-                        key={pricingMode}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.16 }}
-                        className="space-y-2 text-xs text-slate-700"
-                      >
-                        {currentFeatures.map((feat, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2">
-                            <CheckCircle2
-                              className={`w-4 h-4 shrink-0 mt-0.5 ${
-                                isBeliPutus ? "text-[#0D9488]" : "text-[#2563EB]"
-                              }`}
-                            />
-                            <span className="leading-snug font-medium">{feat}</span>
-                          </li>
-                        ))}
-                      </motion.ul>
-                    </AnimatePresence>
-                  </div>
+                  <div className="border-t border-slate-100 my-5" />
+
+                  <ul className="space-y-3 text-[13.5px] text-slate-700">
+                    {tier.features[pricingMode].map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5">
+                        <Check className={`w-4 h-4 shrink-0 mt-0.5 ${accentColor}`} />
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* 4. Card Footer */}
-                <div className="ui-card-footer space-y-2">
-                  <button
-                    type="button"
-                    onClick={() => handleOpenWa(currentWaMsg)}
-                    className={`w-full py-3 px-4 rounded-xl text-xs sm:text-[13px] font-bold flex items-center justify-center gap-2 transition-all duration-150 shadow-xs cursor-pointer ${
-                      isHighlight
-                        ? isBeliPutus
-                          ? "bg-[#0D9488] hover:bg-[#0F766E] text-white"
-                          : "bg-[#2563EB] hover:bg-[#1D4ED8] text-white"
-                        : isBeliPutus
-                        ? "bg-[#0F172A] hover:bg-[#0D9488] text-white"
-                        : "bg-[#0F172A] hover:bg-[#2563EB] text-white"
-                    }`}
-                  >
-                    <WhatsAppIcon className="w-4 h-4 text-white" />
-                    <span>{currentCtaLabel}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  <div className="text-center text-[10px] text-slate-500 font-medium">
-                    Diskusi Gratis · Respons &lt;15 Menit · Tanpa Komitmen
-                  </div>
-                </div>
-              </motion.div>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                    tier.waMessages[pricingMode]
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-7 w-full h-11 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${btnClass}`}
+                >
+                  <span>Konsultasikan Paket Ini</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </motion.article>
             );
           })}
         </div>
 
-        {/* Mobile Collapsible Comparison Toggle (< md) */}
-        <div className="md:hidden !mt-4">
+        <div className="text-center pt-1">
           <button
             type="button"
-            onClick={() => setShowMobileComparison((prev) => !prev)}
-            className="flex w-full items-center justify-between rounded-xl border border-slate-300 bg-white px-4 py-3 text-left shadow-xs transition-colors hover:bg-slate-50 cursor-pointer"
+            onClick={() => setShowCompareModal(true)}
+            className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer"
           >
-            <div className="min-w-0 pr-2">
-              <span className="block text-xs font-extrabold text-slate-900">
-                ⚖️ Bandingkan Detail: Beli Putus vs Terima Beres
-              </span>
-              <span className="block text-[11px] text-slate-500 truncate">
-                {showMobileComparison
-                  ? "Ketuk untuk menutup tabel perbandingan"
-                  : "Lihat tabel 6 poin kepemilikan, server & SLA"}
-              </span>
-            </div>
-            <span className="inline-flex shrink-0 items-center rounded-lg bg-slate-100 border border-slate-200 px-2.5 py-1 text-[11px] font-bold text-slate-700">
-              {showMobileComparison ? "Tutup ▴" : "Buka ▾"}
-            </span>
+            Pelajari perbedaan skema Beli Putus dan Terima Beres →
           </button>
         </div>
+      </div>
 
-        {/* Structured Ownership Comparison Table (Beli Putus vs Terima Beres) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.12 }}
-          transition={{ duration: 0.38, ease: "easeOut" }}
-          className={`${showMobileComparison ? "block !mt-3" : "hidden"} md:block md:!mt-12 ui-card overflow-hidden`}
+      {/* Modal Perbandingan Ringkas */}
+      {showCompareModal && (
+        <div
+          onClick={() => setShowCompareModal(false)}
+          className="fixed inset-0 z-50 bg-slate-950/45 backdrop-blur-xs flex items-center justify-center p-6 animate-in fade-in duration-150"
         >
-          <div className="ui-card-header bg-slate-100/80 flex-wrap">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#0F172A] text-white flex items-center justify-center shrink-0">
-                <Scale className="w-4 h-4" />
-              </div>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 p-7 space-y-5 animate-in zoom-in-95 duration-150"
+          >
+            <div className="flex items-start justify-between gap-4 pb-4 border-b border-slate-100">
               <div>
-                <h3 className="text-sm sm:text-base font-extrabold text-[#0F172A] leading-tight">
-                  Perbandingan Detail: Skema Beli Putus vs Sewa / Terima Beres
+                <h3 className="text-xl font-bold text-slate-900">
+                  Perbandingan Beli Putus dan Terima Beres
                 </h3>
-                <p className="text-[11px] sm:text-xs text-slate-500">
-                  Pilih yang paling pas dengan kesiapan tim dan anggaran operasional bisnis Anda.
+                <p className="text-sm text-slate-500 mt-0.5">
+                  Sesuaikan dengan kesiapan tim teknis dan anggaran operasional Anda.
                 </p>
               </div>
+              <button
+                type="button"
+                onClick={() => setShowCompareModal(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer"
+                aria-label="Tutup perbandingan"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
-            <span className="px-2.5 py-1 rounded-md bg-white border border-slate-300 text-[11px] font-bold text-slate-700">
-              Bebas Biaya Tersembunyi
-            </span>
-          </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[660px] text-xs sm:text-[13px]">
-              <thead>
-                <tr className="bg-slate-900 text-white border-b border-slate-300 divide-x divide-slate-700/80">
-                  <th className="py-3 px-4 font-bold w-[28%]">Poin Perbandingan</th>
-                  <th
-                    className={`py-3 px-4 font-bold w-[36%] transition-colors ${
-                      isBeliPutus ? "bg-[#0F766E]" : ""
-                    }`}
-                  >
-                    1. Beli Putus (100% Permanen)
-                  </th>
-                  <th
-                    className={`py-3 px-4 font-bold w-[36%] transition-colors ${
-                      !isBeliPutus ? "bg-[#1D4ED8]" : ""
-                    }`}
-                  >
-                    2. Sewa / Terima Beres (Managed)
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200 text-slate-700">
-                {schemeComparisonRows.map((row, rIdx) => (
-                  <tr
-                    key={rIdx}
-                    className={`divide-x divide-slate-200 hover:bg-slate-50 ${
-                      rIdx % 2 === 1 ? "bg-slate-50/50" : "bg-white"
-                    }`}
-                  >
-                    <td className="py-3 px-4 font-bold text-[#0F172A]">
-                      {row.aspect}
-                    </td>
-                    <td
-                      className={`py-3 px-4 ${
-                        isBeliPutus ? "bg-teal-50/35 font-medium text-slate-900" : ""
-                      }`}
-                    >
-                      {row.beliPutus}
-                    </td>
-                    <td
-                      className={`py-3 px-4 ${
-                        !isBeliPutus ? "bg-blue-50/35 font-medium text-slate-900" : ""
-                      }`}
-                    >
-                      {row.terimaBeres}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </motion.div>
-
-        {/* 4 Core Guarantees Bar (Compact 2x2 Grid on Mobile, Divided Row on Desktop) */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.36, ease: "easeOut" }}
-          className="!mt-5 sm:!mt-10 bg-slate-200 gap-px rounded-2xl border border-slate-300 shadow-xs overflow-hidden grid grid-cols-2 lg:grid-cols-4"
-        >
-          <div className="bg-white p-3.5 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
-            <div
-              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center shrink-0 border ${
-                isBeliPutus
-                  ? "bg-teal-50 text-[#0D9488] border-teal-200"
-                  : "bg-blue-50 text-[#2563EB] border-blue-200"
-              }`}
-            >
-              <Code2 className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <h4 className="text-[11.5px] sm:text-xs font-extrabold text-[#0F172A] leading-snug">
-                100% Hak Milik Kode
-              </h4>
-              <p className="text-[10.5px] sm:text-[11px] text-slate-500 leading-snug">
-                Full source code &amp; zero lock-in
-              </p>
+            <div className="divide-y divide-slate-100">
+              {schemeComparisonRows.map((row) => (
+                <div key={row.aspect} className="py-3.5 grid grid-cols-12 gap-4 text-sm">
+                  <div className="col-span-4 font-semibold text-slate-900">
+                    {row.aspect}
+                  </div>
+                  <div className="col-span-4 text-slate-600">
+                    <span className="block text-[11px] font-bold uppercase tracking-wide text-teal-700 mb-0.5">
+                      Beli Putus
+                    </span>
+                    {row.beliPutus}
+                  </div>
+                  <div className="col-span-4 text-slate-600">
+                    <span className="block text-[11px] font-bold uppercase tracking-wide text-blue-700 mb-0.5">
+                      Terima Beres
+                    </span>
+                    {row.terimaBeres}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          <div className="bg-white p-3.5 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
-            <div
-              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center shrink-0 border ${
-                isBeliPutus
-                  ? "bg-teal-50 text-[#0D9488] border-teal-200"
-                  : "bg-blue-50 text-[#2563EB] border-blue-200"
-              }`}
-            >
-              <Database className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <h4 className="text-[11.5px] sm:text-xs font-extrabold text-[#0F172A] leading-snug">
-                Rp 0 Lisensi Bulanan
-              </h4>
-              <p className="text-[10.5px] sm:text-[11px] text-slate-500 leading-snug">
-                Unlimited user tanpa biaya sewa
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-3.5 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
-            <div
-              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center shrink-0 border ${
-                isBeliPutus
-                  ? "bg-teal-50 text-[#0D9488] border-teal-200"
-                  : "bg-blue-50 text-[#2563EB] border-blue-200"
-              }`}
-            >
-              <ShieldCheck className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <h4 className="text-[11.5px] sm:text-xs font-extrabold text-[#0F172A] leading-snug">
-                SLA Anti-Down 99.9%
-              </h4>
-              <p className="text-[10.5px] sm:text-[11px] text-slate-500 leading-snug">
-                Stabilitas sistem terjamin 24/7
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white p-3.5 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
-            <div
-              className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center shrink-0 border ${
-                isBeliPutus
-                  ? "bg-teal-50 text-[#0D9488] border-teal-200"
-                  : "bg-blue-50 text-[#2563EB] border-blue-200"
-              }`}
-            >
-              <Clock className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <h4 className="text-[11.5px] sm:text-xs font-extrabold text-[#0F172A] leading-snug">
-                Free Konsultasi &amp; Demo
-              </h4>
-              <p className="text-[10.5px] sm:text-[11px] text-slate-500 leading-snug">
-                Langsung dengan lead engineer
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+        </div>
+      )}
     </section>
   );
 }

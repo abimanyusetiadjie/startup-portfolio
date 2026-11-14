@@ -464,134 +464,39 @@ export function GroveTechStackShowcase() {
   return (
     <section
       id="tech-stack"
-      className="py-10 sm:py-14 relative bg-[#F8FAFC] border-b border-slate-300/80 overflow-x-clip"
+      data-section="tech-stack"
+      className="py-14 bg-[#F8FAFC] border-b border-slate-200/70 overflow-hidden"
     >
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-8">
-        {/* Structured Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.36, ease: "easeOut" }}
-          className="text-center max-w-2xl mx-auto space-y-2.5"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-slate-300 text-slate-700 text-[11px] font-bold uppercase tracking-wider shadow-2xs">
-            <span>INFRASTRUKTUR &amp; STANDAR PRODUKSI</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 select-text">
-            Our Tech <span className="text-[#2563EB]">Stack</span>.
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
-            Kombinasi bahasa, framework, database, dan mesin automasi teruji industri untuk menjamin kecepatan, stabilitas, dan keamanan data jangka panjang.
-          </p>
-        </motion.div>
+      <div className="max-w-[1200px] mx-auto px-8 space-y-6">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+          Dibangun di Atas Teknologi Standar Industri
+        </p>
 
-        {/* Mobile 2-Row Horizontal Swipeable Slider (Anti-Dead-Scroll on 375px-430px) */}
-        <div className="md:hidden">
-          <div className="mb-2 flex items-center justify-between px-1 text-[11px] font-medium text-slate-500">
-            <span className="font-bold text-slate-600">
-              {allTechnologies.length} Teknologi Enterprise &amp; AI
-            </span>
-            <span className="text-blue-600 font-semibold">Geser ke samping →</span>
-          </div>
-          <div className="grid grid-rows-2 grid-flow-col auto-cols-[106px] sm:auto-cols-[116px] overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-2 rounded-2xl border border-slate-300 bg-white p-3 shadow-xs">
-            {allTechnologies.map((item, idx) => (
-              <div
-                key={`mobile-tech-${idx}`}
-                className="snap-start flex flex-col justify-between rounded-xl bg-white border border-slate-200 overflow-hidden"
-              >
-                <div className="flex flex-col items-center justify-center pt-2.5 pb-2 px-1.5">
-                  <div className="shrink-0">{item.icon}</div>
-                  <p className="mt-1.5 text-[11px] font-extrabold text-[#0F172A] truncate max-w-full">
-                    {item.name}
-                  </p>
-                </div>
-                <div className="bg-slate-50 border-t border-slate-200 px-1.5 py-1 text-center">
-                  <span className="block text-[8.5px] font-semibold text-slate-600 truncate">
-                    {item.role}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Dual Marquee Tracks (>= md) */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.38, ease: "easeOut" }}
-          className="hidden md:block relative w-full max-w-full overflow-hidden rounded-2xl border border-slate-300 bg-white py-5 shadow-xs space-y-3.5 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]"
-        >
-          {/* Track 1: Moving Towards Left (←) */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{
-              duration: 34,
+              duration: 42,
               ease: "linear",
               repeat: Infinity,
             }}
-            className="flex gap-3 sm:gap-3.5 w-max will-change-transform hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
+            className="flex items-center gap-10 w-max will-change-transform py-2"
           >
-            {duplicatedTrack1.map((item, idx) => (
+            {[...allTechnologies, ...allTechnologies].map((item, idx) => (
               <div
-                key={`track1-${idx}`}
-                className="group relative flex flex-col justify-between w-28 sm:w-32 rounded-xl bg-white border border-slate-300 hover:border-[#2563EB] shadow-2xs hover:shadow-md transition-all duration-200 overflow-hidden shrink-0"
+                key={`tech-inline-${idx}`}
+                className="inline-flex items-center gap-2.5 shrink-0 opacity-85 hover:opacity-100 transition-opacity"
               >
-                <div className="flex flex-col items-center justify-center pt-3.5 pb-2.5 px-2">
-                  <div className="shrink-0 transition-transform duration-200 group-hover:scale-110">
-                    {item.icon}
-                  </div>
-                  <p className="mt-2 text-xs font-extrabold text-[#0F172A] group-hover:text-[#2563EB] transition-colors truncate max-w-full">
-                    {item.name}
-                  </p>
+                <div className="w-6 h-6 flex items-center justify-center shrink-0 [&>svg]:w-6 [&>svg]:h-6">
+                  {item.icon}
                 </div>
-
-                {/* Mini Card Footer Strip */}
-                <div className="bg-slate-50 border-t border-slate-200 px-2 py-1 text-center">
-                  <span className="block text-[9.5px] font-semibold text-slate-600 truncate">
-                    {item.role}
-                  </span>
-                </div>
+                <span className="text-sm font-semibold text-slate-700 whitespace-nowrap">
+                  {item.name}
+                </span>
               </div>
             ))}
           </motion.div>
-
-          {/* Track 2: Moving Towards Right (→) */}
-          <motion.div
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{
-              duration: 38,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-            className="flex gap-3 sm:gap-3.5 w-max will-change-transform hover:[animation-play-state:paused] py-0.5 cursor-grab active:cursor-grabbing"
-          >
-            {duplicatedTrack2.map((item, idx) => (
-              <div
-                key={`track2-${idx}`}
-                className="group relative flex flex-col justify-between w-28 sm:w-32 rounded-xl bg-white border border-slate-300 hover:border-[#2563EB] shadow-2xs hover:shadow-md transition-all duration-200 overflow-hidden shrink-0"
-              >
-                <div className="flex flex-col items-center justify-center pt-3.5 pb-2.5 px-2">
-                  <div className="shrink-0 transition-transform duration-200 group-hover:scale-110">
-                    {item.icon}
-                  </div>
-                  <p className="mt-2 text-xs font-extrabold text-[#0F172A] group-hover:text-[#2563EB] transition-colors truncate max-w-full">
-                    {item.name}
-                  </p>
-                </div>
-
-                {/* Mini Card Footer Strip */}
-                <div className="bg-slate-50 border-t border-slate-200 px-2 py-1 text-center">
-                  <span className="block text-[9.5px] font-semibold text-slate-600 truncate">
-                    {item.role}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

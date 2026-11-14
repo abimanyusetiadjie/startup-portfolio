@@ -1,474 +1,238 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Globe,
-  Database,
-  BrainCircuit,
-  ArrowRight,
-  Clock,
-  CheckCircle2,
-  Layers,
-  Table2,
-} from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
+const capabilities = [
+  {
+    id: "web",
+    number: "01 · 7–14 Hari Kerja",
+    title: "Pengembangan Situs Web",
+    desc: "Situs web perusahaan dan landing page berkecepatan tinggi (<0,8 detik) dengan struktur SEO Google yang rapi.",
+    image: "/images/hero-web.webp",
+    alt: "Pengembangan Situs Web Modern Abinest",
+    waMessage:
+      "Halo Tim Abinest, saya tertarik mendiskusikan pembuatan Situs Web Modern dengan kepemilikan kode penuh.",
+  },
+  {
+    id: "erp",
+    number: "02 · 2–8 Minggu",
+    title: "Sistem ERP & SIAKAD Kustom",
+    desc: "Pengelolaan stok multi-gudang, kasir POS, dan portal akademik terintegrasi tanpa biaya lisensi per pengguna.",
+    image: "/images/erp-dashboard.webp",
+    alt: "Dashboard Sistem ERP dan SIAKAD Abinest",
+    waMessage:
+      "Halo Tim Abinest, saya tertarik berkonsultasi mengenai Sistem ERP atau SIAKAD Kustom tanpa biaya lisensi pengguna.",
+  },
+  {
+    id: "aiml",
+    number: "03 · 1–4 Minggu",
+    title: "Automasi AI & WhatsApp Bisnis",
+    desc: "Asisten pelanggan 24 jam melalui WhatsApp Cloud API resmi Meta serta pembacaan faktur otomatis via OCR.",
+    image: "/images/ai-ml-workflow.webp",
+    alt: "Automasi AI dan WhatsApp Bisnis Abinest",
+    waMessage:
+      "Halo Tim Abinest, saya tertarik berkonsultasi mengenai implementasi Automasi AI dan WhatsApp Cloud API.",
+  },
+];
+
+const serviceComparisonRows = [
+  {
+    aspect: "Masalah yang Diselesaikan",
+    web: "Usaha belum punya situs resmi, tampilannya lambat di HP, atau sulit ditemukan di Google.",
+    erp: "Stok barang sering selisih, pembukuan masih manual di Excel, atau ujian sekolah lambat.",
+    ai: "Admin kewalahan balas chat WhatsApp pembeli dan sering salah ketik saat input nota/faktur.",
+  },
+  {
+    aspect: "Cocok untuk Usaha Apa",
+    web: "UMKM, toko, klinik, kontraktor, yayasan, dan perusahaan jasa.",
+    erp: "Distributor, toko grosir, ritel/kafe, klinik kesehatan, hingga sekolah dan kampus.",
+    ai: "Tim admin penjualan, layanan pelanggan 24 jam, dan bagian keuangan.",
+  },
+  {
+    aspect: "Kapan Siap Dipakai",
+    web: "1 – 2 minggu kerja",
+    erp: "2 – 8 minggu (bisa langsung dipakai bertahap per bagian)",
+    ai: "1 – 4 minggu kerja",
+  },
+  {
+    aspect: "Manfaat Langsung",
+    web: "Halaman terbuka cepat (<1 detik) di HP dan lebih mudah muncul saat dicari calon pembeli.",
+    erp: "Stok gudang & kasir terpantau langsung dari HP, laporan laba rugi keluar otomatis.",
+    ai: "Pertanyaan WhatsApp dijawab otomatis 24 jam dan data faktur langsung masuk ke laporan.",
+  },
+  {
+    aspect: "Kepemilikan Sistem",
+    web: "100% file situs web dan alamat domain menjadi hak milik penuh Anda.",
+    erp: "100% aplikasi dan seluruh catatan data transaksi menjadi aset penuh usaha Anda.",
+    ai: "100% alur kerja balasan otomatis dan akun resmi WhatsApp milik usaha Anda.",
+  },
+  {
+    aspect: "Biaya Bulanan per Staf / Siswa",
+    web: "Rp0 (gratis selamanya jika pilih skema Beli Putus).",
+    erp: "Rp0 — bebas tambah berapa pun kasir, karyawan, cabang, atau siswa.",
+    ai: "Rp0 biaya sewa aplikasi (hanya bayar pemakaian chat/AI sesuai volume pesan).",
+  },
+];
+
 export function GroveCapabilitiesSection() {
-  const [activePillarIdx, setActivePillarIdx] = useState(0);
-  const [showMobileTable, setShowMobileTable] = useState(false);
-  const pillarSliderRef = useRef<HTMLDivElement>(null);
-
-  const scrollToPillar = (idx: number) => {
-    setActivePillarIdx(idx);
-    const container = pillarSliderRef.current;
-    if (!container) return;
-    const child = container.children[idx] as HTMLElement | undefined;
-    if (child) {
-      const containerRect = container.getBoundingClientRect();
-      const childRect = child.getBoundingClientRect();
-      const targetLeft =
-        container.scrollLeft +
-        (childRect.left - containerRect.left) -
-        (container.clientWidth - child.clientWidth) / 2;
-      container.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handlePillarScroll = () => {
-    const container = pillarSliderRef.current;
-    if (!container) return;
-    const containerRect = container.getBoundingClientRect();
-    const containerCenter = containerRect.left + container.clientWidth / 2;
-    let closestIdx = 0;
-    let minDistance = Infinity;
-    Array.from(container.children).forEach((el, idx) => {
-      const rect = (el as HTMLElement).getBoundingClientRect();
-      const elCenter = rect.left + rect.width / 2;
-      const dist = Math.abs(containerCenter - elCenter);
-      if (dist < minDistance) {
-        minDistance = dist;
-        closestIdx = idx;
-      }
-    });
-    if (closestIdx !== activePillarIdx) {
-      setActivePillarIdx(closestIdx);
-    }
-  };
-
-  const pillarQuickTabs = ["01 · Web Bisnis", "02 · Sistem ERP", "03 · Automasi AI"];
-
-  const capabilities = [
-    {
-      id: "web",
-      stepTag: "PILAR 01",
-      tag: "Next.js · Headless Web",
-      title: "Modern Web Architecture",
-      desc: "Website korporat berkecepatan tinggi (<0.8 detik), SEO Google 100/100, dan UI/UX konversi tinggi untuk melipatgandakan leads bisnis Anda.",
-      badges: ["<0.8s Loading", "SEO 100/100", "Zero Bloat"],
-      delivery: "7 – 14 Hari Kerja",
-      fitFor: "UMKM, Sekolah & Korporat",
-      priceHint: "Mulai Rp 1.5 Juta",
-      icon: Globe,
-      waMessage:
-        "Halo Tim Abinest, saya tertarik mendiskusikan arsitektur Website Modern (<0.8s load) & 100% hak milik kode untuk perusahaan kami.",
-      visual: (
-        <div className="relative w-full aspect-[16/10] bg-slate-100 border-b border-slate-200 overflow-hidden group">
-          <Image
-            src="/images/hero-web.webp"
-            alt="Modern Web Architecture by Abinest"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      ),
-    },
-    {
-      id: "erp",
-      stepTag: "PILAR 02",
-      tag: "Enterprise ERP · Multi-Warehouse",
-      title: "Custom Enterprise ERP & SIAKAD",
-      desc: "Sistem operasional terpadu: multi-gudang, inventori, SIAKAD sekolah, & faktur otomatis tanpa biaya lisensi per user selamanya — 100% hak milik kode program.",
-      badges: ["Multi-Gudang", "Bebas Lisensi User", "SLA 99.9%"],
-      delivery: "2 – 8 Minggu",
-      fitFor: "Distribusi, Pabrik & Sekolah",
-      priceHint: "Mulai Rp 4 Juta",
-      icon: Database,
-      waMessage:
-        "Halo Tim Abinest, saya tertarik konsultasi Custom ERP / SIAKAD Sekolah tanpa biaya lisensi bulanan.",
-      visual: (
-        <div className="relative w-full aspect-[16/10] bg-slate-100 border-b border-slate-200 overflow-hidden group">
-          <Image
-            src="/images/erp-dashboard.webp"
-            alt="Custom Enterprise ERP System Dashboard by Abinest"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      ),
-    },
-    {
-      id: "aiml",
-      stepTag: "PILAR 03",
-      tag: "Applied AI & Machine Learning",
-      title: "Automasi AI & Machine Learning",
-      desc: "Ekstraksi faktur otomatis via Document AI OCR (akurasi 99.7%) dan chatbot agen AI WhatsApp resmi Meta untuk memangkas kerja manual bisnis Anda.",
-      badges: ["Document AI OCR", "Meta WhatsApp API", "Private Model"],
-      delivery: "1 – 4 Minggu",
-      fitFor: "Finance & Customer Care",
-      priceHint: "Mulai Rp 5 Juta+",
-      icon: BrainCircuit,
-      waMessage:
-        "Halo Tim Abinest, saya tertarik konsultasi implementasi Automasi AI/ML (Document OCR / Meta WhatsApp AI Agent).",
-      visual: (
-        <div className="relative w-full aspect-[16/10] bg-slate-100 border-b border-slate-200 overflow-hidden group">
-          <Image
-            src="/images/ai-ml-workflow.webp"
-            alt="Applied AI & Machine Learning Pipeline by Abinest"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      ),
-    },
-  ];
-
-  const comparisonRows = [
-    {
-      aspect: "Masalah Utama yang Diselesaikan",
-      web: "Website lambat, tampilan kurang meyakinkan, & sulit muncul di Google lokal.",
-      erp: "Stok sering selisih, rekap keuangan manual, & server ujian/PPDB sering down.",
-      aiml: "Admin kewalahan balas chat WhatsApp & salah ketik saat input ratusan faktur.",
-    },
-    {
-      aspect: "Target Pengguna Ideal",
-      web: "UMKM, Profil Perusahaan, Yayasan, Sekolah, & Landing Page Produk.",
-      erp: "Distributor Multi-Gudang, Ritel/POS, Klinik, & Kampus / SIAKAD Sekolah.",
-      aiml: "Tim Finance/Akuntansi, Customer Service 24/7, & Funnel Sales B2B.",
-    },
-    {
-      aspect: "Estimasi Waktu Siap Pakai",
-      web: "7 – 14 Hari Kerja",
-      erp: "2 – 8 Minggu (Bertahap per Modul)",
-      aiml: "1 – 4 Minggu",
-    },
-    {
-      aspect: "Standar Kinerja & Keandalan",
-      web: "Loading <0.8 detik · Google PageSpeed 95–100",
-      erp: "Jaminan SLA 99.9% Uptime · Database PostgreSQL",
-      aiml: "Meta Cloud API Resmi · Respon Bot <1 detik",
-    },
-    {
-      aspect: "Hak Milik Source Code",
-      web: "✓ 100% Milik Klien (Git Repo)",
-      erp: "✓ 100% Milik Klien + DB Dump",
-      aiml: "✓ 100% Script & Prompt Milik Klien",
-    },
-    {
-      aspect: "Biaya Lisensi Per-User / Bulanan",
-      web: "Rp 0 (Skema Beli Putus)",
-      erp: "Rp 0 (Unlimited Staf / Siswa)",
-      aiml: "Rp 0 Lisensi Software (Bayar Pemakaian API)",
-    },
-  ];
+  const [showCompareModal, setShowCompareModal] = useState(false);
 
   return (
     <section
       id="layanan-utama"
-      className="py-10 sm:py-16 relative bg-white border-b border-slate-300/80 overflow-hidden"
+      data-section="layanan-utama"
+      className="py-20 bg-[#F8FAFC] border-b border-slate-200/70"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-6 sm:space-y-10 relative z-10">
-        {/* Section Header */}
+      <div className="max-w-[1200px] mx-auto px-8 space-y-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.38, ease: "easeOut" }}
-          className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3"
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="max-w-xl space-y-2.5"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#1D4ED8] text-[11px] font-bold uppercase tracking-wider">
-            <Layers className="w-3.5 h-3.5" />
-            <span>3 PILAR SOLUSI TERPADU</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
-            Layanan Rekayasa Digital
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
+            Layanan Utama
           </h2>
-          <p className="text-xs sm:text-base text-slate-600 leading-relaxed font-normal">
-            Tiga pilar solusi terstruktur dengan kepemilikan 100% kode program, batasan ruang lingkup yang jelas, dan garansi SLA 99.9%.
+          <p className="text-[15.5px] text-slate-600 leading-relaxed">
+            Tiga cakupan rekayasa yang dirancang untuk mempercepat operasional bisnis Anda.
           </p>
         </motion.div>
 
-        {/* Mobile Quick Pillar Tabs & Swipe Indicator (< lg) */}
-        <div className="lg:hidden space-y-2">
-          <div className="grid grid-cols-3 gap-1.5 rounded-xl border border-slate-200 bg-slate-100/90 p-1">
-            {pillarQuickTabs.map((label, idx) => (
-              <button
-                key={label}
-                type="button"
-                onClick={() => scrollToPillar(idx)}
-                className={`py-2 px-1.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
-                  activePillarIdx === idx
-                    ? "bg-blue-600 text-white shadow-xs"
-                    : "bg-white/85 text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-          <div className="flex items-center justify-between px-1 text-[11px] font-medium text-slate-500">
-            <div className="flex items-center gap-1.5">
-              {capabilities.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  aria-label={`Pilih Pilar ${idx + 1}`}
-                  onClick={() => scrollToPillar(idx)}
-                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                    activePillarIdx === idx ? "w-5 bg-blue-600" : "w-1.5 bg-slate-300"
-                  }`}
-                />
-              ))}
-              <span className="ml-1 text-[10.5px] font-bold text-slate-600">
-                0{activePillarIdx + 1} / 0{capabilities.length}
-              </span>
-            </div>
-            <span className="text-blue-600 font-semibold">Geser kartu ke samping →</span>
-          </div>
-        </div>
+        <div className="grid grid-cols-3 gap-7">
+          {capabilities.map((item, idx) => (
+            <motion.article
+              key={item.id}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.35, delay: idx * 0.06 }}
+              className="group rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.07)] transition-all overflow-hidden flex flex-col justify-between"
+            >
+              <div>
+                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 1200px) 33vw, 380px"
+                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                  />
+                </div>
 
-        {/* 3-Column Card Grid on Desktop, Horizontal Scroll-Snap Slider on Mobile */}
-        <div
-          ref={pillarSliderRef}
-          onScroll={handlePillarScroll}
-          className="flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth no-scrollbar gap-4 lg:gap-6 items-stretch -mx-5 px-5 pb-2 lg:mx-0 lg:px-0 lg:pb-0"
-        >
-          {capabilities.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.id}
-                className="w-[85vw] max-w-[340px] sm:w-[360px] shrink-0 snap-center lg:w-auto lg:max-w-none lg:shrink ui-card overflow-hidden hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group"
-              >
-                {/* 1. Card Header */}
-                <div className="ui-card-header py-3 px-4 sm:px-5">
-                  <div className="inline-flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-200 text-[#2563EB] flex items-center justify-center shrink-0">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <span className="text-xs font-extrabold text-[#0F172A] tracking-wide">
-                      {item.stepTag}
-                    </span>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-md bg-white border border-slate-300 text-[10.5px] font-bold text-slate-700 truncate max-w-[180px]">
-                    {item.tag}
+                <div className="p-6 space-y-2.5">
+                  <span className="text-xs font-semibold text-blue-600 block">
+                    {item.number}
                   </span>
-                </div>
-
-                {/* 2. Consistent Aspect-Ratio Card Visual */}
-                {item.visual}
-
-                {/* 3. Card Body (Compact & Content-Dense) */}
-                <div className="ui-card-body p-4 sm:p-5 flex flex-col justify-between space-y-3">
-                  <div className="space-y-1.5">
-                    <h3 className="text-base sm:text-xl font-extrabold text-[#0F172A] group-hover:text-[#2563EB] transition-colors leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  {/* Compact 3-Column Specification Meta Grid */}
-                  <div className="grid grid-cols-3 divide-x divide-slate-200 border border-slate-200 rounded-xl bg-slate-50/80 text-[10.5px] sm:text-[11px] overflow-hidden">
-                    <div className="p-2 flex flex-col justify-center min-w-0">
-                      <span className="text-slate-500 font-medium flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-[#2563EB] shrink-0" />
-                        <span className="truncate">Rilis</span>
-                      </span>
-                      <span className="font-bold text-[#0F172A] mt-0.5 truncate">
-                        {item.delivery}
-                      </span>
-                    </div>
-                    <div className="p-2 flex flex-col justify-center min-w-0">
-                      <span className="text-slate-500 font-medium truncate">
-                        Cocok Untuk
-                      </span>
-                      <span className="font-bold text-blue-700 mt-0.5 truncate">
-                        {item.fitFor}
-                      </span>
-                    </div>
-                    <div className="p-2 flex flex-col justify-center bg-white min-w-0">
-                      <span className="text-slate-500 font-medium truncate">
-                        Estimasi
-                      </span>
-                      <span className="font-extrabold text-[#0F172A] mt-0.5 truncate">
-                        {item.priceHint}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Compact Tech Tags */}
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    {item.badges.map((b, bIdx) => (
-                      <span
-                        key={bIdx}
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200"
-                      >
-                        {b}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 4. Card Footer */}
-                <div className="ui-card-footer py-3 px-4 sm:px-5">
-                  <a
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.waMessage)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] transition-colors shadow-2xs"
-                  >
-                    <span>Diskusikan Arsitektur Ini</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </a>
+                  <h3 className="text-xl font-bold text-slate-900 leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
-            );
-          })}
+
+              <div className="px-6 pb-6 pt-2">
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                    item.waMessage
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors"
+                >
+                  <span>Diskusikan layanan</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+              </div>
+            </motion.article>
+          ))}
         </div>
 
-        {/* Mobile Collapsible Table Toggle (< md) */}
-        <div className="md:hidden !mt-4">
+        {/* Tombol Pembuka Tabel Perbandingan (Tertutup secara default agar hemat ruang scroll) */}
+        <div className="text-center pt-1">
           <button
             type="button"
-            onClick={() => setShowMobileTable((prev) => !prev)}
-            className="flex w-full items-center justify-between rounded-xl border border-slate-300 bg-white px-4 py-3 text-left shadow-xs transition-colors hover:bg-slate-50 cursor-pointer"
+            onClick={() => setShowCompareModal(true)}
+            className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer"
           >
-            <div className="min-w-0 pr-2">
-              <span className="block text-xs font-extrabold text-slate-900">
-                📊 Tabel Perbandingan Spesifikasi 3 Pilar
-              </span>
-              <span className="block text-[11px] text-slate-500 truncate">
-                {showMobileTable
-                  ? "Ketuk untuk menyembunyikan tabel perbandingan"
-                  : "Lihat kecocokan pilar, estimasi & hak milik kode"}
-              </span>
-            </div>
-            <span className="inline-flex shrink-0 items-center rounded-lg bg-slate-100 border border-slate-200 px-2.5 py-1 text-[11px] font-bold text-slate-700">
-              {showMobileTable ? "Tutup ▴" : "Buka ▾"}
-            </span>
+            Bingung memilih? Lihat tabel perbandingan layanan dengan bahasa sederhana →
           </button>
         </div>
+      </div>
 
-        {/* Crisp Bootstrap-Style Service Comparison Matrix */}
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.12 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className={`${showMobileTable ? "block !mt-3" : "hidden"} md:block md:!mt-10 ui-card overflow-hidden`}
+      {/* Modal Perbandingan 3 Layanan (Bahasa Gamblang Non-IT) */}
+      {showCompareModal && (
+        <div
+          onClick={() => setShowCompareModal(false)}
+          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-6 animate-in fade-in duration-150"
         >
-          <div className="ui-card-header bg-slate-100/80 flex-wrap">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#2563EB] text-white flex items-center justify-center shrink-0">
-                <Table2 className="w-4 h-4" />
-              </div>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-4xl max-h-[85vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col animate-in zoom-in-95 duration-150"
+          >
+            <div className="px-7 py-5 border-b border-slate-100 flex items-start justify-between gap-4 shrink-0">
               <div>
-                <h3 className="text-sm sm:text-base font-extrabold text-[#0F172A] leading-tight">
-                  Tabel Perbandingan Layanan &amp; Spesifikasi Teknis
+                <h3 className="text-xl font-bold text-slate-900">
+                  Perbandingan Pilihan Layanan Abinest
                 </h3>
-                <p className="text-[11px] sm:text-xs text-slate-500">
-                  Bandingkan kecocokan tiap pilar berdasarkan kebutuhan dan target waktu usaha Anda.
+                <p className="text-sm text-slate-500 mt-0.5">
+                  Ringkasan sederhana tanpa istilah teknis untuk membantu Anda memilih solusi paling pas.
                 </p>
               </div>
+              <button
+                type="button"
+                onClick={() => setShowCompareModal(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer"
+                aria-label="Tutup tabel perbandingan"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
-            <span className="px-2.5 py-1 rounded-md bg-white border border-slate-300 text-[11px] font-bold text-slate-700">
-              100% Transparan
-            </span>
-          </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[740px] text-xs sm:text-[13px]">
-              <thead>
-                <tr className="bg-[#0F172A] text-white border-b border-slate-300 divide-x divide-slate-700/80">
-                  <th className="py-3.5 px-4 font-bold w-[22%]">Aspek Perbandingan</th>
-                  <th className="py-3.5 px-4 font-bold w-[26%]">
-                    <span className="text-sky-300 block text-[10px] uppercase tracking-wider font-mono">
-                      Pilar 01
-                    </span>
-                    Modern Web (&lt;0.8s)
-                  </th>
-                  <th className="py-3.5 px-4 font-bold w-[26%] bg-[#1E3A8A]">
-                    <span className="text-sky-200 block text-[10px] uppercase tracking-wider font-mono">
-                      Pilar 02 · Terpopuler
-                    </span>
-                    Custom ERP &amp; SIAKAD
-                  </th>
-                  <th className="py-3.5 px-4 font-bold w-[26%]">
-                    <span className="text-sky-300 block text-[10px] uppercase tracking-wider font-mono">
-                      Pilar 03
-                    </span>
-                    Automasi AI &amp; WhatsApp
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200 text-slate-700">
-                {comparisonRows.map((row, rIdx) => (
-                  <tr
-                    key={rIdx}
-                    className={`divide-x divide-slate-200 transition-colors hover:bg-blue-50/40 ${
-                      rIdx % 2 === 1 ? "bg-slate-50/60" : "bg-white"
-                    }`}
-                  >
-                    <td className="py-3 px-4 font-bold text-[#0F172A] align-top">
-                      {row.aspect}
-                    </td>
-                    <td className="py-3 px-4 align-top leading-relaxed">
-                      {row.web.startsWith("✓") ? (
-                        <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                          <span>{row.web.replace("✓ ", "")}</span>
-                        </span>
-                      ) : (
-                        row.web
-                      )}
-                    </td>
-                    <td className="py-3 px-4 align-top leading-relaxed bg-blue-50/25 font-medium text-slate-800">
-                      {row.erp.startsWith("✓") ? (
-                        <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                          <span>{row.erp.replace("✓ ", "")}</span>
-                        </span>
-                      ) : (
-                        row.erp
-                      )}
-                    </td>
-                    <td className="py-3 px-4 align-top leading-relaxed">
-                      {row.aiml.startsWith("✓") ? (
-                        <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                          <span>{row.aiml.replace("✓ ", "")}</span>
-                        </span>
-                      ) : (
-                        row.aiml
-                      )}
-                    </td>
+            <div className="overflow-y-auto px-7 py-5">
+              <table className="w-full text-left border-collapse text-[13.5px]">
+                <thead>
+                  <tr className="border-b border-slate-200 text-slate-900">
+                    <th className="py-3 pr-4 font-bold w-1/4">Aspek</th>
+                    <th className="py-3 px-4 font-bold w-1/4">1. Situs Web Usaha</th>
+                    <th className="py-3 px-4 font-bold w-1/4 text-blue-700">
+                      2. Sistem Kasir, Stok &amp; Sekolah
+                    </th>
+                    <th className="py-3 pl-4 font-bold w-1/4">
+                      3. Asisten WhatsApp &amp; Baca Nota
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {serviceComparisonRows.map((row) => (
+                    <tr key={row.aspect} className="align-top">
+                      <td className="py-3.5 pr-4 font-semibold text-slate-900">
+                        {row.aspect}
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-600 leading-relaxed">
+                        {row.web}
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-700 bg-blue-50/35 leading-relaxed">
+                        {row.erp}
+                      </td>
+                      <td className="py-3.5 pl-4 text-slate-600 leading-relaxed">
+                        {row.ai}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -186,16 +186,16 @@ const WA_SCENARIOS = [
     aiReply: `Halo Pak! 👋 Berikut data stok real-time dari sistem ERP kami:
 
 1. *Kertas HVS A4 80gr (Dus)*
-• Gudang Pusat Tangerang: *48 Dus Ready*
-• Harga Normal: Rp 265.000/dus
-• Harga Grosir (≥10 dus): *Rp 248.000/dus*
+• Gudang Pusat Tangerang: *48 Dus Tersedia*
+• Harga Normal: Rp265.000/dus
+• Harga Grosir (≥10 dus): *Rp248.000/dus*
 
 2. *Printer Thermal Bluetooth 80mm*
-• Toko Ritel Jakarta: *19 Unit Ready*
-• Harga: Rp 685.000/unit
+• Toko Ritel Jakarta: *19 Unit Tersedia*
+• Harga: Rp685.000/unit
 
-Ketik *ORDER* jika ingin saya buatkan draf faktur & link pembayarannya otomatis sekarang. ⚡`,
-    metaTag: "DB Inventory Sync · 0.42 detik",
+Ketik *ORDER* jika ingin saya buatkan draf faktur & tautan pembayarannya otomatis sekarang. ⚡`,
+    metaTag: "Sinkronisasi Basis Data Stok · 0,42 detik",
   },
   {
     id: "faktur",
@@ -205,12 +205,12 @@ Ketik *ORDER* jika ingin saya buatkan draf faktur & link pembayarannya otomatis 
     aiReply: `Baik Pak, data transaksi *INV-2611-088* ditemukan ✅
 
 • Pelanggan: PT Maju Jaya Logistik
-• Total Tagihan: *Rp 530.000* (Lunas via VA BCA)
+• Total Tagihan: *Rp530.000* (Lunas via VA BCA)
 • Status Kurir: *Dalam Pengiriman — Armada Tangerang #04*
 • Estimasi Tiba: Hari ini pukul 14:30 WIB
 
 📎 Dokumen PDF Faktur & Surat Jalan telah dilampirkan otomatis di pesan ini.`,
-    metaTag: "PDF Worker & Logistics API · 0.58 detik",
+    metaTag: "Pekerja PDF & API Logistik · 0,58 detik",
   },
   {
     id: "ppdb",
@@ -219,12 +219,12 @@ Ketik *ORDER* jika ingin saya buatkan draf faktur & link pembayarannya otomatis 
       "Permisi, untuk pendaftaran siswa baru Gelombang 1 masih buka? Biayanya berapa dan jadwal tes masuknya kapan?",
     aiReply: `Selamat siang Bapak/Ibu! 😊 Pendaftaran *PPDB Gelombang 1 TA 2026/2027* masih dibuka sampai tanggal 30 bulan ini.
 
-• Biaya Formulir & Tes CBT: *Rp 150.000* (Bayar via QRIS/VA Otomatis)
-• Jadwal Tes CBT Online: Bisa dikerjakan dari rumah setiap hari Sabtu pukul 09.00 WIB
+• Biaya Formulir & Tes CBT: *Rp150.000* (Bayar via QRIS/VA Otomatis)
+• Jadwal Tes CBT Daring: Bisa dikerjakan dari rumah setiap hari Sabtu pukul 09.00 WIB
 • Pengumuman Kelulusan: Otomatis keluar 5 menit setelah tes selesai
 
-Ingin saya kirimkan link formulir pendaftarannya sekarang?`,
-    metaTag: "SIAKAD Admission Agent · 0.39 detik",
+Ingin saya kirimkan tautan formulir pendaftarannya sekarang?`,
+    metaTag: "Agen Admisi SIAKAD · 0,39 detik",
   },
 ];
 
@@ -515,7 +515,7 @@ export function GroveInteractiveDemoHub() {
                     Biaya Lisensi Per Kasir
                   </span>
                   <div className="text-lg sm:text-2xl font-black text-emerald-700 mt-1">
-                    Rp 0 / Bulan
+                    Rp0 / Bulan
                   </div>
                   <span className="text-[11px] text-emerald-800 font-semibold">
                     Unlimited Cabang &amp; Staf
@@ -924,7 +924,7 @@ export function GroveInteractiveDemoHub() {
                         Simulasi AI Customer Service WhatsApp Resmi (24/7)
                       </h2>
                       <p className="text-[11px] text-emerald-200">
-                        Klik salah satu pertanyaan pelanggan di bawah untuk menguji respon otomatis &lt;1 detik:
+                        Klik salah satu pertanyaan pelanggan di bawah untuk menguji respons otomatis &lt;1 detik:
                       </p>
                     </div>
                   </div>

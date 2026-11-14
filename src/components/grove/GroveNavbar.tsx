@@ -2,22 +2,22 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, useScroll, useSpring } from "framer-motion";
-import { Menu, X, ArrowUpRight, Lock, Calculator } from "lucide-react";
+import { Menu, X, ArrowUpRight, Calculator } from "lucide-react";
 import { AbinestLogo } from "./AbinestLogo";
 
 export function GroveNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  const findVisibleSection = (rawId: string): HTMLElement | null => {
+    const cleanId = rawId.replace(/^#/, "");
+    const candidates = Array.from(
+      document.querySelectorAll(`[data-section="${cleanId}"], #${cleanId}`)
+    ) as HTMLElement[];
+    const visible = candidates.find((el) => el.offsetParent !== null);
+    return visible ?? document.getElementById(cleanId);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -25,10 +25,13 @@ export function GroveNavbar() {
       const sections = ["layanan-utama", "portofolio", "cara-kerja", "harga", "tech-stack"];
       const scrollPos = window.scrollY + 220;
       for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sections[i]);
-          return;
+        const el = findVisibleSection(sections[i]);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (top <= scrollPos) {
+            setActiveSection(sections[i]);
+            return;
+          }
         }
       }
       if (window.scrollY < 300) setActiveSection(null);
@@ -39,11 +42,10 @@ export function GroveNavbar() {
 
   const navLinks = [
     { label: "Layanan", href: "#layanan-utama", id: "layanan-utama" },
-    { label: "Hasil Kerja", href: "#portofolio", id: "portofolio" },
-    { label: "Cara Kerja", href: "#cara-kerja", id: "cara-kerja" },
-    { label: "Harga", href: "#harga", id: "harga" },
-    { label: "Teknologi", href: "#tech-stack", id: "tech-stack" },
-    { label: "Demo Interaktif", href: "/demo", id: "demo" },
+    { label: "Studi Kasus", href: "#portofolio", id: "portofolio" },
+    { label: "Alur Kerja", href: "#cara-kerja", id: "cara-kerja" },
+    { label: "Investasi", href: "#harga", id: "harga" },
+    { label: "Demo", href: "/demo", id: "demo" },
   ];
 
   const handleSmoothScroll = (
@@ -53,7 +55,7 @@ export function GroveNavbar() {
     if (targetId.startsWith("#")) {
       e.preventDefault();
       setMobileMenuOpen(false);
-      const element = document.getElementById(targetId.replace("#", ""));
+      const element = findVisibleSection(targetId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
@@ -63,192 +65,149 @@ export function GroveNavbar() {
   };
 
   return (
-    <>
-      {/* Dynamic Scroll Progress Bar */}
-      <motion.div
-        style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#60A5FA] origin-left z-[60]"
-      />
+    <header
+      className={`sticky top-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-lg border-b border-slate-200/80 shadow-[0_2px_16px_rgba(15,23,42,0.04)]"
+          : "bg-white/95 backdrop-blur-md border-b border-slate-100"
+      }`}
+    >
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 h-14 lg:h-16 flex items-center justify-between gap-4">
+        {/* Brand */}
+        <Link href="/" className="flex items-center shrink-0">
+          <AbinestLogo size="md" showTagline={false} />
+        </Link>
 
-      <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-lg border-b border-slate-300 shadow-[0_4px_20px_rgba(15,23,42,0.06)]"
-            : "bg-white/95 backdrop-blur-md border-b border-slate-200"
-        }`}
-      >
-        <div className="max-w-[1260px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
-          {/* Left: Brand Identity */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <AbinestLogo size="md" showTagline={false} />
+        {/* Clean Borderless Desktop Nav Links */}
+        <nav className="hidden lg:flex items-center gap-7 text-[13.5px]">
+          {navLinks.map((item) => {
+            const isSelected = activeSection === item.id;
+            const isRoute = item.href.startsWith("/");
+
+            if (isRoute) {
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="font-medium text-slate-600 hover:text-blue-600 transition-colors whitespace-nowrap"
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className={`transition-colors whitespace-nowrap ${
+                  isSelected
+                    ? "font-semibold text-blue-600"
+                    : "font-medium text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Clean Desktop Actions */}
+        <div className="hidden sm:flex items-center gap-2.5 shrink-0">
+          <Link
+            href="/audit-gratis"
+            className="inline-flex items-center px-3.5 py-2 rounded-xl text-[13px] font-semibold text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition-colors whitespace-nowrap"
+          >
+            Audit Gratis
           </Link>
 
-          {/* Center: Crisp Bordered Navigation Group (Bootstrap Nav-Pills Precision) */}
-          <nav
-            onMouseLeave={() => setHoveredIdx(null)}
-            className="hidden lg:flex items-center gap-0.5 p-1 rounded-xl bg-slate-100 border border-slate-300/80 text-[12.5px] xl:text-[13px]"
+          <a
+            href="#kontak"
+            onClick={(e) => handleSmoothScroll(e, "#kontak")}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-semibold text-white bg-slate-900 hover:bg-blue-600 transition-colors whitespace-nowrap"
           >
-            {navLinks.map((item, idx) => {
-              const isSelected = hoveredIdx !== null ? hoveredIdx === idx : activeSection === item.id;
-              const isRoute = item.href.startsWith("/");
-              const content = (
-                <>
-                  {isSelected && (
-                    <motion.span
-                      layoutId="nav-hover-capsule"
-                      transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                      className="absolute inset-0 rounded-lg bg-white border border-slate-300 shadow-xs -z-10"
-                    />
-                  )}
-                  <span className="relative z-10 flex items-center justify-center gap-1.5 whitespace-nowrap">
-                    {isSelected && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0" />
-                    )}
-                    <span>{item.label}</span>
-                  </span>
-                </>
-              );
+            <span>Konsultasi</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
 
-              if (isRoute) {
+        {/* Mobile Header Actions */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href="#kontak"
+            onClick={(e) => handleSmoothScroll(e, "#kontak")}
+            className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-slate-900 hover:bg-blue-600 transition-colors"
+          >
+            Konsultasi
+          </a>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
+            aria-label="Buka menu navigasi"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Minimalist Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-b border-slate-200 px-5 py-4 space-y-3 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="divide-y divide-slate-100 rounded-2xl border border-slate-200/80 overflow-hidden bg-white">
+            {navLinks.map((item) => {
+              const isActive = activeSection === item.id;
+              if (item.href.startsWith("/")) {
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
-                    onMouseEnter={() => setHoveredIdx(idx)}
-                    className={`relative px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-150 font-semibold select-none text-center ${
-                      isSelected
-                        ? "text-[#1D4ED8]"
-                        : "text-blue-700 hover:text-[#1D4ED8]"
-                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between text-[13.5px] font-semibold px-4 py-3 text-blue-600 hover:bg-slate-50 transition-colors"
                   >
-                    {content}
+                    <span>{item.label}</span>
+                    <ArrowUpRight className="w-4 h-4 text-blue-500" />
                   </Link>
                 );
               }
-
               return (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
-                  onMouseEnter={() => setHoveredIdx(idx)}
-                  className={`relative px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-150 font-semibold select-none text-center ${
-                    isSelected
-                      ? "text-[#0F172A]"
-                      : "text-slate-600 hover:text-slate-900"
+                  className={`flex items-center justify-between text-[13.5px] px-4 py-3 transition-colors ${
+                    isActive
+                      ? "text-blue-600 font-bold bg-blue-50/40"
+                      : "text-slate-700 font-medium hover:text-slate-950 hover:bg-slate-50"
                   }`}
                 >
-                  {content}
+                  <span>{item.label}</span>
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />}
                 </a>
               );
             })}
-          </nav>
+          </div>
 
-          {/* Right: Structured Outline + Solid Primary Button Group */}
-          <div className="hidden sm:flex items-center gap-2 shrink-0">
+          <div className="grid grid-cols-2 gap-2.5 pt-1">
             <Link
               href="/audit-gratis"
-              className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-[#1D4ED8] bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors whitespace-nowrap"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-1.5 py-2.5 text-[13px] font-semibold text-slate-700 bg-slate-50 border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors"
             >
-              <Calculator className="w-3.5 h-3.5 text-[#2563EB]" />
+              <Calculator className="w-3.5 h-3.5 text-slate-500" />
               <span>Audit Gratis</span>
             </Link>
-
-            <Link
-              href="/login"
-              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 transition-colors whitespace-nowrap"
-            >
-              <Lock className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>Portal Klien</span>
-            </Link>
-
             <a
               href="#kontak"
               onClick={(e) => handleSmoothScroll(e, "#kontak")}
-              className="inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-lg text-xs sm:text-[13px] font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] border border-transparent shadow-xs transition-all duration-150 group whitespace-nowrap"
+              className="flex items-center justify-center py-2.5 text-[13px] font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-colors"
             >
-              <span>Konsultasi Gratis</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              Konsultasi Gratis
             </a>
           </div>
-
-          {/* Mobile Hamburger Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
-
-        {/* Mobile Dropdown Menu (Crisp Divided List) */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-300 px-5 py-4 space-y-3 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
-            <div className="ui-list-group">
-              {navLinks.map((item) => {
-                const isActive = activeSection === item.id;
-                if (item.href.startsWith("/")) {
-                  return (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between text-sm font-bold px-4 py-2.5 text-[#1D4ED8] bg-blue-50/60 hover:bg-blue-50 transition-colors"
-                    >
-                      <span>{item.label}</span>
-                      <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-blue-600 text-white">
-                        Live
-                      </span>
-                    </Link>
-                  );
-                }
-                return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={(e) => handleSmoothScroll(e, item.href)}
-                    className={`flex items-center justify-between text-sm font-semibold px-4 py-2.5 transition-colors ${
-                      isActive
-                        ? "text-[#1D4ED8] bg-blue-50 font-bold"
-                        : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
-                    }`}
-                  >
-                    <span>{item.label}</span>
-                    {isActive && <span className="w-2 h-2 rounded-full bg-[#2563EB]" />}
-                  </a>
-                );
-              })}
-              <Link
-                href="/audit-gratis"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-sm font-bold px-4 py-2.5 text-emerald-800 bg-emerald-50/50 hover:bg-emerald-50 transition-colors"
-              >
-                <span>Audit &amp; Kalkulator ROI Gratis</span>
-                <Calculator className="w-4 h-4 text-emerald-600" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 pt-1">
-              <Link
-                href="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-1.5 py-2.5 text-xs font-bold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors"
-              >
-                <Lock className="w-3.5 h-3.5 text-[#2563EB]" />
-                <span>Portal Klien</span>
-              </Link>
-              <a
-                href="#kontak"
-                onClick={(e) => handleSmoothScroll(e, "#kontak")}
-                className="text-center py-2.5 text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg shadow-xs transition-colors"
-              >
-                Konsultasi Gratis
-              </a>
-            </div>
-          </div>
-        )}
-      </header>
-    </>
+      )}
+    </header>
   );
 }

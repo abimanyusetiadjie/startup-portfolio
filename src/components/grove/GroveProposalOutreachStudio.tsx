@@ -42,41 +42,41 @@ interface ProposalPreset {
 const PRESETS: ProposalPreset[] = [
   {
     id: "web-umkm",
-    label: "1. Web UMKM & Company Profile (<0.8s)",
-    badge: "Rp 1.500.000",
+    label: "1. Web UMKM & Profil Perusahaan (<0,8 detik)",
+    badge: "Rp1.500.000",
     scheme: "beli-putus",
     timeline: "7 – 10 Hari Kerja",
     warrantyNote:
-      "Garansi perbaikan bug gratis 90 hari, skor Google PageSpeed Mobile ≥95/100, serta penyerahan penuh 100% source code & kontrol domain.",
+      "Garansi perbaikan kutu program gratis 90 hari, skor Google PageSpeed Mobile ≥95/100, serta penyerahan penuh 100% kode program & kontrol domain.",
     items: [
       {
         id: "m1",
-        name: "Arsitektur Web Next.js 15 Kilat (<0.8s)",
-        spec: "Halaman Beranda, Layanan, Portofolio, & Mobile-First Layout",
+        name: "Arsitektur Web Next.js 15 Cepat (<0,8 detik)",
+        spec: "Halaman Beranda, Layanan, Portofolio, & Tata Letak Seluler",
         price: 950000,
       },
       {
         id: "m2",
-        name: "Integrasi Funnel WhatsApp & SEO Google Lokal",
-        spec: "Tombol CTA terarah ke WhatsApp bisnis + Sitemap & Metadata JSON-LD",
+        name: "Integrasi Alur WhatsApp & SEO Google Lokal",
+        spec: "Tombol ajakan terarah ke WhatsApp bisnis + Sitemap & Metadata JSON-LD",
         price: 350000,
       },
       {
         id: "m3",
-        name: "Setup Hosting Edge, SSL HTTPS & Training Admin",
-        spec: "Deploy produksi anti-down + video panduan ubah teks & foto",
+        name: "Penyiapan Hosting Edge, SSL HTTPS & Pelatihan Admin",
+        spec: "Rilis produksi tangguh + video panduan ubah teks & foto",
         price: 200000,
       },
     ],
   },
   {
     id: "erp-gudang",
-    label: "2. Custom ERP / Stok Gudang & Kasir",
-    badge: "Rp 4.000.000",
+    label: "2. Sistem ERP Kustom / Stok Gudang & Kasir",
+    badge: "Rp4.000.000",
     scheme: "beli-putus",
     timeline: "14 Hari Kerja",
     warrantyNote:
-      "Unlimited staf, kasir & cabang dengan Rp 0 biaya lisensi bulanan selamanya. Source code & database PostgreSQL menjadi aset penuh milik klien.",
+      "Pengguna, kasir & cabang tak terbatas dengan Rp0 biaya lisensi bulanan selamanya. Kode program & basis data PostgreSQL menjadi aset penuh milik klien.",
     items: [
       {
         id: "e1",
@@ -86,31 +86,31 @@ const PRESETS: ProposalPreset[] = [
       },
       {
         id: "e2",
-        name: "Modul POS Kasir & Generator Faktur PDF Otomatis",
-        spec: "Cetak struk/invoice resmi, piutang/tempo, & rekap laba rugi harian",
+        name: "Modul POS Kasir & Pembuat Faktur PDF Otomatis",
+        spec: "Cetak struk/faktur resmi, piutang/tempo, & rekap laba rugi harian",
         price: 1450000,
       },
       {
         id: "e3",
-        name: "Manajemen Hak Akses Role, Deploy & Training Staf",
-        spec: "Role Owner, Admin Gudang, Kasir + Uji beban & pendampingan go-live",
+        name: "Manajemen Hak Akses Peran, Rilis & Pelatihan Staf",
+        spec: "Peran Pemilik, Admin Gudang, Kasir + uji beban & pendampingan operasi",
         price: 750000,
       },
     ],
   },
   {
     id: "siakad-ppdb",
-    label: "3. Portal PPDB & SIAKAD Sekolah Anti-Down",
-    badge: "Rp 4.500.000",
+    label: "3. Portal PPDB & SIAKAD Sekolah Anti-Tumbang",
+    badge: "Rp4.500.000",
     scheme: "beli-putus",
     timeline: "14 Hari Kerja",
     warrantyNote:
-      "Garansi SLA Anti-Down 99.9% saat puncak PPDB dan Ujian CBT serentak. Bebas biaya per-siswa selamanya (100% hak milik institusi/yayasan).",
+      "Garansi SLA Anti-Tumbang 99,9% saat puncak PPDB dan Ujian CBT serentak. Bebas biaya per siswa selamanya (100% hak milik institusi/yayasan).",
     items: [
       {
         id: "s1",
-        name: "Portal Profil Sekolah & Pendaftaran PPDB Online",
-        spec: "Formulir digital, upload berkas siswa, verifikasi admin & kartu peserta",
+        name: "Portal Profil Sekolah & Pendaftaran PPDB Daring",
+        spec: "Formulir digital, unggah berkas siswa, verifikasi admin & kartu peserta",
         price: 1650000,
       },
       {
@@ -122,7 +122,7 @@ const PRESETS: ProposalPreset[] = [
       {
         id: "s3",
         name: "Uji Ketahanan Trafik Serentak & Pelatihan Operator",
-        spec: "Simulasi login serentak + sesi bimbingan teknis guru & staf TU",
+        spec: "Simulasi masuk serentak + sesi bimbingan teknis guru & staf TU",
         price: 750000,
       },
     ],
@@ -130,7 +130,7 @@ const PRESETS: ProposalPreset[] = [
   {
     id: "ai-whatsapp",
     label: "4. Automasi AI OCR & Bot WhatsApp Resmi",
-    badge: "Rp 5.000.000",
+    badge: "Rp5.000.000",
     scheme: "beli-putus",
     timeline: "10 – 14 Hari Kerja",
     warrantyNote:
@@ -246,8 +246,8 @@ export function GroveProposalOutreachStudio() {
   const proposalWaSummary = useMemo(() => {
     const schemeLabel =
       scheme === "beli-putus"
-        ? "Beli Putus (100% Hak Milik Source Code, Rp 0 Biaya Bulanan)"
-        : "Sewa / Terima Beres (Managed Cloud, Server & Maintenance Penuh)";
+        ? "Beli Putus (100% Hak Milik Kode Program, Rp0 Biaya Bulanan)"
+        : "Sewa / Terima Beres (Managed Cloud, Peladen & Pemeliharaan Penuh)";
     const moduleLines = items
       .map((m, i) => `${i + 1}. ${m.name} (${formatRupiah(Number(m.price) || 0)})`)
       .join("\n");
@@ -310,20 +310,20 @@ Kontak Resmi Abinest: +62 813-9858-9745`;
 
 Tadi saya membuka profil dan website ${biz} lewat HP, dan melihat ${issue}. Biasanya calon pembeli dari Google di area ${city} langsung keluar dalam 3 detik sebelum sempat menghubungi admin.
 
-Kebetulan saya sudah menyiapkan *simulasi sistem & tampilan baru (<0.8 detik)* untuk ${biz}. Bapak/Ibu juga bisa melihat contoh performa kami di sini:
+Kebetulan saya sudah menyiapkan *simulasi sistem & tampilan baru (<0,8 detik)* untuk ${biz}. Bapak/Ibu juga bisa melihat contoh performa kami di sini:
 https://abinest.id/demo
 
-Boleh saya buatkan 1 halaman *preview simulasi gratis* khusus untuk ${biz} agar Bapak/Ibu bisa melihat perbandingannya tanpa ikatan apa pun?`,
+Boleh saya buatkan 1 halaman *pratinjau simulasi gratis* khusus untuk ${biz} agar Bapak/Ibu bisa melihat perbandingannya tanpa ikatan apa pun?`,
       },
       {
         id: "maps-no-web",
-        title: "2. Bisnis Ramai di Google Maps tapi Belum Punya Website Resmi",
-        target: "UMKM, Klinik, Kontraktor, atau Supplier dengan banyak ulasan di Google Maps",
+        title: "2. Bisnis Ramai di Google Maps tapi Belum Punya Situs Web Resmi",
+        target: "UMKM, Klinik, Kontraktor, atau Pemasok dengan banyak ulasan di Google Maps",
         script: `Halo ${pic} *${biz}* (${city}) 👋
 
-Saya melihat reputasi dan ulasan ${biz} di Google Maps sudah sangat bagus, tetapi belum tertaut dengan website resmi perusahaan. Akibatnya, saat calon klien korporat mencari vendor di Google, kepercayaan mereka sering kalah oleh kompetitor yang punya profil & katalog resmi.
+Saya melihat reputasi dan ulasan ${biz} di Google Maps sudah sangat bagus, tetapi belum tertaut dengan situs web resmi perusahaan. Akibatnya, saat calon klien korporat mencari vendor di Google, kepercayaan mereka sering kalah oleh kompetitor yang punya profil & katalog resmi.
 
-Di Abinest Studio, kami membantu usaha di ${city} memiliki Website Resmi (<0.8 detik + SEO Google Lokal) mulai *Rp 1,5 Juta (Beli Putus, bebas sewa selamanya)* dan siap dalam 7–10 hari kerja.
+Di Abinest Studio, kami membantu usaha di ${city} memiliki Situs Web Resmi (<0,8 detik + SEO Google Lokal) mulai *Rp1,5 Juta (Beli Putus, bebas sewa selamanya)* dan siap dalam 7–10 hari kerja.
 
 Ini simulasi & rincian hitungan transparannya:
 https://abinest.id/audit-gratis
@@ -332,15 +332,15 @@ Jika berkenan, boleh saya kirimkan contoh portofolio desain yang cocok untuk ${b
       },
       {
         id: "school-ppdb",
-        title: "3. Sekolah / Yayasan — Penawaran Web Profil, PPDB Online & SIAKAD",
+        title: "3. Sekolah / Yayasan — Penawaran Web Profil, PPDB Daring & SIAKAD",
         target: "Kepala Sekolah, Wakil Kurikulum, atau Ketua Yayasan Pendidikan",
         script: `Selamat siang ${pic} *${biz}* di ${city}, saya Abimanyu dari Abinest Studio.
 
-Menjelang gelombang PPDB baru dan ujian semester, banyak sekolah mengeluhkan server ujian CBT yang tumbang saat ratusan siswa login bersamaan, atau biaya langganan aplikasi SIAKAD per siswa yang membengkak setiap tahun.
+Menjelang gelombang PPDB baru dan ujian semester, banyak sekolah mengeluhkan peladen ujian CBT yang tumbang saat ratusan siswa masuk bersamaan, atau biaya langganan aplikasi SIAKAD per siswa yang membengkak setiap tahun.
 
-Kami menyediakan solusi *Portal PPDB Online, SIAKAD & Ujian CBT Anti-Down* dengan skema *Beli Putus (Rp 0 biaya per siswa selamanya)* dan garansi SLA 99.9%.
+Kami menyediakan solusi *Portal PPDB Daring, SIAKAD & Ujian CBT Anti-Tumbang* dengan skema *Beli Putus (Rp0 biaya per siswa selamanya)* dan garansi SLA 99,9%.
 
-Bapak/Ibu dapat langsung mencoba simulasi E-Rapor & uji beban server CBT kami di link berikut:
+Bapak/Ibu dapat langsung mencoba simulasi E-Rapor & uji beban peladen CBT kami di tautan berikut:
 https://abinest.id/demo
 
 Apakah boleh saya kirimkan Proposal & RAB resminya untuk bahan pertimbangan yayasan?`,
@@ -348,25 +348,25 @@ Apakah boleh saya kirimkan Proposal & RAB resminya untuk bahan pertimbangan yaya
       {
         id: "erp-gudang",
         title: "4. Distributor / Ritel / Gudang — Sistem Stok & Kasir Tanpa Biaya Bulanan",
-        target: "Owner Distributor, Toko Material, Ekspedisi, atau Grosir Multi-Cabang",
+        target: "Pemilik Distributor, Toko Material, Ekspedisi, atau Grosir Multi-Cabang",
         script: `Halo ${pic} *${biz}*, semoga operasional di ${city} selalu lancar hari ini.
 
-Banyak distributor dan toko grosir mengalami kendala stok antar gudang sering selisih, rekap faktur masih ketik ulang di Excel, atau terbebani biaya sewa software kasir per-cabang yang mahal tiap bulan.
+Banyak distributor dan toko grosir mengalami kendala stok antar gudang sering selisih, rekap faktur masih ketik ulang di Excel, atau terbebani biaya sewa perangkat lunak kasir per cabang yang mahal tiap bulan.
 
 Kami membangun *Sistem Stok Multi-Gudang, POS Kasir & Faktur PDF Otomatis* yang bisa dicoba langsung simulasinya di sini:
 https://abinest.id/demo
 
-Sistem selesai dalam <14 hari, *100% Hak Milik Source Code*, dan *Rp 0 biaya sewa per kasir selamanya*. Boleh kami jadwalkan demo singkat 10 menit via WhatsApp/Zoom?`,
+Sistem selesai dalam <14 hari, *100% Hak Milik Kode Program*, dan *Rp0 biaya sewa per kasir selamanya*. Boleh kami jadwalkan demo singkat 10 menit via WhatsApp/Zoom?`,
       },
       {
         id: "follow-up",
-        title: "5. Follow-Up Elegan Setelah Kirim Link Demo / Proposal",
-        target: "Prospek yang sudah menerima link /demo atau dokumen PDF 2–3 hari lalu",
+        title: "5. Follow-Up Elegan Setelah Kirim Tautan Demo / Proposal",
+        target: "Prospek yang sudah menerima tautan /demo atau dokumen PDF 2–3 hari lalu",
         script: `Selamat pagi ${pic} *${biz}* 🙏
 
 Menyambung diskusi kita mengenai sistem untuk ${biz} beberapa hari lalu—apakah dokumen penawaran & simulasi demo di https://abinest.id/demo sudah sempat Bapak/Ibu tinjau bersama tim?
 
-Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (tersedia juga opsi *Terima Beres bulanan* mulai Rp 350rb tanpa biaya awal besar), silakan beri tahu saya bagian mana yang perlu kita sesuaikan. Terima kasih banyak!`,
+Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (tersedia juga opsi *Terima Beres bulanan* mulai Rp350 ribu tanpa biaya awal besar), silakan beri tahu saya bagian mana yang perlu kita sesuaikan. Terima kasih banyak!`,
       },
     ];
   }, [prospectPic, prospectBusiness, prospectCity, prospectIssue]);
@@ -696,7 +696,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                   <div className="space-y-1.5">
                     <AbinestLogo size="md" showTagline={true} />
                     <p className="text-[11px] font-bold text-slate-700">
-                      PT Abinest Teknologi Nusantara — Software &amp; Automation Studio
+                      Abinest Digital Systems — Studio Rekayasa Perangkat Lunak
                     </p>
                     <p className="text-[11px] text-slate-600">
                       Jakarta Selatan &amp; Tangerang · WhatsApp: +62 813-9858-9745 · Email: halo@abinest.id

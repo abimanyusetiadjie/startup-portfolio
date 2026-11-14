@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, BrainCircuit, ShieldCheck, ArrowLeft } from "lucide-react";
+import { ArrowRight, Check, ArrowLeft } from "lucide-react";
 import { GroveNavbar } from "@/components/grove/GroveNavbar";
 import { GroveAmberContactSection } from "@/components/grove/GroveAmberContactSection";
 import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
 
 export const metadata: Metadata = {
-  title:
-    "Jasa Automasi AI & WhatsApp Agent Resmi Meta Cloud API | Abinest",
+  title: "Jasa Automasi AI & WhatsApp Cloud API Resmi Meta | Abinest",
   description:
-    "Jasa integrasi Document AI OCR ekstraksi invoice otomatis (akurasi 99.7%) dan chatbot agen AI WhatsApp resmi Meta Cloud API untuk memangkas jam kerja manual bisnis Anda.",
+    "Integrasi pembacaan faktur otomatis melalui Document AI OCR (akurasi 99,7%) dan asisten pelanggan WhatsApp resmi Meta Cloud API 24 jam.",
   keywords: [
     "jasa automasi ai indonesia",
-    "document ai invoice ocr",
-    "whatsapp agent resmi meta cloud api",
-    "otomasi alur kerja invoice b2b",
-    "machine learning applied startup",
+    "pembacaan faktur ocr otomatis",
+    "whatsapp cloud api resmi meta",
+    "asisten ai whatsapp bisnis",
   ],
   alternates: {
     canonical: "/jasa-automasi-whatsapp",
@@ -25,63 +23,61 @@ export const metadata: Metadata = {
 
 export default function JasaAutomasiAiPage() {
   const benefits = [
-    "Ekstraksi data faktur PDF supplier via Document AI OCR dengan akurasi 99.7% dalam 1,2 detik tanpa salah input manual.",
-    "WhatsApp AI Agent resmi Meta Cloud API dengan centang hijau resmi yang anti-blokir dan mampu melayani ribuan pesan per menit.",
-    "Infrastruktur model AI privat (Zero Data Retention) memastikan seluruh data finansial dan rahasia dagang bisnis Anda tidak pernah bocor.",
-    "Menghemat hingga 40 jam kerja manual tim finance dan operasional setiap bulannya secara konsisten.",
+    "Ekstraksi data faktur pemasok melalui teknologi OCR dengan akurasi 99,7% dalam hitungan detik.",
+    "Integrasi WhatsApp Cloud API resmi dari Meta untuk melayani pertanyaan pelanggan 24 jam.",
+    "Pengamanan privasi data dengan arsitektur terisolasi agar rahasia dagang perusahaan tetap terjaga.",
+    "Menghemat hingga 40 jam kerja manual tim administrasi dan keuangan setiap minggu.",
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans">
       <GroveNavbar />
 
       <main className="flex-1">
-        <section className="py-14 sm:py-20 bg-[#F8FAFC] border-b border-slate-300/80">
-          <div className="max-w-[1060px] mx-auto px-5 sm:px-8 space-y-8">
+        <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
+          <div className="max-w-4xl mx-auto px-5 sm:px-8 space-y-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-700 hover:text-[#1D4ED8] hover:border-blue-300 transition-colors shadow-2xs"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Kembali ke Halaman Utama Abinest</span>
+              <span>Kembali ke Beranda</span>
             </Link>
 
-            <div className="space-y-4 max-w-3xl">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E40AF] bg-blue-50 px-3 py-1 rounded-md border border-blue-200">
-                PILAR LAYANAN 03 · APPLIED AI &amp; META CLOUD AUTOMATION
-              </span>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-                Jasa Automasi AI &amp; WhatsApp Agent Resmi Meta Cloud API
+            <div className="space-y-4 max-w-2xl">
+              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
+                Layanan 03 · Automasi AI &amp; WhatsApp Resmi Meta
+              </p>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+                Automasi Pekerjaan Repetitif dan Asisten WhatsApp AI
               </h1>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                Pangkas kerja repetitif manual bisnis Anda dengan kecerdasan buatan terapan. Mulai dari ekstraksi ribuan invoice supplier dalam sekejap, automasi approval pembayaran, hingga asisten AI WhatsApp pelanggan resmi 24/7.
+                Kurangi kesalahan input manual dengan pembacaan faktur PDF otomatis serta layanan pelanggan WhatsApp yang merespons dalam hitungan detik sepanjang hari.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {benefits.map((b, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-300 shadow-2xs"
+                  className="flex items-start gap-3 p-5 rounded-2xl bg-white border border-slate-200/80"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-[#2563EB] shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                    {b}
-                  </p>
+                  <Check className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
+                  <p className="text-sm text-slate-700 leading-relaxed">{b}</p>
                 </div>
               ))}
             </div>
 
-            <div className="pt-2 flex items-center gap-4 flex-wrap">
+            <div className="flex flex-wrap items-center gap-5 pt-2">
               <a
                 href="#kontak"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-sm transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 <span>Konsultasikan Automasi AI Anda</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs text-slate-600 font-semibold">
-                Resmi Meta Cloud API · Akurasi OCR 99.7%
+              <span className="text-sm text-slate-500">
+                Meta Cloud API Resmi · Akurasi OCR 99,7%
               </span>
             </div>
           </div>

@@ -10,6 +10,12 @@ import { GroveTechStackShowcase } from "./GroveTechStackShowcase";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
+import { MobileHeroSection } from "./mobile/MobileHeroSection";
+import { MobileSolutionsPricingSection } from "./mobile/MobileSolutionsPricingSection";
+import { MobileCaseStudiesSection } from "./mobile/MobileCaseStudiesSection";
+import { MobileProcessAndStackSection } from "./mobile/MobileProcessAndStackSection";
+import { MobileQuickContactSection } from "./mobile/MobileQuickContactSection";
+import { MobileFooterSection } from "./mobile/MobileFooterSection";
 
 export function GroveApp() {
   return (
@@ -17,31 +23,44 @@ export function GroveApp() {
       {/* 1. Sticky Header & Navigation */}
       <GroveNavbar />
 
-      {/* 2. Hero Section + Interactive Services */}
-      <GroveHeroSection />
+      {/* MOBILE-NATIVE MINIMALIST EXPERIENCE (< 1024px) */}
+      <main className="lg:hidden flex-1">
+        <MobileHeroSection />
+        <MobileSolutionsPricingSection />
+        <MobileCaseStudiesSection />
+        <MobileProcessAndStackSection />
+        <MobileQuickContactSection />
+        <MobileFooterSection />
+      </main>
 
-      {/* 3. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
-      <GroveCapabilitiesSection />
+      {/* DESKTOP EXPERIENCE (>= 1024px — Preserved Intact) */}
+      <main className="hidden lg:block flex-1">
+        {/* 2. Hero Section + Interactive Services */}
+        <GroveHeroSection />
 
-      {/* 5. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
-      <GroveCaseStudySection />
+        {/* 3. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
+        <GroveCapabilitiesSection />
 
-      {/* 6. Alur Kerja 5 Langkah + Bento Studio Grid */}
-      <GroveCoreShieldSection />
+        {/* 5. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
+        <GroveCaseStudySection />
 
-      {/* 8. Section Paket Harga / Investasi Transparan (#harga) */}
-      <GrovePricingSection />
+        {/* 6. Alur Kerja 5 Langkah + Bento Studio Grid */}
+        <GroveCoreShieldSection />
 
-      {/* 9. Tech Stack & Server Architecture Showcase (#tech-stack) */}
-      <GroveTechStackShowcase />
+        {/* 8. Section Paket Harga / Investasi Transparan (#harga) */}
+        <GrovePricingSection />
 
-      {/* 10. Final CTA + Form Konsultasi Cepat (#kontak) */}
-      <GroveAmberContactSection />
+        {/* 9. Tech Stack & Server Architecture Showcase (#tech-stack) */}
+        <GroveTechStackShowcase />
 
-      {/* 11. Footer Lengkap & Badge Kepercayaan */}
-      <GroveFooterSection />
+        {/* 10. Final CTA + Form Konsultasi Cepat (#kontak) */}
+        <GroveAmberContactSection />
 
-      {/* 12. Floating WhatsApp & Sticky Mobile Quick Action Bar */}
+        {/* 11. Footer Lengkap & Badge Kepercayaan */}
+        <GroveFooterSection />
+      </main>
+
+      {/* 12. Floating WhatsApp Button */}
       <GroveFloatingWhatsApp />
     </div>
   );

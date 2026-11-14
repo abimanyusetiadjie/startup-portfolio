@@ -3,415 +3,144 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Globe,
-  Building2,
-  Bot,
-  ShieldCheck,
-  Activity,
-  Sparkles,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
+const showcaseSlides = [
+  {
+    src: "/images/hero-web.webp",
+    alt: "Arsitektur Situs Web Modern Abinest",
+  },
+  {
+    src: "/images/erp-dashboard.webp",
+    alt: "Dashboard Sistem ERP dan Operasional Terpadu",
+  },
+  {
+    src: "/images/ai-ml-workflow.webp",
+    alt: "Automasi WhatsApp Resmi Meta dan Pembaca Dokumen AI",
+  },
+];
+
 export function GroveHeroSection() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const pillars = [
-    {
-      id: "web",
-      tabLabel: "1. Web UMKM & Bisnis",
-      tabShortLabel: "1. Web Bisnis",
-      icon: Globe,
-      headlineLine1: "Website Modern untuk UMKM & Bisnis",
-      headlineLine2: "Tampil Berkelas, Cepat, & Kredibel.",
-      story:
-        "Bantu UMKM, toko online, hingga yayasan memiliki website profesional tanpa beban biaya langganan bulanan. Tampilan kredibel di HP pelanggan, teroptimasi Google SEO lokal, dan langsung terhubung ke WhatsApp.",
-      waMessage:
-        "Halo Tim Abinest, saya tertarik konsultasi Website Modern untuk UMKM / Bisnis saya. Boleh diskusi konsep dan anggarannya?",
-      image: "/images/hero-web.webp",
-      imageAlt: "Modern Web Engineering & Minimalist Workstation Abinest",
-      glassBadges: {
-        telemetry: {
-          liveTag: "PRODUKSI LIVE",
-          title: "Edge CDN · SEO 100",
-          metric: "<0.8s Load",
-        },
-        guarantee: {
-          title: "100% Hak Milik Kode",
-          subtitle: "Bebas Biaya Sewa Bulanan",
-          icon: ShieldCheck,
-        },
-      },
-    },
-    {
-      id: "erp",
-      tabLabel: "2. Sistem ERP & UMKM",
-      tabShortLabel: "2. Sistem ERP",
-      icon: Building2,
-      headlineLine1: "Sistem ERP & Operasional UMKM",
-      headlineLine2: "Otomatiskan Stok, Toko, & Keuangan.",
-      story:
-        "Solusi operasional terjangkau untuk UMKM ritel, kafe, distributor, hingga sekolah. Pantau stok barang masuk-keluar, kelola kasir POS, dan lihat laporan laba rugi harian otomatis dari HP tanpa biaya lisensi per staf.",
-      waMessage:
-        "Halo Tim Abinest, saya ingin konsultasi kebutuhan Sistem Kasir POS / ERP untuk UMKM / Bisnis kami (pantau stok & cabang).",
-      image: "/images/erp-dashboard.webp",
-      imageAlt: "Sistem ERP & Operasional Terpadu Abinest",
-      glassBadges: {
-        telemetry: {
-          liveTag: "SYNC REAL-TIME",
-          title: "Multi-Gudang & Kasir",
-          metric: "99.8% Akurat",
-        },
-        guarantee: {
-          title: "0 Biaya Lisensi Staf",
-          subtitle: "Akses Tak Terbatas dari HP",
-          icon: Activity,
-        },
-      },
-    },
-    {
-      id: "ai-wa",
-      tabLabel: "3. Automasi AI/ML",
-      tabShortLabel: "3. Automasi AI",
-      icon: Bot,
-      headlineLine1: "Automasi AI/ML & WhatsApp",
-      headlineLine2: "Admin CS Cerdas 24 Jam Nonstop.",
-      story:
-        "Otomatiskan customer service dengan AI resmi Meta WhatsApp API. Balas pesan pelanggan <1 detik, kirim katalog produk, hingga rekap pesanan otomatis 24 jam nonstop tanpa beban lembur admin.",
-      waMessage:
-        "Halo Tim Abinest, saya tertarik implementasi WhatsApp AI Agent resmi Meta untuk melayani chat pelanggan UMKM 24/7. Boleh minta demonya?",
-      image: "/images/ai-ml-workflow.webp",
-      imageAlt: "Automasi AI/ML & WhatsApp CS Cerdas Abinest",
-      glassBadges: {
-        telemetry: {
-          liveTag: "META API RESMI",
-          title: "WhatsApp AI Agent",
-          metric: "<1s Balas CS",
-        },
-        guarantee: {
-          title: "CS Aktif 24 Jam Nonstop",
-          subtitle: "Tanpa Beban Lembur Admin",
-          icon: Sparkles,
-        },
-      },
-    },
-  ];
 
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % pillars.length);
-    }, 6000);
+      setActiveIdx((prev) => (prev + 1) % showcaseSlides.length);
+    }, 5000);
     return () => clearInterval(timer);
-  }, [isPaused, pillars.length]);
+  }, []);
 
-  const currentPillar = pillars[activeIdx];
-  const GuaranteeIcon = currentPillar.glassBadges.guarantee.icon;
+  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    "Halo Tim Abinest, saya ingin berkonsultasi mengenai pembuatan situs web, sistem ERP, atau automasi AI untuk bisnis kami."
+  )}`;
 
   return (
     <section
       id="beranda"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      className="relative pt-2.5 sm:pt-6 lg:pt-8 pb-5 sm:pb-10 lg:pb-14 overflow-x-clip bg-[#F8FAFC] border-b border-slate-300/80"
+      data-section="beranda"
+      className="relative bg-white pt-16 pb-20 xl:pt-20 xl:pb-24 border-b border-slate-200/70"
     >
-      {/* Subtle Grid Mesh */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-0 overflow-hidden"
-      >
-        <div
-          className="absolute inset-0 opacity-[0.18] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_25%,black_40%,transparent_85%)]"
-          style={{
-            backgroundImage: `radial-gradient(rgba(37, 99, 235, 0.22) 1px, transparent 1px)`,
-            backgroundSize: "28px 28px",
-          }}
-        />
-      </div>
-
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-8 relative z-10">
-        {/* Top Bar: Strictly 1 Horizontal Row (3 Equal Columns on Mobile/Tablet, Inline on Desktop) */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 mb-3 sm:mb-6">
-          <div
-            role="tablist"
-            aria-label="Pilihan Layanan Abinest"
-            className="w-full lg:w-auto grid grid-cols-3 lg:inline-flex items-center p-1 bg-white rounded-xl border border-slate-300 shadow-xs gap-1"
+      <div className="max-w-[1200px] mx-auto px-8">
+        <div className="grid grid-cols-12 gap-12 items-center">
+          {/* Kolom Kiri: Tipografi Tenang, Jelas & Lapang */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="col-span-6 space-y-6"
           >
-            {pillars.map((pillar, idx) => {
-              const Icon = pillar.icon;
-              const isActive = activeIdx === idx;
-              return (
-                <button
-                  key={pillar.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => {
-                    setActiveIdx(idx);
-                    setIsPaused(true);
-                  }}
-                  className={`relative px-1 sm:px-3.5 py-2 rounded-lg text-[11px] sm:text-xs lg:text-[13px] font-bold transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer outline-none select-none min-w-0 whitespace-nowrap ${
-                    isActive
-                      ? "bg-[#2563EB] text-white shadow-xs"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+            <p className="text-[13px] font-semibold text-blue-600 tracking-wide">
+              Studio Rekayasa Web, ERP &amp; Automasi AI
+            </p>
+
+            <h1 className="text-[44px] xl:text-[50px] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.1]">
+              Situs Web Cepat, Sistem ERP, dan{" "}
+              <span className="text-blue-600">Automasi AI.</span>
+            </h1>
+
+            <p className="text-[17px] text-slate-600 leading-relaxed max-w-lg font-normal">
+              Kami merancang sistem digital khusus sesuai alur kerja perusahaan Anda—tanpa biaya lisensi per pengguna dan siap digunakan dalam 14 hari kerja.
+            </p>
+
+            <div className="flex items-center gap-3.5 pt-1">
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm shadow-blue-600/20 transition-all"
+              >
+                <span>Konsultasi via WhatsApp</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <Link
+                href="/demo"
+                className="inline-flex items-center px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200/90 transition-colors"
+              >
+                Lihat Demo Interaktif
+              </Link>
+            </div>
+
+            {/* 3 Metrik Polos Tanpa Kotak Berlebihan */}
+            <div className="pt-6 border-t border-slate-100 grid grid-cols-3 gap-6 max-w-lg">
+              <div>
+                <div className="text-2xl font-extrabold tracking-tight text-slate-900">
+                  14 Hari
+                </div>
+                <div className="text-xs text-slate-500 mt-0.5">
+                  Estimasi rilis sistem
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-extrabold tracking-tight text-slate-900">
+                  100%
+                </div>
+                <div className="text-xs text-slate-500 mt-0.5">
+                  Hak milik kode program
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-extrabold tracking-tight text-slate-900">
+                  Rp0
+                </div>
+                <div className="text-xs text-slate-500 mt-0.5">
+                  Biaya lisensi per pengguna
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Kolom Kanan: Visual Showcase Murni */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.08, ease: "easeOut" }}
+            className="col-span-6"
+          >
+            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-[0_20px_50px_rgba(15,23,42,0.09)] border border-slate-200/70">
+              {showcaseSlides.map((slide, idx) => (
+                <div
+                  key={slide.src}
+                  aria-hidden={idx !== activeIdx}
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    idx === activeIdx ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                   }`}
                 >
-                  <Icon
-                    className={`hidden sm:inline-block w-3.5 h-3.5 shrink-0 ${
-                      isActive ? "text-white" : "text-slate-500"
-                    }`}
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 1200px) 50vw, 560px"
+                    className="object-cover object-center"
                   />
-                  <span>
-                    <span className="md:hidden">{pillar.tabShortLabel}</span>
-                    <span className="hidden md:inline">{pillar.tabLabel}</span>
-                  </span>
-
-                  {/* Active Progress Line */}
-                  {isActive && (
-                    <div className="absolute bottom-0 inset-x-1.5 h-[2px] rounded-full overflow-hidden bg-blue-400/40">
-                      <motion.div
-                        key={`progress-${idx}-${isPaused}`}
-                        initial={{ width: "0%" }}
-                        animate={{ width: "100%" }}
-                        transition={{
-                          duration: isPaused ? 0 : 6,
-                          ease: "linear",
-                        }}
-                        className="h-full bg-white rounded-full"
-                      />
-                    </div>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="hidden lg:inline-flex items-center gap-2 text-[11px] text-slate-600 font-semibold px-3 py-1.5 rounded-lg bg-white border border-slate-300 shadow-2xs">
-            <span
-              className={`w-2 h-2 rounded-full ${
-                isPaused ? "bg-amber-500" : "bg-emerald-500 animate-pulse"
-              }`}
-            />
-            <span>{isPaused ? "Mode Interaktif (Jeda)" : "Otomatis Berganti (6s)"}</span>
-          </div>
-        </div>
-
-        {/* MOBILE-FIRST ABOVE-THE-FOLD GRID:
-            On Mobile/Tablet (<1024px):
-              Order 1: Headline
-              Order 2: Visual Hero Image Card (100% VISIBLE ABOVE THE FOLD!)
-              Order 3: Story + CTA Buttons + 3-Col Guarantee Strip
-            On Desktop (>=1024px):
-              Left 7 Cols: Headline + Story + CTA Buttons + 3-Col Guarantee Strip
-              Right 5 Cols: Visual Hero Image Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-5 lg:gap-x-10 lg:gap-y-4 items-center">
-          {/* ORDER 1: Eyebrow & Headline */}
-          <div className="order-1 lg:col-span-7 lg:col-start-1 lg:row-start-1 space-y-1.5 sm:space-y-2">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-md bg-blue-50 border border-blue-200 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.12em] text-[#1D4ED8] font-bold">
-              <span>0{activeIdx + 1} / 03 · ABINEST DIGITAL SYSTEMS</span>
+                </div>
+              ))}
             </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`headline-${currentPillar.id}`}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              >
-                <h1 className="text-[21px] sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[45px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.15]">
-                  {currentPillar.headlineLine1}
-                  <br />
-                  <span className="text-[#2563EB]">
-                    {currentPillar.headlineLine2}
-                  </span>
-                </h1>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* ORDER 2 (IMMEDIATELY ABOVE THE FOLD ON MOBILE!): Visual Card (All 3 Images Pre-Stacked for 0ms Switch) */}
-          <div className="order-2 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 relative self-center w-full">
-            <div className="ui-card overflow-hidden shadow-md group">
-              {/* Crisp Card Header: Telemetry Strip */}
-              <div className="bg-[#0F172A] border-b border-slate-800 px-3.5 py-2 flex items-center justify-between gap-2 text-white">
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="relative flex items-center justify-center w-2 h-2 shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                  </span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-300 font-semibold truncate">
-                    {currentPillar.glassBadges.telemetry.liveTag} · {currentPillar.glassBadges.telemetry.title}
-                  </span>
-                </div>
-
-                <span className="px-2 py-0.5 rounded-md bg-blue-500/20 border border-blue-400/40 text-blue-300 text-[10px] font-mono font-bold shrink-0">
-                  {currentPillar.glassBadges.telemetry.metric}
-                </span>
-              </div>
-
-              {/* Hero Image Viewport: Soft Slate Skeleton + 3 Stacked Preloaded Images (Never Blank Dark Box!) */}
-              <div className="relative w-full aspect-[16/10] lg:aspect-[4/3] bg-gradient-to-br from-slate-100 via-slate-200/70 to-slate-100 overflow-hidden">
-                {pillars.map((pillar, idx) => {
-                  const isCurrent = idx === activeIdx;
-                  return (
-                    <div
-                      key={pillar.id}
-                      aria-hidden={!isCurrent}
-                      className={`absolute inset-0 transition-opacity duration-300 ease-out ${
-                        isCurrent
-                          ? "opacity-100 z-10"
-                          : "opacity-0 z-0 pointer-events-none"
-                      }`}
-                    >
-                      <Image
-                        src={pillar.image}
-                        alt={pillar.imageAlt}
-                        fill
-                        priority
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Crisp Card Footer: Ownership & SLA Guarantee */}
-              <div className="bg-white border-t border-slate-200 px-3.5 py-2 flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2 min-w-0">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-50 border border-blue-200 text-[#2563EB] flex items-center justify-center shrink-0">
-                    <GuaranteeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  </div>
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] truncate">
-                      {currentPillar.glassBadges.guarantee.title}
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] text-slate-500 truncate">
-                      {currentPillar.glassBadges.guarantee.subtitle}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-bold">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                  <span>SLA 99.9%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ORDER 3: Story, Action Buttons & 1-Row 3-Col Divided Guarantee Strip */}
-          <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-2 space-y-2.5 sm:space-y-4">
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={`story-${currentPillar.id}`}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.2 }}
-                className="text-xs sm:text-sm lg:text-[15.5px] text-slate-600 leading-relaxed font-normal max-w-2xl"
-              >
-                {currentPillar.story}
-              </motion.p>
-            </AnimatePresence>
-
-            {/* Primary & Secondary Action Buttons */}
-            <div className="space-y-2">
-              <div className="grid grid-cols-1 sm:flex sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    currentPillar.waMessage
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] border border-blue-700 shadow-sm transition-all duration-150 cursor-pointer"
-                >
-                  <span>Konsultasikan via WhatsApp</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-
-                <Link
-                  href="/demo"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold text-slate-800 hover:text-[#1D4ED8] bg-white hover:bg-blue-50/70 border border-slate-300 hover:border-[#2563EB] shadow-2xs transition-all text-center"
-                >
-                  <span>Coba Demo Interaktif →</span>
-                </Link>
-              </div>
-
-              <div className="flex items-center gap-1.5 text-[11.5px] sm:text-xs font-medium text-slate-600">
-                <span>Ingin estimasi biaya &amp; penghematan 3 tahun?</span>
-                <Link
-                  href="/audit-gratis"
-                  className="font-bold text-[#2563EB] hover:underline inline-flex items-center gap-0.5"
-                >
-                  <span>Hitung di Audit Gratis →</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Strictly 3-Column Horizontal Guarantee Grid on Both Mobile & Desktop */}
-            <div className="grid grid-cols-3 border border-slate-300 rounded-xl bg-white divide-x divide-slate-200 shadow-2xs overflow-hidden">
-              <div className="p-2 sm:px-3.5 sm:py-2.5 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
-                <div className="min-w-0">
-                  <span className="text-[10.5px] sm:text-xs font-bold text-[#0F172A] block leading-tight truncate">
-                    Ramah UMKM
-                  </span>
-                  <span className="text-[9.5px] sm:text-[10.5px] text-slate-500 block truncate">
-                    Mulai Rp 1.5 Jt
-                  </span>
-                </div>
-              </div>
-              <div className="p-2 sm:px-3.5 sm:py-2.5 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2563EB] shrink-0" />
-                <div className="min-w-0">
-                  <span className="text-[10.5px] sm:text-xs font-bold text-[#0F172A] block leading-tight truncate">
-                    Rilis &lt;14 Hari
-                  </span>
-                  <span className="text-[9.5px] sm:text-[10.5px] text-slate-500 block truncate">
-                    Alur terstruktur
-                  </span>
-                </div>
-              </div>
-              <div className="p-2 sm:px-3.5 sm:py-2.5 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-700 shrink-0" />
-                <div className="min-w-0">
-                  <span className="text-[10.5px] sm:text-xs font-bold text-[#0F172A] block leading-tight truncate">
-                    100% Kode Milik
-                  </span>
-                  <span className="text-[9.5px] sm:text-[10.5px] text-slate-500 block truncate">
-                    Rp 0 biaya sewa
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Proof Row */}
-            <div className="pt-2 flex items-center gap-2.5 border-t border-slate-200">
-              <div className="flex -space-x-1.5 shrink-0">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-gradient-to-br from-emerald-500 to-teal-600 text-white text-[8.5px] font-black flex items-center justify-center shadow-xs">
-                  UMKM
-                </div>
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-gradient-to-br from-blue-600 to-indigo-700 text-white text-[9.5px] font-black flex items-center justify-center shadow-xs">
-                  PT
-                </div>
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-gradient-to-br from-slate-700 to-slate-900 text-white text-[9.5px] font-black flex items-center justify-center shadow-xs">
-                  CV
-                </div>
-              </div>
-              <div className="text-[11px] sm:text-xs font-medium text-slate-700 truncate">
-                <span className="font-bold text-[#0F172A]">25+ UMKM &amp; Institusi Aktif</span>
-                <span className="text-slate-400 mx-1.5">·</span>
-                <span className="text-[#2563EB] font-semibold">Garansi SLA Anti-Down 99.9%</span>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

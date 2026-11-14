@@ -90,20 +90,20 @@ export function GroveAuditCalculator() {
     const estimatedSaasMonthly = tier.usersCount * tier.saasPerUserMonth;
     const estimatedSaas3Years = estimatedSaasMonthly * 36;
 
-    let architectureName = "Modern Web & Funnel Konversi Next.js 15 (<0.8s)";
+    let architectureName = "Situs Web Modern Next.js (<0,8 detik)";
     let duration = "7 – 14 Hari Kerja";
     let beliPutusPrice = 1500000;
-    let terimaBeresPrice = "Rp 350rb / bulan";
+    let terimaBeresPrice = "Rp350 ribu / bulan";
     let keyIssues: string[] = [];
 
     if (
       goal === "Rapikan Stok, Kasir & Laporan Laba Rugi" ||
       businessType === "Distributor / Gudang / Toko Ritel"
     ) {
-      architectureName = "Custom ERP Multi-Gudang, POS Kasir & Faktur Otomatis";
+      architectureName = "Sistem ERP Multi-Gudang, POS Kasir & Faktur Otomatis";
       duration = tier.usersCount > 20 ? "2 – 4 Minggu" : "7 – 14 Hari Kerja";
       beliPutusPrice = tier.usersCount > 20 ? 15000000 : 4000000;
-      terimaBeresPrice = "Rp 750rb / bulan";
+      terimaBeresPrice = "Rp750 ribu / bulan";
       keyIssues = [
         "Risiko selisih stok antar gudang/kasir jika masih rekap manual",
         "Ketergantungan biaya lisensi per-kasir SaaS terus membengkak tiap tahun",
@@ -113,36 +113,36 @@ export function GroveAuditCalculator() {
       goal === "Siapkan PPDB Online & SIAKAD Anti-Down" ||
       businessType === "Sekolah / Kampus / Lembaga Kursus"
     ) {
-      architectureName = "Portal SIAKAD Terpadu, PPDB Online & Ujian CBT Anti-Down";
+      architectureName = "Portal SIAKAD Terpadu, PPDB Daring & Ujian CBT Anti-Tumbang";
       duration = tier.usersCount > 20 ? "2 – 4 Minggu" : "7 – 14 Hari Kerja";
       beliPutusPrice = 4500000;
-      terimaBeresPrice = "Rp 750rb / bulan";
+      terimaBeresPrice = "Rp750 ribu / bulan";
       keyIssues = [
-        "Server PPDB/Ujian rentan tumbang saat ratusan siswa login bersamaan",
+        "Peladen PPDB/ujian rentan tumbang saat ratusan siswa masuk bersamaan",
         "Data nilai, presensi, & tagihan SPP belum tersinkron dalam satu portal",
-        "Website sekolah lambat (>5 detik) menurunkan minat calon pendaftar baru",
+        "Situs web sekolah lambat (>5 detik) menurunkan minat calon pendaftar baru",
       ];
     } else if (goal === "Otomasi Balasan WhatsApp & Input Faktur") {
-      architectureName = "AI Agent WhatsApp Resmi Meta + Document AI OCR Faktur";
+      architectureName = "Agen AI WhatsApp Resmi Meta + Document AI OCR Faktur";
       duration = "7 – 14 Hari Kerja";
       beliPutusPrice = 5000000;
-      terimaBeresPrice = "Rp 900rb / bulan";
+      terimaBeresPrice = "Rp900 ribu / bulan";
       keyIssues = [
-        "Chat calon pembeli di WhatsApp lambat dibalas di luar jam kerja",
-        "Kesalahan ketik (human error) saat input faktur supplier ke Excel",
-        "Tim admin habis waktu menjawab pertanyaan berulang seputar stok & harga",
+        "Pesan calon pembeli di WhatsApp lambat dibalas di luar jam kerja",
+        "Kesalahan ketik (human error) saat input faktur pemasok ke Excel",
+        "Tim admin kehabisan waktu menjawab pertanyaan berulang seputar stok & harga",
       ];
     } else {
-      architectureName = "Website Modern Kilat (<0.8s) + SEO Lokal & Funnel WhatsApp";
+      architectureName = "Situs Web Modern (<0,8 detik) + SEO Lokal & Alur WhatsApp";
       duration = "7 – 14 Hari Kerja";
       beliPutusPrice = 1500000;
-      terimaBeresPrice = "Rp 350rb / bulan";
+      terimaBeresPrice = "Rp350 ribu / bulan";
       keyIssues = [
         condition === "Belum Punya Website Resmi"
           ? "Calon pelanggan Google Maps kesulitan memvalidasi kredibilitas bisnis"
-          : "Website lama memuat lambat di HP (>5 detik) sehingga pengunjung kabur",
+          : "Situs web lama memuat lambat di ponsel (>5 detik) sehingga pengunjung pergi",
         "Belum terindeks kata kunci lokal berniat beli tinggi di Google",
-        "Alur tombol menuju konsultasi WhatsApp kurang menonjol di layar mobile",
+        "Alur tombol menuju konsultasi WhatsApp kurang menonjol di layar seluler",
       ];
     }
 
@@ -378,7 +378,7 @@ Saya ingin mengklaim *Preview Simulasi Gratis* & berdiskusi langkah penerapannya
                   <span className="text-[10px] font-bold uppercase text-slate-500 block">
                     Lisensi Per Staf
                   </span>
-                  <span className="text-lg font-black text-emerald-700">Rp 0</span>
+                  <span className="text-lg font-black text-emerald-700">Rp0</span>
                 </div>
               </div>
 
