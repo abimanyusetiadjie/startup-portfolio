@@ -8,19 +8,35 @@ const WHATSAPP_NUMBER = "6281398589745";
 
 export function GroveFloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showStickyMobileBar, setShowStickyMobileBar] = useState(false);
+  const [isNearCta, setIsNearCta] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      const scrollHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollHeight > 0) {
-        const scrollRatio = window.scrollY / scrollHeight;
-        setShowStickyMobileBar(scrollRatio >= 0.35);
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const targets = [
+      document.getElementById("kontak"),
+      document.querySelector("footer"),
+    ].filter((el): el is HTMLElement => el !== null);
+
+    if (targets.length === 0 || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+
+    const visibleSet = new Set<Element>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSet.add(entry.target);
+          } else {
+            visibleSet.delete(entry.target);
+          }
+        });
+        setIsNearCta(visibleSet.size > 0);
+      },
+      { threshold: 0.1 }
+    );
+
+    targets.forEach((t) => observer.observe(t));
+    return () => observer.disconnect();
   }, []);
 
   const quickOptions = [
@@ -55,38 +71,14 @@ export function GroveFloatingWhatsApp() {
 
   return (
     <>
-      {/* Sticky Mobile CTA Bar (Muncul setelah scroll 35% di layar HP) */}
-      {showStickyMobileBar && (
-        <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-3 shadow-[0_-8px_25px_rgba(15,23,42,0.08)] flex items-center justify-between gap-3">
-          <div className="min-w-0">
-            <div className="text-[11px] font-bold text-[#0F172A] truncate">
-              Konsultasi WhatsApp Sekarang
-            </div>
-            <div className="text-[10px] text-emerald-700 font-medium truncate flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
-              <span>Respons &lt;15 menit · Tanpa komitmen</span>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={() => handleOpenChat()}
-            className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-[#25D366] hover:bg-[#20BA5A] active:scale-95 shadow-md shadow-emerald-500/20 transition-all"
-          >
-            <WhatsAppIcon className="w-4 h-4 text-white" />
-            <span>Chat WA</span>
-          </button>
-        </div>
-      )}
-
-      {/* Floating WhatsApp Action Button (Pojok Kanan Bawah) */}
+      {/* Floating WhatsApp Action Button (Pojok Kanan Bawah dengan Safe-Area & Auto-Shrink di Area CTA) */}
       <div
-        className={`fixed right-4 sm:right-6 z-50 flex flex-col items-end transition-all duration-300 ${
-          showStickyMobileBar ? "bottom-20 sm:bottom-6" : "bottom-6"
-        }`}
+        style={{ bottom: "calc(24px + env(safe-area-inset-bottom, 0px))" }}
+        className="fixed right-4 sm:right-6 z-40 flex flex-col items-end transition-all duration-300"
       >
         {/* Quick Option Popover Card */}
         {isOpen && (
-          <div className="mb-3 w-[320px] sm:w-[380px] rounded-2xl bg-white border border-slate-300 shadow-2xl overflow-hidden text-slate-800 animate-in fade-in slide-in-from-bottom-3 duration-200">
+          <div className="mb-3 w-[calc(100vw-32px)] max-w-[320px] sm:max-w-none sm:w-[380px] rounded-2xl bg-white border border-slate-300 shadow-2xl overflow-hidden text-slate-800 animate-in fade-in slide-in-from-bottom-3 duration-200">
             {/* WhatsApp Styled Brand Header */}
             <div className="bg-[#075E54] border-b border-emerald-950/30 text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -171,7 +163,11 @@ export function GroveFloatingWhatsApp() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="group relative flex items-center justify-center sm:gap-3 w-14 h-14 sm:w-auto sm:h-14 sm:px-5 sm:py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-[0_8px_25px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_32px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer outline-none"
+          className={`group relative flex items-center justify-center sm:gap-3 w-12 h-12 sm:w-auto sm:h-14 sm:px-5 sm:py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-[0_8px_25px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_32px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer outline-none ${
+            isNearCta && !isOpen
+              ? "scale-75 opacity-70 translate-y-2 sm:scale-100 sm:opacity-100 sm:translate-y-0"
+              : ""
+          }`}
           aria-label="Konsultasi WhatsApp Abinest"
         >
           {/* Online Radar Pulse Indicator */}

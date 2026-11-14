@@ -33,7 +33,7 @@ export function GroveHeroSection() {
         "Bantu UMKM, toko online, hingga yayasan memiliki website profesional tanpa beban biaya langganan bulanan. Tampilan kredibel di HP pelanggan, teroptimasi Google SEO lokal, dan langsung terhubung ke WhatsApp.",
       waMessage:
         "Halo Tim Abinest, saya tertarik konsultasi Website Modern untuk UMKM / Bisnis saya. Boleh diskusi konsep dan anggarannya?",
-      image: "/images/hero-pillar-web.webp",
+      image: "/images/hero-web.webp",
       imageAlt: "Modern Web Engineering & Minimalist Workstation Abinest",
       glassBadges: {
         telemetry: {
@@ -59,7 +59,7 @@ export function GroveHeroSection() {
         "Solusi operasional terjangkau untuk UMKM ritel, kafe, distributor, hingga sekolah. Pantau stok barang masuk-keluar, kelola kasir POS, dan lihat laporan laba rugi harian otomatis dari HP tanpa biaya lisensi per staf.",
       waMessage:
         "Halo Tim Abinest, saya ingin konsultasi kebutuhan Sistem Kasir POS / ERP untuk UMKM / Bisnis kami (pantau stok & cabang).",
-      image: "/images/hero-pillar-erp.webp",
+      image: "/images/erp-dashboard.webp",
       imageAlt: "Sistem ERP & Operasional Terpadu Abinest",
       glassBadges: {
         telemetry: {
@@ -85,7 +85,7 @@ export function GroveHeroSection() {
         "Otomatiskan customer service dengan AI resmi Meta WhatsApp API. Balas pesan pelanggan <1 detik, kirim katalog produk, hingga rekap pesanan otomatis 24 jam nonstop tanpa beban lembur admin.",
       waMessage:
         "Halo Tim Abinest, saya tertarik implementasi WhatsApp AI Agent resmi Meta untuk melayani chat pelanggan UMKM 24/7. Boleh minta demonya?",
-      image: "/images/hero-pillar-aiml.webp",
+      image: "/images/ai-ml-workflow.webp",
       imageAlt: "Automasi AI/ML & WhatsApp CS Cerdas Abinest",
       glassBadges: {
         telemetry: {
@@ -118,7 +118,7 @@ export function GroveHeroSection() {
       id="beranda"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative pt-4 sm:pt-7 lg:pt-9 pb-8 sm:pb-12 lg:pb-14 overflow-hidden bg-[#F8FAFC] border-b border-slate-300/80"
+      className="relative pt-2.5 sm:pt-6 lg:pt-8 pb-5 sm:pb-10 lg:pb-14 overflow-x-clip bg-[#F8FAFC] border-b border-slate-300/80"
     >
       {/* Subtle Grid Mesh */}
       <div
@@ -136,7 +136,7 @@ export function GroveHeroSection() {
 
       <div className="max-w-[1260px] mx-auto px-4 sm:px-8 relative z-10">
         {/* Top Bar: Strictly 1 Horizontal Row (3 Equal Columns on Mobile/Tablet, Inline on Desktop) */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 mb-4 sm:mb-6">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 mb-3 sm:mb-6">
           <div
             role="tablist"
             aria-label="Pilihan Layanan Abinest"
@@ -155,18 +155,18 @@ export function GroveHeroSection() {
                     setActiveIdx(idx);
                     setIsPaused(true);
                   }}
-                  className={`relative px-2 sm:px-3.5 py-2 rounded-lg text-[11px] sm:text-xs lg:text-[13px] font-bold transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer outline-none select-none min-w-0 ${
+                  className={`relative px-1 sm:px-3.5 py-2 rounded-lg text-[11px] sm:text-xs lg:text-[13px] font-bold transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer outline-none select-none min-w-0 whitespace-nowrap ${
                     isActive
                       ? "bg-[#2563EB] text-white shadow-xs"
                       : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   }`}
                 >
                   <Icon
-                    className={`w-3.5 h-3.5 shrink-0 ${
+                    className={`hidden sm:inline-block w-3.5 h-3.5 shrink-0 ${
                       isActive ? "text-white" : "text-slate-500"
                     }`}
                   />
-                  <span className="truncate">
+                  <span>
                     <span className="md:hidden">{pillar.tabShortLabel}</span>
                     <span className="hidden md:inline">{pillar.tabLabel}</span>
                   </span>
@@ -209,9 +209,9 @@ export function GroveHeroSection() {
             On Desktop (>=1024px):
               Left 7 Cols: Headline + Story + CTA Buttons + 3-Col Guarantee Strip
               Right 5 Cols: Visual Hero Image Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-x-10 lg:gap-y-5 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-5 lg:gap-x-10 lg:gap-y-4 items-center">
           {/* ORDER 1: Eyebrow & Headline */}
-          <div className="order-1 lg:col-span-7 lg:col-start-1 lg:row-start-1 space-y-2">
+          <div className="order-1 lg:col-span-7 lg:col-start-1 lg:row-start-1 space-y-1.5 sm:space-y-2">
             <div className="inline-flex items-center gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-md bg-blue-50 border border-blue-200 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.12em] text-[#1D4ED8] font-bold">
               <span>0{activeIdx + 1} / 03 · ABINEST DIGITAL SYSTEMS</span>
             </div>
@@ -219,12 +219,12 @@ export function GroveHeroSection() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={`headline-${currentPillar.id}`}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.22, ease: "easeOut" }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
               >
-                <h1 className="text-[22px] sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[45px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.15]">
+                <h1 className="text-[21px] sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[45px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-[1.15]">
                   {currentPillar.headlineLine1}
                   <br />
                   <span className="text-[#2563EB]">
@@ -235,73 +235,79 @@ export function GroveHeroSection() {
             </AnimatePresence>
           </div>
 
-          {/* ORDER 2 (IMMEDIATELY ABOVE THE FOLD ON MOBILE!): Visual Card */}
+          {/* ORDER 2 (IMMEDIATELY ABOVE THE FOLD ON MOBILE!): Visual Card (All 3 Images Pre-Stacked for 0ms Switch) */}
           <div className="order-2 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 relative self-center w-full">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`visual-${currentPillar.id}`}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="ui-card overflow-hidden shadow-md group"
-              >
-                {/* Crisp Card Header: Telemetry Strip */}
-                <div className="bg-[#0F172A] border-b border-slate-800 px-3.5 py-2 flex items-center justify-between gap-2 text-white">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <span className="relative flex items-center justify-center w-2 h-2 shrink-0">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                    </span>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-300 font-semibold truncate">
-                      {currentPillar.glassBadges.telemetry.liveTag} · {currentPillar.glassBadges.telemetry.title}
-                    </span>
-                  </div>
-
-                  <span className="px-2 py-0.5 rounded-md bg-blue-500/20 border border-blue-400/40 text-blue-300 text-[10px] font-mono font-bold shrink-0">
-                    {currentPillar.glassBadges.telemetry.metric}
+            <div className="ui-card overflow-hidden shadow-md group">
+              {/* Crisp Card Header: Telemetry Strip */}
+              <div className="bg-[#0F172A] border-b border-slate-800 px-3.5 py-2 flex items-center justify-between gap-2 text-white">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="relative flex items-center justify-center w-2 h-2 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-300 font-semibold truncate">
+                    {currentPillar.glassBadges.telemetry.liveTag} · {currentPillar.glassBadges.telemetry.title}
                   </span>
                 </div>
 
-                {/* Hero Image Viewport: Sized so Mobile First Screen Shows Image + CTA Together */}
-                <div className="relative w-full h-[195px] sm:h-[260px] md:h-[310px] lg:h-[390px] bg-slate-900 overflow-hidden">
-                  <Image
-                    src={currentPillar.image}
-                    alt={currentPillar.imageAlt}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 42vw"
-                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                  />
+                <span className="px-2 py-0.5 rounded-md bg-blue-500/20 border border-blue-400/40 text-blue-300 text-[10px] font-mono font-bold shrink-0">
+                  {currentPillar.glassBadges.telemetry.metric}
+                </span>
+              </div>
+
+              {/* Hero Image Viewport: Soft Slate Skeleton + 3 Stacked Preloaded Images (Never Blank Dark Box!) */}
+              <div className="relative w-full aspect-[16/10] lg:aspect-[4/3] bg-gradient-to-br from-slate-100 via-slate-200/70 to-slate-100 overflow-hidden">
+                {pillars.map((pillar, idx) => {
+                  const isCurrent = idx === activeIdx;
+                  return (
+                    <div
+                      key={pillar.id}
+                      aria-hidden={!isCurrent}
+                      className={`absolute inset-0 transition-opacity duration-300 ease-out ${
+                        isCurrent
+                          ? "opacity-100 z-10"
+                          : "opacity-0 z-0 pointer-events-none"
+                      }`}
+                    >
+                      <Image
+                        src={pillar.image}
+                        alt={pillar.imageAlt}
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Crisp Card Footer: Ownership & SLA Guarantee */}
+              <div className="bg-white border-t border-slate-200 px-3.5 py-2 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-50 border border-blue-200 text-[#2563EB] flex items-center justify-center shrink-0">
+                    <GuaranteeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] truncate">
+                      {currentPillar.glassBadges.guarantee.title}
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-slate-500 truncate">
+                      {currentPillar.glassBadges.guarantee.subtitle}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Crisp Card Footer: Ownership & SLA Guarantee */}
-                <div className="bg-white border-t border-slate-200 px-3.5 py-2.5 flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-50 border border-blue-200 text-[#2563EB] flex items-center justify-center shrink-0">
-                      <GuaranteeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    </div>
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] truncate">
-                        {currentPillar.glassBadges.guarantee.title}
-                      </span>
-                      <span className="text-[10px] sm:text-[11px] text-slate-500 truncate">
-                        {currentPillar.glassBadges.guarantee.subtitle}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-bold">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                    <span>SLA 99.9%</span>
-                  </div>
+                <div className="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-bold">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
+                  <span>SLA 99.9%</span>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            </div>
           </div>
 
           {/* ORDER 3: Story, Action Buttons & 1-Row 3-Col Divided Guarantee Strip */}
-          <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-2 space-y-4">
+          <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-2 space-y-2.5 sm:space-y-4">
             <AnimatePresence mode="wait">
               <motion.p
                 key={`story-${currentPillar.id}`}

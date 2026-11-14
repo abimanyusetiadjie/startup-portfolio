@@ -139,7 +139,7 @@ export function GroveCoreShieldSection() {
   return (
     <section
       id="cara-kerja"
-      className="py-12 sm:py-16 relative bg-white border-b border-slate-300/80 overflow-visible"
+      className="py-10 sm:py-16 relative bg-white border-b border-slate-300/80 overflow-x-clip lg:overflow-visible"
     >
       <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-10">
         {/* Section Header */}
@@ -193,13 +193,13 @@ export function GroveCoreShieldSection() {
                       </span>
                     </div>
 
-                    <div className="relative w-full h-[155px] rounded-xl overflow-hidden bg-slate-900 mb-2 border border-slate-800">
+                    <div className="relative w-full h-[155px] rounded-xl overflow-hidden bg-slate-100 mb-2 border border-slate-800">
                       <Image
                         src={s.imageSrc}
                         alt={s.title}
                         fill
                         className="object-cover object-center"
-                        sizes="300px"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
 
@@ -221,6 +221,17 @@ export function GroveCoreShieldSection() {
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${s.badgeBg}`}>
                     {s.timeline}
                   </span>
+                </div>
+
+                {/* Mobile & Tablet Direct Thumbnail (< lg) */}
+                <div className="lg:hidden relative w-full aspect-[16/9] bg-slate-100 border-b border-slate-200 overflow-hidden">
+                  <Image
+                    src={s.imageSrc}
+                    alt={s.title}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
 
                 {/* 2. Card Body */}
@@ -270,7 +281,7 @@ export function GroveCoreShieldSection() {
       {activeModalStep !== null && (
         <div
           onClick={() => setActiveModalStep(null)}
-          className="lg:hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="lg:hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-[60] flex items-center justify-center p-4 animate-in fade-in duration-200"
         >
           <div
             onClick={(e) => e.stopPropagation()}
@@ -296,13 +307,13 @@ export function GroveCoreShieldSection() {
               </p>
             </div>
 
-            <div className="relative w-full h-[180px] rounded-xl overflow-hidden bg-slate-900 mb-3 border border-slate-800">
+            <div className="relative w-full h-[180px] rounded-xl overflow-hidden bg-slate-100 mb-3 border border-slate-800">
               <Image
                 src={steps[activeModalStep].imageSrc}
                 alt={steps[activeModalStep].title}
                 fill
                 className="object-cover object-center"
-                sizes="(max-width: 640px) 100vw, 400px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 

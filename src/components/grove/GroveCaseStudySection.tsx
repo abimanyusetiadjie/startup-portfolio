@@ -211,13 +211,13 @@ export function GroveCaseStudySection() {
                       </span>
                     </div>
 
-                    <div className="relative w-full h-[300px] sm:h-[380px] lg:h-[440px] bg-slate-100 overflow-hidden">
+                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/10] lg:aspect-auto lg:h-[400px] bg-slate-100 overflow-hidden">
                       <Image
                         src={currentCase.imagePreview}
                         alt={currentCase.headline}
                         fill
                         className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                        sizes="(max-width: 1024px) 100vw, 58vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         priority
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;

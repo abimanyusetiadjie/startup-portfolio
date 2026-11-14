@@ -42,9 +42,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`scroll-smooth ${plusJakartaSans.variable} ${jetBrainsMono.variable}`}
+      className={`scroll-smooth overflow-x-hidden ${plusJakartaSans.variable} ${jetBrainsMono.variable}`}
     >
-      <body className="font-sans antialiased text-slate-900 bg-[#F8FAFC] selection:bg-[#2563EB] selection:text-white">
+      <body className="font-sans antialiased text-slate-900 bg-[#F8FAFC] selection:bg-[#2563EB] selection:text-white overflow-x-hidden">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

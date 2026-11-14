@@ -456,16 +456,17 @@ export function GroveTechStackShowcase() {
     },
   ];
 
-  // Duplicated arrays for smooth continuous marquee loops
+  // Combined array for clean mobile grid + duplicated arrays for desktop marquee
+  const allTechnologies = [...track1, ...track2];
   const duplicatedTrack1 = [...track1, ...track1];
   const duplicatedTrack2 = [...track2, ...track2];
 
   return (
     <section
       id="tech-stack"
-      className="py-12 sm:py-14 relative bg-[#F8FAFC] border-b border-slate-300/80 overflow-hidden"
+      className="py-10 sm:py-14 relative bg-[#F8FAFC] border-b border-slate-300/80 overflow-x-clip"
     >
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-8">
         {/* Structured Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -485,13 +486,35 @@ export function GroveTechStackShowcase() {
           </p>
         </motion.div>
 
-        {/* Crisp Bordered Container for Dual Marquee Tracks */}
+        {/* Mobile Static Grid (< md): Zero horizontal overflow, no w-max on mobile */}
+        <div className="md:hidden grid grid-cols-3 gap-2 rounded-2xl border border-slate-300 bg-white p-3 shadow-xs">
+          {allTechnologies.map((item, idx) => (
+            <div
+              key={`mobile-tech-${idx}`}
+              className="flex flex-col justify-between rounded-xl bg-white border border-slate-200 overflow-hidden"
+            >
+              <div className="flex flex-col items-center justify-center pt-2.5 pb-2 px-1.5">
+                <div className="shrink-0">{item.icon}</div>
+                <p className="mt-1.5 text-[11px] font-extrabold text-[#0F172A] truncate max-w-full">
+                  {item.name}
+                </p>
+              </div>
+              <div className="bg-slate-50 border-t border-slate-200 px-1.5 py-1 text-center">
+                <span className="block text-[8.5px] font-semibold text-slate-600 truncate">
+                  {item.role}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Dual Marquee Tracks (>= md) */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.38, ease: "easeOut" }}
-          className="relative w-full overflow-hidden rounded-2xl border border-slate-300 bg-white py-5 shadow-xs space-y-3.5 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]"
+          className="hidden md:block relative w-full max-w-full overflow-hidden rounded-2xl border border-slate-300 bg-white py-5 shadow-xs space-y-3.5 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]"
         >
           {/* Track 1: Moving Towards Left (←) */}
           <motion.div

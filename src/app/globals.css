@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 :root {
   --color-canvas: #F8FAFC;
   --color-surface: #FFFFFF;
@@ -28,7 +34,7 @@
   }
 
   .ui-card-body {
-    @apply p-5 sm:p-6 flex-1;
+    @apply p-4 sm:p-6 lg:flex-1;
   }
 
   .ui-card-footer {
