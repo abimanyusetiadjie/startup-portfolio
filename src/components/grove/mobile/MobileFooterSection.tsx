@@ -67,11 +67,6 @@ export function MobileFooterSection() {
                   Generator Proposal
                 </Link>
               </li>
-              <li>
-                <Link href="/login" className="hover:text-sky-400 transition-colors text-white font-semibold">
-                  Portal Klien
-                </Link>
-              </li>
             </ul>
           </div>
         </div>

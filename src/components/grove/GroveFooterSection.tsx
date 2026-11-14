@@ -106,8 +106,8 @@ export function GroveFooterSection() {
                 </a>
               </li>
               <li>
-                <Link href="/login" className="hover:text-sky-400 transition-colors font-semibold text-white">
-                  Portal Klien
+                <Link href="/#kontak" className="hover:text-sky-400 transition-colors font-semibold text-white">
+                  Konsultasi Gratis
                 </Link>
               </li>
             </ul>
