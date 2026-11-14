@@ -486,26 +486,34 @@ export function GroveTechStackShowcase() {
           </p>
         </motion.div>
 
-        {/* Mobile Static Grid (< md): Zero horizontal overflow, no w-max on mobile */}
-        <div className="md:hidden grid grid-cols-3 gap-2 rounded-2xl border border-slate-300 bg-white p-3 shadow-xs">
-          {allTechnologies.map((item, idx) => (
-            <div
-              key={`mobile-tech-${idx}`}
-              className="flex flex-col justify-between rounded-xl bg-white border border-slate-200 overflow-hidden"
-            >
-              <div className="flex flex-col items-center justify-center pt-2.5 pb-2 px-1.5">
-                <div className="shrink-0">{item.icon}</div>
-                <p className="mt-1.5 text-[11px] font-extrabold text-[#0F172A] truncate max-w-full">
-                  {item.name}
-                </p>
+        {/* Mobile 2-Row Horizontal Swipeable Slider (Anti-Dead-Scroll on 375px-430px) */}
+        <div className="md:hidden">
+          <div className="mb-2 flex items-center justify-between px-1 text-[11px] font-medium text-slate-500">
+            <span className="font-bold text-slate-600">
+              {allTechnologies.length} Teknologi Enterprise &amp; AI
+            </span>
+            <span className="text-blue-600 font-semibold">Geser ke samping →</span>
+          </div>
+          <div className="grid grid-rows-2 grid-flow-col auto-cols-[106px] sm:auto-cols-[116px] overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-2 rounded-2xl border border-slate-300 bg-white p-3 shadow-xs">
+            {allTechnologies.map((item, idx) => (
+              <div
+                key={`mobile-tech-${idx}`}
+                className="snap-start flex flex-col justify-between rounded-xl bg-white border border-slate-200 overflow-hidden"
+              >
+                <div className="flex flex-col items-center justify-center pt-2.5 pb-2 px-1.5">
+                  <div className="shrink-0">{item.icon}</div>
+                  <p className="mt-1.5 text-[11px] font-extrabold text-[#0F172A] truncate max-w-full">
+                    {item.name}
+                  </p>
+                </div>
+                <div className="bg-slate-50 border-t border-slate-200 px-1.5 py-1 text-center">
+                  <span className="block text-[8.5px] font-semibold text-slate-600 truncate">
+                    {item.role}
+                  </span>
+                </div>
               </div>
-              <div className="bg-slate-50 border-t border-slate-200 px-1.5 py-1 text-center">
-                <span className="block text-[8.5px] font-semibold text-slate-600 truncate">
-                  {item.role}
-                </span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Desktop Dual Marquee Tracks (>= md) */}

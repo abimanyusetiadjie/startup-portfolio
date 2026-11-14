@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -16,6 +17,52 @@ import {
 const WHATSAPP_NUMBER = "6281398589745";
 
 export function GroveCapabilitiesSection() {
+  const [activePillarIdx, setActivePillarIdx] = useState(0);
+  const [showMobileTable, setShowMobileTable] = useState(false);
+  const pillarSliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollToPillar = (idx: number) => {
+    setActivePillarIdx(idx);
+    const container = pillarSliderRef.current;
+    if (!container) return;
+    const child = container.children[idx] as HTMLElement | undefined;
+    if (child) {
+      const containerRect = container.getBoundingClientRect();
+      const childRect = child.getBoundingClientRect();
+      const targetLeft =
+        container.scrollLeft +
+        (childRect.left - containerRect.left) -
+        (container.clientWidth - child.clientWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handlePillarScroll = () => {
+    const container = pillarSliderRef.current;
+    if (!container) return;
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + container.clientWidth / 2;
+    let closestIdx = 0;
+    let minDistance = Infinity;
+    Array.from(container.children).forEach((el, idx) => {
+      const rect = (el as HTMLElement).getBoundingClientRect();
+      const elCenter = rect.left + rect.width / 2;
+      const dist = Math.abs(containerCenter - elCenter);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestIdx = idx;
+      }
+    });
+    if (closestIdx !== activePillarIdx) {
+      setActivePillarIdx(closestIdx);
+    }
+  };
+
+  const pillarQuickTabs = ["01 · Web Bisnis", "02 · Sistem ERP", "03 · Automasi AI"];
+
   const capabilities = [
     {
       id: "web",
@@ -136,37 +183,80 @@ export function GroveCapabilitiesSection() {
   return (
     <section
       id="layanan-utama"
-      className="py-14 sm:py-16 relative bg-white border-b border-slate-300/80 overflow-hidden"
+      className="py-10 sm:py-16 relative bg-white border-b border-slate-300/80 overflow-hidden"
     >
-      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-10 relative z-10">
+      <div className="max-w-[1260px] mx-auto px-5 sm:px-8 space-y-6 sm:space-y-10 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.38, ease: "easeOut" }}
-          className="text-center max-w-2xl mx-auto space-y-3"
+          className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#1D4ED8] text-[11px] font-bold uppercase tracking-wider">
             <Layers className="w-3.5 h-3.5" />
             <span>3 PILAR SOLUSI TERPADU</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] leading-tight">
             Layanan Rekayasa Digital
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+          <p className="text-xs sm:text-base text-slate-600 leading-relaxed font-normal">
             Tiga pilar solusi terstruktur dengan kepemilikan 100% kode program, batasan ruang lingkup yang jelas, dan garansi SLA 99.9%.
           </p>
         </motion.div>
 
-        {/* 3-Column Card Grid (Compact on Mobile, Equal-Height Header/Media/Body/Footer on Desktop) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
+        {/* Mobile Quick Pillar Tabs & Swipe Indicator (< lg) */}
+        <div className="lg:hidden space-y-2">
+          <div className="grid grid-cols-3 gap-1.5 rounded-xl border border-slate-200 bg-slate-100/90 p-1">
+            {pillarQuickTabs.map((label, idx) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => scrollToPillar(idx)}
+                className={`py-2 px-1.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
+                  activePillarIdx === idx
+                    ? "bg-blue-600 text-white shadow-xs"
+                    : "bg-white/85 text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center justify-between px-1 text-[11px] font-medium text-slate-500">
+            <div className="flex items-center gap-1.5">
+              {capabilities.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  aria-label={`Pilih Pilar ${idx + 1}`}
+                  onClick={() => scrollToPillar(idx)}
+                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                    activePillarIdx === idx ? "w-5 bg-blue-600" : "w-1.5 bg-slate-300"
+                  }`}
+                />
+              ))}
+              <span className="ml-1 text-[10.5px] font-bold text-slate-600">
+                0{activePillarIdx + 1} / 0{capabilities.length}
+              </span>
+            </div>
+            <span className="text-blue-600 font-semibold">Geser kartu ke samping →</span>
+          </div>
+        </div>
+
+        {/* 3-Column Card Grid on Desktop, Horizontal Scroll-Snap Slider on Mobile */}
+        <div
+          ref={pillarSliderRef}
+          onScroll={handlePillarScroll}
+          className="flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth no-scrollbar gap-4 lg:gap-6 items-stretch -mx-5 px-5 pb-2 lg:mx-0 lg:px-0 lg:pb-0"
+        >
           {capabilities.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.id}
-                className="ui-card overflow-hidden hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group"
+                className="w-[85vw] max-w-[340px] sm:w-[360px] shrink-0 snap-center lg:w-auto lg:max-w-none lg:shrink ui-card overflow-hidden hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group"
               >
                 {/* 1. Card Header */}
                 <div className="ui-card-header py-3 px-4 sm:px-5">
@@ -256,13 +346,36 @@ export function GroveCapabilitiesSection() {
           })}
         </div>
 
+        {/* Mobile Collapsible Table Toggle (< md) */}
+        <div className="md:hidden !mt-4">
+          <button
+            type="button"
+            onClick={() => setShowMobileTable((prev) => !prev)}
+            className="flex w-full items-center justify-between rounded-xl border border-slate-300 bg-white px-4 py-3 text-left shadow-xs transition-colors hover:bg-slate-50 cursor-pointer"
+          >
+            <div className="min-w-0 pr-2">
+              <span className="block text-xs font-extrabold text-slate-900">
+                📊 Tabel Perbandingan Spesifikasi 3 Pilar
+              </span>
+              <span className="block text-[11px] text-slate-500 truncate">
+                {showMobileTable
+                  ? "Ketuk untuk menyembunyikan tabel perbandingan"
+                  : "Lihat kecocokan pilar, estimasi & hak milik kode"}
+              </span>
+            </div>
+            <span className="inline-flex shrink-0 items-center rounded-lg bg-slate-100 border border-slate-200 px-2.5 py-1 text-[11px] font-bold text-slate-700">
+              {showMobileTable ? "Tutup ▴" : "Buka ▾"}
+            </span>
+          </button>
+        </div>
+
         {/* Crisp Bootstrap-Style Service Comparison Matrix */}
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.12 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="ui-card overflow-hidden"
+          className={`${showMobileTable ? "block !mt-3" : "hidden"} md:block md:!mt-10 ui-card overflow-hidden`}
         >
           <div className="ui-card-header bg-slate-100/80 flex-wrap">
             <div className="flex items-center gap-2.5">

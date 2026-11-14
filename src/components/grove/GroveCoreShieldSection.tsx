@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -17,6 +17,50 @@ import {
 
 export function GroveCoreShieldSection() {
   const [activeModalStep, setActiveModalStep] = useState<number | null>(null);
+  const [activeMobileStep, setActiveMobileStep] = useState(0);
+  const stepSliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollToStep = (idx: number) => {
+    setActiveMobileStep(idx);
+    const container = stepSliderRef.current;
+    if (!container) return;
+    const child = container.children[idx] as HTMLElement | undefined;
+    if (child) {
+      const containerRect = container.getBoundingClientRect();
+      const childRect = child.getBoundingClientRect();
+      const targetLeft =
+        container.scrollLeft +
+        (childRect.left - containerRect.left) -
+        (container.clientWidth - child.clientWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleStepScroll = () => {
+    const container = stepSliderRef.current;
+    if (!container) return;
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + container.clientWidth / 2;
+    let closestIdx = 0;
+    let minDistance = Infinity;
+    Array.from(container.children).forEach((el, idx) => {
+      const rect = (el as HTMLElement).getBoundingClientRect();
+      const elCenter = rect.left + rect.width / 2;
+      const dist = Math.abs(containerCenter - elCenter);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestIdx = idx;
+      }
+    });
+    if (closestIdx !== activeMobileStep) {
+      setActiveMobileStep(closestIdx);
+    }
+  };
+
+  const stepQuickLabels = ["01 · RAB", "02 · Desain", "03 · Sprint", "04 · Uji", "05 · Rilis"];
 
   const steps = [
     {
@@ -141,7 +185,7 @@ export function GroveCoreShieldSection() {
       id="cara-kerja"
       className="py-10 sm:py-16 relative bg-white border-b border-slate-300/80 overflow-x-clip lg:overflow-visible"
     >
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-10">
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -164,8 +208,38 @@ export function GroveCoreShieldSection() {
           </p>
         </motion.div>
 
-        {/* 5-Column Structured Grid (Card Header / Body / Footer + Bold Distinct Border-2 + Hover Photo Popup) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 pt-2 sm:pt-4 relative items-stretch">
+        {/* Mobile Quick Step Pills & Swipe Hint (< lg) */}
+        <div className="lg:hidden space-y-2">
+          <div className="grid grid-cols-5 gap-1 rounded-xl border border-slate-200 bg-slate-100/90 p-1">
+            {stepQuickLabels.map((label, idx) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => scrollToStep(idx)}
+                className={`py-2 px-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer truncate ${
+                  activeMobileStep === idx
+                    ? "bg-blue-600 text-white shadow-xs"
+                    : "bg-white/85 text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center justify-between px-1 text-[11px] font-medium text-slate-500">
+            <span className="font-bold text-slate-600">
+              Langkah 0{activeMobileStep + 1} dari 0{steps.length}
+            </span>
+            <span className="text-blue-600 font-semibold">Geser untuk lihat foto &amp; tahapan →</span>
+          </div>
+        </div>
+
+        {/* 5-Column Structured Grid on Desktop, Horizontal Scroll-Snap Slider on Mobile */}
+        <div
+          ref={stepSliderRef}
+          onScroll={handleStepScroll}
+          className="flex lg:grid lg:grid-cols-5 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth no-scrollbar gap-3.5 lg:gap-4 pt-1 sm:pt-4 -mx-4 px-4 pb-2 lg:mx-0 lg:px-0 lg:pb-0 relative items-stretch"
+        >
           {steps.map((s, idx) => {
             const Icon = s.icon;
             return (
@@ -176,7 +250,7 @@ export function GroveCoreShieldSection() {
                 viewport={{ once: true, amount: 0.12 }}
                 transition={{ duration: 0.36, delay: idx * 0.06, ease: "easeOut" }}
                 onClick={() => setActiveModalStep(idx)}
-                className={`bg-white border-2 ${s.borderColor} ${s.borderHover} rounded-2xl flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group cursor-pointer overflow-visible`}
+                className={`w-[80vw] max-w-[295px] sm:w-[310px] shrink-0 snap-center lg:w-auto lg:max-w-none lg:shrink bg-white border-2 ${s.borderColor} ${s.borderHover} rounded-2xl flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group cursor-pointer overflow-visible`}
               >
                 {/* FLOATING HOVER POP-UP (Desktop Hover with Real HD Photo) */}
                 <div
