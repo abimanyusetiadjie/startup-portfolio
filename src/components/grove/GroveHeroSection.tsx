@@ -23,7 +23,7 @@ export function GroveHeroSection() {
     <section
       id="beranda"
       data-section="beranda"
-      className="relative overflow-hidden bg-white pt-16 pb-20 xl:pt-20 xl:pb-24 border-b border-slate-200/80"
+      className="relative scroll-mt-16 overflow-hidden bg-white pt-16 pb-20 xl:pt-20 xl:pb-24 border-b border-slate-200/80"
     >
       {/* Subtle Dynamic Ambient Glow Tuned to Active Pillar */}
       <div
@@ -96,7 +96,7 @@ export function GroveHeroSection() {
                   14 Hari
                 </div>
                 <div className="text-xs text-slate-500 mt-0.5">
-                  Estimasi rilis sistem
+                  Rilis web &amp; sistem awal
                 </div>
               </div>
               <div>

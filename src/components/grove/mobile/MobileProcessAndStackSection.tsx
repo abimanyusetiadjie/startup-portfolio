@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronRight, X, Check } from "lucide-react";
+import { useModalEffects } from "../use-modal-effects";
 
 interface StepItem {
   num: string;
@@ -71,12 +72,13 @@ const techBadges = [
 
 export function MobileProcessAndStackSection() {
   const [selectedStep, setSelectedStep] = useState<StepItem | null>(null);
+  useModalEffects(Boolean(selectedStep), () => setSelectedStep(null));
 
   return (
     <section
       id="m-cara-kerja"
       data-section="cara-kerja"
-      className="bg-[#F1F5F9] py-10 px-5 border-b border-slate-200/90"
+      className="scroll-mt-16 bg-[#F1F5F9] py-10 px-5 border-b border-slate-200/90"
     >
       <div className="max-w-md mx-auto space-y-8">
         <div className="space-y-4">
@@ -85,7 +87,7 @@ export function MobileProcessAndStackSection() {
               Alur Kerja 14 Hari
             </h2>
             <p className="text-[13.5px] text-slate-500">
-              Ketuk setiap tahap untuk melihat dokumentasi hasil kerja.
+              Standar rilis web &amp; sistem awal (modul lanjutan sesuai ruang lingkup). Ketuk tahap untuk dokumentasi.
             </p>
           </div>
 
@@ -144,19 +146,25 @@ export function MobileProcessAndStackSection() {
 
       {selectedStep && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-process-modal-title"
           onClick={() => setSelectedStep(null)}
-          className="fixed inset-0 z-[70] bg-slate-950/50 backdrop-blur-xs flex items-end justify-center animate-in fade-in duration-150"
+          className="fixed inset-0 z-[70] bg-slate-950/50 backdrop-blur-sm flex items-end justify-center"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md bg-white rounded-t-3xl p-5 pb-8 space-y-4 shadow-2xl animate-in slide-in-from-bottom-4 duration-200"
+            className="w-full max-w-md bg-white rounded-t-3xl max-h-[82dvh] overflow-y-auto overscroll-contain p-5 pb-8 space-y-4 shadow-2xl"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
                 <span className="text-[11.5px] font-semibold text-blue-600">
                   Tahap {selectedStep.num} · {selectedStep.timeline}
                 </span>
-                <h3 className="text-[17px] font-bold text-slate-900 mt-0.5">
+                <h3
+                  id="mobile-process-modal-title"
+                  className="text-[17px] font-bold text-slate-900 mt-0.5"
+                >
                   {selectedStep.title}
                 </h3>
               </div>

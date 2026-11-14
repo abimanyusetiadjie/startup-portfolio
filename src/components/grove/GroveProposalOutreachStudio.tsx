@@ -252,7 +252,7 @@ export function GroveProposalOutreachStudio() {
       .map((m, i) => `${i + 1}. ${m.name} (${formatRupiah(Number(m.price) || 0)})`)
       .join("\n");
 
-    return `*PENAWARAN RESMI ABINEST STUDIO*
+    return `*PENAWARAN RESMI ABINEST DIGITAL SYSTEMS*
 No. Dokumen: ${docNumber}
 Kepada: *${clientPic}* — ${clientCompany} (${clientCity})
 
@@ -306,7 +306,7 @@ Kontak Resmi Abinest: +62 813-9858-9745`;
         id: "slow-web",
         title: "1. Audit Website Lambat / Tampilan Mobile Kurang Rapi (Tawarkan Preview Gratis)",
         target: "Pemilik Bisnis yang sudah punya web tetapi lambat / jadul di HP",
-        script: `Selamat pagi ${pic} dari *${biz}* (${city}), perkenalkan saya Abimanyu dari Abinest Software Studio.
+        script: `Selamat pagi ${pic} dari *${biz}* (${city}), perkenalkan saya Abimanyu dari Abinest Digital Systems.
 
 Tadi saya membuka profil dan website ${biz} lewat HP, dan melihat ${issue}. Biasanya calon pembeli dari Google di area ${city} langsung keluar dalam 3 detik sebelum sempat menghubungi admin.
 
@@ -323,7 +323,7 @@ Boleh saya buatkan 1 halaman *pratinjau simulasi gratis* khusus untuk ${biz} aga
 
 Saya melihat reputasi dan ulasan ${biz} di Google Maps sudah sangat bagus, tetapi belum tertaut dengan situs web resmi perusahaan. Akibatnya, saat calon klien korporat mencari vendor di Google, kepercayaan mereka sering kalah oleh kompetitor yang punya profil & katalog resmi.
 
-Di Abinest Studio, kami membantu usaha di ${city} memiliki Situs Web Resmi (<0,8 detik + SEO Google Lokal) mulai *Rp1,5 Juta (Beli Putus, bebas sewa selamanya)* dan siap dalam 7–10 hari kerja.
+Di Abinest Digital Systems, kami membantu usaha di ${city} memiliki Situs Web Resmi (<0,8 detik + SEO Google Lokal) mulai *Rp1,5 Juta (Beli Putus, bebas sewa selamanya)* dan siap dalam 7–10 hari kerja.
 
 Ini simulasi & rincian hitungan transparannya:
 https://abinest.id/audit-gratis
@@ -334,7 +334,7 @@ Jika berkenan, boleh saya kirimkan contoh portofolio desain yang cocok untuk ${b
         id: "school-ppdb",
         title: "3. Sekolah / Yayasan — Penawaran Web Profil, PPDB Daring & SIAKAD",
         target: "Kepala Sekolah, Wakil Kurikulum, atau Ketua Yayasan Pendidikan",
-        script: `Selamat siang ${pic} *${biz}* di ${city}, saya Abimanyu dari Abinest Studio.
+        script: `Selamat siang ${pic} *${biz}* di ${city}, saya Abimanyu dari Abinest Digital Systems.
 
 Menjelang gelombang PPDB baru dan ujian semester, banyak sekolah mengeluhkan peladen ujian CBT yang tumbang saat ratusan siswa masuk bersamaan, atau biaya langganan aplikasi SIAKAD per siswa yang membengkak setiap tahun.
 
@@ -822,7 +822,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                   <div>
                     <p className="text-slate-500">Hormat kami,</p>
                     <p className="font-extrabold text-[#0F172A] mt-0.5">
-                      Abinest Software &amp; Automation Studio
+                      Abinest Digital Systems
                     </p>
                     <div className="h-12" />
                     <p className="font-bold text-[#0F172A] underline">

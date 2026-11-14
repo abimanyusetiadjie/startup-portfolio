@@ -2,17 +2,11 @@
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-
-const WHATSAPP_NUMBER = "6281398589745";
-
-function normalizeWaInputForMessage(raw: string): string {
-  const cleaned = raw.trim();
-  if (!cleaned) return "-";
-  if (cleaned.startsWith("+62") || cleaned.startsWith("62") || cleaned.startsWith("0")) {
-    return cleaned;
-  }
-  return `0${cleaned}`;
-}
+import {
+  ABINEST_WHATSAPP_NUMBER,
+  buildConsultationWaUrl,
+  normalizeIndonesianPhoneForWa,
+} from "./contact-utils";
 
 export function GroveAmberContactSection() {
   const [name, setName] = useState("");
@@ -20,6 +14,8 @@ export function GroveAmberContactSection() {
   const [serviceType, setServiceType] = useState("Situs Web Bisnis");
   const [budgetRange, setBudgetRange] = useState("Fleksibel / Diskusi Terlebih Dahulu");
   const [whatsapp, setWhatsapp] = useState("");
+  const [phoneError, setPhoneError] = useState<string | null>(null);
+  const [fallbackWaUrl, setFallbackWaUrl] = useState<string | null>(null);
   const [notes, setNotes] = useState("");
 
   const serviceOptions = [
@@ -39,7 +35,13 @@ export function GroveAmberContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formattedPhone = normalizeWaInputForMessage(whatsapp);
+    const { formatted, isValid } = normalizeIndonesianPhoneForWa(whatsapp);
+    if (!isValid) {
+      setPhoneError("Masukkan nomor WhatsApp aktif minimal 9 digit (contoh: 81234567890).");
+      return;
+    }
+
+    setPhoneError(null);
     const noteLine = notes.trim() ? `\n• Catatan Singkat: ${notes.trim()}` : "";
 
     const text = `Halo Tim Abinest,
@@ -48,23 +50,21 @@ Saya ingin berkonsultasi mengenai kebutuhan sistem berikut:
 • Kebutuhan Utama: ${serviceType}
 • Nama Lengkap: ${name.trim() || "-"}
 • Perusahaan / Instansi: ${institution.trim() || "-"}
-• Nomor WhatsApp: ${formattedPhone}
+• Nomor WhatsApp: ${formatted}
 • Perkiraan Anggaran: ${budgetRange}${noteLine}
 
 Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
 
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    const waUrl = buildConsultationWaUrl(text);
+    setFallbackWaUrl(waUrl);
+    window.open(waUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
     <section
       id="kontak"
       data-section="kontak"
-      className="py-20 bg-white"
+      className="scroll-mt-16 py-20 bg-white"
     >
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -83,7 +83,7 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
               <div>
                 WhatsApp:{" "}
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  href={`https://wa.me/${ABINEST_WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-slate-900 hover:text-blue-600"
@@ -148,7 +148,7 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Contoh: Bambang Sutrisno"
+                    placeholder="Contoh: Andi Pratama"
                     className="ui-input"
                   />
                 </div>
@@ -174,7 +174,13 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                   <label htmlFor="contact-wa" className="text-xs font-semibold text-slate-700 block">
                     Nomor WhatsApp Aktif
                   </label>
-                  <div className="flex rounded-lg border border-slate-300 focus-within:border-blue-600 focus-within:ring-3 focus-within:ring-blue-500/15 overflow-hidden bg-white transition-all">
+                  <div
+                    className={`flex rounded-lg border overflow-hidden bg-white transition-all ${
+                      phoneError
+                        ? "border-rose-500 focus-within:ring-2 focus-within:ring-rose-500/20"
+                        : "border-slate-300 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/20"
+                    }`}
+                  >
                     <span className="inline-flex items-center px-3 bg-slate-100 border-r border-slate-200 text-xs font-semibold text-slate-600 select-none">
                       +62
                     </span>
@@ -183,11 +189,19 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                       type="tel"
                       required
                       value={whatsapp}
-                      onChange={(e) => setWhatsapp(e.target.value)}
+                      onChange={(e) => {
+                        setWhatsapp(e.target.value);
+                        if (phoneError) setPhoneError(null);
+                      }}
                       placeholder="812-3456-7890"
                       className="w-full px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none bg-transparent"
                     />
                   </div>
+                  {phoneError && (
+                    <p className="text-[11.5px] font-medium text-rose-600">
+                      {phoneError}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-1.5">
@@ -230,6 +244,20 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                 <span>Kirim via WhatsApp</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
+
+              {fallbackWaUrl && (
+                <p className="text-center text-xs text-slate-500">
+                  Jendela WhatsApp tidak terbuka otomatis?{" "}
+                  <a
+                    href={fallbackWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-blue-600 hover:underline"
+                  >
+                    Buka chat WhatsApp di sini →
+                  </a>
+                </p>
+              )}
             </form>
           </div>
         </div>

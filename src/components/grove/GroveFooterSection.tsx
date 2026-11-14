@@ -25,29 +25,29 @@ export function GroveFooterSection() {
             </span>
             <ul className="space-y-2 text-slate-300">
               <li>
-                <a href="#layanan-utama" className="hover:text-sky-400 transition-colors">
+                <Link href="/#layanan-utama" className="hover:text-sky-400 transition-colors">
                   Layanan
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#portofolio" className="hover:text-sky-400 transition-colors">
+                <Link href="/#portofolio" className="hover:text-sky-400 transition-colors">
                   Studi Kasus
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#cara-kerja" className="hover:text-sky-400 transition-colors">
+                <Link href="/#cara-kerja" className="hover:text-sky-400 transition-colors">
                   Alur Kerja
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#harga" className="hover:text-sky-400 transition-colors">
+                <Link href="/#harga" className="hover:text-sky-400 transition-colors">
                   Investasi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#kontak" className="hover:text-sky-400 transition-colors">
+                <Link href="/#kontak" className="hover:text-sky-400 transition-colors">
                   Konsultasi
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

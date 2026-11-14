@@ -7,7 +7,7 @@ import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Sistem ERP Kustom & Multi-Gudang | Abinest",
+  title: "Jasa Pembuatan Sistem ERP Kustom & Multi-Gudang",
   description:
     "Jasa pembuatan sistem ERP kustom untuk inventori multi-gudang, kasir POS, keuangan, dan SIAKAD sekolah dengan SLA 99,9%. 100% hak milik kode program tanpa biaya lisensi pengguna.",
   keywords: [

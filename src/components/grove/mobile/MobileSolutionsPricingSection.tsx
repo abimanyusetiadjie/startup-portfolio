@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
 import { getPricingCardTheme } from "../pricing-theme";
+import { useModalEffects } from "../use-modal-effects";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
@@ -14,6 +15,7 @@ export function MobileSolutionsPricingSection() {
   const [showCompareSheet, setShowCompareSheet] = useState(false);
   const [compareTab, setCompareTab] = useState<"skema" | "layanan">("skema");
   const sliderRef = useRef<HTMLDivElement>(null);
+  useModalEffects(showCompareSheet, () => setShowCompareSheet(false));
 
   const isBeliPutus = mode === "beli-putus";
 
@@ -193,7 +195,7 @@ export function MobileSolutionsPricingSection() {
     <section
       id="m-layanan"
       data-section="layanan-utama"
-      className="bg-[#F1F5F9] py-10 border-b border-slate-200/90"
+      className="scroll-mt-16 bg-[#F1F5F9] py-10 border-b border-slate-200/90"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1">
@@ -343,16 +345,22 @@ export function MobileSolutionsPricingSection() {
       {/* Bottom Sheet Comparison Modal */}
       {showCompareSheet && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-pricing-compare-title"
           onClick={() => setShowCompareSheet(false)}
-          className="fixed inset-0 z-[70] bg-slate-950/50 backdrop-blur-xs flex items-end justify-center animate-in fade-in duration-150"
+          className="fixed inset-0 z-[70] bg-slate-950/50 backdrop-blur-sm flex items-end justify-center"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md bg-white rounded-t-3xl max-h-[82vh] overflow-y-auto p-5 pb-8 space-y-4 shadow-2xl animate-in slide-in-from-bottom-4 duration-200"
+            className="w-full max-w-md bg-white rounded-t-3xl max-h-[82dvh] overflow-y-auto overscroll-contain p-5 pb-8 space-y-4 shadow-2xl"
           >
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 sticky top-0 bg-white">
               <div>
-                <h3 className="text-[16px] font-bold text-slate-900">
+                <h3
+                  id="mobile-pricing-compare-title"
+                  className="text-[16px] font-bold text-slate-900"
+                >
                   Panduan Pilih Layanan &amp; Skema
                 </h3>
                 <p className="text-[12px] text-slate-500">

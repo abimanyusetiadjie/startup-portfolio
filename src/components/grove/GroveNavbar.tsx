@@ -4,63 +4,70 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight, Calculator } from "lucide-react";
 import { AbinestLogo } from "./AbinestLogo";
+import { findVisibleSection } from "./contact-utils";
 
 export function GroveNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
-  const findVisibleSection = (rawId: string): HTMLElement | null => {
-    const cleanId = rawId.replace(/^#/, "");
-    const candidates = Array.from(
-      document.querySelectorAll(`[data-section="${cleanId}"], #${cleanId}`)
-    ) as HTMLElement[];
-    const visible = candidates.find((el) => el.offsetParent !== null);
-    return visible ?? document.getElementById(cleanId);
-  };
-
   useEffect(() => {
+    const sections = ["layanan-utama", "portofolio", "cara-kerja", "harga", "tech-stack"];
+
     const onScroll = () => {
       setScrolled(window.scrollY > 16);
-      const sections = ["layanan-utama", "portofolio", "cara-kerja", "harga", "tech-stack"];
+      if (window.scrollY < 300) {
+        setActiveSection(null);
+        return;
+      }
+
       const scrollPos = window.scrollY + 220;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = findVisibleSection(sections[i]);
-        if (el) {
-          const top = el.getBoundingClientRect().top + window.scrollY;
-          if (top <= scrollPos) {
-            setActiveSection(sections[i]);
-            return;
-          }
+      let currentActive: string | null = null;
+      let highestPassedTop = -Infinity;
+
+      for (const id of sections) {
+        const el = findVisibleSection(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (top <= scrollPos && top > highestPassedTop) {
+          highestPassedTop = top;
+          currentActive = id;
         }
       }
-      if (window.scrollY < 300) setActiveSection(null);
+
+      setActiveSection(currentActive);
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
-    { label: "Layanan", href: "#layanan-utama", id: "layanan-utama" },
-    { label: "Studi Kasus", href: "#portofolio", id: "portofolio" },
-    { label: "Alur Kerja", href: "#cara-kerja", id: "cara-kerja" },
-    { label: "Investasi", href: "#harga", id: "harga" },
+    { label: "Layanan", href: "/#layanan-utama", id: "layanan-utama" },
+    { label: "Studi Kasus", href: "/#portofolio", id: "portofolio" },
+    { label: "Alur Kerja", href: "/#cara-kerja", id: "cara-kerja" },
+    { label: "Investasi", href: "/#harga", id: "harga" },
     { label: "Demo", href: "/demo", id: "demo" },
   ];
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
+    targetHref: string
   ) => {
-    if (targetId.startsWith("#")) {
+    const hashIndex = targetHref.indexOf("#");
+    if (hashIndex === -1) return;
+
+    const hash = targetHref.slice(hashIndex);
+    setMobileMenuOpen(false);
+    const element = findVisibleSection(hash);
+    if (element) {
       e.preventDefault();
-      setMobileMenuOpen(false);
-      const element = findVisibleSection(targetId);
-      if (element) {
+      window.requestAnimationFrame(() => {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        window.location.href = `/${targetId}`;
-      }
+        if (window.location.hash !== hash) {
+          window.history.replaceState(null, "", hash);
+        }
+      });
     }
   };
 
@@ -82,9 +89,9 @@ export function GroveNavbar() {
         <nav className="hidden lg:flex items-center gap-7 text-[13.5px]">
           {navLinks.map((item) => {
             const isSelected = activeSection === item.id;
-            const isRoute = item.href.startsWith("/");
+            const isSectionHash = item.href.includes("#");
 
-            if (isRoute) {
+            if (!isSectionHash) {
               return (
                 <Link
                   key={item.label}
@@ -97,7 +104,7 @@ export function GroveNavbar() {
             }
 
             return (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
@@ -108,7 +115,7 @@ export function GroveNavbar() {
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             );
           })}
         </nav>
@@ -122,30 +129,31 @@ export function GroveNavbar() {
             Audit Gratis
           </Link>
 
-          <a
-            href="#kontak"
-            onClick={(e) => handleSmoothScroll(e, "#kontak")}
+          <Link
+            href="/#kontak"
+            onClick={(e) => handleSmoothScroll(e, "/#kontak")}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-semibold text-white bg-slate-900 hover:bg-blue-600 transition-colors whitespace-nowrap"
           >
             <span>Konsultasi</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Header Actions */}
         <div className="flex items-center gap-2 lg:hidden">
-          <a
-            href="#kontak"
-            onClick={(e) => handleSmoothScroll(e, "#kontak")}
+          <Link
+            href="/#kontak"
+            onClick={(e) => handleSmoothScroll(e, "/#kontak")}
             className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-slate-900 hover:bg-blue-600 transition-colors"
           >
             Konsultasi
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
-            aria-label="Buka menu navigasi"
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -154,11 +162,11 @@ export function GroveNavbar() {
 
       {/* Minimalist Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-5 py-4 space-y-3 shadow-lg animate-in fade-in slide-in-from-top-2 duration-150">
+        <div className="lg:hidden absolute left-0 right-0 top-full z-50 bg-white border-b border-slate-200 px-5 py-4 space-y-3 shadow-lg">
           <div className="divide-y divide-slate-100 rounded-2xl border border-slate-200/80 overflow-hidden bg-white">
             {navLinks.map((item) => {
               const isActive = activeSection === item.id;
-              if (item.href.startsWith("/")) {
+              if (!item.href.includes("#")) {
                 return (
                   <Link
                     key={item.label}
@@ -172,7 +180,7 @@ export function GroveNavbar() {
                 );
               }
               return (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
@@ -184,7 +192,7 @@ export function GroveNavbar() {
                 >
                   <span>{item.label}</span>
                   {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />}
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -198,13 +206,13 @@ export function GroveNavbar() {
               <Calculator className="w-3.5 h-3.5 text-slate-500" />
               <span>Audit Gratis</span>
             </Link>
-            <a
-              href="#kontak"
-              onClick={(e) => handleSmoothScroll(e, "#kontak")}
+            <Link
+              href="/#kontak"
+              onClick={(e) => handleSmoothScroll(e, "/#kontak")}
               className="flex items-center justify-center py-2.5 text-[13px] font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-colors"
             >
               Konsultasi Gratis
-            </a>
+            </Link>
           </div>
         </div>
       )}

@@ -74,7 +74,7 @@ export function GroveFloatingWhatsApp() {
       className="fixed right-4 sm:right-6 z-40 flex flex-col items-end transition-all duration-300"
     >
       {isOpen && (
-        <div className="mb-3 w-[calc(100vw-32px)] max-w-[330px] rounded-2xl bg-white border border-slate-200 shadow-2xl overflow-hidden text-slate-800 animate-in fade-in slide-in-from-bottom-3 duration-200">
+        <div className="mb-3 w-[calc(100vw-32px)] max-w-[330px] rounded-2xl bg-white border border-slate-200 shadow-2xl overflow-hidden text-slate-800 transition-all duration-150">
           <div className="px-4 py-3.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
             <div>
               <h4 className="text-sm font-bold text-slate-900">

@@ -33,7 +33,7 @@ const caseList: CaseItem[] = [
       "Migrasi dari situs web lama yang lambat (>6,8 detik di HP) ke sistem baru berkecepatan tinggi. Pengunjung yang langsung keluar turun 65% dan prospek masuk naik 1,8 kali dalam 60 hari.",
     quote:
       "Situs kami kini terbuka seketika di ponsel calon investor dan prospek masuk jauh lebih konsisten.",
-    author: "Hendra Kusuma, Sektor Pembiayaan",
+    author: "Hendra Kusuma, Sektor Finansial",
   },
   {
     id: "siakad-sekolah",
@@ -71,13 +71,14 @@ const caseList: CaseItem[] = [
 
 export function MobileCaseStudiesSection() {
   const [selectedCase, setSelectedCase] = useState<CaseItem | null>(null);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   useModalEffects(Boolean(selectedCase), () => setSelectedCase(null));
 
   return (
     <section
       id="m-portofolio"
       data-section="portofolio"
-      className="bg-white py-10 border-b border-slate-100"
+      className="scroll-mt-16 bg-white py-10 border-b border-slate-100"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1">
@@ -99,19 +100,20 @@ export function MobileCaseStudiesSection() {
               <div>
                 <div className="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden">
                   <Image
-                    src={item.image}
+                    src={failedImages[item.id] ? item.fallback : item.image}
                     alt={item.title}
                     fill
                     sizes="(max-width: 768px) 84vw, 330px"
                     className="object-cover object-center"
-                    onError={(e) => {
-                      const img = e.target as HTMLImageElement;
-                      if (img.src !== item.fallback) img.src = item.fallback;
-                    }}
+                    onError={() =>
+                      setFailedImages((prev) =>
+                        prev[item.id] ? prev : { ...prev, [item.id]: true }
+                      )
+                    }
                   />
                 </div>
 
-                <div className="p-4.5 space-y-3.5">
+                <div className="p-4 space-y-3.5">
                   <div>
                     <span className="text-[11px] font-semibold text-blue-600 block mb-1">
                       {item.sector}
@@ -136,7 +138,7 @@ export function MobileCaseStudiesSection() {
                 </div>
               </div>
 
-              <div className="px-4.5 py-3 border-t border-slate-100 flex items-center justify-between text-[13px] font-semibold text-blue-600">
+              <div className="px-4 py-3 border-t border-slate-100 flex items-center justify-between text-[13px] font-semibold text-blue-600">
                 <span>Baca Ringkasan</span>
                 <ArrowRight className="w-4 h-4" />
               </div>

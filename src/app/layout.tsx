@@ -17,7 +17,11 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const APP_BASE_URL =
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(APP_BASE_URL),
   title: {
     default: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
     template: "%s | Abinest",

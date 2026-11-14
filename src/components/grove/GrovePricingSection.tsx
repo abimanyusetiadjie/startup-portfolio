@@ -139,7 +139,7 @@ export function GrovePricingSection() {
     <section
       id="harga"
       data-section="harga"
-      className="py-20 bg-white border-b border-slate-200/70"
+      className="scroll-mt-16 py-20 bg-white border-b border-slate-200/70"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">

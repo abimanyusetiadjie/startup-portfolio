@@ -4,7 +4,7 @@ import { GroveProposalOutreachStudio } from "@/components/grove/GroveProposalOut
 import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 
 export const metadata: Metadata = {
-  title: "Generator Proposal & RAB Resmi PDF + Kit Outreach WhatsApp | Abinest",
+  title: "Generator Proposal & RAB Resmi PDF + Kit Outreach WhatsApp",
   description:
     "Buat dokumen Proposal dan Rincian Anggaran Biaya (RAB) resmi Abinest format A4 PDF secara instan dan gunakan template WhatsApp Outreach B2B siap kirim.",
   robots: {

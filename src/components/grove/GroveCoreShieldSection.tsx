@@ -46,7 +46,7 @@ export function GroveCoreShieldSection() {
     <section
       id="cara-kerja"
       data-section="cara-kerja"
-      className="py-20 bg-[#F1F5F9] border-b border-slate-200/90"
+      className="scroll-mt-16 py-20 bg-[#F1F5F9] border-b border-slate-200/90"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-12">
         <motion.div
@@ -60,7 +60,7 @@ export function GroveCoreShieldSection() {
             Alur Kerja 14 Hari
           </h2>
           <p className="text-[15.5px] text-slate-600 leading-relaxed">
-            Tahapan terukur dari perencanaan kebutuhan hingga sistem resmi beroperasi. Arahkan kursor untuk melihat dokumentasi tiap tahap.
+            Tahapan kerja standar untuk situs web dan sistem awal dalam 14 hari kerja (modul lanjutan menyesuaikan ruang lingkup). Arahkan kursor untuk melihat dokumentasi tiap tahap.
           </p>
         </motion.div>
 

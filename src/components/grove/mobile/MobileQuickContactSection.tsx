@@ -2,22 +2,17 @@
 
 import { useState } from "react";
 import { ArrowRight, Plus, Minus } from "lucide-react";
-
-const WHATSAPP_NUMBER = "6281398589745";
-
-function normalizeWaPhone(raw: string): string {
-  const cleaned = raw.trim();
-  if (!cleaned) return "-";
-  if (cleaned.startsWith("+62") || cleaned.startsWith("62") || cleaned.startsWith("0")) {
-    return cleaned;
-  }
-  return `0${cleaned}`;
-}
+import {
+  buildConsultationWaUrl,
+  normalizeIndonesianPhoneForWa,
+} from "../contact-utils";
 
 export function MobileQuickContactSection() {
   const [serviceType, setServiceType] = useState("Situs Web Bisnis");
   const [nameAndCompany, setNameAndCompany] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
+  const [phoneError, setPhoneError] = useState<string | null>(null);
+  const [fallbackWaUrl, setFallbackWaUrl] = useState<string | null>(null);
   const [showExtras, setShowExtras] = useState(false);
   const [budget, setBudget] = useState("Fleksibel / Diskusi Terlebih Dahulu");
   const [notes, setNotes] = useState("");
@@ -39,7 +34,13 @@ export function MobileQuickContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formattedPhone = normalizeWaPhone(whatsapp);
+    const { formatted, isValid } = normalizeIndonesianPhoneForWa(whatsapp);
+    if (!isValid) {
+      setPhoneError("Masukkan nomor WhatsApp aktif minimal 9 digit (contoh: 81234567890).");
+      return;
+    }
+
+    setPhoneError(null);
     const extraParts = [
       showExtras ? `• Perkiraan Anggaran: ${budget}` : "",
       showExtras && notes.trim() ? `• Catatan: ${notes.trim()}` : "",
@@ -52,22 +53,20 @@ export function MobileQuickContactSection() {
 Saya ingin berkonsultasi mengenai kebutuhan sistem:
 • Kebutuhan: ${serviceType}
 • Nama & Perusahaan/Instansi: ${nameAndCompany.trim() || "-"}
-• Nomor WhatsApp: ${formattedPhone}
+• Nomor WhatsApp: ${formatted}
 ${extraParts ? `${extraParts}\n` : ""}
 Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
 
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    const waUrl = buildConsultationWaUrl(message);
+    setFallbackWaUrl(waUrl);
+    window.open(waUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
     <section
       id="m-kontak"
       data-section="kontak"
-      className="bg-white py-10 px-5"
+      className="scroll-mt-16 bg-white py-10 px-5"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="space-y-1">
@@ -121,8 +120,8 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
               required
               value={nameAndCompany}
               onChange={(e) => setNameAndCompany(e.target.value)}
-              placeholder="Contoh: Budi — Toko Makmur"
-              className="w-full h-11 px-3.5 rounded-xl bg-white border border-slate-200 text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-3 focus:ring-blue-500/15"
+              placeholder="Contoh: Andi — Toko Makmur"
+              className="w-full h-11 px-3.5 rounded-xl bg-white border border-slate-200 text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20"
             />
           </div>
 
@@ -133,7 +132,13 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
             >
               Nomor WhatsApp Aktif
             </label>
-            <div className="flex h-11 rounded-xl bg-white border border-slate-200 focus-within:border-blue-600 focus-within:ring-3 focus-within:ring-blue-500/15 overflow-hidden">
+            <div
+              className={`flex h-11 rounded-xl bg-white border overflow-hidden ${
+                phoneError
+                  ? "border-rose-500 focus-within:ring-2 focus-within:ring-rose-500/20"
+                  : "border-slate-200 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/20"
+              }`}
+            >
               <span className="inline-flex items-center px-3 bg-slate-100 border-r border-slate-200 text-[13px] font-semibold text-slate-600 select-none">
                 +62
               </span>
@@ -142,11 +147,19 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
                 type="tel"
                 required
                 value={whatsapp}
-                onChange={(e) => setWhatsapp(e.target.value)}
+                onChange={(e) => {
+                  setWhatsapp(e.target.value);
+                  if (phoneError) setPhoneError(null);
+                }}
                 placeholder="812-3456-7890"
                 className="w-full px-3 text-[14px] text-slate-900 placeholder:text-slate-400 bg-transparent outline-none"
               />
             </div>
+            {phoneError && (
+              <p className="text-[11.5px] font-medium text-rose-600">
+                {phoneError}
+              </p>
+            )}
           </div>
 
           <div>
@@ -169,7 +182,7 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
             </button>
 
             {showExtras && (
-              <div className="mt-3 space-y-3 pt-3 border-t border-slate-200/80 animate-in fade-in duration-150">
+              <div className="mt-3 space-y-3 pt-3 border-t border-slate-200/80">
                 <div className="space-y-1">
                   <label
                     htmlFor="m-contact-budget"
@@ -218,6 +231,20 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
             <span>Kirim via WhatsApp</span>
             <ArrowRight className="w-4 h-4" />
           </button>
+
+          {fallbackWaUrl && (
+            <p className="text-center text-[12px] text-slate-500">
+              Tidak terbuka otomatis?{" "}
+              <a
+                href={fallbackWaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-blue-600 hover:underline"
+              >
+                Buka chat WhatsApp di sini →
+              </a>
+            </p>
+          )}
         </form>
       </div>
     </section>

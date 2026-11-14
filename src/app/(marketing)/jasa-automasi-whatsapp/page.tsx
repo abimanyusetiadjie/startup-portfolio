@@ -7,7 +7,7 @@ import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
 
 export const metadata: Metadata = {
-  title: "Jasa Automasi AI & WhatsApp Cloud API Resmi Meta | Abinest",
+  title: "Jasa Automasi AI & WhatsApp Cloud API Resmi Meta",
   description:
     "Integrasi pembacaan faktur otomatis melalui Document AI OCR (akurasi 99,7%) dan asisten pelanggan WhatsApp resmi Meta Cloud API 24 jam.",
   keywords: [

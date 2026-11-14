@@ -6,7 +6,7 @@ import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
 
 export const metadata: Metadata = {
-  title: "Audit Kebutuhan Sistem & Kalkulator Penghematan ERP/Web Gratis | Abinest",
+  title: "Audit Kebutuhan Sistem & Kalkulator Penghematan ERP/Web Gratis",
   description:
     "Hitung estimasi penghematan biaya lisensi software 3 tahun Anda dan dapatkan rekomendasi arsitektur Website, Custom ERP, SIAKAD, atau Automasi AI WhatsApp secara gratis.",
   keywords: [

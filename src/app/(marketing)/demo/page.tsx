@@ -6,7 +6,7 @@ import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
 
 export const metadata: Metadata = {
-  title: "Live Demo Interaktif ERP, SIAKAD CBT & Automasi AI WhatsApp | Abinest",
+  title: "Live Demo Interaktif ERP, SIAKAD CBT & Automasi AI WhatsApp",
   description:
     "Coba langsung simulasi interaktif Sistem ERP Multi-Gudang, SIAKAD & Ujian CBT Anti-Down, serta Bot WhatsApp AI Resmi & Scan Faktur OCR milik Abinest.",
   keywords: [

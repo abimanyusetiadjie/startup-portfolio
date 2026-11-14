@@ -23,7 +23,7 @@ export function MobileHeroSection() {
     <section
       id="m-beranda"
       data-section="beranda"
-      className="relative overflow-hidden bg-white pt-6 pb-10 px-5 border-b border-slate-200/70"
+      className="relative scroll-mt-16 overflow-hidden bg-white pt-6 pb-10 px-5 border-b border-slate-200/70"
     >
       <div
         aria-hidden="true"

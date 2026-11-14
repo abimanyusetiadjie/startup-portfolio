@@ -7,7 +7,7 @@ import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
 import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Situs Web Bisnis (<0,8 detik) Jakarta & Surabaya | Abinest",
+  title: "Jasa Pembuatan Situs Web Bisnis (<0,8 detik) Jakarta & Surabaya",
   description:
     "Jasa pembuatan situs web modern berbasis Next.js berkecepatan tinggi (<0,8 detik), struktur SEO Google rapi, dan 100% hak milik kode program tanpa biaya sewa bulanan.",
   keywords: [

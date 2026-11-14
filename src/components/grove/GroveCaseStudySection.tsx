@@ -87,13 +87,14 @@ const cases: CaseItem[] = [
 
 export function GroveCaseStudySection() {
   const [selectedCase, setSelectedCase] = useState<CaseItem | null>(null);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   useModalEffects(Boolean(selectedCase), () => setSelectedCase(null));
 
   return (
     <section
       id="portofolio"
       data-section="portofolio"
-      className="py-20 bg-white border-b border-slate-200/70"
+      className="scroll-mt-16 py-20 bg-white border-b border-slate-200/70"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-12">
         <div className="max-w-xl space-y-2.5">
@@ -121,18 +122,19 @@ export function GroveCaseStudySection() {
                 {/* Pure Clean Image Frame — Strictly Zero Badge or Text Overlay */}
                 <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
                   <Image
-                    src={item.imagePreview}
+                    src={
+                      failedImages[item.id] ? item.fallbackImage : item.imagePreview
+                    }
                     alt={item.fullTitle}
                     fill
                     sizes="(max-width: 1200px) 33vw, 380px"
                     className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
                     priority={idx === 0}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      if (target.src !== item.fallbackImage) {
-                        target.src = item.fallbackImage;
-                      }
-                    }}
+                    onError={() =>
+                      setFailedImages((prev) =>
+                        prev[item.id] ? prev : { ...prev, [item.id]: true }
+                      )
+                    }
                   />
                 </div>
 
@@ -176,11 +178,22 @@ export function GroveCaseStudySection() {
           >
             <div className="relative md:col-span-6 h-44 sm:h-52 md:h-auto md:min-h-[360px] w-full bg-slate-100 overflow-hidden">
               <Image
-                src={selectedCase.imagePreview}
+                src={
+                  failedImages[selectedCase.id]
+                    ? selectedCase.fallbackImage
+                    : selectedCase.imagePreview
+                }
                 alt={selectedCase.fullTitle}
                 fill
                 sizes="(max-width: 768px) 100vw, 420px"
                 className={`object-cover ${selectedCase.modalObjectPosition}`}
+                onError={() =>
+                  setFailedImages((prev) =>
+                    prev[selectedCase.id]
+                      ? prev
+                      : { ...prev, [selectedCase.id]: true }
+                  )
+                }
               />
             </div>
 
