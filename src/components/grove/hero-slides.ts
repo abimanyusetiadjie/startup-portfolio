@@ -21,7 +21,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: "web",
     number: "01",
     label: "Website Cepat",
-    src: "/images/hero-web.webp",
+    src: "/images/hero-slide-web.jpg",
     alt: "Arsitektur Website Cepat Modern Abinest",
     desktopDesc:
       "Terbuka kurang dari 0,8 detik, tampil meyakinkan di HP, dan mudah ditemukan di Google.",
@@ -34,7 +34,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: "erp",
     number: "02",
     label: "ERP · SIAKAD · POS",
-    src: "/images/erp-dashboard.webp",
+    src: "/images/hero-slide-erp.jpg",
     alt: "Dasbor Sistem ERP, SIAKAD, dan Kasir POS Terpadu",
     desktopDesc:
       "Stok, kasir, keuangan, hingga nilai siswa rapi dalam satu dasbor—tanpa biaya per pengguna.",
@@ -47,7 +47,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: "aiml",
     number: "03",
     label: "Automasi AI/ML",
-    src: "/images/ai-ml-workflow.webp",
+    src: "/images/hero-slide-ai.jpg",
     alt: "Automasi AI/ML WhatsApp Bisnis Resmi dan Pembaca Dokumen",
     desktopDesc:
       "Chat pelanggan dibalas 24 jam dan nota terbaca otomatis—tim Anda fokus ke hal yang lebih penting.",
