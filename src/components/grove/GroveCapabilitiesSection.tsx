@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
@@ -17,6 +18,7 @@ const capabilities = [
     desc: "Situs web perusahaan dan landing page berkecepatan tinggi (<0,8 detik) dengan struktur SEO Google yang rapi.",
     image: "/images/hero-web.webp",
     alt: "Pengembangan Situs Web Modern Abinest",
+    detailHref: "/jasa-pembuatan-website-jakarta",
     waMessage:
       "Halo Tim Abinest, saya tertarik mendiskusikan pembuatan Situs Web Modern dengan kepemilikan kode penuh.",
   },
@@ -27,6 +29,7 @@ const capabilities = [
     desc: "Pengelolaan stok multi-gudang, kasir POS, dan portal akademik terintegrasi tanpa biaya lisensi per pengguna.",
     image: "/images/erp-dashboard.webp",
     alt: "Dashboard Sistem ERP dan SIAKAD Abinest",
+    detailHref: "/jasa-pembuatan-sistem-erp",
     waMessage:
       "Halo Tim Abinest, saya tertarik berkonsultasi mengenai Sistem ERP atau SIAKAD Kustom tanpa biaya lisensi pengguna.",
   },
@@ -37,6 +40,7 @@ const capabilities = [
     desc: "Asisten pelanggan 24 jam melalui WhatsApp Cloud API resmi Meta serta pembacaan faktur otomatis via OCR.",
     image: "/images/ai-ml-workflow.webp",
     alt: "Automasi AI dan WhatsApp Bisnis Abinest",
+    detailHref: "/jasa-automasi-whatsapp",
     waMessage:
       "Halo Tim Abinest, saya tertarik berkonsultasi mengenai implementasi Automasi AI dan WhatsApp Cloud API.",
   },
@@ -141,7 +145,14 @@ export function GroveCapabilitiesSection() {
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-2">
+              <div className="px-6 pb-6 pt-4 mt-1 border-t border-slate-100 flex items-center justify-between gap-3">
+                <Link
+                  href={item.detailHref}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                >
+                  <span>Detail layanan</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                     item.waMessage
@@ -154,10 +165,9 @@ export function GroveCapabilitiesSection() {
                       service: item.title,
                     })
                   }
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors"
+                  className="text-xs font-medium text-slate-500 hover:text-slate-900 transition-colors"
                 >
-                  <span>Diskusikan layanan</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  Diskusikan via WA
                 </a>
               </div>
             </motion.article>

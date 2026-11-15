@@ -55,48 +55,6 @@ body {
 }
 
 @layer utilities {
-  /* Triloe Cutout Corner Mask (Bottom-Right Inverted Corner Illusion) */
-  .cutout-corner-mask {
-    @apply absolute bottom-0 right-0 bg-[#F8FAFC] pt-4 pl-6 rounded-tl-3xl;
-  }
-
-  .cutout-corner-mask::before {
-    content: "";
-    position: absolute;
-    top: -1.75rem;
-    right: 0;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-bottom-right-radius: 1.75rem;
-    box-shadow: 0.5rem 0.5rem 0 0.5rem #F8FAFC;
-    pointer-events: none;
-  }
-
-  .cutout-corner-mask::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -1.75rem;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-bottom-right-radius: 1.75rem;
-    box-shadow: 0.5rem 0.5rem 0 0.5rem #F8FAFC;
-    pointer-events: none;
-  }
-
-  /* Soft elevation shadow per design.md (shadow-xl shadow-slate-900/5) */
-  .shadow-triloe-soft {
-    @apply shadow-xl shadow-slate-900/5;
-  }
-
-  /* Architectural Dashed Hairlines */
-  .rule-dashed {
-    border-top: 1px dashed #CBD5E1;
-  }
-  .rule-dashed-dark {
-    border-top: 1px dashed rgba(255, 255, 255, 0.18);
-  }
-
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -119,27 +77,6 @@ body {
   .animate-marquee-scroll {
     animation: marquee-scroll 26s linear infinite;
   }
-}
-
-/* Lenis Smooth Scroll Recommended Styles */
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
 }
 
 @media print {

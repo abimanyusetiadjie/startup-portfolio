@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight, X } from "lucide-react";
+import { findVisibleSection } from "./contact-utils";
 import { useModalEffects } from "./use-modal-effects";
 
 interface CaseItem {
@@ -257,7 +258,16 @@ export function GroveCaseStudySection() {
                 </Link>
                 <a
                   href="#kontak"
-                  onClick={() => setSelectedCase(null)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedCase(null);
+                    window.requestAnimationFrame(() => {
+                      findVisibleSection("#kontak")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    });
+                  }}
                   className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
                 >
                   Konsultasikan Solusi Serupa →

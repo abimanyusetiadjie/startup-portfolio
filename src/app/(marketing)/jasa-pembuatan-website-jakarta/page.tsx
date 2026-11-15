@@ -1,93 +1,181 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Check, ArrowLeft } from "lucide-react";
-import { GroveNavbar } from "@/components/grove/GroveNavbar";
-import { GroveAmberContactSection } from "@/components/grove/GroveAmberContactSection";
-import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
-import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
+import {
+  GroveServiceDetailTemplate,
+  type ServiceDetailData,
+} from "@/components/grove/GroveServiceDetailTemplate";
+
+const APP_BASE_URL =
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+
+const CANONICAL_PATH = "/jasa-pembuatan-website-jakarta";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Situs Web Bisnis (<0,8 detik) Jakarta & Surabaya",
+  title: "Jasa Pembuatan Website Cepat Jakarta & Indonesia",
   description:
-    "Jasa pembuatan situs web modern berbasis Next.js berkecepatan tinggi (<0,8 detik), struktur SEO Google rapi, dan 100% hak milik kode program tanpa biaya sewa bulanan.",
+    "Jasa pembuatan website perusahaan, landing page konversi tinggi, dan portal bisnis Jakarta dengan waktu muat di bawah 0,8 detik, skor Google PageSpeed tinggi, dan 100% hak milik kode program.",
   keywords: [
     "jasa pembuatan website jakarta",
-    "jasa pembuatan website surabaya",
-    "jasa website next.js",
-    "jasa pembuatan website perusahaan",
+    "jasa buat website cepat",
+    "website company profile nextjs",
+    "jasa website perusahaan beli putus",
+    "landing page konversi tinggi",
   ],
   alternates: {
-    canonical: "/jasa-pembuatan-website-jakarta",
+    canonical: CANONICAL_PATH,
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: `${APP_BASE_URL}${CANONICAL_PATH}`,
+    siteName: "Abinest Digital Systems",
+    title: "Jasa Pembuatan Website Cepat Jakarta & Indonesia | Abinest",
+    description:
+      "Website perusahaan & landing page Next.js berkecepatan tinggi (<0,8 detik), ramah SEO Google, dan 100% hak milik kode sumber.",
+    images: [
+      {
+        url: "/images/abinest-og-card.jpg",
+        width: 1376,
+        height: 768,
+        alt: "Abinest — Jasa Pembuatan Website Cepat Jakarta & Indonesia",
+      },
+    ],
   },
 };
 
-export default function JasaWebsitePage() {
-  const benefits = [
-    "Waktu muat di bawah 0,8 detik pada jaringan seluler calon klien.",
-    "Arsitektur Next.js dengan struktur data ramah mesin pencari Google.",
-    "Desain editorial bersih dengan hierarki informasi yang jelas dan mudah dipindai.",
-    "100% hak milik kode program dan repositori Git diserahkan utuh tanpa biaya bulanan.",
-  ];
+const serviceData: ServiceDetailData = {
+  slug: "website-jakarta",
+  breadcrumbLabel: "Website Bisnis & Landing Page",
+  eyebrow: "Layanan 01 · Jakarta & Seluruh Indonesia",
+  title:
+    "Jasa Pembuatan Website Bisnis Berkecepatan Tinggi & Ramah Pencarian Google",
+  subtitle:
+    "Kami membangun situs web profil perusahaan, halaman penawaran produk, hingga portal layanan profesional dengan arsitektur modern agar langsung terbuka di ponsel calon klien dan mudah naik ke peringkat teratas Google.",
+  heroMetrics: [
+    { value: "< 0,8 Detik", label: "Target waktu muat di jaringan seluler" },
+    { value: "95–100", label: "Target skor Google PageSpeed & Core Web Vitals" },
+    { value: "100%", label: "Hak milik kode & kontrol domain penuh" },
+  ],
+  startingPrice: "Rp1,5–3,5 juta",
+  priceNote:
+    "Tersedia skema Beli Putus (Rp0 biaya bulanan ke Abinest) maupun Terima Beres termasuk domain, hosting, dan pemeliharaan.",
+  timeline: "Selesai dalam 7–14 hari kerja sejak materi siap",
+  warranty: "Garansi teknis pascarilis + panduan kelola konten",
+  waMessage:
+    "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Pembuatan Website Cepat untuk perusahaan/bisnis kami.",
+  serviceNameForAnalytics: "Website Bisnis & Landing Page",
+  secondaryCta: {
+    label: "Ajukan Audit Kecepatan Web Gratis",
+    href: "/audit-gratis",
+  },
+  architectureHeading: "Lebih dari Sekadar Tampilan Visual",
+  architectureSubheading:
+    "Setiap situs web dirancang untuk menjawab tiga kebutuhan utama pemilik usaha: kredibilitas eksekutif, kecepatan buka di ponsel, dan konversi langsung ke WhatsApp.",
+  modules: [
+    {
+      code: "01",
+      title: "Desain Eksekutif & Mobile-First",
+      description:
+        "Antarmuka bersih yang mencerminkan reputasi perusahaan Anda di layar desktop maupun ponsel tanpa tata letak berantakan.",
+      deliverables: [
+        "Desain kustom sesuai identitas merek (bukan templat pasaran)",
+        "Struktur copywriting persuasif & alur baca jelas",
+        "Tombol aksi WhatsApp & formulir prospek terukur",
+        "Halaman profil, layanan, portofolio, hingga FAQ",
+      ],
+    },
+    {
+      code: "02",
+      title: "Fondasi SEO Teknis & Schema Google",
+      description:
+        "Dibangun menggunakan rendering statis/server modern agar mesin pencari Google langsung membaca seluruh konten Anda dengan presisi.",
+      deliverables: [
+        "Struktur heading & metadata per halaman otomatis",
+        "JSON-LD Schema (Organization, Service, FAQ, Local SEO)",
+        "Optimasi ukuran gambar & aset otomatis",
+        "Integrasi Google Analytics 4 & pelacakan klik CTA",
+      ],
+    },
+    {
+      code: "03",
+      title: "Keamanan & Kepemilikan Penuh",
+      description:
+        "Bebas dari kerentanan plugin pihak ketiga yang sering membuat situs lambat atau diretas, dengan kendali penuh di tangan Anda.",
+      deliverables: [
+        "SSL HTTPS aktif & header keamanan tingkat produksi",
+        "Repositori kode bersih (Next.js / TypeScript)",
+        "Bebas dipasang di cloud pribadi atau dikelola Abinest",
+        "Pelatihan singkat pengelolaan teks & gambar untuk staf",
+      ],
+    },
+  ],
+  guarantees: [
+    {
+      title: "Tanpa Template Berat & Tanpa Biaya Lisensi Bulanan",
+      description:
+        "Berbeda dari builder konvensional yang penuh script berat, kode sumber dibangun ringkas sehingga biaya operasional tetap hemat jangka panjang.",
+    },
+    {
+      title: "Terukur dari Sisi Kecepatan & Prospek Masuk",
+      description:
+        "Setiap tombol konsultasi WhatsApp dan formulir telah terhubung ke pelacakan event sehingga Anda bisa melihat performa halaman secara nyata.",
+    },
+    {
+      title: "Siap Dikembangkan Menjadi Portal atau Sistem Internal",
+      description:
+        "Saat bisnis bertumbuh, website dapat langsung diperluas dengan katalog produk dinamis, kalkulator harga, atau terhubung ke ERP internal.",
+    },
+  ],
+  idealFor: [
+    "Perusahaan B2B, konsultan, kontraktor, dan manufaktur yang membutuhkan citra profesional di hadapan klien korporat.",
+    "Klinik kesehatan, firma hukum, dan lembaga pendidikan yang mengutamakan pencarian Google lokal.",
+    "Usaha berkembang yang website lamanya terasa lambat (>3 detik) dan sulit dihubungi lewat WhatsApp.",
+    "Bisnis yang ingin berhenti membayar biaya langganan platform web bulanan.",
+  ],
+};
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Beranda",
+          item: APP_BASE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Website Bisnis & Landing Page",
+          item: `${APP_BASE_URL}${CANONICAL_PATH}`,
+        },
+      ],
+    },
+    {
+      "@type": "Service",
+      name: "Jasa Pembuatan Website Bisnis Cepat Jakarta & Indonesia",
+      provider: {
+        "@type": "Organization",
+        name: "Abinest Digital Systems",
+        url: APP_BASE_URL,
+      },
+      areaServed: ["Jakarta", "Indonesia"],
+      url: `${APP_BASE_URL}${CANONICAL_PATH}`,
+      description: serviceData.subtitle,
+    },
+  ],
+};
+
+export default function WebsiteJakartaPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans">
-      <GroveNavbar />
-
-      <main className="flex-1">
-        <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
-          <div className="max-w-4xl mx-auto px-5 sm:px-8 space-y-8">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors"
-            >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Kembali ke Beranda</span>
-            </Link>
-
-            <div className="space-y-4 max-w-2xl">
-              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
-                Layanan 01 · Situs Web Bisnis
-              </p>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
-                Pembuatan Situs Web Modern Berkecepatan Tinggi
-              </h1>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                Kami merancang situs web resmi untuk perusahaan, sekolah, dan usaha berkembang di Jakarta serta Surabaya dengan standar waktu muat di bawah 0,8 detik.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {benefits.map((b, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 p-5 rounded-2xl bg-white border border-slate-200/80"
-                >
-                  <Check className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
-                  <p className="text-sm text-slate-700 leading-relaxed">{b}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-5 pt-2">
-              <a
-                href="#kontak"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-              >
-                <span>Konsultasikan Situs Web Anda</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <span className="text-sm text-slate-500">
-                Estimasi rilis 7–14 hari kerja
-              </span>
-            </div>
-          </div>
-        </section>
-
-        <GroveAmberContactSection />
-      </main>
-
-      <GroveFooterSection />
-      <GroveFloatingWhatsApp />
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <GroveServiceDetailTemplate data={serviceData} />
+    </>
   );
 }

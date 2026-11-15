@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, X } from "lucide-react";
+import { findVisibleSection } from "../contact-utils";
 import { useModalEffects } from "../use-modal-effects";
 
 interface CaseItem {
@@ -202,7 +203,16 @@ export function MobileCaseStudiesSection() {
               </Link>
               <a
                 href="#m-kontak"
-                onClick={() => setSelectedCase(null)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedCase(null);
+                  window.requestAnimationFrame(() => {
+                    findVisibleSection("#kontak")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  });
+                }}
                 className="h-11 rounded-xl bg-blue-600 text-white text-[13px] font-semibold flex items-center justify-center gap-1"
               >
                 <span>Konsultasi Serupa</span>

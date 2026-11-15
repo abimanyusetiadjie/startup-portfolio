@@ -8,6 +8,7 @@ import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
 import { GrovePricingSection } from "./GrovePricingSection";
 import { GroveTechStackShowcase } from "./GroveTechStackShowcase";
+import { GroveFaqSection } from "./GroveFaqSection";
 import { GroveAmberContactSection } from "./GroveAmberContactSection";
 import { GroveFooterSection } from "./GroveFooterSection";
 import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
@@ -15,6 +16,7 @@ import { MobileHeroSection } from "./mobile/MobileHeroSection";
 import { MobileSolutionsPricingSection } from "./mobile/MobileSolutionsPricingSection";
 import { MobileCaseStudiesSection } from "./mobile/MobileCaseStudiesSection";
 import { MobileProcessAndStackSection } from "./mobile/MobileProcessAndStackSection";
+import { MobileFaqSection } from "./mobile/MobileFaqSection";
 import { MobileQuickContactSection } from "./mobile/MobileQuickContactSection";
 import { MobileFooterSection } from "./mobile/MobileFooterSection";
 import { findVisibleSection } from "./contact-utils";
@@ -49,6 +51,7 @@ export function GroveApp() {
           <MobileSolutionsPricingSection />
           <MobileCaseStudiesSection />
           <MobileProcessAndStackSection />
+          <MobileFaqSection />
           <MobileQuickContactSection />
           <MobileFooterSection />
         </div>
@@ -72,6 +75,9 @@ export function GroveApp() {
 
           {/* 9. Tech Stack & Server Architecture Showcase (#tech-stack) */}
           <GroveTechStackShowcase />
+
+          {/* 9b. Objection-Handling FAQ (#faq) */}
+          <GroveFaqSection />
 
           {/* 10. Final CTA + Form Konsultasi Cepat (#kontak) */}
           <GroveAmberContactSection />

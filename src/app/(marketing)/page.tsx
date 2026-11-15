@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GroveApp } from "@/components/grove/GroveApp";
+import { FAQ_ITEMS } from "@/components/grove/faq-data";
 
 const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
@@ -49,16 +50,85 @@ const jsonLdSchema = {
       "@id": `${APP_BASE_URL}/#organization`,
       name: "Abinest Digital Systems",
       url: APP_BASE_URL,
-      logo: `${APP_BASE_URL}/icon.svg`,
+      logo: `${APP_BASE_URL}/icon-512.png`,
       description:
         "Software house Indonesia spesialis pembuatan website cepat Next.js, sistem ERP, SIAKAD & kasir POS kustom, serta automasi AI/ML dan WhatsApp resmi Meta.",
       areaServed: ["Jakarta", "Surabaya", "Indonesia"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: "+62-813-9858-9745",
+        availableLanguage: ["Indonesian", "English"],
+      },
       knowsAbout: [
         "Jasa Pembuatan Website Cepat Next.js",
         "Sistem ERP, SIAKAD & Kasir POS Kustom",
         "Automasi AI & Machine Learning Terapan",
         "WhatsApp AI Agent Resmi Meta Cloud API",
       ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${APP_BASE_URL}/#website`,
+      url: APP_BASE_URL,
+      name: "Abinest Digital Systems",
+      inLanguage: "id-ID",
+      publisher: { "@id": `${APP_BASE_URL}/#organization` },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${APP_BASE_URL}/#service`,
+      name: "Abinest Digital Systems — Jasa Website, ERP & Automasi AI",
+      url: APP_BASE_URL,
+      image: `${APP_BASE_URL}/images/abinest-og-card.jpg`,
+      priceRange: "Rp1.500.000 - Rp12.000.000+",
+      areaServed: {
+        "@type": "Country",
+        name: "Indonesia",
+      },
+      provider: { "@id": `${APP_BASE_URL}/#organization` },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Layanan Pengembangan Sistem Digital Abinest",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Pembuatan Website Berkecepatan Tinggi & Ramah SEO",
+              url: `${APP_BASE_URL}/jasa-pembuatan-website-jakarta`,
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Pengembangan Sistem ERP, SIAKAD & Kasir POS Kustom",
+              url: `${APP_BASE_URL}/jasa-pembuatan-sistem-erp`,
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Automasi WhatsApp Resmi Meta & Asisten AI/ML",
+              url: `${APP_BASE_URL}/jasa-automasi-whatsapp`,
+            },
+          },
+        ],
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${APP_BASE_URL}/#faq`,
+      mainEntity: FAQ_ITEMS.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     },
   ],
 };

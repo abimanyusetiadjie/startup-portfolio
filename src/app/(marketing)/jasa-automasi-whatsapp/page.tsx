@@ -1,93 +1,181 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Check, ArrowLeft } from "lucide-react";
-import { GroveNavbar } from "@/components/grove/GroveNavbar";
-import { GroveAmberContactSection } from "@/components/grove/GroveAmberContactSection";
-import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
-import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
+import {
+  GroveServiceDetailTemplate,
+  type ServiceDetailData,
+} from "@/components/grove/GroveServiceDetailTemplate";
+
+const APP_BASE_URL =
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+
+const CANONICAL_PATH = "/jasa-automasi-whatsapp";
 
 export const metadata: Metadata = {
-  title: "Jasa Automasi AI & WhatsApp Cloud API Resmi Meta",
+  title: "Jasa Automasi WhatsApp AI Resmi Meta & OCR Faktur Bisnis",
   description:
-    "Integrasi pembacaan faktur otomatis melalui Document AI OCR (akurasi 99,7%) dan asisten pelanggan WhatsApp resmi Meta Cloud API 24 jam.",
+    "Implementasi asisten CS WhatsApp AI 24 jam berbasis Meta Cloud API resmi serta mesin pembaca foto/PDF faktur & nota otomatis (OCR) yang terintegrasi langsung ke sistem ERP dan stok usaha Anda.",
   keywords: [
-    "jasa automasi ai indonesia",
-    "pembacaan faktur ocr otomatis",
-    "whatsapp cloud api resmi meta",
-    "asisten ai whatsapp bisnis",
+    "jasa automasi whatsapp resmi meta",
+    "whatsapp ai agent bisnis indonesia",
+    "ocr pembaca nota faktur otomatis",
+    "chatbot cs 24 jam terhubung stok",
+    "automasi dokumen ai indonesia",
   ],
   alternates: {
-    canonical: "/jasa-automasi-whatsapp",
+    canonical: CANONICAL_PATH,
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: `${APP_BASE_URL}${CANONICAL_PATH}`,
+    siteName: "Abinest Digital Systems",
+    title: "Jasa Automasi WhatsApp AI Resmi Meta & OCR Faktur Bisnis | Abinest",
+    description:
+      "Balas ribuan chat WhatsApp dalam <1 detik via jalur resmi Meta dan ubah foto/PDF faktur supplier menjadi entri pembukuan otomatis.",
+    images: [
+      {
+        url: "/images/abinest-og-card.jpg",
+        width: 1376,
+        height: 768,
+        alt: "Abinest — Automasi WhatsApp Resmi Meta & Asisten AI/ML",
+      },
+    ],
   },
 };
 
-export default function JasaAutomasiAiPage() {
-  const benefits = [
-    "Ekstraksi data faktur pemasok melalui teknologi OCR dengan akurasi 99,7% dalam hitungan detik.",
-    "Integrasi WhatsApp Cloud API resmi dari Meta untuk melayani pertanyaan pelanggan 24 jam.",
-    "Pengamanan privasi data dengan arsitektur terisolasi agar rahasia dagang perusahaan tetap terjaga.",
-    "Menghemat hingga 40 jam kerja manual tim administrasi dan keuangan setiap minggu.",
-  ];
+const serviceData: ServiceDetailData = {
+  slug: "automasi-whatsapp",
+  breadcrumbLabel: "Automasi WhatsApp & AI/ML",
+  eyebrow: "Layanan 03 · Kecerdasan Buatan Terapan",
+  title:
+    "Automasi WhatsApp Resmi Meta & Pembaca Dokumen Faktur Otomatis (AI/ML)",
+  subtitle:
+    "Bebaskan tim admin dari pekerjaan mengetik ulang faktur dan membalas pertanyaan berulang. Sistem kami beroperasi 24 jam lewat API resmi Meta dengan integrasi langsung ke stok, harga, dan catatan transaksi Anda.",
+  heroMetrics: [
+    { value: "< 1 Detik", label: "Kecepatan respons awal chat pelanggan 24 jam" },
+    { value: "99,7%", label: "Akurasi pembacaan angka & item pada faktur/nota" },
+    { value: "100%", label: "Menggunakan Meta Cloud API resmi (anti-blokir)" },
+  ],
+  startingPrice: "Mulai Rp5 juta",
+  priceNote:
+    "Tidak ada biaya sewa aplikasi bulanan ke Abinest; Anda hanya membayar pemakaian kuota API Meta / model AI sesuai volume aktual.",
+  timeline: "Implementasi & uji coba langsung dalam 1–4 minggu",
+  warranty: "Pemantauan kestabilan alur kerja + penyetelan gaya bahasa AI",
+  waMessage:
+    "Halo Tim Abinest, saya tertarik mengimplementasikan Automasi WhatsApp AI Resmi Meta dan/atau Pembaca Faktur OCR untuk bisnis kami.",
+  serviceNameForAnalytics: "Automasi WhatsApp & AI/ML",
+  secondaryCta: {
+    label: "Coba Simulasi Bot & OCR di Browser",
+    href: "/demo",
+  },
+  architectureHeading: "Solusi AI Praktis untuk Efisiensi Nyata",
+  architectureSubheading:
+    "Bukan sekadar chatbot kaku berbasis kata kunci. Sistem membaca maksud kalimat pelanggan, mengecek data operasional secara langsung, dan memindahkan kendali ke staf bila diperlukan.",
+  modules: [
+    {
+      code: "01",
+      title: "WhatsApp CS & Sales Agent 24 Jam",
+      description:
+        "Menjawab pertanyaan harga, ketersediaan stok, jadwal layanan, hingga meneruskan pesanan ke tim sales secara natural.",
+      deliverables: [
+        "Terhubung resmi via WhatsApp Business Platform (Meta Cloud API)",
+        "Jawaban mengambil data asli dari katalog & stok perusahaan",
+        "Handover mulus ke admin manusia saat kasus butuh negosiasi",
+        "Pengaturan gaya bahasa resmi, ramah, maupun ringkas",
+      ],
+    },
+    {
+      code: "02",
+      title: "Document AI / OCR Nota & Faktur",
+      description:
+        "Kirim foto struk, surat jalan, atau PDF invoice supplier ke sistem atau grup WhatsApp—data otomatis terekam rapi ke database.",
+      deliverables: [
+        "Ekstraksi nomor faktur, tanggal, nama vendor, item & PPN",
+        "Validasi silang otomatis total tagihan vs rincian baris",
+        "Langsung ekspor ke Excel, Google Sheets, atau ERP internal",
+        "Pangkas waktu input administrasi hingga puluhan jam per minggu",
+      ],
+    },
+    {
+      code: "03",
+      title: "Alur Kerja & Notifikasi Otomatis",
+      description:
+        "Hubungkan WhatsApp dengan kejadian penting di operasional bisnis agar pemilik usaha selalu mendapat kabar tepat waktu.",
+      deliverables: [
+        "Pengingat tagihan jatuh tempo otomatis ke klien/wali murid",
+        "Notifikasi peringatan stok menipis ke kepala gudang",
+        "Ringkasan omzet harian otomatis dikirim setiap malam",
+        "Guardrail ketat agar AI tidak mengarang angka atau janji harga",
+      ],
+    },
+  ],
+  guarantees: [
+    {
+      title: "Jalur Resmi Meta Cloud API — Aman untuk Nomor Utama Perusahaan",
+      description:
+        "Kami tidak menggunakan bot emulator tidak resmi yang berisiko memblokir nomor bisnis Anda. Seluruh koneksi mengikuti standar resmi Meta.",
+    },
+    {
+      title: "Anti-Halusinasi untuk Angka, Harga & Stok",
+      description:
+        "Setiap jawaban faktual terkait harga dan stok dikunci hanya mengambil referensi dari database terverifikasi Anda (RAG & tool validation).",
+    },
+    {
+      title: "Kontrol Penuh atas Aturan Bisnis & Alih Tugas ke Staf",
+      description:
+        "Staf Anda dapat mengambil alih percakapan kapan saja dalam satu klik apabila pelanggan meminta diskusi khusus atau negosiasi korporat.",
+    },
+  ],
+  idealFor: [
+    "Tim sales & layanan pelanggan yang menerima puluhan hingga ribuan chat WhatsApp setiap hari.",
+    "Bagian keuangan/admin gudang yang masih menginput ratusan nota pembelian atau surat jalan secara manual.",
+    "Klinik, properti, otomotif, dan penyedia jasa yang membutuhkan konfirmasi jadwal serta follow-up otomatis.",
+    "Perusahaan yang ingin menghubungkan WhatsApp langsung dengan ERP atau database stok existing.",
+  ],
+};
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Beranda",
+          item: APP_BASE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Automasi WhatsApp & AI/ML",
+          item: `${APP_BASE_URL}${CANONICAL_PATH}`,
+        },
+      ],
+    },
+    {
+      "@type": "Service",
+      name: "Jasa Automasi WhatsApp Resmi Meta & Pembaca Faktur AI/ML",
+      provider: {
+        "@type": "Organization",
+        name: "Abinest Digital Systems",
+        url: APP_BASE_URL,
+      },
+      areaServed: "Indonesia",
+      url: `${APP_BASE_URL}${CANONICAL_PATH}`,
+      description: serviceData.subtitle,
+    },
+  ],
+};
+
+export default function AutomasiWhatsappPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans">
-      <GroveNavbar />
-
-      <main className="flex-1">
-        <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
-          <div className="max-w-4xl mx-auto px-5 sm:px-8 space-y-8">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors"
-            >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Kembali ke Beranda</span>
-            </Link>
-
-            <div className="space-y-4 max-w-2xl">
-              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
-                Layanan 03 · Automasi AI &amp; WhatsApp Resmi Meta
-              </p>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
-                Automasi Pekerjaan Repetitif dan Asisten WhatsApp AI
-              </h1>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                Kurangi kesalahan input manual dengan pembacaan faktur PDF otomatis serta layanan pelanggan WhatsApp yang merespons dalam hitungan detik sepanjang hari.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {benefits.map((b, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 p-5 rounded-2xl bg-white border border-slate-200/80"
-                >
-                  <Check className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
-                  <p className="text-sm text-slate-700 leading-relaxed">{b}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-5 pt-2">
-              <a
-                href="#kontak"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-              >
-                <span>Konsultasikan Automasi AI Anda</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <span className="text-sm text-slate-500">
-                Meta Cloud API Resmi · Akurasi OCR 99,7%
-              </span>
-            </div>
-          </div>
-        </section>
-
-        <GroveAmberContactSection />
-      </main>
-
-      <GroveFooterSection />
-      <GroveFloatingWhatsApp />
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <GroveServiceDetailTemplate data={serviceData} />
+    </>
   );
 }

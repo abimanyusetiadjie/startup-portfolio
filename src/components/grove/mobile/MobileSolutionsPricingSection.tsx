@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Link from "next/link";
 import { Globe, Building2, Bot, Check, ArrowRight, X } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { getPricingCardTheme } from "../pricing-theme";
@@ -60,6 +61,7 @@ export function MobileSolutionsPricingSection() {
       id: "web",
       icon: Globe,
       title: "Situs Web Bisnis",
+      detailHref: "/jasa-pembuatan-website-jakarta",
       price: "Rp1,5–3,5 juta",
       popular: false,
       tagline: "Profil perusahaan dan halaman penawaran yang terbuka cepat di bawah 0,8 detik.",
@@ -88,6 +90,7 @@ export function MobileSolutionsPricingSection() {
       id: "erp",
       icon: Building2,
       title: "Sistem ERP & SIAKAD",
+      detailHref: "/jasa-pembuatan-sistem-erp",
       price: "Rp4–12 juta",
       popular: true,
       tagline: "Aplikasi kasir toko, stok multi-gudang, dan portal sekolah tanpa iuran staf.",
@@ -116,6 +119,7 @@ export function MobileSolutionsPricingSection() {
       id: "ai",
       icon: Bot,
       title: "Automasi AI & WhatsApp",
+      detailHref: "/jasa-automasi-whatsapp",
       price: "Mulai Rp5 juta",
       popular: false,
       tagline: "Asisten balas chat WhatsApp resmi 24 jam dan baca nota/faktur otomatis.",
@@ -298,23 +302,36 @@ export function MobileSolutionsPricingSection() {
                   </ul>
                 </div>
 
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    pkg.waMsg[mode]
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source: "pricing_mobile",
-                      label: mode,
-                    })
-                  }
-                  className={`mt-6 w-full h-11 rounded-xl text-[13.5px] font-semibold flex items-center justify-center gap-1.5 transition-colors ${theme.button}`}
-                >
-                  <span>Konsultasikan Paket Ini</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                <div className="mt-6 space-y-2">
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      pkg.waMsg[mode]
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source: "pricing_mobile",
+                        label: mode,
+                      })
+                    }
+                    className={`w-full h-11 rounded-xl text-[13.5px] font-semibold flex items-center justify-center gap-1.5 transition-colors ${theme.button}`}
+                  >
+                    <span>Konsultasikan Paket Ini</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                  <Link
+                    href={pkg.detailHref}
+                    className={`w-full py-1.5 text-[12px] font-medium flex items-center justify-center gap-1 transition-colors ${
+                      isBeliPutus
+                        ? "text-slate-600 hover:text-blue-600"
+                        : "text-slate-300 hover:text-white"
+                    }`}
+                  >
+                    <span>Lihat detail layanan &amp; modul</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
               </article>
             );
           })}
