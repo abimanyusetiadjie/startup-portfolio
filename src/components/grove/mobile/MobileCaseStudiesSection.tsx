@@ -79,39 +79,27 @@ export function MobileCaseStudiesSection() {
     <section
       id="m-portofolio"
       data-section="portofolio"
-      className="scroll-mt-16 bg-[#070B14] text-white py-12 border-y border-slate-800 relative overflow-hidden"
+      className="scroll-mt-16 bg-white py-10 border-b border-slate-100"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute inset-0 bg-[radial-gradient(ellipse_80%_45%_at_50%_0%,rgba(37,99,235,0.18),transparent_70%)]"
-      />
-      <div className="relative z-10 max-w-md mx-auto space-y-5">
+      <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1">
-          <div className="font-mono text-[11px] font-semibold text-sky-400 uppercase tracking-wider">
-            [BUKTI KINERJA SISTEM]
-          </div>
-          <h2 className="text-[22px] font-extrabold tracking-tight text-white">
+          <h2 className="text-[22px] font-extrabold tracking-tight text-slate-900">
             Studi Kasus Pilihan
           </h2>
-          <p className="text-[13.5px] text-slate-400">
-            Implementasi sistem produksi dengan hasil terukur.
+          <p className="text-[13.5px] text-slate-500">
+            Implementasi sistem dengan hasil terukur.
           </p>
         </div>
 
         <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-3.5 px-5 py-1">
-          {caseList.map((item, idx) => (
+          {caseList.map((item) => (
             <article
               key={item.id}
               onClick={() => setSelectedCase(item)}
-              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-2xl bg-[#0F172A] border border-slate-800 shadow-lg overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.99] transition-transform"
+              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.04)] overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.99] transition-transform"
             >
               <div>
-                <div className="px-3.5 py-2 bg-[#090E1A] border-b border-slate-800 flex items-center justify-between font-mono text-[10px] text-slate-400">
-                  <span>CASE // 0{idx + 1}</span>
-                  <span className="text-sky-400">TERVERIFIKASI</span>
-                </div>
-
-                <div className="relative aspect-[16/9] w-full bg-slate-900 overflow-hidden">
+                <div className="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden">
                   <Image
                     src={failedImages[item.id] ? item.fallback : item.image}
                     alt={item.title}
@@ -128,21 +116,21 @@ export function MobileCaseStudiesSection() {
 
                 <div className="p-4 space-y-3.5">
                   <div>
-                    <span className="text-[11px] font-semibold text-sky-400 block mb-1">
+                    <span className="text-[11px] font-semibold text-blue-600 block mb-1">
                       {item.sector}
                     </span>
-                    <h3 className="text-[15.5px] font-bold text-white leading-snug">
+                    <h3 className="text-[15.5px] font-bold text-slate-900 leading-snug">
                       {item.title}
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-2 divide-x divide-slate-800 pt-1">
+                  <div className="grid grid-cols-2 divide-x divide-slate-100 pt-1">
                     {item.metrics.map((m) => (
                       <div key={m.label} className="pr-3 first:pl-0 last:pl-3 last:pr-0">
-                        <div className="text-[20px] font-black tracking-tight text-white">
+                        <div className="text-[20px] font-black tracking-tight text-slate-900">
                           {m.value}
                         </div>
-                        <div className="text-[11.5px] font-medium text-slate-400">
+                        <div className="text-[11.5px] font-medium text-slate-500">
                           {m.label}
                         </div>
                       </div>
@@ -151,7 +139,7 @@ export function MobileCaseStudiesSection() {
                 </div>
               </div>
 
-              <div className="px-4 py-3 border-t border-slate-800 flex items-center justify-between text-[13px] font-semibold text-sky-400">
+              <div className="px-4 py-3 border-t border-slate-100 flex items-center justify-between text-[13px] font-semibold text-blue-600">
                 <span>Baca Ringkasan</span>
                 <ArrowRight className="w-4 h-4" />
               </div>

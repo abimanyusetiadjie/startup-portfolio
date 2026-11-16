@@ -28,10 +28,6 @@ export function MobileHeroSection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none absolute inset-0 bg-[linear-gradient(to_right,rgba(226,232,240,0.45)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.45)_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_90%_70%_at_50%_30%,black_25%,transparent_85%)]"
-      />
-      <div
-        aria-hidden="true"
         className={`pointer-events-none select-none absolute inset-0 transition-all duration-700 ${
           slideIdx === 1
             ? "bg-[radial-gradient(ellipse_90%_55%_at_50%_70%,rgba(13,148,136,0.06),rgba(37,99,235,0.025)_48%,transparent_78%)]"
@@ -42,10 +38,9 @@ export function MobileHeroSection() {
       />
       <div className="relative z-10 max-w-md mx-auto space-y-6">
         <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-900 text-white text-[10.5px] font-mono tracking-wide">
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-            <span>ABINEST // ENGINEERING STUDIO</span>
-          </div>
+          <p className="text-[12px] font-semibold text-blue-600 tracking-wide">
+            Abinest · Software House Indonesia
+          </p>
 
           <HeroSyncedHeadline
             className="text-[25px] sm:text-[30px] font-extrabold tracking-[-0.03em] text-slate-900 leading-[1.18]"
@@ -64,13 +59,16 @@ export function MobileHeroSection() {
           />
         </div>
 
-        {/* Layered Dark Application Window Frame */}
+        {/* Clean Visual Frame with Subtle Architectural Dot Backdrop */}
         <div className="relative">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute -inset-3 bg-[radial-gradient(rgba(100,116,139,0.2)_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black_30%,transparent_80%)]"
+          />
           <HeroShowcaseFrame
             activeIdx={slideIdx}
-            onSelectSlide={setSlideIdx}
             sizes="(max-width: 768px) 92vw, 440px"
-            className="relative z-10 w-full"
+            className="relative z-10 aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-[0_12px_32px_rgba(15,23,42,0.08)] border border-slate-200/60"
           />
         </div>
 
