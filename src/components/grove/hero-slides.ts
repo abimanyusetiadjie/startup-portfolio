@@ -9,6 +9,9 @@ export interface HeroSlide {
   id: "web" | "erp" | "aiml";
   number: string;
   label: string;
+  windowTitle: string;
+  liveBadge: string;
+  archSpec: string;
   src: string;
   alt: string;
   desktopDesc: string;
@@ -21,6 +24,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: "web",
     number: "01",
     label: "Website Cepat",
+    windowTitle: "abinest://web-engine · core-vitals",
+    liveBadge: "LCP 0,48 dtk · Skor 100/100",
+    archSpec: "Next.js App Router · Edge CDN · Schema SEO",
     src: "/images/hero-slide-web.jpg",
     alt: "Arsitektur Website Cepat Modern Abinest",
     desktopDesc:
@@ -34,6 +40,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: "erp",
     number: "02",
     label: "ERP · SIAKAD · POS",
+    windowTitle: "abinest://erp-siakad · multi-node",
+    liveBadge: "1.240 User Aktif · Rp0/Staf",
+    archSpec: "PostgreSQL ACID · Multi-Gudang · SIAKAD",
     src: "/images/hero-slide-erp.jpg",
     alt: "Dasbor Sistem ERP, SIAKAD, dan Kasir POS Terpadu",
     desktopDesc:
@@ -47,6 +56,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: "aiml",
     number: "03",
     label: "Automasi AI/ML",
+    windowTitle: "abinest://ai-wa-cloud · meta-api",
+    liveBadge: "Balas <1 dtk · OCR 99,7%",
+    archSpec: "Official Meta Cloud API · Document AI",
     src: "/images/hero-slide-ai.jpg",
     alt: "Automasi AI/ML WhatsApp Bisnis Resmi dan Pembaca Dokumen",
     desktopDesc:

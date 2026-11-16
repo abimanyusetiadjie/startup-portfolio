@@ -26,6 +26,12 @@ export function GroveHeroSection() {
       data-section="beranda"
       className="relative scroll-mt-16 overflow-hidden bg-white pt-16 pb-20 xl:pt-20 xl:pb-24 border-b border-slate-200/80"
     >
+      {/* Architectural 1px Blueprint Grid Backdrop */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute inset-0 bg-[linear-gradient(to_right,rgba(226,232,240,0.55)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.55)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_80%_75%_at_50%_40%,black_30%,transparent_85%)]"
+      />
+
       {/* Subtle Dynamic Ambient Glow Tuned to Active Pillar */}
       <div
         aria-hidden="true"
@@ -51,9 +57,10 @@ export function GroveHeroSection() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="col-span-6 space-y-6"
           >
-            <p className="text-[13px] font-semibold text-blue-600 tracking-wide">
-              Abinest · Software House Indonesia
-            </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[11.5px] font-mono tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+              <span>ABINEST // ENGINEERING STUDIO INDONESIA</span>
+            </div>
 
             <HeroSyncedHeadline
               className="text-[40px] xl:text-[46px] font-extrabold tracking-[-0.035em] text-slate-900 leading-[1.12]"
@@ -96,26 +103,35 @@ export function GroveHeroSection() {
               </Link>
             </div>
 
-            {/* 3 Metrik Polos Tanpa Kotak Berlebihan */}
-            <div className="pt-6 border-t border-slate-100 grid grid-cols-3 gap-6 max-w-lg">
-              <div>
-                <div className="text-2xl font-extrabold tracking-tight text-slate-900">
+            {/* 3 Metrik Polos dengan Tag Indeks Arsitektural */}
+            <div className="pt-6 border-t border-slate-200/80 grid grid-cols-3 divide-x divide-slate-200/90 max-w-lg">
+              <div className="pr-4">
+                <div className="font-mono text-[10.5px] font-semibold text-blue-600 tracking-wider">
+                  [01] KECEPATAN
+                </div>
+                <div className="text-2xl font-extrabold tracking-tight text-slate-900 mt-1">
                   14 Hari
                 </div>
                 <div className="text-xs text-slate-500 mt-0.5">
                   Rilis web &amp; sistem awal
                 </div>
               </div>
-              <div>
-                <div className="text-2xl font-extrabold tracking-tight text-slate-900">
+              <div className="px-4">
+                <div className="font-mono text-[10.5px] font-semibold text-blue-600 tracking-wider">
+                  [02] HAK MILIK
+                </div>
+                <div className="text-2xl font-extrabold tracking-tight text-slate-900 mt-1">
                   100%
                 </div>
                 <div className="text-xs text-slate-500 mt-0.5">
                   Hak milik kode program
                 </div>
               </div>
-              <div>
-                <div className="text-2xl font-extrabold tracking-tight text-slate-900">
+              <div className="pl-4">
+                <div className="font-mono text-[10.5px] font-semibold text-blue-600 tracking-wider">
+                  [03] TANPA SEWA
+                </div>
+                <div className="text-2xl font-extrabold tracking-tight text-slate-900 mt-1">
                   Rp0
                 </div>
                 <div className="text-xs text-slate-500 mt-0.5">
@@ -125,7 +141,7 @@ export function GroveHeroSection() {
             </div>
           </motion.div>
 
-          {/* Kolom Kanan: Visual Showcase Murni dengan Latar Titik Halus */}
+          {/* Kolom Kanan: Layered Dark Application Window Frame */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -138,8 +154,9 @@ export function GroveHeroSection() {
             />
             <HeroShowcaseFrame
               activeIdx={activeIdx}
+              onSelectSlide={setActiveIdx}
               sizes="(max-width: 1200px) 50vw, 560px"
-              className="relative z-10 aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 shadow-[0_20px_50px_rgba(15,23,42,0.09)] border border-slate-200/70"
+              className="relative z-10 w-full"
             />
           </motion.div>
         </div>

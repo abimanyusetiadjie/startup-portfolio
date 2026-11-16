@@ -56,6 +56,9 @@ export function GroveCoreShieldSection() {
           transition={{ duration: 0.35, ease: "easeOut" }}
           className="max-w-xl space-y-2.5"
         >
+          <div className="font-mono text-xs font-semibold uppercase tracking-widest text-blue-600">
+            [03 // PROTOKOL EKSEKUSI TERUKUR]
+          </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
             Alur Kerja 14 Hari
           </h2>
@@ -64,65 +67,79 @@ export function GroveCoreShieldSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-5 gap-5 relative">
-          {steps.map((s, idx) => {
-            const popoverAlignClass =
-              idx === 0
-                ? "left-0"
-                : idx === steps.length - 1
-                  ? "right-0"
-                  : "left-1/2 -translate-x-1/2";
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="hidden lg:block absolute top-1/2 left-6 right-6 h-px bg-slate-300/80 z-0"
+          />
 
-            return (
-              <motion.div
-                key={s.step}
-                tabIndex={0}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.32, delay: idx * 0.05 }}
-                className="group relative rounded-2xl bg-white border border-slate-200/90 hover:border-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/40 focus-within:border-blue-400 p-5 flex flex-col justify-between gap-4 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-lg transition-all cursor-default"
-              >
-                {/* Clean Photo Preview Popover on Hover or Keyboard Focus */}
-                <div
-                  className={`hidden lg:block absolute bottom-[calc(100%+12px)] ${popoverAlignClass} w-[260px] pointer-events-none opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-200 z-40`}
+          <div className="grid grid-cols-5 gap-5 relative z-10">
+            {steps.map((s, idx) => {
+              const popoverAlignClass =
+                idx === 0
+                  ? "left-0"
+                  : idx === steps.length - 1
+                    ? "right-0"
+                    : "left-1/2 -translate-x-1/2";
+
+              return (
+                <motion.div
+                  key={s.step}
+                  tabIndex={0}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.32, delay: idx * 0.05 }}
+                  className="group relative rounded-2xl bg-white border border-slate-200/90 hover:border-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/40 focus-within:border-blue-400 p-5 flex flex-col justify-between gap-4 shadow-[0_2px_10px_rgba(15,23,42,0.03)] hover:shadow-lg transition-all cursor-default"
                 >
-                  <div className="rounded-xl bg-white border border-slate-200 shadow-xl p-2">
-                    <div className="relative w-full h-[145px] rounded-lg overflow-hidden bg-slate-100">
-                      <Image
-                        src={s.imageSrc}
-                        alt={s.title}
-                        fill
-                        sizes="260px"
-                        className="object-cover object-center"
-                      />
+                  {/* Clean Photo Preview Popover on Hover or Keyboard Focus */}
+                  <div
+                    className={`hidden lg:block absolute bottom-[calc(100%+12px)] ${popoverAlignClass} w-[260px] pointer-events-none opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-200 z-40`}
+                  >
+                    <div className="rounded-xl bg-white border border-slate-200 shadow-xl p-2">
+                      <div className="relative w-full h-[145px] rounded-lg overflow-hidden bg-slate-100">
+                        <Image
+                          src={s.imageSrc}
+                          alt={s.title}
+                          fill
+                          sizes="260px"
+                          className="object-cover object-center"
+                        />
+                      </div>
+                      <p className="text-[11px] font-medium text-slate-600 px-1 pt-2 pb-0.5">
+                        Dokumentasi Tahap {s.step} · {s.timeline}
+                      </p>
                     </div>
-                    <p className="text-[11px] font-medium text-slate-600 px-1 pt-2 pb-0.5">
-                      Dokumentasi Tahap {s.step} · {s.timeline}
-                    </p>
                   </div>
-                </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono font-bold text-blue-600">{s.step}</span>
-                    <span className="font-medium text-slate-400">{s.timeline}</span>
+                  <div>
+                    <div className="-mx-5 -mt-5 px-5 py-3 mb-4 bg-slate-50/90 border-b border-slate-200/80 rounded-t-2xl flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center justify-center px-2 py-0.5 rounded bg-blue-600 text-white font-mono text-[11px] font-bold">
+                        TAHAP {s.step}
+                      </span>
+                      <span className="font-mono text-[11px] font-semibold text-slate-500">
+                        {s.timeline}
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-[15.5px] font-bold text-slate-900 leading-snug">
+                        {s.title}
+                      </h3>
+                      <p className="text-[13px] text-slate-600 leading-relaxed">
+                        {s.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-[15.5px] font-bold text-slate-900 leading-snug">
-                    {s.title}
-                  </h3>
-                  <p className="text-[13px] text-slate-600 leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-400 group-hover:text-blue-600 group-focus-within:text-blue-600 transition-colors">
-                  <span>Dokumentasi tahap</span>
-                  <span>Lihat foto ↗</span>
-                </div>
-              </motion.div>
-            );
-          })}
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-400 group-hover:text-blue-600 group-focus-within:text-blue-600 transition-colors">
+                    <span>Dokumentasi tahap</span>
+                    <span>Lihat foto ↗</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -10,12 +10,33 @@ import { useModalEffects } from "./use-modal-effects";
 
 const WHATSAPP_NUMBER = "6281398589745";
 
-const capabilities = [
+interface CapabilityItem {
+  id: string;
+  number: string;
+  specCode: string;
+  metricBadge: string;
+  title: string;
+  desc: string;
+  deliverables: string[];
+  image: string;
+  alt: string;
+  detailHref: string;
+  waMessage: string;
+}
+
+const capabilities: CapabilityItem[] = [
   {
     id: "web",
-    number: "01 · 7–14 Hari Kerja",
+    number: "7–14 Hari Kerja",
+    specCode: "ARCH // 01 · WEB ENGINE",
+    metricBadge: "< 0,8 Detik Muat",
     title: "Pengembangan Situs Web",
     desc: "Situs web perusahaan dan landing page berkecepatan tinggi (<0,8 detik) dengan struktur SEO Google yang rapi.",
+    deliverables: [
+      "Skor Google 95–100",
+      "Desain Eksekutif Responsif",
+      "SEO & Schema Otomatis",
+    ],
     image: "/images/hero-web.webp",
     alt: "Pengembangan Situs Web Modern Abinest",
     detailHref: "/jasa-pembuatan-website-jakarta",
@@ -24,9 +45,16 @@ const capabilities = [
   },
   {
     id: "erp",
-    number: "02 · 2–8 Minggu",
+    number: "2–8 Minggu",
+    specCode: "ARCH // 02 · CORE ERP & SIAKAD",
+    metricBadge: "Rp0 Lisensi / Staf",
     title: "Sistem ERP & SIAKAD Kustom",
     desc: "Pengelolaan stok multi-gudang, kasir POS, dan portal akademik terintegrasi tanpa biaya lisensi per pengguna.",
+    deliverables: [
+      "Stok Multi-Gudang Real-Time",
+      "Kasir POS & Barcode",
+      "Ujian & Rapor SIAKAD",
+    ],
     image: "/images/erp-dashboard.webp",
     alt: "Dashboard Sistem ERP dan SIAKAD Abinest",
     detailHref: "/jasa-pembuatan-sistem-erp",
@@ -35,9 +63,16 @@ const capabilities = [
   },
   {
     id: "aiml",
-    number: "03 · 1–4 Minggu",
+    number: "1–4 Minggu",
+    specCode: "ARCH // 03 · AI & META CLOUD",
+    metricBadge: "99,7% Akurasi OCR",
     title: "Automasi AI & WhatsApp Bisnis",
     desc: "Asisten pelanggan 24 jam melalui WhatsApp Cloud API resmi Meta serta pembacaan faktur otomatis via OCR.",
+    deliverables: [
+      "WhatsApp Resmi Meta 24/7",
+      "Pembaca Nota & Faktur OCR",
+      "Sinkronisasi Database ERP",
+    ],
     image: "/images/ai-ml-workflow.webp",
     alt: "Automasi AI dan WhatsApp Bisnis Abinest",
     detailHref: "/jasa-automasi-whatsapp",
@@ -45,6 +80,59 @@ const capabilities = [
       "Halo Tim Abinest, saya tertarik berkonsultasi mengenai implementasi Automasi AI dan WhatsApp Cloud API.",
   },
 ];
+
+function DeliverablePills({ items }: { items: string[] }) {
+  return (
+    <div className="flex flex-wrap gap-1.5 pt-1">
+      {items.map((label) => (
+        <span
+          key={label}
+          className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200/80 text-[11.5px] font-medium text-slate-700"
+        >
+          {label}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function CapabilityActionFooter({
+  item,
+  className = "",
+}: {
+  item: CapabilityItem;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`pt-4 border-t border-slate-100 flex items-center justify-between gap-3 ${className}`}
+    >
+      <Link
+        href={item.detailHref}
+        className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+      >
+        <span>Detail layanan</span>
+        <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+      </Link>
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+          item.waMessage
+        )}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() =>
+          trackWhatsAppClick({
+            source: "capabilities_card",
+            service: item.title,
+          })
+        }
+        className="text-xs font-medium text-slate-500 hover:text-slate-900 transition-colors"
+      >
+        Diskusikan via WA
+      </a>
+    </div>
+  );
+}
 
 const serviceComparisonRows = [
   {
@@ -89,11 +177,13 @@ export function GroveCapabilitiesSection() {
   const [showCompareModal, setShowCompareModal] = useState(false);
   useModalEffects(showCompareModal, () => setShowCompareModal(false));
 
+  const [webCap, erpCap, aiCap] = capabilities;
+
   return (
     <section
       id="layanan-utama"
       data-section="layanan-utama"
-      className="scroll-mt-16 py-20 bg-[#F1F5F9] border-b border-slate-200/90"
+      className="scroll-mt-16 py-24 bg-[#F1F5F9] border-b border-slate-200/90 relative overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-12">
         <motion.div
@@ -101,77 +191,165 @@ export function GroveCapabilitiesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="max-w-xl space-y-2.5"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-4"
         >
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-            Layanan Utama
-          </h2>
-          <p className="text-[15.5px] text-slate-600 leading-relaxed">
-            Tiga cakupan rekayasa yang dirancang untuk mempercepat operasional bisnis Anda.
-          </p>
+          <div className="max-w-xl space-y-2.5">
+            <div className="font-mono text-xs font-semibold uppercase tracking-widest text-blue-600">
+              [01 // ARSITEKTUR &amp; CAKUPAN LAYANAN]
+            </div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
+              Layanan Utama
+            </h2>
+            <p className="text-[15.5px] text-slate-600 leading-relaxed">
+              Tiga cakupan rekayasa berarsitektur modular untuk mempercepat operasional dan kredibilitas bisnis Anda.
+            </p>
+          </div>
+          <div className="hidden lg:flex items-center gap-2 font-mono text-xs text-slate-500 bg-white border border-slate-200/90 rounded-full px-4 py-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+            <span>BELI PUTUS · 100% HAK MILIK KODE</span>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-3 gap-7">
-          {capabilities.map((item, idx) => (
-            <motion.article
-              key={item.id}
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.35, delay: idx * 0.06 }}
-              className="group rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.07)] transition-all overflow-hidden flex flex-col justify-between"
-            >
-              <div>
-                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+        {/* Asymmetric 12-Column Architectural Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Card 1: Web Engine (5 Cols) */}
+          <motion.article
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.35 }}
+            className="lg:col-span-5 group rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_14px_34px_rgba(15,23,42,0.08)] transition-all overflow-hidden flex flex-col justify-between"
+          >
+            <div>
+              <div className="px-5 py-3 bg-slate-50/90 border-b border-slate-200/80 flex items-center justify-between text-[11px] font-mono">
+                <span className="font-semibold text-slate-700">
+                  {webCap.specCode}
+                </span>
+                <span className="text-blue-600 font-semibold">
+                  {webCap.number}
+                </span>
+              </div>
+
+              <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                <Image
+                  src={webCap.image}
+                  alt={webCap.alt}
+                  fill
+                  sizes="(max-width: 1200px) 42vw, 480px"
+                  className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                />
+                <span className="absolute bottom-3 right-3 rounded-md bg-slate-900/85 backdrop-blur-sm border border-white/15 px-2.5 py-1 font-mono text-[11px] font-medium text-white">
+                  {webCap.metricBadge}
+                </span>
+              </div>
+
+              <div className="p-6 space-y-3">
+                <h3 className="text-xl font-bold text-slate-900 leading-snug">
+                  {webCap.title}
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {webCap.desc}
+                </p>
+                <DeliverablePills items={webCap.deliverables} />
+              </div>
+            </div>
+
+            <CapabilityActionFooter item={webCap} className="px-6 pb-6 mt-1" />
+          </motion.article>
+
+          {/* Card 2: Featured Wide ERP & SIAKAD (7 Cols) */}
+          <motion.article
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.35, delay: 0.06 }}
+            className="lg:col-span-7 group rounded-2xl bg-white border border-slate-300 ring-1 ring-slate-900/5 shadow-[0_6px_24px_rgba(15,23,42,0.05)] hover:shadow-[0_16px_40px_rgba(15,23,42,0.09)] transition-all overflow-hidden flex flex-col justify-between"
+          >
+            <div>
+              <div className="px-6 py-3 bg-[#0F172A] text-white flex items-center justify-between text-xs font-mono">
+                <span className="text-slate-200 font-semibold">
+                  {erpCap.specCode}
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded bg-blue-500/20 border border-sky-400/30 px-2.5 py-0.5 text-[10.5px] font-semibold text-sky-300">
+                  SISTEM UTAMA · RP0/USER
+                </span>
+              </div>
+
+              <div className="relative w-full aspect-[16/9] lg:aspect-auto lg:h-[260px] bg-slate-100 overflow-hidden">
+                <Image
+                  src={erpCap.image}
+                  alt={erpCap.alt}
+                  fill
+                  sizes="(max-width: 1200px) 58vw, 680px"
+                  className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                />
+                <span className="absolute bottom-3 right-3 rounded-md bg-slate-900/85 backdrop-blur-sm border border-white/15 px-2.5 py-1 font-mono text-[11px] font-medium text-emerald-300">
+                  {erpCap.metricBadge} · {erpCap.number}
+                </span>
+              </div>
+
+              <div className="p-6 space-y-3">
+                <h3 className="text-xl font-bold text-slate-900 leading-snug">
+                  {erpCap.title}
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed max-w-2xl">
+                  {erpCap.desc}
+                </p>
+                <DeliverablePills items={erpCap.deliverables} />
+              </div>
+            </div>
+
+            <CapabilityActionFooter item={erpCap} className="px-6 pb-6 mt-1" />
+          </motion.article>
+
+          {/* Card 3: Full-Width Horizontal Split AI & Meta Cloud (12 Cols) */}
+          <motion.article
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.35, delay: 0.12 }}
+            className="lg:col-span-12 group rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_14px_34px_rgba(15,23,42,0.08)] transition-all overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch"
+          >
+            <div className="lg:col-span-7 p-7 sm:p-8 flex flex-col justify-between space-y-5">
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center gap-2.5 text-[11px] font-mono">
+                  <span className="font-semibold text-blue-600">
+                    {aiCap.specCode}
+                  </span>
+                  <span className="text-slate-300">·</span>
+                  <span className="text-slate-500 font-semibold">
+                    {aiCap.number}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 leading-snug">
+                  {aiCap.title}
+                </h3>
+                <p className="text-[15px] text-slate-600 leading-relaxed max-w-xl">
+                  {aiCap.desc}
+                </p>
+                <DeliverablePills items={aiCap.deliverables} />
+              </div>
+
+              <CapabilityActionFooter item={aiCap} />
+            </div>
+
+            <div className="lg:col-span-5 p-4 sm:p-6 bg-slate-50/90 border-t lg:border-t-0 lg:border-l border-slate-200/80 flex items-center">
+              <div className="w-full rounded-xl bg-[#0F172A] p-1.5 border border-slate-800 shadow-lg">
+                <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-slate-900">
                   <Image
-                    src={item.image}
-                    alt={item.alt}
+                    src={aiCap.image}
+                    alt={aiCap.alt}
                     fill
-                    sizes="(max-width: 1200px) 33vw, 380px"
+                    sizes="(max-width: 1200px) 42vw, 460px"
                     className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
                   />
-                </div>
-
-                <div className="p-6 space-y-2.5">
-                  <span className="text-xs font-semibold text-blue-600 block">
-                    {item.number}
+                  <span className="absolute bottom-2.5 right-2.5 rounded-md bg-slate-900/90 backdrop-blur-sm border border-white/15 px-2.5 py-1 font-mono text-[11px] font-medium text-sky-300">
+                    {aiCap.metricBadge}
                   </span>
-                  <h3 className="text-xl font-bold text-slate-900 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
               </div>
-
-              <div className="px-6 pb-6 pt-4 mt-1 border-t border-slate-100 flex items-center justify-between gap-3">
-                <Link
-                  href={item.detailHref}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
-                >
-                  <span>Detail layanan</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    item.waMessage
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source: "capabilities_card",
-                      service: item.title,
-                    })
-                  }
-                  className="text-xs font-medium text-slate-500 hover:text-slate-900 transition-colors"
-                >
-                  Diskusikan via WA
-                </a>
-              </div>
-            </motion.article>
-          ))}
+            </div>
+          </motion.article>
         </div>
 
         {/* Tombol Pembuka Tabel Perbandingan (Tertutup secara default agar hemat ruang scroll) */}

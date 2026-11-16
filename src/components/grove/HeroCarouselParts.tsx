@@ -184,38 +184,99 @@ interface HeroShowcaseFrameProps {
   activeIdx: number;
   sizes: string;
   className: string;
+  onSelectSlide?: (idx: number) => void;
 }
 
 /**
- * Pure visual image carousel frame kept in sync with the hero slide state.
+ * Layered Dark Application Window Frame synced with the active hero slide,
+ * keeping the visual viewport uncluttered inside an architectural shell.
  */
 export function HeroShowcaseFrame({
   activeIdx,
   sizes,
   className,
+  onSelectSlide,
 }: HeroShowcaseFrameProps) {
+  const activeSlide = HERO_SLIDES[activeIdx] ?? HERO_SLIDES[0];
+
   return (
-    <div className={className}>
-      {HERO_SLIDES.map((slide, idx) => (
-        <div
-          key={slide.src}
-          aria-hidden={idx !== activeIdx}
-          className={`absolute inset-0 transition-all duration-700 ease-out ${
-            idx === activeIdx
-              ? "opacity-100 scale-100 z-10"
-              : "opacity-0 scale-[1.025] z-0 pointer-events-none"
-          }`}
-        >
-          <Image
-            src={slide.src}
-            alt={slide.alt}
-            fill
-            priority={idx === 0}
-            sizes={sizes}
-            className="object-cover object-center"
-          />
+    <div
+      className={`rounded-2xl bg-[#0B1120] p-1.5 sm:p-2 border border-slate-800 shadow-[0_24px_60px_-12px_rgba(15,23,42,0.28)] ${className}`}
+    >
+      {/* Top Window Chrome Bar */}
+      <div className="px-3 py-2 flex items-center justify-between gap-2 bg-[#0F172A] rounded-t-xl border-b border-slate-800/90">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <div className="flex items-center gap-1 shrink-0" aria-hidden="true">
+            <span className="w-2 h-2 rounded-full bg-slate-700" />
+            <span className="w-2 h-2 rounded-full bg-slate-700" />
+            <span className="w-2 h-2 rounded-full bg-slate-700" />
+          </div>
+          <span className="font-mono text-[11px] text-slate-400 truncate">
+            {activeSlide.windowTitle}
+          </span>
         </div>
-      ))}
+
+        <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 font-mono text-[10.5px] font-medium text-emerald-300 shrink-0">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>{activeSlide.liveBadge}</span>
+        </span>
+      </div>
+
+      {/* Unobstructed Image Viewport */}
+      <div className="relative aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden rounded-lg bg-slate-900 my-1.5">
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.src}
+            aria-hidden={idx !== activeIdx}
+            className={`absolute inset-0 transition-all duration-700 ease-out ${
+              idx === activeIdx
+                ? "opacity-100 scale-100 z-10"
+                : "opacity-0 scale-[1.025] z-0 pointer-events-none"
+            }`}
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              priority={idx === 0}
+              sizes={sizes}
+              className="object-cover object-center"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom Architectural Spec Bar */}
+      <div className="px-3 py-2 flex items-center justify-between gap-2 bg-[#0F172A] rounded-b-xl border-t border-slate-800/80 text-[11px]">
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="font-mono text-sky-400 font-semibold shrink-0">
+            SPEC //
+          </span>
+          <span className="text-slate-300 truncate">{activeSlide.archSpec}</span>
+        </div>
+
+        <div className="flex items-center gap-1 shrink-0">
+          {HERO_SLIDES.map((slide, idx) => {
+            const isActive = idx === activeIdx;
+            return (
+              <button
+                key={slide.id}
+                type="button"
+                aria-label={`Pilih pratinjau ${slide.label}`}
+                aria-pressed={isActive}
+                onClick={() => onSelectSlide?.(idx)}
+                className={`px-1.5 py-0.5 rounded font-mono text-[10px] font-semibold transition-colors cursor-pointer ${
+                  isActive
+                    ? "bg-blue-600 text-white"
+                    : "bg-slate-800 text-slate-400 hover:text-white"
+                }`}
+              >
+                {slide.number}
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
