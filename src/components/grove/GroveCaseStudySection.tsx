@@ -95,20 +95,38 @@ export function GroveCaseStudySection() {
     <section
       id="portofolio"
       data-section="portofolio"
-      className="scroll-mt-16 py-20 bg-white border-b border-slate-200/70"
+      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA]"
     >
-      <div className="max-w-[1200px] mx-auto px-8 space-y-12">
-        <div className="max-w-xl space-y-2.5">
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-            Studi Kasus Pilihan
-          </h2>
-          <p className="text-[15.5px] text-slate-600 leading-relaxed">
-            Dampak langsung yang dirasakan klien pada kecepatan, ketahanan, dan efisiensi operasional.
-          </p>
+      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white">
+        {/* Vercel Dual-Tone Header */}
+        <div className="px-8 py-14 border-b border-[#EAEAEA] relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
+          >
+            +
+          </span>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
+          >
+            +
+          </span>
+          <div className="space-y-3 max-w-3xl">
+            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666] block">
+              02 / BUKTI PRODUKSI
+            </span>
+            <h2 className="text-[28px] sm:text-[34px] font-semibold tracking-[-0.035em] leading-[1.18]">
+              <span className="text-[#0A0A0A]">Studi kasus pilihan.</span>{" "}
+              <span className="text-[#666666] font-normal">
+                Dampak terukur yang dirasakan klien pada kecepatan akses, ketahanan sistem, dan efisiensi kerja.
+              </span>
+            </h2>
+          </div>
         </div>
 
-        {/* Grid Bento 3 Kolom Visual-First (Minim Teks & Tanpa Overlay pada Gambar) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
+        {/* Connected 3-Cell Case Study Matrix */}
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#EAEAEA]">
           {cases.map((item, idx) => (
             <motion.article
               key={item.id}
@@ -117,11 +135,28 @@ export function GroveCaseStudySection() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.35, delay: idx * 0.06 }}
               onClick={() => setSelectedCase(item)}
-              className="group rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_14px_34px_rgba(15,23,42,0.08)] transition-all overflow-hidden flex flex-col justify-between cursor-pointer"
+              className="group p-8 bg-white hover:bg-[#FAFAFA]/80 transition-colors flex flex-col justify-between cursor-pointer relative"
             >
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#0A0A0A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              />
+
               <div>
-                {/* Pure Clean Image Frame — Strictly Zero Badge or Text Overlay */}
-                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                <div className="space-y-2">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] font-mono text-[11px] font-medium text-[#666666]">
+                    {item.sector}
+                  </span>
+                  <h3 className="text-[24px] font-semibold tracking-[-0.03em] text-[#0A0A0A] leading-snug pt-1">
+                    {item.impactHeadline}
+                  </h3>
+                  <p className="text-[13.5px] text-[#666666]">
+                    {item.subMetric}
+                  </p>
+                </div>
+
+                {/* Inset Visual Stage */}
+                <div className="my-6 relative w-full aspect-[16/10] rounded-xl bg-[#FAFAFA] border border-[#EAEAEA] overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.06)]">
                   <Image
                     src={
                       failedImages[item.id] ? item.fallbackImage : item.imagePreview
@@ -129,7 +164,7 @@ export function GroveCaseStudySection() {
                     alt={item.fullTitle}
                     fill
                     sizes="(max-width: 1200px) 33vw, 380px"
-                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
                     priority={idx === 0}
                     onError={() =>
                       setFailedImages((prev) =>
@@ -138,25 +173,15 @@ export function GroveCaseStudySection() {
                     }
                   />
                 </div>
-
-                {/* Ultra-Minimal Result Typography */}
-                <div className="p-6 space-y-1.5">
-                  <span className="text-xs font-semibold text-blue-600 block">
-                    {item.sector}
-                  </span>
-                  <h3 className="text-[22px] font-extrabold tracking-tight text-slate-900 leading-snug">
-                    {item.impactHeadline}
-                  </h3>
-                  <p className="text-[13.5px] text-slate-500">
-                    {item.subMetric}
-                  </p>
-                </div>
               </div>
 
-              <div className="px-6 pb-6 pt-1">
-                <span className="inline-flex items-center gap-1 text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+              <div className="pt-4 border-t border-[#EAEAEA]/80 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#0A0A0A] group-hover:text-[#0070F3] transition-colors">
                   <span>Lihat studi kasus</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </span>
+                <span className="font-mono text-[11px] text-neutral-400">
+                  0{idx + 1}
                 </span>
               </div>
             </motion.article>

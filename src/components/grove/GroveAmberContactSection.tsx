@@ -70,22 +70,38 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
     <section
       id="kontak"
       data-section="kontak"
-      className="scroll-mt-16 py-20 bg-white"
+      className="scroll-mt-16 bg-[#FAFAFA]"
     >
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
+      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white px-8 py-20 relative">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
+        >
+          +
+        </span>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
+        >
+          +
+        </span>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Kolom Kiri: Pesan Ringkas & Kontak Langsung */}
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-3">
-              <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-                Mulai Konsultasi
+              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666]">
+                06 / DISKUSI ARSITEKTUR
+              </div>
+              <h2 className="text-[28px] sm:text-[34px] font-semibold tracking-[-0.035em] text-[#0A0A0A] leading-[1.15]">
+                Mulai konsultasi.
               </h2>
-              <p className="text-[15.5px] text-slate-600 leading-relaxed">
+              <p className="text-[15px] text-[#666666] leading-relaxed">
                 Ceritakan kebutuhan sistem atau kendala operasional di usaha Anda. Tim rekayasa kami siap menanggapi dalam 15 menit pada jam kerja.
               </p>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 space-y-2.5 text-sm text-slate-600">
+            <div className="pt-4 border-t border-[#EAEAEA] space-y-2.5 text-sm text-[#666666]">
               <div>
                 WhatsApp:{" "}
                 <a
@@ -98,7 +114,7 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                       label: "direct_wa_link",
                     })
                   }
-                  className="font-semibold text-slate-900 hover:text-blue-600"
+                  className="font-semibold text-[#0A0A0A] hover:text-[#0070F3]"
                 >
                   +62 813-9858-9745
                 </a>
@@ -107,25 +123,25 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                 Surel Resmi:{" "}
                 <a
                   href="mailto:halo@abinest.id"
-                  className="font-semibold text-slate-900 hover:text-blue-600"
+                  className="font-semibold text-[#0A0A0A] hover:text-[#0070F3]"
                 >
                   halo@abinest.id
                 </a>
               </div>
-              <div className="text-xs text-slate-400">
+              <div className="font-mono text-xs text-neutral-400">
                 Senin – Sabtu, 08.00 – 17.00 WIB · Jakarta &amp; Surabaya
               </div>
             </div>
           </div>
 
-          {/* Kolom Kanan: Formulir Bersih */}
+          {/* Kolom Kanan: Formulir Geist Bersih */}
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl bg-[#F8FAFC] border border-slate-200/90 p-6 sm:p-8 space-y-5"
+              className="rounded-2xl bg-[#FAFAFA] border border-[#EAEAEA] p-6 sm:p-8 space-y-5"
             >
               <div className="space-y-2">
-                <span className="text-xs font-semibold text-slate-700 block">
+                <span className="text-xs font-medium text-[#0A0A0A] block">
                   Kebutuhan Sistem
                 </span>
                 <div className="flex flex-wrap gap-2">
@@ -136,10 +152,10 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
                         key={opt}
                         type="button"
                         onClick={() => setServiceType(opt)}
-                        className={`px-4 py-2 rounded-xl text-xs sm:text-[13px] font-semibold transition-all cursor-pointer ${
+                        className={`px-4 py-2 rounded-full text-xs sm:text-[13px] font-medium transition-all cursor-pointer ${
                           isSelected
-                            ? "bg-slate-900 text-white shadow-2xs"
-                            : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300"
+                            ? "bg-[#0A0A0A] text-white shadow-sm"
+                            : "bg-white text-[#666666] border border-[#EAEAEA] hover:border-neutral-300 hover:text-[#0A0A0A]"
                         }`}
                       >
                         {opt}
@@ -251,7 +267,7 @@ Mohon informasi tahapan konsultasi dan estimasi biayanya. Terima kasih.`;
 
               <button
                 type="submit"
-                className="w-full h-12 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm shadow-blue-600/20 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                className="w-full h-12 rounded-full text-sm font-medium text-white bg-[#0A0A0A] hover:bg-neutral-800 shadow-[0_1px_2px_rgba(0,0,0,0.1)] flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
                 <span>Kirim via WhatsApp</span>
                 <ArrowRight className="w-4 h-4" />

@@ -80,21 +80,21 @@ export function GroveNavbar() {
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-200 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-lg border-b border-slate-200/80 shadow-[0_2px_16px_rgba(15,23,42,0.04)]"
-          : "bg-white/95 backdrop-blur-md border-b border-slate-100"
-      }`}
-    >
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 h-14 lg:h-16 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 transition-all duration-200 pt-2.5 pb-2 px-4 sm:px-8">
+      <div
+        className={`max-w-[1200px] mx-auto h-14 px-4 sm:px-5 rounded-full flex items-center justify-between gap-4 transition-all duration-200 ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-lg border border-[#EAEAEA] shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+            : "bg-white/80 backdrop-blur-md border border-[#EAEAEA]/90 shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
+        }`}
+      >
         {/* Brand */}
-        <Link href="/" className="flex items-center shrink-0">
+        <Link href="/" className="flex items-center shrink-0 pl-1">
           <AbinestLogo size="md" showTagline={false} />
         </Link>
 
-        {/* Clean Borderless Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-7 text-[13.5px]">
+        {/* Vercel Geist Pill Desktop Nav Links */}
+        <nav className="hidden lg:flex items-center gap-1 text-[13.5px]">
           {navLinks.map((item) => {
             const isSelected = activeSection === item.id;
             const isSectionHash = item.href.includes("#");
@@ -104,7 +104,7 @@ export function GroveNavbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="font-medium text-slate-600 hover:text-blue-600 transition-colors whitespace-nowrap"
+                  className="px-3.5 py-1.5 rounded-full font-medium text-[#666666] hover:text-[#0A0A0A] hover:bg-neutral-100/80 transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -116,10 +116,10 @@ export function GroveNavbar() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className={`transition-colors whitespace-nowrap ${
+                className={`px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap ${
                   isSelected
-                    ? "font-semibold text-blue-600"
-                    : "font-medium text-slate-600 hover:text-slate-900"
+                    ? "font-medium text-[#0A0A0A] bg-neutral-100"
+                    : "font-normal text-[#666666] hover:text-[#0A0A0A] hover:bg-neutral-50"
                 }`}
               >
                 {item.label}
@@ -128,11 +128,11 @@ export function GroveNavbar() {
           })}
         </nav>
 
-        {/* Clean Desktop Actions */}
-        <div className="hidden sm:flex items-center gap-2.5 shrink-0">
+        {/* Vercel Carbon & Alabaster Pill Actions */}
+        <div className="hidden sm:flex items-center gap-2 shrink-0">
           <Link
             href="/audit-gratis"
-            className="inline-flex items-center px-3.5 py-2 rounded-xl text-[13px] font-semibold text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition-colors whitespace-nowrap"
+            className="inline-flex items-center px-3.5 py-1.5 rounded-full text-[13px] font-medium text-[#0A0A0A] bg-white hover:bg-neutral-50 border border-[#EAEAEA] transition-colors whitespace-nowrap"
           >
             Audit Gratis
           </Link>
@@ -140,7 +140,7 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-semibold text-white bg-slate-900 hover:bg-blue-600 transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[13px] font-medium text-white bg-[#0A0A0A] hover:bg-neutral-800 transition-colors whitespace-nowrap"
           >
             <span>Konsultasi</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -152,18 +152,18 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-slate-900 hover:bg-blue-600 transition-colors"
+            className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-medium text-white bg-[#0A0A0A] hover:bg-neutral-800 transition-colors"
           >
             Konsultasi
           </Link>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
+            className="p-2 rounded-full border border-[#EAEAEA] bg-white text-[#0A0A0A] hover:bg-neutral-50 transition-colors cursor-pointer"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>

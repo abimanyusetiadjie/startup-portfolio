@@ -9,28 +9,28 @@ body {
 }
 
 :root {
-  --color-canvas: #F8FAFC;
+  --color-canvas: #FAFAFA;
   --color-surface: #FFFFFF;
-  --color-obsidian: #0F172A;
-  --color-primary: #2563EB;
+  --color-obsidian: #0A0A0A;
+  --color-primary: #0070F3;
   --color-emerald: #10B981;
-  --color-heading: #09090B;
-  --color-muted: #64748B;
-  --color-border: #CBD5E1;
-  --font-jakarta: var(--font-heading);
+  --color-heading: #0A0A0A;
+  --color-muted: #666666;
+  --color-border: #EAEAEA;
+  --font-jakarta: var(--font-sans);
 }
 
 /* ==========================================================================
-   Hybrid Design System: Tailwind Modern Visual + Bootstrap Structural Clarity
-   (Crisp Borders, Card Header/Body/Footer Anatomy, Divided Lists, Input Clarity)
+   Vercel Geist Light Design System
+   (1px #EAEAEA Hairline Grids, Pure Monochrome Surfaces, Precision Inputs)
    ========================================================================== */
 @layer components {
   .ui-card {
-    @apply bg-white border border-slate-300/90 rounded-2xl shadow-[0_4px_20px_rgba(15,23,42,0.04)] flex flex-col;
+    @apply bg-white border border-[#EAEAEA] rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col;
   }
 
   .ui-card-header {
-    @apply px-5 py-3.5 bg-slate-50/90 border-b border-slate-200 flex items-center justify-between gap-3;
+    @apply px-5 py-3.5 bg-[#FAFAFA] border-b border-[#EAEAEA] flex items-center justify-between gap-3;
   }
 
   .ui-card-body {
@@ -38,19 +38,19 @@ body {
   }
 
   .ui-card-footer {
-    @apply px-5 py-4 bg-slate-50/80 border-t border-slate-200 mt-auto;
+    @apply px-5 py-4 bg-[#FAFAFA] border-t border-[#EAEAEA] mt-auto;
   }
 
   .ui-list-group {
-    @apply divide-y divide-slate-200 border border-slate-200 rounded-xl bg-white overflow-hidden;
+    @apply divide-y divide-[#EAEAEA] border border-[#EAEAEA] rounded-xl bg-white overflow-hidden;
   }
 
   .ui-label {
-    @apply block text-xs font-bold uppercase tracking-wide text-slate-700 mb-1.5;
+    @apply block text-xs font-semibold uppercase tracking-wide text-[#666666] mb-1.5;
   }
 
   .ui-input {
-    @apply w-full rounded-lg bg-white border border-slate-300 px-3.5 py-2.5 text-sm text-[#0F172A] placeholder:text-slate-400 focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/15 outline-none transition-all font-medium;
+    @apply w-full rounded-lg bg-white border border-[#EAEAEA] px-3.5 py-2.5 text-sm text-[#0A0A0A] placeholder:text-neutral-400 focus:border-[#0A0A0A] focus:ring-2 focus:ring-neutral-900/10 outline-none transition-all font-normal;
   }
 }
 

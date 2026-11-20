@@ -134,7 +134,7 @@ export function GroveServiceDetailTemplate({
                         service: data.serviceNameForAnalytics,
                       })
                     }
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold px-6 py-3 shadow-sm transition-colors"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 text-white text-sm font-medium px-6 py-3 shadow-sm transition-colors"
                   >
                     <span>Konsultasi Layanan via WhatsApp</span>
                     <ArrowRight className="w-4 h-4" />

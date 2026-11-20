@@ -465,11 +465,11 @@ export function GroveTechStackShowcase() {
     <section
       id="tech-stack"
       data-section="tech-stack"
-      className="scroll-mt-16 py-14 bg-[#F1F5F9] border-b border-slate-200/90 overflow-hidden"
+      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA] overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto px-8 space-y-6">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-          Dibangun di Atas Teknologi Standar Industri
+      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white px-8 py-12 space-y-6">
+        <p className="text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[#666666]">
+          DIBANGUN DI ATAS INFRASTRUKTUR &amp; TEKNOLOGI STANDAR INDUSTRI
         </p>
 
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
@@ -485,12 +485,12 @@ export function GroveTechStackShowcase() {
             {[...allTechnologies, ...allTechnologies].map((item, idx) => (
               <div
                 key={`tech-inline-${idx}`}
-                className="inline-flex items-center gap-2.5 shrink-0 opacity-85 hover:opacity-100 transition-opacity"
+                className="inline-flex items-center gap-2.5 shrink-0 opacity-80 hover:opacity-100 transition-opacity"
               >
                 <div className="w-6 h-6 flex items-center justify-center shrink-0 [&>svg]:w-6 [&>svg]:h-6">
                   {item.icon}
                 </div>
-                <span className="text-sm font-semibold text-slate-700 whitespace-nowrap">
+                <span className="text-sm font-medium text-[#0A0A0A] whitespace-nowrap">
                   {item.name}
                 </span>
               </div>

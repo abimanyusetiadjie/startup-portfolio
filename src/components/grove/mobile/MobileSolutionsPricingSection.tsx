@@ -200,27 +200,30 @@ export function MobileSolutionsPricingSection() {
     <section
       id="m-layanan"
       data-section="layanan-utama"
-      className="scroll-mt-16 bg-[#F1F5F9] py-10 border-b border-slate-200/90"
+      className="scroll-mt-16 bg-[#FAFAFA] py-10 border-b border-[#EAEAEA]"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1">
-          <h2 className="text-[22px] font-extrabold tracking-tight text-slate-900">
-            Layanan &amp; Investasi
+          <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
+            01 / LAYANAN &amp; INVESTASI
+          </span>
+          <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
+            Layanan &amp; investasi.
           </h2>
-          <p className="text-[13.5px] text-slate-500">
+          <p className="text-[13.5px] text-[#666666]">
             Pilih kepemilikan aset penuh atau layanan terkelola.
           </p>
         </div>
 
         <div id="m-harga" data-section="harga" className="px-5 space-y-2.5 scroll-mt-16">
-          <div className="grid grid-cols-2 p-1 rounded-xl bg-slate-200/90">
+          <div className="grid grid-cols-2 p-1 rounded-full bg-neutral-100 border border-[#EAEAEA]">
             <button
               type="button"
               onClick={() => setMode("beli-putus")}
-              className={`py-2 px-3 rounded-lg text-[12.5px] font-semibold transition-all cursor-pointer ${
+              className={`py-2 px-3 rounded-full text-[12.5px] font-medium transition-all cursor-pointer ${
                 isBeliPutus
-                  ? "bg-white text-slate-900 shadow-xs"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-white text-[#0A0A0A] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+                  : "text-[#666666] hover:text-[#0A0A0A]"
               }`}
             >
               Beli Putus
@@ -228,17 +231,17 @@ export function MobileSolutionsPricingSection() {
             <button
               type="button"
               onClick={() => setMode("terima-beres")}
-              className={`py-2 px-3 rounded-lg text-[12.5px] font-semibold transition-all cursor-pointer ${
+              className={`py-2 px-3 rounded-full text-[12.5px] font-medium transition-all cursor-pointer ${
                 !isBeliPutus
-                  ? "bg-white text-slate-900 shadow-xs"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-white text-[#0A0A0A] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+                  : "text-[#666666] hover:text-[#0A0A0A]"
               }`}
             >
               Terima Beres
             </button>
           </div>
 
-          <p className="text-[12.5px] text-slate-500 text-center">
+          <p className="text-[12.5px] text-[#666666] text-center">
             {isBeliPutus
               ? "Kode program dan basis data menjadi hak milik Anda sepenuhnya."
               : "Server, pencadangan harian, dan SLA 99,9% kami kelola penuh."}
@@ -323,9 +326,9 @@ export function MobileSolutionsPricingSection() {
                   <Link
                     href={pkg.detailHref}
                     className={`w-full py-1.5 text-[12px] font-medium flex items-center justify-center gap-1 transition-colors ${
-                      isBeliPutus
-                        ? "text-slate-600 hover:text-blue-600"
-                        : "text-slate-300 hover:text-white"
+                      pkg.popular
+                        ? "text-neutral-300 hover:text-white"
+                        : "text-[#666666] hover:text-[#0A0A0A]"
                     }`}
                   >
                     <span>Lihat detail layanan &amp; modul</span>

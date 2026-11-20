@@ -21,35 +21,32 @@ export function getPricingCardTheme(
 ): PricingCardTheme {
   if (isPopular) {
     return {
-      card: isBeliPutus
-        ? "bg-[#0F172A] text-white border border-teal-500/40 ring-1 ring-teal-400/20 shadow-[0_20px_48px_rgba(15,23,42,0.18)]"
-        : "bg-[#0F172A] text-white border border-blue-500/40 ring-1 ring-blue-400/20 shadow-[0_20px_48px_rgba(15,23,42,0.18)]",
-      icon: isBeliPutus ? "text-teal-400" : "text-blue-400",
+      card: "bg-[#0A0A0A] text-white border border-neutral-800 shadow-[0_20px_50px_rgba(0,0,0,0.12)]",
+      icon: isBeliPutus ? "text-emerald-400" : "text-[#0070F3]",
       title: "text-white",
-      badge: isBeliPutus
-        ? "bg-teal-500/15 text-teal-300 border border-teal-400/25 px-2.5 py-0.5 rounded-full"
-        : "bg-blue-500/15 text-blue-300 border border-blue-400/25 px-2.5 py-0.5 rounded-full",
+      badge:
+        "bg-white/10 text-white border border-white/15 px-2.5 py-0.5 rounded-full font-mono text-[11px]",
       price: "text-white",
-      summary: "text-slate-300",
-      divider: "border-slate-800",
-      check: isBeliPutus ? "text-teal-400" : "text-blue-400",
-      featureText: "text-slate-200",
-      button: isBeliPutus
-        ? "bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold"
-        : "bg-blue-600 hover:bg-blue-500 text-white",
+      summary: "text-neutral-400",
+      divider: "border-neutral-800",
+      check: isBeliPutus ? "text-emerald-400" : "text-[#38BDF8]",
+      featureText: "text-neutral-200",
+      button:
+        "bg-white hover:bg-neutral-200 text-[#0A0A0A] font-medium rounded-full",
     };
   }
 
   return {
-    card: "bg-white border border-slate-200/90 shadow-[0_2px_12px_rgba(15,23,42,0.03)]",
-    icon: isBeliPutus ? "text-teal-600" : "text-blue-600",
-    title: "text-slate-900",
-    badge: isBeliPutus ? "text-teal-700" : "text-blue-600",
-    price: "text-slate-900",
-    summary: "text-slate-600",
-    divider: "border-slate-100",
-    check: isBeliPutus ? "text-teal-600" : "text-blue-600",
-    featureText: "text-slate-700",
-    button: "bg-slate-900 hover:bg-slate-800 text-white",
+    card: "bg-white border border-[#EAEAEA] hover:border-neutral-300 shadow-[0_2px_10px_rgba(0,0,0,0.02)]",
+    icon: "text-[#0A0A0A]",
+    title: "text-[#0A0A0A]",
+    badge: "text-[#666666]",
+    price: "text-[#0A0A0A]",
+    summary: "text-[#666666]",
+    divider: "border-[#EAEAEA]",
+    check: "text-[#0A0A0A]",
+    featureText: "text-[#404040]",
+    button:
+      "bg-[#0A0A0A] hover:bg-neutral-800 text-white font-medium rounded-full",
   };
 }

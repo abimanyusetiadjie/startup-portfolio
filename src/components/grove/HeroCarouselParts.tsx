@@ -15,7 +15,7 @@ export function HeroSyncedHeadline({ className }: HeroSyncedHeadlineProps) {
   return (
     <h1 className={className}>
       Kami Membangun Sistem yang{" "}
-      <span className="bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 bg-clip-text text-transparent">
+      <span className="bg-gradient-to-r from-[#0070F3] via-sky-500 to-teal-500 bg-clip-text text-transparent">
         Bekerja Untuk Anda.
       </span>
     </h1>
@@ -43,8 +43,8 @@ export function HeroSyncedIntro({
       onSelect ? "cursor-pointer" : ""
     } ${
       isActive
-        ? "font-semibold text-blue-600 underline decoration-blue-600/40 underline-offset-4"
-        : "font-semibold text-slate-900 hover:text-blue-600"
+        ? "font-semibold text-[#0A0A0A] underline decoration-[#0070F3] underline-offset-4"
+        : "font-medium text-[#0A0A0A] hover:text-[#0070F3]"
     }`;
   };
 
@@ -99,8 +99,8 @@ export function HeroSyncedDescription({
         aria-label="Fokus layanan Abinest"
         className={
           isDesktop
-            ? "inline-flex items-center gap-6 border-b border-slate-200/80"
-            : "flex items-center justify-between gap-2 border-b border-slate-200/80 pt-0.5"
+            ? "inline-flex items-center p-1 rounded-full bg-neutral-100 border border-[#EAEAEA]"
+            : "flex items-center justify-between gap-1 p-1 rounded-full bg-neutral-100 border border-[#EAEAEA]"
         }
       >
         {HERO_SLIDES.map((slide, idx) => {
@@ -114,39 +114,22 @@ export function HeroSyncedDescription({
               aria-selected={isActive}
               aria-controls={`${idPrefix}-panel-${slide.id}`}
               onClick={() => onSelect(idx)}
-              className={`relative transition-colors cursor-pointer whitespace-nowrap shrink-0 font-semibold ${
-                isDesktop ? "pb-2.5 text-[13px]" : "pb-2 text-[11.5px] sm:text-[12.5px]"
+              className={`relative rounded-full transition-all cursor-pointer whitespace-nowrap shrink-0 font-medium ${
+                isDesktop
+                  ? "px-3.5 py-1.5 text-[12.5px]"
+                  : "flex-1 py-1.5 px-2 text-center text-[11px] sm:text-[12px]"
               } ${
                 isActive
-                  ? "text-blue-600"
-                  : "text-slate-400 hover:text-slate-700"
+                  ? "text-[#0A0A0A] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+                  : "text-[#666666] hover:text-[#0A0A0A]"
               }`}
             >
               {isDesktop && (
-                <span className="font-mono text-[11px] mr-1.5 opacity-75">
+                <span className="font-mono text-[10.5px] mr-1.5 text-neutral-400">
                   {slide.number}
                 </span>
               )}
               <span>{slide.label}</span>
-              {isDesktop ? (
-                isActive && (
-                  <motion.span
-                    layoutId="hero-desktop-tab-underline"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    aria-hidden="true"
-                    className="absolute inset-x-0 -bottom-px h-[2px] rounded-full bg-gradient-to-r from-blue-600 to-teal-500"
-                  />
-                )
-              ) : (
-                <span
-                  aria-hidden="true"
-                  className={`absolute inset-x-0 -bottom-px h-[2px] rounded-full bg-gradient-to-r from-blue-600 to-teal-500 transition-all duration-300 ${
-                    isActive
-                      ? "opacity-100 scale-x-100"
-                      : "opacity-0 scale-x-0"
-                  }`}
-                />
-              )}
             </button>
           );
         })}
@@ -163,8 +146,8 @@ export function HeroSyncedDescription({
               role="tabpanel"
               aria-labelledby={`${idPrefix}-tab-${slide.id}`}
               aria-hidden={!isActive}
-              className={`col-start-1 row-start-1 leading-relaxed font-normal text-slate-600 transition-all duration-500 ${
-                isDesktop ? "text-[17px]" : "text-[14.5px]"
+              className={`col-start-1 row-start-1 leading-relaxed font-normal text-[#666666] transition-all duration-500 ${
+                isDesktop ? "text-[16px]" : "text-[14px]"
               } ${
                 isActive
                   ? "opacity-100 translate-y-0 z-10"
@@ -187,7 +170,7 @@ interface HeroShowcaseFrameProps {
 }
 
 /**
- * Pure visual image carousel frame kept in sync with the hero slide state.
+ * Vercel Geist Translucent Stage wrapping the synchronized hero slide visuals.
  */
 export function HeroShowcaseFrame({
   activeIdx,
@@ -195,27 +178,31 @@ export function HeroShowcaseFrame({
   className,
 }: HeroShowcaseFrameProps) {
   return (
-    <div className={className}>
-      {HERO_SLIDES.map((slide, idx) => (
-        <div
-          key={slide.src}
-          aria-hidden={idx !== activeIdx}
-          className={`absolute inset-0 transition-all duration-700 ease-out ${
-            idx === activeIdx
-              ? "opacity-100 scale-100 z-10"
-              : "opacity-0 scale-[1.025] z-0 pointer-events-none"
-          }`}
-        >
-          <Image
-            src={slide.src}
-            alt={slide.alt}
-            fill
-            priority={idx === 0}
-            sizes={sizes}
-            className="object-cover object-center"
-          />
-        </div>
-      ))}
+    <div
+      className={`p-2 rounded-2xl bg-gradient-to-b from-white to-[#FAFAFA] border border-[#EAEAEA] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.07)] ${className}`}
+    >
+      <div className="relative w-full h-full rounded-xl overflow-hidden bg-neutral-100 border border-[#EAEAEA]/80">
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.src}
+            aria-hidden={idx !== activeIdx}
+            className={`absolute inset-0 transition-all duration-700 ease-out ${
+              idx === activeIdx
+                ? "opacity-100 scale-100 z-10"
+                : "opacity-0 scale-[1.02] z-0 pointer-events-none"
+            }`}
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              priority={idx === 0}
+              sizes={sizes}
+              className="object-cover object-center"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

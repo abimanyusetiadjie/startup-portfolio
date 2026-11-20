@@ -79,14 +79,17 @@ export function MobileCaseStudiesSection() {
     <section
       id="m-portofolio"
       data-section="portofolio"
-      className="scroll-mt-16 bg-white py-10 border-b border-slate-100"
+      className="scroll-mt-16 bg-white py-10 border-b border-[#EAEAEA]"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1">
-          <h2 className="text-[22px] font-extrabold tracking-tight text-slate-900">
-            Studi Kasus Pilihan
+          <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
+            02 / BUKTI PRODUKSI
+          </span>
+          <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
+            Studi kasus pilihan.
           </h2>
-          <p className="text-[13.5px] text-slate-500">
+          <p className="text-[13.5px] text-[#666666]">
             Implementasi sistem dengan hasil terukur.
           </p>
         </div>
@@ -96,41 +99,41 @@ export function MobileCaseStudiesSection() {
             <article
               key={item.id}
               onClick={() => setSelectedCase(item)}
-              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.04)] overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.99] transition-transform"
+              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-2xl bg-white border border-[#EAEAEA] shadow-[0_2px_10px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.99] transition-transform"
             >
               <div>
-                <div className="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden">
-                  <Image
-                    src={failedImages[item.id] ? item.fallback : item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 84vw, 330px"
-                    className="object-cover object-center"
-                    onError={() =>
-                      setFailedImages((prev) =>
-                        prev[item.id] ? prev : { ...prev, [item.id]: true }
-                      )
-                    }
-                  />
-                </div>
-
-                <div className="p-4 space-y-3.5">
+                <div className="p-4 space-y-3">
                   <div>
-                    <span className="text-[11px] font-semibold text-blue-600 block mb-1">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] font-mono text-[10.5px] font-medium text-[#666666] mb-2">
                       {item.sector}
                     </span>
-                    <h3 className="text-[15.5px] font-bold text-slate-900 leading-snug">
+                    <h3 className="text-[15.5px] font-semibold tracking-[-0.02em] text-[#0A0A0A] leading-snug">
                       {item.title}
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-2 divide-x divide-slate-100 pt-1">
+                  <div className="relative aspect-[16/9] w-full rounded-xl bg-[#FAFAFA] border border-[#EAEAEA] overflow-hidden">
+                    <Image
+                      src={failedImages[item.id] ? item.fallback : item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 84vw, 330px"
+                      className="object-cover object-center"
+                      onError={() =>
+                        setFailedImages((prev) =>
+                          prev[item.id] ? prev : { ...prev, [item.id]: true }
+                        )
+                      }
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 divide-x divide-[#EAEAEA] pt-1">
                     {item.metrics.map((m) => (
                       <div key={m.label} className="pr-3 first:pl-0 last:pl-3 last:pr-0">
-                        <div className="text-[20px] font-black tracking-tight text-slate-900">
+                        <div className="text-[20px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
                           {m.value}
                         </div>
-                        <div className="text-[11.5px] font-medium text-slate-500">
+                        <div className="text-[11.5px] font-normal text-[#666666]">
                           {m.label}
                         </div>
                       </div>
@@ -139,9 +142,9 @@ export function MobileCaseStudiesSection() {
                 </div>
               </div>
 
-              <div className="px-4 py-3 border-t border-slate-100 flex items-center justify-between text-[13px] font-semibold text-blue-600">
-                <span>Baca Ringkasan</span>
-                <ArrowRight className="w-4 h-4" />
+              <div className="px-4 py-3 border-t border-[#EAEAEA] flex items-center justify-between text-[12.5px] font-medium text-[#0A0A0A]">
+                <span>Baca ringkasan</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </article>
           ))}

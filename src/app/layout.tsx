@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const geistSans = Geist({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const jetBrainsMono = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -49,9 +47,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`scroll-smooth overflow-x-hidden ${plusJakartaSans.variable} ${jetBrainsMono.variable}`}
+      className={`scroll-smooth overflow-x-hidden ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans antialiased text-slate-900 bg-[#F8FAFC] selection:bg-[#2563EB] selection:text-white overflow-x-hidden">
+      <body className="font-sans antialiased text-[#0A0A0A] bg-[#FAFAFA] selection:bg-[#0070F3] selection:text-white overflow-x-hidden">
         <GoogleAnalytics />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>

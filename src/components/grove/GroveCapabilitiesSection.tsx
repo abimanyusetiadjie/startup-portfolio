@@ -93,25 +93,44 @@ export function GroveCapabilitiesSection() {
     <section
       id="layanan-utama"
       data-section="layanan-utama"
-      className="scroll-mt-16 py-20 bg-[#F1F5F9] border-b border-slate-200/90"
+      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA]"
     >
-      <div className="max-w-[1200px] mx-auto px-8 space-y-12">
+      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white">
+        {/* Vercel Dual-Tone Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="max-w-xl space-y-2.5"
+          className="px-8 py-14 border-b border-[#EAEAEA] relative"
         >
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-            Layanan Utama
-          </h2>
-          <p className="text-[15.5px] text-slate-600 leading-relaxed">
-            Tiga cakupan rekayasa yang dirancang untuk mempercepat operasional bisnis Anda.
-          </p>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
+          >
+            +
+          </span>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
+          >
+            +
+          </span>
+          <div className="space-y-3 max-w-3xl">
+            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666] block">
+              01 / CAKUPAN REKAYASA
+            </span>
+            <h2 className="text-[28px] sm:text-[34px] font-semibold tracking-[-0.035em] leading-[1.18]">
+              <span className="text-[#0A0A0A]">Layanan utama terintegrasi.</span>{" "}
+              <span className="text-[#666666] font-normal">
+                Tiga fondasi sistem untuk mempercepat akuisisi pelanggan dan efisiensi operasional bisnis Anda.
+              </span>
+            </h2>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-3 gap-7">
+        {/* Connected 3-Cell Geist Matrix (Text First + Inset Fade-Mask Stage) */}
+        <div className="grid grid-cols-3 divide-x divide-[#EAEAEA] border-b border-[#EAEAEA]">
           {capabilities.map((item, idx) => (
             <motion.article
               key={item.id}
@@ -119,39 +138,46 @@ export function GroveCapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.35, delay: idx * 0.06 }}
-              className="group rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.07)] transition-all overflow-hidden flex flex-col justify-between"
+              className="group p-8 bg-white hover:bg-[#FAFAFA]/75 transition-colors flex flex-col justify-between relative"
             >
+              {/* Top Shimmer Hairline on Hover */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#0A0A0A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              />
+
               <div>
-                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                <div className="space-y-2.5">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] font-mono text-[11px] font-medium text-[#666666]">
+                    {item.number}
+                  </span>
+                  <h3 className="text-[20px] font-semibold tracking-[-0.025em] text-[#0A0A0A] leading-snug pt-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-[14px] text-[#666666] leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+
+                {/* Inset Visual Stage with Soft Bottom Fade Mask */}
+                <div className="my-6 relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#EAEAEA] bg-[#FAFAFA] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.06)] [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]">
                   <Image
                     src={item.image}
                     alt={item.alt}
                     fill
                     sizes="(max-width: 1200px) 33vw, 380px"
-                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
                   />
-                </div>
-
-                <div className="p-6 space-y-2.5">
-                  <span className="text-xs font-semibold text-blue-600 block">
-                    {item.number}
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-4 mt-1 border-t border-slate-100 flex items-center justify-between gap-3">
+              <div className="pt-4 border-t border-[#EAEAEA]/80 flex items-center justify-between gap-3">
                 <Link
                   href={item.detailHref}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FAFAFA] group-hover:bg-[#0A0A0A] text-[#0A0A0A] group-hover:text-white border border-[#EAEAEA] group-hover:border-[#0A0A0A] text-xs font-medium transition-all"
                 >
                   <span>Detail layanan</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -165,17 +191,20 @@ export function GroveCapabilitiesSection() {
                       service: item.title,
                     })
                   }
-                  className="text-xs font-medium text-slate-500 hover:text-slate-900 transition-colors"
+                  className="text-xs font-medium text-[#666666] hover:text-[#0A0A0A] transition-colors"
                 >
-                  Diskusikan via WA
+                  Diskusikan ↗
                 </a>
               </div>
             </motion.article>
           ))}
         </div>
 
-        {/* Tombol Pembuka Tabel Perbandingan (Tertutup secara default agar hemat ruang scroll) */}
-        <div className="text-center pt-1">
+        {/* Tombol Pembuka Tabel Perbandingan */}
+        <div className="px-8 py-6 bg-[#FAFAFA]/60 flex items-center justify-between">
+          <span className="text-xs text-[#666666]">
+            Bingung memilih arsitektur yang paling sesuai dengan tahap bisnis Anda?
+          </span>
           <button
             type="button"
             onClick={() => setShowCompareModal(true)}

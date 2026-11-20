@@ -76,20 +76,23 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="space-y-1">
-          <h2 className="text-[22px] font-extrabold tracking-tight text-slate-900">
-            Mulai Konsultasi
+          <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
+            05 / DISKUSI ARSITEKTUR
+          </span>
+          <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
+            Mulai konsultasi.
           </h2>
-          <p className="text-[13.5px] text-slate-500">
+          <p className="text-[13.5px] text-[#666666]">
             Respons langsung oleh engineer kami dalam &lt;15 menit.
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl bg-[#F8FAFC] border border-slate-200/90 p-5 space-y-4"
+          className="rounded-2xl bg-[#FAFAFA] border border-[#EAEAEA] p-5 space-y-4"
         >
           <div className="space-y-2">
-            <span className="text-[12.5px] font-semibold text-slate-700 block">
+            <span className="text-[12.5px] font-medium text-[#0A0A0A] block">
               Kebutuhan Utama
             </span>
             <div className="flex flex-wrap gap-2">
@@ -100,10 +103,10 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
                     key={chip}
                     type="button"
                     onClick={() => setServiceType(chip)}
-                    className={`px-3.5 py-2 rounded-xl text-[12.5px] font-semibold transition-all cursor-pointer ${
+                    className={`px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-all cursor-pointer ${
                       active
-                        ? "bg-slate-900 text-white shadow-2xs"
-                        : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300"
+                        ? "bg-[#0A0A0A] text-white shadow-sm"
+                        : "bg-white text-[#666666] border border-[#EAEAEA] hover:border-neutral-300"
                     }`}
                   >
                     {chip}
@@ -232,7 +235,7 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
 
           <button
             type="submit"
-            className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white text-[14px] font-semibold flex items-center justify-center gap-2 shadow-sm shadow-blue-600/20 transition-all cursor-pointer"
+            className="w-full h-12 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 active:scale-[0.99] text-white text-[14px] font-medium flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
           >
             <span>Kirim via WhatsApp</span>
             <ArrowRight className="w-4 h-4" />

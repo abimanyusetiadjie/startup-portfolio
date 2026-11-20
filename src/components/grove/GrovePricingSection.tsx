@@ -140,29 +140,44 @@ export function GrovePricingSection() {
     <section
       id="harga"
       data-section="harga"
-      className="scroll-mt-16 py-20 bg-white border-b border-slate-200/70"
+      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA]"
     >
-      <div className="max-w-[1200px] mx-auto px-8 space-y-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-2.5 max-w-xl">
-            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
-              Investasi yang Transparan
+      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white">
+        <div className="px-8 py-14 border-b border-[#EAEAEA] flex flex-col md:flex-row md:items-end justify-between gap-6 relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
+          >
+            +
+          </span>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
+          >
+            +
+          </span>
+          <div className="space-y-3 max-w-2xl">
+            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666] block">
+              04 / MODEL INVESTASI
+            </span>
+            <h2 className="text-[28px] sm:text-[34px] font-semibold tracking-[-0.035em] leading-[1.18]">
+              <span className="text-[#0A0A0A]">Investasi yang transparan.</span>{" "}
+              <span className="text-[#666666] font-normal">
+                {isBeliPutus
+                  ? "Skema Beli Putus: aplikasi dan seluruh data usaha diserahkan utuh tanpa biaya bulanan."
+                  : "Skema Terima Beres: server, cadangan data harian, dan perawatan sistem kami tangani penuh."}
+              </span>
             </h2>
-            <p className="text-[15.5px] text-slate-600 leading-relaxed">
-              {isBeliPutus
-                ? "Skema Beli Putus: aplikasi dan seluruh data usaha diserahkan utuh tanpa biaya bulanan."
-                : "Skema Terima Beres: server, cadangan data harian, dan perawatan sistem kami tangani penuh."}
-            </p>
           </div>
 
-          <div className="inline-flex p-1 rounded-xl bg-slate-100 shrink-0 self-start md:self-auto">
+          <div className="inline-flex p-1 rounded-full bg-neutral-100 border border-[#EAEAEA] shrink-0 self-start md:self-auto">
             <button
               type="button"
               onClick={() => setPricingMode("beli-putus")}
-              className={`px-5 py-2 rounded-lg text-[13px] font-semibold transition-all cursor-pointer ${
+              className={`px-5 py-1.5 rounded-full text-[13px] font-medium transition-all cursor-pointer ${
                 isBeliPutus
-                  ? "bg-white text-slate-900 shadow-xs"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-white text-[#0A0A0A] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+                  : "text-[#666666] hover:text-[#0A0A0A]"
               }`}
             >
               Beli Putus
@@ -170,10 +185,10 @@ export function GrovePricingSection() {
             <button
               type="button"
               onClick={() => setPricingMode("terima-beres")}
-              className={`px-5 py-2 rounded-lg text-[13px] font-semibold transition-all cursor-pointer ${
+              className={`px-5 py-1.5 rounded-full text-[13px] font-medium transition-all cursor-pointer ${
                 !isBeliPutus
-                  ? "bg-white text-slate-900 shadow-xs"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-white text-[#0A0A0A] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+                  : "text-[#666666] hover:text-[#0A0A0A]"
               }`}
             >
               Terima Beres
@@ -181,81 +196,83 @@ export function GrovePricingSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-7 items-stretch">
-          {pricingTiers.map((tier, idx) => {
-            const Icon = tier.icon;
-            const theme = getPricingCardTheme(tier.isPopular, isBeliPutus);
+        <div className="p-8 bg-[#FAFAFA]/40">
+          <div className="grid grid-cols-3 gap-6 items-stretch">
+            {pricingTiers.map((tier, idx) => {
+              const Icon = tier.icon;
+              const theme = getPricingCardTheme(tier.isPopular, isBeliPutus);
 
-            return (
-              <motion.article
-                key={tier.id}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.32, delay: idx * 0.06 }}
-                className={`rounded-2xl p-7 flex flex-col justify-between transition-all ${theme.card}`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <Icon className={`w-4 h-4 ${theme.icon}`} />
-                      <h3 className={`text-lg font-bold ${theme.title}`}>
-                        {tier.title}
-                      </h3>
-                    </div>
-                    {tier.isPopular && (
-                      <span className={`text-xs font-semibold ${theme.badge}`}>
-                        Populer
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <div
-                      className={`text-[30px] font-black tracking-tight ${theme.price}`}
-                    >
-                      {tier.price}
-                    </div>
-                    <p className={`text-[13.5px] leading-relaxed ${theme.summary}`}>
-                      {tier.summary}
-                    </p>
-                  </div>
-
-                  <div className={`border-t my-5 ${theme.divider}`} />
-
-                  <ul className={`space-y-3 text-[13.5px] ${theme.featureText}`}>
-                    {tier.features[pricingMode].map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2.5">
-                        <Check
-                          className={`w-4 h-4 shrink-0 mt-0.5 ${theme.check}`}
-                        />
-                        <span className="leading-snug">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    tier.waMessages[pricingMode]
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source: "pricing_desktop",
-                      service: tier.title,
-                      label: pricingMode,
-                    })
-                  }
-                  className={`mt-7 w-full h-11 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${theme.button}`}
+              return (
+                <motion.article
+                  key={tier.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.32, delay: idx * 0.06 }}
+                  className={`rounded-2xl p-7 flex flex-col justify-between transition-all ${theme.card}`}
                 >
-                  <span>Konsultasikan Paket Ini</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </motion.article>
-            );
-          })}
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="flex items-center gap-2.5">
+                        <Icon className={`w-4 h-4 ${theme.icon}`} />
+                        <h3 className={`text-[17px] font-semibold tracking-[-0.02em] ${theme.title}`}>
+                          {tier.title}
+                        </h3>
+                      </div>
+                      {tier.isPopular && (
+                        <span className={`text-xs font-medium ${theme.badge}`}>
+                          Populer
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <div
+                        className={`text-[30px] font-semibold tracking-[-0.035em] ${theme.price}`}
+                      >
+                        {tier.price}
+                      </div>
+                      <p className={`text-[13.5px] leading-relaxed ${theme.summary}`}>
+                        {tier.summary}
+                      </p>
+                    </div>
+
+                    <div className={`border-t my-5 ${theme.divider}`} />
+
+                    <ul className={`space-y-3 text-[13.5px] ${theme.featureText}`}>
+                      {tier.features[pricingMode].map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-2.5">
+                          <Check
+                            className={`w-4 h-4 shrink-0 mt-0.5 ${theme.check}`}
+                          />
+                          <span className="leading-snug">{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      tier.waMessages[pricingMode]
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source: "pricing_desktop",
+                        service: tier.title,
+                        label: pricingMode,
+                      })
+                    }
+                    className={`mt-7 w-full h-11 text-sm flex items-center justify-center gap-2 transition-colors ${theme.button}`}
+                  >
+                    <span>Konsultasikan Paket Ini</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
 
         <div className="text-center pt-1">
