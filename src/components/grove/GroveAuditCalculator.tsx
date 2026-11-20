@@ -102,8 +102,8 @@ export function GroveAuditCalculator() {
       businessType === "Distributor / Gudang / Toko Ritel"
     ) {
       architectureName = "Sistem ERP Multi-Gudang, POS Kasir & Faktur Otomatis";
-      duration = tier.usersCount > 20 ? "2 – 4 Minggu" : "7 – 14 Hari Kerja";
-      beliPutusPrice = tier.usersCount > 20 ? 15000000 : 4000000;
+      duration = tier.usersCount > 20 ? "4 – 8 Minggu (Bertahap)" : "2 – 4 Minggu Kerja";
+      beliPutusPrice = tier.usersCount > 20 ? 12000000 : 4000000;
       terimaBeresPrice = "Rp750 ribu / bulan";
       keyIssues = [
         "Risiko selisih stok antar gudang/kasir jika masih rekap manual",
@@ -115,8 +115,8 @@ export function GroveAuditCalculator() {
       businessType === "Sekolah / Kampus / Lembaga Kursus"
     ) {
       architectureName = "Portal SIAKAD Terpadu, PPDB Daring & Ujian CBT Anti-Tumbang";
-      duration = tier.usersCount > 20 ? "2 – 4 Minggu" : "7 – 14 Hari Kerja";
-      beliPutusPrice = 4500000;
+      duration = tier.usersCount > 20 ? "4 – 8 Minggu (Bertahap)" : "2 – 4 Minggu Kerja";
+      beliPutusPrice = tier.usersCount > 20 ? 9500000 : 4500000;
       terimaBeresPrice = "Rp750 ribu / bulan";
       keyIssues = [
         "Peladen PPDB/ujian rentan tumbang saat ratusan siswa masuk bersamaan",
@@ -125,7 +125,7 @@ export function GroveAuditCalculator() {
       ];
     } else if (goal === "Otomasi Balasan WhatsApp & Input Faktur") {
       architectureName = "Agen AI WhatsApp Resmi Meta + Document AI OCR Faktur";
-      duration = "7 – 14 Hari Kerja";
+      duration = "1 – 4 Minggu Kerja";
       beliPutusPrice = 5000000;
       terimaBeresPrice = "Rp900 ribu / bulan";
       keyIssues = [
@@ -171,7 +171,7 @@ export function GroveAuditCalculator() {
 • Jenis Usaha: ${businessType}
 • Kondisi Saat Ini: ${condition}${urlText}
 • Jumlah Pengguna/Staf: ${auditResult.tier.label}
-• Target 14 Hari: ${goal}
+• Target Prioritas: ${goal}
 
 *Hasil Rekomendasi Sistem:*
 • Arsitektur: ${auditResult.architectureName}
@@ -234,7 +234,7 @@ Saya ingin mengklaim *Preview Simulasi Gratis* & berdiskusi langkah penerapannya
                         onClick={() => setBusinessType(item.label)}
                         className={`text-left p-3 rounded-xl border transition-all cursor-pointer ${
                           selected
-                            ? "bg-blue-50/90 border-2 border-[#2563EB] text-blue-950 shadow-2xs"
+                            ? "bg-blue-50/90 border-2 border-[#2563EB] text-blue-950 shadow-sm"
                             : "bg-white hover:bg-slate-50 border-slate-300 text-slate-700"
                         }`}
                       >
@@ -303,7 +303,7 @@ Saya ingin mengklaim *Preview Simulasi Gratis* & berdiskusi langkah penerapannya
                         onClick={() => setStaffTierId(tier.id)}
                         className={`px-3 py-2.5 rounded-lg border text-center text-xs font-bold transition-all cursor-pointer ${
                           selected
-                            ? "bg-[#2563EB] text-white border-[#1D4ED8] shadow-xs"
+                            ? "bg-[#2563EB] text-white border-[#1D4ED8] shadow-sm"
                             : "bg-white hover:bg-slate-50 text-slate-700 border-slate-300"
                         }`}
                       >
@@ -314,11 +314,11 @@ Saya ingin mengklaim *Preview Simulasi Gratis* & berdiskusi langkah penerapannya
                 </div>
               </div>
 
-              {/* Step 4: Target Utama 14 Hari ke Depan */}
+              {/* Step 4: Target Prioritas Operasional */}
               <div>
                 <span className="ui-label flex items-center gap-1.5">
                   <Target className="w-3.5 h-3.5 text-[#2563EB]" />
-                  <span>4. Target Prioritas dalam 14 Hari ke Depan</span>
+                  <span>4. Target Prioritas Operasional Usaha Anda</span>
                 </span>
                 <div className="space-y-2">
                   {GOALS.map((g) => {
@@ -356,7 +356,7 @@ Saya ingin mengklaim *Preview Simulasi Gratis* & berdiskusi langkah penerapannya
                 </h2>
               </div>
               <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[11px] font-bold">
-                Siap &lt;14 Hari
+                {auditResult.duration}
               </span>
             </div>
 

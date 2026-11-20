@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -39,6 +40,11 @@ export interface ServiceDetailData {
   secondaryCta: {
     label: string;
     href: string;
+  };
+  previewImage: {
+    src: string;
+    alt: string;
+    caption: string;
   };
   architectureHeading: string;
   architectureSubheading: string;
@@ -221,6 +227,26 @@ export function GroveServiceDetailTemplate({
                   </Link>
                 </div>
               </aside>
+            </div>
+
+            {/* Product UI Showcase Preview */}
+            <div className="mt-10 pt-8 border-t border-slate-100 space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                <span className="font-semibold uppercase tracking-wider text-blue-600">
+                  Pratinjau Antarmuka &amp; Arsitektur Sistem
+                </span>
+                <span>{data.previewImage.caption}</span>
+              </div>
+              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-sm">
+                <Image
+                  src={data.previewImage.src}
+                  alt={data.previewImage.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1200px) 95vw, 1100px"
+                  className="object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </section>

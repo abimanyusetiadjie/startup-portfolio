@@ -12,7 +12,14 @@ export function GroveNavbar() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
-    const sections = ["layanan-utama", "portofolio", "cara-kerja", "harga", "tech-stack"];
+    const sections = [
+      "layanan-utama",
+      "portofolio",
+      "cara-kerja",
+      "harga",
+      "tech-stack",
+      "faq",
+    ];
 
     const onScroll = () => {
       setScrolled(window.scrollY > 16);
@@ -47,6 +54,7 @@ export function GroveNavbar() {
     { label: "Studi Kasus", href: "/#portofolio", id: "portofolio" },
     { label: "Alur Kerja", href: "/#cara-kerja", id: "cara-kerja" },
     { label: "Investasi", href: "/#harga", id: "harga" },
+    { label: "FAQ", href: "/#faq", id: "faq" },
     { label: "Demo", href: "/demo", id: "demo" },
   ];
 

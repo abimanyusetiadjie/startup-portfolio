@@ -67,6 +67,11 @@ const serviceData: ServiceDetailData = {
     label: "Uji Simulasi ERP & SIAKAD Interaktif",
     href: "/demo",
   },
+  previewImage: {
+    src: "/images/erp-dashboard.webp",
+    alt: "Pratinjau Dasbor Sistem ERP Multi-Gudang, Kasir POS, dan Portal SIAKAD Abinest",
+    caption: "Sinkronisasi Multi-Gudang Real-Time · Kasir POS · Portal SIAKAD Tanpa Biaya Lisensi per Staf",
+  },
   architectureHeading: "Tiga Pilar Aplikasi Operasional Terpadu",
   architectureSubheading:
     "Setiap sistem dibangun dengan pembagian hak akses berbasis peran (Role-Based Access Control), pencatatan riwayat perubahan otomatis, dan ekspor laporan siap audit.",

@@ -46,6 +46,11 @@ export function GroveFooterSection() {
                 </Link>
               </li>
               <li>
+                <Link href="/#faq" className="hover:text-sky-400 transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
                 <Link href="/#kontak" className="hover:text-sky-400 transition-colors">
                   Konsultasi
                 </Link>

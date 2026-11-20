@@ -67,6 +67,11 @@ const serviceData: ServiceDetailData = {
     label: "Coba Simulasi Bot & OCR di Browser",
     href: "/demo",
   },
+  previewImage: {
+    src: "/images/ai-ml-workflow.webp",
+    alt: "Alur Kerja Automasi WhatsApp Cloud API Resmi Meta dan Pembaca Faktur OCR 99,7%",
+    caption: "Meta Cloud API Resmi (Anti-Blokir) · Balas Chat <1 Detik 24/7 · Ekstraksi Nota & Faktur OCR 99,7%",
+  },
   architectureHeading: "Solusi AI Praktis untuk Efisiensi Nyata",
   architectureSubheading:
     "Bukan sekadar chatbot kaku berbasis kata kunci. Sistem membaca maksud kalimat pelanggan, mengecek data operasional secara langsung, dan memindahkan kendali ke staf bila diperlukan.",

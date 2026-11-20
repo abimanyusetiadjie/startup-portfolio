@@ -67,6 +67,11 @@ const serviceData: ServiceDetailData = {
     label: "Ajukan Audit Kecepatan Web Gratis",
     href: "/audit-gratis",
   },
+  previewImage: {
+    src: "/images/hero-web.webp",
+    alt: "Pratinjau Website Korporat Berkecepatan Tinggi dan Skor Google PageSpeed 100/100",
+    caption: "Arsitektur Next.js (<0,8 detik) · Schema JSON-LD Google · 100% Hak Milik Kode",
+  },
   architectureHeading: "Lebih dari Sekadar Tampilan Visual",
   architectureSubheading:
     "Setiap situs web dirancang untuk menjawab tiga kebutuhan utama pemilik usaha: kredibilitas eksekutif, kecepatan buka di ponsel, dan konversi langsung ke WhatsApp.",
