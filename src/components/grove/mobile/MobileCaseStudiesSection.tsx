@@ -79,15 +79,15 @@ export function MobileCaseStudiesSection() {
     <section
       id="m-portofolio"
       data-section="portofolio"
-      className="relative scroll-mt-20 bg-[#0A2540] text-white py-14 overflow-hidden"
+      className="relative scroll-mt-20 bg-[#081629] text-white py-14 overflow-hidden"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -top-16 right-0 w-64 h-64 rounded-full bg-[#635BFF]/30 blur-[80px]"
+        className="pointer-events-none select-none absolute -top-16 right-0 w-64 h-64 rounded-full bg-[#0284C7]/30 blur-[80px]"
       />
       <div className="relative z-10 max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1.5">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#00D4FF]/15 text-[#00D4FF] font-semibold text-[11px]">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#00C9A7]/15 text-[#00E5BE] font-semibold text-[11px]">
             Studi Kasus Terukur
           </span>
           <h2 className="text-[24px] font-bold tracking-tight text-white">

@@ -200,17 +200,17 @@ export function MobileSolutionsPricingSection() {
     <section
       id="m-layanan"
       data-section="layanan-utama"
-      className="scroll-mt-20 bg-[#F6F9FC] py-12"
+      className="scroll-mt-20 bg-[#F4F8FB] py-12"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1.5">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#635BFF] font-semibold text-[11px]">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-sky-50 text-[#0284C7] font-semibold text-[11px]">
             Layanan &amp; Investasi
           </span>
-          <h2 className="text-[24px] font-bold tracking-tight text-[#0A2540]">
+          <h2 className="text-[24px] font-bold tracking-tight text-[#081629]">
             Paket &amp; Kepemilikan Penuh
           </h2>
-          <p className="text-[13.5px] text-[#425466]">
+          <p className="text-[13.5px] text-[#475569]">
             Pilih kepemilikan aset penuh atau layanan terkelola.
           </p>
         </div>
@@ -222,8 +222,8 @@ export function MobileSolutionsPricingSection() {
               onClick={() => setMode("beli-putus")}
               className={`py-2 px-3 rounded-full text-[12.5px] font-semibold transition-all cursor-pointer ${
                 isBeliPutus
-                  ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-sm"
-                  : "text-[#425466] hover:text-[#0A2540]"
+                  ? "bg-gradient-to-r from-[#0D9488] to-[#00C9A7] text-white shadow-sm"
+                  : "text-[#475569] hover:text-[#081629]"
               }`}
             >
               Beli Putus
@@ -233,15 +233,15 @@ export function MobileSolutionsPricingSection() {
               onClick={() => setMode("terima-beres")}
               className={`py-2 px-3 rounded-full text-[12.5px] font-semibold transition-all cursor-pointer ${
                 !isBeliPutus
-                  ? "bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] text-white shadow-sm"
-                  : "text-[#425466] hover:text-[#0A2540]"
+                  ? "bg-gradient-to-r from-[#081629] to-[#0284C7] text-white shadow-sm"
+                  : "text-[#475569] hover:text-[#081629]"
               }`}
             >
               Terima Beres
             </button>
           </div>
 
-          <p className="text-[12.5px] text-[#425466] text-center">
+          <p className="text-[12.5px] text-[#475569] text-center">
             {isBeliPutus
               ? "Kode program dan basis data menjadi hak milik Anda sepenuhnya."
               : "Server, pencadangan harian, dan SLA 99,9% kami kelola penuh."}

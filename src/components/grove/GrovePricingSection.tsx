@@ -145,35 +145,35 @@ export function GrovePricingSection() {
       <div className="max-w-[1200px] mx-auto px-8 space-y-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-[#635BFF] font-semibold text-xs tracking-wide">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 text-[#0284C7] font-semibold text-xs tracking-wide">
               Investasi Transparan
             </span>
-            <h2 className="text-3xl sm:text-[38px] font-bold tracking-[-0.035em] text-[#0A2540] leading-[1.12]">
+            <h2 className="text-3xl sm:text-[38px] font-bold tracking-[-0.035em] text-[#081629] leading-[1.12]">
               Pilih kepemilikan penuh atau{" "}
-              <span className="bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#0284C7] to-[#00C9A7] bg-clip-text text-transparent">
                 layanan terima beres.
               </span>
             </h2>
-            <p className="text-[15.5px] text-[#425466] leading-relaxed">
+            <p className="text-[15.5px] text-[#475569] leading-relaxed">
               {isBeliPutus
                 ? "Skema Beli Putus: aplikasi dan seluruh data usaha diserahkan utuh tanpa biaya bulanan."
                 : "Skema Terima Beres: server, cadangan data harian, dan perawatan sistem kami tangani penuh."}
             </p>
           </div>
 
-          <div className="inline-flex p-1.5 rounded-full bg-[#F6F9FC] shadow-inner ring-1 ring-slate-900/[0.06] shrink-0 self-start md:self-auto">
+          <div className="inline-flex p-1.5 rounded-full bg-[#F4F8FB] shadow-inner ring-1 ring-slate-900/[0.06] shrink-0 self-start md:self-auto">
             <button
               type="button"
               onClick={() => setPricingMode("beli-putus")}
               className={`relative z-10 px-5 py-2 rounded-full text-[13px] font-semibold transition-colors cursor-pointer ${
-                isBeliPutus ? "text-white" : "text-[#425466] hover:text-[#0A2540]"
+                isBeliPutus ? "text-white" : "text-[#475569] hover:text-[#081629]"
               }`}
             >
               {isBeliPutus && (
                 <motion.span
                   layoutId="desktop-pricing-toggle"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-sm -z-10"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0D9488] to-[#00C9A7] shadow-sm -z-10"
                 />
               )}
               <span>Beli Putus</span>
@@ -182,14 +182,14 @@ export function GrovePricingSection() {
               type="button"
               onClick={() => setPricingMode("terima-beres")}
               className={`relative z-10 px-5 py-2 rounded-full text-[13px] font-semibold transition-colors cursor-pointer ${
-                !isBeliPutus ? "text-white" : "text-[#425466] hover:text-[#0A2540]"
+                !isBeliPutus ? "text-white" : "text-[#475569] hover:text-[#081629]"
               }`}
             >
               {!isBeliPutus && (
                 <motion.span
                   layoutId="desktop-pricing-toggle"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] shadow-sm -z-10"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#081629] to-[#0284C7] shadow-sm -z-10"
                 />
               )}
               <span>Terima Beres</span>
@@ -277,7 +277,7 @@ export function GrovePricingSection() {
           <button
             type="button"
             onClick={() => setShowCompareModal(true)}
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#F6F9FC] hover:bg-indigo-50 text-sm font-semibold text-[#635BFF] hover:text-[#4F46E5] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#F4F8FB] hover:bg-sky-50 text-sm font-semibold text-[#0284C7] hover:text-[#0369A1] transition-colors cursor-pointer"
           >
             Pelajari perbedaan skema Beli Putus dan Terima Beres →
           </button>

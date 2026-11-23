@@ -10,23 +10,23 @@ body {
 
 :root {
   --color-canvas: #FFFFFF;
-  --color-surface: #F6F9FC;
-  --color-navy: #0A2540;
-  --color-indigo: #635BFF;
-  --color-cyan: #00D4FF;
-  --color-emerald: #10B981;
-  --color-heading: #0A2540;
-  --color-muted: #425466;
+  --color-surface: #F4F8FB;
+  --color-navy: #081629;
+  --color-ocean: #0284C7;
+  --color-sky: #0EA5E9;
+  --color-teal: #00C9A7;
+  --color-heading: #081629;
+  --color-muted: #475569;
   --font-jakarta: var(--font-sans);
 }
 
 @layer components {
   .ui-card {
-    @apply bg-white rounded-3xl shadow-[0_16px_48px_-12px_rgba(10,37,64,0.08)] ring-1 ring-slate-900/[0.05] flex flex-col;
+    @apply bg-white rounded-3xl shadow-[0_16px_48px_-12px_rgba(8,22,41,0.08)] ring-1 ring-slate-900/[0.05] flex flex-col;
   }
 
   .ui-card-header {
-    @apply px-6 py-4 bg-[#F6F9FC]/80 border-b border-slate-100 flex items-center justify-between gap-3;
+    @apply px-6 py-4 bg-[#F4F8FB]/85 border-b border-slate-100 flex items-center justify-between gap-3;
   }
 
   .ui-card-body {
@@ -34,7 +34,7 @@ body {
   }
 
   .ui-card-footer {
-    @apply px-6 py-4 bg-[#F6F9FC]/60 border-t border-slate-100 mt-auto;
+    @apply px-6 py-4 bg-[#F4F8FB]/70 border-t border-slate-100 mt-auto;
   }
 
   .ui-list-group {
@@ -42,11 +42,11 @@ body {
   }
 
   .ui-label {
-    @apply block text-xs font-semibold uppercase tracking-wide text-[#425466] mb-1.5;
+    @apply block text-xs font-semibold uppercase tracking-wide text-[#475569] mb-1.5;
   }
 
   .ui-input {
-    @apply w-full rounded-xl bg-[#F6F9FC] border border-slate-200/80 px-4 py-2.5 text-sm text-[#0A2540] placeholder:text-slate-400 focus:bg-white focus:border-[#635BFF] focus:ring-4 focus:ring-[#635BFF]/15 outline-none transition-all font-normal;
+    @apply w-full rounded-xl bg-[#F4F8FB] border border-slate-200/80 px-4 py-2.5 text-sm text-[#081629] placeholder:text-slate-400 focus:bg-white focus:border-[#0284C7] focus:ring-4 focus:ring-[#0284C7]/15 outline-none transition-all font-normal;
   }
 }
 

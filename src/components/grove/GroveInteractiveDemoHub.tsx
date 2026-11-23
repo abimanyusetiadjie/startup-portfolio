@@ -440,7 +440,7 @@ export function GroveInteractiveDemoHub() {
 
           {/* 1-Row 3-Tab Switcher (Mobile & Desktop) */}
           <div className="pt-2 flex justify-center">
-            <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto p-1 sm:p-1.5 rounded-xl bg-white border border-slate-300 shadow-xs gap-1 sm:gap-1.5">
+            <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto p-1 sm:p-1.5 rounded-xl bg-white border border-slate-300 shadow-sm gap-1 sm:gap-1.5">
               {demoTabs.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = activeTab === tab.id;
@@ -451,7 +451,7 @@ export function GroveInteractiveDemoHub() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`px-2 sm:px-4 py-2.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                       isActive
-                        ? "bg-[#2563EB] text-white shadow-xs"
+                        ? "bg-[#2563EB] text-white shadow-sm"
                         : "text-slate-600 hover:text-[#0F172A] hover:bg-slate-100"
                     }`}
                   >
@@ -477,7 +477,7 @@ export function GroveInteractiveDemoHub() {
               className="space-y-6"
             >
               {/* 4 KPI Strip */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 border border-slate-300 rounded-2xl bg-white divide-y lg:divide-y-0 divide-x divide-slate-200 shadow-xs overflow-hidden">
+              <div className="grid grid-cols-2 lg:grid-cols-4 border border-slate-300 rounded-2xl bg-white divide-y lg:divide-y-0 divide-x divide-slate-200 shadow-sm overflow-hidden">
                 <div className="p-4 sm:p-5">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                     Total Nilai Aset Stok
@@ -726,7 +726,7 @@ export function GroveInteractiveDemoHub() {
                     <button
                       type="button"
                       onClick={handleSimulateLoad}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-xs cursor-pointer shadow-xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-xs cursor-pointer shadow-sm transition-colors"
                     >
                       <Users className="w-3.5 h-3.5" />
                       <span>Simulasikan +250 Siswa Login Serentak</span>
@@ -940,7 +940,7 @@ export function GroveInteractiveDemoHub() {
                         onClick={() => setSelectedWaIdx(idx)}
                         className={`px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-bold border transition-all cursor-pointer ${
                           selectedWaIdx === idx
-                            ? "bg-emerald-600 text-white border-emerald-700 shadow-xs"
+                            ? "bg-emerald-600 text-white border-emerald-700 shadow-sm"
                             : "bg-white text-slate-700 border-slate-300 hover:border-emerald-500"
                         }`}
                       >
@@ -961,7 +961,7 @@ export function GroveInteractiveDemoHub() {
                     </div>
 
                     <div className="flex justify-start">
-                      <div className="max-w-[92%] rounded-2xl rounded-tl-sm bg-white border border-slate-300 px-4 py-3 text-xs text-slate-800 shadow-xs space-y-2">
+                      <div className="max-w-[92%] rounded-2xl rounded-tl-sm bg-white border border-slate-300 px-4 py-3 text-xs text-slate-800 shadow-sm space-y-2">
                         <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-1.5">
                           <span className="text-[10.5px] font-extrabold text-[#2563EB] flex items-center gap-1">
                             <MessageSquare className="w-3 h-3" />
@@ -999,7 +999,7 @@ export function GroveInteractiveDemoHub() {
                   <button
                     type="button"
                     onClick={() => handleRunOcr()}
-                    className="px-3 py-1.5 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold cursor-pointer shadow-xs transition-colors"
+                    className="px-3 py-1.5 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold cursor-pointer shadow-sm transition-colors"
                   >
                     {isScanningOcr ? "Memindai Dokumen..." : "Ganti & Scan Faktur Lain"}
                   </button>

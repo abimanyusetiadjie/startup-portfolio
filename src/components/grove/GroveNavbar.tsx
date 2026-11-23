@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X, ArrowUpRight, Calculator } from "lucide-react";
 import { AbinestLogo } from "./AbinestLogo";
 import { findVisibleSection } from "./contact-utils";
@@ -11,6 +11,12 @@ export function GroveNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 220,
+    damping: 32,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const sections = [
@@ -86,11 +92,18 @@ export function GroveNavbar() {
         scrolled ? "py-3 px-4 sm:px-6" : "py-3.5 px-4 sm:px-8"
       }`}
     >
+      {/* Subtle Top Scroll Progress Rail */}
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#00C9A7] origin-left z-[60] pointer-events-none"
+      />
+
       <div
         className={`max-w-[1200px] mx-auto flex items-center justify-between gap-4 transition-all duration-300 rounded-full ${
           scrolled
-            ? "h-14 px-4 sm:px-5 bg-white/85 backdrop-blur-xl shadow-[0_12px_40px_rgba(10,37,64,0.09)] ring-1 ring-slate-900/[0.06]"
-            : "h-14 px-4 sm:px-5 bg-white/70 backdrop-blur-md shadow-[0_4px_20px_rgba(10,37,64,0.04)] ring-1 ring-white/80"
+            ? "h-14 px-4 sm:px-5 bg-white/95 backdrop-blur-xl shadow-[0_12px_40px_rgba(8,22,41,0.1)] ring-1 ring-slate-900/[0.08]"
+            : "h-14 px-4 sm:px-5 bg-white/85 backdrop-blur-md shadow-[0_4px_20px_rgba(8,22,41,0.05)] ring-1 ring-white/90"
         }`}
       >
         {/* Brand */}
@@ -109,7 +122,7 @@ export function GroveNavbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="px-3.5 py-1.5 rounded-full font-medium text-[#425466] hover:text-[#635BFF] hover:bg-[#635BFF]/[0.07] transition-colors whitespace-nowrap"
+                  className="px-3.5 py-1.5 rounded-full font-medium text-[#475569] hover:text-[#0284C7] hover:bg-sky-500/[0.08] transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -123,15 +136,15 @@ export function GroveNavbar() {
                 onClick={(e) => handleSmoothScroll(e, item.href)}
                 className={`relative px-3.5 py-1.5 rounded-full transition-colors whitespace-nowrap ${
                   isSelected
-                    ? "font-semibold text-[#635BFF]"
-                    : "font-medium text-[#425466] hover:text-[#0A2540]"
+                    ? "font-semibold text-[#0284C7]"
+                    : "font-medium text-[#475569] hover:text-[#081629]"
                 }`}
               >
                 {isSelected && (
                   <motion.span
                     layoutId="nav-active-pill"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    className="absolute inset-0 rounded-full bg-[#635BFF]/10 -z-10"
+                    className="absolute inset-0 rounded-full bg-sky-500/10 -z-10"
                   />
                 )}
                 <span>{item.label}</span>
@@ -140,11 +153,11 @@ export function GroveNavbar() {
           })}
         </nav>
 
-        {/* Vibrant Stripe-Style Pill Actions */}
+        {/* Signature Abinest Pill Actions */}
         <div className="hidden sm:flex items-center gap-2.5 shrink-0">
           <Link
             href="/audit-gratis"
-            className="inline-flex items-center px-4 py-2 rounded-full text-[13px] font-semibold text-[#0A2540] bg-white/80 hover:bg-white shadow-sm ring-1 ring-slate-900/[0.08] transition-all whitespace-nowrap"
+            className="inline-flex items-center px-4 py-2 rounded-full text-[13px] font-semibold text-[#081629] bg-white/85 hover:bg-white shadow-sm ring-1 ring-slate-900/[0.08] transition-all whitespace-nowrap"
           >
             Audit Gratis
           </Link>
@@ -152,10 +165,10 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold text-white bg-gradient-to-r from-[#635BFF] to-[#4F46E5] hover:brightness-110 shadow-[0_6px_18px_rgba(99,91,255,0.32)] transition-all whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold text-white bg-gradient-to-r from-[#081629] via-[#0F2744] to-[#0284C7] hover:brightness-110 shadow-[0_6px_18px_rgba(2,132,199,0.28)] transition-all whitespace-nowrap"
           >
             <span>Konsultasi</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#00E5BE]" />
           </Link>
         </div>
 
@@ -164,14 +177,14 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#635BFF] to-[#4F46E5] shadow-[0_4px_12px_rgba(99,91,255,0.3)] transition-all"
+            className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#081629] to-[#0284C7] shadow-[0_4px_12px_rgba(2,132,199,0.28)] transition-all"
           >
             Konsultasi
           </Link>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full bg-white/90 text-[#0A2540] ring-1 ring-slate-900/[0.08] hover:bg-white transition-colors cursor-pointer"
+            className="p-2 rounded-full bg-white/90 text-[#081629] ring-1 ring-slate-900/[0.08] hover:bg-white transition-colors cursor-pointer"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
           >
@@ -192,10 +205,10 @@ export function GroveNavbar() {
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between text-[13.5px] font-semibold px-4 py-3 text-blue-600 hover:bg-slate-50 transition-colors"
+                    className="flex items-center justify-between text-[13.5px] font-semibold px-4 py-3 text-[#0284C7] hover:bg-slate-50 transition-colors"
                   >
                     <span>{item.label}</span>
-                    <ArrowUpRight className="w-4 h-4 text-blue-500" />
+                    <ArrowUpRight className="w-4 h-4 text-[#0284C7]" />
                   </Link>
                 );
               }
@@ -206,12 +219,12 @@ export function GroveNavbar() {
                   onClick={(e) => handleSmoothScroll(e, item.href)}
                   className={`flex items-center justify-between text-[13.5px] px-4 py-3 transition-colors ${
                     isActive
-                      ? "text-blue-600 font-bold bg-blue-50/40"
-                      : "text-slate-700 font-medium hover:text-slate-950 hover:bg-slate-50"
+                      ? "text-[#0284C7] font-bold bg-sky-50/50"
+                      : "text-slate-700 font-medium hover:text-[#081629] hover:bg-slate-50"
                   }`}
                 >
                   <span>{item.label}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]" />}
                 </Link>
               );
             })}
@@ -229,7 +242,7 @@ export function GroveNavbar() {
             <Link
               href="/#kontak"
               onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-              className="flex items-center justify-center py-2.5 text-[13px] font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-colors"
+              className="flex items-center justify-center py-2.5 text-[13px] font-semibold text-white bg-gradient-to-r from-[#081629] to-[#0284C7] rounded-xl transition-all"
             >
               Konsultasi Gratis
             </Link>

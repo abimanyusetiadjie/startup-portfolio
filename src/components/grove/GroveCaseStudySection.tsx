@@ -95,19 +95,19 @@ export function GroveCaseStudySection() {
     <section
       id="portofolio"
       data-section="portofolio"
-      className="relative scroll-mt-20 py-28 bg-[#0A2540] text-white overflow-hidden"
+      className="relative scroll-mt-20 py-28 bg-[#081629] text-white overflow-hidden"
       style={{
         clipPath: "polygon(0 3%, 100% 0, 100% 97%, 0 100%)",
       }}
     >
-      {/* Living Luminous Ambient Orbs inside Stripe Midnight Indigo */}
+      {/* Living Luminous Ambient Orbs inside Abinest Midnight Navy */}
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -top-24 left-[12%] w-[460px] h-[460px] rounded-full bg-[#635BFF]/25 blur-[110px] animate-mesh-a"
+        className="pointer-events-none select-none absolute -top-24 left-[12%] w-[460px] h-[460px] rounded-full bg-[#0284C7]/30 blur-[110px] animate-mesh-a"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none absolute bottom-0 right-[8%] w-[460px] h-[420px] rounded-full bg-[#00D4FF]/20 blur-[110px] animate-mesh-b"
+        className="pointer-events-none select-none absolute bottom-0 right-[8%] w-[460px] h-[420px] rounded-full bg-[#00C9A7]/25 blur-[110px] animate-mesh-b"
       />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-8 space-y-14">
@@ -118,12 +118,12 @@ export function GroveCaseStudySection() {
           transition={{ duration: 0.45 }}
           className="space-y-3 max-w-2xl"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#00D4FF]/15 text-[#00D4FF] font-semibold text-xs tracking-wide">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#00C9A7]/15 text-[#00E5BE] font-semibold text-xs tracking-wide">
             Studi Kasus Terukur
           </span>
           <h2 className="text-3xl sm:text-[40px] font-bold tracking-[-0.035em] text-white leading-[1.1]">
             Dampak nyata pada{" "}
-            <span className="bg-gradient-to-r from-[#00D4FF] via-sky-300 to-emerald-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#38BDF8] via-cyan-300 to-[#00E5BE] bg-clip-text text-transparent">
               kecepatan &amp; efisiensi bisnis.
             </span>
           </h2>

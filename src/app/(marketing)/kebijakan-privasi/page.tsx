@@ -74,7 +74,7 @@ export default function KebijakanPrivasiPage() {
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white border border-slate-200/80 divide-y divide-slate-100 shadow-xs">
+          <div className="rounded-2xl bg-white border border-slate-200/80 divide-y divide-slate-100 shadow-sm">
             {SECTIONS.map((sec) => (
               <section key={sec.title} className="p-6 sm:p-7 space-y-3">
                 <h2 className="text-lg font-bold text-slate-900">{sec.title}</h2>

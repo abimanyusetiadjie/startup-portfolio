@@ -18,13 +18,13 @@ interface HeroSyncedHeadlineProps {
 }
 
 /**
- * Stripe-inspired luminous chromatic display headline.
+ * Abinest Ocean-to-Teal luminous display headline.
  */
 export function HeroSyncedHeadline({ className }: HeroSyncedHeadlineProps) {
   return (
     <h1 className={className}>
       Kami Membangun Sistem yang{" "}
-      <span className="bg-gradient-to-r from-[#635BFF] via-[#0EA5E9] to-[#10B981] bg-clip-text text-transparent">
+      <span className="bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#00C9A7] bg-clip-text text-transparent">
         Bekerja Untuk Anda.
       </span>
     </h1>
@@ -40,9 +40,9 @@ interface HeroSyncedIntroProps {
 export function HeroSyncedIntro({ className }: HeroSyncedIntroProps) {
   return (
     <p className={className}>
-      Dari <span className="font-semibold text-[#0A2540]">Website super cepat</span>,{" "}
-      <span className="font-semibold text-[#0A2540]">ERP, SIAKAD, Kasir POS</span>, hingga{" "}
-      <span className="font-semibold text-[#0A2540]">Automasi AI &amp; WhatsApp resmi</span>—dirancang hidup, presisi, dan 100% menjadi aset usaha Anda.
+      Dari <span className="font-semibold text-[#081629]">Website super cepat</span>,{" "}
+      <span className="font-semibold text-[#081629]">ERP, SIAKAD, Kasir POS</span>, hingga{" "}
+      <span className="font-semibold text-[#081629]">Automasi AI &amp; WhatsApp resmi</span>—dirancang hidup, presisi, dan 100% menjadi aset usaha Anda.
     </p>
   );
 }
@@ -54,7 +54,7 @@ interface HeroSyncedDescriptionProps {
 }
 
 /**
- * Fluid spring-animated pill selector (layoutId sliding indigo-to-sky indicator).
+ * Fluid spring-animated pill selector (layoutId sliding Ocean-to-Teal indicator).
  */
 export function HeroSyncedDescription({
   activeIdx,
@@ -71,8 +71,8 @@ export function HeroSyncedDescription({
         aria-label="Fokus layanan Abinest"
         className={
           isDesktop
-            ? "inline-flex items-center p-1.5 rounded-full bg-white/80 backdrop-blur-md shadow-[0_8px_24px_rgba(10,37,64,0.06)] ring-1 ring-slate-900/[0.06]"
-            : "flex items-center justify-between gap-1 p-1 rounded-full bg-white/85 backdrop-blur-md shadow-sm ring-1 ring-slate-900/[0.06]"
+            ? "inline-flex items-center p-1.5 rounded-full bg-white/85 backdrop-blur-md shadow-[0_8px_24px_rgba(8,22,41,0.06)] ring-1 ring-slate-900/[0.06]"
+            : "flex items-center justify-between gap-1 p-1 rounded-full bg-white/90 backdrop-blur-md shadow-sm ring-1 ring-slate-900/[0.06]"
         }
       >
         {HERO_SLIDES.map((slide, idx) => {
@@ -91,14 +91,14 @@ export function HeroSyncedDescription({
                   ? "px-4 py-1.5 text-[12.5px]"
                   : "flex-1 py-1.5 px-2 text-center text-[11px] sm:text-[12px]"
               } ${
-                isActive ? "text-white" : "text-[#425466] hover:text-[#0A2540]"
+                isActive ? "text-white" : "text-[#475569] hover:text-[#081629]"
               }`}
             >
               {isActive && (
                 <motion.span
                   layoutId={`${idPrefix}-active-tab-bg`}
                   transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] shadow-[0_4px_12px_rgba(99,91,255,0.3)] -z-10"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0284C7] to-[#00C9A7] shadow-[0_4px_12px_rgba(2,132,199,0.28)] -z-10"
                 />
               )}
               {isDesktop && (
@@ -127,7 +127,7 @@ export function HeroSyncedDescription({
               role="tabpanel"
               aria-labelledby={`${idPrefix}-tab-${slide.id}`}
               aria-hidden={!isActive}
-              className={`col-start-1 row-start-1 leading-relaxed font-normal text-[#425466] transition-all duration-300 ${
+              className={`col-start-1 row-start-1 leading-relaxed font-normal text-[#475569] transition-all duration-300 ${
                 isDesktop ? "text-[16px]" : "text-[14px]"
               } ${
                 isActive
@@ -162,37 +162,37 @@ function SlideWebVisual() {
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-100">
         <div className="flex items-center gap-2.5 min-w-0">
-          <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#635BFF] to-[#0EA5E9] text-white shadow-sm shrink-0">
+          <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#0284C7] to-[#0EA5E9] text-white shadow-sm shrink-0">
             <Globe className="w-3.5 h-3.5" />
           </span>
-          <span className="font-mono text-xs font-semibold text-[#0A2540] truncate">
+          <span className="font-mono text-xs font-semibold text-[#081629] truncate">
             nusantaracapital.co.id
           </span>
         </div>
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-mono text-[11px] font-semibold shrink-0">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-teal-50 text-teal-700 font-mono text-[11px] font-semibold shrink-0">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#00C9A7] animate-pulse" />
           0,48 dtk LCP
         </span>
       </div>
 
       {/* Animated Core Web Vitals Stage */}
-      <div className="rounded-2xl bg-gradient-to-br from-[#F6F9FC] to-indigo-50/40 p-4 space-y-3.5">
+      <div className="rounded-2xl bg-gradient-to-br from-[#F4F8FB] to-sky-50/50 p-4 space-y-3.5">
         <div className="flex items-center justify-between gap-2">
           <div>
-            <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#635BFF] font-semibold">
+            <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#0284C7] font-semibold">
               Google PageSpeed Live
             </div>
-            <div className="text-lg sm:text-xl font-bold tracking-tight text-[#0A2540] mt-0.5">
+            <div className="text-lg sm:text-xl font-bold tracking-tight text-[#081629] mt-0.5">
               Terbuka Instan di HP
             </div>
           </div>
           <motion.div
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-            className="rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 px-3 py-1.5 text-white shadow-[0_8px_20px_rgba(16,185,129,0.28)] shrink-0 text-right"
+            className="rounded-xl bg-gradient-to-br from-[#0D9488] to-[#00C9A7] px-3 py-1.5 text-white shadow-[0_8px_20px_rgba(13,148,136,0.26)] shrink-0 text-right"
           >
             <div className="text-sm sm:text-base font-bold leading-none">+180%</div>
-            <div className="text-[10px] text-emerald-50 mt-0.5">Prospek WA</div>
+            <div className="text-[10px] text-teal-50 mt-0.5">Prospek WA</div>
           </motion.div>
         </div>
 
@@ -203,12 +203,12 @@ function SlideWebVisual() {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", stiffness: 320, damping: 22, delay: s.delay }}
-              className="rounded-xl bg-white shadow-[0_6px_18px_rgba(10,37,64,0.05)] py-2.5 px-2 flex flex-col items-center justify-center text-center"
+              className="rounded-xl bg-white shadow-[0_6px_18px_rgba(8,22,41,0.05)] py-2.5 px-2 flex flex-col items-center justify-center text-center"
             >
-              <div className="w-9 h-9 rounded-full border-2 border-emerald-500 bg-emerald-50 flex items-center justify-center font-mono text-xs font-bold text-emerald-700">
+              <div className="w-9 h-9 rounded-full border-2 border-[#0D9488] bg-teal-50 flex items-center justify-center font-mono text-xs font-bold text-[#0F766E]">
                 {s.val}
               </div>
-              <span className="text-[11px] font-semibold text-[#0A2540] mt-1.5">
+              <span className="text-[11px] font-semibold text-[#081629] mt-1.5">
                 {s.label}
               </span>
             </motion.div>
@@ -217,23 +217,23 @@ function SlideWebVisual() {
       </div>
 
       {/* Animated Speed Bar */}
-      <div className="rounded-2xl bg-[#F6F9FC] p-3.5 space-y-2">
+      <div className="rounded-2xl bg-[#F4F8FB] p-3.5 space-y-2">
         <div className="flex items-center justify-between text-xs">
-          <span className="font-semibold text-[#0A2540] inline-flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-[#635BFF]" />
+          <span className="font-semibold text-[#081629] inline-flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5 text-[#0284C7]" />
             <span>Arsitektur Next.js Abinest</span>
           </span>
-          <span className="font-mono font-bold text-[#635BFF]">0,48 detik</span>
+          <span className="font-mono font-bold text-[#0284C7]">0,48 detik</span>
         </div>
-        <div className="h-2 w-full rounded-full bg-slate-200/70 overflow-hidden">
+        <div className="h-2 w-full rounded-full bg-slate-200/75 overflow-hidden">
           <motion.div
             initial={{ width: "0%" }}
             animate={{ width: "16%" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="h-full rounded-full bg-gradient-to-r from-[#635BFF] via-[#0EA5E9] to-[#10B981]"
+            className="h-full rounded-full bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#00C9A7]"
           />
         </div>
-        <div className="flex items-center justify-between text-[11px] text-[#425466]">
+        <div className="flex items-center justify-between text-[11px] text-[#475569]">
           <span>Rata-rata template web biasa</span>
           <span className="font-mono">4,80 detik</span>
         </div>
@@ -253,30 +253,30 @@ function SlideErpVisual() {
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-100">
         <div className="flex items-center gap-2.5 min-w-0">
-          <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-sm shrink-0">
+          <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#0D9488] to-[#00C9A7] text-white shadow-sm shrink-0">
             <Database className="w-3.5 h-3.5" />
           </span>
-          <span className="font-mono text-xs font-semibold text-[#0A2540] truncate">
+          <span className="font-mono text-xs font-semibold text-[#081629] truncate">
             Abinest ERP · SIAKAD · POS
           </span>
         </div>
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#0A2540] to-[#1E3A5F] font-mono text-[11px] font-semibold text-white shrink-0">
+        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#081629] to-[#0F2744] font-mono text-[11px] font-semibold text-[#00E5BE] shrink-0">
           Rp0 / Staf
         </span>
       </div>
 
       {/* Animated Chart & KPI Row */}
-      <div className="rounded-2xl bg-gradient-to-br from-[#0A2540] to-[#143660] p-4 text-white space-y-3">
+      <div className="rounded-2xl bg-gradient-to-br from-[#081629] to-[#0F2D4E] p-4 text-white space-y-3">
         <div className="flex items-center justify-between">
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-wider text-cyan-300">
+            <div className="font-mono text-[10px] uppercase tracking-wider text-sky-300">
               Omzet Kasir &amp; Distribusi
             </div>
             <div className="text-xl sm:text-2xl font-bold tracking-tight mt-0.5">
               Rp148,5 Juta
             </div>
           </div>
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-400/15 text-emerald-300 text-[11px] font-semibold">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#00C9A7]/15 text-[#2DD4BF] text-[11px] font-semibold">
             <TrendingUp className="w-3 h-3" />
             24.180 SKU
           </span>
@@ -291,7 +291,7 @@ function SlideErpVisual() {
               transition={{ duration: 0.55, delay: i * 0.06, ease: "easeOut" }}
               className={`flex-1 rounded-t-md ${
                 i === bars.length - 1
-                  ? "bg-gradient-to-t from-[#00D4FF] to-[#34D399]"
+                  ? "bg-gradient-to-t from-[#0EA5E9] to-[#00E5BE]"
                   : "bg-white/20"
               }`}
             />
@@ -300,16 +300,16 @@ function SlideErpVisual() {
       </div>
 
       {/* Live Sync Rows */}
-      <div className="rounded-2xl bg-[#F6F9FC] divide-y divide-slate-200/60 overflow-hidden">
+      <div className="rounded-2xl bg-[#F4F8FB] divide-y divide-slate-200/60 overflow-hidden">
         {rows.map((r) => (
           <div
             key={r.name}
             className="px-4 py-2.5 flex items-center justify-between gap-2 text-xs"
           >
-            <span className="font-semibold text-[#0A2540] truncate">{r.name}</span>
+            <span className="font-semibold text-[#081629] truncate">{r.name}</span>
             <div className="flex items-center gap-2 shrink-0">
-              <span className="font-mono text-[#425466]">{r.qty}</span>
-              <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-[10.5px] font-semibold text-emerald-700">
+              <span className="font-mono text-[#475569]">{r.qty}</span>
+              <span className="px-2 py-0.5 rounded-full bg-teal-100 text-[10.5px] font-semibold text-teal-800">
                 {r.status}
               </span>
             </div>
@@ -325,25 +325,25 @@ function SlideAiVisual() {
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-100">
         <div className="flex items-center gap-2.5 min-w-0">
-          <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#25D366] to-emerald-600 text-white shadow-sm shrink-0">
+          <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#081629] to-[#0284C7] text-white shadow-sm shrink-0">
             <MessageSquare className="w-3.5 h-3.5" />
           </span>
-          <span className="font-mono text-xs font-semibold text-[#0A2540] truncate">
+          <span className="font-mono text-xs font-semibold text-[#081629] truncate">
             Meta Cloud API Resmi · 24/7
           </span>
         </div>
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-50 text-[#635BFF] font-mono text-[11px] font-semibold shrink-0">
+        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-50 text-[#0284C7] font-mono text-[11px] font-semibold shrink-0">
           OCR 99,7%
         </span>
       </div>
 
       {/* Animated Sequential Chat Bubbles */}
-      <div className="rounded-2xl bg-gradient-to-br from-[#F6F9FC] to-violet-50/40 p-3.5 space-y-2.5">
+      <div className="rounded-2xl bg-gradient-to-br from-[#F4F8FB] to-cyan-50/50 p-3.5 space-y-2.5">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="max-w-[88%] rounded-2xl rounded-tl-sm bg-white shadow-sm px-3.5 py-2.5 text-xs text-[#0A2540] leading-relaxed"
+          className="max-w-[88%] rounded-2xl rounded-tl-sm bg-white shadow-sm px-3.5 py-2.5 text-xs text-[#081629] leading-relaxed"
         >
           <span className="block font-mono text-[10px] text-slate-400 mb-0.5">
             Pelanggan · 09:14
@@ -355,9 +355,9 @@ function SlideAiVisual() {
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.35, delay: 0.18 }}
-          className="ml-auto max-w-[92%] rounded-2xl rounded-tr-sm bg-gradient-to-r from-[#635BFF] to-[#4F46E5] text-white shadow-[0_8px_20px_rgba(99,91,255,0.26)] px-3.5 py-2.5 text-xs leading-relaxed"
+          className="ml-auto max-w-[92%] rounded-2xl rounded-tr-sm bg-gradient-to-r from-[#081629] via-[#0F2744] to-[#0284C7] text-white shadow-[0_8px_20px_rgba(8,22,41,0.22)] px-3.5 py-2.5 text-xs leading-relaxed"
         >
-          <span className="flex items-center justify-between font-mono text-[10px] text-cyan-200 mb-0.5">
+          <span className="flex items-center justify-between font-mono text-[10px] text-[#00E5BE] mb-0.5">
             <span>Asisten AI Abinest</span>
             <span>⚡ 0,6 detik</span>
           </span>
@@ -370,22 +370,22 @@ function SlideAiVisual() {
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, delay: 0.32 }}
-        className="rounded-2xl bg-emerald-50/70 p-3.5 flex items-center justify-between gap-3"
+        className="rounded-2xl bg-teal-50/80 p-3.5 flex items-center justify-between gap-3"
       >
         <div className="flex items-center gap-2.5 min-w-0">
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-emerald-500 text-white shadow-sm shrink-0">
+          <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-[#0D9488] text-white shadow-sm shrink-0">
             <FileCheck2 className="w-4 h-4" />
           </span>
           <div className="min-w-0">
-            <div className="text-xs font-bold text-[#0A2540] truncate">
+            <div className="text-xs font-bold text-[#081629] truncate">
               Faktur_PO_7782.pdf → Masuk ERP
             </div>
-            <div className="text-[11px] text-emerald-800 truncate">
+            <div className="text-[11px] text-teal-800 truncate">
               PPN 11% tervalidasi · 0 salah ketik
             </div>
           </div>
         </div>
-        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+        <CheckCircle2 className="w-4 h-4 text-[#0D9488] shrink-0" />
       </motion.div>
     </div>
   );
@@ -402,13 +402,13 @@ export function HeroShowcaseFrame({
 
   return (
     <div className={`relative ${className}`}>
-      {/* Soft Luminous Aura Behind Card */}
+      {/* Soft Luminous Ocean-Teal Aura Behind Card */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -inset-3 rounded-[32px] bg-gradient-to-tr from-[#635BFF]/20 via-[#00D4FF]/20 to-[#10B981]/20 blur-2xl opacity-75"
+        className="pointer-events-none absolute -inset-3 rounded-[32px] bg-gradient-to-tr from-[#0284C7]/20 via-[#0EA5E9]/20 to-[#00C9A7]/25 blur-2xl opacity-80"
       />
 
-      <div className="relative rounded-[28px] bg-white/90 backdrop-blur-xl p-5 sm:p-6 shadow-[0_28px_70px_-15px_rgba(10,37,64,0.14)] ring-1 ring-white/90 flex flex-col justify-between min-h-[360px] sm:min-h-[385px]">
+      <div className="relative rounded-[28px] bg-white/95 backdrop-blur-xl p-5 sm:p-6 shadow-[0_28px_70px_-15px_rgba(8,22,41,0.14)] ring-1 ring-white/90 flex flex-col justify-between min-h-[360px] sm:min-h-[385px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSlide.id}
@@ -424,9 +424,9 @@ export function HeroShowcaseFrame({
         </AnimatePresence>
 
         {/* Bottom Trust Strip */}
-        <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2 text-[11.5px] text-[#425466]">
-          <span className="inline-flex items-center gap-1.5 font-semibold text-[#0A2540]">
-            <ShieldCheck className="w-4 h-4 text-[#635BFF]" />
+        <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2 text-[11.5px] text-[#475569]">
+          <span className="inline-flex items-center gap-1.5 font-semibold text-[#081629]">
+            <ShieldCheck className="w-4 h-4 text-[#0284C7]" />
             <span>100% Hak Milik Kode &amp; Database</span>
           </span>
           <span className="font-mono text-slate-400">

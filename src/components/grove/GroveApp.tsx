@@ -3,9 +3,11 @@
 import { useEffect } from "react";
 import { GroveNavbar } from "./GroveNavbar";
 import { GroveHeroSection } from "./GroveHeroSection";
+import { GroveAuthorityStrip } from "./GroveAuthorityStrip";
 import { GroveCapabilitiesSection } from "./GroveCapabilitiesSection";
 import { GroveCaseStudySection } from "./GroveCaseStudySection";
 import { GroveCoreShieldSection } from "./GroveCoreShieldSection";
+import { GroveWhyAbinestSection } from "./GroveWhyAbinestSection";
 import { GrovePricingSection } from "./GrovePricingSection";
 import { GroveTechStackShowcase } from "./GroveTechStackShowcase";
 import { GroveFaqSection } from "./GroveFaqSection";
@@ -40,7 +42,7 @@ export function GroveApp() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-[#0A2540] flex flex-col font-sans selection:bg-[#635BFF] selection:text-white">
+    <div className="min-h-screen bg-white text-[#081629] flex flex-col font-sans selection:bg-[#0284C7] selection:text-white">
       {/* 1. Sticky Header & Navigation */}
       <GroveNavbar />
 
@@ -48,46 +50,54 @@ export function GroveApp() {
         {/* MOBILE-NATIVE MINIMALIST EXPERIENCE (< 1024px) */}
         <div className="lg:hidden">
           <MobileHeroSection />
+          <GroveAuthorityStrip />
           <MobileSolutionsPricingSection />
           <MobileCaseStudiesSection />
           <MobileProcessAndStackSection />
+          <GroveWhyAbinestSection />
           <MobileFaqSection />
           <MobileQuickContactSection />
           <MobileFooterSection />
         </div>
 
-        {/* DESKTOP EXPERIENCE (>= 1024px — Preserved Intact) */}
+        {/* DESKTOP EXPERIENCE (>= 1024px) */}
         <div className="hidden lg:block">
           {/* 2. Hero Section + Interactive Services */}
           <GroveHeroSection />
 
-          {/* 3. Master Interactive Showroom 3 Pilar + Live Simulators (Screen 2) */}
+          {/* 2b. Authority Guarantee Strip & Sector Focus */}
+          <GroveAuthorityStrip />
+
+          {/* 3. Master Interactive Showroom 3 Pilar */}
           <GroveCapabilitiesSection />
 
-          {/* 5. Tabbed Project Showcase / 3 Case Studies Terukur (Screen 3) */}
+          {/* 4. 3 Case Studies Terukur */}
           <GroveCaseStudySection />
 
-          {/* 6. Alur Kerja 5 Langkah + Bento Studio Grid */}
+          {/* 5. Prosedur Eksekusi 5 Tahap */}
           <GroveCoreShieldSection />
 
-          {/* 8. Section Paket Harga / Investasi Transparan (#harga) */}
+          {/* 5b. Standar Studio Abinest vs SaaS & Vendor Biasa */}
+          <GroveWhyAbinestSection />
+
+          {/* 6. Section Paket Harga / Investasi Transparan (#harga) */}
           <GrovePricingSection />
 
-          {/* 9. Tech Stack & Server Architecture Showcase (#tech-stack) */}
+          {/* 7. Tech Stack Showcase (#tech-stack) */}
           <GroveTechStackShowcase />
 
-          {/* 9b. Objection-Handling FAQ (#faq) */}
+          {/* 8. Objection-Handling FAQ (#faq) */}
           <GroveFaqSection />
 
-          {/* 10. Final CTA + Form Konsultasi Cepat (#kontak) */}
+          {/* 9. Final CTA + Form Konsultasi Cepat (#kontak) */}
           <GroveAmberContactSection />
 
-          {/* 11. Footer Lengkap & Badge Kepercayaan */}
+          {/* 10. Footer Lengkap */}
           <GroveFooterSection />
         </div>
       </main>
 
-      {/* 12. Floating WhatsApp Button */}
+      {/* 11. Floating WhatsApp Button */}
       <GroveFloatingWhatsApp />
     </div>
   );

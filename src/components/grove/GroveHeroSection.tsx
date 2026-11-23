@@ -25,7 +25,7 @@ export function GroveHeroSection() {
     {
       value: "14 Hari",
       label: "Rilis web & sistem awal",
-      dotClass: "bg-[#635BFF]",
+      dotClass: "bg-[#0284C7]",
     },
     {
       value: "100%",
@@ -35,7 +35,7 @@ export function GroveHeroSection() {
     {
       value: "Rp0",
       label: "Biaya lisensi per pengguna",
-      dotClass: "bg-[#10B981]",
+      dotClass: "bg-[#00C9A7]",
     },
   ];
 
@@ -43,9 +43,9 @@ export function GroveHeroSection() {
     <section
       id="beranda"
       data-section="beranda"
-      className="relative scroll-mt-20 pt-10 pb-20 xl:pt-14 xl:pb-24 bg-white overflow-hidden"
+      className="relative scroll-mt-20 pt-10 pb-16 xl:pt-14 xl:pb-20 bg-white overflow-hidden"
     >
-      {/* Stripe-Inspired Living Diagonal Liquid Mesh Gradient */}
+      {/* Abinest Ocean-Teal Animated Diagonal Liquid Mesh Gradient */}
       <StripeMeshBackdrop activeIdx={activeIdx} />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-8">
@@ -61,21 +61,21 @@ export function GroveHeroSection() {
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
             className="col-span-6 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md shadow-[0_4px_14px_rgba(99,91,255,0.12)] ring-1 ring-[#635BFF]/15 text-[12px] font-semibold text-[#0A2540]">
-              <Sparkles className="w-3.5 h-3.5 text-[#635BFF]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md shadow-[0_4px_14px_rgba(2,132,199,0.12)] ring-1 ring-sky-500/20 text-[12px] font-semibold text-[#081629]">
+              <Sparkles className="w-3.5 h-3.5 text-[#0284C7]" />
               <span>Abinest Software Studio</span>
               <span className="text-slate-300" aria-hidden="true">
                 ·
               </span>
-              <span className="text-[#635BFF]">Beli Putus 100%</span>
+              <span className="text-[#0D9488]">Beli Putus 100%</span>
             </div>
 
-            <HeroSyncedHeadline className="text-[42px] xl:text-[52px] font-bold tracking-[-0.04em] text-[#0A2540] leading-[1.06]" />
+            <HeroSyncedHeadline className="text-[42px] xl:text-[52px] font-bold tracking-[-0.04em] text-[#081629] leading-[1.06]" />
 
             <HeroSyncedIntro
               activeIdx={activeIdx}
               onSelect={setActiveIdx}
-              className="text-[16.5px] text-[#425466] leading-relaxed max-w-lg"
+              className="text-[16.5px] text-[#475569] leading-relaxed max-w-lg"
             />
 
             <HeroSyncedDescription
@@ -97,7 +97,7 @@ export function GroveHeroSection() {
                     label: HERO_SLIDES[activeIdx]?.id,
                   })
                 }
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#635BFF] via-[#4F46E5] to-[#0EA5E9] hover:brightness-110 shadow-[0_12px_28px_rgba(99,91,255,0.34)] transition-all"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#00C9A7] hover:brightness-105 shadow-[0_12px_28px_rgba(2,132,199,0.3)] transition-all"
               >
                 <span>Konsultasi via WhatsApp</span>
                 <ArrowRight className="w-4 h-4" />
@@ -105,7 +105,7 @@ export function GroveHeroSection() {
 
               <Link
                 href="/demo"
-                className="inline-flex items-center px-6 py-3.5 rounded-full text-sm font-semibold text-[#0A2540] bg-white/90 hover:bg-white shadow-[0_6px_20px_rgba(10,37,64,0.06)] ring-1 ring-slate-900/[0.08] transition-all"
+                className="inline-flex items-center px-6 py-3.5 rounded-full text-sm font-semibold text-[#081629] bg-white/95 hover:bg-white shadow-[0_6px_20px_rgba(8,22,41,0.06)] ring-1 ring-slate-900/[0.08] transition-all"
               >
                 Lihat Demo Interaktif
               </Link>
@@ -117,11 +117,11 @@ export function GroveHeroSection() {
                 <div key={m.label} className="space-y-0.5">
                   <div className="flex items-center gap-2">
                     <span className={`w-2 h-2 rounded-full ${m.dotClass}`} />
-                    <span className="text-2xl font-bold tracking-tight text-[#0A2540]">
+                    <span className="text-2xl font-bold tracking-tight text-[#081629]">
                       {m.value}
                     </span>
                   </div>
-                  <div className="text-xs text-[#425466] pl-4">{m.label}</div>
+                  <div className="text-xs text-[#475569] pl-4">{m.label}</div>
                 </div>
               ))}
             </div>

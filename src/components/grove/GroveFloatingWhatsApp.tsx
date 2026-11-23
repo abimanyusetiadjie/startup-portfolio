@@ -124,7 +124,7 @@ export function GroveFloatingWhatsApp() {
                       {opt.desc}
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#635BFF] shrink-0" />
+                  <ArrowUpRight className="w-4 h-4 text-[#0284C7] shrink-0" />
                 </button>
               ))}
             </div>
