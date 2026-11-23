@@ -79,15 +79,11 @@ export function MobileCaseStudiesSection() {
     <section
       id="m-portofolio"
       data-section="portofolio"
-      className="relative scroll-mt-20 bg-[#081629] text-white py-14 overflow-hidden"
+      className="relative scroll-mt-20 bg-[#0F172A] text-white py-14 overflow-hidden"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute -top-16 right-0 w-64 h-64 rounded-full bg-[#0284C7]/30 blur-[80px]"
-      />
       <div className="relative z-10 max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1.5">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#00C9A7]/15 text-[#00E5BE] font-semibold text-[11px]">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/10 text-slate-200 ring-1 ring-white/15 font-semibold text-[11px]">
             Studi Kasus Terukur
           </span>
           <h2 className="text-[24px] font-bold tracking-tight text-white">
@@ -103,7 +99,7 @@ export function MobileCaseStudiesSection() {
             <article
               key={item.id}
               onClick={() => setSelectedCase(item)}
-              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-3xl bg-white/[0.07] backdrop-blur-md ring-1 ring-white/15 overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.98] transition-transform"
+              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-3xl bg-white/[0.06] backdrop-blur-md ring-1 ring-white/15 overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.98] transition-transform"
             >
               <div>
                 <div className="p-2.5 pb-0">
@@ -125,7 +121,7 @@ export function MobileCaseStudiesSection() {
 
                 <div className="p-4 space-y-3">
                   <div>
-                    <span className="text-[11px] font-semibold text-[#00D4FF] block mb-1">
+                    <span className="text-[11px] font-medium text-slate-300 block mb-1">
                       {item.sector}
                     </span>
                     <h3 className="text-[16px] font-bold text-white leading-snug">
@@ -148,7 +144,7 @@ export function MobileCaseStudiesSection() {
                 </div>
               </div>
 
-              <div className="px-4 py-3 border-t border-white/10 flex items-center justify-between text-[13px] font-semibold text-[#00D4FF]">
+              <div className="px-4 py-3 border-t border-white/10 flex items-center justify-between text-[13px] font-semibold text-white">
                 <span>Baca ringkasan</span>
                 <ArrowRight className="w-4 h-4" />
               </div>

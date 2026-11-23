@@ -14,7 +14,7 @@ export function GroveFloatingWhatsApp() {
 
   useEffect(() => {
     const targets = Array.from(
-      document.querySelectorAll('#kontak, [data-section="kontak"], footer')
+      document.querySelectorAll('#m-beranda, #kontak, [data-section="kontak"], footer')
     ).filter((el): el is HTMLElement => el instanceof HTMLElement);
 
     if (targets.length === 0 || typeof IntersectionObserver === "undefined") {

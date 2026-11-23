@@ -42,12 +42,12 @@ export function GroveWhyAbinestSection() {
           transition={{ duration: 0.45 }}
           className="max-w-3xl space-y-3"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 text-[#0F766E] font-semibold text-xs tracking-wide ring-1 ring-teal-200/70">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#F8FAFC] text-[#0F172A] font-semibold text-xs tracking-wide ring-1 ring-slate-200">
             Standar Studio Abinest
           </span>
-          <h2 className="text-[26px] sm:text-3xl lg:text-[38px] font-bold tracking-[-0.035em] text-[#081629] leading-[1.12]">
+          <h2 className="text-[26px] sm:text-3xl lg:text-[38px] font-bold tracking-[-0.035em] text-[#0F172A] leading-[1.12]">
             Mengapa pemilik bisnis memilih{" "}
-            <span className="bg-gradient-to-r from-[#0284C7] to-[#00C9A7] bg-clip-text text-transparent">
+            <span className="text-[#475569] font-normal">
               aset milik sendiri?
             </span>
           </h2>
@@ -64,15 +64,15 @@ export function GroveWhyAbinestSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.45 }}
-            className="rounded-[28px] bg-gradient-to-br from-[#081629] via-[#0D2542] to-[#0B3A53] text-white p-6 sm:p-7 shadow-[0_28px_65px_-15px_rgba(8,22,41,0.32)] ring-1 ring-white/15 flex flex-col justify-between space-y-6"
+            className="rounded-[28px] bg-[#0F172A] text-white p-6 sm:p-7 shadow-[0_24px_60px_-15px_rgba(15,23,42,0.28)] ring-1 ring-white/10 flex flex-col justify-between space-y-6"
           >
             <div className="space-y-5">
               <div className="flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00C9A7]/15 text-[#00E5BE] text-xs font-semibold ring-1 ring-[#00C9A7]/30">
-                  <ShieldCheck className="w-3.5 h-3.5" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-semibold ring-1 ring-white/15">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Abinest Software Studio</span>
                 </span>
-                <span className="font-mono text-[11px] text-sky-300 font-semibold">
+                <span className="font-mono text-[11px] text-slate-300 font-semibold">
                   Beli Putus 100%
                 </span>
               </div>
@@ -92,7 +92,7 @@ export function GroveWhyAbinestSection() {
                     key={pt}
                     className="flex items-start gap-2.5 text-[13.5px] text-slate-100 leading-snug"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#00E5BE] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{pt}</span>
                   </li>
                 ))}
@@ -101,7 +101,7 @@ export function GroveWhyAbinestSection() {
 
             <Link
               href="/audit-gratis"
-              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#00C9A7] to-[#2DD4BF] hover:brightness-105 text-[#081629] font-bold text-xs sm:text-[13.5px] py-3 px-5 shadow-[0_10px_25px_rgba(0,201,167,0.28)] transition-all"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-100 text-[#0F172A] font-bold text-xs sm:text-[13.5px] py-3 px-5 shadow-sm transition-all"
             >
               <span>Hitung Penghematan di Kalkulator Biaya</span>
               <ArrowRight className="w-4 h-4" />
@@ -114,13 +114,13 @@ export function GroveWhyAbinestSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.45, delay: 0.08 }}
-            className="rounded-[28px] bg-[#F4F8FB] p-6 sm:p-7 ring-1 ring-slate-900/[0.05] flex flex-col justify-between space-y-5"
+            className="rounded-[28px] bg-[#F8FAFC] p-6 sm:p-7 ring-1 ring-slate-200/80 flex flex-col justify-between space-y-5"
           >
             <div className="space-y-4">
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-white text-[#475569] text-[11px] font-mono font-semibold ring-1 ring-slate-200/80">
                 Aplikasi SaaS Bulanan
               </span>
-              <h3 className="text-lg font-bold text-[#081629] leading-snug">
+              <h3 className="text-lg font-bold text-[#0F172A] leading-snug">
                 Murah di Awal, Membengkak Tiap Tahun
               </h3>
               <ul className="space-y-3 pt-2 border-t border-slate-200/70">
@@ -138,7 +138,7 @@ export function GroveWhyAbinestSection() {
 
             <div className="pt-3 border-t border-slate-200/70 text-[12px] font-medium text-slate-500">
               Estimasi 3 tahun (25 staf):{" "}
-              <span className="font-mono font-bold text-[#081629]">Rp36–90 juta+</span>
+              <span className="font-mono font-bold text-[#0F172A]">Rp36–90 juta+</span>
             </div>
           </motion.article>
 
@@ -148,13 +148,13 @@ export function GroveWhyAbinestSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.45, delay: 0.14 }}
-            className="rounded-[28px] bg-[#F4F8FB] p-6 sm:p-7 ring-1 ring-slate-900/[0.05] flex flex-col justify-between space-y-5"
+            className="rounded-[28px] bg-[#F8FAFC] p-6 sm:p-7 ring-1 ring-slate-200/80 flex flex-col justify-between space-y-5"
           >
             <div className="space-y-4">
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-white text-[#475569] text-[11px] font-mono font-semibold ring-1 ring-slate-200/80">
                 Freelancer / Template Umum
               </span>
-              <h3 className="text-lg font-bold text-[#081629] leading-snug">
+              <h3 className="text-lg font-bold text-[#0F172A] leading-snug">
                 Risiko Tinggi Saat Usaha Mulai Tumbuh
               </h3>
               <ul className="space-y-3 pt-2 border-t border-slate-200/70">
@@ -172,7 +172,7 @@ export function GroveWhyAbinestSection() {
 
             <div className="pt-3 border-t border-slate-200/70 text-[12px] font-medium text-slate-500">
               Risiko utama:{" "}
-              <span className="font-semibold text-[#081629]">Harus bangun ulang dari nol</span>
+              <span className="font-semibold text-[#0F172A]">Harus bangun ulang dari nol</span>
             </div>
           </motion.article>
         </div>

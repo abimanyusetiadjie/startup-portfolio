@@ -96,14 +96,14 @@ export function GroveNavbar() {
       <motion.div
         aria-hidden="true"
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#00C9A7] origin-left z-[60] pointer-events-none"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-[#0F172A] origin-left z-[60] pointer-events-none"
       />
 
       <div
         className={`max-w-[1200px] mx-auto flex items-center justify-between gap-4 transition-all duration-300 rounded-full ${
           scrolled
-            ? "h-14 px-4 sm:px-5 bg-white/95 backdrop-blur-xl shadow-[0_12px_40px_rgba(8,22,41,0.1)] ring-1 ring-slate-900/[0.08]"
-            : "h-14 px-4 sm:px-5 bg-white/85 backdrop-blur-md shadow-[0_4px_20px_rgba(8,22,41,0.05)] ring-1 ring-white/90"
+            ? "h-14 px-4 sm:px-5 bg-white/95 backdrop-blur-xl shadow-[0_12px_36px_rgba(15,23,42,0.08)] ring-1 ring-slate-900/[0.08]"
+            : "h-14 px-4 sm:px-5 bg-white/90 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.04)] ring-1 ring-slate-900/[0.06]"
         }`}
       >
         {/* Brand */}
@@ -122,7 +122,7 @@ export function GroveNavbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="px-3.5 py-1.5 rounded-full font-medium text-[#475569] hover:text-[#0284C7] hover:bg-sky-500/[0.08] transition-colors whitespace-nowrap"
+                  className="px-3.5 py-1.5 rounded-full font-medium text-[#475569] hover:text-[#0F172A] hover:bg-slate-100 transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -136,15 +136,15 @@ export function GroveNavbar() {
                 onClick={(e) => handleSmoothScroll(e, item.href)}
                 className={`relative px-3.5 py-1.5 rounded-full transition-colors whitespace-nowrap ${
                   isSelected
-                    ? "font-semibold text-[#0284C7]"
-                    : "font-medium text-[#475569] hover:text-[#081629]"
+                    ? "font-semibold text-[#0F172A]"
+                    : "font-medium text-[#475569] hover:text-[#0F172A]"
                 }`}
               >
                 {isSelected && (
                   <motion.span
                     layoutId="nav-active-pill"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    className="absolute inset-0 rounded-full bg-sky-500/10 -z-10"
+                    className="absolute inset-0 rounded-full bg-slate-100 -z-10"
                   />
                 )}
                 <span>{item.label}</span>
@@ -153,11 +153,11 @@ export function GroveNavbar() {
           })}
         </nav>
 
-        {/* Signature Abinest Pill Actions */}
+        {/* Restrained Executive Pill Actions */}
         <div className="hidden sm:flex items-center gap-2.5 shrink-0">
           <Link
             href="/audit-gratis"
-            className="inline-flex items-center px-4 py-2 rounded-full text-[13px] font-semibold text-[#081629] bg-white/85 hover:bg-white shadow-sm ring-1 ring-slate-900/[0.08] transition-all whitespace-nowrap"
+            className="inline-flex items-center px-4 py-2 rounded-full text-[13px] font-semibold text-[#0F172A] bg-white hover:bg-slate-50 ring-1 ring-slate-200 transition-all whitespace-nowrap"
           >
             Audit Gratis
           </Link>
@@ -165,10 +165,10 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold text-white bg-gradient-to-r from-[#081629] via-[#0F2744] to-[#0284C7] hover:brightness-110 shadow-[0_6px_18px_rgba(2,132,199,0.28)] transition-all whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold text-white bg-[#0F172A] hover:bg-slate-800 shadow-sm transition-all whitespace-nowrap"
           >
             <span>Konsultasi</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#00E5BE]" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-slate-300" />
           </Link>
         </div>
 
@@ -177,14 +177,14 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#081629] to-[#0284C7] shadow-[0_4px_12px_rgba(2,132,199,0.28)] transition-all"
+            className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-[#0F172A] shadow-sm transition-all"
           >
             Konsultasi
           </Link>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full bg-white/90 text-[#081629] ring-1 ring-slate-900/[0.08] hover:bg-white transition-colors cursor-pointer"
+            className="p-2 rounded-full bg-white text-[#0F172A] ring-1 ring-slate-200 hover:bg-slate-50 transition-colors cursor-pointer"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
           >
@@ -205,10 +205,10 @@ export function GroveNavbar() {
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between text-[13.5px] font-semibold px-4 py-3 text-[#0284C7] hover:bg-slate-50 transition-colors"
+                    className="flex items-center justify-between text-[13.5px] font-semibold px-4 py-3 text-[#0F172A] hover:bg-slate-50 transition-colors"
                   >
                     <span>{item.label}</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#0284C7]" />
+                    <ArrowUpRight className="w-4 h-4 text-slate-500" />
                   </Link>
                 );
               }
@@ -219,12 +219,12 @@ export function GroveNavbar() {
                   onClick={(e) => handleSmoothScroll(e, item.href)}
                   className={`flex items-center justify-between text-[13.5px] px-4 py-3 transition-colors ${
                     isActive
-                      ? "text-[#0284C7] font-bold bg-sky-50/50"
-                      : "text-slate-700 font-medium hover:text-[#081629] hover:bg-slate-50"
+                      ? "text-[#0F172A] font-bold bg-slate-50"
+                      : "text-slate-700 font-medium hover:text-[#0F172A] hover:bg-slate-50"
                   }`}
                 >
                   <span>{item.label}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]" />}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#0F172A]" />}
                 </Link>
               );
             })}
@@ -242,7 +242,7 @@ export function GroveNavbar() {
             <Link
               href="/#kontak"
               onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-              className="flex items-center justify-center py-2.5 text-[13px] font-semibold text-white bg-gradient-to-r from-[#081629] to-[#0284C7] rounded-xl transition-all"
+              className="flex items-center justify-center py-2.5 text-[13px] font-semibold text-white bg-[#0F172A] rounded-xl transition-all"
             >
               Konsultasi Gratis
             </Link>

@@ -95,21 +95,11 @@ export function GroveCaseStudySection() {
     <section
       id="portofolio"
       data-section="portofolio"
-      className="relative scroll-mt-20 py-28 bg-[#081629] text-white overflow-hidden"
+      className="relative scroll-mt-20 py-28 bg-[#0F172A] text-white overflow-hidden"
       style={{
         clipPath: "polygon(0 3%, 100% 0, 100% 97%, 0 100%)",
       }}
     >
-      {/* Living Luminous Ambient Orbs inside Abinest Midnight Navy */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute -top-24 left-[12%] w-[460px] h-[460px] rounded-full bg-[#0284C7]/30 blur-[110px] animate-mesh-a"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute bottom-0 right-[8%] w-[460px] h-[420px] rounded-full bg-[#00C9A7]/25 blur-[110px] animate-mesh-b"
-      />
-
       <div className="relative z-10 max-w-[1200px] mx-auto px-8 space-y-14">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -118,12 +108,12 @@ export function GroveCaseStudySection() {
           transition={{ duration: 0.45 }}
           className="space-y-3 max-w-2xl"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#00C9A7]/15 text-[#00E5BE] font-semibold text-xs tracking-wide">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-slate-200 font-semibold text-xs tracking-wide ring-1 ring-white/15">
             Studi Kasus Terukur
           </span>
           <h2 className="text-3xl sm:text-[40px] font-bold tracking-[-0.035em] text-white leading-[1.1]">
             Dampak nyata pada{" "}
-            <span className="bg-gradient-to-r from-[#38BDF8] via-cyan-300 to-[#00E5BE] bg-clip-text text-transparent">
+            <span className="text-slate-400 font-normal">
               kecepatan &amp; efisiensi bisnis.
             </span>
           </h2>
@@ -141,9 +131,9 @@ export function GroveCaseStudySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.18 }}
               transition={{ duration: 0.45, delay: idx * 0.08 }}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -6 }}
               onClick={() => setSelectedCase(item)}
-              className="group rounded-[28px] bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-md ring-1 ring-white/15 hover:ring-[#00D4FF]/50 shadow-[0_24px_50px_-15px_rgba(0,0,0,0.35)] transition-all overflow-hidden flex flex-col justify-between cursor-pointer"
+              className="group rounded-[28px] bg-white/[0.06] hover:bg-white/[0.09] backdrop-blur-md ring-1 ring-white/15 hover:ring-white/35 shadow-[0_24px_50px_-15px_rgba(0,0,0,0.35)] transition-all overflow-hidden flex flex-col justify-between cursor-pointer"
             >
               <div>
                 <div className="p-3 pb-0">
@@ -155,7 +145,7 @@ export function GroveCaseStudySection() {
                       alt={item.fullTitle}
                       fill
                       sizes="(max-width: 1200px) 33vw, 380px"
-                      className="object-cover object-center group-hover:scale-[1.05] transition-transform duration-500"
+                      className="object-cover object-center group-hover:scale-[1.04] transition-transform duration-500"
                       priority={idx === 0}
                       onError={() =>
                         setFailedImages((prev) =>
@@ -168,7 +158,7 @@ export function GroveCaseStudySection() {
 
                 <div className="p-6 space-y-4">
                   <div className="space-y-1.5">
-                    <span className="text-xs font-semibold text-[#00D4FF] block">
+                    <span className="text-xs font-medium text-slate-300 block">
                       {item.sector}
                     </span>
                     <h3 className="text-[23px] font-bold tracking-tight text-white leading-snug">
@@ -179,7 +169,7 @@ export function GroveCaseStudySection() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2 rounded-2xl bg-[#06182C]/70 ring-1 ring-white/10 py-2.5 px-2 text-center">
+                  <div className="grid grid-cols-3 gap-2 rounded-2xl bg-slate-950/60 ring-1 ring-white/10 py-2.5 px-2 text-center">
                     {item.metrics.map((m) => (
                       <div key={m.label} className="px-1">
                         <div className="text-[13.5px] font-bold text-white">
@@ -195,11 +185,11 @@ export function GroveCaseStudySection() {
               </div>
 
               <div className="px-6 pb-6 pt-1 flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[#00D4FF] group-hover:text-white transition-colors">
+                <span className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-white transition-colors">
                   <span>Lihat studi kasus</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </span>
-                <span className="font-mono text-[11px] text-slate-500">
+                <span className="font-mono text-[11px] text-slate-400">
                   0{idx + 1}
                 </span>
               </div>

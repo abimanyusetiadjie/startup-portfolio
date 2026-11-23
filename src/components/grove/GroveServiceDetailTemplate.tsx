@@ -64,7 +64,7 @@ export function GroveServiceDetailTemplate({
   const waHref = buildConsultationWaUrl(data.waMessage);
 
   return (
-    <div className="min-h-screen bg-[#F4F8FB] text-[#081629] flex flex-col font-sans selection:bg-[#0284C7] selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#0F172A] selection:text-white">
       <GroveNavbar />
 
       <main className="flex-1 pt-24 pb-20">
@@ -76,7 +76,7 @@ export function GroveServiceDetailTemplate({
           >
             <ol className="flex items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-[#0284C7] transition-colors">
+                <Link href="/" className="hover:text-[#0F172A] transition-colors">
                   Beranda
                 </Link>
               </li>
@@ -84,20 +84,20 @@ export function GroveServiceDetailTemplate({
               <li>
                 <Link
                   href="/#layanan-utama"
-                  className="hover:text-[#0284C7] transition-colors"
+                  className="hover:text-[#0F172A] transition-colors"
                 >
                   Layanan Utama
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-[#081629] font-semibold">
+              <li className="text-[#0F172A] font-semibold">
                 {data.breadcrumbLabel}
               </li>
             </ol>
 
             <Link
               href="/#layanan-utama"
-              className="inline-flex items-center gap-1.5 text-[#475569] hover:text-[#0284C7] transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#475569] hover:text-[#0F172A] transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Kembali ke Beranda</span>
@@ -107,15 +107,15 @@ export function GroveServiceDetailTemplate({
 
         {/* Executive Hero Card */}
         <section className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-16">
-          <div className="rounded-[28px] bg-white ring-1 ring-slate-900/[0.05] shadow-[0_24px_60px_rgba(8,22,41,0.07)] p-7 sm:p-10 lg:p-12">
+          <div className="rounded-[28px] bg-white ring-1 ring-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.06)] p-7 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               <div className="lg:col-span-8 space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-sky-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#0284C7]">
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#F8FAFC] ring-1 ring-slate-200 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F172A]">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{data.eyebrow}</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-0.035em] text-[#081629] leading-[1.1]">
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-0.035em] text-[#0F172A] leading-[1.1]">
                   {data.title}
                 </h1>
 
@@ -134,7 +134,7 @@ export function GroveServiceDetailTemplate({
                         service: data.serviceNameForAnalytics,
                       })
                     }
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#00C9A7] hover:shadow-lg hover:shadow-sky-500/30 text-white text-sm font-semibold px-6 py-3 shadow-md transition-all"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold px-6 py-3 shadow-sm transition-all"
                   >
                     <span>Konsultasi Layanan via WhatsApp</span>
                     <ArrowRight className="w-4 h-4" />
@@ -142,7 +142,7 @@ export function GroveServiceDetailTemplate({
 
                   <Link
                     href={data.secondaryCta.href}
-                    className="inline-flex items-center justify-center rounded-full bg-[#F4F8FB] hover:bg-sky-50 text-[#081629] hover:text-[#0284C7] text-sm font-semibold px-6 py-3 transition-colors"
+                    className="inline-flex items-center justify-center rounded-full bg-[#F8FAFC] hover:bg-slate-100 ring-1 ring-slate-200 text-[#0F172A] text-sm font-semibold px-6 py-3 transition-colors"
                   >
                     {data.secondaryCta.label}
                   </Link>
@@ -152,9 +152,9 @@ export function GroveServiceDetailTemplate({
                   {data.heroMetrics.map((metric) => (
                     <div
                       key={metric.label}
-                      className="rounded-2xl bg-[#F4F8FB] px-4 py-3.5"
+                      className="rounded-2xl bg-[#F8FAFC] ring-1 ring-slate-200/70 px-4 py-3.5"
                     >
-                      <div className="text-xl sm:text-2xl font-bold tracking-tight text-[#081629]">
+                      <div className="text-xl sm:text-2xl font-bold tracking-tight text-[#0F172A]">
                         {metric.value}
                       </div>
                       <div className="text-xs text-[#475569] mt-0.5">
@@ -166,9 +166,9 @@ export function GroveServiceDetailTemplate({
               </div>
 
               {/* Right Investment & Governance Summary Box */}
-              <aside className="lg:col-span-4 rounded-2xl bg-gradient-to-br from-[#081629] via-[#0D2542] to-[#0B3A53] text-white p-6 sm:p-7 space-y-5 shadow-xl">
+              <aside className="lg:col-span-4 rounded-2xl bg-[#0F172A] text-white p-6 sm:p-7 space-y-5 shadow-xl">
                 <div className="space-y-1">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#00E5BE]">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-300">
                     Estimasi Investasi
                   </span>
                   <div className="text-2xl sm:text-3xl font-bold tracking-tight">
@@ -363,7 +363,7 @@ export function GroveServiceDetailTemplate({
                       service: data.serviceNameForAnalytics,
                     })
                   }
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#00C9A7] hover:shadow-lg hover:shadow-sky-500/25 text-white text-sm font-semibold py-2.5 px-5 transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold py-2.5 px-5 transition-all"
                 >
                   <span>Minta Proposal & Estimasi</span>
                   <ArrowRight className="w-4 h-4" />

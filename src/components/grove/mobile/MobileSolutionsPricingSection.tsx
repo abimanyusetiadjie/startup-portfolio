@@ -200,14 +200,14 @@ export function MobileSolutionsPricingSection() {
     <section
       id="m-layanan"
       data-section="layanan-utama"
-      className="scroll-mt-20 bg-[#F4F8FB] py-12"
+      className="scroll-mt-20 bg-[#F8FAFC] py-12"
     >
       <div className="max-w-md mx-auto space-y-5">
         <div className="px-5 space-y-1.5">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-sky-50 text-[#0284C7] font-semibold text-[11px]">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-white ring-1 ring-slate-200 text-[#0F172A] font-semibold text-[11px]">
             Layanan &amp; Investasi
           </span>
-          <h2 className="text-[24px] font-bold tracking-tight text-[#081629]">
+          <h2 className="text-[24px] font-bold tracking-tight text-[#0F172A]">
             Paket &amp; Kepemilikan Penuh
           </h2>
           <p className="text-[13.5px] text-[#475569]">
@@ -216,14 +216,14 @@ export function MobileSolutionsPricingSection() {
         </div>
 
         <div id="m-harga" data-section="harga" className="px-5 space-y-2.5 scroll-mt-20">
-          <div className="grid grid-cols-2 p-1 rounded-full bg-white shadow-sm ring-1 ring-slate-900/[0.06]">
+          <div className="grid grid-cols-2 p-1 rounded-full bg-white shadow-sm ring-1 ring-slate-200">
             <button
               type="button"
               onClick={() => setMode("beli-putus")}
               className={`py-2 px-3 rounded-full text-[12.5px] font-semibold transition-all cursor-pointer ${
                 isBeliPutus
-                  ? "bg-gradient-to-r from-[#0D9488] to-[#00C9A7] text-white shadow-sm"
-                  : "text-[#475569] hover:text-[#081629]"
+                  ? "bg-[#0F172A] text-white shadow-sm"
+                  : "text-[#475569] hover:text-[#0F172A]"
               }`}
             >
               Beli Putus
@@ -233,8 +233,8 @@ export function MobileSolutionsPricingSection() {
               onClick={() => setMode("terima-beres")}
               className={`py-2 px-3 rounded-full text-[12.5px] font-semibold transition-all cursor-pointer ${
                 !isBeliPutus
-                  ? "bg-gradient-to-r from-[#081629] to-[#0284C7] text-white shadow-sm"
-                  : "text-[#475569] hover:text-[#081629]"
+                  ? "bg-[#0F172A] text-white shadow-sm"
+                  : "text-[#475569] hover:text-[#0F172A]"
               }`}
             >
               Terima Beres

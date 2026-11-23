@@ -22,19 +22,19 @@ export function GroveFaqSection() {
     <section
       id="faq"
       data-section="faq"
-      className="scroll-mt-20 py-24 bg-[#F4F8FB] relative z-10 overflow-hidden"
+      className="scroll-mt-20 py-24 bg-[#F8FAFC] relative z-10 overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left sticky column */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
             <div className="space-y-3">
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 text-[#0284C7] font-semibold text-xs tracking-wide">
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white ring-1 ring-slate-200 text-[#0F172A] font-semibold text-xs tracking-wide">
                 Kejelasan Kerja Sama
               </span>
-              <h2 className="text-3xl md:text-[36px] font-bold tracking-[-0.035em] text-[#081629] leading-[1.12]">
+              <h2 className="text-3xl md:text-[36px] font-bold tracking-[-0.035em] text-[#0F172A] leading-[1.12]">
                 Pertanyaan yang{" "}
-                <span className="bg-gradient-to-r from-[#0284C7] to-[#00C9A7] bg-clip-text text-transparent">
+                <span className="text-[#475569] font-normal">
                   sering ditanyakan.
                 </span>
               </h2>
@@ -44,9 +44,9 @@ export function GroveFaqSection() {
               </p>
             </div>
 
-            <div className="rounded-[24px] bg-white shadow-[0_18px_45px_rgba(8,22,41,0.06)] ring-1 ring-slate-900/[0.05] p-6 space-y-4">
+            <div className="rounded-[24px] bg-white shadow-[0_16px_40px_rgba(15,23,42,0.06)] ring-1 ring-slate-200/80 p-6 space-y-4">
               <div className="space-y-1.5">
-                <h3 className="text-[15.5px] font-bold text-[#081629]">
+                <h3 className="text-[15.5px] font-bold text-[#0F172A]">
                   Masih Ada Pertanyaan Teknis?
                 </h3>
                 <p className="text-[13.5px] text-[#475569] leading-relaxed">
@@ -57,14 +57,14 @@ export function GroveFaqSection() {
                 <button
                   type="button"
                   onClick={handleScrollToContact}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#081629] to-[#0284C7] hover:shadow-lg hover:shadow-sky-500/20 text-white text-xs font-semibold px-5 py-3 transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-xs font-semibold px-5 py-3 transition-all cursor-pointer"
                 >
                   <span>Konsultasi Langsung</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <Link
                   href="/audit-gratis"
-                  className="inline-flex items-center justify-center rounded-full bg-[#F4F8FB] hover:bg-sky-50 text-[#081629] hover:text-[#0284C7] text-xs font-semibold px-5 py-2.5 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-[#F8FAFC] hover:bg-slate-100 ring-1 ring-slate-200 text-[#0F172A] text-xs font-semibold px-5 py-2.5 transition-colors"
                 >
                   Ajukan Audit Sistem Gratis
                 </Link>
@@ -85,8 +85,8 @@ export function GroveFaqSection() {
                   key={item.id}
                   className={`rounded-2xl transition-all duration-200 ${
                     isOpen
-                      ? "bg-white shadow-[0_18px_40px_rgba(2,132,199,0.09)] ring-1 ring-sky-500/25"
-                      : "bg-white/95 shadow-[0_6px_20px_rgba(8,22,41,0.04)] ring-1 ring-slate-900/[0.04] hover:bg-white hover:shadow-[0_12px_28px_rgba(8,22,41,0.07)]"
+                      ? "bg-white shadow-[0_16px_38px_rgba(15,23,42,0.08)] ring-1 ring-slate-300"
+                      : "bg-white/95 shadow-sm ring-1 ring-slate-200/70 hover:bg-white"
                   }`}
                 >
                   <button
@@ -101,24 +101,24 @@ export function GroveFaqSection() {
                       <span
                         className={`mt-0.5 shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full text-[11px] font-mono font-bold transition-colors ${
                           isOpen
-                            ? "bg-gradient-to-br from-[#0284C7] to-[#00C9A7] text-white shadow-sm"
-                            : "bg-sky-50 text-[#0284C7]"
+                            ? "bg-[#0F172A] text-white"
+                            : "bg-slate-100 text-[#475569]"
                         }`}
                       >
                         {numberLabel}
                       </span>
                       <div className="space-y-1">
-                        <span className="inline-block font-mono text-[10.5px] uppercase tracking-wider text-[#0284C7] font-semibold">
+                        <span className="inline-block font-mono text-[10.5px] uppercase tracking-wider text-[#475569] font-semibold">
                           {item.category}
                         </span>
-                        <p className="text-[15.5px] font-bold tracking-[-0.015em] text-[#081629] leading-snug">
+                        <p className="text-[15.5px] font-bold tracking-[-0.015em] text-[#0F172A] leading-snug">
                           {item.question}
                         </p>
                       </div>
                     </div>
                     <ChevronDown
                       className={`w-4 h-4 shrink-0 mt-1.5 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#0284C7]" : "text-slate-400"
+                        isOpen ? "rotate-180 text-[#0F172A]" : "text-slate-400"
                       }`}
                     />
                   </button>
@@ -139,8 +139,8 @@ export function GroveFaqSection() {
                           <p className="text-[14px] leading-relaxed text-[#475569]">
                             {item.answer}
                           </p>
-                          <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-800 px-3.5 py-1.5 text-xs font-semibold">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#0D9488] shrink-0" />
+                          <div className="inline-flex items-center gap-2 rounded-full bg-[#F8FAFC] ring-1 ring-slate-200 text-[#0F172A] px-3.5 py-1.5 text-xs font-semibold">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                             <span>{item.highlight}</span>
                           </div>
                         </div>

@@ -42,7 +42,7 @@ export function GroveApp() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-[#081629] flex flex-col font-sans selection:bg-[#0284C7] selection:text-white">
+    <div className="min-h-screen bg-white text-[#0F172A] flex flex-col font-sans selection:bg-[#0F172A] selection:text-white">
       {/* 1. Sticky Header & Navigation */}
       <GroveNavbar />
 

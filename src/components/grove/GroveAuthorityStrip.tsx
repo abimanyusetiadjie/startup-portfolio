@@ -47,7 +47,7 @@ export function GroveAuthorityStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.4 }}
-          className="rounded-[24px] bg-[#F4F8FB] ring-1 ring-slate-900/[0.05] p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="rounded-[24px] bg-[#F8FAFC] ring-1 ring-slate-200/80 p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {trustPillars.map((item) => {
             const Icon = item.icon;
@@ -56,11 +56,11 @@ export function GroveAuthorityStrip() {
                 key={item.title}
                 className="flex items-start gap-3 px-2 py-1"
               >
-                <span className="mt-0.5 w-9 h-9 rounded-xl bg-white shadow-sm ring-1 ring-slate-900/[0.06] text-[#0284C7] inline-flex items-center justify-center shrink-0">
+                <span className="mt-0.5 w-9 h-9 rounded-xl bg-white shadow-sm ring-1 ring-slate-200 text-[#0F172A] inline-flex items-center justify-center shrink-0">
                   <Icon className="w-4 h-4" />
                 </span>
                 <div className="min-w-0">
-                  <div className="text-[13px] font-bold text-[#081629] leading-snug">
+                  <div className="text-[13px] font-bold text-[#0F172A] leading-snug">
                     {item.title}
                   </div>
                   <div className="text-[11.5px] text-[#475569] leading-snug mt-0.5">
@@ -79,9 +79,9 @@ export function GroveAuthorityStrip() {
           </span>
           {sectors.map((sec, idx) => (
             <span key={sec} className="inline-flex items-center gap-3">
-              <span className="font-semibold text-[#081629]">{sec}</span>
+              <span className="font-semibold text-[#0F172A]">{sec}</span>
               {idx < sectors.length - 1 && (
-                <span className="w-1 h-1 rounded-full bg-[#00C9A7]" aria-hidden="true" />
+                <span className="w-1 h-1 rounded-full bg-slate-300" aria-hidden="true" />
               )}
             </span>
           ))}

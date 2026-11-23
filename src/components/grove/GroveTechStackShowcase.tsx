@@ -376,12 +376,12 @@ export function GroveTechStackShowcase() {
     <section
       id="tech-stack"
       data-section="tech-stack"
-      className="scroll-mt-20 bg-[#F4F8FB] py-14 overflow-hidden"
+      className="scroll-mt-20 bg-[#F8FAFC] py-14 overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-6">
         <div className="flex items-center justify-center">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#475569] text-[11.5px] font-semibold tracking-wide shadow-sm ring-1 ring-slate-900/[0.05]">
-            <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#0284C7] to-[#00C9A7]" />
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#475569] text-[11.5px] font-semibold tracking-wide shadow-sm ring-1 ring-slate-200/80">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0F172A]" />
             <span>Dibangun di Atas Infrastruktur &amp; Teknologi Standar Industri</span>
           </span>
         </div>
@@ -399,12 +399,12 @@ export function GroveTechStackShowcase() {
             {[...allTechnologies, ...allTechnologies].map((item, idx) => (
               <div
                 key={`tech-inline-${idx}`}
-                className="inline-flex items-center gap-2.5 shrink-0 px-4 py-2.5 rounded-full bg-white shadow-[0_6px_18px_rgba(8,22,41,0.05)] ring-1 ring-slate-900/[0.05] hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(2,132,199,0.12)] transition-all"
+                className="inline-flex items-center gap-2.5 shrink-0 px-4 py-2.5 rounded-full bg-white shadow-sm ring-1 ring-slate-200/80 hover:-translate-y-0.5 transition-all"
               >
                 <div className="w-5 h-5 flex items-center justify-center shrink-0 [&>svg]:w-5 [&>svg]:h-5">
                   {item.icon}
                 </div>
-                <span className="text-[13.5px] font-semibold text-[#081629] whitespace-nowrap">
+                <span className="text-[13.5px] font-semibold text-[#0F172A] whitespace-nowrap">
                   {item.name}
                 </span>
               </div>

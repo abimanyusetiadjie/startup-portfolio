@@ -51,7 +51,7 @@ export function GroveCoreShieldSection() {
     <section
       id="cara-kerja"
       data-section="cara-kerja"
-      className="scroll-mt-20 py-24 bg-[#F4F8FB] relative overflow-hidden"
+      className="scroll-mt-20 py-24 bg-[#F8FAFC] relative overflow-hidden"
     >
       <div className="max-w-[1200px] mx-auto px-8 space-y-14">
         {/* Open Fluid Header */}
@@ -62,12 +62,12 @@ export function GroveCoreShieldSection() {
           transition={{ duration: 0.45 }}
           className="space-y-3 max-w-2xl"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 text-[#0284C7] font-semibold text-xs tracking-wide ring-1 ring-sky-200/70">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-white text-[#0F172A] font-semibold text-xs tracking-wide ring-1 ring-slate-200">
             Prosedur Eksekusi Terukur
           </span>
-          <h2 className="text-3xl sm:text-[38px] font-bold tracking-[-0.035em] text-[#081629] leading-[1.12]">
+          <h2 className="text-3xl sm:text-[38px] font-bold tracking-[-0.035em] text-[#0F172A] leading-[1.12]">
             Dari ide ke sistem produksi{" "}
-            <span className="bg-gradient-to-r from-[#0284C7] to-[#00C9A7] bg-clip-text text-transparent">
+            <span className="text-[#475569] font-normal">
               dalam 14 hari kerja.
             </span>
           </h2>
@@ -83,7 +83,7 @@ export function GroveCoreShieldSection() {
             {/* Subtle Vertical Spine */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute left-[35px] top-8 bottom-8 w-[1.5px] bg-gradient-to-b from-[#0284C7]/35 via-[#0EA5E9]/25 to-[#00C9A7]/35"
+              className="pointer-events-none absolute left-[35px] top-8 bottom-8 w-[1.5px] bg-slate-200"
             />
 
             {steps.map((s, idx) => {
@@ -101,15 +101,15 @@ export function GroveCoreShieldSection() {
                     <motion.div
                       layoutId="workflow-active-card"
                       transition={{ type: "spring", stiffness: 360, damping: 30 }}
-                      className="absolute inset-0 rounded-2xl bg-white shadow-[0_14px_36px_-10px_rgba(8,22,41,0.12)] ring-1 ring-[#0284C7]/20 -z-0"
+                      className="absolute inset-0 rounded-2xl bg-white shadow-[0_14px_36px_-10px_rgba(15,23,42,0.1)] ring-1 ring-slate-900/10 -z-0"
                     />
                   )}
                   <span
                     className={`relative z-10 mt-0.5 shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full font-mono text-xs font-bold transition-all ${
                       isActive
-                        ? "bg-gradient-to-br from-[#081629] to-[#0284C7] text-[#00E5BE] shadow-md ring-4 ring-sky-100"
+                        ? "bg-[#0F172A] text-white shadow-sm ring-4 ring-slate-100"
                         : isPassed
-                          ? "bg-[#0D9488] text-white shadow-sm"
+                          ? "bg-slate-700 text-white"
                           : "bg-white text-[#475569] ring-1 ring-slate-200"
                     }`}
                   >
@@ -120,7 +120,7 @@ export function GroveCoreShieldSection() {
                     <div className="flex items-center justify-between gap-3">
                       <h3
                         className={`text-[16px] font-bold tracking-tight ${
-                          isActive ? "text-[#081629]" : "text-[#475569]"
+                          isActive ? "text-[#0F172A]" : "text-[#475569]"
                         }`}
                       >
                         {s.title}
@@ -128,7 +128,7 @@ export function GroveCoreShieldSection() {
                       <span
                         className={`font-mono text-[11px] font-semibold shrink-0 px-2.5 py-0.5 rounded-full ${
                           isActive
-                            ? "bg-sky-50 text-[#0284C7]"
+                            ? "bg-slate-100 text-[#0F172A]"
                             : "text-slate-400"
                         }`}
                       >
@@ -146,15 +146,11 @@ export function GroveCoreShieldSection() {
 
           {/* Right 6 Cols: Floating Executive Deliverable Stage */}
           <div className="col-span-6 relative">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-tr from-[#0284C7]/15 via-[#0EA5E9]/15 to-[#00C9A7]/20 blur-2xl"
-            />
-            <div className="relative rounded-[28px] bg-white shadow-[0_24px_60px_-15px_rgba(8,22,41,0.12)] ring-1 ring-slate-900/[0.06] overflow-hidden">
-              <div className="px-6 py-4 bg-[#081629] text-white flex items-center justify-between gap-2 text-xs">
+            <div className="relative rounded-[28px] bg-white shadow-[0_24px_60px_-15px_rgba(15,23,42,0.1)] ring-1 ring-slate-200/80 overflow-hidden">
+              <div className="px-6 py-4 bg-[#0F172A] text-white flex items-center justify-between gap-2 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00E5BE]" />
-                  <span className="font-mono font-semibold text-sky-200">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="font-mono font-semibold text-slate-200">
                     PROSEDUR TAHAP {activeStep.step} / 05
                   </span>
                 </div>
@@ -175,8 +171,8 @@ export function GroveCoreShieldSection() {
                   <WorkflowStepStage step={activeStep.step} />
 
                   <div className="space-y-2.5 pt-1">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-teal-50 px-3.5 py-1 text-xs font-semibold text-[#0F766E]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0D9488] shrink-0" />
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-[#F8FAFC] ring-1 ring-slate-200 px-3.5 py-1 text-xs font-semibold text-[#0F172A]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                       <span>Hasil Resmi: {activeStep.deliverable}</span>
                     </div>
                     <p className="text-[14px] text-[#475569] leading-relaxed">

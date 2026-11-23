@@ -72,17 +72,17 @@ export function MobileProcessAndStackSection() {
     <section
       id="m-cara-kerja"
       data-section="cara-kerja"
-      className="scroll-mt-20 bg-[#F4F8FB] py-14 px-5"
+      className="scroll-mt-20 bg-[#F8FAFC] py-14 px-5"
     >
       <div className="max-w-md mx-auto space-y-9">
         <div className="space-y-4">
           <div className="space-y-2">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 text-[#0284C7] font-semibold text-[11px] tracking-wide ring-1 ring-sky-200/70">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-white text-[#0F172A] font-semibold text-[11px] tracking-wide ring-1 ring-slate-200">
               Prosedur Eksekusi
             </span>
-            <h2 className="text-[24px] font-bold tracking-[-0.03em] text-[#081629] leading-tight">
+            <h2 className="text-[24px] font-bold tracking-[-0.03em] text-[#0F172A] leading-tight">
               Rilis terukur dalam{" "}
-              <span className="bg-gradient-to-r from-[#0284C7] to-[#00C9A7] bg-clip-text text-transparent">
+              <span className="text-[#475569] font-normal">
                 14 hari kerja.
               </span>
             </h2>
@@ -97,14 +97,14 @@ export function MobileProcessAndStackSection() {
                 key={step.num}
                 type="button"
                 onClick={() => setSelectedStep(step)}
-                className="w-full rounded-2xl bg-white shadow-[0_10px_28px_rgba(8,22,41,0.05)] ring-1 ring-slate-900/[0.04] px-4 py-4 flex items-center justify-between gap-3 text-left hover:shadow-[0_14px_34px_rgba(2,132,199,0.1)] active:scale-[0.99] transition-all cursor-pointer"
+                className="w-full rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/80 px-4 py-4 flex items-center justify-between gap-3 text-left hover:bg-slate-50 active:scale-[0.99] transition-all cursor-pointer"
               >
                 <div className="flex items-start gap-3 min-w-0">
-                  <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#081629] to-[#0284C7] text-[11px] font-mono font-bold text-[#00E5BE] shadow-sm shrink-0">
+                  <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-[11px] font-mono font-bold text-white shrink-0">
                     {step.num}
                   </span>
                   <div className="min-w-0 space-y-0.5">
-                    <span className="block text-[14px] font-bold text-[#081629] leading-snug">
+                    <span className="block text-[14px] font-bold text-[#0F172A] leading-snug">
                       {step.title}
                     </span>
                     <span className="block font-mono text-[11px] text-[#475569]">
@@ -113,7 +113,7 @@ export function MobileProcessAndStackSection() {
                   </div>
                 </div>
 
-                <ChevronRight className="w-4 h-4 text-[#0284C7] shrink-0" />
+                <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
               </button>
             ))}
           </div>
@@ -122,8 +122,8 @@ export function MobileProcessAndStackSection() {
         {/* Floating Pill Tech Stack Strip */}
         <div id="m-tech-stack" data-section="tech-stack" className="space-y-3 scroll-mt-20">
           <div className="flex justify-center">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[11px] font-semibold text-[#475569] shadow-sm ring-1 ring-slate-900/[0.05]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00C9A7]" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[11px] font-semibold text-[#475569] shadow-sm ring-1 ring-slate-200/80">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0F172A]" />
               <span>Teknologi Standar Produksi</span>
             </span>
           </div>
@@ -133,7 +133,7 @@ export function MobileProcessAndStackSection() {
               {[...techBadges, ...techBadges].map((item, idx) => (
                 <span
                   key={`${item.name}-${idx}`}
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-sm ring-1 ring-slate-900/[0.05] text-[12.5px] font-semibold text-[#081629] whitespace-nowrap shrink-0"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-sm ring-1 ring-slate-200/80 text-[12.5px] font-semibold text-[#0F172A] whitespace-nowrap shrink-0"
                 >
                   <span
                     className="w-2 h-2 rounded-full shrink-0"
@@ -161,12 +161,12 @@ export function MobileProcessAndStackSection() {
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[11.5px] font-semibold text-[#0284C7]">
+                <span className="text-[11.5px] font-semibold text-[#475569]">
                   Prosedur Tahap {selectedStep.num} · {selectedStep.timeline}
                 </span>
                 <h3
                   id="mobile-process-modal-title"
-                  className="text-[17px] font-bold text-[#081629] mt-0.5"
+                  className="text-[17px] font-bold text-[#0F172A] mt-0.5"
                 >
                   {selectedStep.title}
                 </h3>
@@ -184,8 +184,8 @@ export function MobileProcessAndStackSection() {
             <WorkflowStepStage step={selectedStep.num} />
 
             <div className="space-y-1.5">
-              <div className="flex items-center gap-1.5 text-[12.5px] font-semibold text-[#081629]">
-                <Check className="w-3.5 h-3.5 text-[#0D9488]" />
+              <div className="flex items-center gap-1.5 text-[12.5px] font-semibold text-[#0F172A]">
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
                 <span>{selectedStep.deliverable}</span>
               </div>
               <p className="text-[13px] text-[#475569] leading-relaxed">
@@ -196,7 +196,7 @@ export function MobileProcessAndStackSection() {
             <button
               type="button"
               onClick={() => setSelectedStep(null)}
-              className="w-full h-11 rounded-full bg-[#081629] text-white text-[13.5px] font-semibold cursor-pointer"
+              className="w-full h-11 rounded-full bg-[#0F172A] text-white text-[13.5px] font-semibold cursor-pointer"
             >
               Tutup
             </button>
