@@ -1,12 +1,109 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, CheckCircle2, Database, Globe, MessageSquare, X, Zap } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { useModalEffects } from "./use-modal-effects";
+
+function CapabilityDiagram({ id }: { id: string }) {
+  if (id === "web") {
+    return (
+      <div className="my-6 rounded-xl border border-[#EAEAEA] bg-[#FAFAFA] p-4 space-y-3">
+        <div className="flex items-center justify-between text-[11px] font-mono">
+          <span className="inline-flex items-center gap-1.5 text-[#0A0A0A] font-medium">
+            <Globe className="w-3.5 h-3.5 text-[#0070F3]" />
+            <span>Core Web Vitals</span>
+          </span>
+          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-semibold">
+            100 / 100
+          </span>
+        </div>
+        <div className="rounded-lg bg-white border border-[#EAEAEA] p-3 space-y-2">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-medium text-[#0A0A0A] inline-flex items-center gap-1">
+              <Zap className="w-3.5 h-3.5 text-[#0070F3]" />
+              <span>Waktu Muat HP</span>
+            </span>
+            <span className="font-mono font-semibold text-[#0070F3]">0,48 dtk</span>
+          </div>
+          <div className="h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
+            <div className="h-full w-[18%] rounded-full bg-gradient-to-r from-[#0070F3] to-teal-500" />
+          </div>
+        </div>
+        <div className="flex items-center justify-between text-[11px] text-[#666666] px-1">
+          <span>Schema JSON-LD &amp; SEO</span>
+          <span className="font-medium text-emerald-700">✓ Halaman 1 Google</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "erp") {
+    const items = [
+      { label: "Stok 4 Gudang", meta: "0% Selisih" },
+      { label: "Kasir POS Cabang", meta: "Real-Time" },
+      { label: "Portal SIAKAD CBT", meta: "1.240 Siswa" },
+    ];
+    return (
+      <div className="my-6 rounded-xl border border-[#EAEAEA] bg-[#FAFAFA] p-4 space-y-2.5">
+        <div className="flex items-center justify-between text-[11px] font-mono">
+          <span className="inline-flex items-center gap-1.5 text-[#0A0A0A] font-medium">
+            <Database className="w-3.5 h-3.5 text-[#0A0A0A]" />
+            <span>Sistem Terpusat</span>
+          </span>
+          <span className="px-2 py-0.5 rounded-full bg-[#0A0A0A] text-white font-semibold">
+            Rp0 / Staf
+          </span>
+        </div>
+        <div className="rounded-lg bg-white border border-[#EAEAEA] divide-y divide-[#EAEAEA]">
+          {items.map((row) => (
+            <div
+              key={row.label}
+              className="px-3 py-2 flex items-center justify-between text-xs"
+            >
+              <span className="font-medium text-[#0A0A0A]">{row.label}</span>
+              <span className="font-mono text-[11px] text-emerald-700">
+                {row.meta}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="my-6 rounded-xl border border-[#EAEAEA] bg-[#FAFAFA] p-4 space-y-2.5">
+      <div className="flex items-center justify-between text-[11px] font-mono">
+        <span className="inline-flex items-center gap-1.5 text-[#0A0A0A] font-medium">
+          <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+          <span>Meta Cloud API</span>
+        </span>
+        <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-semibold">
+          24/7 Aktif
+        </span>
+      </div>
+      <div className="rounded-lg bg-white border border-[#EAEAEA] p-3 space-y-2 text-xs">
+        <div className="flex items-center justify-between">
+          <span className="font-medium text-[#0A0A0A]">Balasan Chat AI</span>
+          <span className="font-mono text-[11px] text-[#0070F3]">&lt; 1 detik</span>
+        </div>
+        <div className="h-px bg-[#EAEAEA]" />
+        <div className="flex items-center justify-between">
+          <span className="font-medium text-[#0A0A0A]">Baca Faktur OCR</span>
+          <span className="inline-flex items-center gap-1 font-mono text-[11px] text-emerald-700">
+            <CheckCircle2 className="w-3 h-3" />
+            99,7%
+          </span>
+        </div>
+      </div>
+      <div className="text-[11px] text-[#666666] px-1">
+        Terhubung langsung ke stok &amp; jurnal ERP Anda
+      </div>
+    </div>
+  );
+}
 
 const WHATSAPP_NUMBER = "6281398589745";
 
@@ -97,13 +194,7 @@ export function GroveCapabilitiesSection() {
     >
       <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white">
         {/* Vercel Dual-Tone Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
-          className="px-8 py-14 border-b border-[#EAEAEA] relative"
-        >
+        <div className="px-8 py-14 border-b border-[#EAEAEA] relative">
           <span
             aria-hidden="true"
             className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
@@ -127,17 +218,13 @@ export function GroveCapabilitiesSection() {
               </span>
             </h2>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Connected 3-Cell Geist Matrix (Text First + Inset Fade-Mask Stage) */}
+        {/* Connected 3-Cell Geist Matrix with Crisp Vector UI Diagrams */}
         <div className="grid grid-cols-3 divide-x divide-[#EAEAEA] border-b border-[#EAEAEA]">
-          {capabilities.map((item, idx) => (
-            <motion.article
+          {capabilities.map((item) => (
+            <article
               key={item.id}
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.35, delay: idx * 0.06 }}
               className="group p-8 bg-white hover:bg-[#FAFAFA]/75 transition-colors flex flex-col justify-between relative"
             >
               {/* Top Shimmer Hairline on Hover */}
@@ -159,22 +246,14 @@ export function GroveCapabilitiesSection() {
                   </p>
                 </div>
 
-                {/* Inset Visual Stage with Soft Bottom Fade Mask */}
-                <div className="my-6 relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#EAEAEA] bg-[#FAFAFA] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.06)] [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 1200px) 33vw, 380px"
-                    className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
-                  />
-                </div>
+                {/* Crisp Native Vector UI Diagram — 100% Legible at Any Screen Width */}
+                <CapabilityDiagram id={item.id} />
               </div>
 
               <div className="pt-4 border-t border-[#EAEAEA]/80 flex items-center justify-between gap-3">
                 <Link
                   href={item.detailHref}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FAFAFA] group-hover:bg-[#0A0A0A] text-[#0A0A0A] group-hover:text-white border border-[#EAEAEA] group-hover:border-[#0A0A0A] text-xs font-medium transition-all"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white group-hover:bg-[#0A0A0A] text-[#0A0A0A] group-hover:text-white border border-[#EAEAEA] group-hover:border-[#0A0A0A] text-xs font-medium transition-all"
                 >
                   <span>Detail layanan</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -196,7 +275,7 @@ export function GroveCapabilitiesSection() {
                   Diskusikan ↗
                 </a>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
 

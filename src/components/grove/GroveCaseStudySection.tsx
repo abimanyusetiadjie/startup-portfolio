@@ -155,23 +155,38 @@ export function GroveCaseStudySection() {
                   </p>
                 </div>
 
-                {/* Inset Visual Stage */}
-                <div className="my-6 relative w-full aspect-[16/10] rounded-xl bg-[#FAFAFA] border border-[#EAEAEA] overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.06)]">
-                  <Image
-                    src={
-                      failedImages[item.id] ? item.fallbackImage : item.imagePreview
-                    }
-                    alt={item.fullTitle}
-                    fill
-                    sizes="(max-width: 1200px) 33vw, 380px"
-                    className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
-                    priority={idx === 0}
-                    onError={() =>
-                      setFailedImages((prev) =>
-                        prev[item.id] ? prev : { ...prev, [item.id]: true }
-                      )
-                    }
-                  />
+                {/* Editorial Neutral-Toned Visual Stage + 3-Metric Strip */}
+                <div className="my-5 space-y-3">
+                  <div className="relative w-full aspect-[16/10] rounded-xl bg-[#FAFAFA] border border-[#EAEAEA] overflow-hidden">
+                    <Image
+                      src={
+                        failedImages[item.id] ? item.fallbackImage : item.imagePreview
+                      }
+                      alt={item.fullTitle}
+                      fill
+                      sizes="(max-width: 1200px) 33vw, 380px"
+                      className="object-cover object-center grayscale-[22%] contrast-[1.04] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500"
+                      priority={idx === 0}
+                      onError={() =>
+                        setFailedImages((prev) =>
+                          prev[item.id] ? prev : { ...prev, [item.id]: true }
+                        )
+                      }
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-3 divide-x divide-[#EAEAEA] rounded-lg border border-[#EAEAEA] bg-[#FAFAFA] py-2 px-1 text-center">
+                    {item.metrics.map((m) => (
+                      <div key={m.label} className="px-1.5">
+                        <div className="text-[13px] font-semibold tracking-tight text-[#0A0A0A]">
+                          {m.value}
+                        </div>
+                        <div className="text-[10px] text-[#666666] truncate">
+                          {m.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 

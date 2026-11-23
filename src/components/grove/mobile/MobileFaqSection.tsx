@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { ArrowRight, CheckCircle2, ChevronDown, HelpCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { FAQ_ITEMS } from "../faq-data";
 import { findVisibleSection } from "../contact-utils";
 
@@ -13,23 +13,22 @@ export function MobileFaqSection() {
     <section
       id="m-faq"
       data-section="faq"
-      className="py-12 px-5 bg-white border-t border-slate-100"
+      className="py-12 px-5 bg-white border-b border-[#EAEAEA]"
     >
-      <div className="space-y-6">
-        <div className="space-y-2">
-          <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-blue-600">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Pertanyaan Umum (FAQ)</span>
-          </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-[#0F172A] leading-tight">
-            Kejelasan Sebelum Memulai
+      <div className="max-w-md mx-auto space-y-6">
+        <div className="space-y-1.5">
+          <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
+            04 / PERTANYAAN UMUM (FAQ)
+          </span>
+          <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A] leading-tight">
+            Kejelasan sebelum memulai.
           </h2>
-          <p className="text-sm text-slate-600 leading-relaxed">
+          <p className="text-[13.5px] text-[#666666] leading-relaxed">
             Hak milik penuh kode program, skema termin bertahap, hingga garansi pendampingan staf Anda.
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="rounded-2xl border border-[#EAEAEA] divide-y divide-[#EAEAEA] overflow-hidden bg-white">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openId === item.id;
             const panelId = `${baseId}-${item.id}`;
@@ -39,11 +38,7 @@ export function MobileFaqSection() {
             return (
               <div
                 key={item.id}
-                className={`rounded-2xl border transition-colors ${
-                  isOpen
-                    ? "border-blue-200 bg-[#f8fafc]"
-                    : "border-slate-200/80 bg-[#f8fafc]"
-                }`}
+                className={isOpen ? "bg-[#FAFAFA]/70" : "bg-white"}
               >
                 <button
                   id={buttonId}
@@ -51,30 +46,30 @@ export function MobileFaqSection() {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => setOpenId(isOpen ? null : item.id)}
-                  className="w-full text-left px-4 py-4 flex items-start justify-between gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/40 rounded-2xl"
+                  className="w-full text-left px-4 py-4 flex items-start justify-between gap-3 focus:outline-none cursor-pointer"
                 >
                   <div className="flex items-start gap-3">
                     <span
-                      className={`mt-0.5 shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-md text-[11px] font-mono font-semibold ${
+                      className={`mt-0.5 shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-mono font-medium ${
                         isOpen
-                          ? "bg-blue-600 text-white"
-                          : "bg-white text-slate-500 border border-slate-200"
+                          ? "bg-[#0A0A0A] text-white"
+                          : "bg-[#FAFAFA] text-[#666666] border border-[#EAEAEA]"
                       }`}
                     >
                       {numberLabel}
                     </span>
                     <div className="space-y-0.5">
-                      <span className="block text-[10px] font-semibold uppercase tracking-wider text-blue-600">
+                      <span className="block font-mono text-[10px] uppercase tracking-wider text-[#666666]">
                         {item.category}
                       </span>
-                      <p className="text-sm font-semibold text-[#0F172A] leading-snug">
+                      <p className="text-[14px] font-semibold text-[#0A0A0A] leading-snug">
                         {item.question}
                       </p>
                     </div>
                   </div>
                   <ChevronDown
-                    className={`w-4 h-4 shrink-0 mt-1 text-slate-400 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-blue-600" : ""
+                    className={`w-4 h-4 shrink-0 mt-1 text-neutral-400 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-[#0A0A0A]" : ""
                     }`}
                   />
                 </button>
@@ -84,13 +79,13 @@ export function MobileFaqSection() {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className="px-4 pb-4 space-y-2.5"
+                  className="px-4 pb-4 pl-[52px] space-y-2.5"
                 >
-                  <p className="text-[13px] leading-relaxed text-slate-600">
+                  <p className="text-[13px] leading-relaxed text-[#666666]">
                     {item.answer}
                   </p>
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-100 px-2.5 py-1 text-[11px] font-semibold text-blue-700">
-                    <CheckCircle2 className="w-3 h-3 shrink-0" />
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#EAEAEA] px-2.5 py-1 text-[11px] font-medium text-[#0A0A0A]">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
                     <span>{item.highlight}</span>
                   </div>
                 </div>
@@ -107,10 +102,10 @@ export function MobileFaqSection() {
               block: "start",
             });
           }}
-          className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-[#f8fafc] hover:bg-slate-100 text-[#0F172A] text-sm font-semibold py-3 px-4 transition-colors"
+          className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-[#EAEAEA] bg-[#FAFAFA] hover:bg-neutral-100 text-[#0A0A0A] text-sm font-medium py-3 px-4 transition-colors cursor-pointer"
         >
           <span>Tanyakan Kebutuhan Spesifik Anda</span>
-          <ArrowRight className="w-4 h-4 text-blue-600" />
+          <ArrowRight className="w-4 h-4" />
         </button>
       </div>
     </section>

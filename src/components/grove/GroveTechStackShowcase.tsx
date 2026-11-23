@@ -292,93 +292,6 @@ export function GroveTechStackShowcase() {
       ),
     },
     {
-      name: "OpenClaw",
-      category: "Integration",
-      role: "Autonomous AI Agent",
-      icon: (
-        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 120 120" fill="none">
-          <defs>
-            <linearGradient id="ts_openclaw_grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ff4d4d" />
-              <stop offset="100%" stopColor="#991b1b" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z"
-            fill="url(#ts_openclaw_grad)"
-          />
-          <path
-            d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z"
-            fill="url(#ts_openclaw_grad)"
-          />
-          <path
-            d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z"
-            fill="url(#ts_openclaw_grad)"
-          />
-          <path d="M45 15 Q35 5 30 8" stroke="#ff4d4d" strokeWidth="3.5" strokeLinecap="round" />
-          <path d="M75 15 Q85 5 90 8" stroke="#ff4d4d" strokeWidth="3.5" strokeLinecap="round" />
-          <circle cx="45" cy="35" r="5.5" fill="#050810" />
-          <circle cx="75" cy="35" r="5.5" fill="#050810" />
-          <circle cx="46" cy="34" r="2.2" fill="#00e5cc" />
-          <circle cx="76" cy="34" r="2.2" fill="#00e5cc" />
-        </svg>
-      ),
-    },
-    {
-      name: "Hermes",
-      category: "Integration",
-      role: "High-Perf JS Engine",
-      icon: (
-        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 493 378" fill="none">
-          <g transform="translate(-100.62 -161.23)">
-            <path
-              fill="#2BB673"
-              fillOpacity="0.25"
-              stroke="#334155"
-              strokeWidth="15"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M247.21 353.68l4.7-20.53c2-8.54 3.79-25.32 4.85-33.12-11.36-4.63-26.7-2-46.61-4.25a80.64 80.64 0 01-41.3-17.59l0 2.84A81.36 81.36 0 00240.55 353z"
-            />
-            <path
-              fill="#2BB673"
-              fillOpacity="0.6"
-              stroke="#334155"
-              strokeWidth="15"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M179.85 240.67a81 81 0 01-41.52-17.21l0 .07A81.38 81.38 0 00210 295.47l48.79 3.66C261.17 269.38 247.37 248.26 179.85 240.67z"
-            />
-            <path
-              fill="#2BB673"
-              stroke="#334155"
-              strokeWidth="15"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M563.07 168.85H512.35a30.56 30.56 0 00-29.92 24.31l-19.69 96.09a13.92 13.92 0 01-13.59 11.11l-76.35.22a13.9 13.9 0 01-13.66-16.74h0c12.39-59.36-31.35-115.11-115.81-115.11H108.12a81.4 81.4 0 0071.73 71.94c89.19 10 82.24 46.07 72.06 90.48L212.46 503.39a22.79 22.79 0 0022.22 27.88h47.95A30.55 30.55 0 00312.54 507l20.72-98.62a13.91 13.91 0 0113.57-11l76.83-.22a13.91 13.91 0 0113.66 16.72l-18.4 89.1a22.8 22.8 0 0022.22 27.89h50.73a30.57 30.57 0 0029.91-24.32l63.51-309.73A22.79 22.79 0 00563.07 168.85z"
-            />
-          </g>
-        </svg>
-      ),
-    },
-    {
-      name: "Supabase",
-      category: "Database",
-      role: "Realtime Data Sync",
-      icon: (
-        <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 128 128" fill="none">
-          <path
-            fill="#3ECF8E"
-            d="M53.484 2.128c3.267-4.117 9.905-1.862 9.977 3.396l.508 76.907H12.902c-9.365 0-14.587-10.817-8.764-18.149z"
-          />
-          <path
-            fill="#249361"
-            d="M74.516 125.872c-3.267 4.117-9.905 1.862-9.977-3.396l-.508-76.907h51.088c9.365 0 14.587 10.817 8.764 18.149z"
-          />
-        </svg>
-      ),
-    },
-    {
       name: "Cloudflare",
       category: "Cloud & Server",
       role: "Global CDN & Anti-DDoS",
@@ -472,7 +385,7 @@ export function GroveTechStackShowcase() {
           DIBANGUN DI ATAS INFRASTRUKTUR &amp; TEKNOLOGI STANDAR INDUSTRI
         </p>
 
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_14%,black_86%,transparent)]">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{

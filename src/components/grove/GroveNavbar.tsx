@@ -80,12 +80,18 @@ export function GroveNavbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-200 pt-2.5 pb-2 px-4 sm:px-8">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? "py-2.5 px-4 sm:px-6 lg:px-0 bg-transparent"
+          : "bg-[#FAFAFA]/95 backdrop-blur-md border-b border-[#EAEAEA]"
+      }`}
+    >
       <div
-        className={`max-w-[1200px] mx-auto h-14 px-4 sm:px-5 rounded-full flex items-center justify-between gap-4 transition-all duration-200 ${
+        className={`max-w-[1200px] mx-auto flex items-center justify-between gap-4 transition-all duration-200 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-lg border border-[#EAEAEA] shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
-            : "bg-white/80 backdrop-blur-md border border-[#EAEAEA]/90 shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
+            ? "h-14 px-4 sm:px-5 rounded-full bg-white/90 backdrop-blur-xl border border-[#EAEAEA] shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+            : "h-14 lg:h-16 px-5 sm:px-8 lg:border-x lg:border-[#EAEAEA] bg-white"
         }`}
       >
         {/* Brand */}

@@ -175,17 +175,17 @@ Mohon arahan dan estimasi pengerjaannya. Terima kasih.`;
             <button
               type="button"
               onClick={() => setShowExtras((prev) => !prev)}
-              className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-blue-600 cursor-pointer py-1"
+              className="w-full flex items-center gap-1.5 text-left text-[12.5px] font-medium text-[#0A0A0A] hover:text-[#0070F3] cursor-pointer py-1 transition-colors"
             >
               {showExtras ? (
                 <>
-                  <Minus className="w-3.5 h-3.5" />
+                  <Minus className="w-3.5 h-3.5 shrink-0" />
                   <span>Sembunyikan anggaran &amp; catatan</span>
                 </>
               ) : (
                 <>
-                  <Plus className="w-3.5 h-3.5" />
-                  <span>Tambah perkiraan anggaran &amp; catatan (opsional)</span>
+                  <Plus className="w-3.5 h-3.5 shrink-0" />
+                  <span>Tambah anggaran &amp; catatan (opsional)</span>
                 </>
               )}
             </button>

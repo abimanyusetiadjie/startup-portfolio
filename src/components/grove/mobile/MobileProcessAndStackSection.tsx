@@ -78,42 +78,45 @@ export function MobileProcessAndStackSection() {
     <section
       id="m-cara-kerja"
       data-section="cara-kerja"
-      className="scroll-mt-16 bg-[#F1F5F9] py-10 px-5 border-b border-slate-200/90"
+      className="scroll-mt-16 bg-[#FAFAFA] py-10 px-5 border-b border-[#EAEAEA]"
     >
       <div className="max-w-md mx-auto space-y-8">
         <div className="space-y-4">
           <div className="space-y-1">
-            <h2 className="text-[22px] font-extrabold tracking-tight text-slate-900">
-              Alur Kerja 14 Hari
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
+              03 / PROTOKOL EKSEKUSI
+            </span>
+            <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
+              Alur kerja 14 hari.
             </h2>
-            <p className="text-[13.5px] text-slate-500">
-              Standar rilis web &amp; sistem awal (modul lanjutan sesuai ruang lingkup). Ketuk tahap untuk dokumentasi.
+            <p className="text-[13.5px] text-[#666666]">
+              Ketuk tahap di bawah untuk melihat dokumentasi &amp; hasil kerjanya.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white border border-slate-200/90 divide-y divide-slate-100 overflow-hidden">
+          <div className="rounded-2xl bg-white border border-[#EAEAEA] divide-y divide-[#EAEAEA] overflow-hidden">
             {workflowSteps.map((step) => (
               <button
                 key={step.num}
                 type="button"
                 onClick={() => setSelectedStep(step)}
-                className="w-full px-4 py-3.5 flex items-center justify-between gap-3 text-left hover:bg-slate-50 active:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full px-4 py-3.5 flex items-center justify-between gap-3 text-left hover:bg-[#FAFAFA] active:bg-neutral-100 transition-colors cursor-pointer"
               >
-                <div className="flex items-center gap-3 min-w-0">
-                  <span className="text-[12px] font-mono font-bold text-slate-400 w-5 shrink-0">
+                <div className="flex items-start gap-3 min-w-0">
+                  <span className="mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] text-[11px] font-mono font-semibold text-[#0A0A0A] shrink-0">
                     {step.num}
                   </span>
-                  <span className="text-[14px] font-semibold text-slate-900 truncate">
-                    {step.title}
-                  </span>
+                  <div className="min-w-0 space-y-0.5">
+                    <span className="block text-[14px] font-semibold text-[#0A0A0A] leading-snug">
+                      {step.title}
+                    </span>
+                    <span className="block font-mono text-[11px] text-[#666666]">
+                      {step.timeline} · {step.deliverable}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <span className="text-[12px] font-medium text-slate-500">
-                    {step.timeline}
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-slate-400" />
-                </div>
+                <ChevronRight className="w-4 h-4 text-neutral-400 shrink-0" />
               </button>
             ))}
           </div>
@@ -121,16 +124,16 @@ export function MobileProcessAndStackSection() {
 
         {/* Minimal 1-Row Tech Stack Strip */}
         <div id="m-tech-stack" data-section="tech-stack" className="space-y-3 scroll-mt-16">
-          <p className="text-[11.5px] font-semibold uppercase tracking-wider text-slate-400 text-center">
+          <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-[#666666] text-center">
             Teknologi Standar Produksi
           </p>
 
-          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex w-max gap-5 animate-marquee-scroll py-1">
               {[...techBadges, ...techBadges].map((item, idx) => (
                 <span
                   key={`${item.name}-${idx}`}
-                  className="inline-flex items-center gap-2 text-[13px] font-semibold text-slate-600 whitespace-nowrap shrink-0"
+                  className="inline-flex items-center gap-2 text-[13px] font-medium text-[#0A0A0A] whitespace-nowrap shrink-0"
                 >
                   <span
                     className="w-2 h-2 rounded-full shrink-0"

@@ -8,45 +8,49 @@ export function MobileFooterSection() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0F172A] text-slate-300 border-t border-slate-800 pt-9 pb-24 px-5">
+    <footer className="bg-[#FAFAFA] text-[#666666] border-t border-[#EAEAEA] pt-9 pb-24 px-5">
       <div className="max-w-md mx-auto space-y-6">
-        <div className="space-y-2">
+        <div className="space-y-3">
           <Link href="/" className="inline-flex items-center">
-            <AbinestLogo size="md" showTagline={false} variant="dark" />
+            <AbinestLogo size="md" showTagline={false} variant="light" />
           </Link>
-          <p className="text-[13px] text-slate-400 leading-relaxed">
+          <p className="text-[13px] text-[#666666] leading-relaxed">
             Studio rekayasa situs web, sistem ERP kustom, dan automasi WhatsApp AI.
           </p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#EAEAEA] text-[11.5px] font-medium text-[#0A0A0A]">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span>Konsultasi aktif · Respons &lt;15 mnt</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 py-4 border-y border-slate-800 text-[13px]">
+        <div className="grid grid-cols-2 gap-6 py-5 border-y border-[#EAEAEA] text-[13px]">
           <div className="space-y-2.5">
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
+            <span className="font-mono text-[10.5px] font-medium uppercase tracking-[0.1em] text-[#0A0A0A] block">
               Navigasi
             </span>
-            <ul className="space-y-2 text-slate-300 font-medium">
+            <ul className="space-y-2 text-[#666666]">
               <li>
-                <Link href="/#layanan-utama" className="hover:text-sky-400 transition-colors">
+                <Link href="/#layanan-utama" className="hover:text-[#0A0A0A] transition-colors">
                   Layanan &amp; Harga
                 </Link>
               </li>
               <li>
-                <Link href="/#portofolio" className="hover:text-sky-400 transition-colors">
+                <Link href="/#portofolio" className="hover:text-[#0A0A0A] transition-colors">
                   Studi Kasus
                 </Link>
               </li>
               <li>
-                <Link href="/#cara-kerja" className="hover:text-sky-400 transition-colors">
+                <Link href="/#cara-kerja" className="hover:text-[#0A0A0A] transition-colors">
                   Alur Kerja
                 </Link>
               </li>
               <li>
-                <Link href="/#m-faq" className="hover:text-sky-400 transition-colors">
+                <Link href="/#m-faq" className="hover:text-[#0A0A0A] transition-colors">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/#kontak" className="hover:text-sky-400 transition-colors">
+                <Link href="/#kontak" className="hover:text-[#0A0A0A] transition-colors">
                   Konsultasi
                 </Link>
               </li>
@@ -54,27 +58,27 @@ export function MobileFooterSection() {
           </div>
 
           <div className="space-y-2.5">
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
+            <span className="font-mono text-[10.5px] font-medium uppercase tracking-[0.1em] text-[#0A0A0A] block">
               Akses &amp; Alat
             </span>
-            <ul className="space-y-2 text-slate-300 font-medium">
+            <ul className="space-y-2 text-[#666666]">
               <li>
-                <Link href="/demo" className="hover:text-sky-400 transition-colors">
+                <Link href="/demo" className="hover:text-[#0A0A0A] transition-colors">
                   Demo Interaktif
                 </Link>
               </li>
               <li>
-                <Link href="/audit-gratis" className="hover:text-sky-400 transition-colors">
+                <Link href="/audit-gratis" className="hover:text-[#0A0A0A] transition-colors">
                   Kalkulator Biaya
                 </Link>
               </li>
               <li>
-                <Link href="/kebijakan-privasi" className="hover:text-sky-400 transition-colors">
+                <Link href="/kebijakan-privasi" className="hover:text-[#0A0A0A] transition-colors">
                   Kebijakan Privasi
                 </Link>
               </li>
               <li>
-                <Link href="/syarat-ketentuan" className="hover:text-sky-400 transition-colors">
+                <Link href="/syarat-ketentuan" className="hover:text-[#0A0A0A] transition-colors">
                   Syarat &amp; Ketentuan
                 </Link>
               </li>
@@ -82,7 +86,7 @@ export function MobileFooterSection() {
           </div>
         </div>
 
-        <div className="space-y-1.5 text-[12px] text-slate-400">
+        <div className="space-y-1.5 text-[12px] text-[#666666]">
           <div>
             <a
               href="https://wa.me/6281398589745"
@@ -94,16 +98,16 @@ export function MobileFooterSection() {
                   label: "direct_number",
                 })
               }
-              className="font-semibold text-white hover:text-sky-400 transition-colors"
+              className="font-semibold text-[#0A0A0A] hover:text-[#0070F3] transition-colors"
             >
               +62 813-9858-9745
             </a>{" "}
             ·{" "}
-            <a href="mailto:halo@abinest.id" className="hover:text-sky-400 transition-colors">
+            <a href="mailto:halo@abinest.id" className="hover:text-[#0A0A0A] transition-colors">
               halo@abinest.id
             </a>
           </div>
-          <p className="text-slate-400">
+          <p className="text-neutral-500">
             © {year} Abinest Digital Systems. Jakarta &amp; Surabaya.
           </p>
         </div>

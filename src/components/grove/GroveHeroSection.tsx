@@ -117,7 +117,7 @@ export function GroveHeroSection() {
               </div>
             </motion.div>
 
-            {/* Kolom Kanan: Visual Showcase */}
+            {/* Kolom Kanan: Live Interactive React Product Stage */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,8 +126,7 @@ export function GroveHeroSection() {
             >
               <HeroShowcaseFrame
                 activeIdx={activeIdx}
-                sizes="(max-width: 1200px) 50vw, 560px"
-                className="relative z-10 aspect-[4/3] w-full"
+                className="relative z-10 w-full"
               />
             </motion.div>
           </div>

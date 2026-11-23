@@ -8,50 +8,54 @@ export function GroveFooterSection() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0F172A] text-slate-300 border-t border-slate-800 py-14">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 space-y-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-slate-800">
-          <div className="md:col-span-5 space-y-3">
+    <footer className="bg-[#FAFAFA] text-[#666666] border-t border-[#EAEAEA]">
+      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white px-5 sm:px-8 py-14 space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-[#EAEAEA]">
+          <div className="md:col-span-5 space-y-4">
             <Link href="/" className="inline-flex items-center">
-              <AbinestLogo size="md" showTagline={false} variant="dark" />
+              <AbinestLogo size="md" showTagline={false} variant="light" />
             </Link>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-sm text-[#666666] leading-relaxed max-w-sm">
               Studio rekayasa perangkat lunak untuk situs web berkecepatan tinggi, sistem ERP kustom, serta automasi AI dan WhatsApp resmi Meta.
             </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] text-xs font-medium text-[#0A0A0A]">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span>Semua layanan &amp; konsultasi aktif · Respons &lt;15 mnt</span>
+            </div>
           </div>
 
           <div className="md:col-span-2 space-y-3 text-sm">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-[#0A0A0A] block">
               Navigasi
             </span>
-            <ul className="space-y-2 text-slate-300">
+            <ul className="space-y-2.5 text-[#666666]">
               <li>
-                <Link href="/#layanan-utama" className="hover:text-sky-400 transition-colors">
+                <Link href="/#layanan-utama" className="hover:text-[#0A0A0A] transition-colors">
                   Layanan
                 </Link>
               </li>
               <li>
-                <Link href="/#portofolio" className="hover:text-sky-400 transition-colors">
+                <Link href="/#portofolio" className="hover:text-[#0A0A0A] transition-colors">
                   Studi Kasus
                 </Link>
               </li>
               <li>
-                <Link href="/#cara-kerja" className="hover:text-sky-400 transition-colors">
+                <Link href="/#cara-kerja" className="hover:text-[#0A0A0A] transition-colors">
                   Alur Kerja
                 </Link>
               </li>
               <li>
-                <Link href="/#harga" className="hover:text-sky-400 transition-colors">
+                <Link href="/#harga" className="hover:text-[#0A0A0A] transition-colors">
                   Investasi
                 </Link>
               </li>
               <li>
-                <Link href="/#faq" className="hover:text-sky-400 transition-colors">
+                <Link href="/#faq" className="hover:text-[#0A0A0A] transition-colors">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/#kontak" className="hover:text-sky-400 transition-colors">
+                <Link href="/#kontak" className="hover:text-[#0A0A0A] transition-colors">
                   Konsultasi
                 </Link>
               </li>
@@ -59,32 +63,32 @@ export function GroveFooterSection() {
           </div>
 
           <div className="md:col-span-3 space-y-3 text-sm">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-[#0A0A0A] block">
               Layanan &amp; Alat
             </span>
-            <ul className="space-y-2 text-slate-300">
+            <ul className="space-y-2.5 text-[#666666]">
               <li>
-                <Link href="/jasa-pembuatan-website-jakarta" className="hover:text-sky-400 transition-colors">
+                <Link href="/jasa-pembuatan-website-jakarta" className="hover:text-[#0A0A0A] transition-colors">
                   Situs Web Bisnis
                 </Link>
               </li>
               <li>
-                <Link href="/jasa-pembuatan-sistem-erp" className="hover:text-sky-400 transition-colors">
+                <Link href="/jasa-pembuatan-sistem-erp" className="hover:text-[#0A0A0A] transition-colors">
                   Sistem ERP Kustom
                 </Link>
               </li>
               <li>
-                <Link href="/jasa-automasi-whatsapp" className="hover:text-sky-400 transition-colors">
+                <Link href="/jasa-automasi-whatsapp" className="hover:text-[#0A0A0A] transition-colors">
                   Automasi WhatsApp &amp; AI
                 </Link>
               </li>
               <li>
-                <Link href="/demo" className="hover:text-sky-400 transition-colors">
+                <Link href="/demo" className="hover:text-[#0A0A0A] transition-colors">
                   Simulasi Demo
                 </Link>
               </li>
               <li>
-                <Link href="/audit-gratis" className="hover:text-sky-400 transition-colors">
+                <Link href="/audit-gratis" className="hover:text-[#0A0A0A] transition-colors">
                   Kalkulator Biaya
                 </Link>
               </li>
@@ -92,10 +96,10 @@ export function GroveFooterSection() {
           </div>
 
           <div className="md:col-span-2 space-y-3 text-sm">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-[#0A0A0A] block">
               Kontak
             </span>
-            <ul className="space-y-2 text-slate-300">
+            <ul className="space-y-2.5 text-[#666666]">
               <li>
                 <a
                   href="https://wa.me/6281398589745"
@@ -107,35 +111,37 @@ export function GroveFooterSection() {
                       label: "direct_number",
                     })
                   }
-                  className="hover:text-sky-400 transition-colors"
+                  className="hover:text-[#0A0A0A] transition-colors"
                 >
                   +62 813-9858-9745
                 </a>
               </li>
               <li>
-                <a href="mailto:halo@abinest.id" className="hover:text-sky-400 transition-colors">
+                <a href="mailto:halo@abinest.id" className="hover:text-[#0A0A0A] transition-colors">
                   halo@abinest.id
                 </a>
               </li>
               <li>
-                <Link href="/#kontak" className="hover:text-sky-400 transition-colors font-semibold text-white">
-                  Konsultasi Gratis
+                <Link href="/#kontak" className="hover:text-[#0070F3] transition-colors font-medium text-[#0A0A0A]">
+                  Konsultasi Gratis →
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#666666]">
           <p>© {year} Abinest Digital Systems. Seluruh hak cipta dilindungi.</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/kebijakan-privasi" className="hover:text-sky-400 transition-colors">
+            <Link href="/kebijakan-privasi" className="hover:text-[#0A0A0A] transition-colors">
               Kebijakan Privasi
             </Link>
-            <Link href="/syarat-ketentuan" className="hover:text-sky-400 transition-colors">
+            <Link href="/syarat-ketentuan" className="hover:text-[#0A0A0A] transition-colors">
               Syarat &amp; Ketentuan
             </Link>
-            <span>Jakarta &amp; Surabaya · Indonesia</span>
+            <span className="font-mono text-[11px] text-neutral-400">
+              Jakarta &amp; Surabaya · ID
+            </span>
           </div>
         </div>
       </div>

@@ -47,9 +47,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`scroll-smooth overflow-x-hidden ${geistSans.variable} ${geistMono.variable}`}
+      className={`scroll-smooth [overflow-x:clip] ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans antialiased text-[#0A0A0A] bg-[#FAFAFA] selection:bg-[#0070F3] selection:text-white overflow-x-hidden">
+      <body className="font-sans antialiased text-[#0A0A0A] bg-[#FAFAFA] selection:bg-[#0070F3] selection:text-white [overflow-x:clip]">
         <GoogleAnalytics />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>

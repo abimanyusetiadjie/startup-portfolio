@@ -48,12 +48,11 @@ export function MobileHeroSection() {
           />
         </div>
 
-        {/* Vercel Geist Translucent Stage */}
+        {/* Live Vector-Sharp Interactive Product Stage */}
         <div className="relative">
           <HeroShowcaseFrame
             activeIdx={slideIdx}
-            sizes="(max-width: 768px) 92vw, 440px"
-            className="relative z-10 aspect-[16/10] w-full"
+            className="relative z-10 w-full"
           />
         </div>
 

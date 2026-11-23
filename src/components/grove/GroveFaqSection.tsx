@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ChevronDown, HelpCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { FAQ_ITEMS } from "./faq-data";
 import { findVisibleSection } from "./contact-utils";
 
