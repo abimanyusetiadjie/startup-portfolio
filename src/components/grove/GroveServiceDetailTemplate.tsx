@@ -64,7 +64,7 @@ export function GroveServiceDetailTemplate({
   const waHref = buildConsultationWaUrl(data.waMessage);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#2563EB] selection:text-white">
+    <div className="min-h-screen bg-[#F6F9FC] text-[#0A2540] flex flex-col font-sans selection:bg-[#635BFF] selection:text-white">
       <GroveNavbar />
 
       <main className="flex-1 pt-24 pb-20">
@@ -72,11 +72,11 @@ export function GroveServiceDetailTemplate({
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-6">
           <nav
             aria-label="Breadcrumb"
-            className="flex flex-wrap items-center justify-between gap-3 text-xs font-medium text-slate-500"
+            className="flex flex-wrap items-center justify-between gap-3 text-xs font-medium text-[#425466]"
           >
             <ol className="flex items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors">
+                <Link href="/" className="hover:text-[#635BFF] transition-colors">
                   Beranda
                 </Link>
               </li>
@@ -84,20 +84,20 @@ export function GroveServiceDetailTemplate({
               <li>
                 <Link
                   href="/#layanan-utama"
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-[#635BFF] transition-colors"
                 >
                   Layanan Utama
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-[#0F172A] font-semibold">
+              <li className="text-[#0A2540] font-semibold">
                 {data.breadcrumbLabel}
               </li>
             </ol>
 
             <Link
               href="/#layanan-utama"
-              className="inline-flex items-center gap-1.5 text-slate-600 hover:text-blue-600 transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#425466] hover:text-[#635BFF] transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Kembali ke Beranda</span>
@@ -107,19 +107,19 @@ export function GroveServiceDetailTemplate({
 
         {/* Executive Hero Card */}
         <section className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-16">
-          <div className="rounded-3xl bg-white border border-slate-200/80 shadow-sm p-7 sm:p-10 lg:p-12">
+          <div className="rounded-[28px] bg-white ring-1 ring-slate-900/[0.05] shadow-[0_24px_60px_rgba(10,37,64,0.07)] p-7 sm:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               <div className="lg:col-span-8 space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700">
+                <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#635BFF]">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{data.eyebrow}</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-tight text-[#0F172A] leading-[1.12]">
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-0.035em] text-[#0A2540] leading-[1.1]">
                   {data.title}
                 </h1>
 
-                <p className="text-base sm:text-[17px] text-slate-600 leading-relaxed max-w-2xl">
+                <p className="text-base sm:text-[17px] text-[#425466] leading-relaxed max-w-2xl">
                   {data.subtitle}
                 </p>
 
@@ -134,7 +134,7 @@ export function GroveServiceDetailTemplate({
                         service: data.serviceNameForAnalytics,
                       })
                     }
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 text-white text-sm font-medium px-6 py-3 shadow-sm transition-colors"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#635BFF] via-[#4F46E5] to-[#0EA5E9] hover:shadow-lg hover:shadow-indigo-500/30 text-white text-sm font-semibold px-6 py-3 shadow-md transition-all"
                   >
                     <span>Konsultasi Layanan via WhatsApp</span>
                     <ArrowRight className="w-4 h-4" />
@@ -142,7 +142,7 @@ export function GroveServiceDetailTemplate({
 
                   <Link
                     href={data.secondaryCta.href}
-                    className="inline-flex items-center justify-center rounded-full border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-[#0F172A] text-sm font-semibold px-6 py-3 transition-colors"
+                    className="inline-flex items-center justify-center rounded-full bg-[#F6F9FC] hover:bg-indigo-50 text-[#0A2540] hover:text-[#635BFF] text-sm font-semibold px-6 py-3 transition-colors"
                   >
                     {data.secondaryCta.label}
                   </Link>
@@ -152,12 +152,12 @@ export function GroveServiceDetailTemplate({
                   {data.heroMetrics.map((metric) => (
                     <div
                       key={metric.label}
-                      className="rounded-2xl bg-[#f8fafc] border border-slate-200/70 px-4 py-3.5"
+                      className="rounded-2xl bg-[#F6F9FC] px-4 py-3.5"
                     >
-                      <div className="text-xl sm:text-2xl font-bold tracking-tight text-[#0F172A]">
+                      <div className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A2540]">
                         {metric.value}
                       </div>
-                      <div className="text-xs text-slate-500 mt-0.5">
+                      <div className="text-xs text-[#425466] mt-0.5">
                         {metric.label}
                       </div>
                     </div>
@@ -166,9 +166,9 @@ export function GroveServiceDetailTemplate({
               </div>
 
               {/* Right Investment & Governance Summary Box */}
-              <aside className="lg:col-span-4 rounded-2xl bg-[#0F172A] text-white p-6 sm:p-7 space-y-5">
+              <aside className="lg:col-span-4 rounded-2xl bg-gradient-to-br from-[#0A2540] via-[#123056] to-[#1D1B54] text-white p-6 sm:p-7 space-y-5 shadow-xl">
                 <div className="space-y-1">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-cyan-300">
                     Estimasi Investasi
                   </span>
                   <div className="text-2xl sm:text-3xl font-bold tracking-tight">
@@ -179,9 +179,9 @@ export function GroveServiceDetailTemplate({
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-4 border-t border-slate-800 text-sm">
+                <div className="space-y-3 pt-4 border-t border-white/10 text-sm">
                   <div className="flex items-start gap-2.5">
-                    <Clock className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                    <Clock className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-white">
                         Waktu Rilis
@@ -193,7 +193,7 @@ export function GroveServiceDetailTemplate({
                   </div>
 
                   <div className="flex items-start gap-2.5">
-                    <ShieldCheck className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                    <ShieldCheck className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-white">
                         Garansi & Pendampingan
@@ -205,7 +205,7 @@ export function GroveServiceDetailTemplate({
                   </div>
 
                   <div className="flex items-start gap-2.5">
-                    <FileCode2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                    <FileCode2 className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-white">
                         Hak Milik 100%
@@ -363,7 +363,7 @@ export function GroveServiceDetailTemplate({
                       service: data.serviceNameForAnalytics,
                     })
                   }
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold py-2.5 px-5 transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#635BFF] via-[#4F46E5] to-[#0EA5E9] hover:shadow-lg hover:shadow-indigo-500/25 text-white text-sm font-semibold py-2.5 px-5 transition-all"
                 >
                   <span>Minta Proposal & Estimasi</span>
                   <ArrowRight className="w-4 h-4" />

@@ -200,30 +200,30 @@ export function MobileSolutionsPricingSection() {
     <section
       id="m-layanan"
       data-section="layanan-utama"
-      className="scroll-mt-16 bg-[#FAFAFA] py-10 border-b border-[#EAEAEA]"
+      className="scroll-mt-20 bg-[#F6F9FC] py-12"
     >
       <div className="max-w-md mx-auto space-y-5">
-        <div className="px-5 space-y-1">
-          <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
-            01 / LAYANAN &amp; INVESTASI
+        <div className="px-5 space-y-1.5">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#635BFF] font-semibold text-[11px]">
+            Layanan &amp; Investasi
           </span>
-          <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
-            Layanan &amp; investasi.
+          <h2 className="text-[24px] font-bold tracking-tight text-[#0A2540]">
+            Paket &amp; Kepemilikan Penuh
           </h2>
-          <p className="text-[13.5px] text-[#666666]">
+          <p className="text-[13.5px] text-[#425466]">
             Pilih kepemilikan aset penuh atau layanan terkelola.
           </p>
         </div>
 
-        <div id="m-harga" data-section="harga" className="px-5 space-y-2.5 scroll-mt-16">
-          <div className="grid grid-cols-2 p-1 rounded-full bg-neutral-100 border border-[#EAEAEA]">
+        <div id="m-harga" data-section="harga" className="px-5 space-y-2.5 scroll-mt-20">
+          <div className="grid grid-cols-2 p-1 rounded-full bg-white shadow-sm ring-1 ring-slate-900/[0.06]">
             <button
               type="button"
               onClick={() => setMode("beli-putus")}
-              className={`py-2 px-3 rounded-full text-[12.5px] font-medium transition-all cursor-pointer ${
+              className={`py-2 px-3 rounded-full text-[12.5px] font-semibold transition-all cursor-pointer ${
                 isBeliPutus
-                  ? "bg-white text-[#0A0A0A] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                  : "text-[#666666] hover:text-[#0A0A0A]"
+                  ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-sm"
+                  : "text-[#425466] hover:text-[#0A2540]"
               }`}
             >
               Beli Putus
@@ -231,17 +231,17 @@ export function MobileSolutionsPricingSection() {
             <button
               type="button"
               onClick={() => setMode("terima-beres")}
-              className={`py-2 px-3 rounded-full text-[12.5px] font-medium transition-all cursor-pointer ${
+              className={`py-2 px-3 rounded-full text-[12.5px] font-semibold transition-all cursor-pointer ${
                 !isBeliPutus
-                  ? "bg-white text-[#0A0A0A] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                  : "text-[#666666] hover:text-[#0A0A0A]"
+                  ? "bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] text-white shadow-sm"
+                  : "text-[#425466] hover:text-[#0A2540]"
               }`}
             >
               Terima Beres
             </button>
           </div>
 
-          <p className="text-[12.5px] text-[#666666] text-center">
+          <p className="text-[12.5px] text-[#425466] text-center">
             {isBeliPutus
               ? "Kode program dan basis data menjadi hak milik Anda sepenuhnya."
               : "Server, pencadangan harian, dan SLA 99,9% kami kelola penuh."}
@@ -410,7 +410,7 @@ export function MobileSolutionsPricingSection() {
                 onClick={() => setCompareTab("skema")}
                 className={`py-2 rounded-lg transition-all cursor-pointer ${
                   compareTab === "skema"
-                    ? "bg-white text-slate-900 shadow-xs"
+                    ? "bg-white text-slate-900 shadow-sm"
                     : "text-slate-600"
                 }`}
               >
@@ -421,7 +421,7 @@ export function MobileSolutionsPricingSection() {
                 onClick={() => setCompareTab("layanan")}
                 className={`py-2 rounded-lg transition-all cursor-pointer ${
                   compareTab === "layanan"
-                    ? "bg-white text-slate-900 shadow-xs"
+                    ? "bg-white text-slate-900 shadow-sm"
                     : "text-slate-600"
                 }`}
               >

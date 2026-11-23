@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import {
   HERO_SLIDES,
@@ -14,6 +15,7 @@ import {
   HeroSyncedHeadline,
   HeroSyncedIntro,
 } from "../HeroCarouselParts";
+import { StripeMeshBackdrop } from "../StripeMeshBackdrop";
 
 export function MobileHeroSection() {
   const { activeIdx: slideIdx, setActiveIdx: setSlideIdx } =
@@ -24,21 +26,23 @@ export function MobileHeroSection() {
     <section
       id="m-beranda"
       data-section="beranda"
-      className="relative scroll-mt-16 overflow-hidden bg-white pt-6 pb-10 px-5 border-b border-[#EAEAEA]"
+      className="relative scroll-mt-20 overflow-hidden bg-white pt-6 pb-12 px-5"
     >
+      <StripeMeshBackdrop activeIdx={slideIdx} />
+
       <div className="relative z-10 max-w-md mx-auto space-y-6">
         <div className="space-y-3.5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] text-[11.5px] font-medium text-[#0A0A0A]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0070F3]" />
-            <span>Abinest Engineering Studio</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/85 backdrop-blur-md shadow-sm ring-1 ring-[#635BFF]/15 text-[11.5px] font-semibold text-[#0A2540]">
+            <Sparkles className="w-3.5 h-3.5 text-[#635BFF]" />
+            <span>Abinest Software Studio</span>
           </div>
 
-          <HeroSyncedHeadline className="text-[26px] sm:text-[31px] font-semibold tracking-[-0.035em] text-[#0A0A0A] leading-[1.14]" />
+          <HeroSyncedHeadline className="text-[28px] sm:text-[32px] font-bold tracking-[-0.035em] text-[#0A2540] leading-[1.12]" />
 
           <HeroSyncedIntro
             activeIdx={slideIdx}
             onSelect={setSlideIdx}
-            className="text-[14.5px] text-[#666666] leading-relaxed"
+            className="text-[14.5px] text-[#425466] leading-relaxed"
           />
 
           <HeroSyncedDescription
@@ -48,15 +52,16 @@ export function MobileHeroSection() {
           />
         </div>
 
-        {/* Live Vector-Sharp Interactive Product Stage */}
-        <div className="relative">
-          <HeroShowcaseFrame
-            activeIdx={slideIdx}
-            className="relative z-10 w-full"
-          />
-        </div>
+        {/* Floating Animated Glassmorphic Stage */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+        >
+          <HeroShowcaseFrame activeIdx={slideIdx} className="w-full" />
+        </motion.div>
 
-        {/* CTA Actions */}
+        {/* Vibrant Gradient CTA Actions */}
         <div className="space-y-3">
           <a
             href={waHref}
@@ -68,20 +73,20 @@ export function MobileHeroSection() {
                 label: HERO_SLIDES[slideIdx]?.id,
               })
             }
-            className="w-full h-12 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 active:scale-[0.99] text-white text-[14px] font-medium flex items-center justify-center gap-2 shadow-[0_1px_2px_rgba(0,0,0,0.1)] transition-all"
+            className="w-full h-12 rounded-full bg-gradient-to-r from-[#635BFF] via-[#4F46E5] to-[#0EA5E9] hover:brightness-110 active:scale-[0.98] text-white text-[14px] font-semibold flex items-center justify-center gap-2 shadow-[0_10px_24px_rgba(99,91,255,0.3)] transition-all"
           >
             <span>Konsultasi via WhatsApp</span>
             <ArrowRight className="w-4 h-4" />
           </a>
 
-          <div className="flex items-center justify-center gap-4 text-[13px] font-medium text-[#666666]">
-            <Link href="/demo" className="hover:text-[#0A0A0A] transition-colors py-1">
+          <div className="flex items-center justify-center gap-4 text-[13px] font-semibold text-[#425466]">
+            <Link href="/demo" className="hover:text-[#635BFF] transition-colors py-1">
               Lihat Demo Interaktif
             </Link>
-            <span className="text-neutral-300" aria-hidden="true">
+            <span className="text-slate-300" aria-hidden="true">
               ·
             </span>
-            <Link href="/audit-gratis" className="hover:text-[#0A0A0A] transition-colors py-1">
+            <Link href="/audit-gratis" className="hover:text-[#635BFF] transition-colors py-1">
               Audit Gratis
             </Link>
           </div>

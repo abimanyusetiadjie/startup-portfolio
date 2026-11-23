@@ -79,40 +79,35 @@ export function MobileCaseStudiesSection() {
     <section
       id="m-portofolio"
       data-section="portofolio"
-      className="scroll-mt-16 bg-white py-10 border-b border-[#EAEAEA]"
+      className="relative scroll-mt-20 bg-[#0A2540] text-white py-14 overflow-hidden"
     >
-      <div className="max-w-md mx-auto space-y-5">
-        <div className="px-5 space-y-1">
-          <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
-            02 / BUKTI PRODUKSI
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -top-16 right-0 w-64 h-64 rounded-full bg-[#635BFF]/30 blur-[80px]"
+      />
+      <div className="relative z-10 max-w-md mx-auto space-y-5">
+        <div className="px-5 space-y-1.5">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#00D4FF]/15 text-[#00D4FF] font-semibold text-[11px]">
+            Studi Kasus Terukur
           </span>
-          <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
-            Studi kasus pilihan.
+          <h2 className="text-[24px] font-bold tracking-tight text-white">
+            Dampak Nyata Klien
           </h2>
-          <p className="text-[13.5px] text-[#666666]">
-            Implementasi sistem dengan hasil terukur.
+          <p className="text-[13.5px] text-slate-300">
+            Implementasi sistem produksi dengan hasil terukur.
           </p>
         </div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-3.5 px-5 py-1">
+        <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-4 px-5 py-1">
           {caseList.map((item) => (
             <article
               key={item.id}
               onClick={() => setSelectedCase(item)}
-              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-2xl bg-white border border-[#EAEAEA] shadow-[0_2px_10px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.99] transition-transform"
+              className="w-[82vw] max-w-[330px] shrink-0 snap-center rounded-3xl bg-white/[0.07] backdrop-blur-md ring-1 ring-white/15 overflow-hidden flex flex-col justify-between cursor-pointer active:scale-[0.98] transition-transform"
             >
               <div>
-                <div className="p-4 space-y-3">
-                  <div>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] font-mono text-[10.5px] font-medium text-[#666666] mb-2">
-                      {item.sector}
-                    </span>
-                    <h3 className="text-[15.5px] font-semibold tracking-[-0.02em] text-[#0A0A0A] leading-snug">
-                      {item.title}
-                    </h3>
-                  </div>
-
-                  <div className="relative aspect-[16/9] w-full rounded-xl bg-[#FAFAFA] border border-[#EAEAEA] overflow-hidden">
+                <div className="p-2.5 pb-0">
+                  <div className="relative aspect-[16/9] w-full rounded-2xl bg-slate-900 overflow-hidden">
                     <Image
                       src={failedImages[item.id] ? item.fallback : item.image}
                       alt={item.title}
@@ -126,14 +121,25 @@ export function MobileCaseStudiesSection() {
                       }
                     />
                   </div>
+                </div>
 
-                  <div className="grid grid-cols-2 divide-x divide-[#EAEAEA] pt-1">
+                <div className="p-4 space-y-3">
+                  <div>
+                    <span className="text-[11px] font-semibold text-[#00D4FF] block mb-1">
+                      {item.sector}
+                    </span>
+                    <h3 className="text-[16px] font-bold text-white leading-snug">
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-2 divide-x divide-white/10 pt-1">
                     {item.metrics.map((m) => (
                       <div key={m.label} className="pr-3 first:pl-0 last:pl-3 last:pr-0">
-                        <div className="text-[20px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
+                        <div className="text-[20px] font-bold tracking-tight text-white">
                           {m.value}
                         </div>
-                        <div className="text-[11.5px] font-normal text-[#666666]">
+                        <div className="text-[11.5px] text-slate-300">
                           {m.label}
                         </div>
                       </div>
@@ -142,9 +148,9 @@ export function MobileCaseStudiesSection() {
                 </div>
               </div>
 
-              <div className="px-4 py-3 border-t border-[#EAEAEA] flex items-center justify-between text-[12.5px] font-medium text-[#0A0A0A]">
+              <div className="px-4 py-3 border-t border-white/10 flex items-center justify-between text-[13px] font-semibold text-[#00D4FF]">
                 <span>Baca ringkasan</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4" />
               </div>
             </article>
           ))}

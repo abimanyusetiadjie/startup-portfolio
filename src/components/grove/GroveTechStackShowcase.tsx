@@ -369,41 +369,42 @@ export function GroveTechStackShowcase() {
     },
   ];
 
-  // Combined array for clean mobile grid + duplicated arrays for desktop marquee
+  // Combined array for fluid floating pill marquee
   const allTechnologies = [...track1, ...track2];
-  const duplicatedTrack1 = [...track1, ...track1];
-  const duplicatedTrack2 = [...track2, ...track2];
 
   return (
     <section
       id="tech-stack"
       data-section="tech-stack"
-      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA] overflow-hidden"
+      className="scroll-mt-20 bg-[#F6F9FC] py-14 overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white px-8 py-12 space-y-6">
-        <p className="text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[#666666]">
-          DIBANGUN DI ATAS INFRASTRUKTUR &amp; TEKNOLOGI STANDAR INDUSTRI
-        </p>
+      <div className="max-w-[1200px] mx-auto px-8 space-y-6">
+        <div className="flex items-center justify-center">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#425466] text-[11.5px] font-semibold tracking-wide shadow-sm ring-1 ring-slate-900/[0.05]">
+            <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#635BFF] to-[#00D4FF]" />
+            <span>Dibangun di Atas Infrastruktur &amp; Teknologi Standar Industri</span>
+          </span>
+        </div>
 
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_14%,black_86%,transparent)]">
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{
-              duration: 42,
+              duration: 44,
               ease: "linear",
               repeat: Infinity,
             }}
-            className="flex items-center gap-10 w-max will-change-transform py-2"
+            className="flex items-center gap-4 w-max will-change-transform py-3"
           >
             {[...allTechnologies, ...allTechnologies].map((item, idx) => (
               <div
                 key={`tech-inline-${idx}`}
-                className="inline-flex items-center gap-2.5 shrink-0 opacity-80 hover:opacity-100 transition-opacity"
+                className="inline-flex items-center gap-2.5 shrink-0 px-4 py-2.5 rounded-full bg-white shadow-[0_6px_18px_rgba(10,37,64,0.05)] ring-1 ring-slate-900/[0.05] hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(99,91,255,0.12)] transition-all"
               >
-                <div className="w-6 h-6 flex items-center justify-center shrink-0 [&>svg]:w-6 [&>svg]:h-6">
+                <div className="w-5 h-5 flex items-center justify-center shrink-0 [&>svg]:w-5 [&>svg]:h-5">
                   {item.icon}
                 </div>
-                <span className="text-sm font-medium text-[#0A0A0A] whitespace-nowrap">
+                <span className="text-[13.5px] font-semibold text-[#0A2540] whitespace-nowrap">
                   {item.name}
                 </span>
               </div>

@@ -34,9 +34,9 @@ const cases: CaseItem[] = [
     fallbackImage: "/images/capabilities/capabilities-web-preview.jpg",
     modalObjectPosition: "object-[58%_50%]",
     metrics: [
-      { value: "0,5 detik", label: "Waktu Muat Seluler" },
+      { value: "0,5 detik", label: "Muat Seluler" },
       { value: "+180%", label: "Prospek Masuk" },
-      { value: "100/100", label: "Skor Google PageSpeed" },
+      { value: "100/100", label: "Skor PageSpeed" },
     ],
     summary:
       "Kami memindahkan situs web dari sistem lama yang lambat (6,8 detik di HP) ke arsitektur web berkecepatan tinggi yang ramah pencarian Google. Pengunjung yang langsung keluar turun 65% dalam 60 hari.",
@@ -56,7 +56,7 @@ const cases: CaseItem[] = [
     metrics: [
       { value: "1.240", label: "Siswa Serentak" },
       { value: "0%", label: "Gangguan Sistem" },
-      { value: "4 menit", label: "Terbit 600 Rapor" },
+      { value: "4 menit", label: "600 Rapor" },
     ],
     summary:
       "Memisahkan jalur akses ujian daring dari proses pencetakan rapor digital agar ratusan siswa dapat mengerjakan soal bersamaan dengan lancar.",
@@ -74,9 +74,9 @@ const cases: CaseItem[] = [
     fallbackImage: "/images/capabilities/capabilities-aiml-preview.jpg",
     modalObjectPosition: "object-[55%_35%]",
     metrics: [
-      { value: "0%", label: "Selisih 4 Gudang" },
-      { value: "40 jam", label: "Hemat per Minggu" },
-      { value: "Rp0", label: "Biaya Lisensi Staf" },
+      { value: "0%", label: "Selisih Gudang" },
+      { value: "40 jam", label: "Hemat / Minggu" },
+      { value: "Rp0", label: "Lisensi Staf" },
     ],
     summary:
       "Menggantikan aplikasi berlangganan mahal dengan sistem stok & kasir kustom yang terhubung ke pemindai barcode dan pengingat otomatis ke WhatsApp.",
@@ -95,69 +95,59 @@ export function GroveCaseStudySection() {
     <section
       id="portofolio"
       data-section="portofolio"
-      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA]"
+      className="relative scroll-mt-20 py-28 bg-[#0A2540] text-white overflow-hidden"
+      style={{
+        clipPath: "polygon(0 3%, 100% 0, 100% 97%, 0 100%)",
+      }}
     >
-      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white">
-        {/* Vercel Dual-Tone Header */}
-        <div className="px-8 py-14 border-b border-[#EAEAEA] relative">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
-          >
-            +
-          </span>
-          <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
-          >
-            +
-          </span>
-          <div className="space-y-3 max-w-3xl">
-            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666] block">
-              02 / BUKTI PRODUKSI
-            </span>
-            <h2 className="text-[28px] sm:text-[34px] font-semibold tracking-[-0.035em] leading-[1.18]">
-              <span className="text-[#0A0A0A]">Studi kasus pilihan.</span>{" "}
-              <span className="text-[#666666] font-normal">
-                Dampak terukur yang dirasakan klien pada kecepatan akses, ketahanan sistem, dan efisiensi kerja.
-              </span>
-            </h2>
-          </div>
-        </div>
+      {/* Living Luminous Ambient Orbs inside Stripe Midnight Indigo */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -top-24 left-[12%] w-[460px] h-[460px] rounded-full bg-[#635BFF]/25 blur-[110px] animate-mesh-a"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute bottom-0 right-[8%] w-[460px] h-[420px] rounded-full bg-[#00D4FF]/20 blur-[110px] animate-mesh-b"
+      />
 
-        {/* Connected 3-Cell Case Study Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#EAEAEA]">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-8 space-y-14">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45 }}
+          className="space-y-3 max-w-2xl"
+        >
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#00D4FF]/15 text-[#00D4FF] font-semibold text-xs tracking-wide">
+            Studi Kasus Terukur
+          </span>
+          <h2 className="text-3xl sm:text-[40px] font-bold tracking-[-0.035em] text-white leading-[1.1]">
+            Dampak nyata pada{" "}
+            <span className="bg-gradient-to-r from-[#00D4FF] via-sky-300 to-emerald-300 bg-clip-text text-transparent">
+              kecepatan &amp; efisiensi bisnis.
+            </span>
+          </h2>
+          <p className="text-[15.5px] text-slate-300 leading-relaxed">
+            Bukan sekadar tampilan indah—setiap sistem dirancang untuk meningkatkan prospek masuk, ketahanan server, dan penghematan jam kerja tim.
+          </p>
+        </motion.div>
+
+        {/* 3 Frosted-Glass Floating Case Study Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
           {cases.map((item, idx) => (
             <motion.article
               key={item.id}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.35, delay: idx * 0.06 }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{ duration: 0.45, delay: idx * 0.08 }}
+              whileHover={{ y: -8 }}
               onClick={() => setSelectedCase(item)}
-              className="group p-8 bg-white hover:bg-[#FAFAFA]/80 transition-colors flex flex-col justify-between cursor-pointer relative"
+              className="group rounded-[28px] bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-md ring-1 ring-white/15 hover:ring-[#00D4FF]/50 shadow-[0_24px_50px_-15px_rgba(0,0,0,0.35)] transition-all overflow-hidden flex flex-col justify-between cursor-pointer"
             >
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#0A0A0A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              />
-
               <div>
-                <div className="space-y-2">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] font-mono text-[11px] font-medium text-[#666666]">
-                    {item.sector}
-                  </span>
-                  <h3 className="text-[24px] font-semibold tracking-[-0.03em] text-[#0A0A0A] leading-snug pt-1">
-                    {item.impactHeadline}
-                  </h3>
-                  <p className="text-[13.5px] text-[#666666]">
-                    {item.subMetric}
-                  </p>
-                </div>
-
-                {/* Editorial Neutral-Toned Visual Stage + 3-Metric Strip */}
-                <div className="my-5 space-y-3">
-                  <div className="relative w-full aspect-[16/10] rounded-xl bg-[#FAFAFA] border border-[#EAEAEA] overflow-hidden">
+                <div className="p-3 pb-0">
+                  <div className="relative w-full aspect-[16/10] rounded-2xl bg-slate-900 overflow-hidden">
                     <Image
                       src={
                         failedImages[item.id] ? item.fallbackImage : item.imagePreview
@@ -165,7 +155,7 @@ export function GroveCaseStudySection() {
                       alt={item.fullTitle}
                       fill
                       sizes="(max-width: 1200px) 33vw, 380px"
-                      className="object-cover object-center grayscale-[22%] contrast-[1.04] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500"
+                      className="object-cover object-center group-hover:scale-[1.05] transition-transform duration-500"
                       priority={idx === 0}
                       onError={() =>
                         setFailedImages((prev) =>
@@ -174,14 +164,28 @@ export function GroveCaseStudySection() {
                       }
                     />
                   </div>
+                </div>
 
-                  <div className="grid grid-cols-3 divide-x divide-[#EAEAEA] rounded-lg border border-[#EAEAEA] bg-[#FAFAFA] py-2 px-1 text-center">
+                <div className="p-6 space-y-4">
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-semibold text-[#00D4FF] block">
+                      {item.sector}
+                    </span>
+                    <h3 className="text-[23px] font-bold tracking-tight text-white leading-snug">
+                      {item.impactHeadline}
+                    </h3>
+                    <p className="text-[13.5px] text-slate-300">
+                      {item.subMetric}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2 rounded-2xl bg-[#06182C]/70 ring-1 ring-white/10 py-2.5 px-2 text-center">
                     {item.metrics.map((m) => (
-                      <div key={m.label} className="px-1.5">
-                        <div className="text-[13px] font-semibold tracking-tight text-[#0A0A0A]">
+                      <div key={m.label} className="px-1">
+                        <div className="text-[13.5px] font-bold text-white">
                           {m.value}
                         </div>
-                        <div className="text-[10px] text-[#666666] truncate">
+                        <div className="text-[10px] text-slate-400 truncate">
                           {m.label}
                         </div>
                       </div>
@@ -190,12 +194,12 @@ export function GroveCaseStudySection() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#EAEAEA]/80 flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#0A0A0A] group-hover:text-[#0070F3] transition-colors">
+              <div className="px-6 pb-6 pt-1 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[#00D4FF] group-hover:text-white transition-colors">
                   <span>Lihat studi kasus</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </span>
-                <span className="font-mono text-[11px] text-neutral-400">
+                <span className="font-mono text-[11px] text-slate-500">
                   0{idx + 1}
                 </span>
               </div>

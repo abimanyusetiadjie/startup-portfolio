@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const steps = [
@@ -55,40 +56,35 @@ export function GroveCoreShieldSection() {
     <section
       id="cara-kerja"
       data-section="cara-kerja"
-      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA]"
+      className="scroll-mt-20 py-24 bg-[#F6F9FC] relative"
     >
-      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white">
-        {/* Vercel Dual-Tone Header */}
-        <div className="px-8 py-14 border-b border-[#EAEAEA] relative">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
-          >
-            +
+      <div className="max-w-[1200px] mx-auto px-8 space-y-14">
+        {/* Open Fluid Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45 }}
+          className="space-y-3 max-w-2xl"
+        >
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-[#635BFF] font-semibold text-xs tracking-wide">
+            Alur Kerja Terukur
           </span>
-          <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
-          >
-            +
-          </span>
-          <div className="space-y-3 max-w-3xl">
-            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666] block">
-              03 / PROTOKOL EKSEKUSI
+          <h2 className="text-3xl sm:text-[38px] font-bold tracking-[-0.035em] text-[#0A2540] leading-[1.12]">
+            Dari ide ke sistem produksi{" "}
+            <span className="bg-gradient-to-r from-[#635BFF] to-[#10B981] bg-clip-text text-transparent">
+              dalam 14 hari kerja.
             </span>
-            <h2 className="text-[28px] sm:text-[34px] font-semibold tracking-[-0.035em] leading-[1.18]">
-              <span className="text-[#0A0A0A]">Alur kerja 14 hari.</span>{" "}
-              <span className="text-[#666666] font-normal">
-                Tahapan terstruktur dari penguncian anggaran hingga serah terima kode penuh tanpa biaya tersembunyi.
-              </span>
-            </h2>
-          </div>
-        </div>
+          </h2>
+          <p className="text-[15.5px] text-[#425466] leading-relaxed">
+            Tahapan transparan dengan server uji coba langsung setiap minggu—tanpa biaya tersembunyi di tengah proyek.
+          </p>
+        </motion.div>
 
-        {/* Interactive 2-Column Split Studio Stepper (Spacious & Zero Cramping) */}
-        <div className="grid grid-cols-12 divide-x divide-[#EAEAEA]">
-          {/* Left 6 Cols: Spacious Interactive Step List */}
-          <div className="col-span-6 divide-y divide-[#EAEAEA]">
+        {/* Fluid 2-Column Kinetic Stepper (Zero Boxy Grid Walls) */}
+        <div className="grid grid-cols-12 gap-10 items-center">
+          {/* Left 6 Cols: Sliding Highlight Stepper */}
+          <div className="col-span-6 space-y-2.5">
             {steps.map((s, idx) => {
               const isActive = idx === activeIdx;
               return (
@@ -97,42 +93,43 @@ export function GroveCoreShieldSection() {
                   type="button"
                   onClick={() => setActiveIdx(idx)}
                   onMouseEnter={() => setActiveIdx(idx)}
-                  className={`w-full text-left px-8 py-5 transition-colors flex items-start gap-4 cursor-pointer relative ${
-                    isActive
-                      ? "bg-[#FAFAFA]"
-                      : "bg-white hover:bg-[#FAFAFA]/60"
-                  }`}
+                  className="relative w-full text-left px-5 py-4 rounded-2xl transition-colors flex items-start gap-4 cursor-pointer"
                 >
                   {isActive && (
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-y-0 left-0 w-[2.5px] bg-[#0A0A0A]"
+                    <motion.div
+                      layoutId="workflow-active-card"
+                      transition={{ type: "spring", stiffness: 360, damping: 30 }}
+                      className="absolute inset-0 rounded-2xl bg-white shadow-[0_14px_36px_-10px_rgba(99,91,255,0.16)] ring-1 ring-[#635BFF]/15 -z-0"
                     />
                   )}
                   <span
-                    className={`mt-0.5 shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full font-mono text-xs font-semibold transition-colors ${
+                    className={`relative z-10 mt-0.5 shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full font-mono text-xs font-bold transition-all ${
                       isActive
-                        ? "bg-[#0A0A0A] text-white"
-                        : "bg-[#FAFAFA] border border-[#EAEAEA] text-[#666666]"
+                        ? "bg-gradient-to-br from-[#635BFF] to-[#0EA5E9] text-white shadow-sm"
+                        : "bg-white text-[#425466] shadow-sm"
                     }`}
                   >
                     {s.step}
                   </span>
 
-                  <div className="flex-1 min-w-0 space-y-1">
+                  <div className="relative z-10 flex-1 min-w-0 space-y-1">
                     <div className="flex items-center justify-between gap-3">
                       <h3
-                        className={`text-[15.5px] font-semibold tracking-[-0.015em] ${
-                          isActive ? "text-[#0A0A0A]" : "text-[#404040]"
+                        className={`text-[16px] font-bold tracking-tight ${
+                          isActive ? "text-[#0A2540]" : "text-[#425466]"
                         }`}
                       >
                         {s.title}
                       </h3>
-                      <span className="font-mono text-[11px] text-[#666666] shrink-0">
+                      <span
+                        className={`font-mono text-[11px] font-semibold shrink-0 ${
+                          isActive ? "text-[#635BFF]" : "text-slate-400"
+                        }`}
+                      >
                         {s.timeline}
                       </span>
                     </div>
-                    <p className="text-[13.5px] text-[#666666] leading-relaxed">
+                    <p className="text-[13.5px] text-[#425466] leading-relaxed">
                       {s.desc}
                     </p>
                   </div>
@@ -141,39 +138,53 @@ export function GroveCoreShieldSection() {
             })}
           </div>
 
-          {/* Right 6 Cols: Live Documentation Stage */}
-          <div className="col-span-6 p-8 bg-[#FAFAFA]/60 flex flex-col justify-center">
-            <div className="rounded-2xl bg-white border border-[#EAEAEA] shadow-[0_12px_36px_-12px_rgba(0,0,0,0.06)] overflow-hidden">
-              <div className="px-5 py-3.5 border-b border-[#EAEAEA] bg-[#FAFAFA] flex items-center justify-between gap-2 text-xs">
-                <span className="font-mono font-semibold text-[#0A0A0A]">
+          {/* Right 6 Cols: Floating Animated Documentation Stage */}
+          <div className="col-span-6 relative">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-tr from-[#635BFF]/15 via-[#00D4FF]/15 to-emerald-400/15 blur-2xl"
+            />
+            <div className="relative rounded-[28px] bg-white shadow-[0_24px_60px_-15px_rgba(10,37,64,0.12)] ring-1 ring-slate-900/[0.05] overflow-hidden">
+              <div className="px-6 py-4 bg-gradient-to-r from-[#0A2540] to-[#16365E] text-white flex items-center justify-between gap-2 text-xs">
+                <span className="font-mono font-semibold text-cyan-300">
                   DOKUMENTASI TAHAP {activeStep.step}
                 </span>
-                <span className="font-mono text-[#666666]">
+                <span className="font-mono text-white/80">
                   {activeStep.timeline}
                 </span>
               </div>
 
-              <div className="p-4">
-                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-neutral-100 border border-[#EAEAEA]">
-                  <Image
-                    src={activeStep.imageSrc}
-                    alt={activeStep.title}
-                    fill
-                    sizes="(max-width: 1200px) 48vw, 540px"
-                    className="object-cover object-center"
-                  />
-                </div>
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeStep.step}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                  <div className="p-5 pb-3">
+                    <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-100">
+                      <Image
+                        src={activeStep.imageSrc}
+                        alt={activeStep.title}
+                        fill
+                        sizes="(max-width: 1200px) 48vw, 540px"
+                        className="object-cover object-center"
+                      />
+                    </div>
+                  </div>
 
-              <div className="px-5 pb-5 pt-1 space-y-2">
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 px-3 py-1 text-xs font-medium text-emerald-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  <span>Hasil: {activeStep.deliverable}</span>
-                </div>
-                <p className="text-[13.5px] text-[#666666] leading-relaxed">
-                  {activeStep.desc}
-                </p>
-              </div>
+                  <div className="px-6 pb-6 pt-2 space-y-2.5">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-semibold text-emerald-700">
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                      <span>Hasil: {activeStep.deliverable}</span>
+                    </div>
+                    <p className="text-[14px] text-[#425466] leading-relaxed">
+                      {activeStep.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>

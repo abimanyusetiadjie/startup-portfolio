@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Menu, X, ArrowUpRight, Calculator } from "lucide-react";
 import { AbinestLogo } from "./AbinestLogo";
 import { findVisibleSection } from "./contact-utils";
@@ -81,17 +82,15 @@ export function GroveNavbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-200 ${
-        scrolled
-          ? "py-2.5 px-4 sm:px-6 lg:px-0 bg-transparent"
-          : "bg-[#FAFAFA]/95 backdrop-blur-md border-b border-[#EAEAEA]"
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "py-3 px-4 sm:px-6" : "py-3.5 px-4 sm:px-8"
       }`}
     >
       <div
-        className={`max-w-[1200px] mx-auto flex items-center justify-between gap-4 transition-all duration-200 ${
+        className={`max-w-[1200px] mx-auto flex items-center justify-between gap-4 transition-all duration-300 rounded-full ${
           scrolled
-            ? "h-14 px-4 sm:px-5 rounded-full bg-white/90 backdrop-blur-xl border border-[#EAEAEA] shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
-            : "h-14 lg:h-16 px-5 sm:px-8 lg:border-x lg:border-[#EAEAEA] bg-white"
+            ? "h-14 px-4 sm:px-5 bg-white/85 backdrop-blur-xl shadow-[0_12px_40px_rgba(10,37,64,0.09)] ring-1 ring-slate-900/[0.06]"
+            : "h-14 px-4 sm:px-5 bg-white/70 backdrop-blur-md shadow-[0_4px_20px_rgba(10,37,64,0.04)] ring-1 ring-white/80"
         }`}
       >
         {/* Brand */}
@@ -99,7 +98,7 @@ export function GroveNavbar() {
           <AbinestLogo size="md" showTagline={false} />
         </Link>
 
-        {/* Vercel Geist Pill Desktop Nav Links */}
+        {/* Fluid Motion Nav Links */}
         <nav className="hidden lg:flex items-center gap-1 text-[13.5px]">
           {navLinks.map((item) => {
             const isSelected = activeSection === item.id;
@@ -110,7 +109,7 @@ export function GroveNavbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="px-3.5 py-1.5 rounded-full font-medium text-[#666666] hover:text-[#0A0A0A] hover:bg-neutral-100/80 transition-colors whitespace-nowrap"
+                  className="px-3.5 py-1.5 rounded-full font-medium text-[#425466] hover:text-[#635BFF] hover:bg-[#635BFF]/[0.07] transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -122,23 +121,30 @@ export function GroveNavbar() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className={`px-3.5 py-1.5 rounded-full transition-all whitespace-nowrap ${
+                className={`relative px-3.5 py-1.5 rounded-full transition-colors whitespace-nowrap ${
                   isSelected
-                    ? "font-medium text-[#0A0A0A] bg-neutral-100"
-                    : "font-normal text-[#666666] hover:text-[#0A0A0A] hover:bg-neutral-50"
+                    ? "font-semibold text-[#635BFF]"
+                    : "font-medium text-[#425466] hover:text-[#0A2540]"
                 }`}
               >
-                {item.label}
+                {isSelected && (
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    className="absolute inset-0 rounded-full bg-[#635BFF]/10 -z-10"
+                  />
+                )}
+                <span>{item.label}</span>
               </Link>
             );
           })}
         </nav>
 
-        {/* Vercel Carbon & Alabaster Pill Actions */}
-        <div className="hidden sm:flex items-center gap-2 shrink-0">
+        {/* Vibrant Stripe-Style Pill Actions */}
+        <div className="hidden sm:flex items-center gap-2.5 shrink-0">
           <Link
             href="/audit-gratis"
-            className="inline-flex items-center px-3.5 py-1.5 rounded-full text-[13px] font-medium text-[#0A0A0A] bg-white hover:bg-neutral-50 border border-[#EAEAEA] transition-colors whitespace-nowrap"
+            className="inline-flex items-center px-4 py-2 rounded-full text-[13px] font-semibold text-[#0A2540] bg-white/80 hover:bg-white shadow-sm ring-1 ring-slate-900/[0.08] transition-all whitespace-nowrap"
           >
             Audit Gratis
           </Link>
@@ -146,7 +152,7 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[13px] font-medium text-white bg-[#0A0A0A] hover:bg-neutral-800 transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold text-white bg-gradient-to-r from-[#635BFF] to-[#4F46E5] hover:brightness-110 shadow-[0_6px_18px_rgba(99,91,255,0.32)] transition-all whitespace-nowrap"
           >
             <span>Konsultasi</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -158,14 +164,14 @@ export function GroveNavbar() {
           <Link
             href="/#kontak"
             onClick={(e) => handleSmoothScroll(e, "/#kontak")}
-            className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-medium text-white bg-[#0A0A0A] hover:bg-neutral-800 transition-colors"
+            className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#635BFF] to-[#4F46E5] shadow-[0_4px_12px_rgba(99,91,255,0.3)] transition-all"
           >
             Konsultasi
           </Link>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full border border-[#EAEAEA] bg-white text-[#0A0A0A] hover:bg-neutral-50 transition-colors cursor-pointer"
+            className="p-2 rounded-full bg-white/90 text-[#0A2540] ring-1 ring-slate-900/[0.08] hover:bg-white transition-colors cursor-pointer"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
           >

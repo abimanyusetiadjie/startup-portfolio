@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { FAQ_ITEMS } from "./faq-data";
 import { findVisibleSection } from "./contact-utils";
@@ -21,59 +22,49 @@ export function GroveFaqSection() {
     <section
       id="faq"
       data-section="faq"
-      className="bg-[#FAFAFA] border-b border-[#EAEAEA] relative z-10"
+      className="scroll-mt-20 py-24 bg-[#F6F9FC] relative z-10 overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white px-8 py-20 relative">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
-        >
-          +
-        </span>
-        <span
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
-        >
-          +
-        </span>
-
+      <div className="max-w-[1200px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left sticky column */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
             <div className="space-y-3">
-              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666]">
-                05 / KEJELASAN KERJA SAMA
-              </div>
-              <h2 className="text-[28px] md:text-[32px] font-semibold tracking-[-0.035em] text-[#0A0A0A] leading-[1.15]">
-                Pertanyaan yang sering ditanyakan.
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-[#635BFF] font-semibold text-xs tracking-wide">
+                Kejelasan Kerja Sama
+              </span>
+              <h2 className="text-3xl md:text-[36px] font-bold tracking-[-0.035em] text-[#0A2540] leading-[1.12]">
+                Pertanyaan yang{" "}
+                <span className="bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] bg-clip-text text-transparent">
+                  sering ditanyakan.
+                </span>
               </h2>
-              <p className="text-[14.5px] text-[#666666] leading-relaxed">
+              <p className="text-[14.5px] text-[#425466] leading-relaxed">
                 Kejelasan penuh mengenai hak milik kode sumber, skema pembayaran bertahap,
                 garansi pascarilis, hingga kesiapan dokumen legal perusahaan Anda.
               </p>
             </div>
 
-            <div className="rounded-2xl bg-[#FAFAFA] border border-[#EAEAEA] p-6 space-y-4">
+            <div className="rounded-[24px] bg-white shadow-[0_18px_45px_rgba(10,37,64,0.06)] ring-1 ring-slate-900/[0.05] p-6 space-y-4">
               <div className="space-y-1.5">
-                <h3 className="text-[15px] font-semibold text-[#0A0A0A]">
+                <h3 className="text-[15.5px] font-bold text-[#0A2540]">
                   Masih Ada Pertanyaan Teknis?
                 </h3>
-                <p className="text-[13.5px] text-[#666666] leading-relaxed">
+                <p className="text-[13.5px] text-[#425466] leading-relaxed">
                   Diskusikan alur kerja, kebutuhan integrasi, atau penyusunan NDA langsung bersama tim engineering kami.
                 </p>
               </div>
-              <div className="flex flex-col gap-2 pt-1">
+              <div className="flex flex-col gap-2.5 pt-1">
                 <button
                   type="button"
                   onClick={handleScrollToContact}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 text-white text-xs font-medium px-5 py-2.5 transition-colors cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#635BFF] to-[#4F46E5] hover:shadow-lg hover:shadow-indigo-500/25 text-white text-xs font-semibold px-5 py-3 transition-all cursor-pointer"
                 >
                   <span>Konsultasi Langsung</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <Link
                   href="/audit-gratis"
-                  className="inline-flex items-center justify-center rounded-full border border-[#EAEAEA] hover:bg-neutral-100/70 bg-white text-[#0A0A0A] text-xs font-medium px-5 py-2.5 transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-[#F6F9FC] hover:bg-indigo-50 text-[#0A2540] hover:text-[#635BFF] text-xs font-semibold px-5 py-2.5 transition-colors"
                 >
                   Ajukan Audit Sistem Gratis
                 </Link>
@@ -81,8 +72,8 @@ export function GroveFaqSection() {
             </div>
           </div>
 
-          {/* Right accordion list */}
-          <div className="lg:col-span-8 divide-y divide-[#EAEAEA] border border-[#EAEAEA] rounded-2xl overflow-hidden bg-white">
+          {/* Right floating animated accordion list */}
+          <div className="lg:col-span-8 space-y-3">
             {FAQ_ITEMS.map((item, idx) => {
               const isOpen = openId === item.id;
               const panelId = `${baseId}-${item.id}`;
@@ -92,8 +83,10 @@ export function GroveFaqSection() {
               return (
                 <div
                   key={item.id}
-                  className={`transition-colors ${
-                    isOpen ? "bg-[#FAFAFA]/60" : "bg-white hover:bg-[#FAFAFA]/40"
+                  className={`rounded-2xl transition-all duration-200 ${
+                    isOpen
+                      ? "bg-white shadow-[0_18px_40px_rgba(99,91,255,0.09)] ring-1 ring-indigo-500/20"
+                      : "bg-white/90 shadow-[0_6px_20px_rgba(10,37,64,0.04)] ring-1 ring-slate-900/[0.04] hover:bg-white hover:shadow-[0_12px_28px_rgba(10,37,64,0.07)]"
                   }`}
                 >
                   <button
@@ -106,45 +99,54 @@ export function GroveFaqSection() {
                   >
                     <div className="flex items-start gap-4">
                       <span
-                        className={`mt-0.5 shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-mono font-medium ${
+                        className={`mt-0.5 shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full text-[11px] font-mono font-bold transition-colors ${
                           isOpen
-                            ? "bg-[#0A0A0A] text-white"
-                            : "bg-[#FAFAFA] border border-[#EAEAEA] text-[#666666]"
+                            ? "bg-gradient-to-br from-[#635BFF] to-[#0EA5E9] text-white shadow-sm"
+                            : "bg-indigo-50 text-[#635BFF]"
                         }`}
                       >
                         {numberLabel}
                       </span>
                       <div className="space-y-1">
-                        <span className="inline-block font-mono text-[10.5px] uppercase tracking-wider text-[#666666]">
+                        <span className="inline-block font-mono text-[10.5px] uppercase tracking-wider text-[#635BFF] font-semibold">
                           {item.category}
                         </span>
-                        <p className="text-[15.5px] font-semibold tracking-[-0.015em] text-[#0A0A0A] leading-snug">
+                        <p className="text-[15.5px] font-bold tracking-[-0.015em] text-[#0A2540] leading-snug">
                           {item.question}
                         </p>
                       </div>
                     </div>
                     <ChevronDown
-                      className={`w-4 h-4 shrink-0 mt-1 text-neutral-400 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#0A0A0A]" : ""
+                      className={`w-4 h-4 shrink-0 mt-1.5 transition-transform duration-200 ${
+                        isOpen ? "rotate-180 text-[#635BFF]" : "text-slate-400"
                       }`}
                     />
                   </button>
 
-                  <div
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={buttonId}
-                    hidden={!isOpen}
-                    className="px-6 pb-6 pl-16 space-y-3"
-                  >
-                    <p className="text-[14px] leading-relaxed text-[#666666]">
-                      {item.answer}
-                    </p>
-                    <div className="inline-flex items-center gap-2 rounded-full bg-white border border-[#EAEAEA] px-3 py-1 text-xs font-medium text-[#0A0A0A]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>{item.highlight}</span>
-                    </div>
-                  </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        id={panelId}
+                        role="region"
+                        aria-labelledby={buttonId}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pl-[68px] space-y-3">
+                          <p className="text-[14px] leading-relaxed text-[#425466]">
+                            {item.answer}
+                          </p>
+                          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-800 px-3.5 py-1.5 text-xs font-semibold">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                            <span>{item.highlight}</span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}

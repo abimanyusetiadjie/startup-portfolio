@@ -12,8 +12,7 @@ export interface PricingCardTheme {
 }
 
 /**
- * Shared light/Obsidian Slate (#0F172A) styling tokens for desktop and mobile
- * pricing cards so the featured tier stands out cleanly in both viewports.
+ * Stripe-inspired luminous midnight-indigo featured card + floating white cards.
  */
 export function getPricingCardTheme(
   isPopular: boolean,
@@ -21,32 +20,33 @@ export function getPricingCardTheme(
 ): PricingCardTheme {
   if (isPopular) {
     return {
-      card: "bg-[#0A0A0A] text-white border border-neutral-800 shadow-[0_20px_50px_rgba(0,0,0,0.12)]",
-      icon: isBeliPutus ? "text-emerald-400" : "text-[#0070F3]",
+      card: "bg-gradient-to-br from-[#0A2540] via-[#123056] to-[#1D1B54] text-white shadow-[0_28px_65px_-12px_rgba(99,91,255,0.34)] ring-1 ring-white/15",
+      icon: isBeliPutus ? "text-emerald-400" : "text-[#00D4FF]",
       title: "text-white",
       badge:
-        "bg-white/10 text-white border border-white/15 px-2.5 py-0.5 rounded-full font-mono text-[11px]",
+        "bg-gradient-to-r from-[#00D4FF]/20 to-[#635BFF]/30 text-[#00D4FF] ring-1 ring-[#00D4FF]/30 px-3 py-0.5 rounded-full font-semibold text-[11px]",
       price: "text-white",
-      summary: "text-neutral-400",
-      divider: "border-neutral-800",
-      check: isBeliPutus ? "text-emerald-400" : "text-[#38BDF8]",
-      featureText: "text-neutral-200",
-      button:
-        "bg-white hover:bg-neutral-200 text-[#0A0A0A] font-medium rounded-full",
+      summary: "text-slate-300",
+      divider: "border-white/10",
+      check: isBeliPutus ? "text-emerald-400" : "text-[#00D4FF]",
+      featureText: "text-slate-200",
+      button: isBeliPutus
+        ? "bg-gradient-to-r from-emerald-400 to-teal-400 hover:brightness-110 text-[#0A2540] font-bold rounded-full shadow-[0_8px_20px_rgba(16,185,129,0.3)]"
+        : "bg-gradient-to-r from-[#00D4FF] to-[#635BFF] hover:brightness-110 text-white font-semibold rounded-full shadow-[0_8px_20px_rgba(0,212,255,0.3)]",
     };
   }
 
   return {
-    card: "bg-white border border-[#EAEAEA] hover:border-neutral-300 shadow-[0_2px_10px_rgba(0,0,0,0.02)]",
-    icon: "text-[#0A0A0A]",
-    title: "text-[#0A0A0A]",
-    badge: "text-[#666666]",
-    price: "text-[#0A0A0A]",
-    summary: "text-[#666666]",
-    divider: "border-[#EAEAEA]",
-    check: "text-[#0A0A0A]",
-    featureText: "text-[#404040]",
+    card: "bg-white shadow-[0_20px_50px_-15px_rgba(10,37,64,0.08)] hover:shadow-[0_28px_60px_-15px_rgba(99,91,255,0.16)] ring-1 ring-slate-900/[0.05]",
+    icon: "text-[#635BFF]",
+    title: "text-[#0A2540]",
+    badge: "text-[#635BFF]",
+    price: "text-[#0A2540]",
+    summary: "text-[#425466]",
+    divider: "border-slate-100",
+    check: isBeliPutus ? "text-emerald-500" : "text-[#635BFF]",
+    featureText: "text-[#425466]",
     button:
-      "bg-[#0A0A0A] hover:bg-neutral-800 text-white font-medium rounded-full",
+      "bg-[#0A2540] hover:bg-[#635BFF] text-white font-semibold rounded-full transition-colors",
   };
 }

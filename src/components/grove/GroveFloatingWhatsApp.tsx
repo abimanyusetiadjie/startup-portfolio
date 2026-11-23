@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { WhatsAppIcon } from "./WhatsAppIcon";
@@ -78,70 +79,79 @@ export function GroveFloatingWhatsApp() {
       style={{ bottom: "calc(20px + env(safe-area-inset-bottom, 0px))" }}
       className="fixed right-3.5 sm:right-6 z-40 flex flex-col items-end transition-all duration-300"
     >
-      {isOpen && (
-        <div className="mb-3 w-[calc(100vw-28px)] max-w-[330px] rounded-2xl bg-white border border-[#EAEAEA] shadow-[0_16px_48px_rgba(0,0,0,0.12)] overflow-hidden text-[#0A0A0A] transition-all duration-150">
-          <div className="px-4 py-3.5 border-b border-[#EAEAEA] flex items-center justify-between bg-[#FAFAFA]">
-            <div>
-              <h4 className="text-sm font-semibold text-[#0A0A0A]">
-                Konsultasi WhatsApp
-              </h4>
-              <p className="text-[11.5px] text-[#666666]">
-                Respons langsung dalam &lt;15 menit
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              className="w-7 h-7 rounded-full hover:bg-neutral-200/70 text-[#666666] flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Tutup panel WhatsApp"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-
-          <div className="divide-y divide-[#EAEAEA]">
-            {quickOptions.map((opt) => (
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-3 w-[calc(100vw-28px)] max-w-[330px] rounded-2xl bg-white ring-1 ring-slate-900/[0.08] shadow-[0_24px_60px_rgba(10,37,64,0.18)] overflow-hidden text-[#0A2540]"
+          >
+            <div className="px-4 py-3.5 flex items-center justify-between bg-gradient-to-r from-[#0A2540] to-[#1E3A5F] text-white">
+              <div>
+                <h4 className="text-sm font-bold text-white">
+                  Konsultasi WhatsApp
+                </h4>
+                <p className="text-[11.5px] text-cyan-200 inline-flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Respons langsung dalam &lt;15 menit</span>
+                </p>
+              </div>
               <button
-                key={opt.title}
                 type="button"
-                onClick={() => handleOpenChat(opt.text, opt.title)}
-                className="w-full text-left px-4 py-3 bg-white hover:bg-[#FAFAFA] transition-colors flex items-center justify-between gap-3 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+                className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Tutup panel WhatsApp"
               >
-                <div className="min-w-0">
-                  <div className="text-[13px] font-medium text-[#0A0A0A] truncate">
-                    {opt.title}
-                  </div>
-                  <div className="text-[11.5px] text-[#666666] truncate">
-                    {opt.desc}
-                  </div>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-neutral-400 shrink-0" />
+                <X className="w-4 h-4" />
               </button>
-            ))}
-          </div>
+            </div>
 
-          <div className="p-3 border-t border-[#EAEAEA] bg-[#FAFAFA]">
-            <button
-              type="button"
-              onClick={() => handleOpenChat()}
-              className="w-full py-2.5 px-4 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 text-white font-medium text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
-            >
-              <WhatsAppIcon className="w-4 h-4 text-emerald-400" />
-              <span>Buka Chat WhatsApp</span>
-            </button>
-          </div>
-        </div>
-      )}
+            <div className="divide-y divide-slate-100">
+              {quickOptions.map((opt) => (
+                <button
+                  key={opt.title}
+                  type="button"
+                  onClick={() => handleOpenChat(opt.text, opt.title)}
+                  className="w-full text-left px-4 py-3 bg-white hover:bg-[#F6F9FC] transition-colors flex items-center justify-between gap-3 cursor-pointer"
+                >
+                  <div className="min-w-0">
+                    <div className="text-[13px] font-semibold text-[#0A2540] truncate">
+                      {opt.title}
+                    </div>
+                    <div className="text-[11.5px] text-[#425466] truncate">
+                      {opt.desc}
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-[#635BFF] shrink-0" />
+                </button>
+              ))}
+            </div>
+
+            <div className="p-3 border-t border-slate-100 bg-[#F6F9FC]">
+              <button
+                type="button"
+                onClick={() => handleOpenChat()}
+                className="w-full py-2.5 px-4 rounded-full bg-gradient-to-r from-[#25D366] to-[#059669] hover:shadow-md text-white font-semibold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                <span>Buka Chat WhatsApp</span>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0A0A0A] hover:bg-neutral-800 text-white border border-neutral-800 shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer ${
+        className={`relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#25D366] to-[#059669] text-white shadow-[0_12px_30px_rgba(16,185,129,0.38)] transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer ${
           isNearCta && !isOpen ? "scale-75 opacity-60 translate-y-2" : ""
         }`}
         aria-label="Konsultasi WhatsApp Abinest"
       >
-        <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#25D366]" />
+        <WhatsAppIcon className="w-6 h-6 text-white" />
       </button>
     </div>
   );

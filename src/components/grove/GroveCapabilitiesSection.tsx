@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Database, Globe, MessageSquare, X, Zap } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { useModalEffects } from "./use-modal-effects";
@@ -9,31 +10,39 @@ import { useModalEffects } from "./use-modal-effects";
 function CapabilityDiagram({ id }: { id: string }) {
   if (id === "web") {
     return (
-      <div className="my-6 rounded-xl border border-[#EAEAEA] bg-[#FAFAFA] p-4 space-y-3">
+      <div className="my-6 rounded-2xl bg-gradient-to-br from-indigo-50/90 via-sky-50/70 to-white p-4 space-y-3 ring-1 ring-indigo-100/80">
         <div className="flex items-center justify-between text-[11px] font-mono">
-          <span className="inline-flex items-center gap-1.5 text-[#0A0A0A] font-medium">
-            <Globe className="w-3.5 h-3.5 text-[#0070F3]" />
+          <span className="inline-flex items-center gap-1.5 text-[#0A2540] font-semibold">
+            <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-[#635BFF] to-[#0EA5E9] text-white inline-flex items-center justify-center shadow-sm">
+              <Globe className="w-3.5 h-3.5" />
+            </span>
             <span>Core Web Vitals</span>
           </span>
-          <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-semibold">
+          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500 text-white font-bold shadow-sm">
             100 / 100
           </span>
         </div>
-        <div className="rounded-lg bg-white border border-[#EAEAEA] p-3 space-y-2">
+        <div className="rounded-xl bg-white shadow-sm p-3 space-y-2">
           <div className="flex items-center justify-between text-xs">
-            <span className="font-medium text-[#0A0A0A] inline-flex items-center gap-1">
-              <Zap className="w-3.5 h-3.5 text-[#0070F3]" />
+            <span className="font-semibold text-[#0A2540] inline-flex items-center gap-1">
+              <Zap className="w-3.5 h-3.5 text-[#635BFF]" />
               <span>Waktu Muat HP</span>
             </span>
-            <span className="font-mono font-semibold text-[#0070F3]">0,48 dtk</span>
+            <span className="font-mono font-bold text-[#635BFF]">0,48 dtk</span>
           </div>
-          <div className="h-1.5 w-full rounded-full bg-neutral-100 overflow-hidden">
-            <div className="h-full w-[18%] rounded-full bg-gradient-to-r from-[#0070F3] to-teal-500" />
+          <div className="h-2 w-full rounded-full bg-indigo-100/80 overflow-hidden">
+            <motion.div
+              initial={{ width: "0%" }}
+              whileInView={{ width: "22%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="h-full rounded-full bg-gradient-to-r from-[#635BFF] to-[#00D4FF]"
+            />
           </div>
         </div>
-        <div className="flex items-center justify-between text-[11px] text-[#666666] px-1">
+        <div className="flex items-center justify-between text-[11.5px] text-[#425466] px-1">
           <span>Schema JSON-LD &amp; SEO</span>
-          <span className="font-medium text-emerald-700">✓ Halaman 1 Google</span>
+          <span className="font-semibold text-emerald-600">✓ Halaman 1 Google</span>
         </div>
       </div>
     );
@@ -46,24 +55,26 @@ function CapabilityDiagram({ id }: { id: string }) {
       { label: "Portal SIAKAD CBT", meta: "1.240 Siswa" },
     ];
     return (
-      <div className="my-6 rounded-xl border border-[#EAEAEA] bg-[#FAFAFA] p-4 space-y-2.5">
+      <div className="my-6 rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/70 to-white p-4 space-y-2.5 ring-1 ring-emerald-100/80">
         <div className="flex items-center justify-between text-[11px] font-mono">
-          <span className="inline-flex items-center gap-1.5 text-[#0A0A0A] font-medium">
-            <Database className="w-3.5 h-3.5 text-[#0A0A0A]" />
+          <span className="inline-flex items-center gap-1.5 text-[#0A2540] font-semibold">
+            <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 text-white inline-flex items-center justify-center shadow-sm">
+              <Database className="w-3.5 h-3.5" />
+            </span>
             <span>Sistem Terpusat</span>
           </span>
-          <span className="px-2 py-0.5 rounded-full bg-[#0A0A0A] text-white font-semibold">
+          <span className="px-2.5 py-0.5 rounded-full bg-[#0A2540] text-cyan-300 font-bold">
             Rp0 / Staf
           </span>
         </div>
-        <div className="rounded-lg bg-white border border-[#EAEAEA] divide-y divide-[#EAEAEA]">
+        <div className="rounded-xl bg-white shadow-sm divide-y divide-slate-100">
           {items.map((row) => (
             <div
               key={row.label}
               className="px-3 py-2 flex items-center justify-between text-xs"
             >
-              <span className="font-medium text-[#0A0A0A]">{row.label}</span>
-              <span className="font-mono text-[11px] text-emerald-700">
+              <span className="font-semibold text-[#0A2540]">{row.label}</span>
+              <span className="font-mono text-[11px] font-semibold text-emerald-600">
                 {row.meta}
               </span>
             </div>
@@ -74,31 +85,34 @@ function CapabilityDiagram({ id }: { id: string }) {
   }
 
   return (
-    <div className="my-6 rounded-xl border border-[#EAEAEA] bg-[#FAFAFA] p-4 space-y-2.5">
+    <div className="my-6 rounded-2xl bg-gradient-to-br from-violet-50/90 via-fuchsia-50/60 to-cyan-50/50 p-4 space-y-2.5 ring-1 ring-violet-100/80">
       <div className="flex items-center justify-between text-[11px] font-mono">
-        <span className="inline-flex items-center gap-1.5 text-[#0A0A0A] font-medium">
-          <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+        <span className="inline-flex items-center gap-1.5 text-[#0A2540] font-semibold">
+          <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-500 text-white inline-flex items-center justify-center shadow-sm">
+            <MessageSquare className="w-3.5 h-3.5" />
+          </span>
           <span>Meta Cloud API</span>
         </span>
-        <span className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-semibold">
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500 text-white font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           24/7 Aktif
         </span>
       </div>
-      <div className="rounded-lg bg-white border border-[#EAEAEA] p-3 space-y-2 text-xs">
+      <div className="rounded-xl bg-white shadow-sm p-3 space-y-2 text-xs">
         <div className="flex items-center justify-between">
-          <span className="font-medium text-[#0A0A0A]">Balasan Chat AI</span>
-          <span className="font-mono text-[11px] text-[#0070F3]">&lt; 1 detik</span>
+          <span className="font-semibold text-[#0A2540]">Balasan Chat AI</span>
+          <span className="font-mono text-[11px] font-bold text-[#635BFF]">&lt; 1 detik</span>
         </div>
-        <div className="h-px bg-[#EAEAEA]" />
+        <div className="h-px bg-slate-100" />
         <div className="flex items-center justify-between">
-          <span className="font-medium text-[#0A0A0A]">Baca Faktur OCR</span>
-          <span className="inline-flex items-center gap-1 font-mono text-[11px] text-emerald-700">
-            <CheckCircle2 className="w-3 h-3" />
+          <span className="font-semibold text-[#0A2540]">Baca Faktur OCR</span>
+          <span className="inline-flex items-center gap-1 font-mono text-[11px] font-bold text-emerald-600">
+            <CheckCircle2 className="w-3.5 h-3.5" />
             99,7%
           </span>
         </div>
       </div>
-      <div className="text-[11px] text-[#666666] px-1">
+      <div className="text-[11.5px] text-[#425466] px-1">
         Terhubung langsung ke stok &amp; jurnal ERP Anda
       </div>
     </div>
@@ -186,110 +200,130 @@ export function GroveCapabilitiesSection() {
   const [showCompareModal, setShowCompareModal] = useState(false);
   useModalEffects(showCompareModal, () => setShowCompareModal(false));
 
+  const cardThemeMap: Record<
+    string,
+    { badge: string; cta: string; glow: string }
+  > = {
+    web: {
+      badge: "bg-indigo-50 text-[#635BFF]",
+      cta: "bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] text-white shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/35",
+      glow: "hover:shadow-[0_28px_60px_rgba(99,91,255,0.14)]",
+    },
+    erp: {
+      badge: "bg-emerald-50 text-emerald-700",
+      cta: "bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md shadow-emerald-500/20 hover:shadow-emerald-500/35",
+      glow: "hover:shadow-[0_28px_60px_rgba(16,185,129,0.14)]",
+    },
+    aiml: {
+      badge: "bg-violet-50 text-violet-700",
+      cta: "bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-md shadow-violet-500/20 hover:shadow-violet-500/35",
+      glow: "hover:shadow-[0_28px_60px_rgba(139,92,246,0.14)]",
+    },
+  };
+
   return (
     <section
       id="layanan-utama"
       data-section="layanan-utama"
-      className="scroll-mt-16 bg-[#FAFAFA] border-b border-[#EAEAEA]"
+      className="scroll-mt-20 py-24 bg-white relative overflow-hidden"
     >
-      <div className="max-w-[1200px] mx-auto border-x border-[#EAEAEA] bg-white">
-        {/* Vercel Dual-Tone Section Header */}
-        <div className="px-8 py-14 border-b border-[#EAEAEA] relative">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute top-3 left-3 font-mono text-xs text-neutral-300"
-          >
-            +
+      {/* Subtle Ambient Mesh Wash */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[340px] rounded-full bg-gradient-to-r from-indigo-100/50 via-cyan-100/40 to-emerald-100/40 blur-[100px] -z-0"
+      />
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-8 space-y-12">
+        {/* Fluid Stripe-Inspired Section Header */}
+        <div className="max-w-3xl space-y-3">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-[#635BFF] font-semibold text-xs tracking-wide">
+            Cakupan Rekayasa
           </span>
-          <span
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute top-3 right-3 font-mono text-xs text-neutral-300"
-          >
-            +
-          </span>
-          <div className="space-y-3 max-w-3xl">
-            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#666666] block">
-              01 / CAKUPAN REKAYASA
+          <h2 className="text-3xl sm:text-[38px] font-bold tracking-[-0.035em] text-[#0A2540] leading-[1.12]">
+            Tiga fondasi digital untuk{" "}
+            <span className="bg-gradient-to-r from-[#635BFF] via-[#0EA5E9] to-[#10B981] bg-clip-text text-transparent">
+              akselerasi bisnis Anda.
             </span>
-            <h2 className="text-[28px] sm:text-[34px] font-semibold tracking-[-0.035em] leading-[1.18]">
-              <span className="text-[#0A0A0A]">Layanan utama terintegrasi.</span>{" "}
-              <span className="text-[#666666] font-normal">
-                Tiga fondasi sistem untuk mempercepat akuisisi pelanggan dan efisiensi operasional bisnis Anda.
-              </span>
-            </h2>
-          </div>
+          </h2>
+          <p className="text-[15.5px] text-[#425466] leading-relaxed">
+            Dari situs web super cepat hingga sistem ERP kustom dan automasi WhatsApp AI—semuanya dirancang tanpa biaya lisensi per staf.
+          </p>
         </div>
 
-        {/* Connected 3-Cell Geist Matrix with Crisp Vector UI Diagrams */}
-        <div className="grid grid-cols-3 divide-x divide-[#EAEAEA] border-b border-[#EAEAEA]">
-          {capabilities.map((item) => (
-            <article
-              key={item.id}
-              className="group p-8 bg-white hover:bg-[#FAFAFA]/75 transition-colors flex flex-col justify-between relative"
-            >
-              {/* Top Shimmer Hairline on Hover */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#0A0A0A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              />
+        {/* Floating Soft-Shadow Cards (Zero Boxy Grid Lines) */}
+        <div className="grid grid-cols-3 gap-7">
+          {capabilities.map((item, idx) => {
+            const cardStyle = cardThemeMap[item.id] ?? cardThemeMap.web;
+            return (
+              <motion.article
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                whileHover={{ y: -6 }}
+                className={`group rounded-[28px] p-7 bg-white shadow-[0_18px_45px_rgba(10,37,64,0.07)] ring-1 ring-slate-900/[0.05] transition-shadow flex flex-col justify-between ${cardStyle.glow}`}
+              >
+                <div>
+                  <div className="space-y-3">
+                    <span
+                      className={`inline-flex items-center px-3 py-1 rounded-full font-mono text-[11px] font-semibold ${cardStyle.badge}`}
+                    >
+                      {item.number}
+                    </span>
+                    <h3 className="text-[21px] font-bold tracking-[-0.025em] text-[#0A2540] leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-[14px] text-[#425466] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
 
-              <div>
-                <div className="space-y-2.5">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] font-mono text-[11px] font-medium text-[#666666]">
-                    {item.number}
-                  </span>
-                  <h3 className="text-[20px] font-semibold tracking-[-0.025em] text-[#0A0A0A] leading-snug pt-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-[14px] text-[#666666] leading-relaxed">
-                    {item.desc}
-                  </p>
+                  {/* Animated Chromatic Native UI Diagram */}
+                  <CapabilityDiagram id={item.id} />
                 </div>
 
-                {/* Crisp Native Vector UI Diagram — 100% Legible at Any Screen Width */}
-                <CapabilityDiagram id={item.id} />
-              </div>
-
-              <div className="pt-4 border-t border-[#EAEAEA]/80 flex items-center justify-between gap-3">
-                <Link
-                  href={item.detailHref}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white group-hover:bg-[#0A0A0A] text-[#0A0A0A] group-hover:text-white border border-[#EAEAEA] group-hover:border-[#0A0A0A] text-xs font-medium transition-all"
-                >
-                  <span>Detail layanan</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    item.waMessage
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackWhatsAppClick({
-                      source: "capabilities_card",
-                      service: item.title,
-                    })
-                  }
-                  className="text-xs font-medium text-[#666666] hover:text-[#0A0A0A] transition-colors"
-                >
-                  Diskusikan ↗
-                </a>
-              </div>
-            </article>
-          ))}
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                  <Link
+                    href={item.detailHref}
+                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${cardStyle.cta}`}
+                  >
+                    <span>Detail layanan</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      item.waMessage
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source: "capabilities_card",
+                        service: item.title,
+                      })
+                    }
+                    className="text-xs font-semibold text-[#425466] hover:text-[#635BFF] transition-colors"
+                  >
+                    Diskusikan ↗
+                  </a>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
 
-        {/* Tombol Pembuka Tabel Perbandingan */}
-        <div className="px-8 py-6 bg-[#FAFAFA]/60 flex items-center justify-between">
-          <span className="text-xs text-[#666666]">
+        {/* Floating Soft Comparison Strip */}
+        <div className="rounded-2xl bg-[#F6F9FC] px-7 py-5 ring-1 ring-slate-900/[0.04] flex items-center justify-between gap-4">
+          <span className="text-[13.5px] text-[#425466]">
             Bingung memilih arsitektur yang paling sesuai dengan tahap bisnis Anda?
           </span>
           <button
             type="button"
             onClick={() => setShowCompareModal(true)}
-            className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer"
+            className="text-sm font-semibold text-[#635BFF] hover:text-[#4F46E5] transition-colors cursor-pointer shrink-0"
           >
-            Bingung memilih? Lihat tabel perbandingan layanan dengan bahasa sederhana →
+            Lihat tabel perbandingan layanan (bahasa sederhana) →
           </button>
         </div>
       </div>

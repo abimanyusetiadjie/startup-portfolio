@@ -78,62 +78,68 @@ export function MobileProcessAndStackSection() {
     <section
       id="m-cara-kerja"
       data-section="cara-kerja"
-      className="scroll-mt-16 bg-[#FAFAFA] py-10 px-5 border-b border-[#EAEAEA]"
+      className="scroll-mt-20 bg-[#F6F9FC] py-14 px-5"
     >
-      <div className="max-w-md mx-auto space-y-8">
+      <div className="max-w-md mx-auto space-y-9">
         <div className="space-y-4">
-          <div className="space-y-1">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#666666] block">
-              03 / PROTOKOL EKSEKUSI
+          <div className="space-y-2">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-[#635BFF] font-semibold text-[11px] tracking-wide">
+              Alur Eksekusi
             </span>
-            <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-[#0A0A0A]">
-              Alur kerja 14 hari.
+            <h2 className="text-[24px] font-bold tracking-[-0.03em] text-[#0A2540] leading-tight">
+              Rilis terukur dalam{" "}
+              <span className="bg-gradient-to-r from-[#635BFF] to-[#0EA5E9] bg-clip-text text-transparent">
+                14 hari kerja.
+              </span>
             </h2>
-            <p className="text-[13.5px] text-[#666666]">
+            <p className="text-[13.5px] text-[#425466]">
               Ketuk tahap di bawah untuk melihat dokumentasi &amp; hasil kerjanya.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white border border-[#EAEAEA] divide-y divide-[#EAEAEA] overflow-hidden">
+          <div className="space-y-2.5">
             {workflowSteps.map((step) => (
               <button
                 key={step.num}
                 type="button"
                 onClick={() => setSelectedStep(step)}
-                className="w-full px-4 py-3.5 flex items-center justify-between gap-3 text-left hover:bg-[#FAFAFA] active:bg-neutral-100 transition-colors cursor-pointer"
+                className="w-full rounded-2xl bg-white shadow-[0_10px_28px_rgba(10,37,64,0.05)] ring-1 ring-slate-900/[0.04] px-4 py-4 flex items-center justify-between gap-3 text-left hover:shadow-[0_14px_34px_rgba(99,91,255,0.1)] active:scale-[0.99] transition-all cursor-pointer"
               >
                 <div className="flex items-start gap-3 min-w-0">
-                  <span className="mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] text-[11px] font-mono font-semibold text-[#0A0A0A] shrink-0">
+                  <span className="mt-0.5 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#635BFF] to-[#0EA5E9] text-[11px] font-mono font-bold text-white shadow-sm shrink-0">
                     {step.num}
                   </span>
                   <div className="min-w-0 space-y-0.5">
-                    <span className="block text-[14px] font-semibold text-[#0A0A0A] leading-snug">
+                    <span className="block text-[14px] font-bold text-[#0A2540] leading-snug">
                       {step.title}
                     </span>
-                    <span className="block font-mono text-[11px] text-[#666666]">
+                    <span className="block font-mono text-[11px] text-[#425466]">
                       {step.timeline} · {step.deliverable}
                     </span>
                   </div>
                 </div>
 
-                <ChevronRight className="w-4 h-4 text-neutral-400 shrink-0" />
+                <ChevronRight className="w-4 h-4 text-[#635BFF] shrink-0" />
               </button>
             ))}
           </div>
         </div>
 
-        {/* Minimal 1-Row Tech Stack Strip */}
-        <div id="m-tech-stack" data-section="tech-stack" className="space-y-3 scroll-mt-16">
-          <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] text-[#666666] text-center">
-            Teknologi Standar Produksi
-          </p>
+        {/* Vibrant Floating Pill Tech Stack Strip */}
+        <div id="m-tech-stack" data-section="tech-stack" className="space-y-3 scroll-mt-20">
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[11px] font-semibold text-[#425466] shadow-sm ring-1 ring-slate-900/[0.05]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#635BFF]" />
+              <span>Teknologi Standar Produksi</span>
+            </span>
+          </div>
 
           <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex w-max gap-5 animate-marquee-scroll py-1">
+            <div className="flex w-max gap-3 animate-marquee-scroll py-2">
               {[...techBadges, ...techBadges].map((item, idx) => (
                 <span
                   key={`${item.name}-${idx}`}
-                  className="inline-flex items-center gap-2 text-[13px] font-medium text-[#0A0A0A] whitespace-nowrap shrink-0"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-sm ring-1 ring-slate-900/[0.05] text-[12.5px] font-semibold text-[#0A2540] whitespace-nowrap shrink-0"
                 >
                   <span
                     className="w-2 h-2 rounded-full shrink-0"
