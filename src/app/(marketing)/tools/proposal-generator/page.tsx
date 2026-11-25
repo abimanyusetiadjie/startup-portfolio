@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { GroveNavbar } from "@/components/grove/GroveNavbar";
+import { SignificaNavbar } from "@/components/significa/SignificaNavbar";
 import { GroveProposalOutreachStudio } from "@/components/grove/GroveProposalOutreachStudio";
-import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
+import { SignificaFooter } from "@/components/significa/SignificaFooter";
 
 export const metadata: Metadata = {
   title: "Generator Proposal & RAB Resmi PDF + Kit Outreach WhatsApp",
@@ -15,15 +15,15 @@ export const metadata: Metadata = {
 
 export default function ProposalGeneratorPage() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] print:bg-white text-[#0F172A] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F7F7F7] print:bg-white text-[#171717] flex flex-col font-sans selection:bg-[#FFD124] selection:text-[#171717]">
       <div className="print:hidden">
-        <GroveNavbar />
+        <SignificaNavbar />
       </div>
-      <main className="flex-1">
+      <main className="flex-1 pt-[76px] print:pt-0">
         <GroveProposalOutreachStudio />
       </main>
       <div className="print:hidden">
-        <GroveFooterSection />
+        <SignificaFooter />
       </div>
     </div>
   );

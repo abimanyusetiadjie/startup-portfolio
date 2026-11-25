@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { GroveNavbar } from "@/components/grove/GroveNavbar";
+import { SignificaNavbar } from "@/components/significa/SignificaNavbar";
 import { GroveAuditCalculator } from "@/components/grove/GroveAuditCalculator";
-import { GroveAmberContactSection } from "@/components/grove/GroveAmberContactSection";
-import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
-import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
+import { SignificaFooter } from "@/components/significa/SignificaFooter";
 
 export const metadata: Metadata = {
   title: "Audit Kebutuhan Sistem & Kalkulator Penghematan ERP/Web Gratis",
@@ -22,14 +20,12 @@ export const metadata: Metadata = {
 
 export default function FreeAuditPage() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans">
-      <GroveNavbar />
-      <main className="flex-1">
+    <div className="min-h-screen bg-[#F7F7F7] text-[#171717] flex flex-col font-sans selection:bg-[#FFD124] selection:text-[#171717]">
+      <SignificaNavbar />
+      <main className="flex-1 pt-[76px]">
         <GroveAuditCalculator />
-        <GroveAmberContactSection />
       </main>
-      <GroveFooterSection />
-      <GroveFloatingWhatsApp />
+      <SignificaFooter />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GroveApp } from "@/components/grove/GroveApp";
+import { SignificaApp } from "@/components/significa/SignificaApp";
 import { FAQ_ITEMS } from "@/components/grove/faq-data";
 
 const APP_BASE_URL =
@@ -135,12 +135,12 @@ const jsonLdSchema = {
 
 export default function MarketingPage() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#2563EB] selection:text-white">
+    <div className="min-h-screen bg-[#F7F7F7] text-[#171717] selection:bg-[#FFD124] selection:text-[#171717]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
-      <GroveApp />
+      <SignificaApp />
     </div>
   );
 }

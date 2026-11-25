@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, FileText } from "lucide-react";
-import { GroveNavbar } from "@/components/grove/GroveNavbar";
-import { GroveFooterSection } from "@/components/grove/GroveFooterSection";
-import { GroveFloatingWhatsApp } from "@/components/grove/GroveFloatingWhatsApp";
+import { ArrowLeft } from "lucide-react";
+import { SignificaNavbar } from "@/components/significa/SignificaNavbar";
+import { SignificaFooter } from "@/components/significa/SignificaFooter";
 
 export const metadata: Metadata = {
   title: "Syarat & Ketentuan Layanan",
@@ -47,43 +46,42 @@ const TERMS = [
 
 export default function SyaratKetentuanPage() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col font-sans">
-      <GroveNavbar />
+    <div className="min-h-screen bg-[#F7F7F7] text-[#171717] flex flex-col font-sans selection:bg-[#FFD124] selection:text-[#171717]">
+      <SignificaNavbar />
 
-      <main className="flex-1 py-12 sm:py-16">
+      <main className="flex-1 pt-[116px] pb-20">
         <article className="max-w-3xl mx-auto px-5 sm:px-8 space-y-8">
           <div className="space-y-4">
-            <div>
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Kembali ke Beranda</span>
-              </Link>
-            </div>
+            <Link
+              href="/"
+              className="sig-link inline-flex items-center gap-1.5 text-[14px] font-medium text-[#6F6F71] hover:text-[#171717]"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Kembali ke beranda</span>
+            </Link>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-semibold text-blue-700">
-              <FileText className="w-3.5 h-3.5" />
-              <span>Ketentuan Kerja Sama · Abinest Digital Systems</span>
-            </div>
+            <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
+              Ketentuan kerja sama · Abinest Digital Systems
+            </p>
 
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Syarat &amp; Ketentuan Layanan
+            <h1 className="text-[36px] sm:text-[46px] font-medium tracking-[-0.03em] leading-[1.08] text-[#171717]">
+              Syarat &amp; ketentuan.
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-[15.5px] text-[#6F6F71] leading-relaxed">
               Transparansi kepemilikan kode, skema kerja sama, dan garansi pascarilis untuk klien Abinest Digital Systems.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white border border-slate-200/80 divide-y divide-slate-100 shadow-sm">
+          <div className="rounded-[20px] bg-white border border-[#E8E8E8] divide-y divide-[#E8E8E8]">
             {TERMS.map((sec) => (
-              <section key={sec.title} className="p-6 sm:p-7 space-y-3">
-                <h2 className="text-lg font-bold text-slate-900">{sec.title}</h2>
+              <section key={sec.title} className="p-6 sm:p-8 space-y-3">
+                <h2 className="text-[19px] font-medium tracking-[-0.015em] text-[#171717]">
+                  {sec.title}
+                </h2>
                 {sec.body.map((paragraph, idx) => (
                   <p
                     key={idx}
-                    className="text-[14.5px] text-slate-600 leading-relaxed"
+                    className="text-[15px] text-[#6F6F71] leading-relaxed"
                   >
                     {paragraph}
                   </p>
@@ -94,8 +92,7 @@ export default function SyaratKetentuanPage() {
         </article>
       </main>
 
-      <GroveFooterSection />
-      <GroveFloatingWhatsApp />
+      <SignificaFooter />
     </div>
   );
 }

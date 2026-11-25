@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
 
-const geistSans = Geist({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -22,11 +23,11 @@ const APP_BASE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(APP_BASE_URL),
   title: {
-    default: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
+    default: "Abinest — Studio Produk Digital, Website Cepat, ERP & Automasi AI",
     template: "%s | Abinest",
   },
   description:
-    "Studio rekayasa perangkat lunak untuk bisnis Indonesia: pembuatan website cepat (<0,8 detik), sistem ERP/SIAKAD/POS kustom, dan automasi AI/ML WhatsApp. Kepemilikan penuh tanpa biaya lisensi per pengguna.",
+    "Studio rekayasa perangkat lunak di Jakarta & Surabaya. Merancang dan membangun website cepat (<0,8 detik), sistem ERP/SIAKAD/POS kustom, serta automasi WhatsApp AI resmi dengan 100% hak milik kode.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -47,9 +48,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`scroll-smooth [overflow-x:clip] ${geistSans.variable} ${geistMono.variable}`}
+      className={`scroll-smooth [overflow-x:clip] ${plusJakarta.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans antialiased text-[#0F172A] bg-white selection:bg-[#0F172A] selection:text-white [overflow-x:clip]">
+      <body className="font-sans antialiased bg-[#F7F7F7] text-[#171717] selection:bg-[#FFD124] selection:text-[#171717] [overflow-x:clip]">
         <GoogleAnalytics />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>

@@ -5,15 +5,13 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
-  CheckCircle2,
+  Check,
   Clock,
   FileCode2,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
-import { GroveNavbar } from "./GroveNavbar";
-import { GroveFooterSection } from "./GroveFooterSection";
-import { GroveFloatingWhatsApp } from "./GroveFloatingWhatsApp";
+import { SignificaNavbar } from "@/components/significa/SignificaNavbar";
+import { SignificaFooter } from "@/components/significa/SignificaFooter";
 import { buildConsultationWaUrl } from "./contact-utils";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
@@ -64,318 +62,309 @@ export function GroveServiceDetailTemplate({
   const waHref = buildConsultationWaUrl(data.waMessage);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col font-sans selection:bg-[#0F172A] selection:text-white">
-      <GroveNavbar />
+    <div className="min-h-screen bg-[#F7F7F7] text-[#171717] flex flex-col font-sans selection:bg-[#FFD124] selection:text-[#171717]">
+      <SignificaNavbar />
 
-      <main className="flex-1 pt-24 pb-20">
-        {/* Executive Breadcrumb & Back link */}
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-6">
+      <main className="flex-1 pt-[112px] pb-20">
+        {/* Swiss Breadcrumb */}
+        <div className="sig-container pb-8">
           <nav
             aria-label="Breadcrumb"
-            className="flex flex-wrap items-center justify-between gap-3 text-xs font-medium text-[#475569]"
+            className="flex flex-wrap items-center justify-between gap-3 text-[13.5px] font-medium text-[#6F6F71]"
           >
             <ol className="flex items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-[#0F172A] transition-colors">
+                <Link href="/" className="hover:text-[#171717] transition-colors">
                   Beranda
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
                 <Link
-                  href="/#layanan-utama"
-                  className="hover:text-[#0F172A] transition-colors"
+                  href="/#layanan"
+                  className="hover:text-[#171717] transition-colors"
                 >
-                  Layanan Utama
+                  Layanan
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-[#0F172A] font-semibold">
-                {data.breadcrumbLabel}
-              </li>
+              <li className="text-[#171717]">{data.breadcrumbLabel}</li>
             </ol>
 
             <Link
-              href="/#layanan-utama"
-              className="inline-flex items-center gap-1.5 text-[#475569] hover:text-[#0F172A] transition-colors"
+              href="/#layanan"
+              className="sig-link inline-flex items-center gap-1.5 text-[#6F6F71] hover:text-[#171717]"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Kembali ke Beranda</span>
+              <span>Kembali ke beranda</span>
             </Link>
           </nav>
         </div>
 
-        {/* Executive Hero Card */}
-        <section className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-16">
-          <div className="rounded-[28px] bg-white ring-1 ring-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.06)] p-7 sm:p-10 lg:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-              <div className="lg:col-span-8 space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#F8FAFC] ring-1 ring-slate-200 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F172A]">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>{data.eyebrow}</span>
-                </div>
+        {/* Hero Section */}
+        <section className="sig-container pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            <div className="lg:col-span-8 space-y-6">
+              <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
+                {data.eyebrow}
+              </p>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-[-0.035em] text-[#0F172A] leading-[1.1]">
-                  {data.title}
-                </h1>
+              <h1 className="text-[36px] sm:text-[48px] lg:text-[54px] font-medium tracking-[-0.03em] text-[#171717] leading-[1.06]">
+                {data.title}
+              </h1>
 
-                <p className="text-base sm:text-[17px] text-[#475569] leading-relaxed max-w-2xl">
-                  {data.subtitle}
-                </p>
+              <p className="text-[16.5px] sm:text-[18px] text-[#6F6F71] leading-relaxed max-w-2xl">
+                {data.subtitle}
+              </p>
 
-                <div className="flex flex-wrap items-center gap-3 pt-1">
-                  <a
-                    href={waHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() =>
-                      trackWhatsAppClick({
-                        source: `service_page_hero_${data.slug}`,
-                        service: data.serviceNameForAnalytics,
-                      })
-                    }
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold px-6 py-3 shadow-sm transition-all"
-                  >
-                    <span>Konsultasi Layanan via WhatsApp</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-
-                  <Link
-                    href={data.secondaryCta.href}
-                    className="inline-flex items-center justify-center rounded-full bg-[#F8FAFC] hover:bg-slate-100 ring-1 ring-slate-200 text-[#0F172A] text-sm font-semibold px-6 py-3 transition-colors"
-                  >
-                    {data.secondaryCta.label}
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-                  {data.heroMetrics.map((metric) => (
-                    <div
-                      key={metric.label}
-                      className="rounded-2xl bg-[#F8FAFC] ring-1 ring-slate-200/70 px-4 py-3.5"
-                    >
-                      <div className="text-xl sm:text-2xl font-bold tracking-tight text-[#0F172A]">
-                        {metric.value}
-                      </div>
-                      <div className="text-xs text-[#475569] mt-0.5">
-                        {metric.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right Investment & Governance Summary Box */}
-              <aside className="lg:col-span-4 rounded-2xl bg-[#0F172A] text-white p-6 sm:p-7 space-y-5 shadow-xl">
-                <div className="space-y-1">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-300">
-                    Estimasi Investasi
-                  </span>
-                  <div className="text-2xl sm:text-3xl font-bold tracking-tight">
-                    {data.startingPrice}
-                  </div>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    {data.priceNote}
-                  </p>
-                </div>
-
-                <div className="space-y-3 pt-4 border-t border-white/10 text-sm">
-                  <div className="flex items-start gap-2.5">
-                    <Clock className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-semibold text-white">
-                        Waktu Rilis
-                      </div>
-                      <div className="text-xs text-slate-300">
-                        {data.timeline}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-2.5">
-                    <ShieldCheck className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-semibold text-white">
-                        Garansi & Pendampingan
-                      </div>
-                      <div className="text-xs text-slate-300">
-                        {data.warranty}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-2.5">
-                    <FileCode2 className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-semibold text-white">
-                        Hak Milik 100%
-                      </div>
-                      <div className="text-xs text-slate-300">
-                        Kode sumber & database penuh milik Anda tanpa iuran per staf.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <Link
-                    href="/#harga"
-                    className="w-full inline-flex items-center justify-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold py-2.5 px-4 transition-colors"
-                  >
-                    <span>Bandingkan Skema Beli Putus vs Terima Beres</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </aside>
-            </div>
-
-            {/* Product UI Showcase Preview */}
-            <div className="mt-10 pt-8 border-t border-slate-100 space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
-                <span className="font-semibold uppercase tracking-wider text-blue-600">
-                  Pratinjau Antarmuka &amp; Arsitektur Sistem
-                </span>
-                <span>{data.previewImage.caption}</span>
-              </div>
-              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-sm">
-                <Image
-                  src={data.previewImage.src}
-                  alt={data.previewImage.alt}
-                  fill
-                  priority
-                  sizes="(max-width: 1200px) 95vw, 1100px"
-                  className="object-cover object-center"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3-Column Architecture & Module Breakdown */}
-        <section className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-16 space-y-8">
-          <div className="max-w-2xl space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-              Ruang Lingkup & Arsitektur Sistem
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#0F172A]">
-              {data.architectureHeading}
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              {data.architectureSubheading}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {data.modules.map((mod) => (
-              <article
-                key={mod.code}
-                className="rounded-2xl bg-white border border-slate-200/80 p-6 sm:p-7 flex flex-col justify-between space-y-5 shadow-sm"
-              >
-                <div className="space-y-3">
-                  <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-mono font-semibold">
-                    MODUL {mod.code}
-                  </span>
-                  <h3 className="text-lg font-semibold text-[#0F172A] leading-snug">
-                    {mod.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {mod.description}
-                  </p>
-                </div>
-
-                <ul className="space-y-2.5 pt-4 border-t border-slate-100">
-                  {mod.deliverables.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-[13px] text-slate-700 leading-snug"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Guarantees & Ideal Fit */}
-        <section className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-7 rounded-2xl bg-white border border-slate-200/80 p-6 sm:p-8 space-y-5">
-              <div className="space-y-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-                  Standar Kualitas Abinest
-                </span>
-                <h2 className="text-xl sm:text-2xl font-semibold text-[#0F172A]">
-                  Komitmen Teknis & Keamanan Serah Terima
-                </h2>
-              </div>
-              <div className="space-y-4">
-                {data.guarantees.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-xl bg-[#f8fafc] border border-slate-200/70 p-4 space-y-1"
-                  >
-                    <h3 className="text-sm font-semibold text-[#0F172A]">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 rounded-2xl bg-white border border-slate-200/80 p-6 sm:p-8 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-                  Kesesuaian Organisasi
-                </span>
-                <h2 className="text-xl sm:text-2xl font-semibold text-[#0F172A]">
-                  Paling Tepat Digunakan Oleh
-                </h2>
-                <ul className="space-y-3">
-                  {data.idealFor.map((segment) => (
-                    <li
-                      key={segment}
-                      className="flex items-start gap-2.5 text-sm text-slate-700"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>{segment}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="rounded-xl bg-blue-50/70 border border-blue-100 p-4 space-y-3">
-                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed">
-                  Ingin mendapatkan rincian estimasi biaya, alur modul, dan jadwal rilis untuk tim Anda dalam 15 menit?
-                </p>
+              <div className="flex flex-wrap items-center gap-3 pt-1">
                 <a
                   href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
                     trackWhatsAppClick({
-                      source: `service_page_bottom_${data.slug}`,
+                      source: `service_page_hero_${data.slug}`,
                       service: data.serviceNameForAnalytics,
                     })
                   }
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold py-2.5 px-5 transition-all"
+                  className="sig-btn-primary"
                 >
-                  <span>Minta Proposal & Estimasi</span>
+                  <span>Konsultasi via WhatsApp</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
+
+                <Link
+                  href={data.secondaryCta.href}
+                  className="sig-btn-outline"
+                >
+                  {data.secondaryCta.label}
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#E8E8E8]">
+                {data.heroMetrics.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="rounded-[16px] bg-white border border-[#E8E8E8] px-4 py-4"
+                  >
+                    <div className="text-[22px] sm:text-[26px] font-medium tracking-[-0.02em] text-[#171717]">
+                      {metric.value}
+                    </div>
+                    <div className="text-[13px] text-[#6F6F71] mt-1">
+                      {metric.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Investment Summary Box */}
+            <aside className="lg:col-span-4 rounded-[20px] bg-[#171717] text-white p-7 space-y-6">
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-white/60">
+                  Estimasi investasi
+                </span>
+                <div className="text-[28px] sm:text-[32px] font-medium tracking-[-0.025em]">
+                  {data.startingPrice}
+                </div>
+                <p className="text-[13.5px] text-white/70 leading-relaxed">
+                  {data.priceNote}
+                </p>
+              </div>
+
+              <div className="space-y-4 pt-5 border-t border-white/15 text-[14px]">
+                <div className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-[#FFD124] shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-medium text-white">Waktu rilis</div>
+                    <div className="text-[13px] text-white/70">
+                      {data.timeline}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <ShieldCheck className="w-4 h-4 text-[#FFD124] shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-medium text-white">
+                      Garansi &amp; pendampingan
+                    </div>
+                    <div className="text-[13px] text-white/70">
+                      {data.warranty}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <FileCode2 className="w-4 h-4 text-[#FFD124] shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-medium text-white">Hak milik 100%</div>
+                    <div className="text-[13px] text-white/70">
+                      Kode sumber &amp; database penuh milik Anda tanpa iuran per staf.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-1">
+                <Link
+                  href="/audit-gratis"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-[14px] bg-white text-[#171717] hover:bg-[#FFD124] text-[13.5px] font-medium py-3 px-4 transition-colors"
+                >
+                  <span>Hitung estimasi penghematan</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </aside>
+          </div>
+
+          {/* Product UI Showcase Preview */}
+          <div className="mt-12 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-[13px] text-[#6F6F71]">
+              <span className="font-mono uppercase tracking-wider text-[#171717]">
+                Pratinjau antarmuka &amp; arsitektur
+              </span>
+              <span>{data.previewImage.caption}</span>
+            </div>
+            <div className="relative w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#EDEDED] border border-[#E8E8E8]">
+              <Image
+                src={data.previewImage.src}
+                alt={data.previewImage.alt}
+                fill
+                priority
+                sizes="(max-width: 1200px) 95vw, 1344px"
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 3-Column Architecture & Module Breakdown (Significa Hairline Strip) */}
+        <section className="border-t border-[#E8E8E8] py-16 lg:py-20">
+          <div className="sig-container space-y-12">
+            <div className="max-w-2xl space-y-2.5">
+              <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
+                Ruang lingkup &amp; arsitektur sistem
+              </p>
+              <h2 className="text-[28px] sm:text-[36px] font-medium tracking-[-0.025em] text-[#171717] leading-[1.15]">
+                {data.architectureHeading}
+              </h2>
+              <p className="text-[15.5px] text-[#6F6F71] leading-relaxed">
+                {data.architectureSubheading}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 border-y border-[#E8E8E8] md:divide-x divide-y md:divide-y-0 divide-[#E8E8E8]">
+              {data.modules.map((mod) => (
+                <article
+                  key={mod.code}
+                  className="py-8 md:px-7 first:md:pl-0 last:md:pr-0 flex flex-col justify-between gap-6"
+                >
+                  <div className="space-y-3">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-[8px] bg-white border border-[#E8E8E8] text-[#171717] text-[11px] font-mono">
+                      MODUL {mod.code}
+                    </span>
+                    <h3 className="text-[20px] font-medium tracking-[-0.015em] text-[#171717] leading-snug">
+                      {mod.title}
+                    </h3>
+                    <p className="text-[14.5px] text-[#6F6F71] leading-relaxed">
+                      {mod.description}
+                    </p>
+                  </div>
+
+                  <ul className="space-y-2.5 pt-5 border-t border-[#E8E8E8]">
+                    {mod.deliverables.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2.5 text-[13.5px] text-[#171717] leading-snug"
+                      >
+                        <Check className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Guarantees & Ideal Fit */}
+        <section className="border-t border-[#E8E8E8] pt-16 lg:pt-20">
+          <div className="sig-container">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+              <div className="lg:col-span-7 space-y-6">
+                <div className="space-y-1.5">
+                  <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
+                    Standar kualitas Abinest
+                  </p>
+                  <h2 className="text-[26px] sm:text-[32px] font-medium tracking-[-0.02em] text-[#171717]">
+                    Komitmen teknis &amp; serah terima.
+                  </h2>
+                </div>
+                <div className="divide-y divide-[#E8E8E8] border-y border-[#E8E8E8]">
+                  {data.guarantees.map((item) => (
+                    <div key={item.title} className="py-5 space-y-1.5">
+                      <h3 className="text-[16px] font-medium text-[#171717]">
+                        {item.title}
+                      </h3>
+                      <p className="text-[14.5px] text-[#6F6F71] leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 rounded-[20px] bg-white border border-[#E8E8E8] p-7 sm:p-8 flex flex-col justify-between gap-8">
+                <div className="space-y-4">
+                  <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
+                    Kesesuaian organisasi
+                  </p>
+                  <h2 className="text-[24px] font-medium tracking-[-0.02em] text-[#171717]">
+                    Paling tepat digunakan oleh.
+                  </h2>
+                  <ul className="space-y-3 pt-1">
+                    {data.idealFor.map((segment) => (
+                      <li
+                        key={segment}
+                        className="flex items-start gap-2.5 text-[14.5px] text-[#171717]"
+                      >
+                        <Check className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
+                        <span>{segment}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-[16px] bg-[#F7F7F7] border border-[#E8E8E8] p-5 space-y-4">
+                  <p className="text-[14px] text-[#6F6F71] leading-relaxed">
+                    Ingin mendapatkan rincian estimasi biaya, alur modul, dan jadwal rilis untuk tim Anda dalam 15 menit?
+                  </p>
+                  <a
+                    href={waHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source: `service_page_bottom_${data.slug}`,
+                        service: data.serviceNameForAnalytics,
+                      })
+                    }
+                    className="sig-btn-primary w-full"
+                  >
+                    <span>Minta proposal &amp; estimasi</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <GroveFooterSection />
-      <GroveFloatingWhatsApp />
+      <SignificaFooter />
     </div>
   );
 }
