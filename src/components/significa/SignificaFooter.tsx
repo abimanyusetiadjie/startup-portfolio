@@ -83,6 +83,11 @@ export function SignificaFooter() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/#wawasan" className="sig-link">
+                    Wawasan
+                  </Link>
+                </li>
+                <li>
                   <Link href="/#faq" className="sig-link">
                     FAQ
                   </Link>

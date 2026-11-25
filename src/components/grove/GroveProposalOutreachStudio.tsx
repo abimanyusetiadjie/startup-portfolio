@@ -9,7 +9,6 @@ import {
   Send,
   Copy,
   Check,
-  Sparkles,
   MessageSquare,
   Building2,
   ShieldCheck,
@@ -178,7 +177,6 @@ function normalizeTargetPhone(raw: string): string {
 export function GroveProposalOutreachStudio() {
   const [activeTab, setActiveTab] = useState<StudioTab>("proposal");
 
-  // --- TAB 1 STATE: PROPOSAL & RAB GENERATOR ---
   const [selectedPresetId, setSelectedPresetId] = useState<string>("erp-gudang");
   const [scheme, setScheme] = useState<SchemeMode>("beli-putus");
   const [clientPic, setClientPic] = useState<string>("Bapak Hendra Kusuma");
@@ -191,7 +189,6 @@ export function GroveProposalOutreachStudio() {
   const [items, setItems] = useState<ProposalModuleItem[]>(PRESETS[1].items);
   const [copiedProposalWa, setCopiedProposalWa] = useState<boolean>(false);
 
-  // --- TAB 2 STATE: OUTREACH KIT ---
   const [prospectPic, setProspectPic] = useState<string>("Bapak/Ibu Pemilik");
   const [prospectBusiness, setProspectBusiness] = useState<string>("CV Karya Mandiri");
   const [prospectCity, setProspectCity] = useState<string>("Tangerang");
@@ -304,8 +301,8 @@ Kontak Resmi Abinest: +62 813-9858-9745`;
     return [
       {
         id: "slow-web",
-        title: "1. Audit Website Lambat / Tampilan Mobile Kurang Rapi (Tawarkan Preview Gratis)",
-        target: "Pemilik Bisnis yang sudah punya web tetapi lambat / jadul di HP",
+        title: "1. Audit Website Lambat / Tampilan Mobile Kurang Rapi",
+        target: "Pemilik Bisnis yang sudah punya web tetapi lambat di HP",
         script: `Selamat pagi ${pic} dari *${biz}* (${city}), perkenalkan saya Abimanyu dari Abinest Digital Systems.
 
 Tadi saya membuka profil dan website ${biz} lewat HP, dan melihat ${issue}. Biasanya calon pembeli dari Google di area ${city} langsung keluar dalam 3 detik sebelum sempat menghubungi admin.
@@ -317,9 +314,9 @@ Boleh saya buatkan 1 halaman *pratinjau simulasi gratis* khusus untuk ${biz} aga
       },
       {
         id: "maps-no-web",
-        title: "2. Bisnis Ramai di Google Maps tapi Belum Punya Situs Web Resmi",
+        title: "2. Bisnis Ramai di Google Maps tapi Belum Punya Website Resmi",
         target: "UMKM, Klinik, Kontraktor, atau Pemasok dengan banyak ulasan di Google Maps",
-        script: `Halo ${pic} *${biz}* (${city}) 👋
+        script: `Halo ${pic} *${biz}* (${city}),
 
 Saya melihat reputasi dan ulasan ${biz} di Google Maps sudah sangat bagus, tetapi belum tertaut dengan situs web resmi perusahaan. Akibatnya, saat calon klien korporat mencari vendor di Google, kepercayaan mereka sering kalah oleh kompetitor yang punya profil & katalog resmi.
 
@@ -362,7 +359,7 @@ Sistem selesai dalam <14 hari, *100% Hak Milik Kode Program*, dan *Rp0 biaya sew
         id: "follow-up",
         title: "5. Follow-Up Elegan Setelah Kirim Tautan Demo / Proposal",
         target: "Prospek yang sudah menerima tautan /demo atau dokumen PDF 2–3 hari lalu",
-        script: `Selamat pagi ${pic} *${biz}* 🙏
+        script: `Selamat pagi ${pic} *${biz}*,
 
 Menyambung diskusi kita mengenai sistem untuk ${biz} beberapa hari lalu—apakah dokumen penawaran & simulasi demo di https://abinest.id/demo sudah sempat Bapak/Ibu tinjau bersama tim?
 
@@ -388,71 +385,68 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
   });
 
   return (
-    <section className="py-8 sm:py-12 print:py-0 bg-[#F8FAFC] print:bg-white">
-      <div className="max-w-[1320px] print:max-w-none mx-auto px-4 sm:px-8 print:px-0 space-y-6 print:space-y-0">
-        {/* Top Header + Studio Tab Switcher (Hidden in PDF Print) */}
-        <div className="print:hidden text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#1D4ED8] text-[11px] font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>SALES ENGINE ABINEST · PROPOSAL PDF &amp; OUTREACH KIT</span>
+    <section className="py-10 sm:py-14 print:py-0 bg-[#F7F7F7] print:bg-white">
+      <div className="sig-container print:max-w-none print:px-0 space-y-8 print:space-y-0">
+        {/* Top Header + Tab Switcher (Hidden in Print) */}
+        <div className="print:hidden flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-[#E8E8E8]">
+          <div className="max-w-2xl space-y-3">
+            <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
+              Alat internal Abinest · Proposal PDF A4 &amp; Outreach B2B
+            </p>
+            <h1 className="text-[clamp(1.9rem,3vw+1rem,3rem)] font-bold tracking-[-0.025em] leading-[1.08] text-[#171717]">
+              Generator proposal.
+              <br />
+              <span className="text-[#6F6F71]">Siap cetak A4 &amp; kirim WA.</span>
+            </h1>
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-            Generator Proposal/RAB Resmi &amp;{" "}
-            <span className="text-[#2563EB]">Kit Closing WhatsApp B2B</span>
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Cetak penawaran harga resmi berlogo Abinest dalam format PDF A4 siap kirim dalam 10 detik, atau salin script WhatsApp bernilai tinggi untuk membidik prospek Google Maps &amp; B2B.
-          </p>
 
-          <div className="pt-2 flex justify-center">
-            <div className="grid grid-cols-2 sm:inline-flex w-full sm:w-auto p-1 sm:p-1.5 rounded-xl bg-white border border-slate-300 shadow-sm gap-1 sm:gap-1.5">
-              <button
-                type="button"
-                onClick={() => setActiveTab("proposal")}
-                className={`px-3 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                  activeTab === "proposal"
-                    ? "bg-[#2563EB] text-white shadow-sm"
-                    : "text-slate-600 hover:bg-slate-100"
-                }`}
-              >
-                <FileText className="w-4 h-4 shrink-0" />
-                <span>Generator Proposal &amp; RAB (PDF A4)</span>
-              </button>
+          <div className="grid grid-cols-2 sm:inline-flex p-1.5 rounded-[16px] bg-white border border-[#E8E8E8] gap-1 shrink-0">
+            <button
+              type="button"
+              onClick={() => setActiveTab("proposal")}
+              className={`px-4 py-2.5 rounded-[12px] text-xs sm:text-[13.5px] font-medium flex items-center justify-center gap-2 cursor-pointer transition-all ${
+                activeTab === "proposal"
+                  ? "bg-[#171717] text-[#F7F7F7]"
+                  : "text-[#6F6F71] hover:text-[#171717] hover:bg-[#EDEDED]"
+              }`}
+            >
+              <FileText className="w-4 h-4 shrink-0" />
+              <span>Proposal &amp; RAB (A4)</span>
+            </button>
 
-              <button
-                type="button"
-                onClick={() => setActiveTab("outreach")}
-                className={`px-3 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                  activeTab === "outreach"
-                    ? "bg-[#0F172A] text-white shadow-sm"
-                    : "text-slate-600 hover:bg-slate-100"
-                }`}
-              >
-                <MessageSquare className="w-4 h-4 shrink-0" />
-                <span>Kit Outreach WhatsApp B2B</span>
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => setActiveTab("outreach")}
+              className={`px-4 py-2.5 rounded-[12px] text-xs sm:text-[13.5px] font-medium flex items-center justify-center gap-2 cursor-pointer transition-all ${
+                activeTab === "outreach"
+                  ? "bg-[#171717] text-[#F7F7F7]"
+                  : "text-[#6F6F71] hover:text-[#171717] hover:bg-[#EDEDED]"
+              }`}
+            >
+              <MessageSquare className="w-4 h-4 shrink-0" />
+              <span>Kit Outreach WA B2B</span>
+            </button>
           </div>
         </div>
 
         {/* TAB 1: PROPOSAL & RAB GENERATOR */}
         {activeTab === "proposal" && (
           <div className="grid grid-cols-1 xl:grid-cols-12 print:block gap-6 items-start">
-            {/* LEFT PANEL (5 Cols): Editor (Hidden on Print) */}
-            <div className="xl:col-span-5 print:hidden ui-card overflow-hidden shadow-md">
+            {/* LEFT PANEL (5 Cols): Editor */}
+            <div className="xl:col-span-5 print:hidden ui-card overflow-hidden">
               <div className="ui-card-header">
-                <span className="text-sm font-extrabold text-[#0F172A]">
-                  1. Editor Data Penawaran &amp; Modul RAB
+                <span className="text-[14.5px] font-semibold text-[#171717]">
+                  1. Editor data penawaran &amp; modul RAB
                 </span>
-                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded bg-blue-50 text-blue-800 border border-blue-200">
-                  Live A4 Sync
+                <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-[8px] bg-white text-[#171717] border border-[#E8E8E8]">
+                  A4 SYNC
                 </span>
               </div>
 
               <div className="ui-card-body space-y-5">
-                {/* Quick 1-Click Presets */}
+                {/* Quick Presets */}
                 <div className="space-y-2">
-                  <span className="ui-label">Preset Paket Cepat (1-Klik Isi Otomatis)</span>
+                  <span className="ui-label">Preset Paket Cepat</span>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {PRESETS.map((p) => {
                       const active = selectedPresetId === p.id;
@@ -461,14 +455,20 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                           key={p.id}
                           type="button"
                           onClick={() => applyPreset(p)}
-                          className={`text-left p-2.5 rounded-xl border transition-all cursor-pointer ${
+                          className={`text-left p-3 rounded-[14px] border transition-all cursor-pointer ${
                             active
-                              ? "bg-blue-50 border-2 border-[#2563EB] text-blue-950"
-                              : "bg-white hover:bg-slate-50 border-slate-300 text-slate-700"
+                              ? "bg-[#171717] border-[#171717] text-[#F7F7F7]"
+                              : "bg-white hover:border-[#FFD124] border-[#E8E8E8] text-[#171717]"
                           }`}
                         >
-                          <div className="text-[11px] font-extrabold leading-snug">{p.label}</div>
-                          <div className="text-[10.5px] font-bold text-[#2563EB] mt-0.5">
+                          <div className="text-[11.5px] font-medium leading-snug">
+                            {p.label}
+                          </div>
+                          <div
+                            className={`text-[11px] font-mono mt-1 ${
+                              active ? "text-[#FFD124]" : "text-[#6F6F71]"
+                            }`}
+                          >
                             {p.badge}
                           </div>
                         </button>
@@ -484,21 +484,21 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                     <button
                       type="button"
                       onClick={() => setScheme("beli-putus")}
-                      className={`py-2 px-3 rounded-lg text-xs font-bold border cursor-pointer ${
+                      className={`py-2.5 px-3 rounded-[12px] text-xs font-medium border cursor-pointer transition-colors ${
                         scheme === "beli-putus"
-                          ? "bg-[#0D9488] text-white border-[#0D9488]"
-                          : "bg-white text-slate-700 border-slate-300"
+                          ? "bg-[#3C846E] text-white border-[#3C846E]"
+                          : "bg-white text-[#171717] border-[#E8E8E8] hover:border-[#FFD124]"
                       }`}
                     >
-                      Beli Putus (100% Hak Milik)
+                      Beli Putus (100% Milik)
                     </button>
                     <button
                       type="button"
                       onClick={() => setScheme("terima-beres")}
-                      className={`py-2 px-3 rounded-lg text-xs font-bold border cursor-pointer ${
+                      className={`py-2.5 px-3 rounded-[12px] text-xs font-medium border cursor-pointer transition-colors ${
                         scheme === "terima-beres"
-                          ? "bg-[#2563EB] text-white border-[#2563EB]"
-                          : "bg-white text-slate-700 border-slate-300"
+                          ? "bg-[#171717] text-white border-[#171717]"
+                          : "bg-white text-[#171717] border-[#E8E8E8] hover:border-[#FFD124]"
                       }`}
                     >
                       Sewa / Terima Beres
@@ -514,7 +514,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                       type="text"
                       value={clientPic}
                       onChange={(e) => setClientPic(e.target.value)}
-                      className="ui-input py-2 text-xs"
+                      className="ui-input bg-white py-2 text-xs"
                     />
                   </div>
                   <div>
@@ -523,7 +523,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                       type="text"
                       value={clientCompany}
                       onChange={(e) => setClientCompany(e.target.value)}
-                      className="ui-input py-2 text-xs"
+                      className="ui-input bg-white py-2 text-xs"
                     />
                   </div>
                   <div>
@@ -532,7 +532,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                       type="text"
                       value={clientCity}
                       onChange={(e) => setClientCity(e.target.value)}
-                      className="ui-input py-2 text-xs"
+                      className="ui-input bg-white py-2 text-xs"
                     />
                   </div>
                   <div>
@@ -541,7 +541,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                       type="text"
                       value={docNumber}
                       onChange={(e) => setDocNumber(e.target.value)}
-                      className="ui-input py-2 text-xs font-mono"
+                      className="ui-input bg-white py-2 text-xs font-mono"
                     />
                   </div>
                   <div>
@@ -550,7 +550,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                       type="text"
                       value={timeline}
                       onChange={(e) => setTimeline(e.target.value)}
-                      className="ui-input py-2 text-xs"
+                      className="ui-input bg-white py-2 text-xs"
                     />
                   </div>
                   <div>
@@ -559,19 +559,19 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                       type="text"
                       value={validUntil}
                       onChange={(e) => setValidUntil(e.target.value)}
-                      className="ui-input py-2 text-xs"
+                      className="ui-input bg-white py-2 text-xs"
                     />
                   </div>
                 </div>
 
-                {/* Dynamic Items Table */}
+                {/* Dynamic Items */}
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
                     <span className="ui-label mb-0">Rincian Item Modul &amp; Biaya</span>
                     <button
                       type="button"
                       onClick={handleAddItem}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-bold cursor-pointer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-[10px] bg-[#171717] text-white text-[11.5px] font-medium cursor-pointer"
                     >
                       <Plus className="w-3 h-3" />
                       <span>Tambah Modul</span>
@@ -582,17 +582,17 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                     {items.map((item, idx) => (
                       <div
                         key={item.id}
-                        className="p-3 rounded-xl bg-slate-50 border border-slate-300 space-y-2"
+                        className="p-3.5 rounded-[14px] bg-[#F7F7F7] border border-[#E8E8E8] space-y-2"
                       >
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-[11px] font-extrabold text-[#2563EB]">
-                            Modul #{idx + 1}
+                          <span className="text-[11px] font-mono text-[#6F6F71]">
+                            MODUL #{idx + 1}
                           </span>
                           {items.length > 1 && (
                             <button
                               type="button"
                               onClick={() => handleDeleteItem(item.id)}
-                              className="text-rose-600 hover:text-rose-800 p-1 rounded cursor-pointer"
+                              className="text-[#E1251B] hover:opacity-75 p-1 rounded cursor-pointer"
                               aria-label="Hapus Modul"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -604,17 +604,17 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                           value={item.name}
                           onChange={(e) => handleUpdateItem(item.id, "name", e.target.value)}
                           placeholder="Nama Modul"
-                          className="ui-input py-1.5 text-xs font-bold"
+                          className="ui-input bg-white py-1.5 text-xs font-medium"
                         />
                         <input
                           type="text"
                           value={item.spec}
                           onChange={(e) => handleUpdateItem(item.id, "spec", e.target.value)}
                           placeholder="Spesifikasi / Cakupan"
-                          className="ui-input py-1.5 text-xs"
+                          className="ui-input bg-white py-1.5 text-xs"
                         />
                         <div>
-                          <label className="text-[10px] font-bold uppercase text-slate-500 block mb-0.5">
+                          <label className="text-[10px] font-mono uppercase text-[#6F6F71] block mb-0.5">
                             Biaya Investasi (Rp)
                           </label>
                           <input
@@ -625,7 +625,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                             onChange={(e) =>
                               handleUpdateItem(item.id, "price", Number(e.target.value) || 0)
                             }
-                            className="ui-input py-1.5 text-xs font-mono font-bold"
+                            className="ui-input bg-white py-1.5 text-xs font-mono font-semibold"
                           />
                         </div>
                       </div>
@@ -639,7 +639,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                     rows={2}
                     value={warrantyNote}
                     onChange={(e) => setWarrantyNote(e.target.value)}
-                    className="ui-input py-2 text-xs resize-none"
+                    className="ui-input bg-white py-2 text-xs resize-none"
                   />
                 </div>
               </div>
@@ -648,7 +648,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0F172A] hover:bg-[#2563EB] shadow-sm transition-all cursor-pointer"
+                  className="sig-btn-primary w-full"
                 >
                   <Printer className="w-4 h-4" />
                   <span>Cetak / Simpan PDF Resmi (A4)</span>
@@ -658,17 +658,17 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                   <button
                     type="button"
                     onClick={handleCopyProposalSummary}
-                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-xs font-bold text-slate-800 cursor-pointer"
+                    className="sig-btn-outline bg-white text-xs"
                   >
                     {copiedProposalWa ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700">Tersalin!</span>
+                        <Check className="w-3.5 h-3.5 text-[#3C846E]" />
+                        <span className="text-[#3C846E]">Tersalin!</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5" />
-                        <span>Salin Ringkasan WA</span>
+                        <span>Salin Ringkasan</span>
                       </>
                     )}
                   </button>
@@ -679,10 +679,10 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-xs font-bold text-white shadow-sm transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 h-[44px] px-4 rounded-[16px] bg-[#3C846E] hover:opacity-90 text-xs font-medium text-white transition-opacity"
                   >
                     <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
-                    <span>Kirim ke WhatsApp</span>
+                    <span>Kirim via WA</span>
                   </a>
                 </div>
               </div>
@@ -690,101 +690,120 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
 
             {/* RIGHT PANEL (7 Cols -> Full Width in Print): OFFICIAL A4 DOCUMENT PREVIEW */}
             <div className="xl:col-span-7 print:w-full">
-              <div className="bg-white border border-slate-300 print:border-none rounded-2xl print:rounded-none shadow-lg print:shadow-none p-6 sm:p-10 print:p-0 text-[#0F172A] space-y-6">
+              <div className="bg-white border border-[#E8E8E8] print:border-none rounded-[20px] print:rounded-none p-6 sm:p-10 print:p-0 text-[#171717] space-y-6">
                 {/* Kop Surat Resmi Abinest */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-5 border-b-2 border-[#0F172A]">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-5 border-b-2 border-[#171717]">
                   <div className="space-y-1.5">
                     <AbinestLogo size="md" showTagline={true} />
-                    <p className="text-[11px] font-bold text-slate-700">
+                    <p className="text-[11.5px] font-semibold text-[#171717]">
                       Abinest Digital Systems — Studio Rekayasa Perangkat Lunak
                     </p>
-                    <p className="text-[11px] text-slate-600">
-                      Jakarta Selatan &amp; Tangerang · WhatsApp: +62 813-9858-9745 · Email: halo@abinest.id
+                    <p className="text-[11px] text-[#6F6F71]">
+                      Jakarta &amp; Surabaya · WhatsApp: +62 813-9858-9745 · Email: halo@abinest.id
                     </p>
                   </div>
 
                   <div className="sm:text-right space-y-1">
-                    <div className="inline-block px-3 py-1 rounded bg-[#0F172A] text-white text-[10px] font-extrabold uppercase tracking-widest">
+                    <div className="inline-block px-3 py-1 rounded-[8px] bg-[#171717] text-[#FFD124] text-[10px] font-mono uppercase tracking-widest">
                       PROPOSAL &amp; RAB RESMI
                     </div>
-                    <div className="text-xs font-mono font-bold text-slate-800 pt-1">
+                    <div className="text-xs font-mono font-semibold text-[#171717] pt-1">
                       No: {docNumber}
                     </div>
-                    <div className="text-[11px] text-slate-500">Tanggal: {todayFormatted}</div>
+                    <div className="text-[11px] text-[#6F6F71]">
+                      Tanggal: {todayFormatted}
+                    </div>
                   </div>
                 </div>
 
                 {/* Metadata Penerima & Proyek */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 border border-slate-300 rounded-xl p-4 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#F7F7F7] border border-[#E8E8E8] rounded-[14px] p-4 text-xs">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 block">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#6F6F71] block">
                       Ditujukan Kepada Yth:
                     </span>
-                    <div className="font-extrabold text-sm text-[#0F172A]">{clientPic}</div>
-                    <div className="font-bold text-[#2563EB]">{clientCompany}</div>
-                    <div className="text-slate-600">Lokasi: {clientCity}</div>
+                    <div className="font-semibold text-sm text-[#171717]">
+                      {clientPic}
+                    </div>
+                    <div className="font-semibold text-[#171717]">
+                      {clientCompany}
+                    </div>
+                    <div className="text-[#6F6F71]">Lokasi: {clientCity}</div>
                   </div>
 
-                  <div className="space-y-1 sm:border-l sm:border-slate-300 sm:pl-4">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 block">
+                  <div className="space-y-1 sm:border-l sm:border-[#E8E8E8] sm:pl-4">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#6F6F71] block">
                       Parameter Kerja Sama:
                     </span>
                     <div className="flex justify-between gap-2">
-                      <span className="text-slate-500">Skema Lisensi:</span>
-                      <span className="font-bold text-[#0F172A] text-right">
+                      <span className="text-[#6F6F71]">Skema Lisensi:</span>
+                      <span className="font-semibold text-[#171717] text-right">
                         {scheme === "beli-putus"
                           ? "Beli Putus (100% Hak Milik)"
                           : "Sewa / Terima Beres"}
                       </span>
                     </div>
                     <div className="flex justify-between gap-2">
-                      <span className="text-slate-500">Target Selesai:</span>
-                      <span className="font-bold text-[#0F172A]">{timeline}</span>
+                      <span className="text-[#6F6F71]">Target Selesai:</span>
+                      <span className="font-semibold text-[#171717]">
+                        {timeline}
+                      </span>
                     </div>
                     <div className="flex justify-between gap-2">
-                      <span className="text-slate-500">Masa Berlaku:</span>
-                      <span className="font-semibold text-slate-700 text-right">{validUntil}</span>
+                      <span className="text-[#6F6F71]">Masa Berlaku:</span>
+                      <span className="text-[#171717] text-right">
+                        {validUntil}
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Tabel RAB Resmi Bergaris Tegas */}
-                <div className="border border-slate-300 rounded-xl overflow-hidden">
+                {/* Tabel RAB Resmi */}
+                <div className="border border-[#E8E8E8] rounded-[14px] overflow-hidden">
                   <table className="w-full text-left border-collapse text-xs">
                     <thead>
-                      <tr className="bg-[#0F172A] text-white divide-x divide-slate-700">
-                        <th className="py-2.5 px-3 font-bold w-10 text-center">No</th>
-                        <th className="py-2.5 px-3 font-bold">Modul Sistem &amp; Ruang Lingkup Kerja</th>
-                        <th className="py-2.5 px-3 font-bold text-right w-36">Investasi</th>
+                      <tr className="bg-[#171717] text-white divide-x divide-white/10">
+                        <th className="py-2.5 px-3 font-mono w-10 text-center">No</th>
+                        <th className="py-2.5 px-3 font-medium">
+                          Modul Sistem &amp; Ruang Lingkup Kerja
+                        </th>
+                        <th className="py-2.5 px-3 font-medium text-right w-36">
+                          Investasi
+                        </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200">
+                    <tbody className="divide-y divide-[#E8E8E8]">
                       {items.map((item, idx) => (
                         <tr
                           key={item.id}
-                          className={`divide-x divide-slate-200 ${
-                            idx % 2 === 1 ? "bg-slate-50/70" : "bg-white"
+                          className={`divide-x divide-[#E8E8E8] ${
+                            idx % 2 === 1 ? "bg-[#F7F7F7]/70" : "bg-white"
                           }`}
                         >
-                          <td className="py-3 px-3 text-center font-bold text-slate-600 align-top">
+                          <td className="py-3 px-3 text-center font-mono text-[#6F6F71] align-top">
                             {idx + 1}
                           </td>
                           <td className="py-3 px-3 align-top">
-                            <div className="font-extrabold text-[#0F172A]">{item.name}</div>
-                            <div className="text-[11px] text-slate-600 mt-0.5 leading-snug">
+                            <div className="font-semibold text-[#171717]">
+                              {item.name}
+                            </div>
+                            <div className="text-[11px] text-[#6F6F71] mt-0.5 leading-snug">
                               {item.spec}
                             </div>
                           </td>
-                          <td className="py-3 px-3 text-right font-extrabold text-[#0F172A] tabular-nums align-top">
+                          <td className="py-3 px-3 text-right font-semibold text-[#171717] tabular-nums align-top">
                             {formatRupiah(Number(item.price) || 0)}
                           </td>
                         </tr>
                       ))}
-                      <tr className="bg-blue-50/80 divide-x divide-slate-300 border-t-2 border-slate-300">
-                        <td colSpan={2} className="py-3 px-3 font-extrabold text-sm text-[#0F172A] text-right">
+                      <tr className="bg-[#F7F7F7] divide-x divide-[#E8E8E8] border-t-2 border-[#171717]">
+                        <td
+                          colSpan={2}
+                          className="py-3 px-3 font-bold text-sm text-[#171717] text-right"
+                        >
                           TOTAL INVESTASI ({scheme === "beli-putus" ? "BELI PUTUS" : "TERIMA BERES"})
                         </td>
-                        <td className="py-3 px-3 text-right font-black text-base text-[#2563EB] tabular-nums">
+                        <td className="py-3 px-3 text-right font-bold text-base text-[#171717] tabular-nums">
                           {formatRupiah(totalInvestment)}
                         </td>
                       </tr>
@@ -794,49 +813,61 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
 
                 {/* Termin Pembayaran & Jaminan */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                  <div className="border border-slate-300 rounded-xl p-3.5 space-y-1.5">
-                    <div className="font-extrabold text-[#0F172A] uppercase tracking-wide text-[11px]">
-                      Skema Termin Pembayaran:
+                  <div className="border border-[#E8E8E8] rounded-[14px] p-4 space-y-1.5">
+                    <div className="font-mono text-[#6F6F71] uppercase tracking-wider text-[10.5px]">
+                      Skema Termin Pembayaran
                     </div>
-                    <div className="flex justify-between text-slate-700">
-                      <span>• DP 50% (Kick-Off &amp; Blueprint):</span>
-                      <span className="font-bold tabular-nums">{formatRupiah(dpAmount)}</span>
+                    <div className="flex justify-between text-[#171717]">
+                      <span>DP 50% (Kick-Off):</span>
+                      <span className="font-semibold tabular-nums">
+                        {formatRupiah(dpAmount)}
+                      </span>
                     </div>
-                    <div className="flex justify-between text-slate-700">
-                      <span>• Pelunasan 50% (Uji Staging &amp; Serah Terima):</span>
-                      <span className="font-bold tabular-nums">{formatRupiah(finalAmount)}</span>
+                    <div className="flex justify-between text-[#171717]">
+                      <span>Pelunasan 50% (Serah Terima):</span>
+                      <span className="font-semibold tabular-nums">
+                        {formatRupiah(finalAmount)}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="border border-emerald-300 bg-emerald-50/60 rounded-xl p-3.5 space-y-1">
-                    <div className="font-extrabold text-emerald-950 uppercase tracking-wide text-[11px] flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-                      <span>Garansi &amp; Ketentuan Teknis:</span>
+                  <div className="border border-[#E8E8E8] bg-[#F7F7F7] rounded-[14px] p-4 space-y-1.5">
+                    <div className="font-mono text-[#171717] uppercase tracking-wider text-[10.5px] flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#3C846E]" />
+                      <span>Garansi &amp; Ketentuan Teknis</span>
                     </div>
-                    <p className="text-[11px] text-emerald-950 leading-relaxed">{warrantyNote}</p>
+                    <p className="text-[11px] text-[#6F6F71] leading-relaxed">
+                      {warrantyNote}
+                    </p>
                   </div>
                 </div>
 
                 {/* Kolom Pengesahan */}
-                <div className="pt-6 grid grid-cols-2 gap-8 text-xs border-t border-slate-200">
+                <div className="pt-6 grid grid-cols-2 gap-8 text-xs border-t border-[#E8E8E8]">
                   <div>
-                    <p className="text-slate-500">Hormat kami,</p>
-                    <p className="font-extrabold text-[#0F172A] mt-0.5">
+                    <p className="text-[#6F6F71]">Hormat kami,</p>
+                    <p className="font-semibold text-[#171717] mt-0.5">
                       Abinest Digital Systems
                     </p>
                     <div className="h-12" />
-                    <p className="font-bold text-[#0F172A] underline">
+                    <p className="font-semibold text-[#171717] underline">
                       Abimanyu — Founder &amp; Lead Architect
                     </p>
-                    <p className="text-[11px] text-slate-500">WhatsApp Resmi: 0813-9858-9745</p>
+                    <p className="text-[11px] text-[#6F6F71]">
+                      WhatsApp Resmi: +62 813-9858-9745
+                    </p>
                   </div>
 
                   <div className="text-right">
-                    <p className="text-slate-500">Disetujui oleh Klien,</p>
-                    <p className="font-extrabold text-[#0F172A] mt-0.5">{clientCompany}</p>
+                    <p className="text-[#6F6F71]">Disetujui oleh Klien,</p>
+                    <p className="font-semibold text-[#171717] mt-0.5">
+                      {clientCompany}
+                    </p>
                     <div className="h-12" />
-                    <p className="font-bold text-[#0F172A] underline">{clientPic}</p>
-                    <p className="text-[11px] text-slate-500">{clientCity}</p>
+                    <p className="font-semibold text-[#171717] underline">
+                      {clientPic}
+                    </p>
+                    <p className="text-[11px] text-[#6F6F71]">{clientCity}</p>
                   </div>
                 </div>
               </div>
@@ -847,26 +878,25 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
         {/* TAB 2: KIT OUTREACH WHATSAPP B2B */}
         {activeTab === "outreach" && (
           <div className="print:hidden grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            {/* Left 4 Cols: Prospect Personalization Form */}
-            <div className="lg:col-span-4 ui-card overflow-hidden shadow-md">
+            <div className="lg:col-span-4 ui-card overflow-hidden">
               <div className="ui-card-header">
                 <div className="flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-[#2563EB]" />
-                  <h2 className="text-sm font-extrabold text-[#0F172A]">
-                    Data Target Prospek (Maps / B2B)
+                  <Building2 className="w-4 h-4 text-[#171717]" />
+                  <h2 className="text-[14.5px] font-semibold text-[#171717]">
+                    Data target prospek (B2B)
                   </h2>
                 </div>
               </div>
 
               <div className="ui-card-body space-y-4">
                 <div>
-                  <label className="ui-label">Nama Prospek / Panggilan PIC</label>
+                  <label className="ui-label">Nama Prospek / PIC</label>
                   <input
                     type="text"
                     value={prospectPic}
                     onChange={(e) => setProspectPic(e.target.value)}
                     placeholder="Contoh: Pak Budi / Ibu Sari"
-                    className="ui-input py-2 text-xs"
+                    className="ui-input bg-white py-2 text-xs"
                   />
                 </div>
 
@@ -877,7 +907,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                     value={prospectBusiness}
                     onChange={(e) => setProspectBusiness(e.target.value)}
                     placeholder="Contoh: Toko Baja Jaya / SMK Harapan"
-                    className="ui-input py-2 text-xs"
+                    className="ui-input bg-white py-2 text-xs"
                   />
                 </div>
 
@@ -888,18 +918,18 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                     value={prospectCity}
                     onChange={(e) => setProspectCity(e.target.value)}
                     placeholder="Contoh: Tangerang / Jakarta Barat"
-                    className="ui-input py-2 text-xs"
+                    className="ui-input bg-white py-2 text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="ui-label">Masalah yang Ditemukan (Audit Awal)</label>
+                  <label className="ui-label">Temuan Audit Awal</label>
                   <textarea
                     rows={3}
                     value={prospectIssue}
                     onChange={(e) => setProspectIssue(e.target.value)}
-                    placeholder="Contoh: loading web di HP >6 detik atau tombol WA tidak muncul..."
-                    className="ui-input py-2 text-xs resize-none"
+                    placeholder="Contoh: loading web di HP >6 detik..."
+                    className="ui-input bg-white py-2 text-xs resize-none"
                   />
                 </div>
 
@@ -909,46 +939,51 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                     type="tel"
                     value={prospectPhone}
                     onChange={(e) => setProspectPhone(e.target.value)}
-                    placeholder="Contoh: 081234567890 (kosongkan utk test)"
-                    className="ui-input py-2 text-xs font-mono"
+                    placeholder="081234567890 (kosongkan utk test)"
+                    className="ui-input bg-white py-2 text-xs font-mono"
                   />
-                  <p className="text-[11px] text-slate-500 mt-1">
-                    Jika kosong, tombol kirim akan membuka chat uji coba ke WhatsApp Abinest (+62 813-9858-9745).
+                  <p className="text-[11px] text-[#6F6F71] mt-1">
+                    Jika kosong, tombol membuka chat uji coba ke WhatsApp Abinest.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Right 8 Cols: 5 Battle-Tested Templates */}
             <div className="lg:col-span-8 space-y-4">
               {outreachTemplates.map((tpl) => {
                 const isCopied = copiedScriptId === tpl.id;
                 const waTarget = normalizeTargetPhone(prospectPhone);
-                const waLink = `https://wa.me/${waTarget}?text=${encodeURIComponent(tpl.script)}`;
+                const waLink = `https://wa.me/${waTarget}?text=${encodeURIComponent(
+                  tpl.script
+                )}`;
 
                 return (
-                  <div key={tpl.id} className="ui-card overflow-hidden shadow-sm">
+                  <div key={tpl.id} className="ui-card overflow-hidden">
                     <div className="ui-card-header flex-wrap gap-2">
                       <div>
-                        <h3 className="text-sm font-extrabold text-[#0F172A]">{tpl.title}</h3>
-                        <p className="text-[11px] text-slate-500">Target ideal: {tpl.target}</p>
+                        <h3 className="text-[14.5px] font-semibold text-[#171717]">
+                          {tpl.title}
+                        </h3>
+                        <p className="text-[11.5px] text-[#6F6F71]">
+                          Target ideal: {tpl.target}
+                        </p>
                       </div>
 
                       <div className="flex items-center gap-2 shrink-0">
                         <button
                           type="button"
                           onClick={() => handleCopyOutreach(tpl.id, tpl.script)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-xs font-bold text-slate-800 cursor-pointer"
+                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-[10px] border border-[#E8E8E8] bg-white hover:border-[#FFD124] text-xs font-medium text-[#171717] cursor-pointer transition-colors"
                         >
                           {isCopied ? (
                             <>
-                              <Check className="w-3.5 h-3.5 text-emerald-600" />
-                              <span className="text-emerald-700">Tersalin!</span>
+                              <Check className="w-3.5 h-3.5 text-[#3C846E]" />
+                              <span className="text-[#3C846E]">Tersalin!</span>
                             </>
                           ) : (
                             <>
                               <Copy className="w-3.5 h-3.5" />
-                              <span>Salin Script WA</span>
+                              <span>Salin Script</span>
                             </>
                           )}
                         </button>
@@ -957,20 +992,18 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                           href={waLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-xs font-bold text-white shadow-sm transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-[10px] bg-[#171717] hover:opacity-90 text-xs font-medium text-white transition-opacity"
                         >
                           <Send className="w-3.5 h-3.5" />
                           <span>
-                            {prospectPhone.trim()
-                              ? "Buka Chat WA ke Nomor Target"
-                              : "Uji Kirim ke WA"}
+                            {prospectPhone.trim() ? "Buka WA Target" : "Uji Kirim WA"}
                           </span>
                         </a>
                       </div>
                     </div>
 
-                    <div className="p-4 bg-slate-50/70">
-                      <pre className="whitespace-pre-wrap font-sans text-xs sm:text-[13px] text-slate-800 leading-relaxed bg-white border border-slate-200 rounded-xl p-4">
+                    <div className="p-4 bg-[#F7F7F7]">
+                      <pre className="whitespace-pre-wrap font-sans text-[13px] text-[#171717] leading-relaxed bg-white border border-[#E8E8E8] rounded-[14px] p-4">
                         {tpl.script}
                       </pre>
                     </div>
