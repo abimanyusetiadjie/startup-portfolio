@@ -84,10 +84,10 @@ export function SignificaInsightsSection() {
         ))}
       </div>
 
-      {/* Honest Monochrome Engineering Standards Strip (Exact Significa Centered Rhythm — Zero Fake Client Logos) */}
-      <div className="sig-container py-16 lg:py-20 text-center space-y-7 border-b border-[#E8E8E8]">
-        <p className="text-[16.5px] text-[#6F6F71]">
-          Dibangun di atas standar infrastruktur produksi modern
+      {/* Honest Monochrome Engineering Standards Strip */}
+      <div className="sig-container py-14 lg:py-20 text-center space-y-6 border-b border-[#E8E8E8]">
+        <p className="text-[15.5px] text-[#6F6F71]">
+          Standar infrastruktur produksi kami
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 sm:gap-x-14">
           {ENGINEERING_STANDARDS.map((tech) => (

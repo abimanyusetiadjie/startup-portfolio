@@ -8,9 +8,9 @@ import { buildConsultationWaUrl } from "@/components/grove/contact-utils";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 const SERVICE_OPTIONS = [
-  { id: "website", label: "Website Bisnis", range: "Mulai Rp1,5–3,5 jt" },
-  { id: "erp", label: "Sistem ERP & POS", range: "Mulai Rp4–12 jt" },
-  { id: "siakad", label: "SIAKAD & Ujian CBT", range: "Mulai Rp4,5–9,5 jt" },
+  { id: "website", label: "Website Bisnis", range: "Mulai Rp1,5 jt" },
+  { id: "erp", label: "Sistem ERP & POS", range: "Mulai Rp4 jt" },
+  { id: "siakad", label: "SIAKAD & Ujian CBT", range: "Mulai Rp4,5 jt" },
   { id: "ai-wa", label: "Automasi AI & WhatsApp", range: "Mulai Rp5 jt" },
 ] as const;
 

@@ -16,12 +16,12 @@ const PRIMARY_LINKS = [
 const DRAWER_SERVICES = [
   {
     label: "Website Bisnis & Korporat",
-    meta: "Mulai Rp1,5–3,5 jt · 7–14 hari",
+    meta: "Mulai Rp1,5 jt · 7–14 hari",
     href: "/jasa-pembuatan-website-jakarta",
   },
   {
     label: "Sistem ERP, SIAKAD & Kasir POS",
-    meta: "Mulai Rp4–12 jt · Rp0/staf",
+    meta: "Mulai Rp4 jt · Rp0/staf",
     href: "/jasa-pembuatan-sistem-erp",
   },
   {

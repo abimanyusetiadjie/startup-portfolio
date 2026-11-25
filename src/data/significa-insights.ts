@@ -21,7 +21,7 @@ export interface InsightArticle {
 export const SIGNIFICA_INSIGHTS: InsightArticle[] = [
   {
     slug: "beli-putus-vs-sewa-saas-erp",
-    title: "Beli putus vs sewa SaaS ERP: Hitungan nyata biaya 3 tahun untuk bisnis berkembang.",
+    title: "Beli putus vs sewa SaaS ERP: Hitungan biaya 3 tahun.",
     date: "18 Nov 2026",
     readTime: "4 mnt baca",
     authorName: "Abimanyu Setiadjie",
@@ -60,7 +60,7 @@ export const SIGNIFICA_INSIGHTS: InsightArticle[] = [
   },
   {
     slug: "mengapa-website-lambat-buang-biaya-iklan",
-    title: "Mengapa website yang muat >4 detik membuang hingga 60% anggaran iklan Meta & Google Anda.",
+    title: "Mengapa website >4 detik membuang 60% biaya iklan.",
     date: "11 Nov 2026",
     readTime: "3 mnt baca",
     authorName: "Tim Frontend Abinest",
@@ -93,7 +93,7 @@ export const SIGNIFICA_INSIGHTS: InsightArticle[] = [
   },
   {
     slug: "arsitektur-whatsapp-ai-resmi-meta-anti-blokir",
-    title: "Arsitektur WhatsApp AI resmi Meta Cloud API: Balas cepat <1 detik tanpa risiko nomor diblokir.",
+    title: "WhatsApp AI resmi Meta Cloud API tanpa risiko blokir.",
     date: "04 Nov 2026",
     readTime: "5 mnt baca",
     authorName: "Tim AI & Automasi",

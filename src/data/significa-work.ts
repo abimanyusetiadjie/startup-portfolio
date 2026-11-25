@@ -29,7 +29,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   {
     slug: "nusantara-capital",
     client: "Nusantara Capital.",
-    tagline: "Website korporat yang meningkatkan prospek masuk +180%.",
+    tagline: "Web korporat super cepat, prospek naik +180%.",
     sector: "Finansial & Investasi · Jakarta",
     year: "2026",
     duration: "11 Hari Kerja",
@@ -103,7 +103,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   {
     slug: "sinar-distribusi",
     client: "Sinar Distribusi.",
-    tagline: "ERP multi-gudang & kasir POS yang menghemat 40 jam kerja/minggu.",
+    tagline: "ERP 4 gudang & POS, hemat 40 jam/minggu.",
     sector: "Distribusi & Grosir · 4 Gudang",
     year: "2026",
     duration: "3 Minggu Kerja",
@@ -177,7 +177,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   {
     slug: "siakad-ujian-cbt",
     client: "SIAKAD & Ujian CBT.",
-    tagline: "1.240 siswa ujian serentak 0% tumbang, 600 rapor selesai 4 menit.",
+    tagline: "1.240 siswa ujian serentak, 0% tumbang.",
     sector: "Yayasan Pendidikan · Portal Akademik",
     year: "2026",
     duration: "3 Minggu Kerja",

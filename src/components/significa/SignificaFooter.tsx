@@ -8,6 +8,7 @@ import {
   buildConsultationWaUrl,
 } from "@/components/grove/contact-utils";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { SignificaFloatingWhatsApp } from "./SignificaFloatingWhatsApp";
 
 export function SignificaFooter() {
   const year = new Date().getFullYear();
@@ -16,23 +17,24 @@ export function SignificaFooter() {
   );
 
   return (
-    <footer
-      id="kontak"
-      className="scroll-mt-20 bg-[#F7F7F7] border-t border-[#E8E8E8] text-[#171717]"
-    >
-      <div className="sig-container py-16 lg:py-20 space-y-16">
-        {/* Significa Exact 8-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-8 gap-12 lg:gap-8">
-          {/* Left 4 Cols: Brand Mark + Bold 30px Manifesto + Direct WhatsApp CTA */}
-          <div className="lg:col-span-4 space-y-6">
-            <Link href="/" className="inline-flex items-center">
-              <AbinestLogo size="md" showTagline={false} variant="light" />
-            </Link>
+    <>
+      <footer
+        id="kontak"
+        className="scroll-mt-20 bg-[#F7F7F7] border-t border-[#E8E8E8] text-[#171717]"
+      >
+        <div className="sig-container py-16 lg:py-20 space-y-16">
+          {/* Significa Exact 8-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-8 gap-12 lg:gap-8">
+            {/* Left 4 Cols: Brand Mark + Bold 30px English Manifesto + Direct CTAs */}
+            <div className="lg:col-span-4 space-y-6">
+              <Link href="/" className="inline-flex items-center">
+                <AbinestLogo size="md" showTagline={false} variant="light" />
+              </Link>
 
-            <p className="text-[26px] sm:text-[30px] font-bold tracking-[-0.02em] leading-[1.15] text-[#171717] max-w-sm">
-              Rancang. Bangun. Luncurkan. Otomasi.{" "}
-              <span className="text-[#6F6F71]">Tumbuh.</span>
-            </p>
+              <p className="text-[26px] sm:text-[30px] font-bold tracking-[-0.02em] leading-[1.15] text-[#171717] max-w-sm">
+                Think. Design. Develop. Automate.{" "}
+                <span className="text-[#6F6F71]">Scale.</span>
+              </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <a
@@ -167,9 +169,7 @@ export function SignificaFooter() {
 
         {/* Significa Bottom Legal Row */}
         <div className="pt-8 border-t border-[#E8E8E8] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[14px] text-[#6F6F71]">
-          <p>
-            © {year} Abinest — Studio Desain &amp; Pengembangan Produk Digital
-          </p>
+          <p>© {year} Abinest — Digital Product &amp; Engineering Studio</p>
           <div className="flex items-center gap-5">
             <Link href="/kebijakan-privasi" className="sig-link hover:text-[#171717]">
               Kebijakan Privasi
@@ -181,5 +181,8 @@ export function SignificaFooter() {
         </div>
       </div>
     </footer>
+
+    <SignificaFloatingWhatsApp />
+    </>
   );
 }

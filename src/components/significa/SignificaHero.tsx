@@ -10,34 +10,34 @@ import { SignificaShowreelModal } from "./SignificaShowreelModal";
 const HERO_TEASERS = [
   {
     id: "nusantara",
-    title: "Nusantara Capital. Web korporat muat 0,48 detik.",
-    source: "Dari proyek kami",
+    title: "Nusantara Capital. Corporate web built for 0.48s load.",
+    source: "From our work",
     thumb: "/images/significa/work-nusantara-editorial.jpg",
-    alt: "Pratinjau Website Nusantara Capital",
+    alt: "Nusantara Capital corporate website preview",
     href: "/karya/nusantara-capital",
   },
   {
     id: "sinar",
-    title: "Sinar Distribusi. ERP 4 gudang & 18.420 SKU sinkron.",
-    source: "Dari proyek kami",
+    title: "Sinar Distribusi. Multi-warehouse ERP & POS system.",
+    source: "From our work",
     thumb: "/images/significa/work-sinar-erp-editorial.jpg",
-    alt: "Pratinjau Dasbor ERP Multi-Gudang",
+    alt: "Sinar Distribusi ERP dashboard preview",
     href: "/karya/sinar-distribusi",
   },
   {
     id: "wawasan-erp",
-    title: "Beli Putus vs Sewa SaaS ERP: Hitungan nyata 3 tahun.",
-    source: "Dari wawasan kami",
+    title: "Own vs. Rent ERP: Real 3-year cost breakdown.",
+    source: "From our insights",
     thumb: "/images/hero-slide-ai.webp",
-    alt: "Catatan Rekayasa Abinest",
+    alt: "Abinest engineering insights preview",
     href: "/wawasan/beli-putus-vs-sewa-saas-erp",
   },
   {
     id: "siakad",
-    title: "Portal SIAKAD CBT. 1.240 siswa ujian 0% gangguan.",
-    source: "Dari proyek kami",
+    title: "SIAKAD CBT. 1,240 students live with 0% downtime.",
+    source: "From our work",
     thumb: "/images/significa/work-siakad-cbt-editorial.jpg",
-    alt: "Pelaksanaan Ujian CBT Sekolah SIAKAD",
+    alt: "SIAKAD CBT academic portal preview",
     href: "/karya/siakad-ujian-cbt",
   },
 ];
@@ -50,31 +50,31 @@ const SHOWCASE_PANELS = [
     tagText: "#FFFFFF",
     eyebrow: "PAGESPEED",
     metric: "100 / 100",
-    sub: "Waktu Muat 0,48 dtk",
+    sub: "0.48s Mobile Load",
     image: "/images/hero-slide-web.webp",
-    alt: "Antarmuka Web Korporat Cepat Abinest",
+    alt: "High-speed corporate web architecture",
   },
   {
     bg: "#3C846E",
     ink: "#FFFFFF",
     tagBg: "#171717",
     tagText: "#FFD124",
-    eyebrow: "BELI PUTUS",
-    metric: "Rp0 / Staf",
-    sub: "18.420 SKU · 4 Gudang",
+    eyebrow: "FULL OWNERSHIP",
+    metric: "Rp0 / Seat",
+    sub: "18,420 SKUs · 4 Hubs",
     image: "/images/hero-slide-erp.webp",
-    alt: "Dasbor ERP Multi-Gudang dan Kasir POS",
+    alt: "Multi-warehouse ERP and POS dashboard",
   },
   {
     bg: "#DE6D3B",
     ink: "#171717",
     tagBg: "#171717",
     tagText: "#FFFFFF",
-    eyebrow: "META API",
-    metric: "OCR 99,7%",
-    sub: "Balas Chat AI < 1 dtk",
+    eyebrow: "META CLOUD API",
+    metric: "99.7% OCR",
+    sub: "AI Reply Under 1s",
     image: "/images/hero-slide-ai.webp",
-    alt: "Automasi WhatsApp Cloud API dan OCR Faktur",
+    alt: "WhatsApp Cloud API and OCR automation",
   },
   {
     bg: "#E2B2A2",
@@ -82,10 +82,10 @@ const SHOWCASE_PANELS = [
     tagBg: "#171717",
     tagText: "#FFFFFF",
     eyebrow: "SIAKAD CBT",
-    metric: "1.240 Siswa",
-    sub: "Ujian Serentak 0% Down",
+    metric: "1,240 Users",
+    sub: "Zero Exam Downtime",
     image: "/images/case-studies/modern-web-finance.jpg",
-    alt: "Implementasi Sistem Produksi di Kantor Klien",
+    alt: "Production deployment for enterprise clients",
   },
 ];
 
@@ -100,23 +100,23 @@ export function SignificaHero() {
         className="pt-[104px] sm:pt-[118px] pb-12 sm:pb-16 bg-[#F7F7F7]"
       >
         <div className="sig-container">
-          {/* 1. Significa Iconic 3-Line Display Headline */}
+          {/* 1. Significa Iconic 3-Line English Display Headline */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
             className="pb-7 sm:pb-11"
           >
-            <h1 className="font-bold text-[#171717] tracking-[-0.025em] leading-[1.09] text-[clamp(1.92rem,4.4vw+0.9rem,4.5rem)]">
-              Rancang. Bangun.
+            <h1 className="font-bold text-[#171717] tracking-[-0.025em] leading-[1.09] text-[clamp(2rem,4.4vw+0.9rem,4.5rem)]">
+              Think. Design.
               <br />
-              Luncurkan. Otomasi.
+              Develop. Automate.
               <br />
-              <span className="text-[#6F6F71]">Tumbuh.</span>
+              <span className="text-[#6F6F71]">Scale.</span>
             </h1>
           </motion.div>
 
-          {/* 2. Significa 4-Column Horizontal Project Teaser Strip with Fluid Sliding Hover Pill */}
+          {/* 2. Significa 4-Column Horizontal Teaser Strip with Fluid Sliding Hover Pill */}
           <div
             onMouseLeave={() => setHoveredTeaser(null)}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pb-7 sm:pb-9"
@@ -210,7 +210,7 @@ export function SignificaHero() {
               ))}
             </div>
 
-            {/* Floating Dark Pill Button — Opens Interactive Showreel Modal Right Over Page (Exact Significa UX) */}
+            {/* Floating Dark Pill Button — Opens Interactive Showreel Modal */}
             <div className="absolute left-4 bottom-4 sm:left-7 sm:bottom-7 lg:left-[18%] lg:top-[44%] lg:bottom-auto z-20">
               <button
                 type="button"
@@ -218,7 +218,7 @@ export function SignificaHero() {
                 className="sig-btn-primary shadow-[0_14px_34px_rgba(23,23,23,0.34)] hover:ring-[#FFD124]/50"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
-                <span>Coba demo interaktif</span>
+                <span>Try live demo</span>
               </button>
             </div>
           </motion.div>
