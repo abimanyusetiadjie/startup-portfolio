@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { FAQ_ITEMS } from "@/components/grove/faq-data";
+import { ClayReveal } from "./ClayReveal";
 
 export function SignificaAboutAndFaq() {
   const [openId, setOpenId] = useState<string | null>(null);
@@ -16,7 +17,7 @@ export function SignificaAboutAndFaq() {
       className="scroll-mt-24 bg-[#111318] text-white py-20 lg:py-28"
     >
       <div className="clay-container space-y-10 lg:space-y-12">
-        <div className="max-w-2xl space-y-3">
+        <ClayReveal className="max-w-2xl space-y-3">
           <h2 className="text-[clamp(1.85rem,2.6vw+0.8rem,2.75rem)] font-semibold tracking-[-0.025em] leading-[1.15] text-white">
             Pertanyaan umum
           </h2>
@@ -24,9 +25,9 @@ export function SignificaAboutAndFaq() {
             Hal yang paling sering ditanyakan pemilik bisnis sebelum memulai
             pengembangan sistem bersama Abinest.
           </p>
-        </div>
+        </ClayReveal>
 
-        <div className="divide-y divide-white/10 border-t border-b border-white/10">
+        <ClayReveal delay={0.05} className="divide-y divide-white/10 border-t border-b border-white/10">
           {FAQ_ITEMS.map((item) => {
             const isOpen = openId === item.id;
             const panelId = `${baseId}-${item.id}`;
@@ -73,7 +74,7 @@ export function SignificaAboutAndFaq() {
               </div>
             );
           })}
-        </div>
+        </ClayReveal>
       </div>
     </section>
   );

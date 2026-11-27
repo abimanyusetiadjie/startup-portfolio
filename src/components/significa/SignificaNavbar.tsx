@@ -38,9 +38,21 @@ export function SignificaNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
+  const progressRef = useRef<HTMLSpanElement | null>(null);
+  const rafId = useRef<number | null>(null);
 
-  // Clay.global signature header behavior: retracts smoothly on scroll down, reveals on scroll up
+  // Clay.global signature header behavior + zero-rerender GPU 1.5px reading progress hairline
   useEffect(() => {
+    const updateProgress = () => {
+      rafId.current = null;
+      if (!progressRef.current) return;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const ratio =
+        docHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / docHeight)) : 0;
+      progressRef.current.style.transform = `scaleX(${ratio})`;
+    };
+
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 8);
@@ -50,10 +62,18 @@ export function SignificaNavbar() {
         setHidden(false);
       }
       lastY.current = y;
+      if (rafId.current === null) {
+        rafId.current = window.requestAnimationFrame(updateProgress);
+      }
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", updateProgress, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateProgress);
+      if (rafId.current !== null) window.cancelAnimationFrame(rafId.current);
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -157,6 +177,16 @@ export function SignificaNavbar() {
             </div>
           </div>
         </div>
+
+        {/* Ultra-thin 1.5px GPU reading progress hairline */}
+        <span
+          ref={progressRef}
+          aria-hidden="true"
+          style={{ transform: "scaleX(0)" }}
+          className={`pointer-events-none absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#111111] origin-left will-change-transform transition-opacity duration-200 ${
+            scrolled && !menuOpen ? "opacity-100" : "opacity-0"
+          }`}
+        />
 
         {/* Clean Full-Width Mobile Menu */}
         <AnimatePresence>

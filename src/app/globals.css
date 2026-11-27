@@ -63,6 +63,15 @@ body {
     border-color: #111111;
   }
 
+  .clay-arrow-link svg {
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), color 200ms ease;
+  }
+
+  .clay-arrow-link:hover svg {
+    transform: translateX(4px);
+    color: #111111;
+  }
+
   /* Compatibility button tokens for subpages */
   .sig-btn-primary {
     @apply inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-full bg-[#141519] text-white text-[14.5px] font-medium leading-none transition-all duration-200 hover:bg-[#2A2C34] active:scale-[0.98] cursor-pointer whitespace-nowrap;
@@ -144,8 +153,40 @@ body {
   animation-play-state: paused;
 }
 
+@keyframes clay-orb-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-3px, -7px, 0);
+  }
+}
+
+@keyframes clay-orb-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(4px, 6px, 0);
+  }
+}
+
+.clay-orb-float-a {
+  animation: clay-orb-a 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.clay-orb-float-b {
+  animation: clay-orb-b 8.5s ease-in-out infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .clay-ticker-track {
+  .clay-ticker-track,
+  .clay-orb-float-a,
+  .clay-orb-float-b {
     animation: none;
   }
 }

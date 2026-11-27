@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { ClayReveal } from "./ClayReveal";
 
 const STUDIO_FACTS = [
   { value: "16+", label: "Sistem nyata terbangun" },
@@ -15,7 +16,7 @@ export function SignificaServicesSection() {
     <section id="layanan" className="scroll-mt-24 bg-[#F3F3F3] py-20 lg:py-32">
       <div className="clay-container space-y-14 lg:space-y-20">
         {/* Clay Services / Studio Statement Block */}
-        <div className="max-w-[740px] space-y-6">
+        <ClayReveal className="max-w-[740px] space-y-6">
           <h2 className="text-[clamp(2rem,3.4vw+0.8rem,3.5rem)] font-semibold tracking-[-0.03em] leading-[1.1] text-[#111111]">
             Kami membantu bisnis bertumbuh lewat rekayasa sistem yang nyata
           </h2>
@@ -38,19 +39,19 @@ export function SignificaServicesSection() {
               <ArrowRight className="w-4 h-4 text-[#6B7280]" />
             </Link>
           </div>
-        </div>
+        </ClayReveal>
 
         {/* Quiet Flat Studio Proof Strip (Zero cards, zero icon clutter) */}
         <dl className="pt-12 border-t border-[#E0E0E2] grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {STUDIO_FACTS.map((fact) => (
-            <div key={fact.label} className="space-y-1.5">
+          {STUDIO_FACTS.map((fact, idx) => (
+            <ClayReveal key={fact.label} delay={idx * 0.06} y={12} className="space-y-1.5">
               <dd className="text-[30px] sm:text-[38px] font-semibold tracking-[-0.03em] text-[#111111] tabular-nums leading-none">
                 {fact.value}
               </dd>
               <dt className="text-[14px] text-[#6B7280] leading-snug">
                 {fact.label}
               </dt>
-            </div>
+            </ClayReveal>
           ))}
         </dl>
       </div>

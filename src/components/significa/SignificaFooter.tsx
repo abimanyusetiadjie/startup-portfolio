@@ -1,18 +1,49 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Check, Copy } from "lucide-react";
 import {
   ABINEST_WHATSAPP_NUMBER,
   buildConsultationWaUrl,
 } from "@/components/grove/contact-utils";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { SignificaFloatingWhatsApp } from "./SignificaFloatingWhatsApp";
+import { ClayReveal } from "./ClayReveal";
+
+const CONTACT_EMAIL = "halo@abinest.id";
 
 export function SignificaFooter() {
   const year = new Date().getFullYear();
+  const [copied, setCopied] = useState(false);
+  const timerRef = useRef<number | null>(null);
   const waHref = buildConsultationWaUrl(
     "Halo Tim Abinest, saya siap mendiskusikan kebutuhan proyek digital untuk perusahaan kami."
   );
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = CONTACT_EMAIL;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+    setCopied(true);
+    if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(() => setCopied(false), 1800);
+  };
 
   return (
     <>
@@ -21,7 +52,7 @@ export function SignificaFooter() {
         id="kontak"
         className="scroll-mt-24 bg-[#F3F3F3] text-[#111111] py-20 lg:py-24"
       >
-        <div className="clay-container">
+        <ClayReveal className="clay-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10">
             {/* Left 6 Cols: Clay "Let's Talk" Direct Contact Anchor */}
             <div className="lg:col-span-6 space-y-6">
@@ -30,13 +61,34 @@ export function SignificaFooter() {
               </h2>
 
               <div className="space-y-2.5">
-                <div>
+                <div className="flex flex-wrap items-center gap-3">
                   <a
-                    href="mailto:halo@abinest.id"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="text-[22px] sm:text-[26px] font-medium text-[#111111] underline underline-offset-8 decoration-[#C4C7CE] hover:decoration-[#111111] transition-colors"
                   >
-                    halo@abinest.id
+                    {CONTACT_EMAIL}
                   </a>
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    aria-label="Salin alamat email Abinest"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[#D4D6DC] bg-white/70 hover:bg-white hover:border-[#111111] text-[12.5px] font-medium text-[#4B5563] hover:text-[#111111] transition-all cursor-pointer active:scale-[0.97]"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-[#059669]" />
+                        <span className="text-[#059669]">Tersalin</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Salin</span>
+                      </>
+                    )}
+                  </button>
+                  <span className="sr-only" aria-live="polite">
+                    {copied ? "Alamat email tersalin ke clipboard" : ""}
+                  </span>
                 </div>
                 <div>
                   <a
@@ -183,7 +235,7 @@ export function SignificaFooter() {
               </Link>
             </div>
           </div>
-        </div>
+        </ClayReveal>
       </footer>
 
       <SignificaFloatingWhatsApp />

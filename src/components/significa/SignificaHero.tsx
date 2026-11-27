@@ -197,8 +197,12 @@ export function SignificaHero() {
               />
             </g>
 
-            <circle cx="192" cy="148" r="18" fill="url(#clayOrbViolet)" />
-            <circle cx="562" cy="322" r="11" fill="url(#clayOrbCoral)" />
+            <g className="clay-orb-float-a">
+              <circle cx="192" cy="148" r="18" fill="url(#clayOrbViolet)" />
+            </g>
+            <g className="clay-orb-float-b">
+              <circle cx="562" cy="322" r="11" fill="url(#clayOrbCoral)" />
+            </g>
           </svg>
 
           <div className="clay-container relative z-10 space-y-5 sm:space-y-6">
