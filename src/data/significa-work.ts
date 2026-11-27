@@ -1,6 +1,6 @@
-export interface CaseSpec {
-  label: string;
-  value: string;
+export interface CaseHighlight {
+  title: string;
+  detail: string;
 }
 
 export interface CaseImage {
@@ -18,70 +18,70 @@ export interface CaseStudyItem {
   client: string;
   tagline: string;
   sector: string;
+  scope: string;
   year: string;
   liveUrl?: string;
   techStack: string[];
   images: CaseImage[];
-  specs: CaseSpec[];
   problem: string;
   functionalValue: string;
-  coreFunctions: string[];
-  impactMetrics: { value: string; label: string }[];
+  highlights: CaseHighlight[];
   serviceHref: string;
 }
 
 export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   // =========================================================================
-  // TIER 1 — 4 FEATURED SYSTEMS (Editorial 5/7 Rows)
+  // FEATURED & PRIMARY SHOWCASE SYSTEMS
   // =========================================================================
   {
     slug: "toko-amen-snack",
     tier: "archive",
     client: "Toko Amen Snack.",
-    tagline: "Katalog live 1.446 SKU, AI Assistant & kasir terintegrasi.",
+    tagline: "Katalog stok live, asisten WhatsApp AI & kasir terintegrasi.",
     sector: "Ritel & Oleh-Oleh · Bangka",
+    scope: "Web Katalog & Asisten WA AI",
     year: "2026",
     liveUrl: "https://tokoamensnack.vercel.app",
-    techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WAHA WhatsApp"],
+    techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WhatsApp API"],
     images: [
       {
         src: "/images/portfolio/toko-amen-snack.webp",
-        alt: "Tangkapan layar langsung website produksi Toko Amen Snack",
-        caption: "Tampilan produksi live di tokoamensnack.vercel.app — katalog 1.446 SKU & asisten WhatsApp AI",
+        alt: "Tangkapan layar website produksi Toko Amen Snack",
+        caption: "Katalog publik terhubung langsung ke stok toko dan alur order WhatsApp",
         fit: "top",
         width: 1440,
         height: 1080,
       },
       {
         src: "/images/portfolio/toko-amen-snack-catalog.webp",
-        alt: "Tangkapan layar halaman sorotan promo & katalog produk Toko Amen Snack",
-        caption: "Halaman katalog & sorotan promo terintegrasi stok PostgreSQL dan checkout WhatsApp",
+        alt: "Halaman sorotan promo dan katalog produk Toko Amen Snack",
+        caption: "Halaman katalog & promo produk siap pesan ke WhatsApp",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "Database", value: "1.446 Master SKU" },
-      { label: "AI & WA Bot", value: "Cek Stok & Ongkir" },
-      { label: "Smart Search", value: "Sinonim Lokal Bangka" },
-      { label: "Hardware", value: "Ringan di Win 7 / 4GB" },
-    ],
     problem:
-      "Toko oleh-oleh dengan lebih dari seribu jenis camilan kesulitan melayani pertanyaan stok, harga grosir, dan estimasi berat ongkir di WhatsApp secara manual, sementara PC kasir toko masih memakai Windows 7 RAM 4 GB.",
+      "Menjawab pertanyaan stok, harga grosir, dan estimasi ongkir ratusan jenis camilan secara manual di WhatsApp menyita waktu admin toko.",
     functionalValue:
-      "Menyatukan 1.446 master SKU PostgreSQL antara sistem kasir dan katalog web publik, ditambah asisten AI dual-engine (LLM + fallback deterministik) yang akurat menghitung total pesanan, berat kirim (kg), dan membuat tautan checkout WhatsApp otomatis.",
-    coreFunctions: [
-      "Sinkronisasi real-time 1.060 produk aktif (1.446 master SKU) dengan harga eceran & grosir",
-      "Dual-Engine AI + Deterministic Store Assistant dengan memori percakapan multi-turn",
-      "Smart Search paham ejaan lokal ('getas', 'ams', '250 gr', 'bal') dengan paginasi 24 item/hal",
-      "Integrasi WhatsApp Gateway WAHA ringan (RAM ~180 MB) + Smart Human-Takeover admin",
-    ],
-    impactMetrics: [
-      { value: "1.446", label: "Master SKU tersinkron PostgreSQL" },
-      { value: "24/7", label: "Asisten stok & hitung ongkir otomatis" },
-      { value: "4 GB", label: "Tetap ringan di PC kasir Windows 7" },
-      { value: "Live", label: "Tayang produksi di Vercel" },
+      "Menyatukan katalog produk publik dengan database stok toko, dilengkapi asisten AI yang membantu cek harga, berat kirim, hingga tautan checkout WhatsApp.",
+    highlights: [
+      {
+        title: "Stok Tersinkron",
+        detail: "Katalog web selalu mengikuti ketersediaan stok dan harga grosir terbaru.",
+      },
+      {
+        title: "Pencarian Pintar",
+        detail: "Memahami istilah camilan lokal agar pelanggan cepat menemukan produk.",
+      },
+      {
+        title: "Asisten Order WA",
+        detail: "Hitung total belanja dan estimasi berat kirim otomatis sebelum checkout.",
+      },
+      {
+        title: "Ringan di PC Lama",
+        detail: "Dirancang hemat sumber daya agar tetap lancar di komputer kasir toko.",
+      },
     ],
     serviceHref: "/jasa-automasi-whatsapp",
   },
@@ -89,49 +89,50 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "propsmart-saas",
     tier: "featured",
     client: "PropSmart.",
-    tagline: "Manajemen kos multi-unit, BI Rental Yield & estimasi harga ML.",
-    sector: "PropTech SaaS & Machine Learning",
+    tagline: "Manajemen kos multi-unit, penagihan otomatis & estimasi harga sewa.",
+    sector: "PropTech SaaS",
+    scope: "Dashboard Properti & Auto-Billing",
     year: "2026",
-    techStack: ["Next.js 14", "FastAPI", "Supabase", "Scikit-Learn Ridge"],
+    techStack: ["Next.js", "FastAPI", "Supabase", "Scikit-Learn"],
     images: [
       {
         src: "/images/portfolio/propsmart-saas.webp",
-        alt: "Dashboard Eksekutif PropSmart menampilkan okupansi 93.75%, pendapatan Rp 58,4 juta, NOI, Net Rental Yield 9.45%, status 32 kamar, dan estimasi harga ML Ridge",
-        caption: "Executive Financial & Occupancy Dashboard — Okupansi, NOI, Net Rental Yield, grid 32 kamar & estimasi harga ML real-time",
+        alt: "Dashboard Eksekutif PropSmart menampilkan okupansi kamar, arus kas, dan estimasi harga sewa",
+        caption: "Dashboard ringkas okupansi kamar, laporan arus kas, dan rekomendasi harga sewa",
         fit: "center",
         width: 1440,
         height: 1074,
       },
       {
         src: "/images/portfolio/propsmart-ml-pricing.webp",
-        alt: "Mesin Estimasi Harga Sewa Machine Learning PropSmart dengan akurasi R² 0.9822 dan faktor SHAP",
-        caption: "Machine Learning Price Estimation Engine (Ridge Regression R² = 0,9822) dengan penjelasan faktor SHAP",
+        alt: "Modul estimasi harga sewa berbasis data lokasi dan fasilitas PropSmart",
+        caption: "Simulasi estimasi harga sewa kamar berdasarkan lokasi, luas, dan fasilitas",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "Rental Yield BI", value: "Net Yield 9,45% & NOI" },
-      { label: "ML Pricing", value: "Ridge Model R² 0,9822" },
-      { label: "Auto-Billing", value: "Meteran kWh & WA API" },
-      { label: "Multi-Tenant", value: "Supabase RLS & QRIS" },
-    ],
     problem:
-      "Lebih dari 80% pemilik kos dan kontrakan masih mencatat meteran listrik/air serta penagihan secara manual di buku atau Excel, sehingga 25–35% penyewa terlambat bayar dan pemilik tidak mengetahui Net Rental Yield riil maupun harga sewa pasar optimal.",
+      "Pencatatan meteran listrik, status kamar, dan penagihan sewa di buku atau Excel kerap memicu keterlambatan tagihan serta laporan keuangan yang tercecer.",
     functionalValue:
-      "Platform SaaS properti sewa terpadu yang mengotomatisasi pencatatan utilitas kWh/m³ menjadi tagihan Virtual Account & QRIS via WhatsApp, menghitung Gross/Net Rental Yield secara real-time, dan memprediksi harga sewa kamar optimal menggunakan Ridge Regression beserta penjelasan faktor SHAP.",
-    coreFunctions: [
-      "Executive Overview Dashboard dengan grid status 32+ kamar real-time (Terisi, Kosong, Maintenance)",
-      "Utility Auto-Billing Engine mencatat meteran listrik/air dan mengirim pengingat tagihan WhatsApp 1 klik",
-      "BI Rental Yield Analytics: okupansi, arus kas bulanan, OPEX, Net Operating Income (NOI), & payback period",
-      "ML Price Estimation Engine (scikit-learn Ridge, R² 0,9822) untuk rekomendasi harga sewa berbasis lokasi, luas & fasilitas",
-    ],
-    impactMetrics: [
-      { value: "0,982", label: "Skor akurasi R² model Ridge ML" },
-      { value: "9,45%", label: "Pelacakan Net Rental Yield riil" },
-      { value: "32+", label: "Monitor status kamar per properti" },
-      { value: "1 Klik", label: "Tagihan & reminder WA otomatis" },
+      "Satu dashboard properti untuk memantau status kamar, mencatat utilitas, mengirim pengingat tagihan WhatsApp, dan melihat ringkasan arus kas secara jelas.",
+    highlights: [
+      {
+        title: "Pantau Status Kamar",
+        detail: "Peta visual kamar terisi, kosong, dan perawatan dalam satu tampilan.",
+      },
+      {
+        title: "Tagihan & Pengingat WA",
+        detail: "Catat meteran listrik/air lalu kirim tagihan QRIS ke penyewa sekali klik.",
+      },
+      {
+        title: "Ringkasan Arus Kas",
+        detail: "Pantau pemasukan, biaya operasional, dan imbal hasil properti tiap bulan.",
+      },
+      {
+        title: "Simulasi Harga Sewa",
+        detail: "Bantu pemilik menentukan tarif sewa kompetitif sesuai fasilitas kamar.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
@@ -139,41 +140,42 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "heavytrack-wms",
     tier: "archive",
     client: "HeavyTrack WMS.",
-    tagline: "Gudang spare parts alat berat offline-first (<5ms) & cetak Surat Jalan.",
-    sector: "Industrial WMS · PT Mitra Abadi Nusantara",
+    tagline: "Sistem gudang suku cadang alat berat offline-first & cetak Surat Jalan.",
+    sector: "Industrial WMS",
+    scope: "Warehouse System & Dokumen Legal",
     year: "2026",
-    techStack: ["React 18", "Node.js", "SQLite WAL", "Laravel 12"],
+    techStack: ["React", "Node.js", "SQLite WAL", "Laravel"],
     images: [
       {
         src: "/images/portfolio/heavytrack-wms.webp",
-        alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara dengan performa lokal <5ms, Surat Jalan, dan Penerimaan Barang",
-        caption: "Dashboard Operasional Offline-First (<5ms) — mutasi Surat Jalan (DO), LPB, dan pemisahan role Owner HPP vs Admin",
+        alt: "Dashboard Operasional HeavyTrack WMS menampilkan mutasi Surat Jalan dan Penerimaan Barang",
+        caption: "Dashboard operasional gudang berjalan lokal di jaringan LAN tanpa ketergantungan internet",
         fit: "top",
         width: 1440,
         height: 809,
       },
     ],
-    specs: [
-      { label: "Kecepatan", value: "Query Lokal 3–7 ms" },
-      { label: "Integritas Stok", value: "No Negative + Locking" },
-      { label: "Dokumen Legal", value: "SJ, Faktur & Dot Matrix" },
-      { label: "Konsumsi RAM", value: "~35 MB Offline LAN" },
-    ],
     problem:
-      "Distributor suku cadang alat berat (Komatsu, CAT, Hitachi, Fleetguard) butuh pencarian nomor part kompleks secara instan, jaminan anti stok minus di jam sibuk, serta cetak Surat Jalan rangkap dot-matrix tanpa bergantung koneksi internet stabil.",
+      "Gudang suku cadang alat berat membutuhkan pencarian nomor part lintas merek yang cepat serta cetak Surat Jalan tanpa terganggu koneksi internet.",
     functionalValue:
-      "Sistem WMS khusus spare parts alat berat yang berjalan 100% offline-first di jaringan Wi-Fi gudang dengan latensi query 3–7ms (~35 MB RAM), normalisasi pencarian part number lintas merek, buku mutasi append-only, dan cetak dokumen legal A4 maupun continuous form.",
-    coreFunctions: [
-      "Normalisasi pencarian Part Number & Cross-Reference antar merek (Komatsu, CAT, Hitachi, Parker Racor)",
-      "Pessimistic locking & aturan anti stok minus dengan kartu stok (stock ledger) immutable",
-      "Alur lengkap Goods Receipt (LPB) → Sales Order → Surat Jalan (DO) → Faktur & Kwitansi (A4 & Dot Matrix)",
-      "Pemisahan hak akses ketat Owner (lihat HPP, piutang, void dokumen) vs Admin/Kasir gudang",
-    ],
-    impactMetrics: [
-      { value: "<5ms", label: "Latensi query lokal SQLite WAL" },
-      { value: "~35MB", label: "Konsumsi RAM mesin server lokal" },
-      { value: "100%", label: "Berjalan penuh offline di LAN" },
-      { value: "0", label: "Toleransi stok negatif & hard delete" },
+      "Sistem gudang offline-first yang berjalan langsung di jaringan lokal, menjaga akurasi kartu stok agar tidak minus, dan siap mencetak dokumen pengiriman.",
+    highlights: [
+      {
+        title: "Pencarian Part Number",
+        detail: "Pencocokan nomor suku cadang lintas merek secara cepat dan konsisten.",
+      },
+      {
+        title: "Anti Stok Minus",
+        detail: "Penguncian transaksi otomatis dengan kartu mutasi stok yang tercatat rapi.",
+      },
+      {
+        title: "Cetak Dokumen Lengkap",
+        detail: "Alur LPB, Surat Jalan, hingga Faktur siap cetak A4 maupun dot-matrix.",
+      },
+      {
+        title: "Hak Akses Terpisah",
+        detail: "Memisahkan tampilan HPP & piutang khusus pemilik dari admin gudang.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
@@ -181,103 +183,101 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "looku-ai",
     tier: "featured",
     client: "Look.u AI.",
-    tagline: "Stylist AI berbasis Hybrid RAG 594 SKU & Vision tanpa halusinasi.",
-    sector: "Applied AI & Fashion Tech · PWA",
+    tagline: "Stylist AI berbasis katalog produk nyata & pencocokan foto lemari.",
+    sector: "Fashion Tech & Applied AI",
+    scope: "Web App AI & Kurasi Katalog",
     year: "2026",
-    techStack: ["Next.js", "Gemini 256-d RAG", "Vision AI", "Supabase"],
+    techStack: ["Next.js", "Gemini RAG", "Vision AI", "Supabase"],
     images: [
       {
         src: "/images/portfolio/looku-ai.webp",
-        alt: "Antarmuka editorial fashion Look.u AI menampilkan kurasi Casual Campus Chiffon adaptif iklim tropis Jakarta 33°C",
-        caption: "Presentasi katalog & rekomendasi fashion AI Look.u yang adaptif terhadap iklim tropis dan gaya modest",
+        alt: "Antarmuka editorial fashion Look.u AI menampilkan kurasi busana adaptif iklim tropis",
+        caption: "Kurasi busana modern yang menyesuaikan iklim tropis, gaya modest, dan preferensi pengguna",
         fit: "center",
         width: 1440,
         height: 810,
       },
       {
         src: "/images/portfolio/looku-ai-catalog.webp",
-        alt: "Tangkapan layar katalog produk RAG 594 SKU dari 46 brand resmi pada Look.u AI",
-        caption: "Katalog produk RAG (594 SKU · 46 Brand) terindeks vektor Gemini 256-dimensi",
+        alt: "Halaman katalog produk nyata terkurasi pada Look.u AI",
+        caption: "Katalog produk brand resmi sebagai sumber rekomendasi AI tanpa item fiktif",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "Hybrid RAG", value: "594 SKU · 46 Brand" },
-      { label: "Zero Hallucination", value: "Gemini 256-d Vector" },
-      { label: "Vision AI", value: "Foto Lemari & Try-On" },
-      { label: "Filter Ketat", value: "Hijab · Gender · Budget" },
-    ],
     problem:
-      "Chatbot AI generik sering berhalusinasi merekomendasikan produk fiktif atau tidak sesuai iklim tropis, warna kulit Nusantara, aturan hijab, maupun batas anggaran pengguna.",
+      "Chatbot AI umum kerap menyarankan pakaian fiktif yang tidak sesuai gaya berhijab, iklim tropis, maupun batas anggaran pembeli.",
     functionalValue:
-      "Mesin Hybrid RAG (vektor 256-dimensi + filter terstruktur) yang mengunci setiap rekomendasi ke 594 SKU produk nyata dari 46 brand resmi, lengkap dengan Vision AI untuk mix & match foto baju sendiri.",
-    coreFunctions: [
-      "Retrieval Hybrid RAG terhadap 594 SKU nyata (46 brand lokal & resmi) tanpa halusinasi",
-      "Vision Mix & Match: unggah foto baju di lemari atau selfie untuk pencocokan instan",
-      "Filter deterministik Gender, Hijab, Rona Kulit Nusantara, dan batas budget ketat",
-      "Modul Virtual Try-On Studio, kuis tes warna kulit, serta Admin CMS import/export CSV",
-    ],
-    impactMetrics: [
-      { value: "594", label: "SKU nyata terindeks vektor 256-d" },
-      { value: "46", label: "Brand lokal & official store" },
-      { value: "0%", label: "Produk fiktif (Zero-Hallucination)" },
-      { value: "Vision", label: "Mix & Match dari foto langsung" },
+      "Asisten styling berbasis pencarian katalog nyata yang mengunci setiap rekomendasi pada produk resmi, dilengkapi pencocokan langsung dari foto baju sendiri.",
+    highlights: [
+      {
+        title: "Rekomendasi Produk Nyata",
+        detail: "Setiap saran setelan merujuk langsung ke item katalog brand yang tersedia.",
+      },
+      {
+        title: "Mix & Match Foto",
+        detail: "Unggah foto pakaian dari lemari untuk mencari padanan warna dan gaya.",
+      },
+      {
+        title: "Filter Preferensi Ketat",
+        detail: "Mendukung filter hijab, gender, rona kulit, dan rentang anggaran.",
+      },
+      {
+        title: "Panel Kelola Katalog",
+        detail: "Admin mudah memperbarui daftar produk dan kategori melalui impor CSV.",
+      },
     ],
     serviceHref: "/jasa-automasi-whatsapp",
   },
-
-  // =========================================================================
-  // TIER 2 — 6 BORDERLESS VISUAL GALLERY SYSTEMS
-  // =========================================================================
   {
     slug: "lacak-korupsi",
     tier: "gallery",
     client: "Lacak Korupsi.",
-    tagline: "Portal berita investigasi, peta sebaran 38 provinsi & analitik data.",
-    sector: "Portal Berita & Civic Intelligence",
+    tagline: "Portal berita investigasi, peta sebaran wilayah & ringkasan kasus.",
+    sector: "Media & Civic Data",
+    scope: "Portal Berita & Visualisasi Peta",
     year: "2026",
-    techStack: ["Astro", "Next.js", "FastAPI", "Supabase PostGIS"],
+    techStack: ["Astro", "Next.js", "FastAPI", "PostGIS"],
     images: [
       {
         src: "/images/portfolio/lacak-korupsi.webp",
-        alt: "Halaman Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara 16 provinsi dan peringkat intensitas wilayah",
-        caption: "Peta Sebaran & Analitik Kerugian Negara 16+ Provinsi berbasis PostGIS & ECharts",
+        alt: "Halaman Peta Sebaran Kasus Lacak Korupsi menampilkan grafik sebaran wilayah",
+        caption: "Visualisasi sebaran kasus per provinsi dengan antarmuka baca gelap yang jernih",
         fit: "top",
         width: 1440,
         height: 810,
       },
       {
         src: "/images/portfolio/lacak-korupsi-news.webp",
-        alt: "Beranda Portal Berita Lacak Korupsi dengan breaking ticker, berita investigasi utama, dan daftar kasus terbaru",
-        caption: "Portal berita investigasi dengan Breaking Ticker, AI 30-Second Digest, & status proses hukum",
+        alt: "Beranda Portal Berita Lacak Korupsi dengan berita investigasi dan daftar kasus terbaru",
+        caption: "Beranda portal berita investigasi dengan ringkasan baca cepat dan alur proses hukum",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "GIS Heatmap", value: "Sebaran 38 Provinsi" },
-      { label: "AI Digest", value: "Ringkasan 30 Detik" },
-      { label: "Case Tracker", value: "Penyidikan → Inkracht" },
-      { label: "Whistleblower", value: "Pelaporan Terenkripsi" },
-    ],
     problem:
-      "Informasi kasus tindak pidana korupsi tersebar di berbagai media berita tanpa agregasi angka kerugian negara, sebaran wilayah geografis, maupun pelacakan perkembangan status hukum secara transparan.",
+      "Informasi perkara tindak pidana korupsi tersebar di berbagai kanal tanpa peta sebaran maupun pelacakan tahap hukum yang mudah diikuti publik.",
     functionalValue:
-      "Portal berita sekaligus pusat intelijen data publik yang menggabungkan ringkasan artikel AI 30 detik ber-atribusi sumber resmi, visualisasi GIS kerugian negara per provinsi, klasemen kasus, serta formulir whistleblower terenkripsi.",
-    coreFunctions: [
-      "Peta sebaran & intensitas kerugian negara lintas provinsi berbasis PostgreSQL PostGIS & ECharts",
-      "Portal berita investigasi dengan Breaking Ticker, filter sektor, dan AI 30-Second Digest netral",
-      "Case Tracker 4 tahap (Penyidikan → Penuntutan → Vonis → Inkracht) dan Klasemen Kerugian Negara",
-      "Formulir Whistleblower aman + arsitektur terpisah Next.js / Astro Island & FastAPI",
-    ],
-    impactMetrics: [
-      { value: "38", label: "Pemetaan provinsi berbasis PostGIS" },
-      { value: "30 dtk", label: "Format baca ringkas AI Digest" },
-      { value: "4 Tahap", label: "Pelacakan status hukum transparan" },
-      { value: "<1 dtk", label: "Render halaman cepat via Astro/ISR" },
+      "Portal berita sekaligus pusat data publik yang menyatukan ringkasan berita netral, pemetaan wilayah interaktif, dan pelacakan tahapan perkara.",
+    highlights: [
+      {
+        title: "Peta Sebaran Wilayah",
+        detail: "Visualisasi data perkara lintas provinsi berbasis basis data spasial.",
+      },
+      {
+        title: "Ringkasan Baca Cepat",
+        detail: "Ikhtisar berita singkat dengan atribusi sumber resmi yang jelas.",
+      },
+      {
+        title: "Pelacak Tahap Hukum",
+        detail: "Menampilkan progres perkara dari penyidikan hingga putusan berkekuatan tetap.",
+      },
+      {
+        title: "Kanal Laporan Aman",
+        detail: "Formulir pelaporan publik yang terstruktur dan menjaga kerahasiaan.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-website-jakarta",
   },
@@ -285,49 +285,50 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "central-scaffolding",
     tier: "gallery",
     client: "Central Scaffolding.",
-    tagline: "Web B2B sewa/jual, kalkulator set SNI & Local SEO.",
+    tagline: "Web B2B sewa & jual scaffolding, kalkulator kebutuhan set & Local SEO.",
     sector: "Konstruksi B2B · Jabodetabek",
+    scope: "Website B2B & Kalkulator Material",
     year: "2026",
-    techStack: ["Astro", "React Island", "Tailwind CSS", "Local SEO"],
+    techStack: ["Astro", "React", "Tailwind CSS", "Local SEO"],
     images: [
       {
         src: "/images/portfolio/central-scaffolding.webp",
-        alt: "Tangkapan layar langsung website B2B Sewa & Jual Scaffolding Standar SNI Central Scaffolding",
-        caption: "Beranda website B2B ultra-cepat berbasis Astro dengan stok 10.000+ set & Local SEO Jabodetabek",
+        alt: "Website B2B Sewa dan Jual Scaffolding Standar SNI Central Scaffolding",
+        caption: "Beranda B2B ultra-ringan yang dirancang untuk kontraktor mengakses langsung dari lapangan",
         fit: "top",
         width: 1440,
         height: 1080,
       },
       {
         src: "/images/portfolio/central-scaffolding-catalog.webp",
-        alt: "Tangkapan layar langsung katalog produk dan aksesoris Central Scaffolding",
-        caption: "Katalog teknis komponen SNI interaktif siap filter & hitung set ke WhatsApp",
+        alt: "Katalog komponen dan aksesoris scaffolding Central Scaffolding",
+        caption: "Katalog spesifikasi komponen SNI dengan tombol tanya stok langsung ke WhatsApp",
         fit: "top",
         width: 1440,
         height: 1202,
       },
     ],
-    specs: [
-      { label: "Kalkulator", value: "Hitung Set ke WA" },
-      { label: "Katalog B2B", value: "Filter Komponen SNI" },
-      { label: "Local SEO", value: "Halaman Per Area" },
-      { label: "Arsitektur", value: "Astro 0 KB Static" },
-    ],
     problem:
-      "Kontraktor di lapangan mencari vendor sewa/beli scaffolding langsung dari HP dan butuh kepastian stok fisik beserta hitungan jumlah Main Frame, Cross Brace, dan Joint Pin tanpa menunggu lama.",
+      "Kontraktor di lapangan mencari vendor scaffolding lewat ponsel dan perlu kepastian rincian komponen set tanpa menunggu respons lama.",
     functionalValue:
-      "Website ultra-ringan berbasis Astro dengan kalkulator kebutuhan material interaktif yang otomatis menghitung rincian batang rangka dan mengirim draf order rapi ke WhatsApp, didukung halaman Local SEO otomatis per kecamatan.",
-    coreFunctions: [
-      "Kalkulator interaktif Sewa / Beli Baru / Rekondisi (1–200+ set) + add-on Catwalk & Roda",
-      "Katalog filter komponen teknis SNI dengan tombol 'Tanya Stok Item Ini' otomatis ke WA",
-      "Programmatic Local SEO (/area/[slug]) membidik pencarian kontraktor Tangerang, BSD & Jakarta",
-      "Arsitektur Astro Islands (0 KB JS untuk konten statis) agar instan dibuka di lokasi proyek",
-    ],
-    impactMetrics: [
-      { value: "10.000+", label: "Kapasitas set ditampilkan jelas" },
-      { value: "0 KB", label: "JS berlebih pada konten statis" },
-      { value: "1 Klik", label: "Kalkulator set langsung ke draf WA" },
-      { value: "SNI", label: "Spec-sheet komponen terstruktur" },
+      "Website B2B ringan dengan kalkulator kebutuhan set interaktif yang menyusun draf pesanan rapi ke WhatsApp serta halaman jangkauan per area.",
+    highlights: [
+      {
+        title: "Kalkulator Kebutuhan Set",
+        detail: "Otomatis merinci Main Frame, Cross Brace, dan Joint Pin untuk sewa atau beli.",
+      },
+      {
+        title: "Katalog Spesifikasi SNI",
+        detail: "Filter komponen teknis dengan tombol cek ketersediaan langsung ke WhatsApp.",
+      },
+      {
+        title: "Halaman Local SEO",
+        detail: "Struktur halaman terarah untuk pencarian proyek di Jabodetabek.",
+      },
+      {
+        title: "Akses Ringan di Lapangan",
+        detail: "Arsitektur statis modern agar halaman tetap cepat di jaringan seluler.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-website-jakarta",
   },
@@ -335,49 +336,50 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "ypi-al-fuad",
     tier: "gallery",
     client: "YPI Al-Fuad Tangerang.",
-    tagline: "Portal 5 unit pendidikan & sistem konversi PPDB.",
+    tagline: "Portal terpadu multi-unit pendidikan & alur pendaftaran PPDB.",
     sector: "Yayasan Pendidikan · Tangerang",
+    scope: "Portal Yayasan & Informasi PPDB",
     year: "2026",
-    techStack: ["Astro 5", "TypeScript", "Tailwind CSS", "JSON-LD SEO"],
+    techStack: ["Astro", "TypeScript", "Tailwind CSS", "SEO Schema"],
     images: [
       {
         src: "/images/portfolio/ypi-al-fuad.webp",
-        alt: "Tangkapan layar langsung portal resmi YPI Al-Fuad Poris Gaga Tangerang",
-        caption: "Tampilan produksi portal resmi YPI Tahfidz Qur'an Al-Fuad untuk 5 unit pendidikan & PPDB 2026",
+        alt: "Portal resmi Yayasan Pendidikan Islam Al-Fuad Tangerang",
+        caption: "Beranda portal yayasan terpadu dengan navigasi jenjang dan alur pendaftaran PPDB",
         fit: "top",
         width: 1440,
         height: 1080,
       },
       {
         src: "/images/portfolio/ypi-al-fuad-units.webp",
-        alt: "Tangkapan layar daftar 5 unit pendidikan terpadu YPI Al-Fuad lengkap NPSN",
-        caption: "Navigasi 5 jenjang pendidikan (RA, MI TPI, SMP-IT, SMK-IT, Pondok Pesantren) & rincian biaya",
+        alt: "Tampilan daftar unit pendidikan terpadu YPI Al-Fuad",
+        caption: "Navigasi jelas tiap jenjang pendidikan lengkap informasi resmi dan biaya",
         fit: "top",
         width: 1440,
         height: 1202,
       },
     ],
-    specs: [
-      { label: "5 Jenjang", value: "RA · MI · SMP · SMK · Ponpes" },
-      { label: "Konversi", value: "Alur PPDB & PDF Biaya" },
-      { label: "SEO Resmi", value: "Schema Sekolah & NPSN" },
-      { label: "Performa", value: "Astro 5 Static Output" },
-    ],
     problem:
-      "Orang tua calon siswa kesulitan membedakan 5 jenjang pendidikan dalam satu yayasan (RA, MI TPI, SMP-IT, SMK-IT, dan Pondok Pesantren) serta harus bolak-balik menanyakan brosur dan rincian biaya PPDB.",
+      "Orang tua calon siswa sering bingung membedakan informasi antar jenjang dalam satu yayasan dan harus berulang kali meminta brosur biaya.",
     functionalValue:
-      "Portal resmi terpadu tanpa beban database eksternal yang menyatukan informasi NPSN 5 unit pendidikan, unduhan PDF brosur & biaya resmi, serta tombol konversi langsung ke panitia PPDB WhatsApp.",
-    coreFunctions: [
-      "Tab interaktif 5 unit terpadu lengkap dengan NPSN resmi (RA, MI TPI, SMP-IT, SMK-IT, Ponpes)",
-      "Unduhan langsung dokumen PDF brosur PPDB 2026 & rincian biaya transparan",
-      "Metadata SEO EducationalOrganization, LocalBusiness & FAQPage JSON-LD terverifikasi",
-      "Security headers Cloudflare Pages + TypeScript strict tanpa biaya maintenance database",
-    ],
-    impactMetrics: [
-      { value: "5 Unit", label: "Jenjang terintegrasi satu portal" },
-      { value: "35+ Th", label: "Reputasi yayasan tersaji rapi" },
-      { value: "PDF", label: "Unduh brosur & biaya 1 klik" },
-      { value: "Rp0", label: "Biaya langganan server database" },
+      "Portal resmi yang menyatukan seluruh unit pendidikan (RA hingga SMK & Pesantren), brosur biaya siap unduh, dan akses langsung ke panitia PPDB.",
+    highlights: [
+      {
+        title: "Navigasi Multi-Jenjang",
+        detail: "Tab terstruktur untuk RA, MI, SMP-IT, SMK-IT, dan Pondok Pesantren.",
+      },
+      {
+        title: "Unduh Brosur & Biaya",
+        detail: "Dokumen resmi PPDB dan rincian biaya tersedia langsung dalam satu klik.",
+      },
+      {
+        title: "Konversi ke Panitia WA",
+        detail: "Tombol konsultasi terarah agar calon wali murid langsung terhubung.",
+      },
+      {
+        title: "Tanpa Beban Maintenance",
+        detail: "Berjalan sebagai situs statis aman tanpa biaya langganan database bulanan.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-website-jakarta",
   },
@@ -385,39 +387,42 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "crew-ai-hris",
     tier: "archive",
     client: "CREW. AI HRIS.",
-    tagline: "Dashboard HRIS, deteksi risiko resign & audit gaji ML.",
-    sector: "Enterprise HRIS & ML",
+    tagline: "Dashboard HRIS, pemetaan risiko resign & evaluasi struktur gaji.",
+    sector: "Enterprise HRIS",
+    scope: "HR Management & People Analytics",
     year: "2026",
     techStack: ["Next.js", "FastAPI", "Scikit-Learn", "PostgreSQL"],
     images: [
       {
         src: "/images/portfolio/crew-ai-hris.webp",
-        alt: "Tangkapan layar langsung CREW AI HRIS menampilkan 142 karyawan, retensi 92.5%, dan prediksi gaji ML",
-        caption: "Antarmuka CREW AI HRIS: metrik retensi, distribusi risiko keluar (Flight Risk), & prediksi gaji ideal ML",
+        alt: "Antarmuka CREW AI HRIS menampilkan ringkasan karyawan, retensi, dan evaluasi kompensasi",
+        caption: "Dashboard terpusat untuk manajemen tim, evaluasi kinerja, dan analitik retensi",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "Machine Learning", value: "Flight Risk Detector" },
-      { label: "Kompensasi", value: "Smart Salary Predict" },
-    ],
     problem:
-      "Tim HR umumnya baru menyadari risiko resign karyawan kunci setelah surat pengunduran diri masuk, tanpa data objektif mengenai kesenjangan kompensasi atau biaya kehilangan talenta.",
+      "Tim HR kerap kesulitan memantau risiko pengunduran diri talenta kunci dan kesenjangan kompensasi secara objektif dari spreadsheet terpisah.",
     functionalValue:
-      "Menggabungkan manajemen karyawan & KPI dengan model Machine Learning Scikit-Learn lewat FastAPI (<200ms) untuk memetakan risiko resign, estimasi kerugian attrition, serta audit gaji ideal.",
-    coreFunctions: [
-      "Retention AI (Scikit-Learn) menghitung probabilitas Flight Risk & anggaran retensi ideal",
-      "Smart Salary Prediction membandingkan gaji saat ini vs prediksi ideal berbasis pengalaman & KPI",
-      "CRUD karyawan, evaluasi KPI, payroll, dan daftar risiko prioritas dalam 1 dashboard",
-      "Arsitektur Full-Stack Next.js + FastAPI + PostgreSQL siap jalan via Docker Compose",
-    ],
-    impactMetrics: [
-      { value: "<200ms", label: "Waktu inferensi model ML FastAPI" },
-      { value: ">80%", label: "Target akurasi ROC-AUC retensi" },
-      { value: "Docker", label: "Setup penuh dalam 1 perintah" },
-      { value: "Full-Stack", label: "Next.js + Python + PostgreSQL" },
+      "Menggabungkan data karyawan, penilaian kinerja, dan model analitik untuk membantu tim HR membaca risiko retensi serta merapikan struktur gaji.",
+    highlights: [
+      {
+        title: "Database & KPI Tim",
+        detail: "Kelola profil karyawan, riwayat evaluasi, dan penggajian dalam satu tempat.",
+      },
+      {
+        title: "Pemetaan Risiko Resign",
+        detail: "Indikator prioritas dini untuk membantu tim HR menyusun langkah retensi.",
+      },
+      {
+        title: "Audit Struktur Gaji",
+        detail: "Bandingkan kompensasi berjalan dengan acuan pengalaman dan kinerja.",
+      },
+      {
+        title: "Siap Deploy Mandiri",
+        detail: "Arsitektur container bersih agar mudah dipasang di server internal perusahaan.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
@@ -425,122 +430,127 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "smartpos-aneka-rasa",
     tier: "featured",
     client: "Toko Ritel POS (SmartPOS).",
-    tagline: "Kasir toko ritel barcode <45ms, katalog stok live & BI omzet.",
+    tagline: "Kasir toko ritel barcode cepat, katalog stok live & laporan omzet.",
     sector: "Omnichannel Retail POS",
+    scope: "Sistem Kasir POS & Katalog Ritel",
     year: "2026",
-    techStack: ["React", "Vite", "USB Barcode", "Shopee Sync"],
+    techStack: ["React", "Vite", "USB Barcode", "Marketplace Sync"],
     images: [
       {
         src: "/images/portfolio/toko-amen-snack.webp",
-        alt: "Tampilan sistem katalog dan operasional Toko Ritel POS (SmartPOS) terintegrasi stok live",
-        caption: "Toko Ritel POS (SmartPOS) — katalog stok terpadu, kasir barcode <45ms, struk 58mm & sinkronisasi omzet",
+        alt: "Tampilan sistem katalog dan operasional Toko Ritel POS SmartPOS",
+        caption: "Katalog stok ritel terhubung langsung dengan terminal kasir dan laporan omzet",
         fit: "top",
         width: 1440,
         height: 1080,
       },
       {
         src: "/images/portfolio/toko-amen-snack-catalog.webp",
-        alt: "Halaman katalog promo dan produk terintegrasi sistem Toko Ritel POS (SmartPOS)",
-        caption: "Katalog ritel & promo produk tersinkronisasi langsung dengan stok kasir dan marketplace",
+        alt: "Halaman katalog promo dan produk terintegrasi Toko Ritel POS",
+        caption: "Sinkronisasi tampilan promo, stok kasir, dan kanal pemesanan online",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "Kasir Cepat", value: "Scan Barcode <45ms" },
-      { label: "Omnichannel", value: "POS + Shopee + BI" },
-    ],
     problem:
-      "Toko ritel dan oleh-oleh yang berjualan offline sekaligus di Shopee kerap mengalami selisih stok, antrean kasir lambat, serta kesulitan menghitung laba bersih riil (HPP vs omzet).",
+      "Toko ritel yang berjualan di gerai sekaligus online sering mengalami selisih stok, antrean kasir lambat, dan kesulitan menghitung laba bersih harian.",
     functionalValue:
-      "Terminal kasir POS dark-mode berkecepatan tinggi dengan pintasan keyboard penuh (F2–F12), dukungan scanner laser & kamera HP, cetak struk termal 58mm, hingga pemisahan hak akses Owner BI vs Kasir.",
-    coreFunctions: [
-      "Scanner barcode USB HID (<45ms) + kamera HP, pintasan keyboard F2/F8/F9/F10/F12",
-      "Pembayaran Tunai, Debit, QRIS + cetak struk termal 58mm siap pakai",
-      "Executive BI Dashboard (khusus Owner): Omzet, HPP, Laba Kotor, Pareto 80/20 & ekspor PDF/Excel",
-      "Sinkronisasi stok otomatis dengan pesanan marketplace Shopee + RBAC ketat Owner/Kasir",
-    ],
-    impactMetrics: [
-      { value: "<45ms", label: "Deteksi pemindai barcode USB HID" },
-      { value: "58mm", label: "Cetak struk termal siap kasir" },
-      { value: "2 Role", label: "RBAC terpisah Owner BI vs Kasir" },
-      { value: "Shopee", label: "Potong stok omnichannel otomatis" },
+      "Sistem kasir ritel cepat dengan pemindai barcode, cetak struk termal, sinkronisasi stok marketplace, serta laporan omzet khusus pemilik toko.",
+    highlights: [
+      {
+        title: "Kasir Barcode & Shortcut",
+        detail: "Mendukung pemindai barcode USB/kamera dan pintasan keyboard agar antrean lancar.",
+      },
+      {
+        title: "Pembayaran & Struk Termal",
+        detail: "Mencatat transaksi tunai, debit, maupun QRIS lengkap cetak struk kasir.",
+      },
+      {
+        title: "Laporan Laba Pemilik",
+        detail: "Ringkasan omzet, HPP, dan produk terlaris siap unduh ke PDF atau Excel.",
+      },
+      {
+        title: "Pemisahan Akses Peran",
+        detail: "Hak akses kasir dibatasi hanya pada transaksi tanpa membuka laporan margin.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
   {
     slug: "scalebase-crm",
-    tier: "gallery",
+    tier: "archive",
     client: "ScaleBase CRM.",
-    tagline: "Board Kanban pipeline B2B, tiket CS & analitik RFM.",
-    sector: "B2B Sales CRM & Support",
+    tagline: "Board Kanban pipeline B2B, manajemen tiket CS & segmentasi pelanggan.",
+    sector: "B2B Sales CRM",
+    scope: "Sales Pipeline & Customer Workspace",
     year: "2026",
-    techStack: ["Next.js", "TypeScript", "FastAPI", "RFM ML"],
+    techStack: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL"],
     images: [
       {
         src: "/images/portfolio/scalebase-crm.webp",
-        alt: "Tangkapan layar langsung ScaleBase CRM untuk manajemen pipeline penjualan B2B dan analitik RFM",
-        caption: "Antarmuka ScaleBase CRM — pipeline penjualan B2B terukur, manajemen prospek, & segmentasi RFM",
+        alt: "Antarmuka ScaleBase CRM untuk manajemen pipeline penjualan B2B",
+        caption: "Workspace CRM B2B bersih untuk melacak prospek dan kepuasan pelanggan",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "Pipeline", value: "Kanban Drag & Drop" },
-      { label: "Retensi", value: "Segmentasi RFM ML" },
-    ],
     problem:
-      "Prospek B2B sering tercecer di spreadsheet terpisah antara tim sales, CS, dan marketing sehingga follow-up terlambat dan pelanggan berisiko churn tidak terdeteksi.",
+      "Data prospek dan keluhan pelanggan B2B sering tercecer di banyak file sehingga tindak lanjut tim sales terlambat dan peluang terlewat.",
     functionalValue:
-      "Menyatukan manajemen pipeline penjualan Kanban, tiket komplain omnichannel, pengingat lead idle >3 hari, dan segmentasi pelanggan RFM dalam satu workspace terpadu.",
-    coreFunctions: [
-      "Pipeline Kanban (New → Contacted → Proposal → Negotiation → Won/Lost) + hitung Win Rate",
-      "Otomasi pengingat Sales Rep apabila prospek terbengkalai di status New >3 hari",
-      "Customer 360 & manajemen tiket CS dengan pelacakan SLA penyelesaian komplain",
-      "Segmentasi klaster RFM (Recency, Frequency, Monetary) & RBAC 5 peran tim",
-    ],
-    impactMetrics: [
-      { value: "5 Role", label: "RBAC Sales, Manager, CS, Mkt, Admin" },
-      { value: "Kanban", label: "Pelacakan funnel & nilai deal" },
-      { value: "RFM ML", label: "Deteksi pelanggan At-Risk churn" },
-      { value: "3 Hari", label: "Otomasi pengingat prospek idle" },
+      "Workspace terpadu yang menyatukan papan Kanban penjualan, pengingat tindak lanjut prospek, tiket layanan pelanggan, dan pengelompokan klien.",
+    highlights: [
+      {
+        title: "Papan Kanban Pipeline",
+        detail: "Pantau perpindahan prospek dari kontak awal hingga closing secara visual.",
+      },
+      {
+        title: "Pengingat Follow-Up",
+        detail: "Notifikasi otomatis saat prospek belum ditindaklanjuti sesuai jadwal.",
+      },
+      {
+        title: "Tiket Layanan Pelanggan",
+        detail: "Riwayat interaksi dan penanganan keluhan tercatat rapi per akun klien.",
+      },
+      {
+        title: "Segmentasi Pelanggan",
+        detail: "Kelompokkan klien aktif dan berisiko churn untuk prioritas tim sales.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
-
-  // =========================================================================
-  // TIER 3 — 6 ARCHIVE SYSTEMS (Minimalist Swiss Index List + Full Detail Pages)
-  // =========================================================================
   {
     slug: "capstonenews-portal",
     tier: "archive",
     client: "CapstoneNews.",
-    tagline: "Portal berita editorial modern dengan CMS Filament v5 & Inertia Vue 3.",
+    tagline: "Portal berita editorial modern dengan CMS redaksi & mode baca nyaman.",
     sector: "Media & Portal Berita",
+    scope: "News Portal & Editorial CMS",
     year: "2026",
-    techStack: ["Laravel 11", "Filament v5", "Inertia Vue 3", "Spatie Media"],
+    techStack: ["Laravel", "Filament", "Inertia Vue", "PostgreSQL"],
     images: [],
-    specs: [
-      { label: "CMS Redaksi", value: "Filament v5 + Spatie" },
-      { label: "Frontend SPA", value: "Inertia.js + Vue 3" },
-    ],
     problem:
-      "Media berita digital membutuhkan alur penerbitan redaksi yang cepat (draft, review, publish), pengelolaan media gambar otomatis, pencarian artikel instan, serta pengalaman baca nyaman di mode terang maupun gelap.",
+      "Tim redaksi membutuhkan alur publikasi artikel yang rapi dari draf hingga tayang, disertai tampilan baca yang ringan di perangkat seluler.",
     functionalValue:
-      "Portal berita full-stack berbasis Laravel 11 + Inertia Vue 3 dengan panel redaksi Filament v5, kurasi Breaking News & Trending Sidebar, sistem Bookmark & Komentar pembaca, serta SEO Head terstruktur.",
-    coreFunctions: [
-      "CMS redaksi Filament v5 lengkap untuk manajemen Berita, Kategori, Tag, Komentar & User Role",
-      "Grid Breaking News, Trending Sidebar, pencarian real-time, serta filter kategori/tag",
-      "Manajemen aset gambar teroptimasi lewat Spatie Media Library & Action/DTO arsitektur bersih",
-      "Dukungan Dark/Light Mode otomatis, fitur Bookmark pembaca & statistik views artikel",
-    ],
-    impactMetrics: [
-      { value: "SPA", label: "Navigasi baca tanpa reload via Inertia" },
-      { value: "CMS v5", label: "Panel redaksi Filament lengkap" },
-      { value: "SEO", label: "Meta dinamis & URL ramah mesin pencari" },
-      { value: "RBAC", label: "Pemisahan peran Editor, Penulis & Pembaca" },
+      "Portal berita full-stack dengan panel redaksi terstruktur, pengelolaan media otomatis, pencarian cepat, serta pilihan tema terang dan gelap.",
+    highlights: [
+      {
+        title: "Panel Redaksi Terstruktur",
+        detail: "Kelola artikel, kategori, tag, komentar, dan peran penulis dari satu panel.",
+      },
+      {
+        title: "Navigasi Baca Instan",
+        detail: "Perpindahan antar berita mulus tanpa muat ulang penuh berkat SPA Inertia.",
+      },
+      {
+        title: "Kurasi & Bookmark",
+        detail: "Sorotan berita utama, daftar populer, dan simpan artikel bagi pembaca.",
+      },
+      {
+        title: "Struktur Ramah SEO",
+        detail: "URL bersih dan metadata artikel dinamis agar mudah terindeks mesin pencari.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-website-jakarta",
   },
@@ -548,30 +558,33 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "desahub-simkopdes",
     tier: "archive",
     client: "DesaHub (SIMKOPDES).",
-    tagline: "Agregasi pangan koperasi desa & kontrak pre-order atomik untuk MBG.",
-    sector: "Agritech B2B · Kemenkop RI",
+    tagline: "Platform agregasi pangan koperasi desa, kontrak pre-order & pelacakan QR.",
+    sector: "Agritech B2B",
+    scope: "Supply Chain & QR Traceability",
     year: "2026",
-    techStack: ["Laravel 11", "Filament 3", "Inertia Vue 3", "PostgreSQL"],
+    techStack: ["Laravel", "Filament", "Inertia Vue", "PostgreSQL"],
     images: [],
-    specs: [
-      { label: "Pre-Order", value: "Atomic lockForUpdate" },
-      { label: "Traceability", value: "QR Lahan & Skor Lab" },
-    ],
     problem:
-      "Koperasi Unit Desa (KUD) menghadapi ketidakpastian permintaan, sementara program Makan Bergizi Gratis (MBG) memerlukan pasokan pangan terstandardisasi mutu, bebas double-booking, dan terlacak asalnya.",
+      "Koperasi desa dan pembeli korporasi membutuhkan kepastian kapasitas pasokan pangan, kontrak bebas bentrok stok, dan jejak asal komoditas.",
     functionalValue:
-      "Platform B2B yang mempertemukan Koperasi Desa dengan pembeli korporasi/MBG melalui Live Supply Capacity, Atomic Smart Pre-Order Contract siap cetak A4 resmi, serta QR Traceability asal petani & uji lab.",
-    coreFunctions: [
-      "Dasbor Live Supply Capacity dengan peringatan otomatis komoditas kritis (<100 kg)",
-      "Reservasi kontrak stok atomik (DB::transaction + lockForUpdate) anti double-booking",
-      "Cetak Lembar Kontrak Resmi A4 + integrasi konfirmasi langsung ke WhatsApp Koperasi",
-      "Farmer Origin Traceability via QR Code dengan skor uji lab keamanan pangan & koordinat GPS",
-    ],
-    impactMetrics: [
-      { value: "ACID", label: "Kunci stok kontrak anti race-condition" },
-      { value: "QR", label: "Jejak digital Farm-to-Table transparan" },
-      { value: "A4 Print", label: "Bukti kontrak formal siap cetak" },
-      { value: "Kemenkop", label: "Karya Hackathon Nasional Koperasi RI" },
+      "Sistem penghubung koperasi desa dan pembeli B2B dengan pemantauan stok panen, penguncian kontrak pre-order, serta jejak asal lahan lewat QR.",
+    highlights: [
+      {
+        title: "Pantau Kapasitas Pasokan",
+        detail: "Dasbor ketersediaan komoditas koperasi lengkap peringatan stok menipis.",
+      },
+      {
+        title: "Kontrak Anti Double-Book",
+        detail: "Penguncian reservasi stok berbasis transaksi agar alokasi tetap akurat.",
+      },
+      {
+        title: "Dokumen Kontrak Siap Cetak",
+        detail: "Lembar kontrak formal format A4 terhubung ke konfirmasi WhatsApp koperasi.",
+      },
+      {
+        title: "Pelacakan Asal QR",
+        detail: "Kode QR memuat informasi asal petani, kualitas panen, dan lokasi lahan.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
@@ -579,39 +592,42 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "kinetic-fitness",
     tier: "archive",
     client: "KINETIC Fitness.",
-    tagline: "Platform gym multi-cabang, spot picker studio & QR turnstile 15 dtk.",
+    tagline: "Platform gym multi-cabang, pilih posisi kelas studio & akses QR dinamis.",
     sector: "Fitness Tech & IoT",
+    scope: "Member App & IoT Gate Access",
     year: "2026",
-    techStack: ["Next.js 15", "Supabase RLS", "React Native", "IoT Gate"],
+    techStack: ["Next.js", "Supabase", "React Native", "IoT Gate"],
     images: [
       {
         src: "/images/portfolio/kinetic-fitness.webp",
-        alt: "Antarmuka KINETIC Tech Gym Platform menampilkan status 48+ cabang, QR Member Pass, dan mode gelap Obsidian",
-        caption: "KINETIC Next-Gen Tech Gym — 50+ cabang nasional, Dynamic QR Pass & dual-theme Obsidian/Titanium",
+        alt: "Antarmuka platform KINETIC Fitness menampilkan keanggotaan dan akses QR",
+        caption: "Ekosistem digital keanggotaan gym multi-cabang dengan tema gelap modern",
         fit: "top",
         width: 1440,
         height: 1080,
       },
     ],
-    specs: [
-      { label: "Turnstile IoT", value: "Dynamic QR TOTP 15 dtk" },
-      { label: "Booking Kelas", value: "Cinema-Style Spot Picker" },
-    ],
     problem:
-      "Jaringan gym multi-cabang sering mengalami antrean resepsionis, perebutan posisi matras kelas studio, serta ketiadaan visibilitas jam sepi/ramai antar cabang bagi member.",
+      "Pengelola gym multi-cabang sering menghadapi antrean resepsionis, perebutan posisi matras kelas, dan kurangnya info kepadatan cabang.",
     functionalValue:
-      "Ekosistem gym full-TypeScript dengan radar GPS cabang terdekat & prediksi kepadatan per jam, pemilih posisi matras studio layaknya bioskop, hingga daemon gerbang IoT Raspberry Pi berbasis QR dinamis 15 detik.",
-    coreFunctions: [
-      "Cinema-Style Studio Spot Picker (Row A/B/C) + sinkronisasi 1-klik Google Calendar & file .ics",
-      "Radar GPS & Predictive Crowd Forecast menampilkan tingkat kepadatan cabang secara real-time",
-      "Dynamic 15-Second TOTP QR Pass terhubung ke daemon Turnstile Gate (Raspberry Pi)",
-      "Dual-Theme Engine (Obsidian Dark & Titanium Lab Light) serta dukungan dwibahasa ID/EN",
-    ],
-    impactMetrics: [
-      { value: "<192ms", label: "Kecepatan pindai gerbang QR IoT" },
-      { value: "15 dtk", label: "Rotasi keamanan kode QR dinamis" },
-      { value: "50+", label: "Arsitektur multi-cabang RLS Supabase" },
-      { value: "Dual", label: "Tema Obsidian & Titanium + ID/EN" },
+      "Platform terpadu untuk memesan posisi kelas studio, melihat perkiraan kepadatan cabang, dan masuk gerbang latihan menggunakan kode QR dinamis.",
+    highlights: [
+      {
+        title: "Pilih Posisi Studio",
+        detail: "Denah booking kelas bergaya bioskop lengkap sinkronisasi jadwal kalender.",
+      },
+      {
+        title: "Info Kepadatan Cabang",
+        detail: "Membantu member memilih cabang terdekat dan waktu latihan paling nyaman.",
+      },
+      {
+        title: "Gerbang Akses QR Dinamis",
+        detail: "Kode QR berubah berkala untuk mencegah berbagi akun dan mempercepat check-in.",
+      },
+      {
+        title: "Arsitektur Multi-Cabang",
+        detail: "Isolasi data antar cabang rapi dengan dukungan dwibahasa dan tema ganda.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
@@ -619,39 +635,42 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "logisync-fleet",
     tier: "featured",
     client: "LogiSync (Fleet.OS).",
-    tagline: "Command center logistik, pelacakan GPS real-time, WMS & PWA kurir.",
-    sector: "Enterprise Logistics & Fleet",
+    tagline: "Pusat kendali logistik, pelacakan armada GPS, gudang WMS & aplikasi kurir.",
+    sector: "Logistics & Fleet",
+    scope: "Command Center, WMS & PWA Kurir",
     year: "2026",
-    techStack: ["Next.js 16", "FastAPI", "Redis", "Leaflet GPS"],
+    techStack: ["Next.js", "FastAPI", "Redis", "Leaflet GPS"],
     images: [
       {
         src: "/images/portfolio/logisync-fleet.webp",
-        alt: "Pusat Kendali LogiSync (Fleet.OS) menampilkan Tingkat OTD 94.5%, Armada Aktif 42/50, peta armada langsung Jakarta, dan Tren Kapasitas Gudang",
-        caption: "Pusat Kendali Operasional LogiSync — pelacakan armada GPS langsung, analitik kapasitas gudang (WMS), dan monitoring pengiriman real-time",
+        alt: "Pusat Kendali LogiSync menampilkan peta armada langsung, status pengiriman, dan tren kapasitas gudang",
+        caption: "Pusat kendali terpadu untuk memantau armada GPS, pengiriman harian, dan peringatan gudang",
         fit: "top",
         width: 1440,
         height: 810,
       },
     ],
-    specs: [
-      { label: "Live Telemetry", value: "WebSocket GPS + Redis" },
-      { label: "Lapangan", value: "PWA Kurir + Scan Barcode" },
-    ],
     problem:
-      "Perusahaan ekspedisi dan distribusi kesulitan menyatukan posisi armada GPS lapangan, pemindaian inbound/outbound gudang, dan estimasi waktu tiba (ETA) dalam satu pusat kendali.",
+      "Perusahaan logistik kesulitan menyatukan pemantauan posisi armada di jalan, pergerakan barang di gudang, dan status serah terima paket kurir.",
     functionalValue:
-      "Platform logistik terpadu dengan Command Center KPI & peta armada Leaflet, aliran GPS real-time via WebSocket + Redis, pemindaian paket barcode, PWA kurir bertanda tangan digital, dan prediksi risiko keterlambatan.",
-    coreFunctions: [
-      "Command Center dengan peta armada real-time (Leaflet) dan metrik status pengiriman",
-      "Aliran telemetri GPS berkecepatan tinggi melalui FastAPI WebSocket + cache Redis",
-      "Modul WMS gudang (inbound/outbound & bin lokasi) terintegrasi pemindaian barcode",
-      "Aplikasi Kurir PWA dengan bukti serah terima tanda tangan digital & prediksi ETA",
-    ],
-    impactMetrics: [
-      { value: "Live WS", label: "Streaming lokasi GPS berbasis Redis" },
-      { value: "PWA", label: "Aplikasi kurir siap pasang di HP" },
-      { value: "WMS+HR", label: "Gudang & KPI kurir terintegrasi" },
-      { value: "Docker", label: "Orkestrasi Nginx, Celery & Postgres" },
+      "Pusat kendali operasional yang memadukan peta pelacakan armada langsung, manajemen kapasitas gudang, dan aplikasi PWA bagi kurir lapangan.",
+    highlights: [
+      {
+        title: "Peta Armada Langsung",
+        detail: "Pantau rute dan status armada aktif secara real-time dari satu layar.",
+      },
+      {
+        title: "Kapasitas & Peringatan Gudang",
+        detail: "Monitor pergerakan inbound/outbound serta notifikasi kondisi gudang.",
+      },
+      {
+        title: "Aplikasi Kurir PWA",
+        detail: "Pindai barcode paket dan rekam tanda tangan digital penerima lewat HP.",
+      },
+      {
+        title: "Laporan Siap Ekspor",
+        detail: "Ringkasan kinerja kurir dan pengiriman harian siap unduh ke CSV atau PDF.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
@@ -659,39 +678,42 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "ai-cv-screening",
     tier: "gallery",
     client: "AI CV Screening.",
-    tagline: "Seleksi CV massal Two-Stage Hybrid AI, Blind Screening UU PDP & n8n.",
+    tagline: "Seleksi CV otomatis dengan sensor identitas pelamar & alur kerja n8n.",
     sector: "HR Automation & Applied AI",
+    scope: "Blind ATS & Workflow Otomasi",
     year: "2026",
     techStack: ["Python", "Gemini API", "n8n Workflow", "Streamlit"],
     images: [
       {
         src: "/images/portfolio/ai-cv-screening.webp",
-        alt: "Platform BlindATS AI CV Screening — Skrining CV dengan AI 100% aman dari bias dan patuh UU PDP dengan skor kecocokan 94%",
-        caption: "BlindATS — seleksi kandidat otomatis Two-Stage Hybrid AI dengan sensor identitas PII (UU PDP) dan integrasi n8n",
+        alt: "Antarmuka BlindATS AI CV Screening dengan mode sensor identitas pelamar",
+        caption: "Seleksi kandidat terstruktur dengan pemisahan data pribadi pelamar agar objektif",
         fit: "top",
         width: 1440,
         height: 1074,
       },
     ],
-    specs: [
-      { label: "Matching", value: "Embedding + LLM Reasoning" },
-      { label: "Privasi", value: "Blind Screening UU PDP" },
-    ],
     problem:
-      "Tim rekrutmen manufaktur kewalahan menyaring ratusan CV PDF/DOCX secara manual sekaligus rentan bias subjektif maupun kebocoran data pribadi pelamar (PII).",
+      "Menyaring banyak berkas CV PDF/DOCX secara manual memakan waktu lama sekaligus rentan bias penilaian maupun kebocoran data pribadi pelamar.",
     functionalValue:
-      "Pipeline seleksi kandidat otomatis dua tahap (Hard Filter + Gemini Embedding Similarity & Qualitative Reasoning) yang mengisolasi PII sebelum dinilai AI sesuai UU PDP No. 27/2022, terhubung ke orkestrasi n8n.",
-    coreFunctions: [
-      "Ekstraksi teks & tabel akurat dari CV PDF/DOCX dengan pemisahan PII (Blind Screening)",
-      "Two-Stage Hybrid Matching: filter kualifikasi wajib + skor semantik & alasan kualitatif AI",
-      "Audit trail peringkat kandidat terurut lengkap dengan preset kriteria jabatan",
-      "Blueprint workflow n8n untuk ingestion CV otomatis dari email/Drive & notifikasi HR",
-    ],
-    impactMetrics: [
-      { value: "2-Stage", label: "Hard Filter + Hybrid AI Scoring" },
-      { value: "UU PDP", label: "Isolasi PII otomatis (Blind Screening)" },
-      { value: "n8n", label: "Otomasi ingestion & notifikasi siap pakai" },
-      { value: "Audit", label: "Skor & alasan objektif tiap kandidat" },
+      "Alur penyaringan kandidat otomatis yang menyamarkan identitas pribadi sebelum evaluasi AI, menghasilkan urutan kandidat beserta alasan penilaiannya.",
+    highlights: [
+      {
+        title: "Mode Blind Screening",
+        detail: "Menyamarkan data pribadi pelamar sebelum dinilai agar selaras prinsip UU PDP.",
+      },
+      {
+        title: "Evaluasi Dua Tahap",
+        detail: "Memadukan syarat wajib posisi dengan analisis kecocokan pengalaman kerja.",
+      },
+      {
+        title: "Alasan Penilaian Jelas",
+        detail: "Setiap peringkat disertai ringkasan pertimbangan yang mudah diaudit tim HR.",
+      },
+      {
+        title: "Terhubung ke n8n",
+        detail: "Otomatis menarik berkas lamaran masuk dan mengirim ringkasan ke tim rekrutmen.",
+      },
     ],
     serviceHref: "/jasa-automasi-whatsapp",
   },
@@ -699,30 +721,33 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "siakad-sekolah",
     tier: "archive",
     client: "SIAKAD Sekolah.",
-    tagline: "Sistem akademik siswa, guru, jadwal, absensi, nilai & ekspor PDF/Excel.",
+    tagline: "Sistem akademik siswa, guru, jadwal, absensi, nilai & cetak laporan.",
     sector: "Sistem Informasi Akademik",
+    scope: "Panel Akademik & Ekspor Rapor",
     year: "2026",
-    techStack: ["Laravel 12", "Filament 5", "Spatie RBAC", "DomPDF"],
+    techStack: ["Laravel", "Filament", "RBAC", "DomPDF"],
     images: [],
-    specs: [
-      { label: "Modul Inti", value: "Siswa · Guru · Absen · Nilai" },
-      { label: "Laporan", value: "Ekspor Excel & Cetak PDF" },
-    ],
     problem:
-      "Administrasi sekolah sering tersebar di berbagai berkas Excel sehingga rekap absensi, jadwal pelajaran, dan pencetakan rapor akhir semester memakan waktu berhari-hari.",
+      "Data siswa, jadwal pelajaran, absensi harian, dan nilai akhir sering tersebar di berkas terpisah sehingga rekap akhir semester memakan banyak waktu.",
     functionalValue:
-      "Aplikasi SIAKAD terpusat berbasis Laravel 12 dan Filament v5 yang menyatukan pengelolaan Tahun Ajaran, data Siswa & Guru, Jadwal Pelajaran, Absensi harian, Nilai, serta ekspor laporan PDF/Excel instan.",
-    coreFunctions: [
-      "Master data Siswa, Guru, Tahun Ajaran, dan penjadwalan mata pelajaran terstruktur",
-      "Input absensi harian & rekap penilaian akademik per semester secara terpusat",
-      "Hak akses terpisah (Admin, Guru, Wali Kelas) berbasis Spatie Laravel Permission",
-      "Cetak laporan resmi PDF (DomPDF) dan ekspor data massal ke Excel (Filament Excel)",
-    ],
-    impactMetrics: [
-      { value: "6 Modul", label: "Akademik terintegrasi satu panel" },
-      { value: "PDF/XLS", label: "Rekap nilai & absensi 1 klik" },
-      { value: "RBAC", label: "Kontrol akses multi-peran sekolah" },
-      { value: "Rp0", label: "Tanpa biaya langganan per siswa" },
+      "Aplikasi akademik terpusat untuk mengelola data siswa, guru, absensi, dan penilaian semester dengan cetak laporan PDF maupun Excel sekali klik.",
+    highlights: [
+      {
+        title: "Master Data Terpusat",
+        detail: "Pengelolaan tahun ajaran, kelas, siswa, guru, dan jadwal dalam satu panel.",
+      },
+      {
+        title: "Absensi & Input Nilai",
+        detail: "Pencatatan kehadiran harian serta rekap nilai semester secara langsung.",
+      },
+      {
+        title: "Akses Multi-Peran",
+        detail: "Pemisahan wewenang jelas antara Admin sekolah, Guru, dan Wali Kelas.",
+      },
+      {
+        title: "Cetak PDF & Excel",
+        detail: "Ekspor laporan akademik dan dokumen rapor tanpa olah data ulang manual.",
+      },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },

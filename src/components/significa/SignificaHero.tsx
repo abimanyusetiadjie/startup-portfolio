@@ -62,7 +62,7 @@ const CAPABILITIES = [
   {
     id: "websites",
     title: "Website & Portal Bisnis",
-    desc: "Situs perusahaan cepat (<0,8 detik), katalog produk interaktif, portal berita, dan Local SEO dengan 100% hak milik kode.",
+    desc: "Situs perusahaan ringan, katalog produk interaktif, portal berita, dan Local SEO dengan hak milik kode penuh.",
     meta: "Mulai Rp1,5 juta · 7–14 hari",
     href: "/jasa-pembuatan-website-jakarta",
   },
@@ -90,7 +90,7 @@ const CAPABILITIES = [
   {
     id: "ml",
     title: "Machine Learning & Data",
-    desc: "Model Hybrid RAG anti-halusinasi, prediksi harga sewa & gaji ideal, deteksi risiko resign, hingga segmentasi RFM.",
+    desc: "Pencarian RAG berbasis data katalog nyata, simulasi harga sewa & kompensasi, pemetaan retensi, hingga segmentasi pelanggan.",
     meta: "Python FastAPI · Scikit-Learn · Gemini",
     href: "/jasa-automasi-whatsapp",
   },
