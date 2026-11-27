@@ -68,8 +68,8 @@ const serviceData: ServiceDetailData = {
     href: "/demo",
   },
   previewImage: {
-    src: "/images/portfolio/smartpos-system.jpg",
-    alt: "Contoh sistem kasir POS dark-mode terintegrasi Shopee dan Executive BI Dashboard Abinest",
+    src: "/images/real-projects/smartpos-home-4x3.png",
+    alt: "Tangkapan layar langsung sistem kasir POS dark-mode SmartPOS terintegrasi barcode dan Executive BI Abinest",
     caption: "Kasir POS Barcode <45ms · Executive BI Owner · Sinkronisasi Stok Tanpa Biaya per Staf",
   },
   architectureHeading: "Tiga Pilar Aplikasi Operasional Terpadu",

@@ -68,8 +68,8 @@ const serviceData: ServiceDetailData = {
     href: "/demo",
   },
   previewImage: {
-    src: "/images/portfolio/amen-system.jpg",
-    alt: "Contoh implementasi katalog live 1.446 SKU dengan asisten AI dan checkout WhatsApp otomatis",
+    src: "/images/real-projects/amen-home-4x3.png",
+    alt: "Tangkapan layar langsung implementasi katalog live 1.446 SKU dengan asisten AI dan checkout WhatsApp otomatis",
     caption: "Asisten AI Terhubung Database Stok Live · Balas Chat <1 Detik · Checkout WhatsApp Otomatis",
   },
   architectureHeading: "Solusi AI Praktis untuk Efisiensi Nyata",

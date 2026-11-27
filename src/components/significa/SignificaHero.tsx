@@ -24,10 +24,10 @@ const SHOWREEL_SLIDES = [
     id: "amen",
     shortName: "Toko Amen",
     client: "Toko Amen Snack",
-    image: "/images/portfolio/amen-system.jpg",
-    alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
+    image: "/images/real-projects/amen-home-4x3.png",
+    alt: "Tangkapan layar website produksi Toko Amen Snack dengan katalog 1.446 SKU dan asisten WhatsApp AI",
     href: "/karya/toko-amen-snack",
-    fit: "center" as const,
+    fit: "top" as const,
   },
   {
     id: "heavytrack",
@@ -51,10 +51,10 @@ const SHOWREEL_SLIDES = [
     id: "looku",
     shortName: "Look.u AI",
     client: "Look.u AI",
-    image: "/images/portfolio/looku-system.jpg",
-    alt: "Studio AI styling fashion Hybrid RAG Look.u AI",
+    image: "/images/real-projects/looku-home-4x3.png",
+    alt: "Antarmuka asisten styling fashion AI berbasis Hybrid RAG 594 SKU Look.u AI",
     href: "/karya/looku-ai",
-    fit: "center" as const,
+    fit: "top" as const,
   },
 ];
 
@@ -202,8 +202,8 @@ export function SignificaHero() {
           </svg>
 
           <div className="clay-container relative z-10 space-y-5 sm:space-y-6">
-            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.1] text-[clamp(1.85rem,3.6vw+0.7rem,3.65rem)] max-w-[820px]">
-              Abinest membangun website cepat, sistem ERP/POS, dan automasi AI
+            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.1] text-[clamp(1.85rem,3.6vw+0.7rem,3.65rem)] max-w-[780px]">
+              Studio software untuk website, sistem ERP/POS, dan AI terapan.
             </h1>
 
             <div className="flex flex-wrap items-center gap-x-7 gap-y-2.5">
@@ -226,7 +226,7 @@ export function SignificaHero() {
           </div>
         </div>
 
-        {/* 2. Padded Editorial Showreel Frame (Consistent 24px side margin on Mobile, zero edge clipping!) */}
+        {/* 2. Responsive Showreel Frame: Taller 4:3 + 16px margin on Mobile (~46% larger), 16:9 Clay rhythm on Desktop */}
         <div
           style={{
             background:
@@ -237,8 +237,8 @@ export function SignificaHero() {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="clay-container">
-            <div className="relative w-full aspect-[16/9] lg:max-h-[680px] overflow-hidden bg-[#F4F4F6] border border-[#E5E7EB]/90 shadow-[0_24px_60px_-30px_rgba(17,19,24,0.16)]">
+          <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-[clamp(1.5rem,5vw,4.75rem)]">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:max-h-[680px] overflow-hidden bg-[#F4F4F6] border border-[#E5E7EB]/90 shadow-[0_24px_60px_-30px_rgba(17,19,24,0.16)]">
               <Link
                 href={activeSlide.href}
                 aria-label={`Lihat studi kasus ${activeSlide.client}`}
@@ -258,7 +258,7 @@ export function SignificaHero() {
                       alt={activeSlide.alt}
                       fill
                       priority
-                      sizes="(max-width: 640px) 90vw, (max-width: 1440px) 92vw, 1300px"
+                      sizes="(max-width: 640px) 94vw, (max-width: 1440px) 92vw, 1300px"
                       className={`object-cover ${
                         activeSlide.fit === "top"
                           ? "object-top"
@@ -346,8 +346,8 @@ export function SignificaHero() {
           <div className="clay-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-6">
               <p className="text-[21px] sm:text-[26px] lg:text-[28px] font-normal leading-[1.38] tracking-[-0.02em] text-[#111111] max-w-[490px]">
-                Kami membangun produk digital, website cepat, sistem ERP/POS,
-                dan AI terapan untuk bisnis yang ingin tumbuh tanpa batas.
+                Dirancang ringkas, dibangun untuk performa produksi, dan
+                diserahkan utuh 100%—tanpa ketergantungan sewa SaaS bulanan.
               </p>
             </div>
 

@@ -43,15 +43,15 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WAHA WhatsApp"],
     images: [
       {
-        src: "/images/portfolio/amen-system.jpg",
-        alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
-        caption: "Katalog stok PostgreSQL 1.446 SKU + asisten hitung ongkir & checkout WhatsApp AI",
-        fit: "center",
-      },
-      {
         src: "/images/real-projects/amen-home-4x3.png",
         alt: "Tangkapan layar langsung website produksi Toko Amen Snack",
-        caption: "Tampilan produksi live di tokoamensnack.vercel.app",
+        caption: "Tampilan produksi live di tokoamensnack.vercel.app — katalog 1.446 SKU & asisten WhatsApp AI",
+        fit: "top",
+      },
+      {
+        src: "/images/real-projects/amen-catalog-4x3.png",
+        alt: "Tangkapan layar halaman sorotan promo & katalog produk Toko Amen Snack",
+        caption: "Halaman katalog & sorotan promo terintegrasi stok PostgreSQL dan checkout WhatsApp",
         fit: "top",
       },
     ],
@@ -175,15 +175,15 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "Gemini 256-d RAG", "Vision AI", "Supabase"],
     images: [
       {
-        src: "/images/portfolio/looku-system.jpg",
-        alt: "Antarmuka studio styling AI Hybrid RAG 594 SKU dan analisis warna kulit Look.u AI",
-        caption: "Studio rekomendasi modular berbasis Hybrid RAG 594 SKU + pemindaian rona warna kulit Nusantara",
-        fit: "center",
+        src: "/images/real-projects/looku-home-4x3.png",
+        alt: "Tangkapan layar langsung asisten styling fashion AI Look.u berbasis Hybrid RAG 594 SKU",
+        caption: "Antarmuka prompt chat AI Zero-Hallucination & filter ketat Hijab, Gender, serta Budget",
+        fit: "top",
       },
       {
-        src: "/images/real-projects/looku-home-4x3.png",
-        alt: "Tangkapan layar langsung asisten styling fashion AI Look.u",
-        caption: "Antarmuka prompt chat AI Zero-Hallucination di produksi lokal",
+        src: "/images/real-projects/looku-catalog-4x3.png",
+        alt: "Tangkapan layar katalog produk RAG 594 SKU dari 46 brand resmi pada Look.u AI",
+        caption: "Katalog produk RAG (594 SKU · 46 Brand) terindeks vektor Gemini 256-dimensi",
         fit: "top",
       },
     ],
@@ -271,15 +271,15 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro", "React Island", "Tailwind CSS", "Local SEO"],
     images: [
       {
-        src: "/images/portfolio/scaffolding-system.jpg",
-        alt: "Sistem kalkulator material set dan spesifikasi SNI Central Scaffolding",
-        caption: "Kalkulator interaktif Sewa/Beli (1–200+ set) otomatis menghitung Main Frame, Cross Brace & Joint Pin ke WA",
-        fit: "center",
+        src: "/images/real-projects/scaffolding-home-4x3.png",
+        alt: "Tangkapan layar langsung website B2B Sewa & Jual Scaffolding Standar SNI Central Scaffolding",
+        caption: "Beranda website B2B ultra-cepat berbasis Astro dengan stok 10.000+ set & Local SEO Jabodetabek",
+        fit: "top",
       },
       {
         src: "/images/real-projects/scaffolding-catalog-4x3.png",
         alt: "Tangkapan layar langsung katalog produk dan aksesoris Central Scaffolding",
-        caption: "Katalog teknis komponen SNI interaktif siap filter",
+        caption: "Katalog teknis komponen SNI interaktif siap filter & hitung set ke WhatsApp",
         fit: "top",
       },
     ],
@@ -317,15 +317,15 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro 5", "TypeScript", "Tailwind CSS", "JSON-LD SEO"],
     images: [
       {
-        src: "/images/portfolio/alfuad-system.jpg",
-        alt: "Sistem portal PPDB dan 5 unit pendidikan terpadu YPI Al-Fuad Tangerang",
-        caption: "Portal PPDB 2026 terpadu untuk 5 unit (RA, MI TPI, SMP-IT, SMK-IT, Pesantren) lengkap NPSN & rincian biaya",
-        fit: "center",
+        src: "/images/real-projects/alfuad-home-4x3.png",
+        alt: "Tangkapan layar langsung portal resmi YPI Al-Fuad Poris Gaga Tangerang",
+        caption: "Tampilan produksi portal resmi YPI Tahfidz Qur'an Al-Fuad untuk 5 unit pendidikan & PPDB 2026",
+        fit: "top",
       },
       {
-        src: "/images/real-projects/alfuad-home-4x3.png",
-        alt: "Tangkapan layar langsung portal resmi YPI Al-Fuad Poris Gaga",
-        caption: "Tampilan produksi portal resmi YPI Tahfidz Qur'an Al-Fuad",
+        src: "/images/real-projects/alfuad-units-4x3.png",
+        alt: "Tangkapan layar daftar 5 unit pendidikan terpadu YPI Al-Fuad lengkap NPSN",
+        caption: "Navigasi 5 jenjang pendidikan (RA, MI TPI, SMP-IT, SMK-IT, Pondok Pesantren) & rincian biaya",
         fit: "top",
       },
     ],
@@ -363,10 +363,10 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "FastAPI", "Scikit-Learn", "PostgreSQL"],
     images: [
       {
-        src: "/images/portfolio/crew-hris-system.jpg",
-        alt: "Dashboard Admin CREW AI HRIS menampilkan 142 karyawan, retensi 92.5%, dan tabel ML Salary Audit",
-        caption: "Dashboard Admin HRIS: metrik retensi, distribusi risiko keluar (Flight Risk), dan audit gaji ideal ML",
-        fit: "center",
+        src: "/images/real-projects/crew-hris-4x3.png",
+        alt: "Tangkapan layar langsung CREW AI HRIS menampilkan 142 karyawan, retensi 92.5%, dan prediksi gaji ML",
+        caption: "Antarmuka CREW AI HRIS: metrik retensi, distribusi risiko keluar (Flight Risk), & prediksi gaji ideal ML",
+        fit: "top",
       },
     ],
     specs: [
@@ -401,10 +401,10 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["React", "Vite", "USB Barcode", "Shopee Sync"],
     images: [
       {
-        src: "/images/portfolio/smartpos-system.jpg",
-        alt: "Terminal kasir dark-mode SmartPOS aktif terisi transaksi dengan ringkasan Executive BI dan Shopee Sync",
-        caption: "Terminal kasir aktif dengan scan SKU barcode, pembayaran QRIS/Tunai/Debit, dan kartu Executive BI Owner",
-        fit: "center",
+        src: "/images/real-projects/smartpos-home-4x3.png",
+        alt: "Tangkapan layar langsung terminal kasir dark-mode SmartPOS dengan scan barcode F2 dan pembayaran QRIS/Tunai/Debit",
+        caption: "Terminal kasir dark-mode SmartPOS dengan pintasan keyboard F2–F12, barcode USB HID <45ms, & struk 58mm",
+        fit: "top",
       },
     ],
     specs: [
@@ -439,10 +439,10 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "TypeScript", "FastAPI", "RFM ML"],
     images: [
       {
-        src: "/images/portfolio/scalebase-crm-system.jpg",
-        alt: "Workspace Pipeline Board Kanban ScaleBase CRM dengan nilai deal, Win Rate, dan tag RFM",
-        caption: "Kanban Pipeline Board B2B (New → Proposal → Negotiation → Closed Won) dengan metrik Win Rate & RFM",
-        fit: "center",
+        src: "/images/real-projects/scalebase-crm-4x3.png",
+        alt: "Tangkapan layar langsung ScaleBase CRM untuk manajemen pipeline penjualan B2B dan analitik RFM",
+        caption: "Antarmuka ScaleBase CRM — pipeline penjualan B2B terukur, manajemen prospek, & segmentasi RFM",
+        fit: "top",
       },
     ],
     specs: [

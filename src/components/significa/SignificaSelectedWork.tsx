@@ -54,9 +54,9 @@ function ClayWorkCard({
         aria-label={`Lihat studi kasus ${cleanTitle}`}
         className="block"
       >
-        {/* Clay Signature: 0px sharp square corners, completely borderless & shadowless */}
+        {/* Clay Signature: 0px sharp square corners with hairline inset frame for crisp white UI screenshots */}
         <div
-          className={`relative ${aspectClass} w-full overflow-hidden bg-[#F4F4F5]`}
+          className={`relative ${aspectClass} w-full overflow-hidden bg-[#F4F4F5] ring-1 ring-inset ring-black/[0.06]`}
         >
           {img && (
             <Image
