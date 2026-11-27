@@ -16,7 +16,7 @@ const SHOWREEL_SLIDES = [
   {
     id: "propsmart",
     client: "PropSmart SaaS",
-    caption: "Executive occupancy dashboard, Net Rental Yield 9.45% & ML pricing",
+    caption: "Dashboard okupansi 32 kamar, Net Rental Yield 9,45% & estimasi harga ML",
     image: "/images/portfolio/propsmart-dashboard.png",
     alt: "PropSmart Executive Financial & Occupancy Dashboard menampilkan 32 kamar dan Net Rental Yield 9.45%",
     href: "/karya/propsmart-saas",
@@ -25,7 +25,7 @@ const SHOWREEL_SLIDES = [
   {
     id: "amen",
     client: "Toko Amen Snack",
-    caption: "1,446-SKU live retail inventory & automated WhatsApp AI assistant",
+    caption: "Katalog live 1.446 SKU & asisten WhatsApp AI hitung ongkir otomatis",
     image: "/images/portfolio/amen-system.jpg",
     alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
     href: "/karya/toko-amen-snack",
@@ -34,7 +34,7 @@ const SHOWREEL_SLIDES = [
   {
     id: "heavytrack",
     client: "HeavyTrack WMS",
-    caption: "Offline-first (<5ms) heavy equipment spare parts warehouse & DO print",
+    caption: "Gudang spare parts alat berat offline-first (<5ms) & cetak Surat Jalan",
     image: "/images/portfolio/heavytrack-dashboard.png",
     alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara",
     href: "/karya/heavytrack-wms",
@@ -43,7 +43,7 @@ const SHOWREEL_SLIDES = [
   {
     id: "lacak-korupsi",
     client: "Lacak Korupsi",
-    caption: "Investigative news portal & 38-province PostGIS data analytics",
+    caption: "Portal berita investigasi & peta sebaran data 38 provinsi PostGIS",
     image: "/images/portfolio/lacak-korupsi-peta.png",
     alt: "Peta Sebaran dan Analitik Data Lacak Korupsi",
     href: "/karya/lacak-korupsi",
@@ -52,7 +52,7 @@ const SHOWREEL_SLIDES = [
   {
     id: "looku",
     client: "Look.u AI",
-    caption: "Zero-hallucination Hybrid RAG fashion stylist (594 SKUs) & Vision AI",
+    caption: "Stylist AI Hybrid RAG 594 SKU tanpa halusinasi & pemindaian Vision AI",
     image: "/images/portfolio/looku-system.jpg",
     alt: "Studio AI styling fashion Hybrid RAG Look.u AI",
     href: "/karya/looku-ai",
@@ -63,35 +63,35 @@ const SHOWREEL_SLIDES = [
 const CAPABILITIES = [
   {
     id: "websites",
-    title: "Websites & Portals",
+    title: "Website & Portal Bisnis",
     desc: "Situs perusahaan cepat (<0,8 detik), katalog produk interaktif, portal berita, dan Local SEO dengan 100% hak milik kode.",
     meta: "Mulai Rp1,5 juta · 7–14 hari",
     href: "/jasa-pembuatan-website-jakarta",
   },
   {
     id: "erp",
-    title: "ERP, WMS & POS",
+    title: "Sistem ERP, WMS & POS",
     desc: "Sistem gudang offline/cloud, kasir barcode termal, manajemen kos & properti, HRIS, serta CRM B2B tanpa biaya per staf.",
     meta: "Mulai Rp4 juta · Rp0/staf",
     href: "/jasa-pembuatan-sistem-erp",
   },
   {
     id: "education",
-    title: "Education & SIAKAD",
+    title: "SIAKAD & Portal Sekolah",
     desc: "Portal yayasan multi-unit, alur pendaftaran PPDB online, absensi, rekap nilai, dan cetak laporan PDF/Excel otomatis.",
     meta: "Mulai Rp4 juta · Tanpa biaya per siswa",
     href: "/jasa-pembuatan-sistem-erp",
   },
   {
     id: "ai-wa",
-    title: "WhatsApp & AI Automation",
+    title: "Automasi WhatsApp & AI",
     desc: "Asisten katalog WhatsApp 24/7 lewat API resmi Meta, hitung ongkir otomatis, dan pembacaan dokumen faktur OCR.",
     meta: "Mulai Rp5 juta · Meta Cloud API",
     href: "/jasa-automasi-whatsapp",
   },
   {
     id: "ml",
-    title: "Applied Machine Learning",
+    title: "Machine Learning & Data",
     desc: "Model Hybrid RAG anti-halusinasi, prediksi harga sewa & gaji ideal, deteksi risiko resign, hingga segmentasi RFM.",
     meta: "Python FastAPI · Scikit-Learn · Gemini",
     href: "/jasa-automasi-whatsapp",
@@ -132,14 +132,14 @@ export function SignificaHero() {
   return (
     <>
       <section id="beranda" className="bg-white">
-        {/* 1. Clay Signature Warm Light-Gray Hero Canvas (#F2F1F3) with Subtle Sculptural Right Form */}
-        <div className="relative overflow-hidden bg-[#F2F1F3] pt-[124px] sm:pt-[148px] lg:pt-[190px] pb-12 sm:pb-16 lg:pb-24">
+        {/* 1. Clay Signature Warm Light-Gray Hero Canvas (#F2F1F3) with Balanced Spacing */}
+        <div className="relative overflow-hidden bg-[#F2F1F3] pt-[96px] sm:pt-[112px] lg:pt-[124px] pb-10 sm:pb-12 lg:pb-14">
           {/* Whisper-clean matte architectural sculpture (Clay spatial identity, zero neon AI slop) */}
           <svg
             aria-hidden="true"
             viewBox="0 0 640 520"
             fill="none"
-            className="hidden lg:block pointer-events-none select-none absolute -top-10 right-[2%] w-[520px] xl:w-[600px] h-auto"
+            className="hidden lg:block pointer-events-none select-none absolute -top-6 right-[3%] w-[420px] xl:w-[480px] h-auto"
           >
             <defs>
               <linearGradient id="clayHemisphere" x1="15%" y1="10%" x2="85%" y2="90%">
@@ -185,8 +185,8 @@ export function SignificaHero() {
           </svg>
 
           <div className="clay-container relative z-10">
-            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.09] text-[clamp(2.25rem,4.2vw+0.8rem,4.15rem)] max-w-[820px]">
-              Abinest is a digital product and engineering studio
+            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.1] text-[clamp(1.95rem,3.6vw+0.75rem,3.65rem)] max-w-[820px]">
+              Abinest membangun website cepat, sistem ERP/POS, dan automasi AI
             </h1>
           </div>
         </div>

@@ -93,7 +93,7 @@ export function SignificaNavbar() {
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="clay-container h-[68px] lg:h-[96px] flex items-center justify-between gap-6">
+        <div className="clay-container h-[68px] lg:h-[82px] flex items-center justify-between gap-6">
           {/* Left: Clean Brand Wordmark (Clay left anchor) */}
           <Link
             href="/"
