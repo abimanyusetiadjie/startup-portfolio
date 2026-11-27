@@ -88,17 +88,17 @@ export function SignificaQuoteModal({
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-2xl max-h-[90dvh] overflow-y-auto overscroll-contain rounded-[2px] bg-white border border-[#111111]"
+            className="w-full max-w-2xl max-h-[90dvh] overflow-y-auto overscroll-contain rounded-[14px] bg-white border border-[#E5E7EB] shadow-[0_32px_80px_rgba(17,19,24,0.22)]"
           >
-            <div className="p-6 sm:p-8 pb-5 border-b border-[#E6E6E6] flex items-start justify-between gap-4">
+            <div className="p-6 sm:p-8 pb-5 border-b border-[#EBECEF] flex items-start justify-between gap-4">
               <div>
                 <h2
                   id="sig-quote-modal-title"
                   className="text-[24px] sm:text-[28px] font-semibold tracking-[-0.025em] leading-[1.15] text-[#111111]"
                 >
-                  Ceritakan proyek Anda.
+                  Ceritakan proyek Anda
                 </h2>
-                <p className="font-serif text-[15.5px] text-[#595959] mt-1">
+                <p className="text-[14.5px] text-[#6B7280] mt-1">
                   Draf ringkas langsung tersusun untuk diskusi WhatsApp bersama
                   engineer.
                 </p>

@@ -1,29 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ArrowRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { SignificaShowreelModal } from "./SignificaShowreelModal";
-import { SignificaQuoteModal } from "./SignificaQuoteModal";
 
-const FEATURED_SHOWCASE = [
+const SHOWREEL_SLIDES = [
   {
     id: "propsmart",
-    label: "PropSmart SaaS",
-    title: "PropSmart — Manajemen Kos Multi-Unit, Rental Yield & ML Pricing",
-    summary:
-      "Mengubah pencatatan meteran listrik dan penagihan manual menjadi dashboard okupansi real-time, analitik Net Rental Yield 9,45%, serta rekomendasi harga sewa berbasis Ridge Regression (R² 0,9822).",
+    client: "PropSmart SaaS",
+    caption: "Executive occupancy dashboard, Net Rental Yield 9.45% & ML pricing",
     image: "/images/portfolio/propsmart-dashboard.png",
-    alt: "Dashboard Eksekutif PropSmart menampilkan okupansi 93.75%, pendapatan bulanan, NOI, Net Rental Yield 9.45%, dan status 32 kamar",
+    alt: "PropSmart Executive Financial & Occupancy Dashboard menampilkan 32 kamar dan Net Rental Yield 9.45%",
     href: "/karya/propsmart-saas",
     fit: "top" as const,
   },
   {
     id: "amen",
-    label: "Toko Amen Snack",
-    title: "Toko Amen Snack — Katalog Live 1.446 SKU & Asisten WhatsApp AI",
-    summary:
-      "Menyatukan 1.446 master SKU PostgreSQL antara kasir toko dan web publik, dilengkapi asisten AI yang menghitung total belanja dan berat ongkir otomatis langsung ke WhatsApp.",
+    client: "Toko Amen Snack",
+    caption: "1,446-SKU live retail inventory & automated WhatsApp AI assistant",
     image: "/images/portfolio/amen-system.jpg",
     alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
     href: "/karya/toko-amen-snack",
@@ -31,134 +33,333 @@ const FEATURED_SHOWCASE = [
   },
   {
     id: "heavytrack",
-    label: "HeavyTrack WMS",
-    title: "HeavyTrack WMS — Gudang Spare Parts Alat Berat Offline (<5ms)",
-    summary:
-      "Sistem manajemen gudang offline-first untuk PT Mitra Abadi Nusantara dengan pencarian lintas part number, kunci stok anti-minus, dan cetak Surat Jalan serta Faktur dot-matrix.",
+    client: "HeavyTrack WMS",
+    caption: "Offline-first (<5ms) heavy equipment spare parts warehouse & DO print",
     image: "/images/portfolio/heavytrack-dashboard.png",
-    alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara dengan performa lokal <5ms",
+    alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara",
     href: "/karya/heavytrack-wms",
     fit: "top" as const,
   },
+  {
+    id: "lacak-korupsi",
+    client: "Lacak Korupsi",
+    caption: "Investigative news portal & 38-province PostGIS data analytics",
+    image: "/images/portfolio/lacak-korupsi-peta.png",
+    alt: "Peta Sebaran dan Analitik Data Lacak Korupsi",
+    href: "/karya/lacak-korupsi",
+    fit: "top" as const,
+  },
+  {
+    id: "looku",
+    client: "Look.u AI",
+    caption: "Zero-hallucination Hybrid RAG fashion stylist (594 SKUs) & Vision AI",
+    image: "/images/portfolio/looku-system.jpg",
+    alt: "Studio AI styling fashion Hybrid RAG Look.u AI",
+    href: "/karya/looku-ai",
+    fit: "center" as const,
+  },
+];
+
+const CAPABILITIES = [
+  {
+    id: "websites",
+    title: "Websites & Portals",
+    desc: "Situs perusahaan cepat (<0,8 detik), katalog produk interaktif, portal berita, dan Local SEO dengan 100% hak milik kode.",
+    meta: "Mulai Rp1,5 juta · 7–14 hari",
+    href: "/jasa-pembuatan-website-jakarta",
+  },
+  {
+    id: "erp",
+    title: "ERP, WMS & POS",
+    desc: "Sistem gudang offline/cloud, kasir barcode termal, manajemen kos & properti, HRIS, serta CRM B2B tanpa biaya per staf.",
+    meta: "Mulai Rp4 juta · Rp0/staf",
+    href: "/jasa-pembuatan-sistem-erp",
+  },
+  {
+    id: "education",
+    title: "Education & SIAKAD",
+    desc: "Portal yayasan multi-unit, alur pendaftaran PPDB online, absensi, rekap nilai, dan cetak laporan PDF/Excel otomatis.",
+    meta: "Mulai Rp4 juta · Tanpa biaya per siswa",
+    href: "/jasa-pembuatan-sistem-erp",
+  },
+  {
+    id: "ai-wa",
+    title: "WhatsApp & AI Automation",
+    desc: "Asisten katalog WhatsApp 24/7 lewat API resmi Meta, hitung ongkir otomatis, dan pembacaan dokumen faktur OCR.",
+    meta: "Mulai Rp5 juta · Meta Cloud API",
+    href: "/jasa-automasi-whatsapp",
+  },
+  {
+    id: "ml",
+    title: "Applied Machine Learning",
+    desc: "Model Hybrid RAG anti-halusinasi, prediksi harga sewa & gaji ideal, deteksi risiko resign, hingga segmentasi RFM.",
+    meta: "Python FastAPI · Scikit-Learn · Gemini",
+    href: "/jasa-automasi-whatsapp",
+  },
+];
+
+const TECH_ECOSYSTEM = [
+  "Next.js",
+  "Astro",
+  "Laravel",
+  "FastAPI",
+  "PostgreSQL",
+  "Python AI",
+  "Meta API",
 ];
 
 export function SignificaHero() {
   const [showreelOpen, setShowreelOpen] = useState(false);
-  const [quoteOpen, setQuoteOpen] = useState(false);
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [slideIdx, setSlideIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [openCap, setOpenCap] = useState<string | null>(null);
 
-  const current = FEATURED_SHOWCASE[activeIdx] ?? FEATURED_SHOWCASE[0];
+  useEffect(() => {
+    if (paused || showreelOpen) return;
+    const timer = window.setInterval(() => {
+      setSlideIdx((prev) => (prev + 1) % SHOWREEL_SLIDES.length);
+    }, 5500);
+    return () => window.clearInterval(timer);
+  }, [paused, showreelOpen]);
+
+  const activeSlide = SHOWREEL_SLIDES[slideIdx] ?? SHOWREEL_SLIDES[0];
+
+  const prevSlide = () =>
+    setSlideIdx((i) => (i === 0 ? SHOWREEL_SLIDES.length - 1 : i - 1));
+  const nextSlide = () =>
+    setSlideIdx((i) => (i === SHOWREEL_SLIDES.length - 1 ? 0 : i + 1));
 
   return (
     <>
       <section id="beranda" className="bg-white">
-        {/* 1. Pure Editorial Statement — Strictly Aligned to Sacred 4+8 Grid */}
-        <div className="ed-container pt-4 sm:pt-10 pb-14 sm:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-x-10 items-start">
-          <div className="lg:col-span-4 lg:pt-2 text-[13.5px] leading-[1.6] text-[#737373]">
-            <p className="font-medium text-[#111111]">
-              Digital Product &amp; Engineering
-            </p>
-            <p>Jakarta &amp; Surabaya</p>
+        {/* 1. Clay Signature Warm Light-Gray Hero Canvas (#F2F1F3) with Subtle Sculptural Right Form */}
+        <div className="relative overflow-hidden bg-[#F2F1F3] pt-[124px] sm:pt-[148px] lg:pt-[190px] pb-12 sm:pb-16 lg:pb-24">
+          {/* Whisper-clean matte architectural sculpture (Clay spatial identity, zero neon AI slop) */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 640 520"
+            fill="none"
+            className="hidden lg:block pointer-events-none select-none absolute -top-10 right-[2%] w-[520px] xl:w-[600px] h-auto"
+          >
+            <defs>
+              <linearGradient id="clayHemisphere" x1="15%" y1="10%" x2="85%" y2="90%">
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="68%" stopColor="#F4F4F6" />
+                <stop offset="100%" stopColor="#DFE1E6" />
+              </linearGradient>
+              <linearGradient id="clayRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#E6E7EC" />
+                <stop offset="100%" stopColor="#D3D5DC" />
+              </linearGradient>
+              <radialGradient id="clayOrbViolet" cx="35%" cy="30%" r="70%">
+                <stop offset="0%" stopColor="#D8B4FE" />
+                <stop offset="55%" stopColor="#7C3AED" />
+                <stop offset="100%" stopColor="#4C1D95" />
+              </radialGradient>
+              <radialGradient id="clayOrbCoral" cx="35%" cy="30%" r="70%">
+                <stop offset="0%" stopColor="#FDBA74" />
+                <stop offset="60%" stopColor="#EA580C" />
+                <stop offset="100%" stopColor="#9A3412" />
+              </radialGradient>
+              <filter id="claySoftShadow" x="-15%" y="-15%" width="130%" height="130%">
+                <feDropShadow dx="-12" dy="24" stdDeviation="24" floodColor="#141519" floodOpacity="0.06" />
+              </filter>
+            </defs>
+
+            {/* Matte sculpted architectural hemisphere */}
+            <g filter="url(#claySoftShadow)">
+              <path
+                d="M 468 48 C 306 54 198 182 222 332 C 232 394 268 446 318 474 L 468 48 Z"
+                fill="url(#clayHemisphere)"
+              />
+              <path
+                d="M 468 48 L 318 474 L 344 468 L 494 42 Z"
+                fill="url(#clayRim)"
+                opacity="0.72"
+              />
+            </g>
+
+            {/* Two restrained tactile signature spheres (Clay chromatic punctuation) */}
+            <circle cx="192" cy="148" r="18" fill="url(#clayOrbViolet)" />
+            <circle cx="562" cy="322" r="11" fill="url(#clayOrbCoral)" />
+          </svg>
+
+          <div className="clay-container relative z-10">
+            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.09] text-[clamp(2.25rem,4.2vw+0.8rem,4.15rem)] max-w-[820px]">
+              Abinest is a digital product and engineering studio
+            </h1>
+          </div>
+        </div>
+
+        {/* 2. Full-Width Sharp-Edged Showreel Overlapping Seamlessly (#F2F1F3 -> #FFFFFF) */}
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, #F2F1F3 0%, #F2F1F3 46%, #FFFFFF 46%, #FFFFFF 100%)",
+          }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="w-full max-w-[1440px] mx-auto px-0 sm:px-[clamp(1.5rem,5vw,4.75rem)]">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:max-h-[700px] overflow-hidden bg-[#EAEAEF]">
+              <Link
+                href={activeSlide.href}
+                aria-label={`Inspect ${activeSlide.client}`}
+                className="block absolute inset-0"
+              >
+                <AnimatePresence mode="sync" initial={false}>
+                  <motion.div
+                    key={activeSlide.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={activeSlide.image}
+                      alt={activeSlide.alt}
+                      fill
+                      priority
+                      sizes="(max-width: 640px) 100vw, (max-width: 1440px) 92vw, 1300px"
+                      className={`object-cover ${
+                        activeSlide.fit === "top"
+                          ? "object-top"
+                          : "object-center"
+                      }`}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </Link>
+            </div>
           </div>
 
-          <div className="lg:col-span-8">
-            <h1 className="font-sans font-semibold text-[#111111] tracking-[-0.03em] leading-[1.09] text-[clamp(2rem,3.4vw+0.75rem,3.35rem)]">
-              We design and engineer software for real operations.
-            </h1>
-
-            <p className="font-serif text-[19px] sm:text-[21px] leading-[1.58] text-[#4A4A4A] mt-6 max-w-[630px]">
-              Websites under 0.8s, custom ERP, WMS &amp; POS, and applied AI —
-              built directly by engineers with 100% code ownership and zero
-              per-user fees.
-            </p>
-
-            <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-2.5 font-serif text-[17.5px]">
-              <button
-                type="button"
-                onClick={() => setQuoteOpen(true)}
-                className="ed-link cursor-pointer"
+          {/* Quiet Minimal Showreel Caption & Switcher Bar Below Frame */}
+          <div className="clay-container pt-4 sm:pt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-baseline gap-3 min-w-0">
+              <span className="font-mono text-[12px] text-[#8C8E94] tabular-nums shrink-0">
+                0{slideIdx + 1} / 0{SHOWREEL_SLIDES.length}
+              </span>
+              <Link
+                href={activeSlide.href}
+                className="text-[14.5px] sm:text-[15.5px] font-medium text-[#111111] hover:opacity-65 transition-opacity truncate"
               >
-                Mulai diskusi proyek
-              </button>
+                {activeSlide.client}
+                <span className="hidden md:inline font-normal text-[#6B7280]">
+                  {" "}
+                  — {activeSlide.caption}
+                </span>
+              </Link>
+            </div>
+
+            <div className="flex items-center justify-between sm:justify-end gap-5 shrink-0">
               <button
                 type="button"
                 onClick={() => setShowreelOpen(true)}
-                className="ed-link-ink cursor-pointer"
+                className="clay-arrow-link !text-[14.5px]"
               >
-                Coba demo interaktif
+                <span>Coba demo interaktif</span>
+                <ArrowRight className="w-4 h-4 text-[#6B7280]" />
               </button>
+
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={prevSlide}
+                  aria-label="Proyek sebelumnya"
+                  className="w-8 h-8 rounded-full border border-[#E5E7EB] hover:border-[#111111] text-[#111111] inline-flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  aria-label="Proyek berikutnya"
+                  className="w-8 h-8 rounded-full border border-[#E5E7EB] hover:border-[#111111] text-[#111111] inline-flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* 2. Featured Flagship Band ("Terbaru") — Exact Work & Co Left-Rail / Right-Track Discipline */}
-        <div className="ed-container">
-          <div className="border-t border-[#E6E6E6] py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-10 items-start">
-            {/* Left Rail: Label + Minimalist Text Switcher */}
-            <div className="lg:col-span-4 space-y-5">
-              <h2 className="text-[15px] font-semibold text-[#111111]">
-                Terbaru
-              </h2>
+        {/* 3. Clay Signature Capabilities Split Band (Pure White: Left Statement + Right Bold Expandable Stack) */}
+        <div className="bg-white py-20 lg:py-28">
+          <div className="clay-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-6">
+              <p className="text-[22px] sm:text-[26px] lg:text-[28px] font-normal leading-[1.38] tracking-[-0.02em] text-[#111111] max-w-[490px]">
+                Kami membangun produk digital, website cepat, sistem ERP/POS,
+                dan AI terapan untuk bisnis yang ingin tumbuh tanpa batas.
+              </p>
+            </div>
 
-              <div className="flex flex-wrap lg:flex-col gap-x-5 gap-y-2 text-[14px]">
-                {FEATURED_SHOWCASE.map((item, idx) => {
-                  const active = idx === activeIdx;
-                  return (
+            <div className="lg:col-span-5 lg:col-start-8 space-y-2">
+              {CAPABILITIES.map((cap) => {
+                const isOpen = openCap === cap.id;
+                return (
+                  <div key={cap.id}>
                     <button
-                      key={item.id}
                       type="button"
-                      onClick={() => setActiveIdx(idx)}
-                      className={`text-left transition-colors cursor-pointer ${
-                        active
-                          ? "font-medium text-[#111111] underline decoration-[#D13424] decoration-1 underline-offset-4"
-                          : "text-[#737373] hover:text-[#111111]"
-                      }`}
+                      aria-expanded={isOpen}
+                      onClick={() => setOpenCap(isOpen ? null : cap.id)}
+                      className="w-full py-2 flex items-center justify-between gap-4 text-left group cursor-pointer"
                     >
-                      {item.label}
+                      <span className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#111111] group-hover:opacity-65 transition-opacity">
+                        {cap.title}
+                      </span>
+                      <ChevronDown
+                        className={`w-5 h-5 text-[#8C8E94] shrink-0 transition-transform duration-200 ${
+                          isOpen ? "rotate-180 text-[#111111]" : ""
+                        }`}
+                      />
                     </button>
-                  );
-                })}
-              </div>
-            </div>
 
-            {/* Right Track: Crisp Sharp-Edged Visual + Editorial Caption */}
-            <div className="lg:col-span-8">
-              <Link
-                href={current.href}
-                aria-label={`Lihat studi kasus ${current.label}`}
-                className="block group"
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-1 pb-5 space-y-3">
+                            <p className="text-[15px] leading-[1.6] text-[#4B5563]">
+                              {cap.desc}
+                            </p>
+                            <div className="flex flex-wrap items-center justify-between gap-3 text-[13.5px]">
+                              <span className="text-[#8C8E94]">{cap.meta}</span>
+                              <Link
+                                href={cap.href}
+                                className="clay-arrow-link !text-[14px]"
+                              >
+                                <span>Detail layanan</span>
+                                <ArrowRight className="w-3.5 h-3.5 text-[#6B7280]" />
+                              </Link>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Clay-Style Monochrome Muted Tech Stack Strip */}
+        <div className="bg-white pb-16 lg:pb-24">
+          <div className="clay-container flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+            {TECH_ECOSYSTEM.map((tech) => (
+              <span
+                key={tech}
+                className="text-[16px] sm:text-[19px] font-semibold tracking-[-0.02em] text-[#9CA3AF] select-none"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F7F5] border border-[#EAEAEA]">
-                  <Image
-                    src={current.image}
-                    alt={current.alt}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 92vw, 760px"
-                    className={`object-cover ${
-                      current.fit === "top" ? "object-top" : "object-center"
-                    } transition-transform duration-500 group-hover:scale-[1.01]`}
-                  />
-                </div>
-              </Link>
-
-              <div className="mt-5 max-w-[650px]">
-                <h3 className="text-[19px] sm:text-[21px] font-semibold tracking-[-0.02em] leading-[1.25] text-[#111111]">
-                  <Link
-                    href={current.href}
-                    className="hover:text-[#D13424] transition-colors"
-                  >
-                    {current.title}
-                  </Link>
-                </h3>
-                <p className="font-serif text-[16.5px] sm:text-[17.5px] leading-[1.58] text-[#4A4A4A] mt-2">
-                  {current.summary}{" "}
-                  <Link href={current.href} className="ed-link whitespace-nowrap">
-                    Lihat studi kasus
-                  </Link>
-                </p>
-              </div>
-            </div>
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -166,10 +367,6 @@ export function SignificaHero() {
       <SignificaShowreelModal
         open={showreelOpen}
         onClose={() => setShowreelOpen(false)}
-      />
-      <SignificaQuoteModal
-        open={quoteOpen}
-        onClose={() => setQuoteOpen(false)}
       />
     </>
   );

@@ -79,9 +79,9 @@ export function SignificaShowreelModal({
                   key={item.id}
                   type="button"
                   onClick={() => setTab(item.id)}
-                  className={`px-4 py-2 rounded-[2px] text-[13.5px] font-medium transition-colors cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-[13.5px] font-medium transition-colors cursor-pointer ${
                     tab === item.id
-                      ? "bg-[#D13424] text-white"
+                      ? "bg-white text-[#111111]"
                       : "bg-white/10 text-white/75 hover:bg-white/15 hover:text-white"
                   }`}
                 >
@@ -255,7 +255,7 @@ export function SignificaShowreelModal({
               <Link
                 href="/demo"
                 onClick={onClose}
-                className="inline-flex items-center gap-2 px-5 h-[42px] rounded-[2px] bg-[#D13424] text-white hover:bg-[#B2291B] text-[14px] font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-5 h-[42px] rounded-full bg-white text-[#111111] hover:bg-white/85 text-[14px] font-medium transition-colors"
               >
                 <span>Buka sandbox lengkap</span>
                 <ArrowRight className="w-4 h-4" />

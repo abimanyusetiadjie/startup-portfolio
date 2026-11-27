@@ -19,7 +19,7 @@ export function AbinestLogo({
 }: AbinestLogoProps) {
   const isDark = variant === "dark";
   const ink = isDark ? "#FFFFFF" : "#111111";
-  const accentFacet = "#D13424";
+  const accentFacet = isDark ? "#A1A1AA" : "#6B7280";
 
   const iconHeight =
     size === "sm"

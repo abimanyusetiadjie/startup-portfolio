@@ -12,68 +12,64 @@ body {
 }
 
 :root {
-  --ed-bg: #FFFFFF;
-  --ed-surface: #F7F7F5;
-  --ed-ink: #111111;
-  --ed-muted: #595959;
-  --ed-faint: #8C8C8C;
-  --ed-rule: #E6E6E6;
-  --ed-accent: #D13424;
+  --clay-bg: #FFFFFF;
+  --clay-hero: #F2F1F3;
+  --clay-surface: #F3F3F3;
+  --clay-dark: #111318;
+  --clay-ink: #111111;
+  --clay-body: #4B5563;
+  --clay-muted: #8C8E94;
+  --clay-border: #E5E7EB;
 }
 
 @layer components {
-  /* Sacred 2-Rail Editorial Container (Work & Co / Swiss Monograph proportions) */
-  .ed-container {
+  /* Clay.global generous outer horizontal rhythm (~72px on 1440px, 24px on mobile) */
+  .clay-container {
     width: 100%;
-    max-width: 1160px;
+    max-width: 1440px;
     margin-inline: auto;
-    padding-inline: clamp(1.5rem, 4.5vw, 3rem);
+    padding-inline: clamp(1.5rem, 5vw, 4.75rem);
   }
 
   /* Alias retained for sub-pages (/demo, /audit-gratis, /jasa-*, /wawasan/*) */
   .sig-container {
     width: 100%;
-    max-width: 1160px;
+    max-width: 1440px;
     margin-inline: auto;
-    padding-inline: clamp(1.5rem, 4.5vw, 3rem);
+    padding-inline: clamp(1.5rem, 5vw, 4.75rem);
   }
 
-  /* Surgical editorial inline serif link (zero pill/shadow slop) */
-  .ed-link {
-    color: #D13424;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-    text-decoration-color: rgba(209, 52, 36, 0.45);
-    transition: text-decoration-color 180ms ease, color 180ms ease;
+  /* Clay signature solid near-black pill CTA */
+  .clay-pill-btn {
+    @apply inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-full bg-[#141519] text-white text-[14.5px] font-medium leading-none transition-all duration-200 hover:bg-[#2A2C34] active:scale-[0.98] cursor-pointer whitespace-nowrap;
   }
 
-  .ed-link:hover {
-    color: #9E2317;
-    text-decoration-color: #9E2317;
+  .clay-pill-outline {
+    @apply inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-full bg-transparent text-[#111111] border border-[#D1D5DB] text-[14.5px] font-medium leading-none transition-all duration-200 hover:border-[#111111] active:scale-[0.98] cursor-pointer whitespace-nowrap;
   }
 
-  .ed-link-ink {
-    color: #111111;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-    text-decoration-color: rgba(17, 17, 17, 0.35);
-    transition: text-decoration-color 180ms ease, color 180ms ease;
+  /* Clay signature underlined text-arrow link */
+  .clay-arrow-link {
+    @apply inline-flex items-center gap-2.5 text-[16px] font-medium text-[#111111] transition-colors cursor-pointer;
   }
 
-  .ed-link-ink:hover {
-    color: #D13424;
-    text-decoration-color: #D13424;
+  .clay-arrow-link > span:first-child {
+    border-bottom: 1px solid #C4C7CE;
+    padding-bottom: 3px;
+    transition: border-color 200ms ease;
   }
 
-  /* Crisp sharp-cornered buttons (Bakken & Baeck architectural restraint) */
+  .clay-arrow-link:hover > span:first-child {
+    border-color: #111111;
+  }
+
+  /* Compatibility button tokens for subpages */
   .sig-btn-primary {
-    @apply inline-flex items-center justify-center gap-2 h-[42px] px-5 rounded-[2px] bg-[#111111] text-white text-[14.5px] font-medium leading-none transition-colors duration-200 hover:bg-[#D13424] cursor-pointer whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-full bg-[#141519] text-white text-[14.5px] font-medium leading-none transition-all duration-200 hover:bg-[#2A2C34] active:scale-[0.98] cursor-pointer whitespace-nowrap;
   }
 
   .sig-btn-outline {
-    @apply inline-flex items-center justify-center gap-2 h-[42px] px-5 rounded-[2px] bg-white text-[#111111] border border-[#D4D4D4] text-[14.5px] font-medium leading-none transition-colors duration-200 hover:border-[#111111] cursor-pointer whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-full bg-white text-[#111111] border border-[#D1D5DB] text-[14.5px] font-medium leading-none transition-all duration-200 hover:border-[#111111] active:scale-[0.98] cursor-pointer whitespace-nowrap;
   }
 
   .sig-link {
@@ -88,13 +84,13 @@ body {
     background-size: 100% 1px;
   }
 
-  /* Retained utility classes for sub-page interactive tools (/demo, /audit-gratis, /tools) */
+  /* Retained utility classes for sub-page interactive tools */
   .ui-card {
-    @apply bg-white rounded-[2px] border border-[#E6E6E6] flex flex-col;
+    @apply bg-white rounded-[4px] border border-[#E5E7EB] flex flex-col;
   }
 
   .ui-card-header {
-    @apply px-6 py-4 bg-[#F7F7F5] border-b border-[#E6E6E6] flex items-center justify-between gap-3;
+    @apply px-6 py-4 bg-[#F3F3F3] border-b border-[#E5E7EB] flex items-center justify-between gap-3;
   }
 
   .ui-card-body {
@@ -102,19 +98,19 @@ body {
   }
 
   .ui-card-footer {
-    @apply px-6 py-4 bg-[#F7F7F5] border-t border-[#E6E6E6] mt-auto;
+    @apply px-6 py-4 bg-[#F3F3F3] border-t border-[#E5E7EB] mt-auto;
   }
 
   .ui-list-group {
-    @apply divide-y divide-[#E6E6E6] rounded-[2px] bg-white border border-[#E6E6E6] overflow-hidden;
+    @apply divide-y divide-[#E5E7EB] rounded-[4px] bg-white border border-[#E5E7EB] overflow-hidden;
   }
 
   .ui-label {
-    @apply block text-xs font-medium uppercase tracking-wider text-[#595959] mb-1.5;
+    @apply block text-xs font-semibold uppercase tracking-wider text-[#4B5563] mb-1.5;
   }
 
   .ui-input {
-    @apply w-full rounded-[2px] bg-white border border-[#D4D4D4] px-3.5 py-2.5 text-sm text-[#111111] placeholder:text-[#8C8C8C] focus:border-[#111111] outline-none transition-colors font-normal;
+    @apply w-full rounded-[6px] bg-white border border-[#D1D5DB] px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#9CA3AF] focus:border-[#111111] outline-none transition-colors font-normal;
   }
 }
 

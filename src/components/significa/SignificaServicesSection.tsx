@@ -1,80 +1,58 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-const CAPABILITIES = [
-  {
-    title: "Website & Portal Bisnis",
-    desc: "Situs perusahaan cepat (<0,8 detik), katalog produk, dan Local SEO dengan 100% hak milik kode sumber.",
-    price: "Mulai Rp1,5 juta · 7–14 hari",
-    href: "/jasa-pembuatan-website-jakarta",
-  },
-  {
-    title: "ERP, WMS, POS & SIAKAD",
-    desc: "Sistem gudang offline/cloud, kasir barcode, manajemen properti, HRIS, dan akademik sekolah tanpa biaya per pengguna.",
-    price: "Mulai Rp4 juta · Rp0/staf",
-    href: "/jasa-pembuatan-sistem-erp",
-  },
-  {
-    title: "Automasi AI & WhatsApp",
-    desc: "Asisten AI katalog 24/7 lewat WhatsApp API resmi Meta, estimasi harga Machine Learning, dan baca faktur otomatis.",
-    price: "Mulai Rp5 juta · API Resmi",
-    href: "/jasa-automasi-whatsapp",
-  },
+const STUDIO_FACTS = [
+  { value: "16+", label: "Sistem nyata terbangun" },
+  { value: "100%", label: "Hak milik kode sumber" },
+  { value: "Rp0", label: "Biaya bulanan per staf" },
+  { value: "90 hari", label: "Garansi bug-fix pascarilis" },
 ];
 
 export function SignificaServicesSection() {
   return (
-    <section id="layanan" className="scroll-mt-8 bg-white">
-      <div className="ed-container">
-        <div className="border-t border-[#E6E6E6] py-14 sm:py-20 grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-x-10 items-start">
-          <div className="lg:col-span-4 space-y-2">
-            <h2 className="text-[15px] font-semibold text-[#111111]">
-              Layanan
-            </h2>
-            <p className="font-serif text-[15px] leading-relaxed text-[#737373] max-w-[220px]">
-              Skema Beli Putus atau Terima Beres, langsung bersama engineer.
-            </p>
-          </div>
+    <section id="layanan" className="scroll-mt-24 bg-[#F3F3F3] py-20 lg:py-32">
+      <div className="clay-container space-y-14 lg:space-y-20">
+        {/* Clay Services / Studio Statement Block */}
+        <div className="max-w-[740px] space-y-6">
+          <h2 className="text-[clamp(2rem,3.4vw+0.8rem,3.5rem)] font-semibold tracking-[-0.03em] leading-[1.1] text-[#111111]">
+            Kami membantu bisnis bertumbuh lewat rekayasa sistem yang nyata
+          </h2>
 
-          <div className="lg:col-span-8">
-            <p className="font-serif text-[18.5px] sm:text-[19.5px] leading-[1.58] text-[#4A4A4A] max-w-[640px] pb-8">
-              Setiap sistem kami rancang dari kebutuhan operasional nyata —
-              mulai dari prototipe kerja di minggu pertama hingga serah terima
-              penuh kode sumber dan garansi bug-fix 90 hari.
-            </p>
+          <p className="text-[17.5px] sm:text-[19.5px] leading-[1.58] text-[#4B5563] max-w-[580px]">
+            Seluruh website, sistem ERP/POS, dan automasi AI dirancang serta
+            ditulis langsung oleh tim engineer — tersedia skema Beli Putus
+            (mulai Rp1,5 juta untuk website, mulai Rp4 juta untuk ERP/POS)
+            maupun Terima Beres.
+          </p>
 
-            <div className="divide-y divide-[#E6E6E6] border-t border-b border-[#E6E6E6]">
-              {CAPABILITIES.map((cap) => (
-                <div
-                  key={cap.title}
-                  className="py-6 sm:py-7 grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 items-baseline"
-                >
-                  <div className="sm:col-span-8 space-y-1.5">
-                    <h3 className="text-[18px] font-semibold tracking-[-0.015em] text-[#111111]">
-                      {cap.title}
-                    </h3>
-                    <p className="font-serif text-[15.5px] leading-[1.55] text-[#4A4A4A]">
-                      {cap.desc}
-                    </p>
-                  </div>
+          <div className="flex flex-wrap items-center gap-x-9 gap-y-4 pt-2">
+            <Link href="/audit-gratis" className="clay-arrow-link">
+              <span>Hitung estimasi proyek</span>
+              <ArrowRight className="w-4 h-4 text-[#6B7280]" />
+            </Link>
 
-                  <div className="sm:col-span-4 sm:text-right space-y-1.5">
-                    <div className="text-[13.5px] text-[#595959]">
-                      {cap.price}
-                    </div>
-                    <Link
-                      href={cap.href}
-                      className="ed-link font-serif text-[15.5px] inline-block"
-                    >
-                      Pelajari layanan
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Link href="/demo" className="clay-arrow-link">
+              <span>Coba demo interaktif</span>
+              <ArrowRight className="w-4 h-4 text-[#6B7280]" />
+            </Link>
           </div>
         </div>
+
+        {/* Quiet Flat Studio Proof Strip (Zero cards, zero icon clutter) */}
+        <dl className="pt-12 border-t border-[#E0E0E2] grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {STUDIO_FACTS.map((fact) => (
+            <div key={fact.label} className="space-y-1.5">
+              <dd className="text-[30px] sm:text-[38px] font-semibold tracking-[-0.03em] text-[#111111] tabular-nums leading-none">
+                {fact.value}
+              </dd>
+              <dt className="text-[14px] text-[#6B7280] leading-snug">
+                {fact.label}
+              </dt>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

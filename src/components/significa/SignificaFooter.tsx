@@ -16,87 +16,171 @@ export function SignificaFooter() {
 
   return (
     <>
-      <footer id="kontak" className="scroll-mt-8 bg-white text-[#111111]">
-        <div className="ed-container">
-          <div className="border-t border-[#E6E6E6] pt-14 sm:pt-20 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-x-10 items-start">
-            <div className="lg:col-span-4 space-y-1.5">
-              <h2 className="text-[15px] font-semibold text-[#111111]">
-                Kontak
+      {/* Clay Exact Light-Gray Editorial Closing Footer (#F3F3F3) */}
+      <footer
+        id="kontak"
+        className="scroll-mt-24 bg-[#F3F3F3] text-[#111111] py-20 lg:py-24"
+      >
+        <div className="clay-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10">
+            {/* Left 6 Cols: Clay "Let's Talk" Direct Contact Anchor */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2 className="text-[clamp(2.25rem,3vw+0.9rem,3.25rem)] font-semibold tracking-[-0.03em] leading-[1.1] text-[#111111]">
+                Mari Berdiskusi
               </h2>
-              <p className="font-serif text-[14.5px] text-[#737373]">
-                Sen–Sab, 08.00–17.00 WIB
-              </p>
-            </div>
 
-            <div className="lg:col-span-8">
-              <p className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.025em] leading-[1.25] text-[#111111] max-w-[560px]">
-                Punya kebutuhan sistem atau ingin berdiskusi langsung bersama
-                engineer kami?
-              </p>
+              <div className="space-y-2.5">
+                <div>
+                  <a
+                    href="mailto:halo@abinest.id"
+                    className="text-[22px] sm:text-[26px] font-medium text-[#111111] underline underline-offset-8 decoration-[#C4C7CE] hover:decoration-[#111111] transition-colors"
+                  >
+                    halo@abinest.id
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href={`https://wa.me/${ABINEST_WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source: "clay_footer_phone",
+                        label: "direct_phone",
+                      })
+                    }
+                    className="text-[17px] text-[#4B5563] hover:text-[#111111] transition-colors"
+                  >
+                    +62 813-9858-9745
+                  </a>
+                </div>
+              </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3 font-serif text-[17.5px]">
+              <div className="pt-2">
                 <a
                   href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
                     trackWhatsAppClick({
-                      source: "editorial_footer_wa",
-                      label: "mulai_diskusi",
+                      source: "clay_footer_cta",
+                      label: "chat_wa",
                     })
                   }
-                  className="ed-link"
+                  className="clay-pill-btn"
                 >
-                  WhatsApp (+62 813-9858-9745)
+                  Mulai proyek via WhatsApp
                 </a>
+              </div>
+            </div>
 
-                <a href="mailto:halo@abinest.id" className="ed-link-ink">
-                  halo@abinest.id
-                </a>
+            {/* Right 6 Cols: Clean 2-Col Navigation + Locations (Clay exact footer rhythm) */}
+            <div className="lg:col-span-6 space-y-12">
+              <div className="grid grid-cols-2 gap-8 text-[15.5px] font-medium text-[#111111]">
+                <ul className="space-y-3">
+                  <li>
+                    <Link
+                      href="/#karya"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Karya
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/#layanan"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Layanan
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/demo"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Demo Interaktif
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/audit-gratis"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Kalkulator Biaya
+                    </Link>
+                  </li>
+                </ul>
 
-                <Link href="/demo" className="ed-link-ink">
-                  Demo Interaktif
-                </Link>
-
-                <Link href="/audit-gratis" className="ed-link-ink">
-                  Kalkulator Biaya
-                </Link>
+                <ul className="space-y-3">
+                  <li>
+                    <Link
+                      href="/jasa-pembuatan-website-jakarta"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Website Bisnis
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/jasa-pembuatan-sistem-erp"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      ERP, WMS &amp; POS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/jasa-automasi-whatsapp"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Automasi AI &amp; WA
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/wawasan/beli-putus-vs-sewa-saas-erp"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Wawasan
+                    </Link>
+                  </li>
+                </ul>
               </div>
 
-              <div className="mt-12 pt-6 border-t border-[#E6E6E6] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[13px] text-[#737373]">
-                <p>
-                  © {year} Abinest — Jakarta &amp; Surabaya ·{" "}
-                  <a
-                    href={`https://wa.me/${ABINEST_WHATSAPP_NUMBER}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#111111] transition-colors"
-                  >
-                    +62 813-9858-9745
-                  </a>
-                </p>
-
-                <div className="flex items-center gap-5">
-                  <Link
-                    href="/wawasan/beli-putus-vs-sewa-saas-erp"
-                    className="hover:text-[#111111] transition-colors"
-                  >
-                    Wawasan
-                  </Link>
-                  <Link
-                    href="/kebijakan-privasi"
-                    className="hover:text-[#111111] transition-colors"
-                  >
-                    Privasi
-                  </Link>
-                  <Link
-                    href="/syarat-ketentuan"
-                    className="hover:text-[#111111] transition-colors"
-                  >
-                    Ketentuan
-                  </Link>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-2 text-[14px] text-[#6B7280]">
+                <div>
+                  <div className="font-medium text-[#111111]">Jakarta</div>
+                  <div>DKI Jakarta, ID</div>
+                </div>
+                <div>
+                  <div className="font-medium text-[#111111]">Surabaya</div>
+                  <div>Jawa Timur, ID</div>
+                </div>
+                <div className="col-span-2 sm:col-span-1">
+                  <div className="font-medium text-[#111111]">Jam Kerja</div>
+                  <div>Sen–Sab, 08–17 WIB</div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Bottom Legal Row */}
+          <div className="mt-16 pt-8 border-t border-[#E0E0E2] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-[13.5px] text-[#6B7280]">
+            <p>© {year} Abinest Digital Systems</p>
+            <div className="flex items-center gap-6">
+              <Link
+                href="/kebijakan-privasi"
+                className="hover:text-[#111111] transition-colors"
+              >
+                Kebijakan Privasi
+              </Link>
+              <Link
+                href="/syarat-ketentuan"
+                className="hover:text-[#111111] transition-colors"
+              >
+                Syarat &amp; Ketentuan
+              </Link>
             </div>
           </div>
         </div>
