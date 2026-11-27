@@ -122,18 +122,17 @@ export default async function CaseStudyDetailPage({
                 "linear-gradient(180deg, #F2F1F3 0%, #F2F1F3 42%, #FFFFFF 42%, #FFFFFF 100%)",
             }}
           >
-            <div className="clay-container space-y-3">
-              <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full overflow-hidden bg-[#EAEAEF]">
+            <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-[clamp(1.5rem,5vw,4.75rem)] space-y-3">
+              <div className="relative w-full overflow-hidden bg-[#EAEAEF] ring-1 ring-inset ring-black/[0.06]">
                 <Image
                   src={primaryImage.src}
                   alt={primaryImage.alt}
-                  fill
+                  width={primaryImage.width ?? 1440}
+                  height={primaryImage.height ?? 1080}
                   priority
                   quality={85}
                   sizes="(max-width: 1200px) 94vw, 1300px"
-                  className={`object-cover ${
-                    primaryImage.fit === "top" ? "object-top" : "object-center"
-                  }`}
+                  className="block w-full h-auto"
                 />
               </div>
               <p className="text-[13.5px] text-[#6B7280]">
@@ -184,18 +183,15 @@ export default async function CaseStudyDetailPage({
           <div className="clay-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {secondaryImage && (
               <div className="lg:col-span-7 space-y-3">
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#E5E7EB]">
+                <div className="relative w-full overflow-hidden bg-[#E5E7EB] ring-1 ring-inset ring-black/[0.06]">
                   <Image
                     src={secondaryImage.src}
                     alt={secondaryImage.alt}
-                    fill
+                    width={secondaryImage.width ?? 1440}
+                    height={secondaryImage.height ?? 1080}
                     quality={85}
                     sizes="(max-width: 1024px) 94vw, 760px"
-                    className={`object-cover ${
-                      secondaryImage.fit === "top"
-                        ? "object-top"
-                        : "object-center"
-                    }`}
+                    className="block w-full h-auto"
                   />
                 </div>
                 <p className="text-[13.5px] text-[#6B7280]">

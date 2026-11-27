@@ -37,13 +37,7 @@ const EXTRA_ARCHIVE_SLUGS = [
   "siakad-sekolah",
 ];
 
-function ClayWorkCard({
-  item,
-  aspectClass,
-}: {
-  item: CaseStudyItem;
-  aspectClass: string;
-}) {
+function ClayWorkCard({ item }: { item: CaseStudyItem }) {
   const img = item.images[0];
   const cleanTitle = item.client.replace(/\.$/, "");
 
@@ -54,39 +48,36 @@ function ClayWorkCard({
         aria-label={`Lihat studi kasus ${cleanTitle}`}
         className="block"
       >
-        {/* Clay Signature: 0px sharp square corners with hairline inset frame for crisp white UI screenshots */}
-        <div
-          className={`relative ${aspectClass} w-full overflow-hidden bg-[#F4F4F5] ring-1 ring-inset ring-black/[0.06]`}
-        >
+        {/* Clay Signature: 0px sharp square corners, 100% uncropped native aspect ratio on Mobile & Desktop */}
+        <div className="relative w-full overflow-hidden bg-[#F4F4F5] ring-1 ring-inset ring-black/[0.06]">
           {img && (
             <Image
               src={img.src}
               alt={img.alt}
-              fill
+              width={img.width ?? 1440}
+              height={img.height ?? 1080}
               quality={85}
-              sizes="(max-width: 1024px) 92vw, 44vw"
-              className={`object-cover ${
-                img.fit === "top" ? "object-top" : "object-center"
-              } transition-transform duration-700 ease-out group-hover:scale-[1.025]`}
+              sizes="(max-width: 1024px) 94vw, 44vw"
+              className="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             />
           )}
         </div>
 
-        <h3 className="mt-5 text-[22px] sm:text-[24px] font-semibold tracking-[-0.02em] leading-[1.2] text-[#111111] group-hover:opacity-70 transition-opacity">
+        <h3 className="mt-4 sm:mt-5 text-[21px] sm:text-[24px] font-semibold tracking-[-0.02em] leading-[1.2] text-[#111111] group-hover:opacity-70 transition-opacity">
           {cleanTitle}
         </h3>
 
-        <p className="mt-1.5 text-[15.5px] leading-[1.52] text-[#4B5563] max-w-[480px]">
+        <p className="mt-1.5 text-[15px] sm:text-[15.5px] leading-[1.52] text-[#4B5563] max-w-[480px]">
           {item.tagline}
         </p>
 
-        <p className="mt-2.5 text-[13.5px] text-[#8C8E94]">
+        <p className="mt-2 text-[13px] sm:text-[13.5px] text-[#8C8E94]">
           {item.techStack.slice(0, 3).join("  ·  ")}
         </p>
 
         {/* Clay Mobile Exact Detail: explicit underlined "View case study ->" shown cleanly on mobile */}
-        <div className="lg:hidden mt-4">
-          <span className="clay-arrow-link !text-[15px]">
+        <div className="lg:hidden mt-3.5">
+          <span className="clay-arrow-link !text-[14.5px]">
             <span>Lihat studi kasus</span>
             <ArrowRight className="w-4 h-4 text-[#6B7280]" />
           </span>
@@ -113,28 +104,20 @@ export function SignificaSelectedWork() {
 
   return (
     <section id="karya" className="scroll-mt-24 bg-white pb-20 lg:pb-28">
-      <div className="clay-container">
-        {/* Clay Signature Staggered 2-Column Portfolio Grid */}
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-[clamp(1.5rem,5vw,4.75rem)]">
+        {/* Clay Signature Staggered 2-Column Portfolio Grid (100% uncropped previews on Mobile & Desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 xl:gap-x-28 items-start">
           {/* Left Column */}
-          <div className="space-y-16 lg:space-y-28">
-            {leftItems.map((item, idx) => (
-              <ClayWorkCard
-                key={item.slug}
-                item={item}
-                aspectClass={idx % 2 === 0 ? "aspect-[4/3]" : "aspect-[16/10]"}
-              />
+          <div className="space-y-12 sm:space-y-16 lg:space-y-28">
+            {leftItems.map((item) => (
+              <ClayWorkCard key={item.slug} item={item} />
             ))}
           </div>
 
           {/* Right Column — Intentionally Staggered Downward on Desktop (Clay exact visual rhythm) */}
-          <div className="mt-16 lg:mt-32 space-y-16 lg:space-y-28">
-            {rightItems.map((item, idx) => (
-              <ClayWorkCard
-                key={item.slug}
-                item={item}
-                aspectClass={idx % 2 === 0 ? "aspect-[16/10]" : "aspect-[4/3]"}
-              />
+          <div className="mt-12 sm:mt-16 lg:mt-32 space-y-12 sm:space-y-16 lg:space-y-28">
+            {rightItems.map((item) => (
+              <ClayWorkCard key={item.slug} item={item} />
             ))}
           </div>
         </div>

@@ -18,7 +18,7 @@ const SHOWREEL_SLIDES = [
     image: "/images/portfolio/propsmart-saas.webp",
     alt: "PropSmart Executive Financial & Occupancy Dashboard menampilkan 32 kamar, Net Rental Yield 9.45%, dan estimasi harga ML Ridge",
     href: "/karya/propsmart-saas",
-    fit: "center" as const,
+    bg: "#E2E6EB",
   },
   {
     id: "smartpos",
@@ -27,7 +27,7 @@ const SHOWREEL_SLIDES = [
     image: "/images/portfolio/toko-amen-snack.webp",
     alt: "Tampilan sistem katalog & kasir Toko Ritel POS (SmartPOS) terintegrasi stok 1.446 SKU dan pemesanan cepat",
     href: "/karya/smartpos-aneka-rasa",
-    fit: "top" as const,
+    bg: "#FFFFFF",
   },
   {
     id: "logisync",
@@ -36,7 +36,7 @@ const SHOWREEL_SLIDES = [
     image: "/images/portfolio/logisync-fleet.webp",
     alt: "Pusat Kendali LogiSync (Fleet.OS) menampilkan Tingkat OTD 94.5%, Armada Aktif 42/50, peta GPS langsung, dan Tren Kapasitas Gudang",
     href: "/karya/logisync-fleet",
-    fit: "top" as const,
+    bg: "#ECECF1",
   },
   {
     id: "lacak-korupsi",
@@ -45,7 +45,7 @@ const SHOWREEL_SLIDES = [
     image: "/images/portfolio/lacak-korupsi.webp",
     alt: "Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara 16 provinsi dan peringkat intensitas wilayah",
     href: "/karya/lacak-korupsi",
-    fit: "top" as const,
+    bg: "#1E263D",
   },
   {
     id: "looku",
@@ -54,7 +54,7 @@ const SHOWREEL_SLIDES = [
     image: "/images/portfolio/looku-ai.webp",
     alt: "Antarmuka editorial fashion Look.u AI — rekomendasi Casual Campus Chiffon ramah iklim tropis Jakarta 33°C",
     href: "/karya/looku-ai",
-    fit: "center" as const,
+    bg: "#F0F0F0",
   },
 ];
 
@@ -238,7 +238,10 @@ export function SignificaHero() {
           onTouchEnd={handleTouchEnd}
         >
           <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-[clamp(1.5rem,5vw,4.75rem)]">
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:max-h-[680px] overflow-hidden bg-[#F4F4F6] border border-[#E5E7EB]/90 shadow-[0_24px_60px_-30px_rgba(17,19,24,0.16)]">
+            <div
+              style={{ backgroundColor: activeSlide.bg }}
+              className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:max-h-[680px] overflow-hidden border border-[#E5E7EB]/90 shadow-[0_24px_60px_-30px_rgba(17,19,24,0.16)] transition-colors duration-300"
+            >
               <Link
                 href={activeSlide.href}
                 aria-label={`Lihat studi kasus ${activeSlide.client}`}
@@ -260,11 +263,7 @@ export function SignificaHero() {
                       priority
                       quality={85}
                       sizes="(max-width: 640px) 94vw, (max-width: 1440px) 92vw, 1300px"
-                      className={`object-cover ${
-                        activeSlide.fit === "top"
-                          ? "object-top"
-                          : "object-center"
-                      }`}
+                      className="object-contain object-center"
                     />
                   </motion.div>
                 </AnimatePresence>

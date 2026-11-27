@@ -8,6 +8,8 @@ export interface CaseImage {
   alt: string;
   caption: string;
   fit?: "center" | "top";
+  width?: number;
+  height?: number;
 }
 
 export interface CaseStudyItem {
@@ -47,12 +49,16 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Tangkapan layar langsung website produksi Toko Amen Snack",
         caption: "Tampilan produksi live di tokoamensnack.vercel.app — katalog 1.446 SKU & asisten WhatsApp AI",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
       {
         src: "/images/portfolio/toko-amen-snack-catalog.webp",
         alt: "Tangkapan layar halaman sorotan promo & katalog produk Toko Amen Snack",
         caption: "Halaman katalog & sorotan promo terintegrasi stok PostgreSQL dan checkout WhatsApp",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -93,12 +99,16 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Dashboard Eksekutif PropSmart menampilkan okupansi 93.75%, pendapatan Rp 58,4 juta, NOI, Net Rental Yield 9.45%, status 32 kamar, dan estimasi harga ML Ridge",
         caption: "Executive Financial & Occupancy Dashboard — Okupansi, NOI, Net Rental Yield, grid 32 kamar & estimasi harga ML real-time",
         fit: "center",
+        width: 1440,
+        height: 1074,
       },
       {
         src: "/images/portfolio/propsmart-ml-pricing.webp",
         alt: "Mesin Estimasi Harga Sewa Machine Learning PropSmart dengan akurasi R² 0.9822 dan faktor SHAP",
         caption: "Machine Learning Price Estimation Engine (Ridge Regression R² = 0,9822) dengan penjelasan faktor SHAP",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -139,6 +149,8 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara dengan performa lokal <5ms, Surat Jalan, dan Penerimaan Barang",
         caption: "Dashboard Operasional Offline-First (<5ms) — mutasi Surat Jalan (DO), LPB, dan pemisahan role Owner HPP vs Admin",
         fit: "top",
+        width: 1440,
+        height: 809,
       },
     ],
     specs: [
@@ -179,12 +191,16 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Antarmuka editorial fashion Look.u AI menampilkan kurasi Casual Campus Chiffon adaptif iklim tropis Jakarta 33°C",
         caption: "Presentasi katalog & rekomendasi fashion AI Look.u yang adaptif terhadap iklim tropis dan gaya modest",
         fit: "center",
+        width: 1440,
+        height: 810,
       },
       {
         src: "/images/portfolio/looku-ai-catalog.webp",
         alt: "Tangkapan layar katalog produk RAG 594 SKU dari 46 brand resmi pada Look.u AI",
         caption: "Katalog produk RAG (594 SKU · 46 Brand) terindeks vektor Gemini 256-dimensi",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -229,12 +245,16 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Halaman Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara 16 provinsi dan peringkat intensitas wilayah",
         caption: "Peta Sebaran & Analitik Kerugian Negara 16+ Provinsi berbasis PostGIS & ECharts",
         fit: "top",
+        width: 1440,
+        height: 810,
       },
       {
         src: "/images/portfolio/lacak-korupsi-news.webp",
         alt: "Beranda Portal Berita Lacak Korupsi dengan breaking ticker, berita investigasi utama, dan daftar kasus terbaru",
         caption: "Portal berita investigasi dengan Breaking Ticker, AI 30-Second Digest, & status proses hukum",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -275,12 +295,16 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Tangkapan layar langsung website B2B Sewa & Jual Scaffolding Standar SNI Central Scaffolding",
         caption: "Beranda website B2B ultra-cepat berbasis Astro dengan stok 10.000+ set & Local SEO Jabodetabek",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
       {
         src: "/images/portfolio/central-scaffolding-catalog.webp",
         alt: "Tangkapan layar langsung katalog produk dan aksesoris Central Scaffolding",
         caption: "Katalog teknis komponen SNI interaktif siap filter & hitung set ke WhatsApp",
         fit: "top",
+        width: 1440,
+        height: 1202,
       },
     ],
     specs: [
@@ -321,12 +345,16 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Tangkapan layar langsung portal resmi YPI Al-Fuad Poris Gaga Tangerang",
         caption: "Tampilan produksi portal resmi YPI Tahfidz Qur'an Al-Fuad untuk 5 unit pendidikan & PPDB 2026",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
       {
         src: "/images/portfolio/ypi-al-fuad-units.webp",
         alt: "Tangkapan layar daftar 5 unit pendidikan terpadu YPI Al-Fuad lengkap NPSN",
         caption: "Navigasi 5 jenjang pendidikan (RA, MI TPI, SMP-IT, SMK-IT, Pondok Pesantren) & rincian biaya",
         fit: "top",
+        width: 1440,
+        height: 1202,
       },
     ],
     specs: [
@@ -367,6 +395,8 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Tangkapan layar langsung CREW AI HRIS menampilkan 142 karyawan, retensi 92.5%, dan prediksi gaji ML",
         caption: "Antarmuka CREW AI HRIS: metrik retensi, distribusi risiko keluar (Flight Risk), & prediksi gaji ideal ML",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -405,12 +435,16 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Tampilan sistem katalog dan operasional Toko Ritel POS (SmartPOS) terintegrasi stok live",
         caption: "Toko Ritel POS (SmartPOS) — katalog stok terpadu, kasir barcode <45ms, struk 58mm & sinkronisasi omzet",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
       {
         src: "/images/portfolio/toko-amen-snack-catalog.webp",
         alt: "Halaman katalog promo dan produk terintegrasi sistem Toko Ritel POS (SmartPOS)",
         caption: "Katalog ritel & promo produk tersinkronisasi langsung dengan stok kasir dan marketplace",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -449,6 +483,8 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Tangkapan layar langsung ScaleBase CRM untuk manajemen pipeline penjualan B2B dan analitik RFM",
         caption: "Antarmuka ScaleBase CRM — pipeline penjualan B2B terukur, manajemen prospek, & segmentasi RFM",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -553,6 +589,8 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Antarmuka KINETIC Tech Gym Platform menampilkan status 48+ cabang, QR Member Pass, dan mode gelap Obsidian",
         caption: "KINETIC Next-Gen Tech Gym — 50+ cabang nasional, Dynamic QR Pass & dual-theme Obsidian/Titanium",
         fit: "top",
+        width: 1440,
+        height: 1080,
       },
     ],
     specs: [
@@ -591,6 +629,8 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Pusat Kendali LogiSync (Fleet.OS) menampilkan Tingkat OTD 94.5%, Armada Aktif 42/50, peta armada langsung Jakarta, dan Tren Kapasitas Gudang",
         caption: "Pusat Kendali Operasional LogiSync — pelacakan armada GPS langsung, analitik kapasitas gudang (WMS), dan monitoring pengiriman real-time",
         fit: "top",
+        width: 1440,
+        height: 810,
       },
     ],
     specs: [
@@ -629,6 +669,8 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         alt: "Platform BlindATS AI CV Screening — Skrining CV dengan AI 100% aman dari bias dan patuh UU PDP dengan skor kecocokan 94%",
         caption: "BlindATS — seleksi kandidat otomatis Two-Stage Hybrid AI dengan sensor identitas PII (UU PDP) dan integrasi n8n",
         fit: "top",
+        width: 1440,
+        height: 1074,
       },
     ],
     specs: [
