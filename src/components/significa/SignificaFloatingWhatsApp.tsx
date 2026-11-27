@@ -60,18 +60,12 @@ export function SignificaFloatingWhatsApp() {
           >
             {/* Dark Swiss Header */}
             <div className="px-5 py-4 bg-[#171717] text-[#F7F7F7] flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5">
-                <span className="relative flex h-2.5 w-2.5 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3C846E] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#3C846E]" />
-                </span>
-                <div>
-                  <div className="text-[14px] font-semibold leading-tight">
-                    Abinest Engineer
-                  </div>
-                  <div className="text-[11px] font-mono text-white/65">
-                    Respon &lt; 15 menit · Langsung ke tim inti
-                  </div>
+              <div>
+                <div className="text-[14px] font-semibold leading-tight">
+                  Abinest Engineer
+                </div>
+                <div className="text-[11.5px] text-white/65 mt-0.5">
+                  Respon &lt; 15 menit · Langsung ke tim inti
                 </div>
               </div>
               <button
@@ -155,14 +149,6 @@ export function SignificaFloatingWhatsApp() {
             <X className="w-5 h-5 text-[#F7F7F7]" />
           ) : (
             <WhatsAppIcon className="w-6 h-6 text-[#F7F7F7]" />
-          )}
-
-          {/* Subtle Online Pulse Indicator */}
-          {!open && (
-            <span className="absolute top-1 right-1 flex h-3.5 w-3.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3C846E] opacity-75" />
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#3C846E] border-2 border-[#F7F7F7]" />
-            </span>
           )}
         </span>
       </button>

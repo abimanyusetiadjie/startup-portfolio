@@ -2,8 +2,9 @@
 
 import { useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { FAQ_ITEMS } from "@/components/grove/faq-data";
+import { buildConsultationWaUrl } from "@/components/grove/contact-utils";
 
 const ENGINEERING_STANDARDS = [
   "Next.js",
@@ -11,26 +12,25 @@ const ENGINEERING_STANDARDS = [
   "Laravel",
   "FastAPI",
   "PostgreSQL",
-  "Meta API",
+  "Python AI",
 ];
 
 export function SignificaAboutAndFaq() {
-  // Collapsed by default so homepage stays ultra-clean and scannable
   const [openId, setOpenId] = useState<string | null>(null);
   const baseId = useId();
+  const waHref = buildConsultationWaUrl(
+    "Halo Tim Abinest, saya ada pertanyaan mengenai kebutuhan sistem digital perusahaan kami."
+  );
 
   return (
     <div id="tentang" className="scroll-mt-20 bg-[#F7F7F7]">
-      {/* 1. Compact Monochrome Stack Strip (1 Row, Zero Fluff) */}
-      <div className="sig-container py-12 lg:py-14 text-center space-y-5 border-b border-[#E8E8E8]">
-        <p className="font-mono text-[11px] uppercase tracking-wider text-[#6F6F71]">
-          Teknologi produksi yang kami pakai di proyek nyata
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-9 gap-y-3 sm:gap-x-14">
+      {/* 1. Quiet Monochrome Stack Line */}
+      <div className="border-y border-[#E5E5E5]">
+        <div className="sig-container py-9 flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
           {ENGINEERING_STANDARDS.map((tech) => (
             <span
               key={tech}
-              className="text-[17px] sm:text-[20px] font-semibold tracking-[-0.02em] text-[#171717]/45 hover:text-[#171717] transition-colors select-none"
+              className="text-[15px] sm:text-[17px] font-medium tracking-[-0.015em] text-[#171717]/45 hover:text-[#171717] transition-colors select-none"
             >
               {tech}
             </span>
@@ -38,33 +38,44 @@ export function SignificaAboutAndFaq() {
         </div>
       </div>
 
-      {/* 2. Crisp 2-Column Accordion FAQ */}
-      <section id="faq" className="scroll-mt-20 py-14 lg:py-20">
-        <div className="sig-container space-y-8">
-          <h2 className="text-[clamp(1.875rem,2.1vw+1.3rem,2.75rem)] font-semibold tracking-[-0.015em] leading-[1.12] text-[#171717]">
-            Pertanyaan umum.
-          </h2>
+      {/* 2. Serene 12-Column Asymmetric FAQ (Sticky Left Title + Clean Single-Column Accordion) */}
+      <section id="faq" className="scroll-mt-20 py-16 lg:py-24">
+        <div className="sig-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-4">
+            <h2 className="text-[clamp(1.75rem,2vw+1.1rem,2.65rem)] font-semibold tracking-[-0.02em] leading-[1.12] text-[#171717]">
+              Pertanyaan umum.
+            </h2>
+            <p className="text-[15.5px] leading-relaxed text-[#6F6F71]">
+              Hal paling sering ditanyakan sebelum memulai pengerjaan sistem.
+            </p>
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sig-link inline-flex items-center gap-1.5 text-[14.5px] font-medium text-[#171717] pt-1"
+            >
+              <span>Tanya langsung ke engineer</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 items-start">
+          <div className="lg:col-span-8 divide-y divide-[#E5E5E5] border-y border-[#E5E5E5]">
             {FAQ_ITEMS.map((item) => {
               const isOpen = openId === item.id;
               const panelId = `${baseId}-${item.id}`;
               const btnId = `${panelId}-btn`;
 
               return (
-                <div
-                  key={item.id}
-                  className="border-t border-[#E8E8E8] last:border-b lg:[&:nth-last-child(2)]:border-b"
-                >
+                <div key={item.id}>
                   <button
                     id={btnId}
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenId(isOpen ? null : item.id)}
-                    className="w-full py-5 flex items-start justify-between gap-4 text-left cursor-pointer focus:outline-none group"
+                    className="w-full py-5 sm:py-6 flex items-start justify-between gap-6 text-left cursor-pointer focus:outline-none group"
                   >
-                    <span className="text-[17px] sm:text-[18px] font-normal leading-[1.35] text-[#171717] group-hover:text-[#6F6F71] transition-colors">
+                    <span className="text-[16.5px] sm:text-[18px] font-medium leading-[1.35] text-[#171717] group-hover:text-[#6F6F71] transition-colors">
                       {item.question}
                     </span>
                     <ChevronDown
@@ -86,14 +97,9 @@ export function SignificaAboutAndFaq() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="pb-5 pr-6 space-y-2.5">
-                          <p className="text-[14.5px] leading-relaxed text-[#6F6F71]">
-                            {item.answer}
-                          </p>
-                          <div className="inline-flex items-center px-2.5 py-1 rounded-[10px] bg-white border border-[#E8E8E8] text-[11.5px] font-mono text-[#171717]">
-                            {item.highlight}
-                          </div>
-                        </div>
+                        <p className="pb-6 pr-8 text-[15px] leading-[1.65] text-[#6F6F71]">
+                          {item.answer}
+                        </p>
                       </motion.div>
                     )}
                   </AnimatePresence>

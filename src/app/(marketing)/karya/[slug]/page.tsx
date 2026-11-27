@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { SignificaNavbar } from "@/components/significa/SignificaNavbar";
 import { SignificaFooter } from "@/components/significa/SignificaFooter";
 import {
@@ -48,6 +48,9 @@ export default async function CaseStudyDetailPage({
     `Halo Tim Abinest, saya melihat portofolio nyata ${project.client} dan tertarik membangun sistem dengan fungsi serupa.`
   );
 
+  const primaryImage = project.images[0];
+  const secondaryImage = project.images[1];
+
   return (
     <div className="min-h-screen bg-[#F7F7F7] text-[#171717] flex flex-col font-sans selection:bg-[#FFD124] selection:text-[#171717]">
       <SignificaNavbar />
@@ -60,26 +63,26 @@ export default async function CaseStudyDetailPage({
             className="sig-link inline-flex items-center gap-1.5 text-[14px] font-medium text-[#6F6F71] hover:text-[#171717]"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Kembali ke karya nyata</span>
+            <span>Kembali ke karya pilihan</span>
           </Link>
         </div>
 
         {/* Header */}
-        <section className="sig-container pb-10 space-y-7">
+        <section className="sig-container pb-12 space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="max-w-3xl space-y-3">
-              <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
-                Proyek nyata · {project.sector} · {project.year}
+              <p className="text-[13px] text-[#6F6F71]">
+                {project.sector} · {project.year}
               </p>
-              <h1 className="text-[clamp(2rem,3.4vw+1rem,3.75rem)] font-bold tracking-[-0.025em] leading-[1.08]">
-                <span className="text-[#6F6F71] block">{project.client}</span>
-                <span className="text-[#171717] block mt-1">
-                  {project.tagline}
-                </span>
+              <h1 className="text-[clamp(2rem,3.4vw+1rem,3.75rem)] font-bold tracking-[-0.025em] leading-[1.08] text-[#171717]">
+                {project.client}
               </h1>
+              <p className="text-[19px] sm:text-[22px] leading-[1.4] text-[#6F6F71]">
+                {project.tagline}
+              </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
@@ -103,134 +106,128 @@ export default async function CaseStudyDetailPage({
             </div>
           </div>
 
-          {/* Tech Stack Strip */}
-          <div className="flex flex-wrap items-center gap-2 py-4 border-y border-[#E8E8E8]">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-[#6F6F71] mr-2">
-              Stack:
+          {/* Quiet Typographic Tech Stack Strip */}
+          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 py-4 border-y border-[#E5E5E5] text-[13.5px]">
+            <span className="text-[#6F6F71]">Teknologi</span>
+            <span className="font-medium text-[#171717]">
+              {project.techStack.join("  ·  ")}
             </span>
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 rounded-full bg-white border border-[#E8E8E8] text-[12.5px] font-mono text-[#171717]"
-              >
-                {tech}
-              </span>
-            ))}
           </div>
 
-          {/* Full-Bleed Studio System Showcase */}
-          <div className="space-y-3">
-            <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full rounded-[20px] overflow-hidden bg-[#EDEDED] border border-[#E8E8E8]">
-              <Image
-                src={project.images[0].src}
-                alt={project.images[0].alt}
-                fill
-                priority
-                sizes="(max-width: 1200px) 92vw, 1344px"
-                className="object-cover object-center"
-              />
+          {/* Primary System Visual (when available) */}
+          {primaryImage && (
+            <div className="space-y-2.5">
+              <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full rounded-[16px] overflow-hidden bg-[#EAEAE8] border border-[#E5E5E5]">
+                <Image
+                  src={primaryImage.src}
+                  alt={primaryImage.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1200px) 94vw, 1344px"
+                  className={`object-cover ${
+                    primaryImage.fit === "top" ? "object-top" : "object-center"
+                  }`}
+                />
+              </div>
+              <p className="text-[13px] text-[#6F6F71]">
+                {primaryImage.caption}
+              </p>
             </div>
-            <p className="text-[13px] text-[#6F6F71]">
-              {project.images[0].caption}
-            </p>
-          </div>
+          )}
         </section>
 
-        {/* Impact / Technical Specs Row */}
-        <section className="sig-container pb-14">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Minimalist Hairline Impact Metrics Row */}
+        <section className="sig-container pb-16">
+          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {project.impactMetrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-[16px] bg-white border border-[#E8E8E8] p-5"
+                className="border-t border-[#E5E5E5] pt-4 space-y-1"
               >
-                <div className="text-[26px] sm:text-[32px] font-bold tracking-[-0.025em] text-[#171717]">
+                <dd className="text-[26px] sm:text-[32px] font-semibold tracking-[-0.025em] text-[#171717] tabular-nums">
                   {m.value}
-                </div>
-                <div className="text-[13px] text-[#6F6F71] mt-1 leading-snug">
+                </dd>
+                <dt className="text-[13.5px] text-[#6F6F71] leading-snug">
                   {m.label}
-                </div>
+                </dt>
               </div>
             ))}
-          </div>
+          </dl>
         </section>
 
         {/* Problem vs. Functional Value */}
-        <section className="border-t border-[#E8E8E8] py-14">
-          <div className="sig-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
-            <div className="lg:col-span-6 space-y-2.5">
-              <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
-                01 · Masalah nyata
-              </p>
-              <h2 className="text-[24px] sm:text-[28px] font-semibold tracking-[-0.02em] text-[#171717]">
+        <section className="border-t border-[#E5E5E5] py-16">
+          <div className="sig-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-6 space-y-3">
+              <p className="font-mono text-[12px] text-[#86868B]">01</p>
+              <h2 className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#171717]">
                 Kendala operasional awal.
               </h2>
-              <p className="text-[16px] leading-[1.6] text-[#6F6F71]">
+              <p className="text-[16px] leading-[1.65] text-[#6F6F71]">
                 {project.problem}
               </p>
             </div>
 
-            <div className="lg:col-span-6 space-y-2.5">
-              <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
-                02 · Nilai fungsi utama
-              </p>
-              <h2 className="text-[24px] sm:text-[28px] font-semibold tracking-[-0.02em] text-[#171717]">
+            <div className="lg:col-span-6 space-y-3">
+              <p className="font-mono text-[12px] text-[#86868B]">02</p>
+              <h2 className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#171717]">
                 Solusi yang benar-benar bekerja.
               </h2>
-              <p className="text-[16px] leading-[1.6] text-[#6F6F71]">
+              <p className="text-[16px] leading-[1.65] text-[#6F6F71]">
                 {project.functionalValue}
               </p>
             </div>
           </div>
         </section>
 
-        {/* Secondary Real Screenshot (if available) + Core Functional Checklist */}
-        <section className="border-t border-[#E8E8E8] py-14">
-          <div className="sig-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {project.images[1] && (
+        {/* Secondary Screenshot (if available) + Core Functional Checklist */}
+        <section className="border-t border-[#E5E5E5] py-16">
+          <div className="sig-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            {secondaryImage && (
               <div className="lg:col-span-7 space-y-2.5">
-                <div className="relative aspect-[4/3] rounded-[16px] overflow-hidden bg-white border border-[#E8E8E8] shadow-sm">
+                <div className="relative aspect-[4/3] rounded-[14px] overflow-hidden bg-[#EAEAE8] border border-[#E5E5E5]">
                   <Image
-                    src={project.images[1].src}
-                    alt={project.images[1].alt}
+                    src={secondaryImage.src}
+                    alt={secondaryImage.alt}
                     fill
-                    sizes="(max-width: 1024px) 92vw, 760px"
-                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 94vw, 760px"
+                    className={`object-cover ${
+                      secondaryImage.fit === "top"
+                        ? "object-top"
+                        : "object-center"
+                    }`}
                   />
                 </div>
                 <p className="text-[12.5px] text-[#6F6F71]">
-                  {project.images[1].caption}
+                  {secondaryImage.caption}
                 </p>
               </div>
             )}
 
             <div
               className={`${
-                project.images[1] ? "lg:col-span-5" : "lg:col-span-8"
-              } space-y-5`}
+                secondaryImage ? "lg:col-span-5" : "lg:col-span-8"
+              } space-y-6`}
             >
-              <div className="space-y-1.5">
-                <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
-                  03 · Fungsi terimplementasi
-                </p>
-                <h2 className="text-[24px] font-semibold tracking-[-0.02em] text-[#171717]">
+              <div className="space-y-2">
+                <p className="font-mono text-[12px] text-[#86868B]">03</p>
+                <h2 className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#171717]">
                   Fitur inti dalam kode produksi.
                 </h2>
               </div>
 
-              <ul className="space-y-3 border-y border-[#E8E8E8] py-5">
+              <ul className="divide-y divide-[#E5E5E5] border-y border-[#E5E5E5]">
                 {project.coreFunctions.map((fn) => (
                   <li
                     key={fn}
-                    className="flex items-start gap-2.5 text-[14.5px] text-[#171717] leading-relaxed"
+                    className="py-3.5 text-[15px] text-[#171717] leading-relaxed"
                   >
-                    <Check className="w-4 h-4 text-[#3C846E] shrink-0 mt-1" />
-                    <span>{fn}</span>
+                    {fn}
                   </li>
                 ))}
               </ul>
 
-              <div className="flex flex-wrap items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center gap-6 pt-1">
                 <a
                   href={waHref}
                   target="_blank"
@@ -240,8 +237,11 @@ export default async function CaseStudyDetailPage({
                   <span>Diskusikan proyek serupa</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
-                <Link href={project.serviceHref} className="sig-btn-outline">
-                  <span>Lihat layanan terkait</span>
+                <Link
+                  href={project.serviceHref}
+                  className="sig-link text-[14.5px] font-medium text-[#171717]"
+                >
+                  Lihat layanan terkait →
                 </Link>
               </div>
             </div>
@@ -249,12 +249,10 @@ export default async function CaseStudyDetailPage({
         </section>
 
         {/* Next Project */}
-        <section className="border-t border-[#E8E8E8] pt-12">
+        <section className="border-t border-[#E5E5E5] pt-14">
           <div className="sig-container flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div>
-              <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
-                Proyek nyata berikutnya
-              </p>
+              <p className="text-[13px] text-[#6F6F71]">Proyek berikutnya</p>
               <Link
                 href={`/karya/${nextProject.slug}`}
                 className="group inline-flex items-baseline gap-3 mt-1"
@@ -266,7 +264,10 @@ export default async function CaseStudyDetailPage({
               </Link>
             </div>
 
-            <Link href="/demo" className="sig-btn-outline w-fit">
+            <Link
+              href="/demo"
+              className="sig-link inline-flex items-center gap-1.5 text-[15px] font-medium text-[#171717] w-fit"
+            >
               <span>Coba sandbox interaktif</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
