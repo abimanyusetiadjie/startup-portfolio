@@ -138,7 +138,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   },
   {
     slug: "heavytrack-wms",
-    tier: "archive",
+    tier: "featured",
     client: "HeavyTrack WMS.",
     tagline: "Sistem gudang suku cadang alat berat offline-first & cetak Surat Jalan.",
     sector: "Industrial WMS",
@@ -148,11 +148,11 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     images: [
       {
         src: "/images/portfolio/heavytrack-wms.webp",
-        alt: "Dashboard Operasional HeavyTrack WMS menampilkan mutasi Surat Jalan dan Penerimaan Barang",
-        caption: "Dashboard operasional gudang berjalan lokal di jaringan LAN tanpa ketergantungan internet",
+        alt: "Dashboard HeavyTrack WMS Mitra Abadi Nusantara menampilkan tren keluar masuk barang, stok per kategori, Surat Jalan, dan Penerimaan Barang",
+        caption: "Dashboard gudang modern Mitra Abadi Nusantara — tren mutasi stok, Surat Jalan, dan penerimaan barang",
         fit: "top",
         width: 1440,
-        height: 809,
+        height: 786,
       },
     ],
     problem:
@@ -590,21 +590,21 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   },
   {
     slug: "kinetic-fitness",
-    tier: "archive",
+    tier: "featured",
     client: "KINETIC Fitness.",
-    tagline: "Platform gym multi-cabang, pilih posisi kelas studio & akses QR dinamis.",
-    sector: "Fitness Tech & IoT",
-    scope: "Member App & IoT Gate Access",
+    tagline: "Website brand gym modern multi-cabang, booking kelas & akses QR dinamis.",
+    sector: "Website Brand & Fitness Tech",
+    scope: "Modern Brand Web & IoT Gate",
     year: "2026",
     techStack: ["Next.js", "Supabase", "React Native", "IoT Gate"],
     images: [
       {
         src: "/images/portfolio/kinetic-fitness.webp",
-        alt: "Antarmuka platform KINETIC Fitness menampilkan keanggotaan dan akses QR",
-        caption: "Ekosistem digital keanggotaan gym multi-cabang dengan tema gelap modern",
+        alt: "Website brand modern KINETIC Tech Gym dengan tipografi tegas, foto studio, dan akses QR member pass",
+        caption: "Website brand modern KINETIC Tech Gym — pendaftaran cepat, pilih cabang, dan akses gerbang QR",
         fit: "top",
         width: 1440,
-        height: 1080,
+        height: 1074,
       },
     ],
     problem:

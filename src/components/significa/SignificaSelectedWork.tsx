@@ -11,28 +11,28 @@ import {
 } from "@/data/significa-work";
 import { ClayReveal } from "./ClayReveal";
 
-// Clay signature staggered 2-column selection (8 crisp HD WebP visual case studies)
+// Clay signature staggered 2-column selection (10 crisp HD WebP case studies covering Web, ERP/POS & AI Automation)
 const LEFT_COLUMN_SLUGS = [
+  "looku-ai",
   "propsmart-saas",
-  "logisync-fleet",
+  "heavytrack-wms",
   "central-scaffolding",
   "ai-cv-screening",
 ];
 
 const RIGHT_COLUMN_SLUGS = [
+  "kinetic-fitness",
   "smartpos-aneka-rasa",
+  "logisync-fleet",
   "lacak-korupsi",
-  "looku-ai",
   "ypi-al-fuad",
 ];
 
-// Remaining 8 real scratch projects cleanly revealed via Clay's "Explore all work ->" control
+// Remaining 6 real scratch projects cleanly revealed via Clay's "Explore all work ->" control
 const EXTRA_ARCHIVE_SLUGS = [
   "toko-amen-snack",
-  "heavytrack-wms",
   "crew-ai-hris",
   "scalebase-crm",
-  "kinetic-fitness",
   "capstonenews-portal",
   "desahub-simkopdes",
   "siakad-sekolah",
