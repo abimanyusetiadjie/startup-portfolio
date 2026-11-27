@@ -55,7 +55,7 @@ const serviceData: ServiceDetailData = {
     { value: "95–100", label: "Target skor Google PageSpeed & Core Web Vitals" },
     { value: "100%", label: "Hak milik kode & kontrol domain penuh" },
   ],
-  startingPrice: "Rp1,5–3,5 juta",
+  startingPrice: "Mulai Rp1,5 juta",
   priceNote:
     "Tersedia skema Beli Putus (Rp0 biaya bulanan ke Abinest) maupun Terima Beres termasuk domain, hosting, dan pemeliharaan.",
   timeline: "Selesai dalam 7–14 hari kerja sejak materi siap",
@@ -68,9 +68,9 @@ const serviceData: ServiceDetailData = {
     href: "/audit-gratis",
   },
   previewImage: {
-    src: "/images/hero-web.webp",
-    alt: "Pratinjau Website Korporat Berkecepatan Tinggi dan Skor Google PageSpeed 100/100",
-    caption: "Arsitektur Next.js (<0,8 detik) · Schema JSON-LD Google · 100% Hak Milik Kode",
+    src: "/images/portfolio/scaffolding-system.jpg",
+    alt: "Contoh sistem website B2B cepat dengan kalkulator interaktif dan Local SEO",
+    caption: "Website Cepat (<0,8 detik) · Kalkulator & Katalog Interaktif · 100% Hak Milik Kode",
   },
   architectureHeading: "Lebih dari Sekadar Tampilan Visual",
   architectureSubheading:

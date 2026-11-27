@@ -43,7 +43,7 @@ function ProjectRow({ item }: { item: CaseStudyItem }) {
   return (
     <article className="border-t border-[#E8E8E8] last:border-b hover:bg-[#C6C6C8]/[0.12] transition-colors duration-200">
       <div className="sig-container py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-stretch">
-        {/* Left Column: Function-First Real Proof */}
+        {/* Left Column: Function-First Proof */}
         <div className="flex flex-col justify-between gap-7">
           <div className="space-y-5">
             <Link href={`/karya/${item.slug}`} className="block group">
@@ -55,7 +55,6 @@ function ProjectRow({ item }: { item: CaseStudyItem }) {
               </h3>
             </Link>
 
-            {/* 2x2 Real Functional Spec Badges */}
             <div className="grid grid-cols-2 gap-x-4 gap-y-3.5 max-w-md pt-1">
               {item.badges.map((b) => {
                 const Icon = ICON_MAP[b.iconKey];
@@ -101,12 +100,9 @@ function ProjectRow({ item }: { item: CaseStudyItem }) {
           </div>
         </div>
 
-        {/* Right Column: Real 4:3 App Screenshot Framed in Editorial Color Stage */}
-        <div
-          style={{ backgroundColor: item.stageBg }}
-          className="relative group rounded-[18px] p-3 sm:p-4 border border-[#E8E8E8]"
-        >
-          <div className="relative aspect-[4/3] w-full rounded-[12px] overflow-hidden bg-white shadow-[0_16px_40px_rgba(23,23,23,0.16)] ring-1 ring-[#171717]/10">
+        {/* Right Column: Full-Bleed 4:3 Studio Working-System Visual (Slide 2 = Live Capture) */}
+        <div className="relative group">
+          <div className="relative aspect-[4/3] w-full rounded-[16px] overflow-hidden bg-[#EDEDED] border border-[#E8E8E8]">
             <Link
               href={`/karya/${item.slug}`}
               aria-label={`Buka studi kasus ${item.client}`}
@@ -117,12 +113,14 @@ function ProjectRow({ item }: { item: CaseStudyItem }) {
                 alt={currentImg.alt}
                 fill
                 sizes="(max-width: 1024px) 92vw, 46vw"
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
+                className={`object-cover ${
+                  imgIdx === 0 ? "object-center" : "object-top"
+                } transition-transform duration-500 group-hover:scale-[1.015]`}
               />
             </Link>
 
             {item.images.length > 1 && (
-              <div className="absolute right-3 bottom-3 z-10 flex items-center gap-1 rounded-[12px] bg-[#F7F7F7]/92 backdrop-blur-md border border-[#E8E8E8] p-1 shadow-[0_8px_20px_rgba(23,23,23,0.14)]">
+              <div className="absolute right-3 bottom-3 z-10 flex items-center gap-1 rounded-[12px] bg-[#F7F7F7]/95 backdrop-blur-md border border-[#E8E8E8] p-1 shadow-[0_8px_20px_rgba(23,23,23,0.14)]">
                 <span className="px-2 font-mono text-[10.5px] font-medium text-[#171717]">
                   0{imgIdx + 1}/0{item.images.length}
                 </span>
@@ -154,29 +152,29 @@ function ProjectRow({ item }: { item: CaseStudyItem }) {
 export function SignificaSelectedWork() {
   return (
     <section id="karya" className="scroll-mt-20 pt-8 sm:pt-12 bg-[#F7F7F7]">
-      {/* Section Header — Minimal & Direct */}
+      {/* Section Header */}
       <div className="sig-container pb-7 sm:pb-9 flex flex-wrap items-end justify-between gap-4">
         <h2 className="text-[clamp(1.875rem,2.1vw+1.3rem,3rem)] font-semibold tracking-[-0.015em] leading-[1.12] text-[#171717]">
           Karya nyata.
         </h2>
         <span className="font-mono text-xs uppercase tracking-wider text-[#6F6F71]">
-          7 sistem terbangun · Tangkapan layar asli
+          7 sistem informasi &amp; produk aktif
         </span>
       </div>
 
-      {/* 4 Flagship Real Projects (Significa 50/50 Rows) */}
+      {/* 4 Flagship Real Projects */}
       <div>
         {FEATURED_WORK_ITEMS.map((item) => (
           <ProjectRow key={item.slug} item={item} />
         ))}
       </div>
 
-      {/* 3 Additional Real Enterprise Systems — Visual-First Compact Grid */}
+      {/* 3 Populated Enterprise Information Systems — Full-Bleed Studio Grid */}
       <div className="border-b border-[#E8E8E8]">
         <div className="sig-container py-12 lg:py-16 space-y-7">
           <div className="flex items-center justify-between gap-4">
             <h3 className="text-[20px] sm:text-[24px] font-semibold tracking-[-0.015em] text-[#171717]">
-              Sistem &amp; aplikasi bisnis lainnya.
+              Sistem informasi bisnis lainnya.
             </h3>
             <span className="font-mono text-[11px] uppercase tracking-wider text-[#6F6F71]">
               HRIS · POS · CRM
@@ -190,19 +188,14 @@ export function SignificaSelectedWork() {
                 href={`/karya/${item.slug}`}
                 className="group rounded-[18px] bg-white border border-[#E8E8E8] hover:border-[#FFD124] overflow-hidden transition-all flex flex-col"
               >
-                <div
-                  style={{ backgroundColor: item.stageBg }}
-                  className="p-2.5 border-b border-[#E8E8E8]"
-                >
-                  <div className="relative aspect-[4/3] w-full rounded-[10px] overflow-hidden bg-white ring-1 ring-black/10">
-                    <Image
-                      src={item.images[0].src}
-                      alt={item.images[0].alt}
-                      fill
-                      sizes="(max-width: 768px) 92vw, 30vw"
-                      className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  </div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#EDEDED] border-b border-[#E8E8E8]">
+                  <Image
+                    src={item.images[0].src}
+                    alt={item.images[0].alt}
+                    fill
+                    sizes="(max-width: 768px) 92vw, 31vw"
+                    className="object-cover object-center group-hover:scale-[1.025] transition-transform duration-500"
+                  />
                 </div>
                 <div className="p-5 flex-1 flex flex-col justify-between gap-3">
                   <div className="space-y-1">

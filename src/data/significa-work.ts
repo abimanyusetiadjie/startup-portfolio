@@ -14,7 +14,6 @@ export interface CaseStudyItem {
   sector: string;
   year: string;
   liveUrl?: string;
-  stageBg: string;
   techStack: string[];
   images: { src: string; alt: string; caption: string }[];
   badges: CaseBadge[];
@@ -34,18 +33,17 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Ritel & Oleh-Oleh · Sungailiat, Bangka",
     year: "2026",
     liveUrl: "https://tokoamensnack.vercel.app",
-    stageBg: "#DAD6CE",
     techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WAHA WhatsApp", "Tailwind CSS"],
     images: [
       {
-        src: "/images/real-projects/amen-home-4x3.png",
-        alt: "Tampilan asli beranda website Toko Amen Snack Sungailiat Bangka",
-        caption: "Beranda & jalur belanja langsung ke Katalog, Shopee Official, dan AI WhatsApp",
+        src: "/images/portfolio/amen-system.jpg",
+        alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
+        caption: "Katalog stok PostgreSQL 1.446 SKU + asisten hitung ongkir & checkout WhatsApp AI",
       },
       {
-        src: "/images/real-projects/amen-catalog-4x3.png",
-        alt: "Tampilan asli halaman katalog promo dan pengiriman nasional Toko Amen Snack",
-        caption: "Sorotan promo unggulan & pengiriman nasional dengan tombol perbesar & order",
+        src: "/images/real-projects/amen-home-4x3.png",
+        alt: "Tangkapan layar langsung website produksi Toko Amen Snack",
+        caption: "Tampilan produksi live di tokoamensnack.vercel.app",
       },
     ],
     badges: [
@@ -79,9 +77,9 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
       },
     ],
     problem:
-      "Toko oleh-oleh dengan lebih dari seribu jenis camilan kesulitan melayani pertanyaan stok, harga grosir, dan estimasi berat ongkir di WhatsApp secara manual, sementara PC kasir toko masih memakai spesifikasi Windows 7 RAM 4 GB.",
+      "Toko oleh-oleh dengan lebih dari seribu jenis camilan kesulitan melayani pertanyaan stok, harga grosir, dan estimasi berat ongkir di WhatsApp secara manual, sementara PC kasir toko masih memakai Windows 7 RAM 4 GB.",
     functionalValue:
-      "Menyatukan 1.446 master SKU PostgreSQL antara sistem kasir dan katalog web publik, ditambah asisten AI dual-engine (LLM + fallback deterministik) yang tetap akurat menghitung total pesanan, berat kirim (kg), dan membuat tautan checkout WhatsApp otomatis.",
+      "Menyatukan 1.446 master SKU PostgreSQL antara sistem kasir dan katalog web publik, ditambah asisten AI dual-engine (LLM + fallback deterministik) yang akurat menghitung total pesanan, berat kirim (kg), dan membuat tautan checkout WhatsApp otomatis.",
     coreFunctions: [
       "Sinkronisasi real-time 1.060 produk aktif (1.446 master SKU) dengan harga eceran & grosir",
       "Dual-Engine AI + Deterministic Store Assistant dengan memori percakapan multi-turn",
@@ -103,18 +101,17 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     tagline: "Web B2B sewa/jual, kalkulator set & Local SEO.",
     sector: "Konstruksi & Material B2B · Jabodetabek",
     year: "2026",
-    stageBg: "#DE6D3B",
     techStack: ["Astro", "React Island", "Tailwind CSS", "Programmatic SEO"],
     images: [
       {
-        src: "/images/real-projects/scaffolding-home-4x3.png",
-        alt: "Tampilan asli beranda website Central Scaffolding Indonesia",
-        caption: "Hero konversi cepat dengan bukti stok 10.000+ set & area layanan Jabodetabek",
+        src: "/images/portfolio/scaffolding-system.jpg",
+        alt: "Sistem kalkulator material set dan spesifikasi SNI Central Scaffolding",
+        caption: "Kalkulator interaktif Sewa/Beli (1–200+ set) otomatis menghitung Main Frame, Cross Brace & Joint Pin ke WA",
       },
       {
         src: "/images/real-projects/scaffolding-catalog-4x3.png",
-        alt: "Tampilan asli katalog komponen dan aksesoris Central Scaffolding",
-        caption: "Katalog teknis komponen SNI (Main Frame 1,90 / 1,70, Cross Brace, Pipa Galvanis)",
+        alt: "Tangkapan layar langsung katalog produk dan aksesoris Central Scaffolding",
+        caption: "Katalog teknis komponen SNI interaktif siap filter",
       },
     ],
     badges: [
@@ -148,7 +145,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
       },
     ],
     problem:
-      "Kontraktor di lapangan mencari vendor sewa/beli scaffolding langsung dari HP dan butuh kepastian stok fisik (anti-makelar) beserta hitungan jumlah Main Frame, Cross Brace, dan Joint Pin tanpa menunggu lama.",
+      "Kontraktor di lapangan mencari vendor sewa/beli scaffolding langsung dari HP dan butuh kepastian stok fisik beserta hitungan jumlah Main Frame, Cross Brace, dan Joint Pin tanpa menunggu lama.",
     functionalValue:
       "Website ultra-ringan berbasis Astro dengan kalkulator kebutuhan material interaktif yang otomatis menghitung rincian batang rangka dan mengirim draf order rapi ke WhatsApp, didukung halaman Local SEO otomatis per kecamatan.",
     coreFunctions: [
@@ -172,18 +169,17 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     tagline: "Portal 5 unit pendidikan & sistem konversi PPDB.",
     sector: "Yayasan Pendidikan · Poris Gaga, Tangerang",
     year: "2026",
-    stageBg: "#3C846E",
     techStack: ["Astro 5", "TypeScript Strict", "Tailwind CSS", "JSON-LD Schema"],
     images: [
       {
-        src: "/images/real-projects/alfuad-home-4x3.png",
-        alt: "Tampilan asli portal resmi MI TPI dan YPI Al-Fuad Poris Gaga Tangerang",
-        caption: "Beranda resmi YPI Al-Fuad sejak 1990 dengan akses langsung Daftar PPDB & rincian biaya",
+        src: "/images/portfolio/alfuad-system.jpg",
+        alt: "Sistem portal PPDB dan 5 unit pendidikan terpadu YPI Al-Fuad Tangerang",
+        caption: "Portal PPDB 2026 terpadu untuk 5 unit (RA, MI TPI, SMP-IT, SMK-IT, Pesantren) lengkap NPSN & rincian biaya",
       },
       {
-        src: "/images/real-projects/alfuad-units-4x3.png",
-        alt: "Tampilan asli tab lima unit pendidikan terpadu RA MI SMP-IT SMK-IT Pesantren",
-        caption: "Navigasi interaktif 5 unit pendidikan terpadu dalam satu kawasan",
+        src: "/images/real-projects/alfuad-home-4x3.png",
+        alt: "Tangkapan layar langsung portal resmi YPI Al-Fuad Poris Gaga",
+        caption: "Tampilan produksi portal resmi YPI Tahfidz Qur'an Al-Fuad",
       },
     ],
     badges: [
@@ -241,18 +237,17 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     tagline: "Stylist AI berbasis Hybrid RAG 594 SKU & Vision.",
     sector: "Applied AI & Fashion Tech · PWA",
     year: "2026",
-    stageBg: "#E2B2A2",
     techStack: ["Next.js", "Gemini 256-d Vector RAG", "Vision AI", "MediaPipe", "Supabase"],
     images: [
       {
-        src: "/images/real-projects/looku-home-4x3.png",
-        alt: "Tampilan asli antarmuka asisten styling fashion AI Look.u berbasis Hybrid RAG",
-        caption: "Asisten AI Zero-Hallucination dengan filter gender, hijab, budget & Vision Mix & Match",
+        src: "/images/portfolio/looku-system.jpg",
+        alt: "Antarmuka studio styling AI Hybrid RAG 594 SKU dan analisis warna kulit Look.u AI",
+        caption: "Studio rekomendasi modular berbasis Hybrid RAG 594 SKU + pemindaian rona warna kulit Nusantara",
       },
       {
-        src: "/images/real-projects/looku-catalog-4x3.png",
-        alt: "Tampilan asli katalog produk RAG 594 SKU dari 46 brand pada Look.u AI",
-        caption: "Katalog 594 SKU terindeks vektor 256-d siap klik Mix & Match di AI",
+        src: "/images/real-projects/looku-home-4x3.png",
+        alt: "Tangkapan layar langsung asisten styling fashion AI Look.u",
+        caption: "Antarmuka prompt chat AI Zero-Hallucination di produksi lokal",
       },
     ],
     badges: [
@@ -307,16 +302,15 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "crew-ai-hris",
     featured: false,
     client: "CREW. AI HRIS.",
-    tagline: "HRIS + prediksi risiko resign & gaji berbasis ML.",
+    tagline: "Dashboard HRIS, deteksi risiko resign & audit gaji ML.",
     sector: "Enterprise HRIS & Machine Learning",
     year: "2026",
-    stageBg: "#3C846E",
     techStack: ["Next.js", "FastAPI", "Python Scikit-Learn", "PostgreSQL", "Docker"],
     images: [
       {
-        src: "/images/real-projects/crew-hris-4x3.png",
-        alt: "Tampilan asli platform AI-Powered HRIS CREW dengan analitik retensi dan prediksi gaji",
-        caption: "Platform HRIS dengan detektor risiko resign (Flight Risk) & prediksi kompensasi",
+        src: "/images/portfolio/crew-hris-system.jpg",
+        alt: "Dashboard Admin CREW AI HRIS menampilkan 142 karyawan, retensi 92.5%, dan tabel ML Salary Audit",
+        caption: "Dashboard Admin HRIS: metrik retensi, distribusi risiko keluar (Flight Risk), dan audit gaji ideal ML",
       },
     ],
     badges: [
@@ -357,16 +351,15 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "smartpos-aneka-rasa",
     featured: false,
     client: "SmartPOS Aneka Rasa.",
-    tagline: "Kasir barcode <45ms, struk 58mm & sinkron Shopee.",
+    tagline: "Kasir barcode <45ms, struk 58mm & BI omzet Shopee.",
     sector: "Omnichannel Retail POS & BI · Pangkalpinang",
     year: "2026",
-    stageBg: "#171717",
     techStack: ["React", "Vite", "USB HID Barcode", "ApexCharts BI", "Shopee Sync"],
     images: [
       {
-        src: "/images/real-projects/smartpos-home-4x3.png",
-        alt: "Tampilan asli terminal kasir dark-mode SmartPOS Toko Aneka Rasa 99",
-        caption: "Terminal kasir dark-mode dengan shortcut keyboard F2/F8/F9/F10/F12 & scan barcode cepat",
+        src: "/images/portfolio/smartpos-system.jpg",
+        alt: "Terminal kasir dark-mode SmartPOS aktif terisi transaksi dengan ringkasan Executive BI dan Shopee Sync",
+        caption: "Terminal kasir aktif dengan scan SKU barcode, pembayaran QRIS/Tunai/Debit, dan kartu Executive BI Owner",
       },
     ],
     badges: [
@@ -407,16 +400,15 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "scalebase-crm",
     featured: false,
     client: "ScaleBase CRM.",
-    tagline: "Pipeline Kanban B2B, tiket CS & analitik RFM.",
+    tagline: "Board Kanban pipeline B2B, tiket CS & analitik RFM.",
     sector: "B2B Sales CRM & Customer Support",
     year: "2026",
-    stageBg: "#DAD6CE",
     techStack: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "RFM ML"],
     images: [
       {
-        src: "/images/real-projects/scalebase-crm-4x3.png",
-        alt: "Tampilan asli platform workspace CRM ScaleBase untuk tim sales dan agensi B2B",
-        caption: "Workspace kendali prospek, analitik funnel penjualan, dan tiket komplain pelanggan",
+        src: "/images/portfolio/scalebase-crm-system.jpg",
+        alt: "Workspace Pipeline Board Kanban ScaleBase CRM dengan nilai deal, Win Rate, dan tag RFM",
+        caption: "Kanban Pipeline Board B2B (New → Proposal → Negotiation → Closed Won) dengan metrik Win Rate & RFM",
       },
     ],
     badges: [

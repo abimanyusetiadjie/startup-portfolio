@@ -118,22 +118,19 @@ export default async function CaseStudyDetailPage({
             ))}
           </div>
 
-          {/* Real App Primary Screenshot in Editorial Stage */}
-          <div
-            style={{ backgroundColor: project.stageBg }}
-            className="rounded-[20px] p-4 sm:p-8 border border-[#E8E8E8]"
-          >
-            <div className="relative aspect-[4/3] w-full rounded-[14px] overflow-hidden bg-white shadow-[0_24px_60px_rgba(23,23,23,0.2)] ring-1 ring-black/10">
+          {/* Full-Bleed Studio System Showcase */}
+          <div className="space-y-3">
+            <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full rounded-[20px] overflow-hidden bg-[#EDEDED] border border-[#E8E8E8]">
               <Image
                 src={project.images[0].src}
                 alt={project.images[0].alt}
                 fill
                 priority
-                sizes="(max-width: 1200px) 92vw, 1280px"
-                className="object-cover object-top"
+                sizes="(max-width: 1200px) 92vw, 1344px"
+                className="object-cover object-center"
               />
             </div>
-            <p className="mt-3 text-center text-[13px] font-medium text-[#171717]/80">
+            <p className="text-[13px] text-[#6F6F71]">
               {project.images[0].caption}
             </p>
           </div>

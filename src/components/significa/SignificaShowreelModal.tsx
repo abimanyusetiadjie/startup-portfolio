@@ -96,11 +96,11 @@ export function SignificaShowreelModal({
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   <div className="lg:col-span-7 relative aspect-[16/10] rounded-[16px] overflow-hidden border border-white/15 bg-[#242424]">
                     <Image
-                      src="/images/real-projects/amen-hero-16x9.png"
-                      alt="Tangkapan layar asli website produksi Toko Amen Snack"
+                      src="/images/portfolio/amen-system.jpg"
+                      alt="Sistem katalog 1.446 SKU dan WhatsApp AI Toko Amen Snack"
                       fill
                       sizes="(max-width: 1024px) 92vw, 520px"
-                      className="object-cover object-top"
+                      className="object-cover object-center"
                     />
                   </div>
                   <div className="lg:col-span-5 space-y-4">

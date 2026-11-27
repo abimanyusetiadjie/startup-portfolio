@@ -55,7 +55,7 @@ const serviceData: ServiceDetailData = {
     { value: "100%", label: "Hak milik source code & seluruh basis data" },
     { value: "99,9%", label: "Stabilitas akses tinggi untuk operasional harian" },
   ],
-  startingPrice: "Rp4–12 juta",
+  startingPrice: "Mulai Rp4 juta",
   priceNote:
     "Dapat dimulai dari modul paling mendesak terlebih dahulu dengan pembayaran bertahap 3 termin sesuai progres rilis.",
   timeline: "Rilis bertahap per modul dalam 2–8 minggu",
@@ -68,9 +68,9 @@ const serviceData: ServiceDetailData = {
     href: "/demo",
   },
   previewImage: {
-    src: "/images/erp-dashboard.webp",
-    alt: "Pratinjau Dasbor Sistem ERP Multi-Gudang, Kasir POS, dan Portal SIAKAD Abinest",
-    caption: "Sinkronisasi Multi-Gudang Real-Time · Kasir POS · Portal SIAKAD Tanpa Biaya Lisensi per Staf",
+    src: "/images/portfolio/smartpos-system.jpg",
+    alt: "Contoh sistem kasir POS dark-mode terintegrasi Shopee dan Executive BI Dashboard Abinest",
+    caption: "Kasir POS Barcode <45ms · Executive BI Owner · Sinkronisasi Stok Tanpa Biaya per Staf",
   },
   architectureHeading: "Tiga Pilar Aplikasi Operasional Terpadu",
   architectureSubheading:

@@ -12,32 +12,32 @@ const HERO_TEASERS = [
     id: "amen",
     title: "Toko Amen Snack. 1,446 SKUs & AI WA Bot.",
     source: "Live production",
-    thumb: "/images/real-projects/amen-home-4x3.png",
-    alt: "Toko Amen Snack real website screenshot",
+    thumb: "/images/portfolio/amen-system.jpg",
+    alt: "Toko Amen Snack live catalog and AI WhatsApp assistant",
     href: "/karya/toko-amen-snack",
   },
   {
     id: "scaffolding",
-    title: "Central Scaffolding. B2B catalog & quote calc.",
+    title: "Central Scaffolding. B2B set calculator & SEO.",
     source: "Built with Astro",
-    thumb: "/images/real-projects/scaffolding-home-4x3.png",
-    alt: "Central Scaffolding real website screenshot",
+    thumb: "/images/portfolio/scaffolding-system.jpg",
+    alt: "Central Scaffolding interactive B2B calculator system",
     href: "/karya/central-scaffolding",
   },
   {
     id: "alfuad",
     title: "YPI Al-Fuad. 5 school units & PPDB portal.",
     source: "Built with Astro 5",
-    thumb: "/images/real-projects/alfuad-home-4x3.png",
-    alt: "YPI Al-Fuad Tangerang real website screenshot",
+    thumb: "/images/portfolio/alfuad-system.jpg",
+    alt: "YPI Al-Fuad 5-unit PPDB school portal system",
     href: "/karya/ypi-al-fuad",
   },
   {
     id: "looku",
     title: "Look.u AI. Hybrid RAG 594 SKUs & Vision.",
     source: "Applied AI · Next.js",
-    thumb: "/images/real-projects/looku-home-4x3.png",
-    alt: "Look.u AI real app screenshot",
+    thumb: "/images/portfolio/looku-system.jpg",
+    alt: "Look.u AI Hybrid RAG outfit studio",
     href: "/karya/looku-ai",
   },
 ];
@@ -46,37 +46,33 @@ const SHOWREEL_SLIDES = [
   {
     id: "amen",
     index: "01",
-    label: "Toko Amen Snack · Live E-Commerce + AI",
-    stageBg: "#DAD6CE",
-    image: "/images/real-projects/amen-hero-16x9.png",
-    alt: "Tangkapan layar asli website produksi Toko Amen Snack Sungailiat",
+    label: "Toko Amen Snack · 1,446 SKUs + AI",
+    image: "/images/portfolio/amen-system.jpg",
+    alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
     href: "/karya/toko-amen-snack",
   },
   {
-    id: "alfuad",
+    id: "scaffolding",
     index: "02",
-    label: "YPI Al-Fuad · 5-Unit School & PPDB",
-    stageBg: "#3C846E",
-    image: "/images/real-projects/alfuad-hero-16x9.png",
-    alt: "Tangkapan layar asli portal resmi YPI Tahfidz Qur'an Al-Fuad Tangerang",
-    href: "/karya/ypi-al-fuad",
+    label: "Central Scaffolding · B2B Calculator",
+    image: "/images/portfolio/scaffolding-system.jpg",
+    alt: "Kalkulator material set dan spesifikasi SNI Central Scaffolding",
+    href: "/karya/central-scaffolding",
   },
   {
-    id: "scaffolding",
+    id: "alfuad",
     index: "03",
-    label: "Central Scaffolding · B2B Catalog & SEO",
-    stageBg: "#DE6D3B",
-    image: "/images/real-projects/scaffolding-hero-16x9.png",
-    alt: "Tangkapan layar asli website B2B Central Scaffolding Indonesia",
-    href: "/karya/central-scaffolding",
+    label: "YPI Al-Fuad · 5-Unit PPDB System",
+    image: "/images/portfolio/alfuad-system.jpg",
+    alt: "Sistem portal PPDB 2026 5 unit pendidikan YPI Al-Fuad",
+    href: "/karya/ypi-al-fuad",
   },
   {
     id: "looku",
     index: "04",
     label: "Look.u AI · Hybrid RAG 594 SKUs",
-    stageBg: "#E2B2A2",
-    image: "/images/real-projects/looku-hero-16x9.png",
-    alt: "Tangkapan layar asli aplikasi Look.u AI Hybrid RAG dan Vision",
+    image: "/images/portfolio/looku-system.jpg",
+    alt: "Studio AI styling fashion Hybrid RAG 594 SKU Look.u AI",
     href: "/karya/looku-ai",
   },
 ];
@@ -164,7 +160,7 @@ export function SignificaHero() {
                     alt={item.alt}
                     fill
                     sizes="(max-width: 640px) 76px, 96px"
-                    className="object-cover object-top group-hover:scale-[1.04] transition-transform duration-300"
+                    className="object-cover object-center group-hover:scale-[1.04] transition-transform duration-300"
                   />
                 </div>
                 <div className="relative z-10 min-w-0 flex-1">
@@ -179,39 +175,68 @@ export function SignificaHero() {
             ))}
           </div>
 
-          {/* 3. Editorial Real-Product Showreel Stage (100% Real Uncropped App Screenshots in Significa Color Stage) */}
+          {/* 3. Full-Bleed Studio Working-System Showreel (Edge-to-Edge Photorealistic System Artworks) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.06, ease: "easeOut" }}
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
-            style={{ backgroundColor: activeSlide.stageBg }}
-            className="relative w-full rounded-[20px] overflow-hidden border border-[#E8E8E8] transition-colors duration-500 p-3 pt-14 sm:p-6 sm:pt-16 lg:p-10 lg:pt-20"
+            className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] lg:max-h-[670px] rounded-[20px] overflow-hidden bg-[#DAD6CE] border border-[#E8E8E8]"
           >
-            {/* Top Controls Bar Inside Editorial Stage (Always Visible at y=0, Never Covers App Screenshot!) */}
-            <div className="absolute inset-x-3 top-2.5 sm:inset-x-6 sm:top-4 lg:inset-x-10 lg:top-5 z-20 flex items-center justify-between gap-2">
+            {/* Full-Bleed Crossfading Studio Working-System Artworks */}
+            <Link
+              href={activeSlide.href}
+              aria-label={`Buka detail sistem ${activeSlide.label}`}
+              className="block absolute inset-0"
+            >
+              <AnimatePresence mode="sync" initial={false}>
+                <motion.div
+                  key={activeSlide.id}
+                  initial={{ opacity: 0, scale: 1.012 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.55, ease: "easeOut" }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={activeSlide.image}
+                    alt={activeSlide.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 94vw, (max-width: 1440px) 92vw, 1344px"
+                    className="object-cover object-center"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </Link>
+
+            {/* Subtle Bottom Edge Scrim on Mobile Only */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 lg:h-0 bg-gradient-to-t from-[#171717]/40 via-[#171717]/10 to-transparent z-10" />
+
+            {/* Clean Overlay Bar: Open Upper Studio Wall on Desktop (Visible at y=0), Bottom Bar on Mobile */}
+            <div className="absolute inset-x-3.5 bottom-3.5 sm:inset-x-6 sm:bottom-5 lg:top-6 lg:bottom-auto z-20 flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={() => setShowreelOpen(true)}
-                  className="sig-btn-primary !h-[36px] sm:!h-[40px] !px-3.5 sm:!px-4 !text-[12.5px] sm:!text-[14px] shadow-[0_8px_24px_rgba(23,23,23,0.22)] hover:ring-[#FFD124]/50"
+                  className="sig-btn-primary !h-[38px] sm:!h-[42px] !px-4 sm:!px-5 !text-[13px] sm:!text-[14.5px] shadow-[0_10px_28px_rgba(23,23,23,0.28)] hover:ring-[#FFD124]/50"
                 >
-                  <Play className="w-3 h-3 fill-current" />
+                  <Play className="w-3.5 h-3.5 fill-current" />
                   <span>Try live demo</span>
                 </button>
 
                 <Link
                   href={activeSlide.href}
-                  className="hidden sm:inline-flex items-center gap-1 h-[40px] px-3.5 rounded-[14px] bg-[#F7F7F7]/90 backdrop-blur-md border border-[#E8E8E8] hover:border-[#FFD124] text-[13px] font-medium text-[#171717] transition-colors"
+                  className="hidden sm:inline-flex items-center gap-1 h-[42px] px-4 rounded-[14px] bg-[#F7F7F7]/90 backdrop-blur-md border border-[#E8E8E8] hover:border-[#FFD124] text-[13.5px] font-medium text-[#171717] transition-colors"
                 >
-                  <span>Inspect build</span>
+                  <span>Inspect system</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 
               {/* Frosted Swiss Slide Controls */}
-              <div className="flex items-center gap-1.5 rounded-[14px] bg-[#F7F7F7]/92 backdrop-blur-md border border-[#E8E8E8] p-1 shadow-[0_8px_24px_rgba(23,23,23,0.12)]">
+              <div className="flex items-center gap-1.5 rounded-[14px] bg-[#F7F7F7]/95 backdrop-blur-md border border-[#E8E8E8] p-1 shadow-[0_8px_24px_rgba(23,23,23,0.14)]">
                 <span className="hidden md:inline-block pl-2.5 pr-1 font-mono text-[11px] font-medium text-[#171717] whitespace-nowrap">
                   {activeSlide.index} · {activeSlide.label}
                 </span>
@@ -237,48 +262,21 @@ export function SignificaHero() {
                     type="button"
                     onClick={prevSlide}
                     aria-label="Proyek sebelumnya"
-                    className="w-7 h-7 rounded-[9px] bg-white border border-[#E8E8E8] hover:border-[#FFD124] text-[#171717] inline-flex items-center justify-center transition-colors cursor-pointer"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-[9px] bg-white border border-[#E8E8E8] hover:border-[#FFD124] text-[#171717] inline-flex items-center justify-center transition-colors cursor-pointer"
                   >
-                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <ChevronLeft className="w-4 h-4" />
                   </button>
                   <button
                     type="button"
                     onClick={nextSlide}
                     aria-label="Proyek berikutnya"
-                    className="w-7 h-7 rounded-[9px] bg-white border border-[#E8E8E8] hover:border-[#FFD124] text-[#171717] inline-flex items-center justify-center transition-colors cursor-pointer"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-[9px] bg-white border border-[#E8E8E8] hover:border-[#FFD124] text-[#171717] inline-flex items-center justify-center transition-colors cursor-pointer"
                   >
-                    <ChevronRight className="w-3.5 h-3.5" />
+                    <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
             </div>
-
-            {/* Real Uncropped 16:9 Live Application Screenshot Frame */}
-            <Link
-              href={activeSlide.href}
-              aria-label={`Buka studi kasus ${activeSlide.label}`}
-              className="block relative w-full aspect-[16/9] rounded-[12px] sm:rounded-[16px] overflow-hidden bg-white shadow-[0_24px_64px_rgba(23,23,23,0.22)] ring-1 ring-[#171717]/10"
-            >
-              <AnimatePresence mode="sync" initial={false}>
-                <motion.div
-                  key={activeSlide.id}
-                  initial={{ opacity: 0, scale: 1.01 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={activeSlide.image}
-                    alt={activeSlide.alt}
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 92vw, (max-width: 1440px) 88vw, 1264px"
-                    className="object-cover object-top"
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </Link>
           </motion.div>
         </div>
       </section>
