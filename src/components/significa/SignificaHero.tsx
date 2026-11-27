@@ -30,12 +30,12 @@ const SHOWREEL_SLIDES = [
     fit: "top" as const,
   },
   {
-    id: "heavytrack",
-    shortName: "HeavyTrack",
-    client: "HeavyTrack WMS",
-    image: "/images/portfolio/heavytrack-wms.png",
-    alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara",
-    href: "/karya/heavytrack-wms",
+    id: "logisync",
+    shortName: "LogiSync",
+    client: "LogiSync (Fleet.OS)",
+    image: "/images/portfolio/logisync-fleet.jpg",
+    alt: "Pusat Kendali LogiSync (Fleet.OS) menampilkan Tingkat OTD 94.5%, Armada Aktif 42/50, peta GPS langsung, dan Tren Kapasitas Gudang",
+    href: "/karya/logisync-fleet",
     fit: "top" as const,
   },
   {

@@ -127,7 +127,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   },
   {
     slug: "heavytrack-wms",
-    tier: "featured",
+    tier: "archive",
     client: "HeavyTrack WMS.",
     tagline: "Gudang spare parts alat berat offline-first (<5ms) & cetak Surat Jalan.",
     sector: "Industrial WMS · PT Mitra Abadi Nusantara",
@@ -573,13 +573,20 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   },
   {
     slug: "logisync-fleet",
-    tier: "archive",
+    tier: "featured",
     client: "LogiSync (Fleet.OS).",
     tagline: "Command center logistik, pelacakan GPS real-time, WMS & PWA kurir.",
     sector: "Enterprise Logistics & Fleet",
     year: "2026",
     techStack: ["Next.js 16", "FastAPI", "Redis", "Leaflet GPS"],
-    images: [],
+    images: [
+      {
+        src: "/images/portfolio/logisync-fleet.jpg",
+        alt: "Pusat Kendali LogiSync (Fleet.OS) menampilkan Tingkat OTD 94.5%, Armada Aktif 42/50, peta armada langsung Jakarta, dan Tren Kapasitas Gudang",
+        caption: "Pusat Kendali Operasional LogiSync — pelacakan armada GPS langsung, analitik kapasitas gudang (WMS), dan monitoring pengiriman real-time",
+        fit: "top",
+      },
+    ],
     specs: [
       { label: "Live Telemetry", value: "WebSocket GPS + Redis" },
       { label: "Lapangan", value: "PWA Kurir + Scan Barcode" },

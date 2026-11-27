@@ -13,7 +13,7 @@ import {
 // Clay signature staggered 2-column selection (8 crisp visual case studies)
 const LEFT_COLUMN_SLUGS = [
   "propsmart-saas",
-  "heavytrack-wms",
+  "logisync-fleet",
   "central-scaffolding",
   "crew-ai-hris",
 ];
@@ -27,12 +27,12 @@ const RIGHT_COLUMN_SLUGS = [
 
 // Remaining 8 real scratch projects cleanly revealed via Clay's "Explore all work ->" control
 const EXTRA_ARCHIVE_SLUGS = [
+  "heavytrack-wms",
   "smartpos-aneka-rasa",
   "scalebase-crm",
   "capstonenews-portal",
   "desahub-simkopdes",
   "kinetic-fitness",
-  "logisync-fleet",
   "ai-cv-screening",
   "siakad-sekolah",
 ];
