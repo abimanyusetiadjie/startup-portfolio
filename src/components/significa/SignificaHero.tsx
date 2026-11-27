@@ -1,22 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  ArrowRight,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { SignificaShowreelModal } from "./SignificaShowreelModal";
+
+const SLIDE_DURATION_MS = 5500;
 
 const SHOWREEL_SLIDES = [
   {
     id: "propsmart",
+    shortName: "PropSmart",
     client: "PropSmart SaaS",
-    caption: "Dashboard okupansi 32 kamar, Net Rental Yield 9,45% & estimasi harga ML",
     image: "/images/portfolio/propsmart-dashboard.png",
     alt: "PropSmart Executive Financial & Occupancy Dashboard menampilkan 32 kamar dan Net Rental Yield 9.45%",
     href: "/karya/propsmart-saas",
@@ -24,8 +21,8 @@ const SHOWREEL_SLIDES = [
   },
   {
     id: "amen",
+    shortName: "Toko Amen",
     client: "Toko Amen Snack",
-    caption: "Katalog live 1.446 SKU & asisten WhatsApp AI hitung ongkir otomatis",
     image: "/images/portfolio/amen-system.jpg",
     alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
     href: "/karya/toko-amen-snack",
@@ -33,8 +30,8 @@ const SHOWREEL_SLIDES = [
   },
   {
     id: "heavytrack",
+    shortName: "HeavyTrack",
     client: "HeavyTrack WMS",
-    caption: "Gudang spare parts alat berat offline-first (<5ms) & cetak Surat Jalan",
     image: "/images/portfolio/heavytrack-dashboard.png",
     alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara",
     href: "/karya/heavytrack-wms",
@@ -42,8 +39,8 @@ const SHOWREEL_SLIDES = [
   },
   {
     id: "lacak-korupsi",
+    shortName: "Lacak Korupsi",
     client: "Lacak Korupsi",
-    caption: "Portal berita investigasi & peta sebaran data 38 provinsi PostGIS",
     image: "/images/portfolio/lacak-korupsi-peta.png",
     alt: "Peta Sebaran dan Analitik Data Lacak Korupsi",
     href: "/karya/lacak-korupsi",
@@ -51,8 +48,8 @@ const SHOWREEL_SLIDES = [
   },
   {
     id: "looku",
+    shortName: "Look.u AI",
     client: "Look.u AI",
-    caption: "Stylist AI Hybrid RAG 594 SKU tanpa halusinasi & pemindaian Vision AI",
     image: "/images/portfolio/looku-system.jpg",
     alt: "Studio AI styling fashion Hybrid RAG Look.u AI",
     href: "/karya/looku-ai",
@@ -113,36 +110,55 @@ export function SignificaHero() {
   const [slideIdx, setSlideIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openCap, setOpenCap] = useState<string | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     if (paused || showreelOpen) return;
     const timer = window.setInterval(() => {
       setSlideIdx((prev) => (prev + 1) % SHOWREEL_SLIDES.length);
-    }, 5500);
+    }, SLIDE_DURATION_MS);
     return () => window.clearInterval(timer);
-  }, [paused, showreelOpen]);
+  }, [paused, showreelOpen, slideIdx]);
 
   const activeSlide = SHOWREEL_SLIDES[slideIdx] ?? SHOWREEL_SLIDES[0];
 
-  const prevSlide = () =>
-    setSlideIdx((i) => (i === 0 ? SHOWREEL_SLIDES.length - 1 : i - 1));
-  const nextSlide = () =>
-    setSlideIdx((i) => (i === SHOWREEL_SLIDES.length - 1 ? 0 : i + 1));
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+    const endX = e.changedTouches[0]?.clientX ?? touchStartX.current;
+    const delta = endX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(delta) < 36) return;
+    if (delta < 0) {
+      setSlideIdx((i) => (i + 1) % SHOWREEL_SLIDES.length);
+    } else {
+      setSlideIdx((i) => (i === 0 ? SHOWREEL_SLIDES.length - 1 : i - 1));
+    }
+  };
 
   return (
     <>
       <section id="beranda" className="bg-white">
-        {/* 1. Clay Signature Warm Light-Gray Hero Canvas (#F2F1F3) with Balanced Spacing */}
-        <div className="relative overflow-hidden bg-[#F2F1F3] pt-[96px] sm:pt-[112px] lg:pt-[124px] pb-10 sm:pb-12 lg:pb-14">
-          {/* Whisper-clean matte architectural sculpture (Clay spatial identity, zero neon AI slop) */}
+        {/* 1. Clay Warm Light-Gray Hero Canvas (#F2F1F3) with Subtle Mobile + Desktop Sculptural Identity */}
+        <div className="relative overflow-hidden bg-[#F2F1F3] pt-[92px] sm:pt-[112px] lg:pt-[124px] pb-9 sm:pb-12 lg:pb-14">
+          {/* Sculptural Clay architectural form — visible subtly on Mobile & full scale on Desktop */}
           <svg
             aria-hidden="true"
             viewBox="0 0 640 520"
             fill="none"
-            className="hidden lg:block pointer-events-none select-none absolute -top-6 right-[3%] w-[420px] xl:w-[480px] h-auto"
+            className="pointer-events-none select-none absolute -top-2 -right-12 w-[230px] sm:w-[320px] sm:-right-6 lg:-top-6 lg:right-[3%] lg:w-[420px] xl:w-[480px] h-auto opacity-80 lg:opacity-100"
           >
             <defs>
-              <linearGradient id="clayHemisphere" x1="15%" y1="10%" x2="85%" y2="90%">
+              <linearGradient
+                id="clayHemisphere"
+                x1="15%"
+                y1="10%"
+                x2="85%"
+                y2="90%"
+              >
                 <stop offset="0%" stopColor="#FFFFFF" />
                 <stop offset="68%" stopColor="#F4F4F6" />
                 <stop offset="100%" stopColor="#DFE1E6" />
@@ -161,12 +177,23 @@ export function SignificaHero() {
                 <stop offset="60%" stopColor="#EA580C" />
                 <stop offset="100%" stopColor="#9A3412" />
               </radialGradient>
-              <filter id="claySoftShadow" x="-15%" y="-15%" width="130%" height="130%">
-                <feDropShadow dx="-12" dy="24" stdDeviation="24" floodColor="#141519" floodOpacity="0.06" />
+              <filter
+                id="claySoftShadow"
+                x="-15%"
+                y="-15%"
+                width="130%"
+                height="130%"
+              >
+                <feDropShadow
+                  dx="-12"
+                  dy="24"
+                  stdDeviation="24"
+                  floodColor="#141519"
+                  floodOpacity="0.06"
+                />
               </filter>
             </defs>
 
-            {/* Matte sculpted architectural hemisphere */}
             <g filter="url(#claySoftShadow)">
               <path
                 d="M 468 48 C 306 54 198 182 222 332 C 232 394 268 446 318 474 L 468 48 Z"
@@ -179,32 +206,51 @@ export function SignificaHero() {
               />
             </g>
 
-            {/* Two restrained tactile signature spheres (Clay chromatic punctuation) */}
             <circle cx="192" cy="148" r="18" fill="url(#clayOrbViolet)" />
             <circle cx="562" cy="322" r="11" fill="url(#clayOrbCoral)" />
           </svg>
 
-          <div className="clay-container relative z-10">
-            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.1] text-[clamp(1.95rem,3.6vw+0.75rem,3.65rem)] max-w-[820px]">
+          <div className="clay-container relative z-10 space-y-5 sm:space-y-6">
+            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.1] text-[clamp(1.85rem,3.6vw+0.7rem,3.65rem)] max-w-[820px]">
               Abinest membangun website cepat, sistem ERP/POS, dan automasi AI
             </h1>
+
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-2.5">
+              <button
+                type="button"
+                onClick={() => setShowreelOpen(true)}
+                className="clay-arrow-link !text-[15px]"
+              >
+                <span>Coba demo interaktif</span>
+                <ArrowRight className="w-4 h-4 text-[#6B7280]" />
+              </button>
+
+              <a
+                href="#karya"
+                className="text-[14.5px] font-medium text-[#6B7280] hover:text-[#111111] transition-colors"
+              >
+                Lihat karya ↓
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* 2. Full-Width Sharp-Edged Showreel Overlapping Seamlessly (#F2F1F3 -> #FFFFFF) */}
+        {/* 2. Padded Editorial Showreel Frame (Consistent 24px side margin on Mobile, zero edge clipping!) */}
         <div
           style={{
             background:
-              "linear-gradient(180deg, #F2F1F3 0%, #F2F1F3 46%, #FFFFFF 46%, #FFFFFF 100%)",
+              "linear-gradient(180deg, #F2F1F3 0%, #F2F1F3 48%, #FFFFFF 48%, #FFFFFF 100%)",
           }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          <div className="w-full max-w-[1440px] mx-auto px-0 sm:px-[clamp(1.5rem,5vw,4.75rem)]">
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:max-h-[700px] overflow-hidden bg-[#EAEAEF]">
+          <div className="clay-container">
+            <div className="relative w-full aspect-[16/9] lg:max-h-[680px] overflow-hidden bg-[#F4F4F6] border border-[#E5E7EB]/90 shadow-[0_24px_60px_-30px_rgba(17,19,24,0.16)]">
               <Link
                 href={activeSlide.href}
-                aria-label={`Inspect ${activeSlide.client}`}
+                aria-label={`Lihat studi kasus ${activeSlide.client}`}
                 className="block absolute inset-0"
               >
                 <AnimatePresence mode="sync" initial={false}>
@@ -213,7 +259,7 @@ export function SignificaHero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     className="absolute inset-0"
                   >
                     <Image
@@ -221,7 +267,7 @@ export function SignificaHero() {
                       alt={activeSlide.alt}
                       fill
                       priority
-                      sizes="(max-width: 640px) 100vw, (max-width: 1440px) 92vw, 1300px"
+                      sizes="(max-width: 640px) 90vw, (max-width: 1440px) 92vw, 1300px"
                       className={`object-cover ${
                         activeSlide.fit === "top"
                           ? "object-top"
@@ -232,63 +278,83 @@ export function SignificaHero() {
                 </AnimatePresence>
               </Link>
             </div>
-          </div>
 
-          {/* Quiet Minimal Showreel Caption & Switcher Bar Below Frame */}
-          <div className="clay-container pt-4 sm:pt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex items-baseline gap-3 min-w-0">
-              <span className="font-mono text-[12px] text-[#8C8E94] tabular-nums shrink-0">
-                0{slideIdx + 1} / 0{SHOWREEL_SLIDES.length}
-              </span>
-              <Link
-                href={activeSlide.href}
-                className="text-[14.5px] sm:text-[15.5px] font-medium text-[#111111] hover:opacity-65 transition-opacity truncate"
+            {/* 3. Creative Minimalist Animated Story-Style Progress Strip (Zero "03 / 05" & zero clunky arrows!) */}
+            <div className="pt-4 sm:pt-5">
+              <div
+                className="grid grid-cols-5 gap-2 sm:gap-4"
+                role="tablist"
+                aria-label="Pilih sorotan proyek"
               >
-                {activeSlide.client}
-                <span className="hidden md:inline font-normal text-[#6B7280]">
-                  {" "}
-                  — {activeSlide.caption}
+                {SHOWREEL_SLIDES.map((s, idx) => {
+                  const isActive = idx === slideIdx;
+                  const isPassed = idx < slideIdx;
+                  return (
+                    <button
+                      key={s.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-label={`Tampilkan ${s.client}`}
+                      onClick={() => setSlideIdx(idx)}
+                      className="group text-left py-1.5 cursor-pointer focus:outline-none"
+                    >
+                      <div className="relative h-[2px] w-full bg-[#E5E7EB] overflow-hidden">
+                        {isPassed && (
+                          <span className="absolute inset-0 bg-[#111111]/30" />
+                        )}
+                        {isActive && (
+                          <motion.span
+                            key={`${s.id}-${paused ? "paused" : "run"}`}
+                            initial={{ scaleX: 0 }}
+                            animate={{ scaleX: paused ? 1 : 1 }}
+                            transition={{
+                              duration: paused ? 0 : SLIDE_DURATION_MS / 1000,
+                              ease: "linear",
+                            }}
+                            style={{ transformOrigin: "left" }}
+                            className="absolute inset-0 bg-[#111111]"
+                          />
+                        )}
+                      </div>
+
+                      {/* Desktop clean 2-word label directly below each progress track */}
+                      <span
+                        className={`hidden sm:block mt-2.5 text-[13.5px] transition-colors truncate ${
+                          isActive
+                            ? "font-semibold text-[#111111]"
+                            : "font-medium text-[#9CA3AF] group-hover:text-[#111111]"
+                        }`}
+                      >
+                        {s.shortName}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Mobile ultra-clean single active link row (replaces noisy 03 / 05 caption completely) */}
+              <div className="sm:hidden flex items-center justify-between gap-3 pt-2">
+                <Link
+                  href={activeSlide.href}
+                  className="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-[#111111]"
+                >
+                  <span>{activeSlide.client}</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#6B7280]" />
+                </Link>
+                <span className="text-[12.5px] text-[#9CA3AF]">
+                  Geser untuk lihat lainnya
                 </span>
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between sm:justify-end gap-5 shrink-0">
-              <button
-                type="button"
-                onClick={() => setShowreelOpen(true)}
-                className="clay-arrow-link !text-[14.5px]"
-              >
-                <span>Coba demo interaktif</span>
-                <ArrowRight className="w-4 h-4 text-[#6B7280]" />
-              </button>
-
-              <div className="flex items-center gap-1.5">
-                <button
-                  type="button"
-                  onClick={prevSlide}
-                  aria-label="Proyek sebelumnya"
-                  className="w-8 h-8 rounded-full border border-[#E5E7EB] hover:border-[#111111] text-[#111111] inline-flex items-center justify-center transition-colors cursor-pointer"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={nextSlide}
-                  aria-label="Proyek berikutnya"
-                  className="w-8 h-8 rounded-full border border-[#E5E7EB] hover:border-[#111111] text-[#111111] inline-flex items-center justify-center transition-colors cursor-pointer"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 3. Clay Signature Capabilities Split Band (Pure White: Left Statement + Right Bold Expandable Stack) */}
-        <div className="bg-white py-20 lg:py-28">
-          <div className="clay-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* 4. Clay Signature Capabilities Split Band */}
+        <div className="bg-white py-16 sm:py-20 lg:py-28">
+          <div className="clay-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-6">
-              <p className="text-[22px] sm:text-[26px] lg:text-[28px] font-normal leading-[1.38] tracking-[-0.02em] text-[#111111] max-w-[490px]">
+              <p className="text-[21px] sm:text-[26px] lg:text-[28px] font-normal leading-[1.38] tracking-[-0.02em] text-[#111111] max-w-[490px]">
                 Kami membangun produk digital, website cepat, sistem ERP/POS,
                 dan AI terapan untuk bisnis yang ingin tumbuh tanpa batas.
               </p>
@@ -305,7 +371,7 @@ export function SignificaHero() {
                       onClick={() => setOpenCap(isOpen ? null : cap.id)}
                       className="w-full py-2 flex items-center justify-between gap-4 text-left group cursor-pointer"
                     >
-                      <span className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#111111] group-hover:opacity-65 transition-opacity">
+                      <span className="text-[21px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#111111] group-hover:opacity-65 transition-opacity">
                         {cap.title}
                       </span>
                       <ChevronDown
@@ -349,7 +415,7 @@ export function SignificaHero() {
           </div>
         </div>
 
-        {/* 4. Clay-Style Monochrome Muted Tech Stack Strip */}
+        {/* 5. Monochrome Muted Tech Stack Strip */}
         <div className="bg-white pb-16 lg:pb-24">
           <div className="clay-container flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
             {TECH_ECOSYSTEM.map((tech) => (

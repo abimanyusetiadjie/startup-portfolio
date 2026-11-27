@@ -43,7 +43,7 @@ export function SignificaNavbar() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 24);
+      setScrolled(y > 8);
       if (y > 140 && y > lastY.current + 6 && !menuOpen) {
         setHidden(true);
       } else if (y < lastY.current - 6 || y <= 80) {
