@@ -43,7 +43,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WAHA WhatsApp"],
     images: [
       {
-        src: "/images/real-projects/amen-home-4x3.png",
+        src: "/images/portfolio/toko-amen-snack.png",
         alt: "Tangkapan layar langsung website produksi Toko Amen Snack",
         caption: "Tampilan produksi live di tokoamensnack.vercel.app — katalog 1.446 SKU & asisten WhatsApp AI",
         fit: "top",
@@ -89,7 +89,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js 14", "FastAPI", "Supabase", "Scikit-Learn Ridge"],
     images: [
       {
-        src: "/images/portfolio/propsmart-dashboard.png",
+        src: "/images/portfolio/propsmart-saas.png",
         alt: "Dashboard Eksekutif PropSmart menampilkan okupansi 93.75%, pendapatan Rp 58,4 juta, NOI, Net Rental Yield 9.45%, dan status 32 kamar",
         caption: "Executive Financial & Occupancy Dashboard — Okupansi, NOI, Net Rental Yield & grid 32 kamar real-time",
         fit: "top",
@@ -135,7 +135,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["React 18", "Node.js", "SQLite WAL", "Laravel 12"],
     images: [
       {
-        src: "/images/portfolio/heavytrack-dashboard.png",
+        src: "/images/portfolio/heavytrack-wms.png",
         alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara dengan performa lokal <5ms, Surat Jalan, dan Penerimaan Barang",
         caption: "Dashboard Operasional Offline-First (<5ms) — mutasi Surat Jalan (DO), LPB, dan pemisahan role Owner HPP vs Admin",
         fit: "top",
@@ -175,7 +175,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "Gemini 256-d RAG", "Vision AI", "Supabase"],
     images: [
       {
-        src: "/images/real-projects/looku-home-4x3.png",
+        src: "/images/portfolio/looku-ai.png",
         alt: "Tangkapan layar langsung asisten styling fashion AI Look.u berbasis Hybrid RAG 594 SKU",
         caption: "Antarmuka prompt chat AI Zero-Hallucination & filter ketat Hijab, Gender, serta Budget",
         fit: "top",
@@ -225,7 +225,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro", "Next.js", "FastAPI", "Supabase PostGIS"],
     images: [
       {
-        src: "/images/portfolio/lacak-korupsi-peta.png",
+        src: "/images/portfolio/lacak-korupsi.png",
         alt: "Halaman Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara per provinsi dan intensitas wilayah",
         caption: "Peta Sebaran & Analitik Kerugian Negara per Provinsi berbasis PostGIS & ECharts",
         fit: "top",
@@ -271,7 +271,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro", "React Island", "Tailwind CSS", "Local SEO"],
     images: [
       {
-        src: "/images/real-projects/scaffolding-home-4x3.png",
+        src: "/images/portfolio/central-scaffolding.png",
         alt: "Tangkapan layar langsung website B2B Sewa & Jual Scaffolding Standar SNI Central Scaffolding",
         caption: "Beranda website B2B ultra-cepat berbasis Astro dengan stok 10.000+ set & Local SEO Jabodetabek",
         fit: "top",
@@ -317,7 +317,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro 5", "TypeScript", "Tailwind CSS", "JSON-LD SEO"],
     images: [
       {
-        src: "/images/real-projects/alfuad-home-4x3.png",
+        src: "/images/portfolio/ypi-al-fuad.png",
         alt: "Tangkapan layar langsung portal resmi YPI Al-Fuad Poris Gaga Tangerang",
         caption: "Tampilan produksi portal resmi YPI Tahfidz Qur'an Al-Fuad untuk 5 unit pendidikan & PPDB 2026",
         fit: "top",
@@ -363,7 +363,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "FastAPI", "Scikit-Learn", "PostgreSQL"],
     images: [
       {
-        src: "/images/real-projects/crew-hris-4x3.png",
+        src: "/images/portfolio/crew-ai-hris.png",
         alt: "Tangkapan layar langsung CREW AI HRIS menampilkan 142 karyawan, retensi 92.5%, dan prediksi gaji ML",
         caption: "Antarmuka CREW AI HRIS: metrik retensi, distribusi risiko keluar (Flight Risk), & prediksi gaji ideal ML",
         fit: "top",
@@ -401,7 +401,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["React", "Vite", "USB Barcode", "Shopee Sync"],
     images: [
       {
-        src: "/images/real-projects/smartpos-home-4x3.png",
+        src: "/images/portfolio/smartpos-aneka-rasa.png",
         alt: "Tangkapan layar langsung terminal kasir dark-mode SmartPOS dengan scan barcode F2 dan pembayaran QRIS/Tunai/Debit",
         caption: "Terminal kasir dark-mode SmartPOS dengan pintasan keyboard F2–F12, barcode USB HID <45ms, & struk 58mm",
         fit: "top",
@@ -439,7 +439,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "TypeScript", "FastAPI", "RFM ML"],
     images: [
       {
-        src: "/images/real-projects/scalebase-crm-4x3.png",
+        src: "/images/portfolio/scalebase-crm.png",
         alt: "Tangkapan layar langsung ScaleBase CRM untuk manajemen pipeline penjualan B2B dan analitik RFM",
         caption: "Antarmuka ScaleBase CRM — pipeline penjualan B2B terukur, manajemen prospek, & segmentasi RFM",
         fit: "top",
@@ -543,7 +543,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js 15", "Supabase RLS", "React Native", "IoT Gate"],
     images: [
       {
-        src: "/images/portfolio/kinetic-gym-home.png",
+        src: "/images/portfolio/kinetic-fitness.png",
         alt: "Antarmuka KINETIC Tech Gym Platform menampilkan status 48+ cabang, QR Member Pass, dan mode gelap Obsidian",
         caption: "KINETIC Next-Gen Tech Gym — 50+ cabang nasional, Dynamic QR Pass & dual-theme Obsidian/Titanium",
         fit: "top",
