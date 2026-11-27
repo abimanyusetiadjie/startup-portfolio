@@ -8,9 +8,18 @@ import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { SignificaShowreelModal } from "./SignificaShowreelModal";
 import { ClayTechTicker } from "./ClayTechTicker";
 
-const SLIDE_DURATION_MS = 5500;
+const SLIDE_DURATION_MS = 2000;
 
 const SHOWREEL_SLIDES = [
+  {
+    id: "looku",
+    shortName: "Look.u AI",
+    client: "Look.u AI",
+    image: "/images/portfolio/looku-ai.webp",
+    alt: "Antarmuka editorial fashion Look.u AI — rekomendasi Casual Campus Chiffon ramah iklim tropis Jakarta 33°C",
+    href: "/karya/looku-ai",
+    bg: "#F0F0F0",
+  },
   {
     id: "propsmart",
     shortName: "PropSmart",
@@ -46,15 +55,6 @@ const SHOWREEL_SLIDES = [
     alt: "Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara 16 provinsi dan peringkat intensitas wilayah",
     href: "/karya/lacak-korupsi",
     bg: "#1E263D",
-  },
-  {
-    id: "looku",
-    shortName: "Look.u AI",
-    client: "Look.u AI",
-    image: "/images/portfolio/looku-ai.webp",
-    alt: "Antarmuka editorial fashion Look.u AI — rekomendasi Casual Campus Chiffon ramah iklim tropis Jakarta 33°C",
-    href: "/karya/looku-ai",
-    bg: "#F0F0F0",
   },
 ];
 
@@ -257,7 +257,7 @@ export function SignificaHero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    transition={{ duration: 0.28, ease: "easeOut" }}
                     className="absolute inset-0"
                   >
                     <Image

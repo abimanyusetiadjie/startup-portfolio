@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { AbinestLogo } from "@/components/grove/AbinestLogo";
 import { SignificaQuoteModal } from "./SignificaQuoteModal";
 
@@ -12,24 +12,6 @@ const NAV_LINKS = [
   { label: "Layanan", href: "/#layanan" },
   { label: "Demo", href: "/demo" },
   { label: "FAQ", href: "/#faq" },
-];
-
-const MOBILE_SERVICES = [
-  {
-    label: "Website Bisnis & Portal",
-    meta: "Mulai Rp1,5 jt · 7–14 hari",
-    href: "/jasa-pembuatan-website-jakarta",
-  },
-  {
-    label: "ERP, WMS, POS & SIAKAD",
-    meta: "Mulai Rp4 jt · Rp0/staf",
-    href: "/jasa-pembuatan-sistem-erp",
-  },
-  {
-    label: "Automasi AI & WhatsApp",
-    meta: "Mulai Rp5 jt · API Resmi Meta",
-    href: "/jasa-automasi-whatsapp",
-  },
 ];
 
 export function SignificaNavbar() {
@@ -188,70 +170,73 @@ export function SignificaNavbar() {
           }`}
         />
 
-        {/* Clean Full-Width Mobile Menu */}
+        {/* Compact, Airy Mobile Dropdown Sheet (Zero full-screen clutter) */}
         <AnimatePresence>
           {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -6 }}
+            <motion.nav
+              aria-label="Navigasi seluler"
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="md:hidden bg-white border-t border-[#EBECEF] max-h-[calc(100vh-68px)] overflow-y-auto"
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="md:hidden relative z-40 bg-white border-t border-[#EBECEF] rounded-b-[20px] shadow-[0_24px_48px_-16px_rgba(17,19,24,0.16)]"
             >
-              <div className="clay-container py-8 space-y-8">
-                <ul className="space-y-4">
+              <div className="px-5 pt-2 pb-5">
+                <ul className="divide-y divide-[#F1F2F4]">
                   {NAV_LINKS.map((item) => (
                     <li key={item.label}>
                       <Link
                         href={item.href}
                         onClick={(e) => handleAnchorClick(e, item.href)}
-                        className="block text-[26px] font-semibold tracking-[-0.02em] text-[#111111]"
+                        className="flex items-center justify-between py-3.5 text-[16.5px] font-medium tracking-[-0.01em] text-[#111111] active:opacity-60 transition-opacity"
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        <ArrowRight className="w-4 h-4 text-[#9CA3AF]" />
                       </Link>
                     </li>
                   ))}
-                  <li>
-                    <Link
-                      href="/audit-gratis"
-                      onClick={() => setMenuOpen(false)}
-                      className="block text-[26px] font-semibold tracking-[-0.02em] text-[#111111]"
-                    >
-                      Kalkulator Biaya
-                    </Link>
-                  </li>
                 </ul>
 
-                <div className="pt-6 border-t border-[#E5E7EB] space-y-3">
-                  <p className="text-[12px] uppercase tracking-wider text-[#8C8E94]">
-                    Layanan
-                  </p>
-                  <div className="space-y-3">
-                    {MOBILE_SERVICES.map((srv) => (
-                      <Link
-                        key={srv.href}
-                        href={srv.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="flex items-center justify-between gap-4 py-1"
-                      >
-                        <div>
-                          <div className="text-[15.5px] font-medium text-[#111111]">
-                            {srv.label}
-                          </div>
-                          <div className="text-[13px] text-[#6B7280]">
-                            {srv.meta}
-                          </div>
-                        </div>
-                        <ArrowUpRight className="w-4 h-4 text-[#8C8E94]" />
-                      </Link>
-                    ))}
-                  </div>
+                <div className="pt-4 mt-1 border-t border-[#EBECEF] grid grid-cols-2 gap-2.5">
+                  <Link
+                    href="/audit-gratis"
+                    onClick={() => setMenuOpen(false)}
+                    className="clay-pill-outline !h-[42px] !px-3 !text-[13.5px] w-full"
+                  >
+                    Hitung Biaya
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setQuoteOpen(true);
+                    }}
+                    className="clay-pill-btn !h-[42px] !px-3 !text-[13.5px] w-full"
+                  >
+                    Mulai Proyek
+                  </button>
                 </div>
               </div>
-            </motion.div>
+            </motion.nav>
           )}
         </AnimatePresence>
       </header>
+
+      {/* True Viewport Backdrop Sibling (Outside transformed <header> so fixed covers full mobile screen & closes menu on outside tap) */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.button
+            type="button"
+            aria-label="Tutup latar menu navigasi"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            onClick={() => setMenuOpen(false)}
+            className="md:hidden fixed inset-x-0 top-[68px] bottom-0 z-30 bg-[#111318]/25 backdrop-blur-[2px] cursor-default"
+          />
+        )}
+      </AnimatePresence>
 
       <SignificaQuoteModal
         open={quoteOpen}
