@@ -23,9 +23,9 @@ const SHOWREEL_SLIDES = [
   {
     id: "smartpos",
     shortName: "Toko Ritel POS",
-    client: "SmartPOS Toko Ritel",
-    image: "/images/portfolio/smartpos-aneka-rasa.webp",
-    alt: "Terminal kasir dark-mode SmartPOS Toko Ritel dengan scan barcode <45ms, pembayaran QRIS/Tunai/Debit, dan struk 58mm",
+    client: "Toko Ritel POS (SmartPOS)",
+    image: "/images/portfolio/toko-amen-snack.webp",
+    alt: "Tampilan sistem katalog & kasir Toko Ritel POS (SmartPOS) terintegrasi stok 1.446 SKU dan pemesanan cepat",
     href: "/karya/smartpos-aneka-rasa",
     fit: "top" as const,
   },
