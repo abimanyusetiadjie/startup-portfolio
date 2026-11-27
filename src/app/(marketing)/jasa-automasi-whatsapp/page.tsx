@@ -68,7 +68,7 @@ const serviceData: ServiceDetailData = {
     href: "/demo",
   },
   previewImage: {
-    src: "/images/portfolio/toko-amen-snack.png",
+    src: "/images/portfolio/toko-amen-snack.webp",
     alt: "Tangkapan layar langsung implementasi katalog live 1.446 SKU dengan asisten AI dan checkout WhatsApp otomatis",
     caption: "Asisten AI Terhubung Database Stok Live · Balas Chat <1 Detik · Checkout WhatsApp Otomatis",
   },

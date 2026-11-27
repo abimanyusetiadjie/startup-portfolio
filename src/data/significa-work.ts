@@ -34,7 +34,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   // =========================================================================
   {
     slug: "toko-amen-snack",
-    tier: "featured",
+    tier: "archive",
     client: "Toko Amen Snack.",
     tagline: "Katalog live 1.446 SKU, AI Assistant & kasir terintegrasi.",
     sector: "Ritel & Oleh-Oleh · Bangka",
@@ -43,13 +43,13 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WAHA WhatsApp"],
     images: [
       {
-        src: "/images/portfolio/toko-amen-snack.png",
+        src: "/images/portfolio/toko-amen-snack.webp",
         alt: "Tangkapan layar langsung website produksi Toko Amen Snack",
         caption: "Tampilan produksi live di tokoamensnack.vercel.app — katalog 1.446 SKU & asisten WhatsApp AI",
         fit: "top",
       },
       {
-        src: "/images/real-projects/amen-catalog-4x3.png",
+        src: "/images/portfolio/toko-amen-snack-catalog.webp",
         alt: "Tangkapan layar halaman sorotan promo & katalog produk Toko Amen Snack",
         caption: "Halaman katalog & sorotan promo terintegrasi stok PostgreSQL dan checkout WhatsApp",
         fit: "top",
@@ -89,13 +89,13 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js 14", "FastAPI", "Supabase", "Scikit-Learn Ridge"],
     images: [
       {
-        src: "/images/portfolio/propsmart-saas.png",
-        alt: "Dashboard Eksekutif PropSmart menampilkan okupansi 93.75%, pendapatan Rp 58,4 juta, NOI, Net Rental Yield 9.45%, dan status 32 kamar",
-        caption: "Executive Financial & Occupancy Dashboard — Okupansi, NOI, Net Rental Yield & grid 32 kamar real-time",
-        fit: "top",
+        src: "/images/portfolio/propsmart-saas.webp",
+        alt: "Dashboard Eksekutif PropSmart menampilkan okupansi 93.75%, pendapatan Rp 58,4 juta, NOI, Net Rental Yield 9.45%, status 32 kamar, dan estimasi harga ML Ridge",
+        caption: "Executive Financial & Occupancy Dashboard — Okupansi, NOI, Net Rental Yield, grid 32 kamar & estimasi harga ML real-time",
+        fit: "center",
       },
       {
-        src: "/images/portfolio/propsmart-ml-pricing.png",
+        src: "/images/portfolio/propsmart-ml-pricing.webp",
         alt: "Mesin Estimasi Harga Sewa Machine Learning PropSmart dengan akurasi R² 0.9822 dan faktor SHAP",
         caption: "Machine Learning Price Estimation Engine (Ridge Regression R² = 0,9822) dengan penjelasan faktor SHAP",
         fit: "top",
@@ -135,7 +135,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["React 18", "Node.js", "SQLite WAL", "Laravel 12"],
     images: [
       {
-        src: "/images/portfolio/heavytrack-wms.png",
+        src: "/images/portfolio/heavytrack-wms.webp",
         alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara dengan performa lokal <5ms, Surat Jalan, dan Penerimaan Barang",
         caption: "Dashboard Operasional Offline-First (<5ms) — mutasi Surat Jalan (DO), LPB, dan pemisahan role Owner HPP vs Admin",
         fit: "top",
@@ -175,13 +175,13 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "Gemini 256-d RAG", "Vision AI", "Supabase"],
     images: [
       {
-        src: "/images/portfolio/looku-ai.jpg",
+        src: "/images/portfolio/looku-ai.webp",
         alt: "Antarmuka editorial fashion Look.u AI menampilkan kurasi Casual Campus Chiffon adaptif iklim tropis Jakarta 33°C",
         caption: "Presentasi katalog & rekomendasi fashion AI Look.u yang adaptif terhadap iklim tropis dan gaya modest",
         fit: "center",
       },
       {
-        src: "/images/real-projects/looku-catalog-4x3.png",
+        src: "/images/portfolio/looku-ai-catalog.webp",
         alt: "Tangkapan layar katalog produk RAG 594 SKU dari 46 brand resmi pada Look.u AI",
         caption: "Katalog produk RAG (594 SKU · 46 Brand) terindeks vektor Gemini 256-dimensi",
         fit: "top",
@@ -225,13 +225,13 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro", "Next.js", "FastAPI", "Supabase PostGIS"],
     images: [
       {
-        src: "/images/portfolio/lacak-korupsi.png",
-        alt: "Halaman Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara per provinsi dan intensitas wilayah",
-        caption: "Peta Sebaran & Analitik Kerugian Negara per Provinsi berbasis PostGIS & ECharts",
+        src: "/images/portfolio/lacak-korupsi.webp",
+        alt: "Halaman Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara 16 provinsi dan peringkat intensitas wilayah",
+        caption: "Peta Sebaran & Analitik Kerugian Negara 16+ Provinsi berbasis PostGIS & ECharts",
         fit: "top",
       },
       {
-        src: "/images/portfolio/lacak-korupsi-news.png",
+        src: "/images/portfolio/lacak-korupsi-news.webp",
         alt: "Beranda Portal Berita Lacak Korupsi dengan breaking ticker, berita investigasi utama, dan daftar kasus terbaru",
         caption: "Portal berita investigasi dengan Breaking Ticker, AI 30-Second Digest, & status proses hukum",
         fit: "top",
@@ -271,13 +271,13 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro", "React Island", "Tailwind CSS", "Local SEO"],
     images: [
       {
-        src: "/images/portfolio/central-scaffolding.png",
+        src: "/images/portfolio/central-scaffolding.webp",
         alt: "Tangkapan layar langsung website B2B Sewa & Jual Scaffolding Standar SNI Central Scaffolding",
         caption: "Beranda website B2B ultra-cepat berbasis Astro dengan stok 10.000+ set & Local SEO Jabodetabek",
         fit: "top",
       },
       {
-        src: "/images/real-projects/scaffolding-catalog-4x3.png",
+        src: "/images/portfolio/central-scaffolding-catalog.webp",
         alt: "Tangkapan layar langsung katalog produk dan aksesoris Central Scaffolding",
         caption: "Katalog teknis komponen SNI interaktif siap filter & hitung set ke WhatsApp",
         fit: "top",
@@ -317,13 +317,13 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Astro 5", "TypeScript", "Tailwind CSS", "JSON-LD SEO"],
     images: [
       {
-        src: "/images/portfolio/ypi-al-fuad.png",
+        src: "/images/portfolio/ypi-al-fuad.webp",
         alt: "Tangkapan layar langsung portal resmi YPI Al-Fuad Poris Gaga Tangerang",
         caption: "Tampilan produksi portal resmi YPI Tahfidz Qur'an Al-Fuad untuk 5 unit pendidikan & PPDB 2026",
         fit: "top",
       },
       {
-        src: "/images/real-projects/alfuad-units-4x3.png",
+        src: "/images/portfolio/ypi-al-fuad-units.webp",
         alt: "Tangkapan layar daftar 5 unit pendidikan terpadu YPI Al-Fuad lengkap NPSN",
         caption: "Navigasi 5 jenjang pendidikan (RA, MI TPI, SMP-IT, SMK-IT, Pondok Pesantren) & rincian biaya",
         fit: "top",
@@ -355,7 +355,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   },
   {
     slug: "crew-ai-hris",
-    tier: "gallery",
+    tier: "archive",
     client: "CREW. AI HRIS.",
     tagline: "Dashboard HRIS, deteksi risiko resign & audit gaji ML.",
     sector: "Enterprise HRIS & ML",
@@ -363,7 +363,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "FastAPI", "Scikit-Learn", "PostgreSQL"],
     images: [
       {
-        src: "/images/portfolio/crew-ai-hris.png",
+        src: "/images/portfolio/crew-ai-hris.webp",
         alt: "Tangkapan layar langsung CREW AI HRIS menampilkan 142 karyawan, retensi 92.5%, dan prediksi gaji ML",
         caption: "Antarmuka CREW AI HRIS: metrik retensi, distribusi risiko keluar (Flight Risk), & prediksi gaji ideal ML",
         fit: "top",
@@ -393,17 +393,17 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   },
   {
     slug: "smartpos-aneka-rasa",
-    tier: "gallery",
-    client: "SmartPOS Aneka Rasa.",
-    tagline: "Kasir barcode <45ms, struk 58mm & BI omzet Shopee.",
-    sector: "Omnichannel Retail POS · Bangka",
+    tier: "featured",
+    client: "Toko Ritel POS (SmartPOS).",
+    tagline: "Kasir toko ritel barcode <45ms, struk 58mm & BI omzet.",
+    sector: "Omnichannel Retail POS",
     year: "2026",
     techStack: ["React", "Vite", "USB Barcode", "Shopee Sync"],
     images: [
       {
-        src: "/images/portfolio/smartpos-aneka-rasa.png",
-        alt: "Tangkapan layar langsung terminal kasir dark-mode SmartPOS dengan scan barcode F2 dan pembayaran QRIS/Tunai/Debit",
-        caption: "Terminal kasir dark-mode SmartPOS dengan pintasan keyboard F2–F12, barcode USB HID <45ms, & struk 58mm",
+        src: "/images/portfolio/smartpos-aneka-rasa.webp",
+        alt: "Tangkapan layar langsung terminal kasir dark-mode Toko Ritel POS SmartPOS dengan scan barcode F2 dan pembayaran QRIS/Tunai/Debit",
+        caption: "Terminal kasir dark-mode Toko Ritel POS dengan pintasan keyboard F2–F12, barcode USB HID <45ms, & struk 58mm",
         fit: "top",
       },
     ],
@@ -439,7 +439,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "TypeScript", "FastAPI", "RFM ML"],
     images: [
       {
-        src: "/images/portfolio/scalebase-crm.png",
+        src: "/images/portfolio/scalebase-crm.webp",
         alt: "Tangkapan layar langsung ScaleBase CRM untuk manajemen pipeline penjualan B2B dan analitik RFM",
         caption: "Antarmuka ScaleBase CRM — pipeline penjualan B2B terukur, manajemen prospek, & segmentasi RFM",
         fit: "top",
@@ -543,7 +543,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js 15", "Supabase RLS", "React Native", "IoT Gate"],
     images: [
       {
-        src: "/images/portfolio/kinetic-fitness.png",
+        src: "/images/portfolio/kinetic-fitness.webp",
         alt: "Antarmuka KINETIC Tech Gym Platform menampilkan status 48+ cabang, QR Member Pass, dan mode gelap Obsidian",
         caption: "KINETIC Next-Gen Tech Gym — 50+ cabang nasional, Dynamic QR Pass & dual-theme Obsidian/Titanium",
         fit: "top",
@@ -581,7 +581,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js 16", "FastAPI", "Redis", "Leaflet GPS"],
     images: [
       {
-        src: "/images/portfolio/logisync-fleet.jpg",
+        src: "/images/portfolio/logisync-fleet.webp",
         alt: "Pusat Kendali LogiSync (Fleet.OS) menampilkan Tingkat OTD 94.5%, Armada Aktif 42/50, peta armada langsung Jakarta, dan Tren Kapasitas Gudang",
         caption: "Pusat Kendali Operasional LogiSync — pelacakan armada GPS langsung, analitik kapasitas gudang (WMS), dan monitoring pengiriman real-time",
         fit: "top",
@@ -611,13 +611,20 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   },
   {
     slug: "ai-cv-screening",
-    tier: "archive",
+    tier: "gallery",
     client: "AI CV Screening.",
     tagline: "Seleksi CV massal Two-Stage Hybrid AI, Blind Screening UU PDP & n8n.",
     sector: "HR Automation & Applied AI",
     year: "2026",
     techStack: ["Python", "Gemini API", "n8n Workflow", "Streamlit"],
-    images: [],
+    images: [
+      {
+        src: "/images/portfolio/ai-cv-screening.webp",
+        alt: "Platform BlindATS AI CV Screening — Skrining CV dengan AI 100% aman dari bias dan patuh UU PDP dengan skor kecocokan 94%",
+        caption: "BlindATS — seleksi kandidat otomatis Two-Stage Hybrid AI dengan sensor identitas PII (UU PDP) dan integrasi n8n",
+        fit: "top",
+      },
+    ],
     specs: [
       { label: "Matching", value: "Embedding + LLM Reasoning" },
       { label: "Privasi", value: "Blind Screening UU PDP" },

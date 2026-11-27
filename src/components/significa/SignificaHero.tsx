@@ -15,25 +15,25 @@ const SHOWREEL_SLIDES = [
     id: "propsmart",
     shortName: "PropSmart",
     client: "PropSmart SaaS",
-    image: "/images/portfolio/propsmart-saas.png",
-    alt: "PropSmart Executive Financial & Occupancy Dashboard menampilkan 32 kamar dan Net Rental Yield 9.45%",
+    image: "/images/portfolio/propsmart-saas.webp",
+    alt: "PropSmart Executive Financial & Occupancy Dashboard menampilkan 32 kamar, Net Rental Yield 9.45%, dan estimasi harga ML Ridge",
     href: "/karya/propsmart-saas",
-    fit: "top" as const,
+    fit: "center" as const,
   },
   {
-    id: "amen",
-    shortName: "Toko Amen",
-    client: "Toko Amen Snack",
-    image: "/images/portfolio/toko-amen-snack.png",
-    alt: "Tangkapan layar website produksi Toko Amen Snack dengan katalog 1.446 SKU dan asisten WhatsApp AI",
-    href: "/karya/toko-amen-snack",
+    id: "smartpos",
+    shortName: "Toko Ritel POS",
+    client: "SmartPOS Toko Ritel",
+    image: "/images/portfolio/smartpos-aneka-rasa.webp",
+    alt: "Terminal kasir dark-mode SmartPOS Toko Ritel dengan scan barcode <45ms, pembayaran QRIS/Tunai/Debit, dan struk 58mm",
+    href: "/karya/smartpos-aneka-rasa",
     fit: "top" as const,
   },
   {
     id: "logisync",
     shortName: "LogiSync",
     client: "LogiSync (Fleet.OS)",
-    image: "/images/portfolio/logisync-fleet.jpg",
+    image: "/images/portfolio/logisync-fleet.webp",
     alt: "Pusat Kendali LogiSync (Fleet.OS) menampilkan Tingkat OTD 94.5%, Armada Aktif 42/50, peta GPS langsung, dan Tren Kapasitas Gudang",
     href: "/karya/logisync-fleet",
     fit: "top" as const,
@@ -42,8 +42,8 @@ const SHOWREEL_SLIDES = [
     id: "lacak-korupsi",
     shortName: "Lacak Korupsi",
     client: "Lacak Korupsi",
-    image: "/images/portfolio/lacak-korupsi.png",
-    alt: "Peta Sebaran dan Analitik Data Lacak Korupsi",
+    image: "/images/portfolio/lacak-korupsi.webp",
+    alt: "Peta Sebaran Kasus Lacak Korupsi menampilkan grafik kerugian negara 16 provinsi dan peringkat intensitas wilayah",
     href: "/karya/lacak-korupsi",
     fit: "top" as const,
   },
@@ -51,7 +51,7 @@ const SHOWREEL_SLIDES = [
     id: "looku",
     shortName: "Look.u AI",
     client: "Look.u AI",
-    image: "/images/portfolio/looku-ai.jpg",
+    image: "/images/portfolio/looku-ai.webp",
     alt: "Antarmuka editorial fashion Look.u AI — rekomendasi Casual Campus Chiffon ramah iklim tropis Jakarta 33°C",
     href: "/karya/looku-ai",
     fit: "center" as const,
@@ -258,6 +258,7 @@ export function SignificaHero() {
                       alt={activeSlide.alt}
                       fill
                       priority
+                      quality={85}
                       sizes="(max-width: 640px) 94vw, (max-width: 1440px) 92vw, 1300px"
                       className={`object-cover ${
                         activeSlide.fit === "top"

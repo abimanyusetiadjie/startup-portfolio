@@ -68,7 +68,7 @@ const serviceData: ServiceDetailData = {
     href: "/audit-gratis",
   },
   previewImage: {
-    src: "/images/portfolio/central-scaffolding.png",
+    src: "/images/portfolio/central-scaffolding.webp",
     alt: "Tangkapan layar langsung website B2B cepat Central Scaffolding dengan kalkulator interaktif dan Local SEO",
     caption: "Website Cepat (<0,8 detik) · Kalkulator & Katalog Interaktif · 100% Hak Milik Kode",
   },

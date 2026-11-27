@@ -10,16 +10,16 @@ import {
   type CaseStudyItem,
 } from "@/data/significa-work";
 
-// Clay signature staggered 2-column selection (8 crisp visual case studies)
+// Clay signature staggered 2-column selection (8 crisp HD WebP visual case studies)
 const LEFT_COLUMN_SLUGS = [
   "propsmart-saas",
   "logisync-fleet",
   "central-scaffolding",
-  "crew-ai-hris",
+  "ai-cv-screening",
 ];
 
 const RIGHT_COLUMN_SLUGS = [
-  "toko-amen-snack",
+  "smartpos-aneka-rasa",
   "lacak-korupsi",
   "looku-ai",
   "ypi-al-fuad",
@@ -27,13 +27,13 @@ const RIGHT_COLUMN_SLUGS = [
 
 // Remaining 8 real scratch projects cleanly revealed via Clay's "Explore all work ->" control
 const EXTRA_ARCHIVE_SLUGS = [
+  "toko-amen-snack",
   "heavytrack-wms",
-  "smartpos-aneka-rasa",
+  "crew-ai-hris",
   "scalebase-crm",
+  "kinetic-fitness",
   "capstonenews-portal",
   "desahub-simkopdes",
-  "kinetic-fitness",
-  "ai-cv-screening",
   "siakad-sekolah",
 ];
 
@@ -63,6 +63,7 @@ function ClayWorkCard({
               src={img.src}
               alt={img.alt}
               fill
+              quality={85}
               sizes="(max-width: 1024px) 92vw, 44vw"
               className={`object-cover ${
                 img.fit === "top" ? "object-top" : "object-center"
@@ -168,29 +169,50 @@ export function SignificaSelectedWork() {
               className="overflow-hidden"
             >
               <div className="mt-12 pt-10 border-t border-[#E5E7EB] divide-y divide-[#E5E7EB]">
-                {extraItems.map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={`/karya/${item.slug}`}
-                    className="group py-5 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 items-baseline hover:bg-[#F9FAFB] px-3 -mx-3 transition-colors"
-                  >
-                    <div className="md:col-span-3 flex items-center justify-between md:justify-start gap-2">
-                      <span className="text-[17px] font-semibold text-[#111111] group-hover:opacity-65 transition-opacity">
-                        {item.client.replace(/\.$/, "")}
-                      </span>
-                      <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] md:hidden" />
-                    </div>
-                    <div className="md:col-span-5 text-[15px] text-[#4B5563]">
-                      {item.tagline}
-                    </div>
-                    <div className="md:col-span-3 text-[13px] text-[#8C8E94]">
-                      {item.techStack.slice(0, 3).join(" · ")}
-                    </div>
-                    <div className="hidden md:flex md:col-span-1 justify-end">
-                      <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#111111] transition-colors" />
-                    </div>
-                  </Link>
-                ))}
+                {extraItems.map((item) => {
+                  const thumb = item.images[0];
+                  return (
+                    <Link
+                      key={item.slug}
+                      href={`/karya/${item.slug}`}
+                      className="group py-5 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-center hover:bg-[#F9FAFB] px-3 -mx-3 transition-colors"
+                    >
+                      <div className="md:col-span-4 flex items-center justify-between md:justify-start gap-3.5">
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          {thumb && (
+                            <span className="relative w-16 h-12 shrink-0 overflow-hidden bg-[#F4F4F5] ring-1 ring-inset ring-black/[0.06]">
+                              <Image
+                                src={thumb.src}
+                                alt={thumb.alt}
+                                fill
+                                quality={80}
+                                sizes="64px"
+                                className={`object-cover ${
+                                  thumb.fit === "top"
+                                    ? "object-top"
+                                    : "object-center"
+                                }`}
+                              />
+                            </span>
+                          )}
+                          <span className="text-[17px] font-semibold text-[#111111] group-hover:opacity-65 transition-opacity truncate">
+                            {item.client.replace(/\.$/, "")}
+                          </span>
+                        </div>
+                        <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] md:hidden shrink-0" />
+                      </div>
+                      <div className="md:col-span-5 text-[15px] text-[#4B5563]">
+                        {item.tagline}
+                      </div>
+                      <div className="md:col-span-2 text-[13px] text-[#8C8E94]">
+                        {item.techStack.slice(0, 2).join(" · ")}
+                      </div>
+                      <div className="hidden md:flex md:col-span-1 justify-end">
+                        <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#111111] transition-colors" />
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </motion.div>
           )}

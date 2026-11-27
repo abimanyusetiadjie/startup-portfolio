@@ -129,6 +129,7 @@ export default async function CaseStudyDetailPage({
                   alt={primaryImage.alt}
                   fill
                   priority
+                  quality={85}
                   sizes="(max-width: 1200px) 94vw, 1300px"
                   className={`object-cover ${
                     primaryImage.fit === "top" ? "object-top" : "object-center"
@@ -188,6 +189,7 @@ export default async function CaseStudyDetailPage({
                     src={secondaryImage.src}
                     alt={secondaryImage.alt}
                     fill
+                    quality={85}
                     sizes="(max-width: 1024px) 94vw, 760px"
                     className={`object-cover ${
                       secondaryImage.fit === "top"

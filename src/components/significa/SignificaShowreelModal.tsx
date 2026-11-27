@@ -96,9 +96,10 @@ export function SignificaShowreelModal({
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   <div className="lg:col-span-7 relative aspect-[16/10] rounded-[16px] overflow-hidden border border-white/15 bg-[#242424]">
                     <Image
-                      src="/images/portfolio/toko-amen-snack.png"
+                      src="/images/portfolio/toko-amen-snack.webp"
                       alt="Tangkapan layar langsung website produksi dan katalog 1.446 SKU Toko Amen Snack"
                       fill
+                      quality={85}
                       sizes="(max-width: 1024px) 92vw, 520px"
                       className="object-cover object-top"
                     />
