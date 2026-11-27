@@ -206,8 +206,10 @@ export function SignificaHero() {
           </svg>
 
           <div className="clay-container relative z-10 space-y-5 sm:space-y-6">
-            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.1] text-[clamp(1.85rem,3.6vw+0.7rem,3.65rem)] max-w-[780px]">
-              Studio software untuk website, sistem ERP/POS, dan AI terapan.
+            <h1 className="font-semibold text-[#111111] tracking-[-0.028em] leading-[1.12] text-[clamp(1.85rem,3.4vw+0.7rem,3.85rem)] max-w-[1040px] [text-wrap:balance] lg:[text-wrap:unset]">
+              Studio software untuk website,{" "}
+              <br className="hidden lg:block" />
+              sistem ERP/POS, dan AI terapan.
             </h1>
 
             <div className="flex flex-wrap items-center gap-x-7 gap-y-2.5">
