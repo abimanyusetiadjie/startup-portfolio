@@ -124,6 +124,32 @@ body {
   }
 }
 
+@keyframes clay-ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.clay-ticker-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: clay-ticker 20s linear infinite;
+}
+
+.clay-ticker-viewport:hover .clay-ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clay-ticker-track {
+    animation: none;
+  }
+}
+
 @media print {
   @page {
     size: A4;

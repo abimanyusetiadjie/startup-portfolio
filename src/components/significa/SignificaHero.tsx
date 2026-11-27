@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { SignificaShowreelModal } from "./SignificaShowreelModal";
+import { ClayTechTicker } from "./ClayTechTicker";
 
 const SLIDE_DURATION_MS = 5500;
 
@@ -93,16 +94,6 @@ const CAPABILITIES = [
     meta: "Python FastAPI · Scikit-Learn · Gemini",
     href: "/jasa-automasi-whatsapp",
   },
-];
-
-const TECH_ECOSYSTEM = [
-  "Next.js",
-  "Astro",
-  "Laravel",
-  "FastAPI",
-  "PostgreSQL",
-  "Python AI",
-  "Meta API",
 ];
 
 export function SignificaHero() {
@@ -415,19 +406,8 @@ export function SignificaHero() {
           </div>
         </div>
 
-        {/* 5. Monochrome Muted Tech Stack Strip */}
-        <div className="bg-white pb-16 lg:pb-24">
-          <div className="clay-container flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
-            {TECH_ECOSYSTEM.map((tech) => (
-              <span
-                key={tech}
-                className="text-[16px] sm:text-[19px] font-semibold tracking-[-0.02em] text-[#9CA3AF] select-none"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
+        {/* 5. Fast-Moving Tech Stack Marquee Ticker */}
+        <ClayTechTicker />
       </section>
 
       <SignificaShowreelModal
