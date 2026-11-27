@@ -1,249 +1,167 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { SignificaShowreelModal } from "./SignificaShowreelModal";
 import { SignificaQuoteModal } from "./SignificaQuoteModal";
 
-const SHOWREEL_SLIDES = [
-  {
-    id: "amen",
-    index: "01",
-    shortLabel: "Toko Amen",
-    client: "Toko Amen Snack",
-    caption: "1,446-SKU live catalog & WhatsApp AI assistant",
-    image: "/images/portfolio/amen-system.jpg",
-    alt: "Toko Amen Snack live catalog 1,446 SKUs and WhatsApp AI assistant",
-    href: "/karya/toko-amen-snack",
-    fit: "center" as const,
-  },
+const FEATURED_SHOWCASE = [
   {
     id: "propsmart",
-    index: "02",
-    shortLabel: "PropSmart",
-    client: "PropSmart SaaS",
-    caption: "Property management, 9.45% Rental Yield BI & ML pricing",
+    label: "PropSmart SaaS",
+    title: "PropSmart — Manajemen Kos Multi-Unit, Rental Yield & ML Pricing",
+    summary:
+      "Mengubah pencatatan meteran listrik dan penagihan manual menjadi dashboard okupansi real-time, analitik Net Rental Yield 9,45%, serta rekomendasi harga sewa berbasis Ridge Regression (R² 0,9822).",
     image: "/images/portfolio/propsmart-dashboard.png",
-    alt: "PropSmart Executive Financial and Occupancy Dashboard showing 32 rooms and 9.45% Net Rental Yield",
+    alt: "Dashboard Eksekutif PropSmart menampilkan okupansi 93.75%, pendapatan bulanan, NOI, Net Rental Yield 9.45%, dan status 32 kamar",
     href: "/karya/propsmart-saas",
     fit: "top" as const,
   },
   {
+    id: "amen",
+    label: "Toko Amen Snack",
+    title: "Toko Amen Snack — Katalog Live 1.446 SKU & Asisten WhatsApp AI",
+    summary:
+      "Menyatukan 1.446 master SKU PostgreSQL antara kasir toko dan web publik, dilengkapi asisten AI yang menghitung total belanja dan berat ongkir otomatis langsung ke WhatsApp.",
+    image: "/images/portfolio/amen-system.jpg",
+    alt: "Sistem katalog live 1.446 SKU dan asisten WhatsApp AI Toko Amen Snack",
+    href: "/karya/toko-amen-snack",
+    fit: "center" as const,
+  },
+  {
     id: "heavytrack",
-    index: "03",
-    shortLabel: "HeavyTrack",
-    client: "HeavyTrack WMS",
-    caption: "Offline-first (<5ms) heavy equipment spare parts warehouse",
+    label: "HeavyTrack WMS",
+    title: "HeavyTrack WMS — Gudang Spare Parts Alat Berat Offline (<5ms)",
+    summary:
+      "Sistem manajemen gudang offline-first untuk PT Mitra Abadi Nusantara dengan pencarian lintas part number, kunci stok anti-minus, dan cetak Surat Jalan serta Faktur dot-matrix.",
     image: "/images/portfolio/heavytrack-dashboard.png",
-    alt: "HeavyTrack WMS operational dashboard for heavy equipment spare parts",
+    alt: "Dashboard Operasional HeavyTrack WMS PT Mitra Abadi Nusantara dengan performa lokal <5ms",
     href: "/karya/heavytrack-wms",
     fit: "top" as const,
   },
-  {
-    id: "lacak-korupsi",
-    index: "04",
-    shortLabel: "Lacak Korupsi",
-    client: "Lacak Korupsi",
-    caption: "Investigative news portal & 38-province GIS analytics",
-    image: "/images/portfolio/lacak-korupsi-peta.png",
-    alt: "Lacak Korupsi news portal and provincial data intelligence chart",
-    href: "/karya/lacak-korupsi",
-    fit: "top" as const,
-  },
-  {
-    id: "looku",
-    index: "05",
-    shortLabel: "Look.u AI",
-    client: "Look.u AI",
-    caption: "Zero-hallucination Hybrid RAG fashion stylist (594 SKUs)",
-    image: "/images/portfolio/looku-system.jpg",
-    alt: "Look.u AI Hybrid RAG fashion styling interface",
-    href: "/karya/looku-ai",
-    fit: "center" as const,
-  },
-];
-
-const HERO_PROOF = [
-  { value: "16+", label: "Shipped systems" },
-  { value: "100%", label: "Code ownership" },
-  { value: "Rp0", label: "Per-user fee" },
-];
-
-const PROVEN_SECTORS = [
-  "Ritel & F&B",
-  "Properti & Kos",
-  "Gudang Alat Berat",
-  "Konstruksi B2B",
-  "Pendidikan",
-  "Media & Data",
-  "HRIS & CRM",
 ];
 
 export function SignificaHero() {
   const [showreelOpen, setShowreelOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
-  const [slideIdx, setSlideIdx] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [activeIdx, setActiveIdx] = useState(0);
 
-  useEffect(() => {
-    if (paused || showreelOpen || quoteOpen) return;
-    const timer = window.setInterval(() => {
-      setSlideIdx((prev) => (prev + 1) % SHOWREEL_SLIDES.length);
-    }, 5500);
-    return () => window.clearInterval(timer);
-  }, [paused, showreelOpen, quoteOpen]);
-
-  const activeSlide = SHOWREEL_SLIDES[slideIdx] ?? SHOWREEL_SLIDES[0];
+  const current = FEATURED_SHOWCASE[activeIdx] ?? FEATURED_SHOWCASE[0];
 
   return (
     <>
-      <section
-        id="beranda"
-        className="sig-paper-hero pt-[104px] sm:pt-[120px] pb-12 sm:pb-16"
-      >
-        <div className="sig-container relative z-10">
-          {/* 1. Modern B2B SaaS Header Row — Instant Paint (Zero Opacity Flash / Optimal LCP) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-9 sm:pb-12">
-            <div className="lg:col-span-7 space-y-5">
-              <h1 className="font-bold text-[#0F172A] tracking-[-0.03em] leading-[1.06] text-[clamp(2.2rem,4.1vw+0.8rem,4.25rem)]">
-                Think. Design.
-                <br />
-                Develop. Automate.
-                <br />
-                <span className="text-[#0D7A67]">Scale.</span>
-              </h1>
-
-              <p className="text-[16px] sm:text-[17.5px] leading-[1.55] text-[#475569] max-w-xl">
-                Websites under 0.8s, custom ERP/POS/WMS, and applied AI — built
-                for real operations with full code ownership.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                <button
-                  type="button"
-                  onClick={() => setQuoteOpen(true)}
-                  className="sig-btn-primary"
-                >
-                  <span>Start a project</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setShowreelOpen(true)}
-                  className="sig-btn-outline"
-                >
-                  <span>Try live demo</span>
-                </button>
-              </div>
-            </div>
-
-            <dl className="lg:col-span-5 grid grid-cols-3 gap-5 border-t border-[#CBD5E1]/75 pt-5 lg:pb-1">
-              {HERO_PROOF.map((item) => (
-                <div key={item.label} className="space-y-0.5">
-                  <dd className="text-[24px] sm:text-[28px] font-bold tracking-[-0.025em] text-[#0F172A] tabular-nums">
-                    {item.value}
-                  </dd>
-                  <dt className="text-[12.5px] sm:text-[13px] text-[#64748B] leading-snug">
-                    {item.label}
-                  </dt>
-                </div>
-              ))}
-            </dl>
+      <section id="beranda" className="bg-white">
+        {/* 1. Pure Editorial Statement — Strictly Aligned to Sacred 4+8 Grid */}
+        <div className="ed-container pt-4 sm:pt-10 pb-14 sm:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-x-10 items-start">
+          <div className="lg:col-span-4 lg:pt-2 text-[13.5px] leading-[1.6] text-[#737373]">
+            <p className="font-medium text-[#111111]">
+              Digital Product &amp; Engineering
+            </p>
+            <p>Jakarta &amp; Surabaya</p>
           </div>
 
-          {/* 2. Unobstructed Elevated Working-System Showcase */}
-          <div
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] lg:max-h-[640px] rounded-[16px] sm:rounded-[20px] overflow-hidden bg-[#F1F5F9] border border-[#E2E8F0] shadow-[0_24px_64px_-24px_rgba(15,23,42,0.12)]">
-              <Link
-                href={activeSlide.href}
-                aria-label={`Inspect ${activeSlide.client}`}
-                className="block absolute inset-0"
-              >
-                <AnimatePresence mode="sync" initial={false}>
-                  <motion.div
-                    key={activeSlide.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.42, ease: "easeOut" }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={activeSlide.image}
-                      alt={activeSlide.alt}
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 94vw, (max-width: 1440px) 92vw, 1280px"
-                      className={`object-cover ${
-                        activeSlide.fit === "top"
-                          ? "object-top"
-                          : "object-center"
-                      }`}
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </Link>
-            </div>
+          <div className="lg:col-span-8">
+            <h1 className="font-sans font-semibold text-[#111111] tracking-[-0.03em] leading-[1.09] text-[clamp(2rem,3.4vw+0.75rem,3.35rem)]">
+              We design and engineer software for real operations.
+            </h1>
 
-            {/* 3. Clean Interactive System Selector Bar Below Frame (Direct 1-Click Switch) */}
-            <div className="pt-4 sm:pt-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-4">
-              <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
-                {SHOWREEL_SLIDES.map((s, idx) => {
-                  const isActive = idx === slideIdx;
+            <p className="font-serif text-[19px] sm:text-[21px] leading-[1.58] text-[#4A4A4A] mt-6 max-w-[630px]">
+              Websites under 0.8s, custom ERP, WMS &amp; POS, and applied AI —
+              built directly by engineers with 100% code ownership and zero
+              per-user fees.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-2.5 font-serif text-[17.5px]">
+              <button
+                type="button"
+                onClick={() => setQuoteOpen(true)}
+                className="ed-link cursor-pointer"
+              >
+                Mulai diskusi proyek
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowreelOpen(true)}
+                className="ed-link-ink cursor-pointer"
+              >
+                Coba demo interaktif
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* 2. Featured Flagship Band ("Terbaru") — Exact Work & Co Left-Rail / Right-Track Discipline */}
+        <div className="ed-container">
+          <div className="border-t border-[#E6E6E6] py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-10 items-start">
+            {/* Left Rail: Label + Minimalist Text Switcher */}
+            <div className="lg:col-span-4 space-y-5">
+              <h2 className="text-[15px] font-semibold text-[#111111]">
+                Terbaru
+              </h2>
+
+              <div className="flex flex-wrap lg:flex-col gap-x-5 gap-y-2 text-[14px]">
+                {FEATURED_SHOWCASE.map((item, idx) => {
+                  const active = idx === activeIdx;
                   return (
                     <button
-                      key={s.id}
+                      key={item.id}
                       type="button"
-                      onClick={() => setSlideIdx(idx)}
-                      className={`shrink-0 px-3 py-1.5 rounded-[9px] text-[13px] sm:text-[13.5px] font-medium transition-colors cursor-pointer ${
-                        isActive
-                          ? "bg-[#0D7A67]/10 text-[#0D7A67]"
-                          : "text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC]"
+                      onClick={() => setActiveIdx(idx)}
+                      className={`text-left transition-colors cursor-pointer ${
+                        active
+                          ? "font-medium text-[#111111] underline decoration-[#D13424] decoration-1 underline-offset-4"
+                          : "text-[#737373] hover:text-[#111111]"
                       }`}
                     >
-                      <span className="font-mono text-[11px] mr-1.5 opacity-75">
-                        {s.index}
-                      </span>
-                      {s.shortLabel}
+                      {item.label}
                     </button>
                   );
                 })}
               </div>
+            </div>
 
+            {/* Right Track: Crisp Sharp-Edged Visual + Editorial Caption */}
+            <div className="lg:col-span-8">
               <Link
-                href={activeSlide.href}
-                className="group inline-flex items-center gap-1.5 text-[13.5px] font-medium text-[#0F172A] hover:text-[#0D7A67] transition-colors shrink-0"
+                href={current.href}
+                aria-label={`Lihat studi kasus ${current.label}`}
+                className="block group"
               >
-                <span className="truncate max-w-[300px] sm:max-w-none">
-                  {activeSlide.caption}
-                </span>
-                <ArrowUpRight className="w-4 h-4 shrink-0" />
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F7F5] border border-[#EAEAEA]">
+                  <Image
+                    src={current.image}
+                    alt={current.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 92vw, 760px"
+                    className={`object-cover ${
+                      current.fit === "top" ? "object-top" : "object-center"
+                    } transition-transform duration-500 group-hover:scale-[1.01]`}
+                  />
+                </div>
               </Link>
+
+              <div className="mt-5 max-w-[650px]">
+                <h3 className="text-[19px] sm:text-[21px] font-semibold tracking-[-0.02em] leading-[1.25] text-[#111111]">
+                  <Link
+                    href={current.href}
+                    className="hover:text-[#D13424] transition-colors"
+                  >
+                    {current.title}
+                  </Link>
+                </h3>
+                <p className="font-serif text-[16.5px] sm:text-[17.5px] leading-[1.58] text-[#4A4A4A] mt-2">
+                  {current.summary}{" "}
+                  <Link href={current.href} className="ed-link whitespace-nowrap">
+                    Lihat studi kasus
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Instant Sector Proof Strip (Clean B2B Indonesian Trust Anchor) */}
-      <div className="bg-white border-b border-[#E2E8F0]">
-        <div className="sig-container py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <span className="text-[12.5px] font-medium text-[#64748B] shrink-0">
-            Teruji di sektor operasional nyata
-          </span>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[13.5px] font-medium text-[#334155]">
-            {PROVEN_SECTORS.map((sector) => (
-              <span key={sector}>{sector}</span>
-            ))}
-          </div>
-        </div>
-      </div>
 
       <SignificaShowreelModal
         open={showreelOpen}

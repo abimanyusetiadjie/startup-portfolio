@@ -8,68 +8,93 @@ body {
   max-width: 100vw;
   text-rendering: geometricPrecision;
   background-color: #FFFFFF;
-  color: #0F172A;
+  color: #111111;
 }
 
 :root {
-  --sig-bg: #FFFFFF;
-  --sig-panel: #FFFFFF;
-  --sig-offset: #F8FAFC;
-  --sig-fg: #0F172A;
-  --sig-fg-secondary: #475569;
-  --sig-fg-tertiary: #94A3B8;
-  --sig-border: #E2E8F0;
-  --sig-brand: #0D7A67;
-  --sig-brand-hover: #0A6253;
-  --sig-brand-soft: #ECFDF5;
-  --sig-accent: #0D7A67;
+  --ed-bg: #FFFFFF;
+  --ed-surface: #F7F7F5;
+  --ed-ink: #111111;
+  --ed-muted: #595959;
+  --ed-faint: #8C8C8C;
+  --ed-rule: #E6E6E6;
+  --ed-accent: #D13424;
 }
 
 @layer components {
+  /* Sacred 2-Rail Editorial Container (Work & Co / Swiss Monograph proportions) */
+  .ed-container {
+    width: 100%;
+    max-width: 1160px;
+    margin-inline: auto;
+    padding-inline: clamp(1.5rem, 4.5vw, 3rem);
+  }
+
+  /* Alias retained for sub-pages (/demo, /audit-gratis, /jasa-*, /wawasan/*) */
   .sig-container {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1160px;
     margin-inline: auto;
-    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+    padding-inline: clamp(1.5rem, 4.5vw, 3rem);
   }
 
+  /* Surgical editorial inline serif link (zero pill/shadow slop) */
+  .ed-link {
+    color: #D13424;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(209, 52, 36, 0.45);
+    transition: text-decoration-color 180ms ease, color 180ms ease;
+  }
+
+  .ed-link:hover {
+    color: #9E2317;
+    text-decoration-color: #9E2317;
+  }
+
+  .ed-link-ink {
+    color: #111111;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(17, 17, 17, 0.35);
+    transition: text-decoration-color 180ms ease, color 180ms ease;
+  }
+
+  .ed-link-ink:hover {
+    color: #D13424;
+    text-decoration-color: #D13424;
+  }
+
+  /* Crisp sharp-cornered buttons (Bakken & Baeck architectural restraint) */
   .sig-btn-primary {
-    @apply inline-flex items-center justify-center gap-2 h-[44px] px-5 rounded-[12px] bg-[#0D7A67] text-white text-[15px] font-medium leading-none transition-all duration-200 hover:bg-[#0A6253] hover:ring-4 hover:ring-[#0D7A67]/15 active:scale-[0.98] cursor-pointer whitespace-nowrap;
-  }
-
-  .sig-btn-dark {
-    @apply inline-flex items-center justify-center gap-2 h-[44px] px-5 rounded-[12px] bg-[#0F172A] text-white text-[15px] font-medium leading-none transition-all duration-200 hover:bg-[#1E293B] hover:ring-4 hover:ring-[#0F172A]/15 active:scale-[0.98] cursor-pointer whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 h-[42px] px-5 rounded-[2px] bg-[#111111] text-white text-[14.5px] font-medium leading-none transition-colors duration-200 hover:bg-[#D13424] cursor-pointer whitespace-nowrap;
   }
 
   .sig-btn-outline {
-    @apply inline-flex items-center justify-center gap-2 h-[44px] px-5 rounded-[12px] bg-white text-[#0F172A] border border-[#CBD5E1] text-[15px] font-medium leading-none transition-all duration-200 hover:border-[#0D7A67] hover:text-[#0D7A67] hover:ring-4 hover:ring-[#0D7A67]/10 focus-visible:outline-none focus-visible:border-[#0D7A67] focus-visible:ring-4 focus-visible:ring-[#0D7A67]/20 active:scale-[0.98] cursor-pointer whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 h-[42px] px-5 rounded-[2px] bg-white text-[#111111] border border-[#D4D4D4] text-[14.5px] font-medium leading-none transition-colors duration-200 hover:border-[#111111] cursor-pointer whitespace-nowrap;
   }
 
   .sig-link {
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0% 100%;
     background-repeat: no-repeat;
-    background-size: 0% 1.5px;
-    transition: background-size 240ms ease, color 180ms ease;
+    background-size: 0% 1px;
+    transition: background-size 220ms ease, color 180ms ease;
   }
 
   .sig-link:hover {
-    background-size: 100% 1.5px;
-  }
-
-  /* Subtle warm B2B daylight wash for Option B hero (Stripe/Mekari-grade restraint) */
-  .sig-paper-hero {
-    position: relative;
-    background: linear-gradient(180deg, #F3FAF8 0%, #F9FCFB 55%, #FFFFFF 100%);
+    background-size: 100% 1px;
   }
 
   /* Retained utility classes for sub-page interactive tools (/demo, /audit-gratis, /tools) */
   .ui-card {
-    @apply bg-white rounded-[16px] border border-[#E2E8F0] flex flex-col;
+    @apply bg-white rounded-[2px] border border-[#E6E6E6] flex flex-col;
   }
 
   .ui-card-header {
-    @apply px-6 py-4 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-between gap-3;
+    @apply px-6 py-4 bg-[#F7F7F5] border-b border-[#E6E6E6] flex items-center justify-between gap-3;
   }
 
   .ui-card-body {
@@ -77,19 +102,19 @@ body {
   }
 
   .ui-card-footer {
-    @apply px-6 py-4 bg-[#F8FAFC] border-t border-[#E2E8F0] mt-auto;
+    @apply px-6 py-4 bg-[#F7F7F5] border-t border-[#E6E6E6] mt-auto;
   }
 
   .ui-list-group {
-    @apply divide-y divide-[#E2E8F0] rounded-[14px] bg-white border border-[#E2E8F0] overflow-hidden;
+    @apply divide-y divide-[#E6E6E6] rounded-[2px] bg-white border border-[#E6E6E6] overflow-hidden;
   }
 
   .ui-label {
-    @apply block text-xs font-semibold uppercase tracking-wider text-[#475569] mb-1.5;
+    @apply block text-xs font-medium uppercase tracking-wider text-[#595959] mb-1.5;
   }
 
   .ui-input {
-    @apply w-full rounded-[10px] bg-[#F8FAFC] border border-[#CBD5E1] px-4 py-2.5 text-sm text-[#0F172A] placeholder:text-[#94A3B8] focus:bg-white focus:border-[#0D7A67] focus:ring-4 focus:ring-[#0D7A67]/15 outline-none transition-all font-normal;
+    @apply w-full rounded-[2px] bg-white border border-[#D4D4D4] px-3.5 py-2.5 text-sm text-[#111111] placeholder:text-[#8C8C8C] focus:border-[#111111] outline-none transition-colors font-normal;
   }
 }
 

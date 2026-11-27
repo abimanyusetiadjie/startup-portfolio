@@ -2,15 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Check, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useModalEffects } from "@/components/grove/use-modal-effects";
 import { buildConsultationWaUrl } from "@/components/grove/contact-utils";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 const SERVICE_OPTIONS = [
-  { id: "website", label: "Website Bisnis", range: "Mulai Rp1,5 jt" },
-  { id: "erp", label: "Sistem ERP & POS", range: "Mulai Rp4 jt" },
-  { id: "siakad", label: "SIAKAD & Ujian CBT", range: "Mulai Rp4,5 jt" },
+  { id: "website", label: "Website & Portal Bisnis", range: "Mulai Rp1,5 jt" },
+  { id: "erp", label: "Sistem ERP, WMS & POS", range: "Mulai Rp4 jt" },
+  { id: "siakad", label: "SIAKAD & Portal Sekolah", range: "Mulai Rp4,5 jt" },
   { id: "ai-wa", label: "Automasi AI & WhatsApp", range: "Mulai Rp5 jt" },
 ] as const;
 
@@ -33,7 +33,7 @@ export function SignificaQuoteModal({
   onClose: () => void;
 }) {
   const [selectedServices, setSelectedServices] = useState<string[]>([
-    "Website Bisnis",
+    "Website & Portal Bisnis",
   ]);
   const [scheme, setScheme] = useState<string>("Beli Putus (100% Hak Milik)");
   const [timeline, setTimeline] = useState<string>("Secepatnya (7–14 hari)");
@@ -78,46 +78,45 @@ export function SignificaQuoteModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.18 }}
+          transition={{ duration: 0.16 }}
           onClick={onClose}
-          className="fixed inset-0 z-50 bg-[#0F172A]/45 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 bg-[#111111]/45 flex items-center justify-center p-4 sm:p-6"
         >
           <motion.div
-            initial={{ opacity: 0, y: 14, scale: 0.985 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.985 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-2xl max-h-[90dvh] overflow-y-auto overscroll-contain rounded-[20px] bg-white border border-[#E2E8F0] shadow-[0_32px_72px_rgba(15,23,42,0.2)]"
+            className="w-full max-w-2xl max-h-[90dvh] overflow-y-auto overscroll-contain rounded-[2px] bg-white border border-[#111111]"
           >
-            {/* Header */}
-            <div className="p-6 sm:p-8 pb-5 border-b border-[#E2E8F0] flex items-start justify-between gap-4">
+            <div className="p-6 sm:p-8 pb-5 border-b border-[#E6E6E6] flex items-start justify-between gap-4">
               <div>
-                <p className="text-[12px] font-semibold uppercase tracking-wider text-[#0D7A67]">
-                  Mulai Proyek · Estimasi Transparan
-                </p>
                 <h2
                   id="sig-quote-modal-title"
-                  className="text-[26px] sm:text-[30px] font-bold tracking-[-0.02em] leading-[1.15] text-[#0F172A] mt-1"
+                  className="text-[24px] sm:text-[28px] font-semibold tracking-[-0.025em] leading-[1.15] text-[#111111]"
                 >
                   Ceritakan proyek Anda.
                 </h2>
+                <p className="font-serif text-[15.5px] text-[#595959] mt-1">
+                  Draf ringkas langsung tersusun untuk diskusi WhatsApp bersama
+                  engineer.
+                </p>
               </div>
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Tutup formulir proyek"
-                className="w-9 h-9 rounded-[10px] bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#0D7A67] text-[#0F172A] inline-flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                className="w-9 h-9 text-[#595959] hover:text-[#111111] inline-flex items-center justify-center shrink-0 transition-colors cursor-pointer"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Body */}
             <div className="p-6 sm:p-8 space-y-6">
               <div className="space-y-2.5">
-                <span className="block text-[12px] font-semibold uppercase tracking-wider text-[#64748B]">
-                  1. Apa yang ingin dibangun?
+                <span className="block text-[12.5px] font-medium text-[#595959]">
+                  1. Fokus sistem yang ingin dibangun
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {SERVICE_OPTIONS.map((srv) => {
@@ -127,29 +126,22 @@ export function SignificaQuoteModal({
                         key={srv.id}
                         type="button"
                         onClick={() => toggleService(srv.label)}
-                        className={`text-left px-4 py-3 rounded-[12px] border transition-all flex items-center justify-between gap-3 cursor-pointer ${
+                        className={`text-left px-4 py-3 rounded-[2px] border transition-colors cursor-pointer ${
                           active
-                            ? "bg-[#0D7A67]/8 text-[#0F172A] border-[#0D7A67]"
-                            : "bg-white text-[#0F172A] border-[#E2E8F0] hover:border-[#0D7A67]/60"
+                            ? "bg-[#111111] text-white border-[#111111]"
+                            : "bg-white text-[#111111] border-[#D4D4D4] hover:border-[#111111]"
                         }`}
                       >
-                        <div>
-                          <div className="text-[14.5px] font-semibold leading-tight">
-                            {srv.label}
-                          </div>
-                          <div className="text-[12px] text-[#64748B] mt-0.5">
-                            {srv.range}
-                          </div>
+                        <div className="text-[14px] font-medium leading-tight">
+                          {srv.label}
                         </div>
-                        <span
-                          className={`w-5 h-5 rounded-full inline-flex items-center justify-center shrink-0 ${
-                            active
-                              ? "bg-[#0D7A67] text-white"
-                              : "border border-[#CBD5E1]"
+                        <div
+                          className={`font-serif text-[13px] mt-0.5 ${
+                            active ? "text-white/75" : "text-[#737373]"
                           }`}
                         >
-                          {active && <Check className="w-3 h-3 stroke-[2.5]" />}
-                        </span>
+                          {srv.range}
+                        </div>
                       </button>
                     );
                   })}
@@ -158,7 +150,7 @@ export function SignificaQuoteModal({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <span className="block text-[12px] font-semibold uppercase tracking-wider text-[#64748B]">
+                  <span className="block text-[12.5px] font-medium text-[#595959]">
                     2. Skema kerja sama
                   </span>
                   <div className="space-y-2">
@@ -169,10 +161,10 @@ export function SignificaQuoteModal({
                           key={opt.id}
                           type="button"
                           onClick={() => setScheme(opt.label)}
-                          className={`w-full text-left px-3.5 py-2.5 rounded-[10px] border text-[13.5px] font-medium transition-all cursor-pointer ${
+                          className={`w-full text-left px-3.5 py-2.5 rounded-[2px] border text-[13.5px] font-medium transition-colors cursor-pointer ${
                             active
-                              ? "bg-[#0D7A67]/8 border-[#0D7A67] text-[#0F172A]"
-                              : "bg-white border-[#E2E8F0] text-[#475569] hover:text-[#0F172A]"
+                              ? "border-[#111111] bg-[#F7F7F5] text-[#111111]"
+                              : "border-[#D4D4D4] bg-white text-[#595959] hover:border-[#111111]"
                           }`}
                         >
                           {opt.label}
@@ -183,7 +175,7 @@ export function SignificaQuoteModal({
                 </div>
 
                 <div className="space-y-2">
-                  <span className="block text-[12px] font-semibold uppercase tracking-wider text-[#64748B]">
+                  <span className="block text-[12.5px] font-medium text-[#595959]">
                     3. Target jadwal rilis
                   </span>
                   <div className="space-y-2">
@@ -194,10 +186,10 @@ export function SignificaQuoteModal({
                           key={t}
                           type="button"
                           onClick={() => setTimeline(t)}
-                          className={`w-full text-left px-3.5 py-2.5 rounded-[10px] border text-[13.5px] font-medium transition-all cursor-pointer ${
+                          className={`w-full text-left px-3.5 py-2.5 rounded-[2px] border text-[13.5px] font-medium transition-colors cursor-pointer ${
                             active
-                              ? "bg-[#0D7A67]/8 border-[#0D7A67] text-[#0F172A]"
-                              : "bg-white border-[#E2E8F0] text-[#475569] hover:text-[#0F172A]"
+                              ? "border-[#111111] bg-[#F7F7F5] text-[#111111]"
+                              : "border-[#D4D4D4] bg-white text-[#595959] hover:border-[#111111]"
                           }`}
                         >
                           {t}
@@ -212,7 +204,7 @@ export function SignificaQuoteModal({
                 <div>
                   <label
                     htmlFor="sig-quote-name"
-                    className="block text-[12px] font-semibold uppercase tracking-wider text-[#64748B] mb-1.5"
+                    className="block text-[12.5px] font-medium text-[#595959] mb-1.5"
                   >
                     Nama Anda (opsional)
                   </label>
@@ -228,9 +220,9 @@ export function SignificaQuoteModal({
                 <div>
                   <label
                     htmlFor="sig-quote-company"
-                    className="block text-[12px] font-semibold uppercase tracking-wider text-[#64748B] mb-1.5"
+                    className="block text-[12.5px] font-medium text-[#595959] mb-1.5"
                   >
-                    Perusahaan / Sekolah
+                    Perusahaan / Instansi
                   </label>
                   <input
                     id="sig-quote-company"
@@ -246,7 +238,7 @@ export function SignificaQuoteModal({
               <div>
                 <label
                   htmlFor="sig-quote-notes"
-                  className="block text-[12px] font-semibold uppercase tracking-wider text-[#64748B] mb-1.5"
+                  className="block text-[12.5px] font-medium text-[#595959] mb-1.5"
                 >
                   Ringkasan singkat kebutuhan (opsional)
                 </label>
@@ -255,14 +247,14 @@ export function SignificaQuoteModal({
                   rows={2}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Contoh: butuh web profil baru atau sistem stok 3 gudang tanpa iuran per staf..."
+                  placeholder="Contoh: butuh sistem stok 3 gudang tanpa iuran per staf..."
                   className="ui-input resize-none"
                 />
               </div>
 
-              <div className="pt-4 border-t border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <p className="text-[13px] text-[#64748B]">
-                  Draf terstruktur langsung terbuka di WhatsApp resmi Abinest.
+              <div className="pt-4 border-t border-[#E6E6E6] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <p className="font-serif text-[14px] text-[#737373]">
+                  Langsung terhubung ke WhatsApp resmi Abinest.
                 </p>
                 <a
                   href={waHref}
@@ -270,15 +262,14 @@ export function SignificaQuoteModal({
                   rel="noopener noreferrer"
                   onClick={() => {
                     trackWhatsAppClick({
-                      source: "significa_quote_modal",
+                      source: "editorial_quote_modal",
                       service: selectedServices.join(","),
                     });
                     onClose();
                   }}
                   className="sig-btn-primary shrink-0"
                 >
-                  <span>Kirim ringkasan via WhatsApp</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  Kirim via WhatsApp
                 </a>
               </div>
             </div>

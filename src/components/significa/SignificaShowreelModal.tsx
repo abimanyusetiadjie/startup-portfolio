@@ -42,13 +42,13 @@ export function SignificaShowreelModal({
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.24, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-4xl max-h-[90dvh] overflow-y-auto overscroll-contain rounded-[22px] bg-[#0F172A] text-[#F8FAFC] border border-white/15 shadow-[0_32px_90px_rgba(15,23,42,0.5)]"
+            className="w-full max-w-4xl max-h-[90dvh] overflow-y-auto overscroll-contain rounded-[2px] bg-[#111111] text-white border border-white/15"
           >
             {/* Top Bar */}
             <div className="px-6 sm:px-8 py-5 border-b border-white/10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <p className="text-[11px] font-mono uppercase tracking-wider text-[#34D399]">
-                  Pratinjau Interaktif · Abinest Studio
+                <p className="text-[11px] font-mono uppercase tracking-wider text-white/60">
+                  Pratinjau Interaktif · Abinest
                 </p>
                 <h2
                   id="sig-showreel-title"
@@ -79,9 +79,9 @@ export function SignificaShowreelModal({
                   key={item.id}
                   type="button"
                   onClick={() => setTab(item.id)}
-                  className={`px-4 py-2 rounded-[10px] text-[13.5px] font-medium transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-[2px] text-[13.5px] font-medium transition-colors cursor-pointer ${
                     tab === item.id
-                      ? "bg-[#0D7A67] text-white"
+                      ? "bg-[#D13424] text-white"
                       : "bg-white/10 text-white/75 hover:bg-white/15 hover:text-white"
                   }`}
                 >
@@ -255,7 +255,7 @@ export function SignificaShowreelModal({
               <Link
                 href="/demo"
                 onClick={onClose}
-                className="inline-flex items-center gap-2 px-5 h-[42px] rounded-[12px] bg-[#0D7A67] text-white hover:bg-[#0A6253] text-[14px] font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-5 h-[42px] rounded-[2px] bg-[#D13424] text-white hover:bg-[#B2291B] text-[14px] font-medium transition-colors"
               >
                 <span>Buka sandbox lengkap</span>
                 <ArrowRight className="w-4 h-4" />

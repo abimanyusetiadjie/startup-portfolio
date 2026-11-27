@@ -18,8 +18,8 @@ export function AbinestLogo({
   iconOnly = false,
 }: AbinestLogoProps) {
   const isDark = variant === "dark";
-  const ink = isDark ? "#F8FAFC" : "#0F172A";
-  const accentFacet = isDark ? "#10B981" : "#0D7A67";
+  const ink = isDark ? "#FFFFFF" : "#111111";
+  const accentFacet = "#D13424";
 
   const iconHeight =
     size === "sm"
@@ -67,8 +67,8 @@ export function AbinestLogo({
 
       {!iconOnly && (
         <span
-          className={`${fontSize} font-bold font-sans tracking-[-0.03em] leading-none transition-opacity duration-200 group-hover:opacity-80 ${
-            isDark ? "text-[#F8FAFC]" : "text-[#0F172A]"
+          className={`${fontSize} font-bold font-sans tracking-[-0.03em] leading-none transition-opacity duration-200 group-hover:opacity-75 ${
+            isDark ? "text-white" : "text-[#111111]"
           }`}
         >
           Abinest

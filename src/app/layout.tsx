@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Lora, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
@@ -8,6 +8,13 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const loraSerif = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -48,9 +55,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`scroll-smooth [overflow-x:clip] ${plusJakarta.variable} ${geistMono.variable}`}
+      className={`scroll-smooth [overflow-x:clip] ${plusJakarta.variable} ${loraSerif.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans antialiased bg-[#F7F7F7] text-[#171717] selection:bg-[#FFD124] selection:text-[#171717] [overflow-x:clip]">
+      <body className="font-sans antialiased bg-white text-[#111111] selection:bg-[#D13424]/15 selection:text-[#111111] [overflow-x:clip]">
         <GoogleAnalytics />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>

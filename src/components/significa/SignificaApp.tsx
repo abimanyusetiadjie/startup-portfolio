@@ -9,7 +9,7 @@ import { SignificaFooter } from "./SignificaFooter";
 
 export function SignificaApp() {
   return (
-    <div className="min-h-screen bg-white text-[#0F172A] flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-[#111111] flex flex-col font-sans">
       <SignificaNavbar />
       <main className="flex-1">
         <SignificaHero />

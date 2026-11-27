@@ -2,23 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { WhatsAppIcon } from "@/components/grove/WhatsAppIcon";
 import { buildConsultationWaUrl } from "@/components/grove/contact-utils";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 const QUICK_TOPICS = [
   {
-    label: "Website Bisnis",
+    label: "Website & Portal Bisnis",
     meta: "Mulai Rp1,5 jt · 7–14 hari",
     message:
       "Halo Tim Abinest, saya ingin diskusi pembuatan Website Bisnis cepat (<0,8 detik).",
   },
   {
-    label: "ERP, SIAKAD & POS",
+    label: "ERP, WMS, POS & SIAKAD",
     meta: "Mulai Rp4 jt · Rp0/staf",
     message:
-      "Halo Tim Abinest, saya ingin diskusi pembuatan sistem kustom ERP / SIAKAD / Kasir POS.",
+      "Halo Tim Abinest, saya ingin diskusi pembuatan sistem kustom ERP / WMS / POS / SIAKAD.",
   },
   {
     label: "Automasi AI & WhatsApp",
@@ -51,18 +51,18 @@ export function SignificaFloatingWhatsApp() {
           <motion.div
             role="dialog"
             aria-label="Pintasan chat WhatsApp Abinest"
-            initial={{ opacity: 0, y: 10, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
-            className="w-[300px] sm:w-[320px] rounded-[18px] bg-white border border-[#E2E8F0] shadow-[0_24px_60px_rgba(15,23,42,0.16)] overflow-hidden"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.16, ease: "easeOut" }}
+            className="w-[296px] sm:w-[316px] rounded-[2px] bg-white border border-[#111111] overflow-hidden"
           >
-            <div className="px-5 py-4 bg-[#0F172A] text-white flex items-center justify-between gap-3">
+            <div className="px-5 py-4 bg-[#111111] text-white flex items-center justify-between gap-3">
               <div>
-                <div className="text-[14px] font-semibold leading-tight">
+                <div className="text-[14px] font-medium leading-tight">
                   Abinest Engineer
                 </div>
-                <div className="text-[11.5px] text-[#94A3B8] mt-0.5">
+                <div className="font-serif text-[12.5px] text-white/70 mt-0.5">
                   Respon &lt; 15 menit · Langsung ke tim inti
                 </div>
               </div>
@@ -70,13 +70,13 @@ export function SignificaFloatingWhatsApp() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Tutup pintasan WhatsApp"
-                className="w-7 h-7 rounded-[9px] bg-white/10 hover:bg-white/20 text-white inline-flex items-center justify-center transition-colors cursor-pointer"
+                className="w-7 h-7 text-white/70 hover:text-white inline-flex items-center justify-center transition-colors cursor-pointer"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="p-3.5 space-y-2">
+            <div className="divide-y divide-[#E6E6E6]">
               {QUICK_TOPICS.map((topic) => (
                 <a
                   key={topic.label}
@@ -90,20 +90,19 @@ export function SignificaFloatingWhatsApp() {
                     });
                     setOpen(false);
                   }}
-                  className="group flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-[12px] bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#0D7A67] hover:bg-white transition-all"
+                  className="group block px-5 py-3.5 hover:bg-[#F7F7F5] transition-colors"
                 >
-                  <div>
-                    <div className="text-[13.5px] font-semibold text-[#0F172A] group-hover:text-[#0D7A67] transition-colors">
-                      {topic.label}
-                    </div>
-                    <div className="text-[11.5px] text-[#64748B]">
-                      {topic.meta}
-                    </div>
+                  <div className="text-[14px] font-medium text-[#111111] group-hover:text-[#D13424] transition-colors">
+                    {topic.label}
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#94A3B8] group-hover:text-[#0D7A67] transition-colors shrink-0" />
+                  <div className="font-serif text-[13px] text-[#737373] mt-0.5">
+                    {topic.meta}
+                  </div>
                 </a>
               ))}
+            </div>
 
+            <div className="p-4 border-t border-[#E6E6E6] bg-[#F7F7F5]">
               <a
                 href={directWaHref}
                 target="_blank"
@@ -115,7 +114,7 @@ export function SignificaFloatingWhatsApp() {
                   });
                   setOpen(false);
                 }}
-                className="sig-btn-primary w-full !h-[42px] !text-[13.5px] mt-1"
+                className="sig-btn-primary w-full !h-[40px] !text-[13.5px]"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
                 <span>Chat langsung via WhatsApp</span>
@@ -125,25 +124,24 @@ export function SignificaFloatingWhatsApp() {
         )}
       </AnimatePresence>
 
-      {/* Calm Deep Emerald Circular Expanding WhatsApp Button */}
+      {/* Discreet Architectural Matte Ink Floating Trigger */}
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-label={open ? "Tutup menu WhatsApp" : "Buka chat WhatsApp Abinest"}
-        className="group relative inline-flex items-center h-[54px] rounded-full bg-[#0D7A67] hover:bg-[#0A6253] text-white shadow-[0_14px_34px_rgba(13,122,103,0.3)] hover:ring-4 hover:ring-[#0D7A67]/20 active:scale-[0.96] transition-all duration-300 cursor-pointer"
+        className="group inline-flex items-center h-[46px] rounded-full bg-[#111111] hover:bg-[#D13424] text-white transition-all duration-200 cursor-pointer"
       >
         {!open && (
-          <span className="hidden sm:inline-block max-w-0 overflow-hidden whitespace-nowrap text-[14px] font-medium text-white opacity-0 group-hover:max-w-[140px] group-hover:pl-5 group-hover:pr-1 group-hover:opacity-100 transition-all duration-300">
-            Chat WhatsApp
+          <span className="hidden sm:inline-block max-w-0 overflow-hidden whitespace-nowrap text-[13.5px] font-medium text-white opacity-0 group-hover:max-w-[130px] group-hover:pl-4 group-hover:pr-1 group-hover:opacity-100 transition-all duration-200">
+            WhatsApp
           </span>
         )}
-
-        <span className="relative w-[54px] h-[54px] rounded-full inline-flex items-center justify-center shrink-0">
+        <span className="w-[46px] h-[46px] rounded-full inline-flex items-center justify-center shrink-0">
           {open ? (
-            <X className="w-5 h-5 text-white" />
+            <X className="w-4 h-4 text-white" />
           ) : (
-            <WhatsAppIcon className="w-6 h-6 text-white" />
+            <WhatsAppIcon className="w-5 h-5 text-white" />
           )}
         </span>
       </button>
