@@ -1,254 +1,467 @@
 export interface CaseBadge {
   eyebrow: string;
   label: string;
-  iconKey: "zap" | "trending" | "globe" | "shield" | "database";
+  iconKey: "zap" | "trending" | "globe" | "shield" | "database" | "bot";
   tileBg: string;
   tileInk: string;
 }
 
 export interface CaseStudyItem {
   slug: string;
+  featured: boolean;
   client: string;
   tagline: string;
   sector: string;
   year: string;
-  duration: string;
-  deliverables: string[];
-  images: { src: string; alt: string }[];
+  liveUrl?: string;
+  stageBg: string;
+  techStack: string[];
+  images: { src: string; alt: string; caption: string }[];
   badges: CaseBadge[];
-  challenge: string;
-  solution: string;
-  architecture: string[];
+  problem: string;
+  functionalValue: string;
+  coreFunctions: string[];
   impactMetrics: { value: string; label: string }[];
-  quote: string;
-  author: string;
   serviceHref: string;
 }
 
 export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   {
-    slug: "nusantara-capital",
-    client: "Nusantara Capital.",
-    tagline: "Web korporat super cepat, prospek naik +180%.",
-    sector: "Finansial & Investasi · Jakarta",
+    slug: "toko-amen-snack",
+    featured: true,
+    client: "Toko Amen Snack.",
+    tagline: "Katalog live 1.446 SKU, AI Assistant & kasir terintegrasi.",
+    sector: "Ritel & Oleh-Oleh · Sungailiat, Bangka",
     year: "2026",
-    duration: "11 Hari Kerja",
-    deliverables: [
-      "Arsitektur Web Next.js Statis",
-      "Desain Antarmuka Swiss Editorial",
-      "SEO Teknis & Schema JSON-LD",
-      "Alur Konversi WhatsApp Terukur",
-    ],
+    liveUrl: "https://tokoamensnack.vercel.app",
+    stageBg: "#DAD6CE",
+    techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WAHA WhatsApp", "Tailwind CSS"],
     images: [
       {
-        src: "/images/significa/work-nusantara-editorial.jpg",
-        alt: "Presentasi editorial website korporat Nusantara Capital pada layar desktop dan seluler",
+        src: "/images/real-projects/amen-home-4x3.png",
+        alt: "Tampilan asli beranda website Toko Amen Snack Sungailiat Bangka",
+        caption: "Beranda & jalur belanja langsung ke Katalog, Shopee Official, dan AI WhatsApp",
       },
       {
-        src: "/images/hero-slide-web.webp",
-        alt: "Tangkapan antarmuka responsif desktop dan seluler Nusantara Capital",
+        src: "/images/real-projects/amen-catalog-4x3.png",
+        alt: "Tampilan asli halaman katalog promo dan pengiriman nasional Toko Amen Snack",
+        caption: "Sorotan promo unggulan & pengiriman nasional dengan tombol perbesar & order",
       },
     ],
     badges: [
       {
-        eyebrow: "KECEPATAN",
-        label: "0,48 dtk Muat HP",
-        iconKey: "zap",
-        tileBg: "#E1251B",
-        tileInk: "#FFFFFF",
-      },
-      {
-        eyebrow: "KONVERSI",
-        label: "+180% Prospek WA",
-        iconKey: "trending",
+        eyebrow: "DATABASE",
+        label: "1.446 Master SKU",
+        iconKey: "database",
         tileBg: "#171717",
         tileInk: "#FFD124",
       },
       {
-        eyebrow: "SEO GOOGLE",
-        label: "Skor 100 / 100",
+        eyebrow: "AI & WA BOT",
+        label: "Cek Stok & Ongkir",
+        iconKey: "bot",
+        tileBg: "#3C846E",
+        tileInk: "#FFFFFF",
+      },
+      {
+        eyebrow: "SMART SEARCH",
+        label: "Sinonim Lokal Bangka",
+        iconKey: "zap",
+        tileBg: "#DE6D3B",
+        tileInk: "#FFFFFF",
+      },
+      {
+        eyebrow: "HARDWARE",
+        label: "Ringan di Win 7 / 4GB",
+        iconKey: "shield",
+        tileBg: "#E1251B",
+        tileInk: "#FFFFFF",
+      },
+    ],
+    problem:
+      "Toko oleh-oleh dengan lebih dari seribu jenis camilan kesulitan melayani pertanyaan stok, harga grosir, dan estimasi berat ongkir di WhatsApp secara manual, sementara PC kasir toko masih memakai spesifikasi Windows 7 RAM 4 GB.",
+    functionalValue:
+      "Menyatukan 1.446 master SKU PostgreSQL antara sistem kasir dan katalog web publik, ditambah asisten AI dual-engine (LLM + fallback deterministik) yang tetap akurat menghitung total pesanan, berat kirim (kg), dan membuat tautan checkout WhatsApp otomatis.",
+    coreFunctions: [
+      "Sinkronisasi real-time 1.060 produk aktif (1.446 master SKU) dengan harga eceran & grosir",
+      "Dual-Engine AI + Deterministic Store Assistant dengan memori percakapan multi-turn",
+      "Smart Search paham ejaan lokal ('getas', 'ams', '250 gr', 'bal') dengan paginasi 24 item/hal",
+      "Integrasi WhatsApp Gateway WAHA ringan (RAM ~180 MB) + Smart Human-Takeover admin",
+    ],
+    impactMetrics: [
+      { value: "1.446", label: "Master SKU tersinkron PostgreSQL" },
+      { value: "24/7", label: "Asisten stok & hitung ongkir otomatis" },
+      { value: "4 GB", label: "Tetap ringan di PC kasir Windows 7" },
+      { value: "Live", label: "Tayang produksi di Vercel" },
+    ],
+    serviceHref: "/jasa-automasi-whatsapp",
+  },
+  {
+    slug: "central-scaffolding",
+    featured: true,
+    client: "Central Scaffolding.",
+    tagline: "Web B2B sewa/jual, kalkulator set & Local SEO.",
+    sector: "Konstruksi & Material B2B · Jabodetabek",
+    year: "2026",
+    stageBg: "#DE6D3B",
+    techStack: ["Astro", "React Island", "Tailwind CSS", "Programmatic SEO"],
+    images: [
+      {
+        src: "/images/real-projects/scaffolding-home-4x3.png",
+        alt: "Tampilan asli beranda website Central Scaffolding Indonesia",
+        caption: "Hero konversi cepat dengan bukti stok 10.000+ set & area layanan Jabodetabek",
+      },
+      {
+        src: "/images/real-projects/scaffolding-catalog-4x3.png",
+        alt: "Tampilan asli katalog komponen dan aksesoris Central Scaffolding",
+        caption: "Katalog teknis komponen SNI (Main Frame 1,90 / 1,70, Cross Brace, Pipa Galvanis)",
+      },
+    ],
+    badges: [
+      {
+        eyebrow: "KALKULATOR",
+        label: "Hitung Set & Kirim WA",
+        iconKey: "zap",
+        tileBg: "#DE6D3B",
+        tileInk: "#FFFFFF",
+      },
+      {
+        eyebrow: "KATALOG B2B",
+        label: "Filter Komponen SNI",
+        iconKey: "database",
+        tileBg: "#171717",
+        tileInk: "#FFD124",
+      },
+      {
+        eyebrow: "LOCAL SEO",
+        label: "Halaman Per Area",
         iconKey: "globe",
         tileBg: "#3C846E",
         tileInk: "#FFFFFF",
       },
       {
-        eyebrow: "KEPEMILIKAN",
-        label: "100% Hak Milik",
-        iconKey: "shield",
-        tileBg: "#DE6D3B",
+        eyebrow: "ARSITEKTUR",
+        label: "Astro 0 KB Static",
+        iconKey: "trending",
+        tileBg: "#E1251B",
         tileInk: "#FFFFFF",
       },
     ],
-    challenge:
-      "Situs web korporat sebelumnya dibangun menggunakan template CMS berat yang membutuhkan 6,8 detik untuk terbuka di jaringan 4G seluler. Mayoritas calon investor dan klien institusi langsung menutup halaman sebelum informasi layanan tampil.",
-    solution:
-      "Abinest merancang ulang seluruh arsitektur informasi dengan pendekatan editorial minimalis dan membangunkannya di atas Next.js prarender statis, optimasi gambar WebP adaptif, serta skema data terstruktur JSON-LD untuk pencarian Google Indonesia.",
-    architecture: [
-      "Prarender statis penuh (Edge CDN) dengan waktu muat di bawah 0,5 detik",
-      "Hirarki tipografi bersih dan kontras tinggi untuk keterbacaan eksekutif di HP",
-      "Pelacakan klik konsultasi WhatsApp otomatis per bagian halaman",
-      "Serah terima repositori kode penuh 100% tanpa ikatan biaya bulanan",
+    problem:
+      "Kontraktor di lapangan mencari vendor sewa/beli scaffolding langsung dari HP dan butuh kepastian stok fisik (anti-makelar) beserta hitungan jumlah Main Frame, Cross Brace, dan Joint Pin tanpa menunggu lama.",
+    functionalValue:
+      "Website ultra-ringan berbasis Astro dengan kalkulator kebutuhan material interaktif yang otomatis menghitung rincian batang rangka dan mengirim draf order rapi ke WhatsApp, didukung halaman Local SEO otomatis per kecamatan.",
+    coreFunctions: [
+      "Kalkulator interaktif Sewa / Beli Baru / Rekondisi (1–200+ set) + add-on Catwalk & Roda",
+      "Katalog filter komponen teknis SNI dengan tombol 'Tanya Stok Item Ini' otomatis ke WA",
+      "Programmatic Local SEO (/area/[slug]) membidik pencarian kontraktor Tangerang, BSD & Jakarta",
+      "Arsitektur Astro Islands (0 KB JS untuk konten statis) agar instan dibuka di lokasi proyek",
     ],
     impactMetrics: [
-      { value: "0,48 dtk", label: "Waktu muat halaman di seluler" },
-      { value: "+180%", label: "Peningkatan permintaan konsultasi" },
-      { value: "-65%", label: "Penurunan rasio keluar pengunjung" },
-      { value: "100/100", label: "Skor Google PageSpeed & SEO" },
+      { value: "10.000+", label: "Kapasitas set ditampilkan jelas" },
+      { value: "0 KB", label: "JS berlebih pada konten statis" },
+      { value: "1 Klik", label: "Kalkulator set langsung ke draf WA" },
+      { value: "SNI", label: "Spec-sheet komponen terstruktur" },
     ],
-    quote:
-      "Situs kami kini langsung terbuka seketika di ponsel calon investor, dan permintaan konsultasi masuk jauh lebih konsisten setiap pekan.",
-    author: "Hendra Kusuma, Sektor Finansial · Jakarta",
     serviceHref: "/jasa-pembuatan-website-jakarta",
   },
   {
-    slug: "sinar-distribusi",
-    client: "Sinar Distribusi.",
-    tagline: "ERP 4 gudang & POS, hemat 40 jam/minggu.",
-    sector: "Distribusi & Grosir · 4 Gudang",
+    slug: "ypi-al-fuad",
+    featured: true,
+    client: "YPI Al-Fuad Tangerang.",
+    tagline: "Portal 5 unit pendidikan & sistem konversi PPDB.",
+    sector: "Yayasan Pendidikan · Poris Gaga, Tangerang",
     year: "2026",
-    duration: "3 Minggu Kerja",
-    deliverables: [
-      "Sistem ERP Multi-Gudang Real-Time",
-      "Aplikasi Kasir POS & Cetak Faktur PDF",
-      "Integrasi Pemindai Barcode 2D",
-      "Notifikasi Stok Menipis via WhatsApp",
-    ],
+    stageBg: "#3C846E",
+    techStack: ["Astro 5", "TypeScript Strict", "Tailwind CSS", "JSON-LD Schema"],
     images: [
       {
-        src: "/images/significa/work-sinar-erp-editorial.jpg",
-        alt: "Presentasi editorial dasbor ERP Multi-Gudang dan POS Sinar Distribusi",
+        src: "/images/real-projects/alfuad-home-4x3.png",
+        alt: "Tampilan asli portal resmi MI TPI dan YPI Al-Fuad Poris Gaga Tangerang",
+        caption: "Beranda resmi YPI Al-Fuad sejak 1990 dengan akses langsung Daftar PPDB & rincian biaya",
       },
       {
-        src: "/images/hero-slide-erp.webp",
-        alt: "Tangkapan dasbor inventori multi-gudang dan kasir POS Abinest",
+        src: "/images/real-projects/alfuad-units-4x3.png",
+        alt: "Tampilan asli tab lima unit pendidikan terpadu RA MI SMP-IT SMK-IT Pesantren",
+        caption: "Navigasi interaktif 5 unit pendidikan terpadu dalam satu kawasan",
       },
     ],
     badges: [
       {
-        eyebrow: "INVENTORI",
-        label: "18.420 SKU Sinkron",
-        iconKey: "database",
+        eyebrow: "5 JENJANG",
+        label: "RA · MI · SMP · SMK · Ponpes",
+        iconKey: "globe",
         tileBg: "#3C846E",
         tileInk: "#FFFFFF",
       },
       {
-        eyebrow: "AKURASI",
-        label: "0% Selisih 4 Gudang",
-        iconKey: "shield",
+        eyebrow: "KONVERSI",
+        label: "Alur PPDB & PDF Biaya",
+        iconKey: "trending",
         tileBg: "#171717",
         tileInk: "#FFD124",
       },
       {
-        eyebrow: "EFISIENSI",
-        label: "Hemat 40 Jam / Mgg",
-        iconKey: "trending",
+        eyebrow: "SEO RESMI",
+        label: "Schema Sekolah & NPSN",
+        iconKey: "shield",
         tileBg: "#DE6D3B",
         tileInk: "#FFFFFF",
       },
       {
-        eyebrow: "LISENSI",
-        label: "Rp0 Biaya per Staf",
+        eyebrow: "PERFORMA",
+        label: "Astro 5 Static Output",
         iconKey: "zap",
         tileBg: "#E1251B",
         tileInk: "#FFFFFF",
       },
     ],
-    challenge:
-      "Perusahaan mengelola 18.420 jenis barang di 4 gudang berbeda menggunakan kombinasi aplikasi sewa bulanan per pengguna dan rekap Excel manual. Setiap kali menambah staf admin atau kasir cabang, biaya langganan membengkak dan selisih stok kerap terjadi.",
-    solution:
-      "Kami membangun sistem ERP & kasir kustom berbasis PostgreSQL dengan sinkronisasi mutasi instan antar gudang, cetak faktur PDF satu klik, serta skema Beli Putus yang membebaskan perusahaan dari iuran lisensi per staf selamanya.",
-    architecture: [
-      "Basis data relasional PostgreSQL dengan pencatatan kartu stok tak terbantahkan",
-      "Pembagian peran ketat: Pemilik, Manajer Gudang, Admin Faktur, dan Kasir",
-      "Sinkronisasi stok <0,2 detik antar gudang Tangerang, Bekasi, dan toko ritel",
-      "Peringatan stok kritis otomatis terkirim ke WhatsApp manajer operasional",
+    problem:
+      "Orang tua calon siswa kesulitan membedakan 5 jenjang pendidikan dalam satu yayasan (RA, MI TPI, SMP-IT, SMK-IT, dan Pondok Pesantren) serta harus bolak-balik menanyakan brosur dan rincian biaya PPDB.",
+    functionalValue:
+      "Portal resmi terpadu tanpa beban database eksternal yang menyatukan informasi NPSN 5 unit pendidikan, unduhan PDF brosur & biaya resmi, serta tombol konversi langsung ke panitia PPDB WhatsApp.",
+    coreFunctions: [
+      "Tab interaktif 5 unit terpadu lengkap dengan NPSN resmi (RA, MI TPI, SMP-IT, SMK-IT, Ponpes)",
+      "Unduhan langsung dokumen PDF brosur PPDB 2026 & rincian biaya transparan",
+      "Metadata SEO EducationalOrganization, LocalBusiness & FAQPage JSON-LD terverifikasi",
+      "Security headers Cloudflare Pages + TypeScript strict tanpa biaya maintenance database",
     ],
     impactMetrics: [
-      { value: "18.420", label: "SKU aktif tersinkron real-time" },
-      { value: "40 jam", label: "Waktu rekap yang dihemat tiap minggu" },
-      { value: "0%", label: "Selisih catatan antar 4 gudang" },
-      { value: "Rp0", label: "Biaya langganan tambahan per staf" },
+      { value: "5 Unit", label: "Jenjang terintegrasi satu portal" },
+      { value: "35+ Th", label: "Reputasi yayasan tersaji rapi" },
+      { value: "PDF", label: "Unduh brosur & biaya 1 klik" },
+      { value: "Rp0", label: "Biaya langganan server database" },
     ],
-    quote:
-      "Kami bebas menambah puluhan staf gudang dan cabang baru tanpa memikirkan pembengkakan biaya lisensi bulanan per karyawan.",
-    author: "Ir. Bambang Sutrisno, Direktur Operasional",
+    serviceHref: "/jasa-pembuatan-website-jakarta",
+  },
+  {
+    slug: "looku-ai",
+    featured: true,
+    client: "Look.u AI.",
+    tagline: "Stylist AI berbasis Hybrid RAG 594 SKU & Vision.",
+    sector: "Applied AI & Fashion Tech · PWA",
+    year: "2026",
+    stageBg: "#E2B2A2",
+    techStack: ["Next.js", "Gemini 256-d Vector RAG", "Vision AI", "MediaPipe", "Supabase"],
+    images: [
+      {
+        src: "/images/real-projects/looku-home-4x3.png",
+        alt: "Tampilan asli antarmuka asisten styling fashion AI Look.u berbasis Hybrid RAG",
+        caption: "Asisten AI Zero-Hallucination dengan filter gender, hijab, budget & Vision Mix & Match",
+      },
+      {
+        src: "/images/real-projects/looku-catalog-4x3.png",
+        alt: "Tampilan asli katalog produk RAG 594 SKU dari 46 brand pada Look.u AI",
+        caption: "Katalog 594 SKU terindeks vektor 256-d siap klik Mix & Match di AI",
+      },
+    ],
+    badges: [
+      {
+        eyebrow: "HYBRID RAG",
+        label: "594 SKU · 46 Brand",
+        iconKey: "database",
+        tileBg: "#171717",
+        tileInk: "#FFD124",
+      },
+      {
+        eyebrow: "ZERO HALLUCINATION",
+        label: "Gemini 256-d Vector",
+        iconKey: "bot",
+        tileBg: "#DE6D3B",
+        tileInk: "#FFFFFF",
+      },
+      {
+        eyebrow: "VISION AI",
+        label: "Foto Lemari & Try-On",
+        iconKey: "zap",
+        tileBg: "#3C846E",
+        tileInk: "#FFFFFF",
+      },
+      {
+        eyebrow: "FILTER KETAT",
+        label: "Hijab · Gender · Budget",
+        iconKey: "shield",
+        tileBg: "#E1251B",
+        tileInk: "#FFFFFF",
+      },
+    ],
+    problem:
+      "Chatbot AI generik sering berhalusinasi merekomendasikan produk fiktif atau tidak sesuai iklim tropis, warna kulit Nusantara, aturan hijab, maupun batas anggaran pengguna.",
+    functionalValue:
+      "Mesin Hybrid RAG (vektor 256-dimensi + filter terstruktur) yang mengunci setiap rekomendasi ke 594 SKU produk nyata dari 46 brand resmi, lengkap dengan Vision AI untuk mix & match foto baju sendiri.",
+    coreFunctions: [
+      "Retrieval Hybrid RAG terhadap 594 SKU nyata (46 brand lokal & resmi) tanpa halusinasi",
+      "Vision Mix & Match: unggah foto baju di lemari atau selfie untuk pencocokan instan",
+      "Filter deterministik Gender, Hijab, Rona Kulit Nusantara, dan batas budget ketat",
+      "Modul Virtual Try-On Studio, kuis tes warna kulit, serta Admin CMS import/export CSV",
+    ],
+    impactMetrics: [
+      { value: "594", label: "SKU nyata terindeks vektor 256-d" },
+      { value: "46", label: "Brand lokal & official store" },
+      { value: "0%", label: "Produk fiktif (Zero-Hallucination)" },
+      { value: "Vision", label: "Mix & Match dari foto langsung" },
+    ],
+    serviceHref: "/jasa-automasi-whatsapp",
+  },
+  {
+    slug: "crew-ai-hris",
+    featured: false,
+    client: "CREW. AI HRIS.",
+    tagline: "HRIS + prediksi risiko resign & gaji berbasis ML.",
+    sector: "Enterprise HRIS & Machine Learning",
+    year: "2026",
+    stageBg: "#3C846E",
+    techStack: ["Next.js", "FastAPI", "Python Scikit-Learn", "PostgreSQL", "Docker"],
+    images: [
+      {
+        src: "/images/real-projects/crew-hris-4x3.png",
+        alt: "Tampilan asli platform AI-Powered HRIS CREW dengan analitik retensi dan prediksi gaji",
+        caption: "Platform HRIS dengan detektor risiko resign (Flight Risk) & prediksi kompensasi",
+      },
+    ],
+    badges: [
+      {
+        eyebrow: "MACHINE LEARNING",
+        label: "Flight Risk Detector",
+        iconKey: "bot",
+        tileBg: "#3C846E",
+        tileInk: "#FFFFFF",
+      },
+      {
+        eyebrow: "KOMPENSASI",
+        label: "Smart Salary Predict",
+        iconKey: "trending",
+        tileBg: "#171717",
+        tileInk: "#FFD124",
+      },
+    ],
+    problem:
+      "Tim HR umumnya baru menyadari risiko resign karyawan kunci setelah surat pengunduran diri masuk, tanpa data objektif mengenai kesenjangan kompensasi atau biaya kehilangan talenta.",
+    functionalValue:
+      "Menggabungkan manajemen karyawan & KPI dengan model Machine Learning Scikit-Learn lewat FastAPI (<200ms) untuk memetakan risiko resign, estimasi kerugian attrition, serta audit gaji ideal.",
+    coreFunctions: [
+      "Retention AI (Scikit-Learn) menghitung probabilitas Flight Risk & anggaran retensi ideal",
+      "Smart Salary Prediction membandingkan gaji saat ini vs prediksi ideal berbasis pengalaman & KPI",
+      "CRUD karyawan, evaluasi KPI, payroll, dan daftar risiko prioritas dalam 1 dashboard",
+      "Arsitektur Full-Stack Next.js + FastAPI + PostgreSQL siap jalan via Docker Compose",
+    ],
+    impactMetrics: [
+      { value: "<200ms", label: "Waktu inferensi model ML FastAPI" },
+      { value: ">80%", label: "Target akurasi ROC-AUC retensi" },
+      { value: "Docker", label: "Setup penuh dalam 1 perintah" },
+      { value: "Full-Stack", label: "Next.js + Python + PostgreSQL" },
+    ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
   {
-    slug: "siakad-ujian-cbt",
-    client: "SIAKAD & Ujian CBT.",
-    tagline: "1.240 siswa ujian serentak, 0% tumbang.",
-    sector: "Yayasan Pendidikan · Portal Akademik",
+    slug: "smartpos-aneka-rasa",
+    featured: false,
+    client: "SmartPOS Aneka Rasa.",
+    tagline: "Kasir barcode <45ms, struk 58mm & sinkron Shopee.",
+    sector: "Omnichannel Retail POS & BI · Pangkalpinang",
     year: "2026",
-    duration: "3 Minggu Kerja",
-    deliverables: [
-      "Portal PPDB Daring & Verifikasi Berkas",
-      "Mesin Ujian CBT Anti-Tumbang",
-      "Generator E-Rapor PDF Massal",
-      "Notifikasi Tagihan SPP ke Wali Murid",
-    ],
+    stageBg: "#171717",
+    techStack: ["React", "Vite", "USB HID Barcode", "ApexCharts BI", "Shopee Sync"],
     images: [
       {
-        src: "/images/significa/work-siakad-cbt-editorial.jpg",
-        alt: "Presentasi editorial aplikasi portal akademik SIAKAD dan ujian CBT",
-      },
-      {
-        src: "/images/case-studies/siakad-education-portal.jpg",
-        alt: "Pelaksanaan ujian CBT sekolah berjalan stabil tanpa gangguan",
+        src: "/images/real-projects/smartpos-home-4x3.png",
+        alt: "Tampilan asli terminal kasir dark-mode SmartPOS Toko Aneka Rasa 99",
+        caption: "Terminal kasir dark-mode dengan shortcut keyboard F2/F8/F9/F10/F12 & scan barcode cepat",
       },
     ],
     badges: [
       {
-        eyebrow: "KAPASITAS",
-        label: "1.240 Siswa Serentak",
-        iconKey: "trending",
-        tileBg: "#DE6D3B",
-        tileInk: "#FFFFFF",
-      },
-      {
-        eyebrow: "STABILITAS",
-        label: "0% Gangguan Ujian",
-        iconKey: "shield",
+        eyebrow: "KASIR CEPAT",
+        label: "Scan Barcode <45ms",
+        iconKey: "zap",
         tileBg: "#171717",
         tileInk: "#FFD124",
       },
       {
-        eyebrow: "RAPOR DIGITAL",
-        label: "600 Rapor / 4 Menit",
-        iconKey: "zap",
+        eyebrow: "OMNICHANNEL",
+        label: "POS + Shopee + BI",
+        iconKey: "database",
         tileBg: "#3C846E",
         tileInk: "#FFFFFF",
       },
+    ],
+    problem:
+      "Toko ritel dan oleh-oleh yang berjualan offline sekaligus di Shopee kerap mengalami selisih stok, antrean kasir lambat, serta kesulitan menghitung laba bersih riil (HPP vs omzet).",
+    functionalValue:
+      "Terminal kasir POS dark-mode berkecepatan tinggi dengan pintasan keyboard penuh (F2–F12), dukungan scanner laser & kamera HP, cetak struk termal 58mm, hingga pemisahan hak akses Owner BI vs Kasir.",
+    coreFunctions: [
+      "Scanner barcode USB HID (<45ms) + kamera HP, pintasan keyboard F2/F8/F9/F10/F12",
+      "Pembayaran Tunai, Debit, QRIS + cetak struk termal 58mm siap pakai",
+      "Executive BI Dashboard (khusus Owner): Omzet, HPP, Laba Kotor, Pareto 80/20 & ekspor PDF/Excel",
+      "Sinkronisasi stok otomatis dengan pesanan marketplace Shopee + RBAC ketat Owner/Kasir",
+    ],
+    impactMetrics: [
+      { value: "<45ms", label: "Deteksi pemindai barcode USB HID" },
+      { value: "58mm", label: "Cetak struk termal siap kasir" },
+      { value: "2 Role", label: "RBAC terpisah Owner BI vs Kasir" },
+      { value: "Shopee", label: "Potong stok omnichannel otomatis" },
+    ],
+    serviceHref: "/jasa-pembuatan-sistem-erp",
+  },
+  {
+    slug: "scalebase-crm",
+    featured: false,
+    client: "ScaleBase CRM.",
+    tagline: "Pipeline Kanban B2B, tiket CS & analitik RFM.",
+    sector: "B2B Sales CRM & Customer Support",
+    year: "2026",
+    stageBg: "#DAD6CE",
+    techStack: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "RFM ML"],
+    images: [
       {
-        eyebrow: "BIAYA SISWA",
-        label: "Rp0 per Siswa",
-        iconKey: "database",
-        tileBg: "#E1251B",
+        src: "/images/real-projects/scalebase-crm-4x3.png",
+        alt: "Tampilan asli platform workspace CRM ScaleBase untuk tim sales dan agensi B2B",
+        caption: "Workspace kendali prospek, analitik funnel penjualan, dan tiket komplain pelanggan",
+      },
+    ],
+    badges: [
+      {
+        eyebrow: "PIPELINE",
+        label: "Kanban Drag & Drop",
+        iconKey: "trending",
+        tileBg: "#171717",
+        tileInk: "#FFD124",
+      },
+      {
+        eyebrow: "RETENSI",
+        label: "Segmentasi RFM ML",
+        iconKey: "bot",
+        tileBg: "#DE6D3B",
         tileInk: "#FFFFFF",
       },
     ],
-    challenge:
-      "Setiap musim ujian akhir dan penerimaan siswa baru (PPDB), server sekolah selalu mengalami galat 502 akibat lonjakan login ratusan siswa secara bersamaan, sementara guru membutuhkan waktu berhari-hari menyusun rapor PDF manual.",
-    solution:
-      "Abinest memisahkan antrean layanan ujian daring (CBT) dari mesin pembuatan rapor dan portal SPP, sehingga lonjakan trafik serentak tertangani mulus di bawah 0,35 detik sekaligus memangkas waktu cetak rapor ratusan siswa menjadi hitungan menit.",
-    architecture: [
-      "Isolasi layanan ujian CBT dengan penyimpanan jawaban lokal berkala (anti-hilang)",
-      "Mesin antrean pencetakan 600+ E-Rapor PDF otomatis tanpa membebani server utama",
-      "Integrasi status pembayaran SPP & laporan kehadiran langsung ke WhatsApp orang tua",
-      "Kepemilikan penuh oleh yayasan dengan Rp0 biaya per siswa per bulan",
+    problem:
+      "Prospek B2B sering tercecer di spreadsheet terpisah antara tim sales, CS, dan marketing sehingga follow-up terlambat dan pelanggan berisiko churn tidak terdeteksi.",
+    functionalValue:
+      "Menyatukan manajemen pipeline penjualan Kanban, tiket komplain omnichannel, pengingat lead idle >3 hari, dan segmentasi pelanggan RFM dalam satu workspace terpadu.",
+    coreFunctions: [
+      "Pipeline Kanban (New → Contacted → Proposal → Negotiation → Won/Lost) + hitung Win Rate",
+      "Otomasi pengingat Sales Rep apabila prospek terbengkalai di status New >3 hari",
+      "Customer 360 & manajemen tiket CS dengan pelacakan SLA penyelesaian komplain",
+      "Segmentasi klaster RFM (Recency, Frequency, Monetary) & RBAC 5 peran tim",
     ],
     impactMetrics: [
-      { value: "1.240", label: "Siswa login & ujian bersamaan" },
-      { value: "99,98%", label: "Uptime sepanjang pekan ujian" },
-      { value: "4 menit", label: "Penerbitan 600 E-Rapor PDF" },
-      { value: "Rp0", label: "Iuran bulanan per siswa" },
+      { value: "5 Role", label: "RBAC Sales, Manager, CS, Mkt, Admin" },
+      { value: "Kanban", label: "Pelacakan funnel & nilai deal" },
+      { value: "RFM ML", label: "Deteksi pelanggan At-Risk churn" },
+      { value: "3 Hari", label: "Otomasi pengingat prospek idle" },
     ],
-    quote:
-      "Tidak ada lagi kendala aplikasi melambat saat ujian berlangsung. Rekap rapor ratusan siswa kini selesai dalam hitungan menit.",
-    author: "Drs. H. Mulyadi, Pembina Yayasan Pendidikan",
     serviceHref: "/jasa-pembuatan-sistem-erp",
   },
 ];
+
+export const FEATURED_WORK_ITEMS = SIGNIFICA_WORK_ITEMS.filter(
+  (item) => item.featured
+);
+
+export const SECONDARY_WORK_ITEMS = SIGNIFICA_WORK_ITEMS.filter(
+  (item) => !item.featured
+);
 
 export function getWorkItemBySlug(slug: string): CaseStudyItem | undefined {
   return SIGNIFICA_WORK_ITEMS.find((item) => item.slug === slug);

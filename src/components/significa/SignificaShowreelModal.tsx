@@ -96,8 +96,8 @@ export function SignificaShowreelModal({
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   <div className="lg:col-span-7 relative aspect-[16/10] rounded-[16px] overflow-hidden border border-white/15 bg-[#242424]">
                     <Image
-                      src="/images/hero-slide-web.webp"
-                      alt="Pratinjau Website Korporat Cepat Abinest"
+                      src="/images/real-projects/amen-hero-16x9.png"
+                      alt="Tangkapan layar asli website produksi Toko Amen Snack"
                       fill
                       sizes="(max-width: 1024px) 92vw, 520px"
                       className="object-cover object-top"

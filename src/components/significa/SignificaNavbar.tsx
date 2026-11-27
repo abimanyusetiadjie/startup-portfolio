@@ -34,7 +34,7 @@ const DRAWER_SERVICES = [
 const DRAWER_TOOLS = [
   { label: "Demo Interaktif Sistem", href: "/demo" },
   { label: "Kalkulator Estimasi & Audit Gratis", href: "/audit-gratis" },
-  { label: "Wawasan & Catatan Rekayasa", href: "/#wawasan" },
+  { label: "Catatan: Beli Putus vs Sewa ERP", href: "/wawasan/beli-putus-vs-sewa-saas-erp" },
   { label: "Pertanyaan Umum (FAQ)", href: "/#faq" },
 ];
 

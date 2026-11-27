@@ -1,137 +1,47 @@
 "use client";
 
 import { useId, useState } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { FAQ_ITEMS } from "@/components/grove/faq-data";
-import { buildConsultationWaUrl } from "@/components/grove/contact-utils";
-import { trackWhatsAppClick } from "@/lib/analytics";
-import {
-  SignificaInsightsSection,
-  SignificaAiPromptStrip,
-} from "./SignificaInsightsAndAiStrip";
 
-const CORE_SERVICES_STRIP = [
-  {
-    title: "Website bisnis.",
-    price: "Mulai Rp1,5 juta · 7–14 hari",
-    desc: "Web profil & landing page muat <0,8 detik, siap SEO Google, 100% hak milik.",
-    cta: "Detail Website",
-    href: "/jasa-pembuatan-website-jakarta",
-  },
-  {
-    title: "Sistem ERP & SIAKAD.",
-    price: "Mulai Rp4 juta · Rp0/staf",
-    desc: "Stok multi-gudang, kasir POS, hingga portal CBT sesuai alur kerja tim.",
-    cta: "Detail ERP & SIAKAD",
-    href: "/jasa-pembuatan-sistem-erp",
-  },
-  {
-    title: "Automasi AI & WhatsApp.",
-    price: "Mulai Rp5 juta · Meta API Resmi",
-    desc: "Asisten CS AI 24/7 terhubung stok gudang & scan faktur otomatis via OCR.",
-    cta: "Detail AI & WhatsApp",
-    href: "/jasa-automasi-whatsapp",
-  },
+const ENGINEERING_STANDARDS = [
+  "Next.js",
+  "Astro",
+  "Laravel",
+  "FastAPI",
+  "PostgreSQL",
+  "Meta API",
 ];
 
 export function SignificaAboutAndFaq() {
-  const [openId, setOpenId] = useState<string | null>(FAQ_ITEMS[0]?.id ?? null);
+  // Collapsed by default so homepage stays ultra-clean and scannable
+  const [openId, setOpenId] = useState<string | null>(null);
   const baseId = useId();
 
-  const waHref = buildConsultationWaUrl(
-    "Halo Tim Abinest, saya ingin berkonsultasi mengenai kebutuhan proyek digital kami."
-  );
-
   return (
-    <div className="bg-[#F7F7F7]">
-      {/* 1. Asymmetric 50% Left About Block (Ultra-Concise) */}
-      <section id="tentang" className="scroll-mt-20 py-14 lg:py-24">
-        <div className="sig-container">
-          <div className="max-w-xl space-y-6">
-            <h2 className="text-[clamp(1.875rem,2.1vw+1.3rem,3rem)] font-semibold tracking-[-0.015em] leading-[1.12]">
-              <span className="text-[#6F6F71] block">Tentang kami.</span>
-              <span className="text-[#171717] block">
-                Langsung ke engineer inti.
-              </span>
-            </h2>
-
-            <p className="text-[20px] sm:text-[23px] leading-[1.42] text-[#6F6F71]">
-              Tanpa birokrasi agensi. RAB terkunci di awal, progres mingguan
-              transparan, kode 100% diserahkan.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  trackWhatsAppClick({
-                    source: "significa_about_cta",
-                    label: "konsultasi_langsung",
-                  })
-                }
-                className="sig-btn-outline"
-              >
-                <span>Chat WhatsApp</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <Link href="/audit-gratis" className="sig-btn-outline">
-                <span>Hitung estimasi</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. 3-Column Vertical-Bordered Capabilities Strip */}
-      <div className="border-y border-[#E8E8E8]">
-        <div className="sig-container grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-[#E8E8E8]">
-          {CORE_SERVICES_STRIP.map((srv, idx) => (
-            <div
-              key={srv.title}
-              className={`py-10 lg:py-12 flex flex-col justify-between gap-7 ${
-                idx === 0
-                  ? "lg:pr-8"
-                  : idx === 1
-                  ? "lg:px-8"
-                  : "lg:pl-8"
-              }`}
+    <div id="tentang" className="scroll-mt-20 bg-[#F7F7F7]">
+      {/* 1. Compact Monochrome Stack Strip (1 Row, Zero Fluff) */}
+      <div className="sig-container py-12 lg:py-14 text-center space-y-5 border-b border-[#E8E8E8]">
+        <p className="font-mono text-[11px] uppercase tracking-wider text-[#6F6F71]">
+          Teknologi produksi yang kami pakai di proyek nyata
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-9 gap-y-3 sm:gap-x-14">
+          {ENGINEERING_STANDARDS.map((tech) => (
+            <span
+              key={tech}
+              className="text-[17px] sm:text-[20px] font-semibold tracking-[-0.02em] text-[#171717]/45 hover:text-[#171717] transition-colors select-none"
             >
-              <div className="space-y-2.5">
-                <h3 className="text-[24px] font-medium tracking-[-0.015em] text-[#171717]">
-                  {srv.title}
-                </h3>
-                <div className="text-[13px] font-mono text-[#171717]">
-                  {srv.price}
-                </div>
-                <p className="text-[17.5px] leading-[1.45] text-[#6F6F71]">
-                  {srv.desc}
-                </p>
-              </div>
-
-              <div>
-                <Link href={srv.href} className="sig-btn-outline">
-                  <span>{srv.cta}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+              {tech}
+            </span>
           ))}
         </div>
       </div>
 
-      {/* 3. Insights 3-Row Strip + Honest Monochrome Tech Strip */}
-      <SignificaInsightsSection />
-
-      {/* 4. Crisp 2-Column Accordion FAQ */}
-      <section id="faq" className="scroll-mt-20 py-16 lg:py-24">
-        <div className="sig-container space-y-10">
-          <h2 className="text-[clamp(1.875rem,2.1vw+1.3rem,3rem)] font-semibold tracking-[-0.015em] leading-[1.12] text-[#171717]">
+      {/* 2. Crisp 2-Column Accordion FAQ */}
+      <section id="faq" className="scroll-mt-20 py-14 lg:py-20">
+        <div className="sig-container space-y-8">
+          <h2 className="text-[clamp(1.875rem,2.1vw+1.3rem,2.75rem)] font-semibold tracking-[-0.015em] leading-[1.12] text-[#171717]">
             Pertanyaan umum.
           </h2>
 
@@ -154,11 +64,11 @@ export function SignificaAboutAndFaq() {
                     onClick={() => setOpenId(isOpen ? null : item.id)}
                     className="w-full py-5 flex items-start justify-between gap-4 text-left cursor-pointer focus:outline-none group"
                   >
-                    <span className="text-[18px] sm:text-[19px] font-normal leading-[1.35] text-[#171717] group-hover:text-[#6F6F71] transition-colors">
+                    <span className="text-[17px] sm:text-[18px] font-normal leading-[1.35] text-[#171717] group-hover:text-[#6F6F71] transition-colors">
                       {item.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#6F6F71] shrink-0 mt-1 transition-transform duration-200 ${
+                      className={`w-5 h-5 text-[#6F6F71] shrink-0 mt-0.5 transition-transform duration-200 ${
                         isOpen ? "rotate-180 text-[#171717]" : ""
                       }`}
                     />
@@ -177,10 +87,10 @@ export function SignificaAboutAndFaq() {
                         className="overflow-hidden"
                       >
                         <div className="pb-5 pr-6 space-y-2.5">
-                          <p className="text-[15px] leading-relaxed text-[#6F6F71]">
+                          <p className="text-[14.5px] leading-relaxed text-[#6F6F71]">
                             {item.answer}
                           </p>
-                          <div className="inline-flex items-center px-2.5 py-1 rounded-[10px] bg-white border border-[#E8E8E8] text-[12px] font-mono text-[#171717]">
+                          <div className="inline-flex items-center px-2.5 py-1 rounded-[10px] bg-white border border-[#E8E8E8] text-[11.5px] font-mono text-[#171717]">
                             {item.highlight}
                           </div>
                         </div>
@@ -193,9 +103,6 @@ export function SignificaAboutAndFaq() {
           </div>
         </div>
       </section>
-
-      {/* 5. AI Prompt Strip */}
-      <SignificaAiPromptStrip />
     </div>
   );
 }
