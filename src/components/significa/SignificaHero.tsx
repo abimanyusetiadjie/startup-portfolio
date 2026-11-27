@@ -51,10 +51,10 @@ const SHOWREEL_SLIDES = [
     id: "looku",
     shortName: "Look.u AI",
     client: "Look.u AI",
-    image: "/images/portfolio/looku-ai.png",
-    alt: "Antarmuka asisten styling fashion AI berbasis Hybrid RAG 594 SKU Look.u AI",
+    image: "/images/portfolio/looku-ai.jpg",
+    alt: "Antarmuka editorial fashion Look.u AI — rekomendasi Casual Campus Chiffon ramah iklim tropis Jakarta 33°C",
     href: "/karya/looku-ai",
-    fit: "top" as const,
+    fit: "center" as const,
   },
 ];
 

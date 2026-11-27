@@ -175,10 +175,10 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["Next.js", "Gemini 256-d RAG", "Vision AI", "Supabase"],
     images: [
       {
-        src: "/images/portfolio/looku-ai.png",
-        alt: "Tangkapan layar langsung asisten styling fashion AI Look.u berbasis Hybrid RAG 594 SKU",
-        caption: "Antarmuka prompt chat AI Zero-Hallucination & filter ketat Hijab, Gender, serta Budget",
-        fit: "top",
+        src: "/images/portfolio/looku-ai.jpg",
+        alt: "Antarmuka editorial fashion Look.u AI menampilkan kurasi Casual Campus Chiffon adaptif iklim tropis Jakarta 33°C",
+        caption: "Presentasi katalog & rekomendasi fashion AI Look.u yang adaptif terhadap iklim tropis dan gaya modest",
+        fit: "center",
       },
       {
         src: "/images/real-projects/looku-catalog-4x3.png",
