@@ -17,7 +17,7 @@ const TERMS = [
   {
     title: "1. Ruang Lingkup & Penawaran Resmi",
     body: [
-      "Angka investasi yang tercantum pada halaman utama dan kalkulator biaya merupakan acuan awal. Nilai investasi final, daftar modul teknis, jadwal rilis per tahap, serta kriteria serah terima ditetapkan secara tertulis dalam Surat Penawaran Resmi / Kontrak Kerja Sama (PO/SPK) setelah sesi diskusi kebutuhan.",
+      "Angka investasi yang tercantum pada halaman utama dan halaman daftar harga merupakan acuan awal. Nilai investasi final, daftar modul teknis, jadwal rilis per tahap, serta kriteria serah terima ditetapkan secara tertulis dalam Surat Penawaran Resmi / Kontrak Kerja Sama (PO/SPK) setelah sesi diskusi kebutuhan.",
       "Estimasi rilis web dan sistem awal adalah 7–14 hari kerja, sedangkan sistem ERP, SIAKAD, POS multi-cabang, atau integrasi AI/ML kustom umumnya berkisar 2–8 minggu bergantung pada kompleksitas alur usaha dan kesiapan data awal dari klien.",
     ],
   },

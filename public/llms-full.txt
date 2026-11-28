@@ -65,9 +65,9 @@
 
 ---
 
-## 4. Alat Interaktif Publik (Tanpa Login)
+## 4. Demo Interaktif & Transparansi Harga (Tanpa Login)
 - **Live Demo Interaktif** (https://abinest.id/demo): Pengunjung dapat mencoba langsung antarmuka simulasi Sistem ERP Multi-Gudang, SIAKAD & Ujian CBT, serta Bot WhatsApp AI + Scan Faktur OCR.
-- **Kalkulator Estimasi & Audit Gratis** (https://abinest.id/audit-gratis): Membantu pemilik bisnis menghitung perbandingan total biaya 3 tahun antara sewa software bulanan per user versus sistem kustom Beli Putus Abinest.
+- **Daftar Harga & Perbandingan Skema** (https://abinest.id/harga): Rincian harga transparan serta tabel perbandingan biaya 3 tahun antara sewa software bulanan per user versus sistem kustom Beli Putus Abinest.
 
 ---
 

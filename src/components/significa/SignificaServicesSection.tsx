@@ -120,8 +120,8 @@ export function SignificaServicesSection() {
 
             {/* Desktop inline Clay arrow links */}
             <div className="hidden lg:flex flex-wrap items-center gap-x-8 gap-y-3 pt-2">
-              <Link href="/audit-gratis" className="clay-arrow-link">
-                <span>Hitung estimasi proyek</span>
+              <Link href="/harga" className="clay-arrow-link">
+                <span>Lihat daftar harga</span>
                 <ArrowRight className="w-4 h-4 text-[#6B7280]" />
               </Link>
 
@@ -166,8 +166,8 @@ export function SignificaServicesSection() {
 
             {/* Mobile bottom dual CTA pills */}
             <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-              <Link href="/audit-gratis" className="clay-pill-btn w-full">
-                <span>Hitung estimasi proyek</span>
+              <Link href="/harga" className="clay-pill-btn w-full">
+                <span>Lihat daftar harga</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/demo" className="clay-pill-outline bg-white/90 w-full">

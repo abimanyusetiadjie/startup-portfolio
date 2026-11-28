@@ -62,8 +62,8 @@ export const SIGNIFICA_INSIGHTS: InsightArticle[] = [
     ],
     takeaway:
       "Jika tim operasional Anda sudah lebih dari 8 pengguna aktif atau punya alur stok/faktur khusus, sistem kustom Beli Putus umumnya balik modal dalam 4–7 bulan pertama.",
-    relatedServiceHref: "/audit-gratis",
-    relatedServiceLabel: "Hitung penghematan 3 tahun usaha Anda",
+    relatedServiceHref: "/harga",
+    relatedServiceLabel: "Lihat rincian harga & perbandingan 3 tahun",
   },
   {
     slug: "biaya-pembuatan-website-bisnis-indonesia",

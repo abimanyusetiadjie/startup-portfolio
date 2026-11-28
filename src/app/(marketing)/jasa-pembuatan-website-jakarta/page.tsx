@@ -59,8 +59,8 @@ const serviceData: ServiceDetailData = {
     "Halo Tim Abinest, saya ingin berkonsultasi mengenai Jasa Pembuatan Website Cepat untuk perusahaan/bisnis kami.",
   serviceNameForAnalytics: "Website Bisnis & Landing Page",
   secondaryCta: {
-    label: "Ajukan Audit Kecepatan Web Gratis",
-    href: "/audit-gratis",
+    label: "Lihat Daftar Harga & Skema",
+    href: "/harga",
   },
   previewImage: {
     src: "/images/portfolio/kinetic-fitness.webp",

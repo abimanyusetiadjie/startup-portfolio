@@ -56,13 +56,13 @@ const jsonLd = {
 
 export default function InteractiveDemoPage() {
   return (
-    <div className="min-h-screen bg-[#F7F7F7] text-[#171717] flex flex-col font-sans selection:bg-[#111111] selection:text-white">
+    <div className="min-h-screen bg-white text-[#111111] flex flex-col font-sans selection:bg-[#111111] selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SignificaNavbar />
-      <main className="flex-1 pt-[76px]">
+      <main className="flex-1">
         <GroveInteractiveDemoHub />
       </main>
       <SignificaFooter />

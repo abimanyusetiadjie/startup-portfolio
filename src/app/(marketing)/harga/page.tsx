@@ -303,18 +303,18 @@ export default function HargaPage() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Link href="/audit-gratis" className="clay-pill-btn">
-                  <span>Hitung Simulasi Bisnis Anda di Kalkulator Gratis</span>
-                  <ArrowRight className="w-4 h-4 ml-1.5" />
-                </Link>
                 <a
                   href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="clay-pill-outline"
+                  className="clay-pill-btn"
                 >
-                  Konsultasi Estimasi via WhatsApp
+                  <span>Konsultasi Estimasi via WhatsApp</span>
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
                 </a>
+                <Link href="/demo" className="clay-pill-outline">
+                  Coba Live Demo Interaktif
+                </Link>
               </div>
             </div>
 

@@ -13,10 +13,10 @@
 - [Automasi WhatsApp Resmi Meta & OCR Faktur AI](https://abinest.id/jasa-automasi-whatsapp): Mulai Rp1,5 juta · Menggunakan WhatsApp Business Cloud API resmi (anti-blokir), terhubung langsung ke stok & pembukuan.
 - [Daftar Harga & Perbandingan Skema](https://abinest.id/harga): Rincian transparan Beli Putus vs Terima Beres serta estimasi investasi 3 tahun.
 
-## Bukti Karya & Alat Interaktif
+## Bukti Karya & Demo Interaktif
 - [Seluruh 17 Studi Kasus & Portofolio](https://abinest.id/karya): Katalog lengkap proyek website, ERP/WMS, POS, SIAKAD, CRM, HRIS, dan automasi AI yang telah dibangun Abinest.
 - [Demo Interaktif Sistem](https://abinest.id/demo): Coba langsung simulasi ERP multi-gudang, SIAKAD & ujian CBT, serta WhatsApp AI + OCR faktur tanpa perlu mendaftar.
-- [Kalkulator Estimasi Biaya & Penghematan 3 Tahun](https://abinest.id/audit-gratis): Hitung perbandingan biaya sewa SaaS bulanan vs sistem kustom Beli Putus secara gratis.
+- [Daftar Harga & Perbandingan 3 Tahun](https://abinest.id/harga): Rincian harga transparan serta tabel perbandingan biaya 3 tahun Beli Putus vs sewa SaaS bulanan.
 
 ## Profil Entitas & Panduan Pembeli
 - [Tentang Abinest Digital Systems](https://abinest.id/tentang): Profil studio, pendiri (Abimanyu Setiadjie), metodologi kerja, standar kepemilikan 100% kode sumber, dan cakupan wilayah Jakarta, Surabaya & seluruh Indonesia.

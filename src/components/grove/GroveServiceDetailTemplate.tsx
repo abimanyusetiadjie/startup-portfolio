@@ -217,10 +217,10 @@ export function GroveServiceDetailTemplate({
 
               <div className="pt-1">
                 <Link
-                  href="/audit-gratis"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-[14px] bg-white text-[#171717] hover:bg-[#FFD124] text-[13.5px] font-medium py-3 px-4 transition-colors"
+                  href="/harga"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white text-[#111318] hover:bg-[#F3F4F6] text-[13.5px] font-semibold py-3 px-4 transition-colors"
                 >
-                  <span>Hitung estimasi penghematan</span>
+                  <span>Lihat daftar harga &amp; skema</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

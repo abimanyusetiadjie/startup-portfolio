@@ -323,7 +323,7 @@ Saya melihat reputasi dan ulasan ${biz} di Google Maps sudah sangat bagus, tetap
 Di Abinest Digital Systems, kami membantu usaha di ${city} memiliki Situs Web Resmi (<0,8 detik + SEO Google Lokal) mulai *Rp1,5 Juta (Beli Putus, bebas sewa selamanya)* dan siap dalam 7–10 hari kerja.
 
 Ini simulasi & rincian hitungan transparannya:
-https://abinest.id/audit-gratis
+https://abinest.id/harga
 
 Jika berkenan, boleh saya kirimkan contoh portofolio desain yang cocok untuk ${biz}?`,
       },

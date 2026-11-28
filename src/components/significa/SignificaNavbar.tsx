@@ -10,6 +10,7 @@ import { SignificaQuoteModal } from "./SignificaQuoteModal";
 const NAV_LINKS = [
   { label: "Karya", href: "/#karya" },
   { label: "Layanan", href: "/#layanan" },
+  { label: "Harga", href: "/harga" },
   { label: "Demo", href: "/demo" },
   { label: "FAQ", href: "/#faq" },
 ];
@@ -199,11 +200,11 @@ export function SignificaNavbar() {
 
                 <div className="pt-4 mt-1 border-t border-[#EBECEF] grid grid-cols-2 gap-2.5">
                   <Link
-                    href="/audit-gratis"
+                    href="/karya"
                     onClick={() => setMenuOpen(false)}
                     className="clay-pill-outline !h-[42px] !px-3 !text-[13.5px] w-full"
                   >
-                    Hitung Biaya
+                    Semua Karya
                   </Link>
                   <button
                     type="button"
