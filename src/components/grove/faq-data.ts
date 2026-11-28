@@ -8,51 +8,57 @@ export interface FaqItem {
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    id: "ownership",
-    category: "Kepemilikan",
-    question: "Apakah kode program 100% milik kami?",
+    id: "getting-started",
+    category: "Mulai Proyek",
+    question:
+      "Saya awam soal teknis dan belum punya gambaran detail—harus mulai dari mana?",
     answer:
-      "Ya. Pada skema Beli Putus, kode sumber, database, dan akses server sepenuhnya milik Anda—tanpa biaya bulanan per pengguna ke Abinest.",
-    highlight: "100% Hak Milik · Rp0/staf",
+      "Cukup ceritakan masalah atau tujuan bisnis maupun project Anda lewat WhatsApp. Konsultasi awal gratis tanpa kewajiban langsung order—tim kami bantu merapikan konsep, alur fitur, hingga rekomendasi yang paling pas dengan budget Anda.",
+    highlight: "Konsultasi Awal Gratis",
   },
   {
-    id: "payment",
-    category: "Pembayaran",
-    question: "Bagaimana skema pembayarannya?",
+    id: "pricing-transparency",
+    category: "Biaya",
+    question:
+      "Bagaimana rincian biayanya—apakah ada biaya tersembunyi setelah selesai?",
     answer:
-      "Bertahap sesuai progres: 40% saat kick-off, 40% saat sistem siap uji coba (UAT), dan 20% saat rilis beserta serah terima kode.",
-    highlight: "3 Termin Berbasis Progres",
+      "Semua biaya disepakati transparan di depan sebelum pengerjaan dimulai. Tersedia skema Beli Putus (sistem 100% milik Anda tanpa iuran bulanan ke Abinest; di luar itu hanya biaya perpanjangan domain atau server sesuai pemakaian) atau Terima Beres jika ingin sekalian kami kelola rutin.",
+    highlight: "Transparan Tanpa Biaya Tersembunyi",
   },
   {
-    id: "usability",
-    category: "Pelatihan",
-    question: "Apakah mudah dipakai tim non-IT?",
+    id: "payment-revision",
+    category: "Pembayaran & Revisi",
+    question:
+      "Apakah pembayaran aman, dan bagaimana jika di tengah jalan saya ingin revisi?",
     answer:
-      "Alur dirancang mengikuti kerja harian admin, kasir, atau guru. Setiap proyek sudah termasuk pelatihan tim dan panduan singkat.",
-    highlight: "Termasuk Pelatihan & Panduan",
-  },
-  {
-    id: "warranty",
-    category: "Garansi",
-    question: "Bagaimana jika ada bug setelah rilis?",
-    answer:
-      "Dilindungi garansi perbaikan bug gratis 30–90 hari pascarilis. Setelahnya, bebas kelola mandiri atau lanjut maintenance berkala.",
-    highlight: "Garansi Bug-Fix 30–90 Hari",
-  },
-  {
-    id: "legal",
-    category: "Legalitas",
-    question: "Apakah bisa NDA & dokumen resmi PT/yayasan?",
-    answer:
-      "Bisa. Kami siap menandatangani NDA dan menerbitkan quotation resmi, SOW, invoice formal, hingga BAST sesuai standar pengadaan.",
-    highlight: "Siap NDA, Invoice & BAST",
+      "Pembayaran dilakukan bertahap mengikuti progres nyata (DP awal, tahap uji coba, lalu pelunasan saat siap rilis)—bukan lunas di muka. Di setiap tahap Anda bisa melihat hasilnya langsung dan meminta penyesuaian hingga tampilan maupun alurnya benar-benar cocok.",
+    highlight: "Bayar Bertahap · Bebas Cek Progres",
   },
   {
     id: "timeline",
     category: "Durasi",
-    question: "Berapa lama pengerjaan & bisa tambah fitur?",
+    question:
+      "Berapa lama pengerjaannya sampai website atau sistem siap dipakai?",
     answer:
-      "Website profil 7–14 hari kerja; ERP, SIAKAD, atau AI WhatsApp 2–6 minggu. Arsitektur modular siap ditambah fitur kapan saja.",
-    highlight: "Rilis 7–14 Hari · Modular",
+      "Website bisnis umumnya siap dalam 7–14 hari kerja, sedangkan sistem operasional (ERP, POS, atau SIAKAD) dan automasi WhatsApp berkisar 2–6 minggu tergantung banyaknya fitur—dengan jadwal tahapan yang jelas sejak awal.",
+    highlight: "Estimasi Jelas 7–14 Hari",
+  },
+  {
+    id: "after-launch",
+    category: "Setelah Rilis",
+    question:
+      "Setelah jadi, apakah mudah dipakai sendiri dan tetap dibantu kalau ada kendala?",
+    answer:
+      "Ya—tampilan dirancang sederhana agar nyaman dipakai tim non-IT, lengkap panduan singkat dan sesi pengenalan. Setiap pengerjaan juga dilindungi garansi perbaikan gratis pascarilis, dan akses penuh sistem sepenuhnya berada di tangan Anda.",
+    highlight: "Ramah Non-IT · Garansi Pascarilis",
+  },
+  {
+    id: "clients-scope",
+    category: "Cakupan Klien",
+    question:
+      "Apakah melayani proyek pribadi, UMKM, luar kota, hingga perusahaan?",
+    answer:
+      "Ya, kami terbuka untuk proyek pribadi, UMKM, maupun perusahaan dan yayasan di seluruh Indonesia secara online maupun pertemuan terjadwal. Untuk kebutuhan korporat atau instansi, kami juga siap menerbitkan penawaran resmi, kontrak, invoice formal, hingga perjanjian kerahasiaan (NDA).",
+    highlight: "Pribadi · UMKM · Perusahaan",
   },
 ];

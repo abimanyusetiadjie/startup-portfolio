@@ -22,8 +22,8 @@ export function SignificaAboutAndFaq() {
             Pertanyaan umum
           </h2>
           <p className="text-[16px] text-[#9CA3AF]">
-            Hal yang paling sering ditanyakan pemilik bisnis sebelum memulai
-            pengembangan sistem bersama Abinest.
+            Jawaban ringkas atas hal yang paling sering ditanyakan sebelum
+            memulai project bersama Abinest.
           </p>
         </ClayReveal>
 
