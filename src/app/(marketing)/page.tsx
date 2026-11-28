@@ -50,7 +50,7 @@ const jsonLdSchema = {
       "@id": `${APP_BASE_URL}/#organization`,
       name: "Abinest Digital Systems",
       url: APP_BASE_URL,
-      logo: `${APP_BASE_URL}/icon-512.png`,
+      logo: `${APP_BASE_URL}/images/icon-512.png`,
       description:
         "Software house Indonesia spesialis pembuatan website cepat Next.js, sistem ERP, SIAKAD & kasir POS kustom, serta automasi AI/ML dan WhatsApp resmi Meta.",
       areaServed: ["Jakarta", "Surabaya", "Indonesia"],

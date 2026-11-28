@@ -42,7 +42,7 @@ export function AbinestLogo({
     <div
       className={`inline-flex items-center gap-2 select-none group ${className}`}
     >
-      {/* Soft Architectural Portal Arch "A" + Nest Core Monogram */}
+      {/* Original Interlocking Architectural Arch "A" Monogram */}
       <svg
         className={`${iconHeight} w-auto shrink-0 transition-transform duration-200 group-hover:scale-[1.04]`}
         viewBox="0 0 48 48"
@@ -51,13 +51,19 @@ export function AbinestLogo({
         aria-hidden="true"
       >
         <path
-          d="M 10 38.5 L 18.8 14 C 20.4 9.6, 27.6 9.6, 29.2 14 L 38 38.5"
+          d="M 10.2 38.8 L 19.6 12.6 C 21.1 8.4, 26.9 8.4, 28.4 12.6 L 31.1 20.1"
           stroke={ink}
-          strokeWidth="5.8"
+          strokeWidth="5.6"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="24" cy="30.8" r="4.4" fill={ink} />
+        <path
+          d="M 20.5 31.8 L 31.1 27.9 C 32.9 27.2, 34.1 28.3, 34.8 30.3 L 37.8 38.8"
+          stroke={ink}
+          strokeWidth="5.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
 
       {!iconOnly && (

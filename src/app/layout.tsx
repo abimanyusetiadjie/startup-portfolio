@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     "Studio produk digital & software untuk website modern, aplikasi bisnis ERP/WMS/POS/SIAKAD kustom, dan automasi WhatsApp dengan 100% hak milik kode.",
   icons: {
     icon: [
-      { url: "/icon.svg?v=2", type: "image/svg+xml" },
-      { url: "/images/icon-192.png?v=2", sizes: "192x192", type: "image/png" },
-      { url: "/images/icon-512.png?v=2", sizes: "512x512", type: "image/png" },
+      { url: "/icon.svg?v=3", type: "image/svg+xml" },
+      { url: "/images/icon-192.png?v=3", sizes: "192x192", type: "image/png" },
+      { url: "/images/icon-512.png?v=3", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: "/images/apple-icon.png?v=2", sizes: "180x180", type: "image/png" },
+      { url: "/images/apple-icon.png?v=3", sizes: "180x180", type: "image/png" },
     ],
   },
 };
