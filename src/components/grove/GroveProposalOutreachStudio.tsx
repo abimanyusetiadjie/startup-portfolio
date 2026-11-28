@@ -699,7 +699,7 @@ Jika ada modul yang ingin disesuaikan agar masuk ke anggaran ${city} saat ini (t
                       Abinest Digital Systems — Studio Rekayasa Perangkat Lunak
                     </p>
                     <p className="text-[11px] text-[#6F6F71]">
-                      Jakarta &amp; Surabaya · WhatsApp: +62 813-9858-9745 · Email: halo@abinest.id
+                      Jakarta &amp; Surabaya · WhatsApp: +62 813-9858-9745 · Email: abinest.id@gmail.com
                     </p>
                   </div>
 

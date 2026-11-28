@@ -11,7 +11,7 @@ import { trackWhatsAppClick } from "@/lib/analytics";
 import { SignificaFloatingWhatsApp } from "./SignificaFloatingWhatsApp";
 import { ClayReveal } from "./ClayReveal";
 
-const CONTACT_EMAIL = "halo@abinest.id";
+const CONTACT_EMAIL = "abinest.id@gmail.com";
 
 export function SignificaFooter() {
   const year = new Date().getFullYear();

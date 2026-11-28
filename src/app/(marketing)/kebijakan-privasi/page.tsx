@@ -24,7 +24,7 @@ const SECTIONS = [
   {
     title: "2. Penggunaan Komunikasi & Kerahasiaan Proyek (NDA)",
     body: [
-      "Seluruh informasi bisnis, alur operasional, rancangan sistem, dokumen contoh faktur, maupun daftar kebutuhan yang Anda kirimkan melalui WhatsApp (+62 813-9858-9745) atau surat elektronik (halo@abinest.id) diperlakukan secara rahasia dan hanya digunakan untuk penyusunan estimasi teknis, proposal, serta pelaksanaan proyek.",
+      "Seluruh informasi bisnis, alur operasional, rancangan sistem, dokumen contoh faktur, maupun daftar kebutuhan yang Anda kirimkan melalui WhatsApp (+62 813-9858-9745) atau surat elektronik (abinest.id@gmail.com) diperlakukan secara rahasia dan hanya digunakan untuk penyusunan estimasi teknis, proposal, serta pelaksanaan proyek.",
       "Untuk kebutuhan perusahaan, yayasan pendidikan, atau institusi pemerintahan, Abinest Digital Systems siap menandatangani Perjanjian Kerahasiaan (Non-Disclosure Agreement / NDA) sebelum pertukaran data internal dilakukan.",
     ],
   },
@@ -37,7 +37,7 @@ const SECTIONS = [
   {
     title: "4. Hak Anda & Kontak Resmi",
     body: [
-      "Anda berhak meminta penghapusan riwayat percakapan penawaran, dokumen proposal, atau aset uji coba yang pernah dikirimkan selama tahap diskusi kapan saja dengan menghubungi kami di halo@abinest.id atau WhatsApp +62 813-9858-9745.",
+      "Anda berhak meminta penghapusan riwayat percakapan penawaran, dokumen proposal, atau aset uji coba yang pernah dikirimkan selama tahap diskusi kapan saja dengan menghubungi kami di abinest.id@gmail.com atau WhatsApp +62 813-9858-9745.",
     ],
   },
 ];
