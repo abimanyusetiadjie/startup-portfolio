@@ -183,6 +183,40 @@ body {
   will-change: transform;
 }
 
+/* Option 1: Architectural Paper Hero atmosphere (pure CSS, 0 KB JS) */
+.clay-hero-atmosphere {
+  background-image:
+    radial-gradient(
+      ellipse 64% 78% at 22% 46%,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0) 70%
+    ),
+    radial-gradient(
+      ellipse 44% 64% at 86% 24%,
+      rgba(124, 58, 237, 0.05) 0%,
+      rgba(234, 88, 12, 0.025) 45%,
+      rgba(242, 241, 243, 0) 75%
+    );
+}
+
+.clay-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(17, 19, 24, 0.048) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 19, 24, 0.048) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: top center;
+  -webkit-mask-image: radial-gradient(
+    ellipse 82% 86% at 50% 34%,
+    #000 18%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(
+    ellipse 82% 86% at 50% 34%,
+    #000 18%,
+    transparent 82%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   .clay-ticker-track,
   .clay-orb-float-a,

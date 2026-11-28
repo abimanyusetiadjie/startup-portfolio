@@ -133,14 +133,24 @@ export function SignificaHero() {
   return (
     <>
       <section id="beranda" className="bg-white">
-        {/* 1. Clay Warm Light-Gray Hero Canvas (#F2F1F3) with Subtle Mobile + Desktop Sculptural Identity */}
+        {/* 1. Architectural Paper Hero Canvas (#F2F1F3 + subtle drafting grid & studio spotlight) */}
         <div className="relative overflow-hidden bg-[#F2F1F3] pt-[92px] sm:pt-[112px] lg:pt-[124px] pb-9 sm:pb-12 lg:pb-14">
+          {/* Pure CSS Architectural Paper layers — fade cleanly into #F2F1F3 with zero seam */}
+          <div
+            aria-hidden="true"
+            className="clay-hero-atmosphere pointer-events-none absolute inset-0"
+          />
+          <div
+            aria-hidden="true"
+            className="clay-hero-grid pointer-events-none absolute inset-0"
+          />
+
           {/* Sculptural Clay architectural form — visible subtly on Mobile & full scale on Desktop */}
           <svg
             aria-hidden="true"
             viewBox="0 0 640 520"
             fill="none"
-            className="pointer-events-none select-none absolute -top-2 -right-12 w-[230px] sm:w-[320px] sm:-right-6 lg:-top-6 lg:right-[3%] lg:w-[420px] xl:w-[480px] h-auto opacity-80 lg:opacity-100"
+            className="pointer-events-none select-none absolute -top-2 -right-12 w-[230px] sm:w-[320px] sm:-right-6 lg:-top-6 lg:right-[3%] lg:w-[420px] xl:w-[480px] h-auto opacity-85 lg:opacity-100"
           >
             <defs>
               <linearGradient
@@ -151,12 +161,12 @@ export function SignificaHero() {
                 y2="90%"
               >
                 <stop offset="0%" stopColor="#FFFFFF" />
-                <stop offset="68%" stopColor="#F4F4F6" />
-                <stop offset="100%" stopColor="#DFE1E6" />
+                <stop offset="64%" stopColor="#F4F4F6" />
+                <stop offset="100%" stopColor="#D9DCE3" />
               </linearGradient>
               <linearGradient id="clayRim" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#E6E7EC" />
-                <stop offset="100%" stopColor="#D3D5DC" />
+                <stop offset="0%" stopColor="#E4E6EC" />
+                <stop offset="100%" stopColor="#CFD2DA" />
               </linearGradient>
               <radialGradient id="clayOrbViolet" cx="35%" cy="30%" r="70%">
                 <stop offset="0%" stopColor="#D8B4FE" />
@@ -180,7 +190,7 @@ export function SignificaHero() {
                   dy="24"
                   stdDeviation="24"
                   floodColor="#141519"
-                  floodOpacity="0.06"
+                  floodOpacity="0.085"
                 />
               </filter>
             </defs>
@@ -189,11 +199,13 @@ export function SignificaHero() {
               <path
                 d="M 468 48 C 306 54 198 182 222 332 C 232 394 268 446 318 474 L 468 48 Z"
                 fill="url(#clayHemisphere)"
+                stroke="rgba(255,255,255,0.85)"
+                strokeWidth="1"
               />
               <path
                 d="M 468 48 L 318 474 L 344 468 L 494 42 Z"
                 fill="url(#clayRim)"
-                opacity="0.72"
+                opacity="0.78"
               />
             </g>
 
