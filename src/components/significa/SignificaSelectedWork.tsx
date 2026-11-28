@@ -11,25 +11,26 @@ import {
 } from "@/data/significa-work";
 import { ClayReveal } from "./ClayReveal";
 
-// Clay signature staggered 2-column selection (10 crisp HD WebP case studies covering Web, ERP/POS & AI Automation)
+// Clay signature curated 8-card selection: cohesive studio craft across Website Modern, Automation Workflow & ERP/POS
 const LEFT_COLUMN_SLUGS = [
   "looku-ai",
+  "wa-automation-workflow",
   "propsmart-saas",
   "heavytrack-wms",
-  "central-scaffolding",
-  "ai-cv-screening",
 ];
 
 const RIGHT_COLUMN_SLUGS = [
   "kinetic-fitness",
   "smartpos-aneka-rasa",
+  "ai-cv-screening",
   "logisync-fleet",
-  "lacak-korupsi",
-  "ypi-al-fuad",
 ];
 
-// Remaining 6 real scratch projects cleanly revealed via Clay's "Explore all work ->" control
+// Remaining 9 real scratch projects cleanly revealed via Clay's "Explore all work ->" control
 const EXTRA_ARCHIVE_SLUGS = [
+  "lacak-korupsi",
+  "central-scaffolding",
+  "ypi-al-fuad",
   "toko-amen-snack",
   "crew-ai-hris",
   "scalebase-crm",
@@ -150,7 +151,7 @@ export function SignificaSelectedWork() {
             <span>
               {showAll
                 ? "Sembunyikan arsip tambahan"
-                : "Lihat semua 16 karya nyata"}
+                : "Lihat semua 17 karya nyata"}
             </span>
             <ArrowRight
               className={`w-4 h-4 text-[#6B7280] transition-transform duration-200 ${

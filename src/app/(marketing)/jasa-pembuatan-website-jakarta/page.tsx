@@ -68,9 +68,9 @@ const serviceData: ServiceDetailData = {
     href: "/audit-gratis",
   },
   previewImage: {
-    src: "/images/portfolio/central-scaffolding.webp",
-    alt: "Tangkapan layar langsung website B2B cepat Central Scaffolding dengan kalkulator interaktif dan Local SEO",
-    caption: "Website Cepat (<0,8 detik) · Kalkulator & Katalog Interaktif · 100% Hak Milik Kode",
+    src: "/images/portfolio/kinetic-fitness.webp",
+    alt: "Tampilan website brand modern KINETIC Tech Gym dengan tipografi editorial tegas dan pendaftaran cepat",
+    caption: "Website Brand Modern & Ringan · Struktur SEO Rapi · 100% Hak Milik Kode",
   },
   architectureHeading: "Lebih dari Sekadar Tampilan Visual",
   architectureSubheading:

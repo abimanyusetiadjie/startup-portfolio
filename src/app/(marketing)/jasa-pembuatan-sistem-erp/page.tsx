@@ -68,9 +68,9 @@ const serviceData: ServiceDetailData = {
     href: "/demo",
   },
   previewImage: {
-    src: "/images/portfolio/toko-amen-snack.webp",
-    alt: "Tampilan sistem katalog dan operasional Toko Ritel POS (SmartPOS) terintegrasi stok live Abinest",
-    caption: "Toko Ritel POS (SmartPOS) · Barcode <45ms · Executive BI Owner · Sinkronisasi Stok Tanpa Biaya per Staf",
+    src: "/images/portfolio/smartpos-aneka-rasa.webp",
+    alt: "Antarmuka kasir ritel modern SmartPOS terintegrasi stok, barcode USB, dan laporan omzet Abinest",
+    caption: "Toko Ritel POS (SmartPOS) · Barcode USB & QRIS · Sinkronisasi Stok Tanpa Biaya per Staf",
   },
   architectureHeading: "Tiga Pilar Aplikasi Operasional Terpadu",
   architectureSubheading:

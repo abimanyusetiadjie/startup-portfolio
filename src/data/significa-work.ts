@@ -34,6 +34,49 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
   // FEATURED & PRIMARY SHOWCASE SYSTEMS
   // =========================================================================
   {
+    slug: "wa-automation-workflow",
+    tier: "featured",
+    client: "FlowNest — Automasi WA & ERP.",
+    tagline: "Alur otomasi pesanan WhatsApp resmi, cek stok otomatis & sinkronisasi invoice ERP.",
+    sector: "Automation Workflow & AI",
+    scope: "n8n Orchestration & Meta Cloud API",
+    year: "2026",
+    techStack: ["n8n", "Meta Cloud API", "Gemini AI", "PostgreSQL"],
+    images: [
+      {
+        src: "/images/portfolio/wa-automation-workflow.webp",
+        alt: "Kanvas alur otomasi FlowNest menghubungkan WhatsApp Cloud API, AI Parser & Cek Stok, balasan QRIS, dan pencatatan invoice ERP",
+        caption: "Orkestrasi alur kerja n8n dari pesan WhatsApp masuk hingga pencatatan invoice dan notifikasi tim gudang",
+        fit: "center",
+        width: 1440,
+        height: 1080,
+      },
+    ],
+    problem:
+      "Admin penjualan sering kewalahan membalas chat pesanan, mengecek ketersediaan stok gudang, dan menyalin ulang data order ke sistem invoice secara manual.",
+    functionalValue:
+      "Orkestrasi workflow mandiri yang menangkap pesan WhatsApp resmi, mengecek stok langsung ke database, membalas rincian plus tautan QRIS, sekaligus mencatat faktur ke ERP.",
+    highlights: [
+      {
+        title: "Webhook Resmi Meta API",
+        detail: "Menangkap pesanan dan bukti transfer secara aman tanpa risiko blokir akun.",
+      },
+      {
+        title: "Cek Stok & Ongkir Otomatis",
+        detail: "AI membaca maksud pesanan lalu mencocokkan SKU langsung ke PostgreSQL.",
+      },
+      {
+        title: "Sinkronisasi Invoice & Gudang",
+        detail: "Membuat draf faktur, memotong stok, dan mengirim notifikasi ke tim packing.",
+      },
+      {
+        title: "Ambil Alih Admin Instan",
+        detail: "Bot otomatis jeda saat pelanggan membutuhkan penanganan langsung dari staf.",
+      },
+    ],
+    serviceHref: "/jasa-automasi-whatsapp",
+  },
+  {
     slug: "toko-amen-snack",
     tier: "archive",
     client: "Toko Amen Snack.",
@@ -101,7 +144,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         caption: "Dashboard ringkas okupansi kamar, laporan arus kas, dan rekomendasi harga sewa",
         fit: "center",
         width: 1440,
-        height: 1074,
+        height: 1080,
       },
       {
         src: "/images/portfolio/propsmart-ml-pricing.webp",
@@ -437,10 +480,10 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["React", "Vite", "USB Barcode", "Marketplace Sync"],
     images: [
       {
-        src: "/images/portfolio/toko-amen-snack.webp",
-        alt: "Tampilan sistem katalog dan operasional Toko Ritel POS SmartPOS",
-        caption: "Katalog stok ritel terhubung langsung dengan terminal kasir dan laporan omzet",
-        fit: "top",
+        src: "/images/portfolio/smartpos-aneka-rasa.webp",
+        alt: "Antarmuka kasir ritel modern SmartPOS dengan katalog produk, keranjang transaksi, pembayaran QRIS, dan cetak struk 58mm",
+        caption: "Antarmuka kasir modern SmartPOS — pindai barcode, keranjang instan, QRIS, dan cetak struk termal",
+        fit: "center",
         width: 1440,
         height: 1080,
       },
@@ -690,7 +733,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         caption: "Seleksi kandidat terstruktur dengan pemisahan data pribadi pelamar agar objektif",
         fit: "top",
         width: 1440,
-        height: 1074,
+        height: 1080,
       },
     ],
     problem:
