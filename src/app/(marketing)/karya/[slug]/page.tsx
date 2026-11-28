@@ -51,6 +51,7 @@ export default async function CaseStudyDetailPage({
 
   const primaryImage = project.images[0];
   const secondaryImage = project.images[1];
+  const extraImages = project.images.slice(2);
   const nextImage = nextProject.images[0];
   const cleanTitle = project.client.replace(/\.$/, "");
   const nextTitle = nextProject.client.replace(/\.$/, "");
@@ -259,6 +260,29 @@ export default async function CaseStudyDetailPage({
                 ))}
               </div>
             </div>
+
+            {extraImages.length > 0 && (
+              <div className="space-y-8 pt-2">
+                {extraImages.map((extraImg) => (
+                  <ClayReveal key={extraImg.src} className="space-y-3">
+                    <div className="relative w-full overflow-hidden bg-[#111318] ring-1 ring-inset ring-black/[0.08]">
+                      <Image
+                        src={extraImg.src}
+                        alt={extraImg.alt}
+                        width={extraImg.width ?? 1440}
+                        height={extraImg.height ?? 600}
+                        quality={85}
+                        sizes="(max-width: 1200px) 94vw, 1300px"
+                        className="block w-full h-auto"
+                      />
+                    </div>
+                    <p className="text-[13.5px] text-[#6B7280]">
+                      {extraImg.caption}
+                    </p>
+                  </ClayReveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
