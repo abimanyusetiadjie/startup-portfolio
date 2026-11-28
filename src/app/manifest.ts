@@ -2,14 +2,14 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Abinest Digital Systems",
+    name: "Abinest",
     short_name: "Abinest",
     description:
-      "Software house Indonesia: jasa pembuatan website cepat (<0,8 detik), sistem ERP, SIAKAD, kasir POS kustom, dan automasi AI/ML WhatsApp.",
+      "Studio digital untuk website modern, aplikasi bisnis ERP/POS/SIAKAD kustom, dan automasi WhatsApp.",
     start_url: "/",
     display: "standalone",
-    background_color: "#F8FAFC",
-    theme_color: "#2563EB",
+    background_color: "#FFFFFF",
+    theme_color: "#111318",
     lang: "id",
     icons: [
       {

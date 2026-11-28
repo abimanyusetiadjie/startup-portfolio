@@ -210,7 +210,7 @@ export function SignificaHero() {
             </g>
 
             <g className="clay-orb-float-a">
-              <circle cx="192" cy="148" r="18" fill="url(#clayOrbViolet)" />
+              <circle cx="186" cy="186" r="16" fill="url(#clayOrbViolet)" />
             </g>
             <g className="clay-orb-float-b">
               <circle cx="562" cy="322" r="11" fill="url(#clayOrbCoral)" />

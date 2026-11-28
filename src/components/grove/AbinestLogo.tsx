@@ -18,17 +18,16 @@ export function AbinestLogo({
   iconOnly = false,
 }: AbinestLogoProps) {
   const isDark = variant === "dark";
-  const ink = isDark ? "#FFFFFF" : "#111111";
-  const accentFacet = isDark ? "#A1A1AA" : "#6B7280";
+  const ink = isDark ? "#FFFFFF" : "#111318";
 
   const iconHeight =
     size === "sm"
       ? "h-5"
       : size === "lg"
-      ? "h-7 sm:h-8"
+      ? "h-8 sm:h-9"
       : size === "xl"
-      ? "h-9"
-      : "h-[21px] sm:h-[22px]";
+      ? "h-10"
+      : "h-[23px] sm:h-[25px]";
 
   const fontSize =
     size === "sm"
@@ -43,26 +42,22 @@ export function AbinestLogo({
     <div
       className={`inline-flex items-center gap-2 select-none group ${className}`}
     >
-      {/* Pure Swiss Monochrome Abinest Geometric Monogram */}
+      {/* Soft Architectural Portal Arch "A" + Nest Core Monogram */}
       <svg
-        className={`${iconHeight} w-auto shrink-0 transition-transform duration-200 group-hover:scale-[1.03]`}
-        viewBox="0 0 49 56"
+        className={`${iconHeight} w-auto shrink-0 transition-transform duration-200 group-hover:scale-[1.04]`}
+        viewBox="0 0 48 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
         <path
-          d="M 26.3 2.0 L 19.5 2.0 L 1.5 54.0 L 8.3 54.0 L 14.0 37.5 L 31.8 37.5 L 29.8 31.7 L 16.0 31.7 Z"
-          fill={ink}
+          d="M 10 38.5 L 18.8 14 C 20.4 9.6, 27.6 9.6, 29.2 14 L 38 38.5"
+          stroke={ink}
+          strokeWidth="5.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
-        <path
-          d="M 29.0 2.5 L 25.5 12.1 L 32.3 31.7 L 39.1 31.7 Z"
-          fill={ink}
-        />
-        <path
-          d="M 33.5 35.2 L 40.0 54.0 L 46.8 54.0 L 40.3 35.2 Z"
-          fill={accentFacet}
-        />
+        <circle cx="24" cy="30.8" r="4.4" fill={ink} />
       </svg>
 
       {!iconOnly && (
