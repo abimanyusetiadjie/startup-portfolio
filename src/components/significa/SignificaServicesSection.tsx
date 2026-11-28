@@ -38,20 +38,127 @@ const STUDIO_FACTS = [
 
 export function SignificaServicesSection() {
   return (
-    <section id="layanan" className="scroll-mt-24 bg-[#F3F3F3] py-20 lg:py-28">
-      <div className="clay-container space-y-12 lg:space-y-16">
+    <section
+      id="layanan"
+      className="scroll-mt-24 bg-[#F3F3F3] py-14 sm:py-20 lg:py-28"
+    >
+      {/* ================================================================= */}
+      {/* MOBILE & TABLET (< lg): Thumb-Friendly Editorial Stack + 4:3 Photo */}
+      {/* ================================================================= */}
+      <div className="lg:hidden w-full max-w-[760px] mx-auto px-4 sm:px-8 space-y-7">
+        {/* 1. Compact Mobile Header */}
+        <ClayReveal className="space-y-3">
+          <p className="text-[12.5px] font-medium text-[#6B7280]">
+            Layanan &amp; Kemitraan
+          </p>
+
+          <h2 className="text-[26px] sm:text-[32px] font-semibold tracking-[-0.028em] leading-[1.15] text-[#111111]">
+            Kami membantu bisnis bertumbuh lewat rekayasa sistem yang nyata
+          </h2>
+
+          <p className="text-[15px] leading-[1.6] text-[#4B5563]">
+            Seluruh website, sistem operasional, dan automasi ditulis langsung
+            oleh engineer — tersedia skema Beli Putus maupun Terima Beres untuk
+            perusahaan, UMKM, dan pribadi.
+          </p>
+        </ClayReveal>
+
+        {/* 2. Art-Directed 4:3 Studio Photo (2x taller & warmer on phones vs thin 21:9 strip) */}
+        <ClayReveal delay={0.04} className="space-y-2">
+          <div className="relative w-full overflow-hidden rounded-[12px] bg-[#E9E7E2] ring-1 ring-inset ring-black/[0.06]">
+            <Image
+              src="/images/studio-services-mobile.webp"
+              alt="Suasana kerja studio desain dan rekayasa perangkat lunak Abinest dalam pencahayaan alami"
+              width={960}
+              height={720}
+              quality={85}
+              sizes="(max-width: 768px) 94vw, 720px"
+              className="block w-full h-auto"
+            />
+          </div>
+          <p className="text-[12px] text-[#6B7280]">
+            Studio Abinest · Desain, rekayasa &amp; penyerahan kode penuh
+          </p>
+        </ClayReveal>
+
+        {/* 3. Three Separate Thumb-Friendly Tappable Service Cards */}
+        <div className="space-y-3">
+          {SERVICE_TRACKS.map((srv, idx) => (
+            <ClayReveal key={srv.code} delay={idx * 0.04} y={10}>
+              <Link
+                href={srv.href}
+                className="group block rounded-[12px] bg-white border border-[#E4E5E9] p-4 shadow-[0_1px_2px_rgba(17,19,24,0.03)] active:scale-[0.99] transition-all"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="text-[11.5px] font-mono text-[#9CA3AF]">
+                      {srv.code}
+                    </span>
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F3F4F6] text-[12px] font-medium text-[#111111] truncate">
+                      {srv.price}
+                    </span>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] shrink-0 group-hover:text-[#111111] transition-colors" />
+                </div>
+
+                <h3 className="mt-2.5 text-[16.5px] font-semibold tracking-[-0.015em] text-[#111111]">
+                  {srv.title}
+                </h3>
+                <p className="mt-1 text-[13.5px] leading-[1.52] text-[#4B5563]">
+                  {srv.desc}
+                </p>
+              </Link>
+            </ClayReveal>
+          ))}
+        </div>
+
+        {/* 4. Compact 2x2 Proof Tiles */}
+        <dl className="grid grid-cols-2 gap-3">
+          {STUDIO_FACTS.map((fact, idx) => (
+            <ClayReveal
+              key={fact.label}
+              delay={idx * 0.04}
+              y={10}
+              className="rounded-[12px] bg-white/80 border border-[#E4E5E9] px-4 py-3.5 space-y-1"
+            >
+              <dd className="text-[24px] font-semibold tracking-[-0.03em] text-[#111111] tabular-nums leading-none">
+                {fact.value}
+              </dd>
+              <dt className="text-[12.5px] text-[#6B7280] leading-snug">
+                {fact.label}
+              </dt>
+            </ClayReveal>
+          ))}
+        </dl>
+
+        {/* 5. Thumb-Reach Dual Action Buttons */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+          <Link href="/audit-gratis" className="clay-pill-btn w-full">
+            <span>Hitung estimasi proyek</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link href="/demo" className="clay-pill-outline bg-white w-full">
+            <span>Coba demo interaktif</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* ================================================================= */}
+      {/* DESKTOP (lg+): Clay 2-Column Split + Wide 21:9 Studio Banner      */}
+      {/* ================================================================= */}
+      <div className="hidden lg:block clay-container space-y-16">
         {/* 1. Balanced 2-Column Header: Studio Statement Left + 3 Interactive Service Tracks Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end">
-          <ClayReveal className="lg:col-span-6 space-y-5 sm:space-y-6">
+        <div className="grid grid-cols-12 gap-14 items-end">
+          <ClayReveal className="col-span-6 space-y-6">
             <p className="text-[13px] font-medium text-[#6B7280]">
               Layanan &amp; Kemitraan
             </p>
 
-            <h2 className="text-[clamp(1.85rem,3.1vw+0.6rem,3.15rem)] font-semibold tracking-[-0.03em] leading-[1.1] text-[#111111]">
+            <h2 className="text-[clamp(2.25rem,3vw+0.5rem,3.15rem)] font-semibold tracking-[-0.03em] leading-[1.1] text-[#111111]">
               Kami membantu bisnis bertumbuh lewat rekayasa sistem yang nyata
             </h2>
 
-            <p className="text-[16.5px] sm:text-[18px] leading-[1.6] text-[#4B5563] max-w-[540px]">
+            <p className="text-[18px] leading-[1.6] text-[#4B5563] max-w-[540px]">
               Seluruh website, sistem operasional, dan automasi dirancang serta
               ditulis langsung oleh tim engineer — tersedia skema Beli Putus
               maupun Terima Beres untuk perusahaan, UMKM, dan proyek pribadi.
@@ -70,20 +177,20 @@ export function SignificaServicesSection() {
             </div>
           </ClayReveal>
 
-          <ClayReveal delay={0.06} className="lg:col-span-6">
+          <ClayReveal delay={0.06} className="col-span-6">
             <div className="bg-white border border-[#E4E5E9] divide-y divide-[#ECECEF]">
               {SERVICE_TRACKS.map((srv) => (
                 <Link
                   key={srv.code}
                   href={srv.href}
-                  className="group flex items-start justify-between gap-4 p-5 sm:p-6 hover:bg-[#FAFAFB] transition-colors"
+                  className="group flex items-start justify-between gap-4 p-6 hover:bg-[#FAFAFB] transition-colors"
                 >
-                  <div className="flex items-baseline gap-3.5 sm:gap-4 min-w-0">
+                  <div className="flex items-baseline gap-4 min-w-0">
                     <span className="text-[12px] font-mono text-[#9CA3AF] shrink-0">
                       {srv.code}
                     </span>
                     <div className="space-y-1 min-w-0">
-                      <h3 className="text-[17px] sm:text-[18px] font-semibold tracking-[-0.015em] text-[#111111] group-hover:opacity-75 transition-opacity">
+                      <h3 className="text-[18px] font-semibold tracking-[-0.015em] text-[#111111] group-hover:opacity-75 transition-opacity">
                         {srv.title}
                       </h3>
                       <p className="text-[14px] leading-[1.55] text-[#4B5563]">
@@ -111,7 +218,7 @@ export function SignificaServicesSection() {
               width={1600}
               height={686}
               quality={85}
-              sizes="(max-width: 768px) 94vw, (max-width: 1440px) 92vw, 1300px"
+              sizes="(max-width: 1440px) 92vw, 1300px"
               className="block w-full h-auto"
             />
           </div>
@@ -125,7 +232,7 @@ export function SignificaServicesSection() {
         </ClayReveal>
 
         {/* 3. Quiet Flat Studio Proof Strip */}
-        <dl className="pt-10 lg:pt-12 border-t border-[#E0E0E2] grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <dl className="pt-12 border-t border-[#E0E0E2] grid grid-cols-4 gap-12">
           {STUDIO_FACTS.map((fact, idx) => (
             <ClayReveal
               key={fact.label}
@@ -133,7 +240,7 @@ export function SignificaServicesSection() {
               y={12}
               className="space-y-1.5"
             >
-              <dd className="text-[30px] sm:text-[38px] font-semibold tracking-[-0.03em] text-[#111111] tabular-nums leading-none">
+              <dd className="text-[38px] font-semibold tracking-[-0.03em] text-[#111111] tabular-nums leading-none">
                 {fact.value}
               </dd>
               <dt className="text-[14px] text-[#6B7280] leading-snug">
