@@ -3,16 +3,18 @@ import {
   GroveServiceDetailTemplate,
   type ServiceDetailData,
 } from "@/components/grove/GroveServiceDetailTemplate";
-
-const APP_BASE_URL =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_URL,
+  buildServicePageJsonLd,
+} from "@/lib/seo";
 
 const CANONICAL_PATH = "/jasa-pembuatan-sistem-erp";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Sistem ERP, SIAKAD & Kasir POS Kustom",
+  title: "Jasa Pembuatan Sistem ERP, WMS, SIAKAD & Kasir POS Kustom",
   description:
-    "Jasa pengembangan sistem ERP gudang, SIAKAD sekolah/kampus, dan aplikasi Kasir POS kustom di Indonesia. Sekali bayar Beli Putus dengan Rp0 biaya tambahan per pengguna selamanya.",
+    "Jasa pengembangan sistem ERP gudang (WMS), SIAKAD sekolah/kampus, dan aplikasi Kasir POS kustom di Indonesia mulai Rp4 juta. Skema Beli Putus dengan Rp0 biaya tambahan per pengguna selamanya.",
   keywords: [
     "jasa pembuatan sistem erp",
     "software erp custom indonesia",
@@ -26,19 +28,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: `${APP_BASE_URL}${CANONICAL_PATH}`,
-    siteName: "Abinest Digital Systems",
-    title: "Jasa Pembuatan Sistem ERP, SIAKAD & Kasir POS Kustom | Abinest",
+    url: `${SITE_URL}${CANONICAL_PATH}`,
+    siteName: "Abinest",
+    title: "Jasa Pembuatan Sistem ERP, WMS, SIAKAD & Kasir POS Kustom | Abinest",
     description:
-      "Sistem operasional usaha dan institusi yang mengikuti SOP Anda sepenuhnya—tanpa biaya langganan per staf, kasir, atau siswa.",
-    images: [
-      {
-        url: "/images/abinest-og-card.jpg",
-        width: 1376,
-        height: 768,
-        alt: "Abinest — Sistem ERP, SIAKAD & Kasir POS Kustom",
-      },
-    ],
+      "Sistem operasional usaha dan institusi yang mengikuti SOP Anda sepenuhnya—mulai Rp4 juta tanpa biaya langganan per staf, kasir, atau siswa.",
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 
@@ -138,40 +133,26 @@ const serviceData: ServiceDetailData = {
   ],
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
+const jsonLd = buildServicePageJsonLd({
+  name: "Jasa Pembuatan Sistem ERP, WMS, SIAKAD & Kasir POS Kustom",
+  breadcrumbLabel: "Sistem ERP, SIAKAD & Kasir POS",
+  path: CANONICAL_PATH,
+  description: serviceData.subtitle,
+  startingPriceIdr: 4000000,
+  areaServed: ["Jakarta", "Surabaya", "Indonesia"],
+  faqs: [
     {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Beranda",
-          item: APP_BASE_URL,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Sistem ERP, SIAKAD & Kasir POS",
-          item: `${APP_BASE_URL}${CANONICAL_PATH}`,
-        },
-      ],
+      question: "Apakah sistem ERP, POS, atau SIAKAD Abinest dikenakan biaya per user?",
+      answer:
+        "Tidak. Dengan skema Beli Putus mulai Rp4 juta, biaya lisensi per staf, kasir, cabang, atau siswa adalah Rp0 selamanya dan 100% kode sumber menjadi hak milik bisnis Anda.",
     },
     {
-      "@type": "Service",
-      name: "Jasa Pembuatan Sistem ERP, SIAKAD & Kasir POS Kustom",
-      provider: {
-        "@type": "Organization",
-        name: "Abinest Digital Systems",
-        url: APP_BASE_URL,
-      },
-      areaServed: "Indonesia",
-      url: `${APP_BASE_URL}${CANONICAL_PATH}`,
-      description: serviceData.subtitle,
+      question: "Apakah bisa mulai dari modul stok atau kasir dulu?",
+      answer:
+        "Ya. Pengembangan dilakukan bertahap sesuai modul paling mendesak dengan pembayaran 3 termin mengikuti progres nyata, dan bisa diperluas kapan saja.",
     },
   ],
-};
+});
 
 export default function SistemErpPage() {
   return (

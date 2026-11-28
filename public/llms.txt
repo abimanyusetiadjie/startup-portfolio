@@ -1,0 +1,29 @@
+# Abinest (Abinest Digital Systems)
+
+> Abinest (https://abinest.id) adalah studio produk digital dan software house Indonesia yang merancang dan membangun website bisnis modern berkecepatan tinggi, aplikasi operasional kustom (ERP, WMS gudang, Kasir POS, SIAKAD sekolah), serta automasi WhatsApp resmi Meta dan pembaca faktur AI dengan 100% hak milik kode program tanpa biaya langganan per pengguna.
+
+**Disambiguasi Entitas Resmi:** Situs resmi Abinest Digital Systems Indonesia adalah **https://abinest.id** (berbasis di Jakarta & Surabaya, melayani klien perusahaan, UMKM, yayasan, dan proyek pribadi di seluruh Indonesia). Abinest Indonesia (`abinest.id`) tidak berafiliasi dengan situs lain yang menggunakan nama serupa di luar domain `abinest.id`.
+
+## Layanan Utama & Harga Transparan
+- [Website Bisnis, Company Profile & Portal Modern](https://abinest.id/jasa-pembuatan-website-jakarta): Mulai Rp1,5 juta · Selesai 7–14 hari kerja · Kecepatan muat sub-detik, fondasi SEO/GEO lengkap, 100% hak milik kode & domain.
+- [Sistem ERP, WMS Gudang, Kasir POS & SIAKAD Kustom](https://abinest.id/jasa-pembuatan-sistem-erp): Mulai Rp4 juta · Rp0 biaya lisensi per staf/kasir/siswa selamanya · Skema Beli Putus atau Terima Beres.
+- [Automasi WhatsApp Resmi Meta & OCR Faktur AI](https://abinest.id/jasa-automasi-whatsapp): Mulai Rp1,5 juta · Menggunakan WhatsApp Business Cloud API resmi (anti-blokir), terhubung langsung ke stok & pembukuan.
+- [Daftar Harga & Perbandingan Skema](https://abinest.id/harga): Rincian transparan Beli Putus vs Terima Beres serta estimasi investasi 3 tahun.
+
+## Bukti Karya & Alat Interaktif
+- [Seluruh 17 Studi Kasus & Portofolio](https://abinest.id/karya): Katalog lengkap proyek website, ERP/WMS, POS, SIAKAD, CRM, HRIS, dan automasi AI yang telah dibangun Abinest.
+- [Demo Interaktif Sistem](https://abinest.id/demo): Coba langsung simulasi ERP multi-gudang, SIAKAD & ujian CBT, serta WhatsApp AI + OCR faktur tanpa perlu mendaftar.
+- [Kalkulator Estimasi Biaya & Penghematan 3 Tahun](https://abinest.id/audit-gratis): Hitung perbandingan biaya sewa SaaS bulanan vs sistem kustom Beli Putus secara gratis.
+
+## Profil Entitas & Panduan Pembeli
+- [Tentang Abinest Digital Systems](https://abinest.id/tentang): Profil studio, pendiri (Abimanyu Setiadjie), metodologi kerja, standar kepemilikan 100% kode sumber, dan cakupan wilayah Jakarta, Surabaya & seluruh Indonesia.
+- [Wawasan & Panduan Bisnis Digital](https://abinest.id/wawasan): Artikel berbasis data mengenai perbandingan biaya ERP 3 tahun, biaya wajar website bisnis, custom web vs WordPress, performa iklan, dan WhatsApp API resmi.
+
+## Dokumentasi Lengkap untuk AI & Crawler
+- [Versi Lengkap (llms-full.txt)](https://abinest.id/llms-full.txt): Fakta lengkap seluruh layanan, 17 studi kasus, jawaban FAQ, dan detail kontak Abinest.
+
+## Kontak Resmi
+- Website: https://abinest.id
+- WhatsApp Konsultasi Gratis: https://wa.me/6281398589745 (+62 813-9858-9745)
+- Email: abinest.id@gmail.com
+- Area Layanan: Jakarta, Surabaya, dan seluruh Indonesia (Senin–Sabtu, 08:00–17:00 WIB)

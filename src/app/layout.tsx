@@ -20,14 +20,27 @@ const geistMono = Geist_Mono({
 const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
 
+const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const BING_VERIFICATION = process.env.NEXT_PUBLIC_BING_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(APP_BASE_URL),
   title: {
-    default: "Abinest — Digital Product & Software Engineering Studio",
+    default: "Abinest — Studio Website Modern, Aplikasi Bisnis & Automasi WhatsApp",
     template: "%s | Abinest",
   },
   description:
-    "Studio produk digital & software untuk website modern, aplikasi bisnis ERP/WMS/POS/SIAKAD kustom, dan automasi WhatsApp dengan 100% hak milik kode.",
+    "Studio produk digital & software house Indonesia (abinest.id) untuk website bisnis cepat, aplikasi ERP/WMS/POS/SIAKAD kustom, dan automasi WhatsApp resmi dengan 100% hak milik kode.",
+  ...(GOOGLE_VERIFICATION || BING_VERIFICATION
+    ? {
+        verification: {
+          ...(GOOGLE_VERIFICATION ? { google: GOOGLE_VERIFICATION } : {}),
+          ...(BING_VERIFICATION
+            ? { other: { "msvalidate.01": BING_VERIFICATION } }
+            : {}),
+        },
+      }
+    : {}),
   icons: {
     icon: [
       { url: "/icon.svg?v=3", type: "image/svg+xml" },

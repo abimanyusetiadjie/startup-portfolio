@@ -132,18 +132,18 @@ export function SignificaFooter() {
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="/#karya"
+                      href="/karya"
                       className="hover:opacity-60 transition-opacity"
                     >
-                      Karya
+                      Karya &amp; Studi Kasus
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/#layanan"
+                      href="/harga"
                       className="hover:opacity-60 transition-opacity"
                     >
-                      Layanan
+                      Harga &amp; Skema
                     </Link>
                   </li>
                   <li>
@@ -160,6 +160,14 @@ export function SignificaFooter() {
                       className="hover:opacity-60 transition-opacity"
                     >
                       Kalkulator Biaya
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/tentang"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Tentang Abinest
                     </Link>
                   </li>
                 </ul>
@@ -191,10 +199,18 @@ export function SignificaFooter() {
                   </li>
                   <li>
                     <Link
-                      href="/wawasan/beli-putus-vs-sewa-saas-erp"
+                      href="/wawasan"
                       className="hover:opacity-60 transition-opacity"
                     >
-                      Wawasan
+                      Wawasan &amp; Panduan
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/#layanan"
+                      className="hover:opacity-60 transition-opacity"
+                    >
+                      Semua Layanan
                     </Link>
                   </li>
                 </ul>

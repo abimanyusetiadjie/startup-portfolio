@@ -1,10 +1,18 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo";
+
+const AI_AND_SEARCH_BOTS = [
+  "Googlebot",
+  "Bingbot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "GPTBot",
+  "PerplexityBot",
+  "ClaudeBot",
+  "Google-Extended",
+];
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = (
-    process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id"
-  ).replace(/\/$/, "");
-
   return {
     rules: [
       {
@@ -12,7 +20,13 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/"],
         disallow: ["/tools/"],
       },
+      ...AI_AND_SEARCH_BOTS.map((bot) => ({
+        userAgent: bot,
+        allow: ["/"],
+        disallow: ["/tools/"],
+      })),
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

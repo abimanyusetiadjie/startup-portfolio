@@ -1,24 +1,29 @@
 import type { Metadata } from "next";
 import { SignificaApp } from "@/components/significa/SignificaApp";
 import { FAQ_ITEMS } from "@/components/grove/faq-data";
-
-const APP_BASE_URL =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_URL,
+  buildHomeJsonLd,
+} from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
+    absolute:
+      "Abinest | Jasa Website Modern, Aplikasi Bisnis ERP/POS/SIAKAD & Automasi WhatsApp",
   },
   description:
-    "Software house Indonesia: pembuatan website cepat (<0,8 detik), sistem ERP, SIAKAD sekolah, kasir POS kustom, dan automasi AI/ML WhatsApp resmi. 100% hak milik kode program tanpa biaya lisensi per pengguna.",
+    "Studio produk digital & software house Indonesia (abinest.id): jasa pembuatan website bisnis cepat mulai Rp1,5 juta, sistem ERP/WMS/POS/SIAKAD kustom tanpa biaya per user, dan automasi WhatsApp resmi Meta dengan 100% hak milik kode.",
   keywords: [
-    "jasa pembuatan website cepat",
-    "sistem erp siakad pos indonesia",
-    "automasi ai machine learning",
-    "software house jakarta surabaya",
-    "jasa custom software perusahaan",
-    "document ai invoice ocr",
-    "whatsapp ai agent meta resmi",
+    "abinest",
+    "abinest.id",
+    "jasa pembuatan website bisnis",
+    "software house indonesia",
+    "jasa pembuatan sistem erp custom",
+    "aplikasi kasir pos beli putus",
+    "aplikasi siakad sekolah indonesia",
+    "jasa automasi whatsapp resmi meta",
+    "jasa ocr faktur otomatis",
   ],
   alternates: {
     canonical: "/",
@@ -26,112 +31,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: APP_BASE_URL,
-    siteName: "Abinest Digital Systems",
-    title: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
+    url: SITE_URL,
+    siteName: "Abinest",
+    title:
+      "Abinest | Jasa Website Modern, Aplikasi Bisnis ERP/POS/SIAKAD & Automasi WhatsApp",
     description:
-      "Website, ERP, SIAKAD, POS, hingga Automasi AI/ML. Dibangun cepat, aman, dan siap bertumbuh bersama bisnis Anda.",
-    images: [
-      {
-        url: "/images/abinest-og-card.jpg",
-        width: 1376,
-        height: 768,
-        alt: "Abinest Digital Systems — Software House Indonesia",
-      },
-    ],
+      "Website modern, aplikasi bisnis ERP/POS/SIAKAD kustom tanpa iuran per staf, dan automasi WhatsApp resmi — 100% hak milik kode di abinest.id.",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abinest | Jasa Website Modern, Aplikasi Bisnis & Automasi WhatsApp",
+    description:
+      "Desain clean, sistem reliable, dan 100% hak milik kode tanpa sewa per user — abinest.id.",
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 
-const jsonLdSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${APP_BASE_URL}/#organization`,
-      name: "Abinest Digital Systems",
-      url: APP_BASE_URL,
-      logo: `${APP_BASE_URL}/images/icon-512.png`,
-      description:
-        "Software house Indonesia spesialis pembuatan website cepat Next.js, sistem ERP, SIAKAD & kasir POS kustom, serta automasi AI/ML dan WhatsApp resmi Meta.",
-      areaServed: ["Jakarta", "Surabaya", "Indonesia"],
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer service",
-        telephone: "+62-813-9858-9745",
-        availableLanguage: ["Indonesian", "English"],
-      },
-      knowsAbout: [
-        "Jasa Pembuatan Website Cepat Next.js",
-        "Sistem ERP, SIAKAD & Kasir POS Kustom",
-        "Automasi AI & Machine Learning Terapan",
-        "WhatsApp AI Agent Resmi Meta Cloud API",
-      ],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${APP_BASE_URL}/#website`,
-      url: APP_BASE_URL,
-      name: "Abinest Digital Systems",
-      inLanguage: "id-ID",
-      publisher: { "@id": `${APP_BASE_URL}/#organization` },
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": `${APP_BASE_URL}/#service`,
-      name: "Abinest Digital Systems — Jasa Website, ERP & Automasi AI",
-      url: APP_BASE_URL,
-      image: `${APP_BASE_URL}/images/abinest-og-card.jpg`,
-      priceRange: "Rp1.500.000 - Rp12.000.000+",
-      areaServed: {
-        "@type": "Country",
-        name: "Indonesia",
-      },
-      provider: { "@id": `${APP_BASE_URL}/#organization` },
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Layanan Pengembangan Sistem Digital Abinest",
-        itemListElement: [
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Pembuatan Website Berkecepatan Tinggi & Ramah SEO",
-              url: `${APP_BASE_URL}/jasa-pembuatan-website-jakarta`,
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Pengembangan Sistem ERP, SIAKAD & Kasir POS Kustom",
-              url: `${APP_BASE_URL}/jasa-pembuatan-sistem-erp`,
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Automasi WhatsApp Resmi Meta & Asisten AI/ML",
-              url: `${APP_BASE_URL}/jasa-automasi-whatsapp`,
-            },
-          },
-        ],
-      },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${APP_BASE_URL}/#faq`,
-      mainEntity: FAQ_ITEMS.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
-    },
-  ],
-};
+const jsonLdSchema = buildHomeJsonLd(FAQ_ITEMS);
 
 export default function MarketingPage() {
   return (

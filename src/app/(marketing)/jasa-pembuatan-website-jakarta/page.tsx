@@ -3,20 +3,22 @@ import {
   GroveServiceDetailTemplate,
   type ServiceDetailData,
 } from "@/components/grove/GroveServiceDetailTemplate";
-
-const APP_BASE_URL =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_URL,
+  buildServicePageJsonLd,
+} from "@/lib/seo";
 
 const CANONICAL_PATH = "/jasa-pembuatan-website-jakarta";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Cepat Jakarta & Indonesia",
   description:
-    "Jasa pembuatan website perusahaan, landing page konversi tinggi, dan portal bisnis Jakarta dengan waktu muat di bawah 0,8 detik, skor Google PageSpeed tinggi, dan 100% hak milik kode program.",
+    "Jasa pembuatan website perusahaan, landing page konversi tinggi, dan portal bisnis Jakarta & Indonesia mulai Rp1,5 juta dengan waktu muat sub-detik, fondasi SEO/GEO lengkap, dan 100% hak milik kode program.",
   keywords: [
     "jasa pembuatan website jakarta",
     "jasa buat website cepat",
-    "website company profile nextjs",
+    "jasa website company profile indonesia",
     "jasa website perusahaan beli putus",
     "landing page konversi tinggi",
   ],
@@ -26,19 +28,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: `${APP_BASE_URL}${CANONICAL_PATH}`,
-    siteName: "Abinest Digital Systems",
+    url: `${SITE_URL}${CANONICAL_PATH}`,
+    siteName: "Abinest",
     title: "Jasa Pembuatan Website Cepat Jakarta & Indonesia | Abinest",
     description:
-      "Website perusahaan & landing page Next.js berkecepatan tinggi (<0,8 detik), ramah SEO Google, dan 100% hak milik kode sumber.",
-    images: [
-      {
-        url: "/images/abinest-og-card.jpg",
-        width: 1376,
-        height: 768,
-        alt: "Abinest — Jasa Pembuatan Website Cepat Jakarta & Indonesia",
-      },
-    ],
+      "Website perusahaan & landing page modern berkecepatan tinggi, ramah SEO/GEO Google, mulai Rp1,5 juta dengan 100% hak milik kode.",
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 
@@ -138,40 +133,26 @@ const serviceData: ServiceDetailData = {
   ],
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
+const jsonLd = buildServicePageJsonLd({
+  name: "Jasa Pembuatan Website Bisnis Cepat Jakarta & Indonesia",
+  breadcrumbLabel: "Website Bisnis & Landing Page",
+  path: CANONICAL_PATH,
+  description: serviceData.subtitle,
+  startingPriceIdr: 1500000,
+  areaServed: ["Jakarta", "Surabaya", "Indonesia"],
+  faqs: [
     {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Beranda",
-          item: APP_BASE_URL,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Website Bisnis & Landing Page",
-          item: `${APP_BASE_URL}${CANONICAL_PATH}`,
-        },
-      ],
+      question: "Berapa biaya pembuatan website bisnis di Abinest?",
+      answer:
+        "Pembuatan website bisnis modern di Abinest mulai Rp1,5 juta dengan skema Beli Putus (100% hak milik kode & domain tanpa biaya bulanan ke Abinest) atau skema Terima Beres.",
     },
     {
-      "@type": "Service",
-      name: "Jasa Pembuatan Website Bisnis Cepat Jakarta & Indonesia",
-      provider: {
-        "@type": "Organization",
-        name: "Abinest Digital Systems",
-        url: APP_BASE_URL,
-      },
-      areaServed: ["Jakarta", "Indonesia"],
-      url: `${APP_BASE_URL}${CANONICAL_PATH}`,
-      description: serviceData.subtitle,
+      question: "Berapa lama website bisnis selesai dikerjakan?",
+      answer:
+        "Website profil perusahaan atau landing page umumnya selesai dalam 7–14 hari kerja sejak materi siap, termasuk optimasi kecepatan dan struktur SEO Google.",
     },
   ],
-};
+});
 
 export default function WebsiteJakartaPage() {
   return (

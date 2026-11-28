@@ -1,55 +1,56 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-
-const APP_BASE_URL =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+import { DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(APP_BASE_URL),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
+    default: "Abinest | Jasa Website Modern, Aplikasi Bisnis ERP/POS/SIAKAD & Automasi WA",
     template: "%s | Abinest",
   },
   description:
-    "Software house Indonesia: jasa pembuatan website cepat (<0,8 detik), sistem ERP, SIAKAD sekolah, kasir POS kustom, serta automasi AI/ML & WhatsApp resmi. 100% hak milik kode program tanpa biaya lisensi per pengguna.",
+    "Studio produk digital & software house Indonesia (abinest.id): jasa pembuatan website bisnis cepat, aplikasi ERP, WMS gudang, SIAKAD, kasir POS kustom, dan automasi WhatsApp resmi. 100% hak milik kode tanpa iuran per user.",
   keywords: [
+    "Abinest",
     "Abinest Digital Systems",
+    "abinest.id",
     "Software House Indonesia",
-    "Jasa Pembuatan Website Cepat Next.js",
-    "Sistem ERP SIAKAD POS Kustom Indonesia",
-    "Automasi AI Machine Learning",
-    "Document AI Invoice OCR",
-    "WhatsApp AI Agent Meta Cloud API",
+    "Jasa Pembuatan Website Bisnis Cepat",
+    "Jasa Pembuatan Sistem ERP Custom Indonesia",
+    "Aplikasi Kasir POS & SIAKAD Beli Putus",
+    "Jasa Automasi WhatsApp Resmi Meta",
+    "OCR Pembaca Faktur Otomatis",
   ],
-  authors: [{ name: "Abinest Digital Systems" }],
+  authors: [{ name: "Abimanyu Setiadjie", url: `${SITE_URL}/tentang` }],
   creator: "Abinest Digital Systems",
+  publisher: "Abinest Digital Systems",
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: APP_BASE_URL,
-    siteName: "Abinest Digital Systems",
-    title: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
+    url: SITE_URL,
+    siteName: "Abinest",
+    title: "Abinest | Jasa Website Modern, Aplikasi Bisnis ERP/POS/SIAKAD & Automasi WA",
     description:
-      "Kami membangun sistem yang bekerja untuk Anda: Website, ERP, SIAKAD, POS, hingga Automasi AI/ML. Dibangun cepat, aman, dengan hak milik kode 100%.",
-    images: [
-      {
-        url: "/images/abinest-og-card.jpg",
-        width: 1376,
-        height: 768,
-        alt: "Abinest Digital Systems — Software House Indonesia",
-      },
-    ],
+      "Desain yang clean, sistem yang reliable, dan workflow yang otomatis—website bisnis, ERP/POS/SIAKAD kustom, hingga automasi WhatsApp resmi dengan 100% hak milik kode.",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abinest | Jasa Website Cepat, Sistem ERP/SIAKAD/POS & Automasi AI/ML",
+    title: "Abinest | Jasa Website Modern, Aplikasi Bisnis & Automasi WhatsApp",
     description:
-      "Website cepat <0,8 detik, sistem ERP/SIAKAD/POS bebas biaya lisensi per pengguna, dan Automasi AI/ML WhatsApp resmi Meta.",
-    images: ["/images/abinest-og-card.jpg"],
+      "Website bisnis cepat, ERP/WMS/POS/SIAKAD kustom tanpa biaya per user, dan automasi WhatsApp resmi Meta — abinest.id.",
+    images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -59,7 +60,7 @@ export default function MarketingLayout({
   children: ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#2563EB] selection:text-white">
+    <div className="min-h-screen bg-white text-[#111111] selection:bg-[#111111] selection:text-white">
       {children}
     </div>
   );

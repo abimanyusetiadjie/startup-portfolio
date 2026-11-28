@@ -11,6 +11,11 @@ import {
   getWorkItemBySlug,
 } from "@/data/significa-work";
 import { buildConsultationWaUrl } from "@/components/grove/contact-utils";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_URL,
+  buildCaseStudyJsonLd,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return SIGNIFICA_WORK_ITEMS.map((item) => ({ slug: item.slug }));
@@ -25,10 +30,36 @@ export async function generateMetadata({
   const project = getWorkItemBySlug(slug);
   if (!project) return { title: "Proyek Tidak Ditemukan" };
 
+  const cleanTitle = project.client.replace(/\.$/, "");
+  const primaryImg = project.images[0];
+  const ogImage = primaryImg
+    ? {
+        url: primaryImg.src,
+        width: primaryImg.width ?? 1440,
+        height: primaryImg.height ?? 1080,
+        alt: primaryImg.alt,
+      }
+    : DEFAULT_OG_IMAGE;
+
   return {
-    title: `${project.client.replace(/\.$/, "")} — Studi Kasus Abinest`,
-    description: project.tagline,
+    title: `${cleanTitle} — Studi Kasus ${project.sector}`,
+    description: `${project.tagline} ${project.functionalValue}`.slice(0, 160),
     alternates: { canonical: `/karya/${project.slug}` },
+    openGraph: {
+      type: "article",
+      locale: "id_ID",
+      url: `${SITE_URL}/karya/${project.slug}`,
+      siteName: "Abinest",
+      title: `${cleanTitle} — Studi Kasus Abinest`,
+      description: project.tagline,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cleanTitle} — Studi Kasus Abinest`,
+      description: project.tagline,
+      images: [ogImage.url],
+    },
   };
 }
 
@@ -55,9 +86,14 @@ export default async function CaseStudyDetailPage({
   const nextImage = nextProject.images[0];
   const cleanTitle = project.client.replace(/\.$/, "");
   const nextTitle = nextProject.client.replace(/\.$/, "");
+  const jsonLd = buildCaseStudyJsonLd(project);
 
   return (
     <div className="min-h-screen bg-white text-[#111111] flex flex-col font-sans selection:bg-[#111111] selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SignificaNavbar />
 
       <main className="flex-1 bg-white">
@@ -65,7 +101,7 @@ export default async function CaseStudyDetailPage({
         <section className="bg-[#F2F1F3] pt-[100px] sm:pt-[118px] lg:pt-[136px] pb-10 sm:pb-14 lg:pb-16">
           <div className="clay-container space-y-6 sm:space-y-8">
             <Link
-              href="/#karya"
+              href="/karya"
               className="group inline-flex items-center gap-2 text-[14px] font-medium text-[#6B7280] hover:text-[#111111] transition-colors"
             >
               <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />

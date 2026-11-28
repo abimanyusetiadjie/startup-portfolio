@@ -3,16 +3,18 @@ import {
   GroveServiceDetailTemplate,
   type ServiceDetailData,
 } from "@/components/grove/GroveServiceDetailTemplate";
-
-const APP_BASE_URL =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://abinest.id";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_URL,
+  buildServicePageJsonLd,
+} from "@/lib/seo";
 
 const CANONICAL_PATH = "/jasa-automasi-whatsapp";
 
 export const metadata: Metadata = {
   title: "Jasa Automasi WhatsApp AI Resmi Meta & OCR Faktur Bisnis",
   description:
-    "Implementasi asisten CS WhatsApp AI 24 jam berbasis Meta Cloud API resmi serta mesin pembaca foto/PDF faktur & nota otomatis (OCR) yang terintegrasi langsung ke sistem ERP dan stok usaha Anda.",
+    "Implementasi asisten CS & order WhatsApp AI 24 jam berbasis Meta Cloud API resmi mulai Rp1,5 juta serta OCR pembaca foto/PDF faktur otomatis terhubung ke stok dan ERP usaha Anda.",
   keywords: [
     "jasa automasi whatsapp resmi meta",
     "whatsapp ai agent bisnis indonesia",
@@ -26,19 +28,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: `${APP_BASE_URL}${CANONICAL_PATH}`,
-    siteName: "Abinest Digital Systems",
+    url: `${SITE_URL}${CANONICAL_PATH}`,
+    siteName: "Abinest",
     title: "Jasa Automasi WhatsApp AI Resmi Meta & OCR Faktur Bisnis | Abinest",
     description:
-      "Balas ribuan chat WhatsApp dalam <1 detik via jalur resmi Meta dan ubah foto/PDF faktur supplier menjadi entri pembukuan otomatis.",
-    images: [
-      {
-        url: "/images/abinest-og-card.jpg",
-        width: 1376,
-        height: 768,
-        alt: "Abinest — Automasi WhatsApp Resmi Meta & Asisten AI/ML",
-      },
-    ],
+      "Balas chat WhatsApp 24 jam lewat jalur resmi Meta Cloud API dan ubah foto/PDF faktur supplier menjadi entri pembukuan otomatis mulai Rp1,5 juta.",
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 
@@ -138,40 +133,26 @@ const serviceData: ServiceDetailData = {
   ],
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
+const jsonLd = buildServicePageJsonLd({
+  name: "Jasa Automasi WhatsApp Resmi Meta & Pembaca Faktur AI",
+  breadcrumbLabel: "Automasi WhatsApp & AI",
+  path: CANONICAL_PATH,
+  description: serviceData.subtitle,
+  startingPriceIdr: 1500000,
+  areaServed: ["Jakarta", "Surabaya", "Indonesia"],
+  faqs: [
     {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Beranda",
-          item: APP_BASE_URL,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Automasi WhatsApp & AI/ML",
-          item: `${APP_BASE_URL}${CANONICAL_PATH}`,
-        },
-      ],
+      question: "Apakah automasi WhatsApp Abinest aman dari pemblokiran nomor?",
+      answer:
+        "Ya. Seluruh integrasi menggunakan WhatsApp Business Cloud API resmi dari Meta—bukan bot scan QR tidak resmi—sehingga nomor bisnis tetap aman dan stabil.",
     },
     {
-      "@type": "Service",
-      name: "Jasa Automasi WhatsApp Resmi Meta & Pembaca Faktur AI/ML",
-      provider: {
-        "@type": "Organization",
-        name: "Abinest Digital Systems",
-        url: APP_BASE_URL,
-      },
-      areaServed: "Indonesia",
-      url: `${APP_BASE_URL}${CANONICAL_PATH}`,
-      description: serviceData.subtitle,
+      question: "Apakah bot AI bisa mengambil data stok dan harga asli?",
+      answer:
+        "Bisa. Asisten AI dikunci untuk membaca katalog, harga, dan stok langsung dari database bisnis Anda sehingga tidak mengarang angka, serta admin bisa mengambil alih chat kapan saja.",
     },
   ],
-};
+});
 
 export default function AutomasiWhatsappPage() {
   return (

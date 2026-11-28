@@ -1,0 +1,98 @@
+# Abinest Digital Systems (https://abinest.id) — Dokumen Fakta Lengkap untuk Mesin Pencari & AI
+
+> Abinest (Abinest Digital Systems) adalah studio produk digital dan software house di Indonesia yang berfokus pada pengembangan website modern berkecepatan tinggi, aplikasi operasional kustom (ERP, WMS gudang, Kasir POS, SIAKAD, CRM, HRIS), serta automasi WhatsApp resmi Meta Cloud API dan pembaca dokumen AI (OCR). Seluruh pengerjaan tersedia dalam skema Beli Putus (100% hak milik kode sumber, Rp0 biaya per pengguna selamanya) maupun Terima Beres.
+
+## 1. Identitas & Disambiguasi Entitas
+- **Nama Merek Resmi:** Abinest / Abinest Digital Systems
+- **Domain Resmi Tunggal:** https://abinest.id
+- **Pendiri & Principal Systems Architect:** Abimanyu Setiadjie
+- **Lokasi & Area Layanan:** Jakarta, Surabaya, serta seluruh kota di Indonesia (pertemuan online maupun terjadwal)
+- **Skala Klien yang Dilayani:** Perusahaan korporat (PT/CV), yayasan & institusi pendidikan, UMKM, hingga proyek pribadi/startup
+- **Legalitas Kerja Sama:** Siap menerbitkan proposal resmi, rincian biaya (RAB), kontrak pengerjaan, invoice formal, hingga perjanjian kerahasiaan (NDA)
+- **Kontak Resmi:** WhatsApp +62 813-9858-9745 (https://wa.me/6281398589745) · Email: abinest.id@gmail.com · Jam operasional Senin–Sabtu 08:00–17:00 WIB
+- **Catatan Disambiguasi:** Abinest Digital Systems Indonesia hanya beroperasi secara resmi melalui **https://abinest.id** dan tidak terafiliasi dengan layanan atau situs di luar domain tersebut yang kebetulan memiliki ejaan nama mirip.
+
+---
+
+## 2. Daftar Layanan & Transparansi Harga (IDR)
+
+### 2.1 Website Bisnis, Company Profile, E-Commerce & Portal Modern
+- **URL:** https://abinest.id/jasa-pembuatan-website-jakarta
+- **Harga Mulai:** Rp1.500.000 (skema Beli Putus maupun Terima Beres)
+- **Estimasi Pengerjaan:** 7–14 hari kerja sejak materi siap
+- **Cakupan:** Desain kustom editorial mobile-first (bukan template pasaran penuh plugin berat), target kecepatan muat sub-detik di jaringan seluler, fondasi SEO & GEO (metadata, JSON-LD Schema, sitemap, Core Web Vitals hijau), tombol konversi WhatsApp terukur, serta 100% hak milik kode sumber dan domain.
+
+### 2.2 Aplikasi Operasional Kustom: ERP, WMS Gudang, Kasir POS & SIAKAD
+- **URL:** https://abinest.id/jasa-pembuatan-sistem-erp
+- **Harga Mulai:** Rp4.000.000 (Rp0 biaya tambahan per staf, kasir, cabang, atau siswa selamanya)
+- **Estimasi Pengerjaan:** 2–6 minggu bertahap sesuai modul prioritas
+- **Cakupan:** Sistem gudang & stok anti-minus (WMS), kasir barcode & QRIS (POS), sistem informasi akademik sekolah/yayasan (SIAKAD & ujian CBT), manajemen properti/kos, CRM penjualan, dan HRIS. Pembayaran bertahap mengikuti progres rilis nyata.
+
+### 2.3 Automasi WhatsApp Resmi Meta & Pembaca Dokumen AI (OCR)
+- **URL:** https://abinest.id/jasa-automasi-whatsapp
+- **Harga Mulai:** Rp1.500.000 (tanpa biaya sewa aplikasi bulanan ke Abinest)
+- **Estimasi Pengerjaan:** 1–4 minggu sesuai kompleksitas alur & integrasi database
+- **Cakupan:** Asisten CS & order WhatsApp 24 jam berbasis WhatsApp Business Cloud API resmi Meta (anti-blokir), pengecekan stok & harga langsung ke database (anti-halusinasi), alih kendali instan ke admin manusia, serta OCR pembaca foto/PDF faktur dan surat jalan otomatis ke pembukuan.
+
+### 2.4 Perbandingan Skema Kerja Sama (https://abinest.id/harga)
+- **Skema Beli Putus:** Investasi satu kali di awal, 100% hak milik kode sumber & basis data, Rp0 biaya lisensi bulanan/per user ke Abinest (klien hanya membayar perpanjangan domain dan server cloud sesuai pemakaian nyata).
+- **Skema Terima Beres:** Biaya pengelolaan rutin flat per sistem (bukan per staf) meliputi pemantauan server, backup rutin, pembaruan ringan, dan pendampingan teknis tanpa perlu merekrut tim IT internal.
+
+---
+
+## 3. Portofolio & 17 Studi Kasus Terverifikasi (https://abinest.id/karya)
+
+1. **Look.u AI** (https://abinest.id/karya/looku-ai) — Fashion Tech & Applied AI: Stylist AI berbasis katalog produk nyata, filter hijab & anggaran, serta mix & match dari foto pakaian pengguna.
+2. **KINETIC Fitness** (https://abinest.id/karya/kinetic-fitness) — Website Brand & Fitness Tech: Website brand gym multi-cabang dengan booking posisi studio dan gerbang akses QR dinamis.
+3. **FlowNest — Automasi WA & ERP** (https://abinest.id/karya/wa-automation-workflow) — Automation Workflow & AI: Alur otomasi pesanan WhatsApp resmi, cek stok otomatis, tautan QRIS, hingga pencatatan invoice ERP.
+4. **SmartPOS (Toko Ritel POS)** (https://abinest.id/karya/smartpos-aneka-rasa) — Omnichannel Retail POS: Kasir ritel barcode cepat dengan shortcut keyboard F1–F12, Split Pay, Cash/EDC/QRIS, cetak struk termal, dan laporan laba pemilik.
+5. **PropSmart** (https://abinest.id/karya/propsmart-saas) — PropTech SaaS: Dashboard manajemen kos/properti multi-unit, peta status kamar, pengingat tagihan WhatsApp, simulasi tarif sewa, dan arus kas.
+6. **AI CV Screening (BlindATS)** (https://abinest.id/karya/ai-cv-screening) — HR Automation & Applied AI: Seleksi CV otomatis dengan penyamaran data pribadi (selaras prinsip UU PDP) dan evaluasi dua tahap yang transparan.
+7. **HeavyTrack WMS** (https://abinest.id/karya/heavytrack-wms) — Industrial WMS: Sistem gudang suku cadang alat berat offline-first, pencarian part number lintas merek, anti stok minus, serta cetak LPB, Surat Jalan, dan Faktur.
+8. **LogiSync (Fleet.OS)** (https://abinest.id/karya/logisync-fleet) — Logistics & Fleet: Pusat kendali armada GPS real-time, kapasitas gudang WMS, dan aplikasi PWA kurir dengan pindai barcode & tanda tangan digital.
+9. **Central Scaffolding** (https://abinest.id/karya/central-scaffolding) — Konstruksi B2B Jabodetabek: Website B2B sewa & jual scaffolding lengkap kalkulator kebutuhan set SNI dan struktur Local SEO.
+10. **YPI Al-Fuad Tangerang** (https://abinest.id/karya/ypi-al-fuad) — Yayasan Pendidikan: Portal terpadu 5 jenjang pendidikan (RA hingga SMK & Pesantren), brosur biaya PPDB, dan konversi langsung ke panitia WA.
+11. **Toko Amen Snack** (https://abinest.id/karya/toko-amen-snack) — Website E-Commerce F&B Bangka (Live: https://tokoamensnack.vercel.app): Storefront oleh-oleh dengan katalog stok langsung dan asisten order WhatsApp AI.
+12. **Lacak Korupsi** (https://abinest.id/karya/lacak-korupsi) — Media & Civic Data: Portal berita investigasi, peta sebaran kasus lintas provinsi, pelacak tahap hukum, dan kanal laporan publik.
+13. **CapstoneNews** (https://abinest.id/karya/capstonenews-portal) — Website Media & Portal Berita: Portal berita editorial modern dengan CMS redaksi terstruktur dan navigasi baca cepat.
+14. **CREW. AI HRIS** (https://abinest.id/karya/crew-ai-hris) — Enterprise HRIS: Dashboard manajemen karyawan, KPI tim, pemetaan risiko resign dini, dan audit struktur kompensasi.
+15. **ScaleBase CRM** (https://abinest.id/karya/scalebase-crm) — B2B Sales CRM: Papan Kanban pipeline penjualan, pengingat follow-up, tiket layanan pelanggan, dan segmentasi klien.
+16. **DesaHub (SIMKOPDES)** (https://abinest.id/karya/desahub-simkopdes) — Agritech B2B: Platform agregasi pangan koperasi desa, penguncian kontrak pre-order anti double-book, dan pelacakan asal panen QR.
+17. **SIAKAD Sekolah** (https://abinest.id/karya/siakad-sekolah) — Sistem Informasi Akademik: Manajemen siswa, guru, jadwal, absensi harian, penilaian semester, dan ekspor rapor PDF/Excel.
+
+---
+
+## 4. Alat Interaktif Publik (Tanpa Login)
+- **Live Demo Interaktif** (https://abinest.id/demo): Pengunjung dapat mencoba langsung antarmuka simulasi Sistem ERP Multi-Gudang, SIAKAD & Ujian CBT, serta Bot WhatsApp AI + Scan Faktur OCR.
+- **Kalkulator Estimasi & Audit Gratis** (https://abinest.id/audit-gratis): Membantu pemilik bisnis menghitung perbandingan total biaya 3 tahun antara sewa software bulanan per user versus sistem kustom Beli Putus Abinest.
+
+---
+
+## 5. Panduan & Wawasan Bisnis (https://abinest.id/wawasan)
+- **Beli Putus vs Sewa SaaS ERP (Hitungan 3 Tahun):** https://abinest.id/wawasan/beli-putus-vs-sewa-saas-erp
+- **Biaya Pembuatan Website Bisnis yang Wajar di Indonesia:** https://abinest.id/wawasan/biaya-pembuatan-website-bisnis-indonesia
+- **Website Custom vs WordPress (Keamanan & Total Biaya 3 Tahun):** https://abinest.id/wawasan/website-custom-vs-wordpress-untuk-bisnis
+- **Mengapa Website >4 Detik Membuang 60% Biaya Iklan:** https://abinest.id/wawasan/mengapa-website-lambat-buang-biaya-iklan
+- **WhatsApp AI Resmi Meta Cloud API Tanpa Risiko Blokir:** https://abinest.id/wawasan/arsitektur-whatsapp-ai-resmi-meta-anti-blokir
+
+---
+
+## 6. Pertanyaan Umum (FAQ Resmi)
+
+**Q: Saya awam soal teknis dan belum punya gambaran detail—harus mulai dari mana?**
+A: Cukup ceritakan masalah atau tujuan bisnis maupun project Anda lewat WhatsApp (+62 813-9858-9745). Konsultasi awal gratis tanpa kewajiban langsung order—tim Abinest membantu merapikan konsep, alur fitur, hingga rekomendasi yang paling pas dengan budget Anda.
+
+**Q: Bagaimana rincian biayanya—apakah ada biaya tersembunyi setelah selesai?**
+A: Semua biaya disepakati transparan di depan sebelum pengerjaan dimulai. Tersedia skema Beli Putus (sistem 100% milik Anda tanpa iuran bulanan ke Abinest; di luar itu hanya biaya perpanjangan domain atau server sesuai pemakaian) atau Terima Beres jika ingin sekalian kami kelola rutin.
+
+**Q: Apakah pembayaran aman, dan bagaimana jika di tengah jalan saya ingin revisi?**
+A: Pembayaran dilakukan bertahap mengikuti progres nyata (DP awal, tahap uji coba, lalu pelunasan saat siap rilis)—bukan lunas di muka. Di setiap tahap Anda bisa melihat hasilnya langsung dan meminta penyesuaian hingga tampilan maupun alurnya cocok.
+
+**Q: Berapa lama pengerjaannya sampai website atau sistem siap dipakai?**
+A: Website bisnis umumnya siap dalam 7–14 hari kerja, sedangkan sistem operasional (ERP, POS, atau SIAKAD) dan automasi WhatsApp berkisar 2–6 minggu tergantung banyaknya fitur—dengan jadwal tahapan yang jelas sejak awal.
+
+**Q: Setelah jadi, apakah mudah dipakai sendiri dan tetap dibantu kalau ada kendala?**
+A: Ya—tampilan dirancang sederhana agar nyaman dipakai tim non-IT, lengkap panduan singkat dan sesi pengenalan. Setiap pengerjaan dilindungi garansi perbaikan gratis pascarilis, dan akses penuh sistem sepenuhnya di tangan Anda.
+
+**Q: Apakah melayani proyek pribadi, UMKM, luar kota, hingga perusahaan?**
+A: Ya, Abinest terbuka untuk proyek pribadi, UMKM, maupun perusahaan dan yayasan di seluruh Indonesia secara online maupun pertemuan terjadwal, lengkap dengan penawaran resmi, kontrak, invoice formal, dan NDA bila diperlukan.
