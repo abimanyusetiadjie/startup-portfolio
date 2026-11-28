@@ -17,16 +17,19 @@
 ## 2. Daftar Layanan & Transparansi Harga (IDR)
 
 ### 2.1 Website Bisnis, Company Profile, E-Commerce & Portal Modern
-- **URL:** https://abinest.id/jasa-pembuatan-website-jakarta
+- **URL Jakarta & Nasional:** https://abinest.id/jasa-pembuatan-website-jakarta
+- **URL Surabaya & Jawa Timur:** https://abinest.id/jasa-pembuatan-website-surabaya
 - **Harga Mulai:** Rp1.500.000 (skema Beli Putus maupun Terima Beres)
 - **Estimasi Pengerjaan:** 7–14 hari kerja sejak materi siap
 - **Cakupan:** Desain kustom editorial mobile-first (bukan template pasaran penuh plugin berat), target kecepatan muat sub-detik di jaringan seluler, fondasi SEO & GEO (metadata, JSON-LD Schema, sitemap, Core Web Vitals hijau), tombol konversi WhatsApp terukur, serta 100% hak milik kode sumber dan domain.
 
-### 2.2 Aplikasi Operasional Kustom: ERP, WMS Gudang, Kasir POS & SIAKAD
-- **URL:** https://abinest.id/jasa-pembuatan-sistem-erp
+### 2.2 Aplikasi Operasional Kustom: ERP/WMS, Kasir POS & SIAKAD Sekolah
+- **URL ERP & WMS Gudang:** https://abinest.id/jasa-pembuatan-sistem-erp
+- **URL Aplikasi Kasir POS Beli Putus:** https://abinest.id/jasa-pembuatan-aplikasi-kasir-pos
+- **URL SIAKAD Sekolah & Ujian CBT:** https://abinest.id/jasa-pembuatan-siakad-sekolah
 - **Harga Mulai:** Rp4.000.000 (Rp0 biaya tambahan per staf, kasir, cabang, atau siswa selamanya)
 - **Estimasi Pengerjaan:** 2–6 minggu bertahap sesuai modul prioritas
-- **Cakupan:** Sistem gudang & stok anti-minus (WMS), kasir barcode & QRIS (POS), sistem informasi akademik sekolah/yayasan (SIAKAD & ujian CBT), manajemen properti/kos, CRM penjualan, dan HRIS. Pembayaran bertahap mengikuti progres rilis nyata.
+- **Cakupan:** Sistem gudang & stok anti-minus (WMS), kasir barcode & QRIS tanpa biaya per outlet (POS), sistem informasi akademik sekolah/yayasan multi-jenjang & ujian CBT anti-down (SIAKAD), manajemen properti/kos, CRM penjualan, dan HRIS. Pembayaran bertahap mengikuti progres rilis nyata.
 
 ### 2.3 Automasi WhatsApp Resmi Meta & Pembaca Dokumen AI (OCR)
 - **URL:** https://abinest.id/jasa-automasi-whatsapp
@@ -72,6 +75,9 @@
 - **Beli Putus vs Sewa SaaS ERP (Hitungan 3 Tahun):** https://abinest.id/wawasan/beli-putus-vs-sewa-saas-erp
 - **Biaya Pembuatan Website Bisnis yang Wajar di Indonesia:** https://abinest.id/wawasan/biaya-pembuatan-website-bisnis-indonesia
 - **Website Custom vs WordPress (Keamanan & Total Biaya 3 Tahun):** https://abinest.id/wawasan/website-custom-vs-wordpress-untuk-bisnis
+- **Aplikasi Kasir POS Tanpa Biaya Bulanan (Kapan Harus Pindah):** https://abinest.id/wawasan/cara-memilih-aplikasi-kasir-pos-tanpa-biaya-bulanan
+- **Checklist Memilih SIAKAD & Ujian CBT Sekolah Anti-Down:** https://abinest.id/wawasan/checklist-memilih-siakad-dan-cbt-sekolah-yayasan
+- **Cara Migrasi Stok Gudang dari Excel ke Sistem WMS:** https://abinest.id/wawasan/cara-migrasi-stok-gudang-dari-excel-ke-wms
 - **Mengapa Website >4 Detik Membuang 60% Biaya Iklan:** https://abinest.id/wawasan/mengapa-website-lambat-buang-biaya-iklan
 - **WhatsApp AI Resmi Meta Cloud API Tanpa Risiko Blokir:** https://abinest.id/wawasan/arsitektur-whatsapp-ai-resmi-meta-anti-blokir
 

@@ -52,6 +52,14 @@ export interface ServiceDetailData {
     title: string;
     description: string;
   }[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
+  relatedLinks?: {
+    label: string;
+    href: string;
+  }[];
 }
 
 export function GroveServiceDetailTemplate({
@@ -362,6 +370,59 @@ export function GroveServiceDetailTemplate({
             </div>
           </div>
         </section>
+
+        {/* Visible Service FAQ (Matches FAQPage JSON-LD for Google Rich Results & GEO) */}
+        {data.faqs && data.faqs.length > 0 && (
+          <section className="border-t border-[#E8E8E8] pt-16 mt-16">
+            <div className="sig-container max-w-4xl space-y-6">
+              <div className="space-y-1.5">
+                <p className="text-xs font-mono uppercase tracking-wider text-[#6F6F71]">
+                  Pertanyaan umum layanan ini
+                </p>
+                <h2 className="text-[24px] sm:text-[30px] font-medium tracking-[-0.02em] text-[#171717]">
+                  Jawaban singkat sebelum memulai.
+                </h2>
+              </div>
+              <div className="divide-y divide-[#E8E8E8] border-y border-[#E8E8E8]">
+                {data.faqs.map((item) => (
+                  <div key={item.question} className="py-5 space-y-2">
+                    <h3 className="text-[16.5px] font-semibold text-[#171717]">
+                      {item.question}
+                    </h3>
+                    <p className="text-[15px] text-[#6F6F71] leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Contextual Topic Cluster Cross-Links */}
+        {data.relatedLinks && data.relatedLinks.length > 0 && (
+          <section className="pt-12">
+            <div className="sig-container">
+              <div className="rounded-[18px] bg-white border border-[#E8E8E8] p-6 flex flex-wrap items-center justify-between gap-4">
+                <span className="text-[13px] font-mono uppercase tracking-wider text-[#6F6F71]">
+                  Pelajari juga
+                </span>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  {data.relatedLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#F7F7F7] hover:bg-[#171717] hover:text-white border border-[#E8E8E8] text-[13.5px] font-medium text-[#171717] transition-colors"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       <SignificaFooter />

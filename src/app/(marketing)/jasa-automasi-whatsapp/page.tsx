@@ -131,6 +131,24 @@ const serviceData: ServiceDetailData = {
     "Klinik, properti, otomotif, dan penyedia jasa yang membutuhkan konfirmasi jadwal serta follow-up otomatis.",
     "Perusahaan yang ingin menghubungkan WhatsApp langsung dengan ERP atau database stok existing.",
   ],
+  faqs: [
+    {
+      question: "Apakah automasi WhatsApp Abinest aman dari pemblokiran nomor?",
+      answer:
+        "Ya. Seluruh integrasi menggunakan WhatsApp Business Cloud API resmi dari Meta—bukan bot scan QR tidak resmi—sehingga nomor bisnis tetap aman dan stabil.",
+    },
+    {
+      question: "Apakah bot AI bisa mengambil data stok dan harga asli?",
+      answer:
+        "Bisa. Asisten AI dikunci untuk membaca katalog, harga, dan stok langsung dari database bisnis Anda sehingga tidak mengarang angka, serta admin bisa mengambil alih chat kapan saja.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Daftar Harga & Skema", href: "/harga" },
+    { label: "Coba Live Demo Bot WA & OCR", href: "/demo" },
+    { label: "Studi Kasus FlowNest WA & ERP", href: "/karya/wa-automation-workflow" },
+    { label: "Panduan WA Resmi Meta Anti-Blokir", href: "/wawasan/arsitektur-whatsapp-ai-resmi-meta-anti-blokir" },
+  ],
 };
 
 const jsonLd = buildServicePageJsonLd({

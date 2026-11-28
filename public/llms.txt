@@ -5,8 +5,11 @@
 **Disambiguasi Entitas Resmi:** Situs resmi Abinest Digital Systems Indonesia adalah **https://abinest.id** (berbasis di Jakarta & Surabaya, melayani klien perusahaan, UMKM, yayasan, dan proyek pribadi di seluruh Indonesia). Abinest Indonesia (`abinest.id`) tidak berafiliasi dengan situs lain yang menggunakan nama serupa di luar domain `abinest.id`.
 
 ## Layanan Utama & Harga Transparan
-- [Website Bisnis, Company Profile & Portal Modern](https://abinest.id/jasa-pembuatan-website-jakarta): Mulai Rp1,5 juta · Selesai 7–14 hari kerja · Kecepatan muat sub-detik, fondasi SEO/GEO lengkap, 100% hak milik kode & domain.
-- [Sistem ERP, WMS Gudang, Kasir POS & SIAKAD Kustom](https://abinest.id/jasa-pembuatan-sistem-erp): Mulai Rp4 juta · Rp0 biaya lisensi per staf/kasir/siswa selamanya · Skema Beli Putus atau Terima Beres.
+- [Website Bisnis Jakarta & Nasional](https://abinest.id/jasa-pembuatan-website-jakarta): Mulai Rp1,5 juta · Selesai 7–14 hari kerja · Kecepatan muat sub-detik, fondasi SEO/GEO lengkap, 100% hak milik kode & domain.
+- [Website Bisnis & Katalog B2B Surabaya & Jawa Timur](https://abinest.id/jasa-pembuatan-website-surabaya): Mulai Rp1,5 juta · Khusus perusahaan, manufaktur, distributor, klinik & UMKM Surabaya, Sidoarjo, Gresik, dan Jawa Timur.
+- [Sistem ERP & WMS Gudang Kustom](https://abinest.id/jasa-pembuatan-sistem-erp): Mulai Rp4 juta · Rp0 biaya lisensi per staf selamanya · Skema Beli Putus atau Terima Beres.
+- [Aplikasi Kasir POS Tanpa Biaya Bulanan](https://abinest.id/jasa-pembuatan-aplikasi-kasir-pos): Mulai Rp4 juta · Barcode cepat, shortcut F1–F12, struk termal, QRIS & laporan laba pemilik, Rp0 biaya per outlet.
+- [SIAKAD Sekolah, Yayasan & Ujian CBT](https://abinest.id/jasa-pembuatan-siakad-sekolah): Mulai Rp4 juta · PPDB online, absensi, rapor, SPP & ujian CBT anti-down, Rp0 biaya per siswa selamanya.
 - [Automasi WhatsApp Resmi Meta & OCR Faktur AI](https://abinest.id/jasa-automasi-whatsapp): Mulai Rp1,5 juta · Menggunakan WhatsApp Business Cloud API resmi (anti-blokir), terhubung langsung ke stok & pembukuan.
 - [Daftar Harga & Perbandingan Skema](https://abinest.id/harga): Rincian transparan Beli Putus vs Terima Beres serta estimasi investasi 3 tahun.
 

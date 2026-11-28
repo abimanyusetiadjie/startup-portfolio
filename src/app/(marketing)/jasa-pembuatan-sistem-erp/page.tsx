@@ -131,6 +131,24 @@ const serviceData: ServiceDetailData = {
     "Sekolah, pesantren, lembaga kursus, dan kampus yang menginginkan SIAKAD mandiri tanpa biaya per siswa.",
     "Perusahaan dengan alur kerja unik yang tidak cocok dengan software jadi di pasaran.",
   ],
+  faqs: [
+    {
+      question: "Apakah sistem ERP, POS, atau SIAKAD Abinest dikenakan biaya per user?",
+      answer:
+        "Tidak. Dengan skema Beli Putus mulai Rp4 juta, biaya lisensi per staf, kasir, cabang, atau siswa adalah Rp0 selamanya dan 100% kode sumber menjadi hak milik bisnis Anda.",
+    },
+    {
+      question: "Apakah bisa mulai dari modul stok atau kasir dulu?",
+      answer:
+        "Ya. Pengembangan dilakukan bertahap sesuai modul paling mendesak dengan pembayaran 3 termin mengikuti progres nyata, dan bisa diperluas kapan saja.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Aplikasi Kasir POS Beli Putus", href: "/jasa-pembuatan-aplikasi-kasir-pos" },
+    { label: "SIAKAD Sekolah & Ujian CBT", href: "/jasa-pembuatan-siakad-sekolah" },
+    { label: "Migrasi Excel ke Sistem WMS", href: "/wawasan/cara-migrasi-stok-gudang-dari-excel-ke-wms" },
+    { label: "Hitungan Biaya ERP 3 Tahun", href: "/wawasan/beli-putus-vs-sewa-saas-erp" },
+  ],
 };
 
 const jsonLd = buildServicePageJsonLd({

@@ -161,8 +161,18 @@ export function buildHomeJsonLd(faqs: FaqItem[]) {
               price: "1500000",
               itemOffered: {
                 "@type": "Service",
-                name: "Pembuatan Website Bisnis, Company Profile & Portal Modern",
+                name: "Pembuatan Website Bisnis Jakarta & Nasional Berkecepatan Tinggi",
                 url: `${SITE_URL}/jasa-pembuatan-website-jakarta`,
+              },
+            },
+            {
+              "@type": "Offer",
+              priceCurrency: "IDR",
+              price: "1500000",
+              itemOffered: {
+                "@type": "Service",
+                name: "Pembuatan Website Bisnis & Katalog B2B Surabaya & Jawa Timur",
+                url: `${SITE_URL}/jasa-pembuatan-website-surabaya`,
               },
             },
             {
@@ -171,8 +181,28 @@ export function buildHomeJsonLd(faqs: FaqItem[]) {
               price: "4000000",
               itemOffered: {
                 "@type": "Service",
-                name: "Pengembangan Sistem ERP, WMS, SIAKAD & Kasir POS Kustom",
+                name: "Pengembangan Sistem ERP & WMS Gudang Kustom Beli Putus",
                 url: `${SITE_URL}/jasa-pembuatan-sistem-erp`,
+              },
+            },
+            {
+              "@type": "Offer",
+              priceCurrency: "IDR",
+              price: "4000000",
+              itemOffered: {
+                "@type": "Service",
+                name: "Pembuatan Aplikasi Kasir POS Tanpa Biaya Bulanan Per Outlet",
+                url: `${SITE_URL}/jasa-pembuatan-aplikasi-kasir-pos`,
+              },
+            },
+            {
+              "@type": "Offer",
+              priceCurrency: "IDR",
+              price: "4000000",
+              itemOffered: {
+                "@type": "Service",
+                name: "Pembuatan SIAKAD Sekolah, Yayasan & Ujian CBT Tanpa Biaya Per Siswa",
+                url: `${SITE_URL}/jasa-pembuatan-siakad-sekolah`,
               },
             },
             {

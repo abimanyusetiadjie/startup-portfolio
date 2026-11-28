@@ -131,6 +131,24 @@ const serviceData: ServiceDetailData = {
     "Usaha berkembang yang website lamanya terasa lambat (>3 detik) dan sulit dihubungi lewat WhatsApp.",
     "Bisnis yang ingin berhenti membayar biaya langganan platform web bulanan.",
   ],
+  faqs: [
+    {
+      question: "Berapa biaya pembuatan website bisnis di Abinest?",
+      answer:
+        "Pembuatan website bisnis modern di Abinest mulai Rp1,5 juta dengan skema Beli Putus (100% hak milik kode & domain tanpa biaya bulanan ke Abinest) atau skema Terima Beres.",
+    },
+    {
+      question: "Berapa lama website bisnis selesai dikerjakan?",
+      answer:
+        "Website profil perusahaan atau landing page umumnya selesai dalam 7–14 hari kerja sejak materi siap, termasuk optimasi kecepatan dan struktur SEO Google.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Daftar Harga & Skema", href: "/harga" },
+    { label: "Website Bisnis Surabaya & Jatim", href: "/jasa-pembuatan-website-surabaya" },
+    { label: "Biaya Website Wajar di Indonesia", href: "/wawasan/biaya-pembuatan-website-bisnis-indonesia" },
+    { label: "Custom Website vs WordPress", href: "/wawasan/website-custom-vs-wordpress-untuk-bisnis" },
+  ],
 };
 
 const jsonLd = buildServicePageJsonLd({

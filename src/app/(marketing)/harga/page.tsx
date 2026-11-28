@@ -205,6 +205,31 @@ export default function HargaPage() {
               ))}
             </div>
 
+            {/* Specific Solution Directory Strip (Strong Internal Link Hub) */}
+            <div className="rounded-[18px] border border-[#E5E7EB] bg-[#FAF9FB] p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <span className="text-[13px] font-semibold uppercase tracking-[0.07em] text-[#6B7280] shrink-0">
+                Halaman Solusi Spesifik
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { label: "Website Jakarta & Nasional", href: "/jasa-pembuatan-website-jakarta" },
+                  { label: "Website Surabaya & Jatim", href: "/jasa-pembuatan-website-surabaya" },
+                  { label: "ERP & WMS Gudang", href: "/jasa-pembuatan-sistem-erp" },
+                  { label: "Aplikasi Kasir POS", href: "/jasa-pembuatan-aplikasi-kasir-pos" },
+                  { label: "SIAKAD & Ujian CBT", href: "/jasa-pembuatan-siakad-sekolah" },
+                  { label: "Automasi WA & OCR", href: "/jasa-automasi-whatsapp" },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white hover:bg-[#111111] hover:text-white border border-[#E5E7EB] text-[13.5px] font-medium text-[#111111] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             {/* Structured HTML Comparison Table (High-Impact SEO + GEO Citation Table) */}
             <div className="space-y-5">
               <div className="max-w-2xl space-y-2">

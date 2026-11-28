@@ -223,6 +223,133 @@ export const SIGNIFICA_INSIGHTS: InsightArticle[] = [
     relatedServiceHref: "/jasa-automasi-whatsapp",
     relatedServiceLabel: "Pelajari layanan Automasi AI & WhatsApp",
   },
+  {
+    slug: "cara-memilih-aplikasi-kasir-pos-tanpa-biaya-bulanan",
+    title: "Aplikasi kasir POS tanpa biaya bulanan: kapan harus pindah ke sistem milik sendiri?",
+    date: "27 Nov 2026",
+    publishedIso: "2026-11-27",
+    modifiedIso: "2026-11-28",
+    readTime: "4 mnt baca",
+    authorName: "Abimanyu Setiadjie",
+    authorRole: "Founder & Principal Systems Architect",
+    authorInitials: "AS",
+    authorTone: "#111318",
+    tags: ["Kasir POS", "Ritel", "Biaya"],
+    excerpt:
+      "Perhitungan nyata biaya aplikasi kasir berlangganan saat cabang bertambah dan kriteria wajib sebelum memilih sistem POS Beli Putus.",
+    directAnswer:
+      "Bisnis ritel atau F&B dengan 2 cabang ke atas biasanya membayar Rp6–18 juta per tahun hanya untuk menyewa aplikasi kasir berlangganan—dan tetap terbatas oleh fitur standar vendor. Beralih ke aplikasi kasir POS kustom skema Beli Putus mulai Rp4 juta memberi Rp0 biaya per outlet selamanya serta kendali penuh atas data transaksi dan laporan laba.",
+    sections: [
+      {
+        heading: "Titik balik saat aplikasi kasir sewa mulai terasa mahal",
+        paragraphs: [
+          "Untuk satu warung rintisan dengan sedikit SKU, aplikasi kasir berlangganan memang praktis dicoba di bulan pertama. Namun begitu toko mulai membuka cabang kedua, menambah gudang stok, atau butuh modul grosir bertingkat dan cetak faktur, paket pro per outlet biasanya naik ke kisaran Rp250.000–Rp500.000 per bulan per cabang.",
+          "Dalam 3 tahun, bisnis dengan 3 cabang mengeluarkan Rp27 juta hingga Rp54 juta hanya untuk sewa akses aplikasi—sementara perubahan aturan promo atau laporan khusus tetap tidak bisa diminta ke vendor.",
+        ],
+      },
+      {
+        heading: "Empat kriteria wajib pada sistem POS milik sendiri",
+        paragraphs: [
+          "Pastikan sistem POS Beli Putus yang Anda bangun mencakup empat fondasi: layar kasir super cepat dengan barcode scanner dan shortcut keyboard agar antrean tidak menumpuk, dukungan pembayaran lengkap (Tunai, EDC, QRIS, Split Pay) plus struk termal, pemisahan hak akses ketat agar margin/HPP hanya bisa dilihat pemilik, dan log pembatalan transaksi (void) untuk mencegah kebocoran kasir.",
+        ],
+      },
+      {
+        heading: "Tidak perlu ganti semua perangkat kasir yang sudah ada",
+        paragraphs: [
+          "Sistem POS modern berbasis web ringan dapat langsung berjalan di komputer kasir Windows, laptop, atau tablet yang sudah Anda pakai sehari-hari tanpa memaksa pembelian perangkat keras khusus berharga mahal.",
+        ],
+      },
+    ],
+    takeaway:
+      "Jika Anda sudah menjalankan lebih dari satu cabang, memiliki stok grosir-eceran, atau ingin mengamankan data transaksi tanpa iuran bulanan per outlet, POS Beli Putus jauh lebih hemat dalam jangka 1–3 tahun.",
+    relatedServiceHref: "/jasa-pembuatan-aplikasi-kasir-pos",
+    relatedServiceLabel: "Pelajari layanan Aplikasi Kasir POS Beli Putus",
+  },
+  {
+    slug: "checklist-memilih-siakad-dan-cbt-sekolah-yayasan",
+    title: "Checklist memilih SIAKAD & ujian CBT sekolah agar tidak down saat ujian serentak.",
+    date: "25 Nov 2026",
+    publishedIso: "2026-11-25",
+    modifiedIso: "2026-11-28",
+    readTime: "5 mnt baca",
+    authorName: "Tim Sistem & Arsitektur Abinest",
+    authorRole: "Education Systems Engineering",
+    authorInitials: "SA",
+    authorTone: "#334155",
+    tags: ["SIAKAD", "Pendidikan", "CBT"],
+    excerpt:
+      "Lima hal teknis dan non-teknis yang wajib dicek kepala sekolah dan pengurus yayasan sebelum mengadopsi platform SIAKAD, PPDB, dan ujian online.",
+    directAnswer:
+      "SIAKAD dan ujian CBT yang andal untuk sekolah maupun yayasan wajib memenuhi lima syarat: bebas biaya bulanan per siswa, mampu menampung satu yayasan multi-jenjang, memiliki auto-save jawaban CBT agar tahan gangguan Wi-Fi, mudah dipakai guru senior dan operator TU, serta memberi kepemilikan penuh atas seluruh arsip nilai dan SPP.",
+    sections: [
+      {
+        heading: "Kenapa banyak ujian CBT sekolah tumbang di 10 menit pertama",
+        paragraphs: [
+          "Masalah paling sering saat PTS/PAS serentak terjadi karena seluruh ratusan siswa membuka halaman ujian dan mengunggah jawaban di detik yang sama pada aplikasi berat berbasiskan shared hosting murah.",
+          "Solusinya adalah desain aplikasi ujian yang ringkas, pemisahan aset soal dari proses simpan jawaban, serta fitur auto-save berkala di perangkat siswa sehingga saat koneksi Wi-Fi sekolah berkedip, jawaban yang sudah dikerjakan tidak hilang.",
+        ],
+      },
+      {
+        heading: "Waspadai jebakan tarif 'per siswa per bulan'",
+        paragraphs: [
+          "Tarif Rp5.000–Rp10.000 per siswa per bulan terdengar murah di brosur. Namun untuk yayasan berkapasitas 1.000 siswa, biayanya mencapai Rp60 juta hingga Rp120 juta per tahun—terulang setiap tahun ajaran selama sekolah beroperasi.",
+          "Dengan sistem SIAKAD Beli Putus milik yayasan sendiri, dana tersebut bisa dihemat besar-besaran sementara seluruh unit pendidikan (TK, SD/MI, SMP, SMA/SMK, hingga Pesantren) terkelola dalam satu atap.",
+        ],
+      },
+      {
+        heading: "Kunci keberhasilan implementasi: antarmuka ramah operator & guru",
+        paragraphs: [
+          "Teknologi tercanggih percuma bila guru dan staf TU kebingungan saat input absensi, nilai rapor, atau tagihan SPP. Pastikan penyedia sistem menyertakan uji coba langsung, panduan singkat berbahasa Indonesia, dan garansi pendampingan saat periode sibuk PPDB maupun pembagian rapor.",
+        ],
+      },
+    ],
+    takeaway:
+      "Uji langsung demo SIAKAD dan CBT bersama operator TU serta perwakilan guru sebelum memutuskan, dan pastikan skema biayanya tidak mencekik yayasan saat jumlah siswa terus bertumbuh.",
+    relatedServiceHref: "/jasa-pembuatan-siakad-sekolah",
+    relatedServiceLabel: "Lihat solusi SIAKAD & Ujian CBT Abinest",
+  },
+  {
+    slug: "cara-migrasi-stok-gudang-dari-excel-ke-wms",
+    title: "Cara migrasi pencatatan stok gudang dari Excel ke sistem WMS tanpa menghentikan operasional.",
+    date: "20 Nov 2026",
+    publishedIso: "2026-11-20",
+    modifiedIso: "2026-11-28",
+    readTime: "4 mnt baca",
+    authorName: "Abimanyu Setiadjie",
+    authorRole: "Founder & Principal Systems Architect",
+    authorInitials: "AS",
+    authorTone: "#111318",
+    tags: ["WMS", "ERP", "Gudang"],
+    excerpt:
+      "Langkah praktis memindahkan ribuan SKU gudang distributor dan suku cadang dari spreadsheet ke sistem stok anti-minus tanpa drama di lapangan.",
+    directAnswer:
+      "Migrasi stok gudang dari Excel ke sistem WMS paling aman dilakukan dalam 4 tahap selama 2–4 minggu: pembersihan kode SKU dan satuan, impor saldo awal pasca stock opname mini, masa jalan paralel 5–7 hari bersama Excel pada satu alur utama (barang masuk & Surat Jalan), baru pengalihan penuh setelah tim gudang terbiasa.",
+    sections: [
+      {
+        heading: "Mengapa migrasi mendadak ('cut-off' total dalam semalam) sering gagal",
+        paragraphs: [
+          "Kesalahan paling umum pemilik gudang adalah langsung memaksa admin berhenti total memakai Excel di hari pertama aplikasi baru rilis. Begitu ada satu barang baru yang kodenya belum rapi atau sopir pengiriman sudah menunggu Surat Jalan, tim lapangan panik dan kembali ke pencatatan manual.",
+        ],
+      },
+      {
+        heading: "Pola migrasi aman 4 tahap yang terbukti lancar",
+        paragraphs: [
+          "Pertama, rapikan daftar barang dan standarisasi kode part/SKU serta satuan (pcs, dus, set) dari file Excel lama. Kedua, lakukan uji coba input transaksi pada server staging bersama admin gudang asli agar tata letak tombol dan format cetak Surat Jalan benar-benar cocok dengan kebiasaan mereka.",
+          "Ketiga, jalankan paralel selama 5–7 hari kerja pada kategori barang paling aktif untuk mencocokkan kartu stok anti-minus dengan fisik rak. Keempat, setelah hasil cocok 100%, kunci akses Excel lama menjadi arsip baca-saja dan aktifkan operasional penuh di sistem WMS.",
+        ],
+      },
+      {
+        heading: "Dampak langsung yang terasa pada bulan pertama",
+        paragraphs: [
+          "Pencarian suku cadang atau stok lintas gudang turun dari hitungan menit menjadi hitungan detik, penerbitan LPB dan Surat Jalan otomatis memotong stok tanpa ketik ulang, dan pemilik bisa melihat nilai persediaan serta piutang secara akurat kapan saja.",
+        ],
+      },
+    ],
+    takeaway:
+      "Mulailah migrasi dari modul paling sakit—biasanya kartu stok anti-minus dan cetak Surat Jalan—lalu perluas bertahap ke pembelian dan keuangan setelah tim gudang nyaman.",
+    relatedServiceHref: "/jasa-pembuatan-sistem-erp",
+    relatedServiceLabel: "Pelajari pengembangan Sistem ERP & WMS Kustom",
+  },
 ];
 
 export function getInsightBySlug(slug: string): InsightArticle | undefined {

@@ -27,7 +27,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${SITE_URL}/jasa-pembuatan-website-surabaya`,
+      lastModified: SITE_RELEASE_DATE,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/jasa-pembuatan-sistem-erp`,
+      lastModified: SITE_RELEASE_DATE,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/jasa-pembuatan-aplikasi-kasir-pos`,
+      lastModified: SITE_RELEASE_DATE,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/jasa-pembuatan-siakad-sekolah`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
