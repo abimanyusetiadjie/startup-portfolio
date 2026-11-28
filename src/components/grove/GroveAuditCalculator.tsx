@@ -121,10 +121,10 @@ export function GroveAuditCalculator() {
         "Situs web sekolah lambat (>5 detik) menurunkan minat calon pendaftar baru",
       ];
     } else if (goal === "Otomasi Balasan WhatsApp & Input Faktur") {
-      architectureName = "Agen AI WhatsApp Resmi Meta + Document AI OCR Faktur";
-      duration = "1 – 4 Minggu Kerja";
-      beliPutusPrice = 5000000;
-      terimaBeresPrice = "Rp900 ribu / bulan";
+      architectureName = "Agen AI WhatsApp Resmi + Automasi Pencatatan Faktur";
+      duration = "7 – 14 Hari Kerja";
+      beliPutusPrice = 1500000;
+      terimaBeresPrice = "Rp350 ribu / bulan";
       keyIssues = [
         "Pesan calon pembeli di WhatsApp lambat dibalas di luar jam kerja",
         "Kesalahan ketik (human error) saat input faktur pemasok ke Excel",

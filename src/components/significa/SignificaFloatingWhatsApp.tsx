@@ -22,7 +22,7 @@ const QUICK_TOPICS = [
   },
   {
     label: "Automasi AI & WhatsApp",
-    meta: "Mulai Rp5 jt · Meta API",
+    meta: "Mulai Rp1,5 jt · Jalur Resmi",
     message:
       "Halo Tim Abinest, saya ingin diskusi penerapan Automasi AI WhatsApp resmi & OCR faktur.",
   },

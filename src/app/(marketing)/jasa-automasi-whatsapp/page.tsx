@@ -55,7 +55,7 @@ const serviceData: ServiceDetailData = {
     { value: "99,7%", label: "Akurasi pembacaan angka & item pada faktur/nota" },
     { value: "100%", label: "Menggunakan Meta Cloud API resmi (anti-blokir)" },
   ],
-  startingPrice: "Mulai Rp5 juta",
+  startingPrice: "Mulai Rp1,5 juta",
   priceNote:
     "Tidak ada biaya sewa aplikasi bulanan ke Abinest; Anda hanya membayar pemakaian kuota API Meta / model AI sesuai volume aktual.",
   timeline: "Implementasi & uji coba langsung dalam 1–4 minggu",

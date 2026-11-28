@@ -84,7 +84,7 @@ const CAPABILITIES = [
     id: "ai-wa",
     title: "Automasi WhatsApp & AI",
     desc: "Asisten katalog WhatsApp 24/7 lewat jalur resmi, hitung ongkir otomatis, dan pembacaan dokumen faktur OCR.",
-    meta: "Mulai Rp5 juta · Jalur Resmi WhatsApp",
+    meta: "Mulai Rp1,5 juta · Jalur Resmi WhatsApp",
     href: "/jasa-automasi-whatsapp",
   },
   {

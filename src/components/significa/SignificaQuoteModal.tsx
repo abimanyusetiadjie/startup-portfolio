@@ -11,7 +11,7 @@ const SERVICE_OPTIONS = [
   { id: "website", label: "Website & Portal Bisnis", range: "Mulai Rp1,5 jt" },
   { id: "erp", label: "Sistem ERP, WMS & POS", range: "Mulai Rp4 jt" },
   { id: "siakad", label: "SIAKAD & Portal Sekolah", range: "Mulai Rp4,5 jt" },
-  { id: "ai-wa", label: "Automasi AI & WhatsApp", range: "Mulai Rp5 jt" },
+  { id: "ai-wa", label: "Automasi AI & WhatsApp", range: "Mulai Rp1,5 jt" },
 ] as const;
 
 const SCHEME_OPTIONS = [
