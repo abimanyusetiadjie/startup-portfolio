@@ -134,7 +134,7 @@ export function SignificaHero() {
     <>
       <section id="beranda" className="bg-white">
         {/* 1. Architectural Paper Hero Canvas (#F2F1F3 + subtle drafting grid & studio spotlight) */}
-        <div className="relative overflow-hidden bg-[#F2F1F3] pt-[92px] sm:pt-[112px] lg:pt-[124px] pb-9 sm:pb-12 lg:pb-14">
+        <div className="relative overflow-hidden bg-[#F2F1F3] pt-[84px] sm:pt-[112px] lg:pt-[124px] pb-7 sm:pb-12 lg:pb-14">
           {/* Pure CSS Architectural Paper layers — fade cleanly into #F2F1F3 with zero seam */}
           <div
             aria-hidden="true"
@@ -150,7 +150,7 @@ export function SignificaHero() {
             aria-hidden="true"
             viewBox="0 0 640 520"
             fill="none"
-            className="pointer-events-none select-none absolute -top-2 -right-12 w-[230px] sm:w-[320px] sm:-right-6 lg:-top-6 lg:right-[3%] lg:w-[420px] xl:w-[480px] h-auto opacity-85 lg:opacity-100"
+            className="pointer-events-none select-none absolute -top-3 -right-12 w-[210px] sm:w-[310px] sm:-right-6 lg:-top-12 lg:right-[2.5%] lg:w-[380px] xl:w-[430px] h-auto opacity-85 lg:opacity-100"
           >
             <defs>
               <linearGradient
@@ -217,19 +217,19 @@ export function SignificaHero() {
             </g>
           </svg>
 
-          <div className="clay-container relative z-10 space-y-5 sm:space-y-6">
-            <h1 className="font-semibold text-[#111111] tracking-[-0.028em] leading-[1.14] text-[clamp(1.72rem,2.6vw+0.58rem,3.05rem)] max-w-[1260px] [text-wrap:balance] lg:[text-wrap:unset]">
+          <div className="clay-container relative z-10 space-y-4 sm:space-y-6">
+            <h1 className="font-semibold text-[#111111] tracking-[-0.028em] leading-[1.18] lg:leading-[1.14] text-[clamp(1.52rem,2.7vw+0.54rem,3.05rem)] max-w-[1260px] [text-wrap:balance] lg:[text-wrap:unset]">
               Kami merancang website, aplikasi bisnis,{" "}
               <br className="hidden lg:block" />
               dan automasi khusus untuk bisnis &amp; proyek Anda.
             </h1>
 
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-y-4 gap-x-8 pt-0.5">
-              <div className="flex flex-wrap items-center gap-x-7 gap-y-2.5">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-y-3 lg:gap-y-4 gap-x-8 pt-0.5">
+              <div className="flex flex-wrap items-center gap-x-6 sm:gap-x-7 gap-y-2">
                 <button
                   type="button"
                   onClick={() => setShowreelOpen(true)}
-                  className="clay-arrow-link !text-[15px]"
+                  className="clay-arrow-link !text-[14.5px] sm:!text-[15px]"
                 >
                   <span>Coba demo interaktif</span>
                   <ArrowRight className="w-4 h-4 text-[#6B7280]" />
@@ -237,14 +237,28 @@ export function SignificaHero() {
 
                 <a
                   href="#karya"
-                  className="text-[14.5px] font-medium text-[#6B7280] hover:text-[#111111] transition-colors"
+                  className="text-[14px] sm:text-[14.5px] font-medium text-[#6B7280] hover:text-[#111111] transition-colors"
                 >
                   Lihat karya ↓
                 </a>
               </div>
 
+              {/* Mobile: calm single-line editorial target strip (never wraps into 2 cluttered pill rows) */}
+              <p
+                className="sm:hidden text-[12.5px] text-[#6B7280] whitespace-nowrap"
+                aria-label="Terbuka untuk perusahaan, UMKM, dan pribadi"
+              >
+                Untuk{" "}
+                <span className="font-medium text-[#111111]">Perusahaan</span>
+                {" · "}
+                <span className="font-medium text-[#111111]">UMKM</span>
+                {" · "}
+                <span className="font-medium text-[#111111]">Pribadi</span>
+              </p>
+
+              {/* Tablet & Desktop: crisp frosted studio pills */}
               <div
-                className="flex flex-wrap items-center gap-2 text-[13px]"
+                className="hidden sm:flex flex-wrap items-center gap-2 text-[13px]"
                 aria-label="Terbuka untuk perusahaan, UMKM, dan pribadi"
               >
                 <span className="text-[#6B7280] mr-0.5">Terbuka untuk</span>
@@ -360,18 +374,15 @@ export function SignificaHero() {
                 })}
               </div>
 
-              {/* Mobile ultra-clean single active link row (replaces noisy 03 / 05 caption completely) */}
-              <div className="sm:hidden flex items-center justify-between gap-3 pt-2">
+              {/* Mobile ultra-clean single-line active link row (never wraps or collides with WA FAB) */}
+              <div className="sm:hidden flex items-center pt-1.5 pr-14">
                 <Link
                   href={activeSlide.href}
-                  className="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-[#111111]"
+                  className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#111111] min-w-0"
                 >
-                  <span>{activeSlide.client}</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#6B7280]" />
+                  <span className="truncate">{activeSlide.client}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#6B7280] shrink-0" />
                 </Link>
-                <span className="text-[12.5px] text-[#9CA3AF]">
-                  Geser untuk lihat lainnya
-                </span>
               </div>
             </div>
           </div>
