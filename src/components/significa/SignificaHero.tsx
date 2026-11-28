@@ -218,28 +218,45 @@ export function SignificaHero() {
           </svg>
 
           <div className="clay-container relative z-10 space-y-5 sm:space-y-6">
-            <h1 className="font-semibold text-[#111111] tracking-[-0.028em] leading-[1.12] text-[clamp(1.85rem,3.4vw+0.7rem,3.85rem)] max-w-[1040px] [text-wrap:balance] lg:[text-wrap:unset]">
-              Studio software untuk website,{" "}
+            <h1 className="font-semibold text-[#111111] tracking-[-0.028em] leading-[1.14] text-[clamp(1.72rem,2.6vw+0.58rem,3.05rem)] max-w-[1260px] [text-wrap:balance] lg:[text-wrap:unset]">
+              Kami merancang website, aplikasi bisnis,{" "}
               <br className="hidden lg:block" />
-              sistem ERP/POS, dan AI terapan.
+              dan automasi khusus untuk bisnis &amp; proyek Anda.
             </h1>
 
-            <div className="flex flex-wrap items-center gap-x-7 gap-y-2.5">
-              <button
-                type="button"
-                onClick={() => setShowreelOpen(true)}
-                className="clay-arrow-link !text-[15px]"
-              >
-                <span>Coba demo interaktif</span>
-                <ArrowRight className="w-4 h-4 text-[#6B7280]" />
-              </button>
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-y-4 gap-x-8 pt-0.5">
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-2.5">
+                <button
+                  type="button"
+                  onClick={() => setShowreelOpen(true)}
+                  className="clay-arrow-link !text-[15px]"
+                >
+                  <span>Coba demo interaktif</span>
+                  <ArrowRight className="w-4 h-4 text-[#6B7280]" />
+                </button>
 
-              <a
-                href="#karya"
-                className="text-[14.5px] font-medium text-[#6B7280] hover:text-[#111111] transition-colors"
+                <a
+                  href="#karya"
+                  className="text-[14.5px] font-medium text-[#6B7280] hover:text-[#111111] transition-colors"
+                >
+                  Lihat karya ↓
+                </a>
+              </div>
+
+              <div
+                className="flex flex-wrap items-center gap-2 text-[13px]"
+                aria-label="Terbuka untuk perusahaan, UMKM, dan pribadi"
               >
-                Lihat karya ↓
-              </a>
+                <span className="text-[#6B7280] mr-0.5">Terbuka untuk</span>
+                {["Perusahaan", "UMKM", "Pribadi"].map((target) => (
+                  <span
+                    key={target}
+                    className="inline-flex items-center px-3 py-1 rounded-full bg-white/80 border border-black/[0.08] text-[#111111] font-medium shadow-[0_1px_2px_rgba(17,19,24,0.03)]"
+                  >
+                    {target}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
