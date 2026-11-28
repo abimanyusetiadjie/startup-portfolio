@@ -392,9 +392,10 @@ export function SignificaHero() {
         <div className="bg-white py-16 sm:py-20 lg:py-28">
           <div className="clay-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-6">
-              <p className="text-[21px] sm:text-[26px] lg:text-[28px] font-normal leading-[1.38] tracking-[-0.02em] text-[#111111] max-w-[490px]">
-                Dirancang ringkas, dibangun untuk performa produksi, dan
-                diserahkan utuh 100%—tanpa ketergantungan sewa SaaS bulanan.
+              <p className="text-[21px] sm:text-[26px] lg:text-[28px] font-normal leading-[1.38] tracking-[-0.02em] text-[#111111] max-w-[500px]">
+                Desain yang clean, sistem yang reliable, dan workflow yang
+                otomatis—dirancang khusus untuk kebutuhan bisnis maupun project
+                Anda.
               </p>
             </div>
 

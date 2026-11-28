@@ -29,142 +29,97 @@ const SERVICE_TRACKS = [
   },
 ];
 
-const STUDIO_FACTS = [
-  { value: "17+", label: "Sistem & website terbangun" },
-  { value: "100%", label: "Hak milik kode sumber" },
-  { value: "Rp0", label: "Biaya bulanan per staf" },
-  { value: "90 hari", label: "Garansi bug-fix pascarilis" },
-];
-
 export function SignificaServicesSection() {
   return (
     <section
       id="layanan"
-      className="scroll-mt-24 bg-[#F3F3F3] py-14 sm:py-20 lg:py-28"
+      className="scroll-mt-24 relative overflow-hidden bg-[#F6F7F9] border-y border-[#ECEEF2] py-16 sm:py-20 lg:py-24"
     >
-      {/* ================================================================= */}
-      {/* MOBILE & TABLET (< lg): Thumb-Friendly Editorial Stack + 4:3 Photo */}
-      {/* ================================================================= */}
-      <div className="lg:hidden w-full max-w-[760px] mx-auto px-4 sm:px-8 space-y-7">
-        {/* 1. Compact Mobile Header */}
-        <ClayReveal className="space-y-3">
-          <p className="text-[12.5px] font-medium text-[#6B7280]">
-            Layanan &amp; Kemitraan
-          </p>
-
-          <h2 className="text-[26px] sm:text-[32px] font-semibold tracking-[-0.028em] leading-[1.15] text-[#111111]">
-            Kami membantu bisnis bertumbuh lewat rekayasa sistem yang nyata
-          </h2>
-
-          <p className="text-[15px] leading-[1.6] text-[#4B5563]">
-            Seluruh website, sistem operasional, dan automasi ditulis langsung
-            oleh engineer — tersedia skema Beli Putus maupun Terima Beres untuk
-            perusahaan, UMKM, dan pribadi.
-          </p>
-        </ClayReveal>
-
-        {/* 2. Art-Directed 4:3 Studio Photo (2x taller & warmer on phones vs thin 21:9 strip) */}
-        <ClayReveal delay={0.04} className="space-y-2">
-          <div className="relative w-full overflow-hidden rounded-[12px] bg-[#E9E7E2] ring-1 ring-inset ring-black/[0.06]">
-            <Image
-              src="/images/studio-services-mobile.webp"
-              alt="Suasana kerja studio desain dan rekayasa perangkat lunak Abinest dalam pencahayaan alami"
-              width={960}
-              height={720}
-              quality={85}
-              sizes="(max-width: 768px) 94vw, 720px"
-              className="block w-full h-auto"
-            />
-          </div>
-          <p className="text-[12px] text-[#6B7280]">
-            Studio Abinest · Desain, rekayasa &amp; penyerahan kode penuh
-          </p>
-        </ClayReveal>
-
-        {/* 3. Three Separate Thumb-Friendly Tappable Service Cards */}
-        <div className="space-y-3">
-          {SERVICE_TRACKS.map((srv, idx) => (
-            <ClayReveal key={srv.code} delay={idx * 0.04} y={10}>
-              <Link
-                href={srv.href}
-                className="group block rounded-[12px] bg-white border border-[#E4E5E9] p-4 shadow-[0_1px_2px_rgba(17,19,24,0.03)] active:scale-[0.99] transition-all"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <span className="text-[11.5px] font-mono text-[#9CA3AF]">
-                      {srv.code}
-                    </span>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F3F4F6] text-[12px] font-medium text-[#111111] truncate">
-                      {srv.price}
-                    </span>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] shrink-0 group-hover:text-[#111111] transition-colors" />
-                </div>
-
-                <h3 className="mt-2.5 text-[16.5px] font-semibold tracking-[-0.015em] text-[#111111]">
-                  {srv.title}
-                </h3>
-                <p className="mt-1 text-[13.5px] leading-[1.52] text-[#4B5563]">
-                  {srv.desc}
-                </p>
-              </Link>
-            </ClayReveal>
-          ))}
+      {/* =================================================================== */}
+      {/* FULL-BLEED RIGHT ARCHITECTURAL BACKGROUND + SMOOTH GRADIENT MASK    */}
+      {/* =================================================================== */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute inset-0"
+      >
+        {/* Desktop: Full-bleed right 74% architectural concrete & glass atrium */}
+        <div className="hidden lg:block absolute inset-y-0 right-0 w-[74%]">
+          <Image
+            src="/images/services-architecture-fade.webp"
+            alt=""
+            fill
+            quality={85}
+            sizes="74vw"
+            className="object-cover object-right"
+          />
         </div>
 
-        {/* 4. Compact 2x2 Proof Tiles */}
-        <dl className="grid grid-cols-2 gap-3">
-          {STUDIO_FACTS.map((fact, idx) => (
-            <ClayReveal
-              key={fact.label}
-              delay={idx * 0.04}
-              y={10}
-              className="rounded-[12px] bg-white/80 border border-[#E4E5E9] px-4 py-3.5 space-y-1"
-            >
-              <dd className="text-[24px] font-semibold tracking-[-0.03em] text-[#111111] tabular-nums leading-none">
-                {fact.value}
-              </dd>
-              <dt className="text-[12.5px] text-[#6B7280] leading-snug">
-                {fact.label}
-              </dt>
-            </ClayReveal>
-          ))}
-        </dl>
+        {/* Desktop horizontal & subtle edge fade melting smoothly into #F6F7F9 */}
+        <div
+          className="hidden lg:block absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, #F6F7F9 0%, #F6F7F9 34%, rgba(246,247,249,0.9) 48%, rgba(246,247,249,0.28) 68%, rgba(246,247,249,0.04) 100%)",
+          }}
+        />
+        <div
+          className="hidden lg:block absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, #F6F7F9 0%, rgba(246,247,249,0) 11%, rgba(246,247,249,0) 89%, #F6F7F9 100%)",
+          }}
+        />
 
-        {/* 5. Thumb-Reach Dual Action Buttons */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-          <Link href="/audit-gratis" className="clay-pill-btn w-full">
-            <span>Hitung estimasi proyek</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link href="/demo" className="clay-pill-outline bg-white w-full">
-            <span>Coba demo interaktif</span>
-          </Link>
+        {/* Mobile (< lg): Soft architectural sweep at top-right dissolving seamlessly into left text & cards */}
+        <div className="lg:hidden absolute top-0 right-0 w-full h-[360px]">
+          <Image
+            src="/images/services-architecture-fade.webp"
+            alt=""
+            fill
+            quality={82}
+            sizes="100vw"
+            className="object-cover object-right opacity-85"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(246,247,249,0.2) 0%, rgba(246,247,249,0.72) 58%, #F6F7F9 98%)",
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(246,247,249,0.94) 0%, rgba(246,247,249,0.68) 48%, rgba(246,247,249,0.12) 100%)",
+            }}
+          />
         </div>
       </div>
 
-      {/* ================================================================= */}
-      {/* DESKTOP (lg+): Clay 2-Column Split + Wide 21:9 Studio Banner      */}
-      {/* ================================================================= */}
-      <div className="hidden lg:block clay-container space-y-16">
-        {/* 1. Balanced 2-Column Header: Studio Statement Left + 3 Interactive Service Tracks Right */}
-        <div className="grid grid-cols-12 gap-14 items-end">
-          <ClayReveal className="col-span-6 space-y-6">
-            <p className="text-[13px] font-medium text-[#6B7280]">
+      {/* =================================================================== */}
+      {/* FOREGROUND: LEFT-ALIGNED EDITORIAL COPY + RIGHT FROSTED SERVICE BOX */}
+      {/* =================================================================== */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-[clamp(1.5rem,5vw,4.75rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
+          {/* Left-Aligned Studio Statement */}
+          <ClayReveal className="lg:col-span-6 space-y-4 sm:space-y-5 max-w-[560px]">
+            <p className="text-[12.5px] sm:text-[13px] font-medium text-[#6B7280]">
               Layanan &amp; Kemitraan
             </p>
 
-            <h2 className="text-[clamp(2.25rem,3vw+0.5rem,3.15rem)] font-semibold tracking-[-0.03em] leading-[1.1] text-[#111111]">
+            <h2 className="text-[26px] sm:text-[34px] lg:text-[clamp(2.25rem,3vw+0.45rem,3rem)] font-semibold tracking-[-0.03em] leading-[1.12] text-[#111111]">
               Kami membantu bisnis bertumbuh lewat rekayasa sistem yang nyata
             </h2>
 
-            <p className="text-[18px] leading-[1.6] text-[#4B5563] max-w-[540px]">
+            <p className="text-[15px] sm:text-[17px] lg:text-[17.5px] leading-[1.62] text-[#374151]">
               Seluruh website, sistem operasional, dan automasi dirancang serta
               ditulis langsung oleh tim engineer — tersedia skema Beli Putus
               maupun Terima Beres untuk perusahaan, UMKM, dan proyek pribadi.
             </p>
 
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3.5 pt-1">
+            {/* Desktop inline Clay arrow links */}
+            <div className="hidden lg:flex flex-wrap items-center gap-x-8 gap-y-3 pt-2">
               <Link href="/audit-gratis" className="clay-arrow-link">
                 <span>Hitung estimasi proyek</span>
                 <ArrowRight className="w-4 h-4 text-[#6B7280]" />
@@ -177,26 +132,69 @@ export function SignificaServicesSection() {
             </div>
           </ClayReveal>
 
-          <ClayReveal delay={0.06} className="col-span-6">
-            <div className="bg-white border border-[#E4E5E9] divide-y divide-[#ECECEF]">
+          {/* Right: Preserved Frosted 3-Track Service Directory */}
+          <ClayReveal delay={0.06} className="lg:col-span-6 space-y-4 lg:space-y-0">
+            {/* Mobile (< lg): 3 Thumb-Friendly Frosted Cards */}
+            <div className="lg:hidden space-y-3">
               {SERVICE_TRACKS.map((srv) => (
                 <Link
                   key={srv.code}
                   href={srv.href}
-                  className="group flex items-start justify-between gap-4 p-6 hover:bg-[#FAFAFB] transition-colors"
+                  className="group block rounded-[12px] bg-white/95 backdrop-blur-md border border-white ring-1 ring-black/[0.06] p-4 shadow-[0_12px_28px_-18px_rgba(17,19,24,0.16)] active:scale-[0.99] transition-all"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="text-[11.5px] font-mono text-[#9CA3AF]">
+                        {srv.code}
+                      </span>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#F3F4F6] text-[12px] font-medium text-[#111111] truncate">
+                        {srv.price}
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] shrink-0 group-hover:text-[#111111] transition-colors" />
+                  </div>
+
+                  <h3 className="mt-2.5 text-[16.5px] font-semibold tracking-[-0.015em] text-[#111111]">
+                    {srv.title}
+                  </h3>
+                  <p className="mt-1 text-[13.5px] leading-[1.52] text-[#4B5563]">
+                    {srv.desc}
+                  </p>
+                </Link>
+              ))}
+            </div>
+
+            {/* Mobile bottom dual CTA pills */}
+            <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+              <Link href="/audit-gratis" className="clay-pill-btn w-full">
+                <span>Hitung estimasi proyek</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/demo" className="clay-pill-outline bg-white/90 w-full">
+                <span>Coba demo interaktif</span>
+              </Link>
+            </div>
+
+            {/* Desktop (lg+): Unified Frosted Architectural Service Box Floating Over Fade */}
+            <div className="hidden lg:block rounded-[12px] bg-white/95 backdrop-blur-md border border-white ring-1 ring-black/[0.06] shadow-[0_28px_64px_-26px_rgba(17,19,24,0.18)] divide-y divide-[#ECECEF] overflow-hidden">
+              {SERVICE_TRACKS.map((srv) => (
+                <Link
+                  key={srv.code}
+                  href={srv.href}
+                  className="group flex items-start justify-between gap-4 p-6 hover:bg-white transition-colors"
                 >
                   <div className="flex items-baseline gap-4 min-w-0">
                     <span className="text-[12px] font-mono text-[#9CA3AF] shrink-0">
                       {srv.code}
                     </span>
                     <div className="space-y-1 min-w-0">
-                      <h3 className="text-[18px] font-semibold tracking-[-0.015em] text-[#111111] group-hover:opacity-75 transition-opacity">
+                      <h3 className="text-[17.5px] font-semibold tracking-[-0.015em] text-[#111111] group-hover:opacity-75 transition-opacity">
                         {srv.title}
                       </h3>
-                      <p className="text-[14px] leading-[1.55] text-[#4B5563]">
+                      <p className="text-[13.5px] leading-[1.55] text-[#4B5563]">
                         {srv.desc}
                       </p>
-                      <p className="pt-0.5 text-[13px] font-medium text-[#111111]">
+                      <p className="pt-0.5 text-[13px] font-semibold text-[#111111]">
                         {srv.price}
                       </p>
                     </div>
@@ -208,47 +206,6 @@ export function SignificaServicesSection() {
             </div>
           </ClayReveal>
         </div>
-
-        {/* 2. Clay Signature Wide Editorial Studio Banner (21:9 HD WebP, 69.5 KB, 0% crop) */}
-        <ClayReveal delay={0.08} className="space-y-3">
-          <div className="relative w-full overflow-hidden bg-[#E9E7E2] ring-1 ring-inset ring-black/[0.06]">
-            <Image
-              src="/images/studio-services-banner.webp"
-              alt="Suasana kerja studio desain dan rekayasa perangkat lunak Abinest dalam pencahayaan alami"
-              width={1600}
-              height={686}
-              quality={85}
-              sizes="(max-width: 1440px) 92vw, 1300px"
-              className="block w-full h-auto"
-            />
-          </div>
-          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 text-[13px] text-[#6B7280]">
-            <span>
-              Studio Abinest — Perancangan antarmuka, rekayasa sistem, dan serah
-              terima kode penuh
-            </span>
-            <span className="text-[#8C8E94]">Perusahaan · UMKM · Pribadi</span>
-          </div>
-        </ClayReveal>
-
-        {/* 3. Quiet Flat Studio Proof Strip */}
-        <dl className="pt-12 border-t border-[#E0E0E2] grid grid-cols-4 gap-12">
-          {STUDIO_FACTS.map((fact, idx) => (
-            <ClayReveal
-              key={fact.label}
-              delay={idx * 0.05}
-              y={12}
-              className="space-y-1.5"
-            >
-              <dd className="text-[38px] font-semibold tracking-[-0.03em] text-[#111111] tabular-nums leading-none">
-                {fact.value}
-              </dd>
-              <dt className="text-[14px] text-[#6B7280] leading-snug">
-                {fact.label}
-              </dt>
-            </ClayReveal>
-          ))}
-        </dl>
       </div>
     </section>
   );
