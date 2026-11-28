@@ -15,6 +15,7 @@ const SHOWREEL_SLIDES = [
     id: "looku",
     shortName: "Look.u AI",
     client: "Look.u AI",
+    heroPhrase: "website modern",
     image: "/images/portfolio/looku-ai.webp",
     alt: "Antarmuka editorial fashion Look.u AI — rekomendasi Casual Campus Chiffon ramah iklim tropis",
     href: "/karya/looku-ai",
@@ -24,6 +25,7 @@ const SHOWREEL_SLIDES = [
     id: "kinetic",
     shortName: "KINETIC Web",
     client: "KINETIC Tech Gym",
+    heroPhrase: "website brand",
     image: "/images/portfolio/kinetic-fitness.webp",
     alt: "Website brand modern KINETIC Tech Gym dengan tipografi tegas dan pendaftaran QR member pass",
     href: "/karya/kinetic-fitness",
@@ -33,6 +35,7 @@ const SHOWREEL_SLIDES = [
     id: "flownest",
     shortName: "FlowNest WA",
     client: "FlowNest Automasi WA & ERP",
+    heroPhrase: "workflow otomatis",
     image: "/images/portfolio/wa-automation-workflow.webp",
     alt: "Kanvas alur otomasi FlowNest menghubungkan WhatsApp Cloud API, AI Parser & Cek Stok, serta sinkronisasi ERP",
     href: "/karya/wa-automation-workflow",
@@ -42,6 +45,7 @@ const SHOWREEL_SLIDES = [
     id: "central",
     shortName: "Central Web",
     client: "Central Scaffolding B2B",
+    heroPhrase: "portal korporat",
     image: "/images/portfolio/central-scaffolding-web.webp",
     alt: "Website B2B Central Scaffolding menampilkan kalkulator kebutuhan set SNI dan katalog perancah proyek",
     href: "/karya/central-scaffolding",
@@ -51,6 +55,7 @@ const SHOWREEL_SLIDES = [
     id: "smartpos",
     shortName: "SmartPOS",
     client: "Toko Ritel POS (SmartPOS)",
+    heroPhrase: "sistem operasional",
     image: "/images/portfolio/smartpos-kasir.webp",
     alt: "Antarmuka kasir SmartPOS dengan pindai barcode F2, shortcut keyboard F1–F12, Cash, Kartu EDC, QRIS, dan cetak struk",
     href: "/karya/smartpos-aneka-rasa",
@@ -218,10 +223,31 @@ export function SignificaHero() {
           </svg>
 
           <div className="clay-container relative z-10 space-y-4 sm:space-y-6">
-            <h1 className="font-semibold text-[#111111] tracking-[-0.028em] leading-[1.18] lg:leading-[1.14] text-[clamp(1.52rem,2.7vw+0.54rem,3.05rem)] max-w-[1260px] [text-wrap:balance] lg:[text-wrap:unset]">
-              Kami merancang website, aplikasi bisnis,{" "}
-              <br className="hidden lg:block" />
-              dan automasi khusus untuk bisnis &amp; proyek Anda.
+            <h1 className="font-semibold text-[#111111] tracking-[-0.03em] leading-[1.15] lg:leading-[1.11] text-[clamp(1.68rem,3.1vw+0.6rem,3.65rem)] max-w-[1160px]">
+              <span className="text-[#71717A] font-medium">Kami merancang</span>{" "}
+              <br className="sm:hidden" />
+              <span className="inline-flex overflow-hidden align-bottom py-[0.04em] -my-[0.04em]">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={activeSlide.id}
+                    initial={{ y: "65%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    exit={{ y: "-65%", opacity: 0 }}
+                    transition={{
+                      duration: 0.24,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="inline-block text-[#111111] font-semibold whitespace-nowrap"
+                  >
+                    {activeSlide.heroPhrase}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+              <br />
+              <span className="text-[#71717A] font-medium">khusus untuk</span>{" "}
+              <span className="text-[#111111] font-semibold">
+                bisnis &amp; project Anda.
+              </span>
             </h1>
 
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-y-3 lg:gap-y-4 gap-x-8 pt-0.5">
