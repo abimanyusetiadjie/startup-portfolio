@@ -350,6 +350,84 @@ export const SIGNIFICA_INSIGHTS: InsightArticle[] = [
     relatedServiceHref: "/jasa-pembuatan-sistem-erp",
     relatedServiceLabel: "Pelajari pengembangan Sistem ERP & WMS Kustom",
   },
+  {
+    slug: "software-house-vs-freelancer-untuk-proyek-bisnis",
+    title: "Software house vs freelancer: perbandingan risiko, biaya & garansi untuk proyek bisnis.",
+    date: "28 Nov 2026",
+    publishedIso: "2026-11-28",
+    modifiedIso: "2026-11-28",
+    readTime: "4 mnt baca",
+    authorName: "Abimanyu Setiadjie",
+    authorRole: "Founder & Principal Systems Architect",
+    authorInitials: "AS",
+    authorTone: "#111318",
+    tags: ["Strategi", "Software House", "Aplikasi Web"],
+    excerpt:
+      "Kapan menyewa freelancer tunggal cukup aman untuk tugas singkat, dan kapan memilih studio software house justru menghemat biaya revisi ulang.",
+    directAnswer:
+      "Freelancer cocok untuk tugas kecil yang ruang lingkupnya sangat sempit (misal slicing 1 halaman atau perbaikan bug kecil). Namun untuk website korporat, aplikasi operasional ERP/POS/SIAKAD, atau sistem yang menyangkut data keuangan dan operasional harian tim, studio software house jauh lebih aman karena adanya kontrak resmi, standar arsitektur bersih, pembayaran bertahap, serta garansi pemeliharaan pascarilis.",
+    sections: [
+      {
+        heading: "Biaya tersembunyi ketika proyek berhenti di tengah jalan",
+        paragraphs: [
+          "Harga penawaran freelancer memang kerap terlihat 30–40% lebih murah di awal. Risiko terbesarnya muncul ketika individu tersebut sibuk di pekerjaan utama, sulit dihubungi saat aplikasi error di jam sibuk, atau meninggalkan kode tanpa dokumentasi sehingga studio berikutnya terpaksa membongkar ulang dari nol.",
+          "Dalam banyak kasus yang kami temui, biaya membongkar ulang proyek setengah jadi justru jauh melampaui selisih harga awal.",
+        ],
+      },
+      {
+        heading: "Keunggulan studio kecil-menengah (engineering studio) dibanding agensi raksasa",
+        paragraphs: [
+          "Banyak pemilik usaha khawatir memilih software house karena takut harganya puluhan juta dengan birokrasi berlapis. Studio rekayasa digital modern seperti Abinest mengisi celah tersebut: komunikasi langsung dengan tim engineer inti, harga transparan mulai Rp1,5–4 juta, dokumen formal (penawaran, invoice, NDA), dan 100% hak milik kode sumber.",
+        ],
+      },
+      {
+        heading: "Cara cepat menentukan pilihan sesuai skala proyek Anda",
+        paragraphs: [
+          "Gunakan aturan sederhana ini: jika sistem tersebut akan dipakai setiap hari oleh lebih dari 3 staf, menyimpan data transaksi/uang, atau menjadi wajah utama perusahaan di Google, percayakan pada studio yang memberi jaminan serah terima kode penuh dan garansi teknis tertulis.",
+        ],
+      },
+    ],
+    takeaway:
+      "Nilai proyek tidak hanya diukur dari tarif awal, melainkan dari kepastian selesai tepat waktu, kerapian kode saat bisnis bertumbuh, dan kemudahan mendapat bantuan pascarilis.",
+    relatedServiceHref: "/jasa-pembuatan-aplikasi-web",
+    relatedServiceLabel: "Pelajari layanan Aplikasi Web Custom Abinest",
+  },
+  {
+    slug: "cara-memilih-software-house-terpercaya-indonesia",
+    title: "7 ciri software house terpercaya di Indonesia + red flag sebelum bayar DP.",
+    date: "28 Nov 2026",
+    publishedIso: "2026-11-28",
+    modifiedIso: "2026-11-28",
+    readTime: "5 mnt baca",
+    authorName: "Abimanyu Setiadjie",
+    authorRole: "Founder & Principal Systems Architect",
+    authorInitials: "AS",
+    authorTone: "#111318",
+    tags: ["Panduan", "Software House", "Keamanan"],
+    excerpt:
+      "Checklist praktis bagi pemilik usaha, manajer IT, dan pengurus yayasan untuk menyaring vendor website atau aplikasi sebelum menandatangani kontrak.",
+    directAnswer:
+      "Software house terpercaya di Indonesia ditandai oleh 7 indikator konkret: portofolio nyata yang bisa diuji, transparansi rincian harga dan biaya perpanjangan, pembayaran bertahap mengikuti progres staging, kontrak hak milik penuh atas domain dan source code, keamanan bebas celah plugin rentan, antarmuka yang ramah staf non-IT, serta garansi bug-fix pascarilis tertulis.",
+    sections: [
+      {
+        heading: "Tujuh hal wajib diverifikasi sebelum menyepakati penawaran",
+        paragraphs: [
+          "Pertama, uji langsung bukti karya atau live demo—jangan hanya percaya brosur slide. Kedua, pastikan kepemilikan domain didaftarkan atas nama perusahaan Anda sendiri, bukan dipegang pribadi oleh vendor. Ketiga, tanyakan skema kepemilikan kode sumber: apakah 100% diserahkan atau Anda terikat biaya langganan per user selamanya.",
+          "Keempat, pastikan pembayaran dilakukan bertahap berdasarkan hasil nyata (DP awal, uji coba staging, pelunasan saat siap rilis). Kelima, cek apakah vendor siap menerbitkan dokumen formal (penawaran, kontrak, invoice, dan NDA). Keenam, pastikan website/sistem dibangun bersih tanpa celah plugin yang rawan disusupi malware atau link spam. Ketujuh, minta kejelasan masa garansi perbaikan teknis setelah go-live.",
+        ],
+      },
+      {
+        heading: "Tiga red flag yang patut membuat Anda berhati-hati",
+        paragraphs: [
+          "Waspadai penyedia jasa yang meminta pelunasan 100% di muka sebelum ada desain awal, menolak menjelaskan rincian biaya tahunan domain/server secara terpisah, atau menjanjikan peringkat #1 Google secara instan dalam beberapa hari—karena SEO yang sehat dibangun melalui fondasi teknis rapi, konten bernilai, dan otoritas domain yang konsisten.",
+        ],
+      },
+    ],
+    takeaway:
+      "Vendor terbaik selalu transparan soal risiko, jadwal, dan biaya sejak pertemuan pertama—serta memberi bukti sistem nyata yang bisa Anda uji langsung sebelum berkomitmen.",
+    relatedServiceHref: "/tentang",
+    relatedServiceLabel: "Kenali standar kerja & profil resmi Abinest",
+  },
 ];
 
 export function getInsightBySlug(slug: string): InsightArticle | undefined {

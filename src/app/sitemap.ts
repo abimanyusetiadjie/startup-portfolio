@@ -6,6 +6,8 @@ import { SITE_URL } from "@/lib/seo";
 const SITE_RELEASE_DATE = new Date("2026-11-28T00:00:00.000Z");
 const LEGAL_RELEASE_DATE = new Date("2026-11-01T00:00:00.000Z");
 
+const absImg = (path: string) => `${SITE_URL}${path}`;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -13,54 +15,77 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 1.0,
+      images: [absImg("/images/abinest-og-card.jpg")],
     },
     {
       url: `${SITE_URL}/harga`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
+      images: [absImg("/images/abinest-og-card.jpg")],
+    },
+    {
+      url: `${SITE_URL}/jasa-pembuatan-website-company-profile`,
+      lastModified: SITE_RELEASE_DATE,
+      changeFrequency: "weekly",
+      priority: 0.95,
+      images: [absImg("/images/portfolio/toko-amen-snack-web.webp")],
+    },
+    {
+      url: `${SITE_URL}/jasa-pembuatan-aplikasi-web`,
+      lastModified: SITE_RELEASE_DATE,
+      changeFrequency: "weekly",
+      priority: 0.95,
+      images: [absImg("/images/portfolio/propsmart-dashboard.webp")],
     },
     {
       url: `${SITE_URL}/jasa-pembuatan-website-jakarta`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
+      images: [absImg("/images/portfolio/kinetic-fitness.webp")],
     },
     {
       url: `${SITE_URL}/jasa-pembuatan-website-surabaya`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
+      images: [absImg("/images/portfolio/central-scaffolding-web.webp")],
     },
     {
       url: `${SITE_URL}/jasa-pembuatan-sistem-erp`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
+      images: [absImg("/images/portfolio/smartpos-kasir.webp")],
     },
     {
       url: `${SITE_URL}/jasa-pembuatan-aplikasi-kasir-pos`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
+      images: [absImg("/images/portfolio/smartpos-kasir.webp")],
     },
     {
       url: `${SITE_URL}/jasa-pembuatan-siakad-sekolah`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
+      images: [absImg("/images/portfolio/ypi-al-fuad-web.webp")],
     },
     {
       url: `${SITE_URL}/jasa-automasi-whatsapp`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.95,
+      images: [absImg("/images/portfolio/wa-automation-workflow.webp")],
     },
     {
       url: `${SITE_URL}/karya`,
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.9,
+      images: [absImg("/images/portfolio/looku-ai.webp")],
     },
     {
       url: `${SITE_URL}/wawasan`,
@@ -79,18 +104,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: SITE_RELEASE_DATE,
       changeFrequency: "monthly",
       priority: 0.85,
+      images: [absImg("/images/abinest-og-card.jpg")],
     },
     {
       url: `${SITE_URL}/kebijakan-privasi`,
       lastModified: LEGAL_RELEASE_DATE,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.2,
     },
     {
       url: `${SITE_URL}/syarat-ketentuan`,
       lastModified: LEGAL_RELEASE_DATE,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.2,
     },
   ];
 
@@ -99,6 +125,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: SITE_RELEASE_DATE,
     changeFrequency: "monthly",
     priority: 0.85,
+    ...(item.images.length > 0
+      ? { images: item.images.map((img) => absImg(img.src)) }
+      : {}),
   }));
 
   const insightRoutes: MetadataRoute.Sitemap = SIGNIFICA_INSIGHTS.map((post) => ({

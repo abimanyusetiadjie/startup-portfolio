@@ -212,6 +212,8 @@ export default function HargaPage() {
               </span>
               <div className="flex flex-wrap gap-2">
                 {[
+                  { label: "Website Company Profile", href: "/jasa-pembuatan-website-company-profile" },
+                  { label: "Aplikasi Web Custom & SaaS", href: "/jasa-pembuatan-aplikasi-web" },
                   { label: "Website Jakarta & Nasional", href: "/jasa-pembuatan-website-jakarta" },
                   { label: "Website Surabaya & Jatim", href: "/jasa-pembuatan-website-surabaya" },
                   { label: "ERP & WMS Gudang", href: "/jasa-pembuatan-sistem-erp" },

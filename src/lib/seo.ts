@@ -161,6 +161,26 @@ export function buildHomeJsonLd(faqs: FaqItem[]) {
               price: "1500000",
               itemOffered: {
                 "@type": "Service",
+                name: "Jasa Pembuatan Website Company Profile & Toko Online Custom Indonesia",
+                url: `${SITE_URL}/jasa-pembuatan-website-company-profile`,
+              },
+            },
+            {
+              "@type": "Offer",
+              priceCurrency: "IDR",
+              price: "4000000",
+              itemOffered: {
+                "@type": "Service",
+                name: "Jasa Pembuatan Aplikasi Web Custom, Dashboard Bisnis & SaaS",
+                url: `${SITE_URL}/jasa-pembuatan-aplikasi-web`,
+              },
+            },
+            {
+              "@type": "Offer",
+              priceCurrency: "IDR",
+              price: "1500000",
+              itemOffered: {
+                "@type": "Service",
                 name: "Pembuatan Website Bisnis Jakarta & Nasional Berkecepatan Tinggi",
                 url: `${SITE_URL}/jasa-pembuatan-website-jakarta`,
               },

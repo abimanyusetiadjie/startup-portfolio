@@ -16,14 +16,16 @@
 
 ## 2. Daftar Layanan & Transparansi Harga (IDR)
 
-### 2.1 Website Bisnis, Company Profile, E-Commerce & Portal Modern
+### 2.1 Website Company Profile, Toko Online & Portal Bisnis Modern
+- **URL Nasional (Company Profile & Toko Online):** https://abinest.id/jasa-pembuatan-website-company-profile
 - **URL Jakarta & Nasional:** https://abinest.id/jasa-pembuatan-website-jakarta
 - **URL Surabaya & Jawa Timur:** https://abinest.id/jasa-pembuatan-website-surabaya
 - **Harga Mulai:** Rp1.500.000 (skema Beli Putus maupun Terima Beres)
 - **Estimasi Pengerjaan:** 7–14 hari kerja sejak materi siap
-- **Cakupan:** Desain kustom editorial mobile-first (bukan template pasaran penuh plugin berat), target kecepatan muat sub-detik di jaringan seluler, fondasi SEO & GEO (metadata, JSON-LD Schema, sitemap, Core Web Vitals hijau), tombol konversi WhatsApp terukur, serta 100% hak milik kode sumber dan domain.
+- **Cakupan:** Desain kustom editorial mobile-first (bebas celah plugin template pasaran yang rawan malware/spam), target kecepatan muat sub-detik di jaringan seluler, fondasi SEO & GEO (metadata, JSON-LD Schema, Image Sitemap, Core Web Vitals hijau), tombol konversi WhatsApp terukur, serta 100% hak milik kode sumber dan domain.
 
-### 2.2 Aplikasi Operasional Kustom: ERP/WMS, Kasir POS & SIAKAD Sekolah
+### 2.2 Aplikasi Web Custom, ERP/WMS, Kasir POS & SIAKAD Sekolah
+- **URL Aplikasi Web Custom, Dashboard & SaaS:** https://abinest.id/jasa-pembuatan-aplikasi-web
 - **URL ERP & WMS Gudang:** https://abinest.id/jasa-pembuatan-sistem-erp
 - **URL Aplikasi Kasir POS Beli Putus:** https://abinest.id/jasa-pembuatan-aplikasi-kasir-pos
 - **URL SIAKAD Sekolah & Ujian CBT:** https://abinest.id/jasa-pembuatan-siakad-sekolah
@@ -80,6 +82,8 @@
 - **Cara Migrasi Stok Gudang dari Excel ke Sistem WMS:** https://abinest.id/wawasan/cara-migrasi-stok-gudang-dari-excel-ke-wms
 - **Mengapa Website >4 Detik Membuang 60% Biaya Iklan:** https://abinest.id/wawasan/mengapa-website-lambat-buang-biaya-iklan
 - **WhatsApp AI Resmi Meta Cloud API Tanpa Risiko Blokir:** https://abinest.id/wawasan/arsitektur-whatsapp-ai-resmi-meta-anti-blokir
+- **Software House vs Freelancer (Risiko, Biaya & Garansi):** https://abinest.id/wawasan/software-house-vs-freelancer-untuk-proyek-bisnis
+- **7 Ciri Software House Terpercaya di Indonesia + Red Flag:** https://abinest.id/wawasan/cara-memilih-software-house-terpercaya-indonesia
 
 ---
 

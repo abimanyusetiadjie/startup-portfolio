@@ -23,8 +23,8 @@ const STUDIO_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { label: "Website Jakarta & Nasional", href: "/jasa-pembuatan-website-jakarta" },
-  { label: "Website Surabaya & Jatim", href: "/jasa-pembuatan-website-surabaya" },
+  { label: "Website Company Profile", href: "/jasa-pembuatan-website-company-profile" },
+  { label: "Aplikasi Web Custom", href: "/jasa-pembuatan-aplikasi-web" },
   { label: "Sistem ERP & WMS", href: "/jasa-pembuatan-sistem-erp" },
   { label: "Aplikasi Kasir POS", href: "/jasa-pembuatan-aplikasi-kasir-pos" },
   { label: "SIAKAD & Ujian CBT", href: "/jasa-pembuatan-siakad-sekolah" },
@@ -209,11 +209,25 @@ export function SignificaFooter() {
                 </h3>
                 <dl className="grid grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-3.5 text-[14px]">
                   <div>
-                    <dt className="font-semibold text-[#111111]">Jakarta</dt>
+                    <dt className="font-semibold text-[#111111]">
+                      <Link
+                        href="/jasa-pembuatan-website-jakarta"
+                        className="hover:opacity-60 transition-opacity"
+                      >
+                        Jakarta
+                      </Link>
+                    </dt>
                     <dd className="text-[#6B7280]">DKI Jakarta, ID</dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-[#111111]">Surabaya</dt>
+                    <dt className="font-semibold text-[#111111]">
+                      <Link
+                        href="/jasa-pembuatan-website-surabaya"
+                        className="hover:opacity-60 transition-opacity"
+                      >
+                        Surabaya
+                      </Link>
+                    </dt>
                     <dd className="text-[#6B7280]">Jawa Timur, ID</dd>
                   </div>
                   <div>
