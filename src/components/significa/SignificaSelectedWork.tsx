@@ -11,30 +11,30 @@ import {
 } from "@/data/significa-work";
 import { ClayReveal } from "./ClayReveal";
 
-// Clay signature curated 8-card selection: cohesive studio craft across Website Modern, Automation Workflow & ERP/POS
+// Clay signature curated 12-card selection: balanced 50% modern Website UIs across 6 sectors + Automation Workflow & ERP/POS
 const LEFT_COLUMN_SLUGS = [
   "looku-ai",
   "wa-automation-workflow",
-  "propsmart-saas",
+  "capstonenews-portal",
+  "ypi-al-fuad",
+  "toko-amen-snack",
   "heavytrack-wms",
 ];
 
 const RIGHT_COLUMN_SLUGS = [
   "kinetic-fitness",
+  "central-scaffolding",
   "smartpos-aneka-rasa",
+  "propsmart-saas",
   "ai-cv-screening",
   "logisync-fleet",
 ];
 
-// Remaining 9 real scratch projects cleanly revealed via Clay's "Explore all work ->" control
+// Remaining 5 real projects cleanly revealed via Clay's "Explore all work ->" control
 const EXTRA_ARCHIVE_SLUGS = [
   "lacak-korupsi",
-  "central-scaffolding",
-  "ypi-al-fuad",
-  "toko-amen-snack",
   "crew-ai-hris",
   "scalebase-crm",
-  "capstonenews-portal",
   "desahub-simkopdes",
   "siakad-sekolah",
 ];

@@ -39,13 +39,13 @@ const SHOWREEL_SLIDES = [
     bg: "#EAEDF2",
   },
   {
-    id: "propsmart",
-    shortName: "PropSmart",
-    client: "PropSmart SaaS",
-    image: "/images/portfolio/propsmart-saas.webp",
-    alt: "Dashboard PropSmart menampilkan status 32 kamar, tagihan WhatsApp, dan laporan arus kas properti",
-    href: "/karya/propsmart-saas",
-    bg: "#E4E8EE",
+    id: "central",
+    shortName: "Central Web",
+    client: "Central Scaffolding B2B",
+    image: "/images/portfolio/central-scaffolding-web.webp",
+    alt: "Website B2B Central Scaffolding menampilkan kalkulator kebutuhan set SNI dan katalog perancah proyek",
+    href: "/karya/central-scaffolding",
+    bg: "#E5E7EB",
   },
   {
     id: "smartpos",
@@ -260,6 +260,7 @@ export function SignificaHero() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.28, ease: "easeOut" }}
+                    style={{ backgroundColor: activeSlide.bg }}
                     className="absolute inset-0"
                   >
                     <Image
