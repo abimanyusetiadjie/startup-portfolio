@@ -51,10 +51,10 @@ const SHOWREEL_SLIDES = [
     id: "smartpos",
     shortName: "SmartPOS",
     client: "Toko Ritel POS (SmartPOS)",
-    image: "/images/portfolio/smartpos-aneka-rasa.webp",
-    alt: "Antarmuka kasir ritel modern SmartPOS dengan katalog produk, QRIS, dan cetak struk termal 58mm",
+    image: "/images/portfolio/smartpos-kasir.webp",
+    alt: "Antarmuka kasir SmartPOS dengan pindai barcode F2, shortcut keyboard F1–F12, Cash, Kartu EDC, QRIS, dan cetak struk",
     href: "/karya/smartpos-aneka-rasa",
-    bg: "#EAECEF",
+    bg: "#E9EEF6",
   },
 ];
 

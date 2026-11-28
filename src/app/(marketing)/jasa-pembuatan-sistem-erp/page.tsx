@@ -68,9 +68,9 @@ const serviceData: ServiceDetailData = {
     href: "/demo",
   },
   previewImage: {
-    src: "/images/portfolio/smartpos-aneka-rasa.webp",
-    alt: "Antarmuka kasir ritel modern SmartPOS terintegrasi stok, barcode USB, dan laporan omzet Abinest",
-    caption: "Toko Ritel POS (SmartPOS) · Barcode USB & QRIS · Sinkronisasi Stok Tanpa Biaya per Staf",
+    src: "/images/portfolio/smartpos-kasir.webp",
+    alt: "Antarmuka kasir SmartPOS menampilkan pindai barcode F2, shortcut keyboard F1–F12, Cash, Kartu EDC, QRIS, dan cetak struk",
+    caption: "Toko Ritel POS (SmartPOS) · Pindai Barcode, Shortcut F1–F12 & Split Pay · Tanpa Biaya per Staf",
   },
   architectureHeading: "Tiga Pilar Aplikasi Operasional Terpadu",
   architectureSubheading:

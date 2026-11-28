@@ -456,12 +456,12 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     techStack: ["React", "Vite", "USB Barcode", "Marketplace Sync"],
     images: [
       {
-        src: "/images/portfolio/smartpos-aneka-rasa.webp",
-        alt: "Antarmuka kasir ritel modern SmartPOS dengan katalog produk, keranjang transaksi, pembayaran QRIS, dan cetak struk 58mm",
-        caption: "Antarmuka kasir modern SmartPOS — pindai barcode, keranjang instan, QRIS, dan cetak struk termal",
+        src: "/images/portfolio/smartpos-kasir.webp",
+        alt: "Antarmuka kasir SmartPOS menampilkan pindai barcode F2, shortcut keyboard F1–F12, cek harga, Split Pay, Cash, Kartu EDC, QRIS, dan cetak struk",
+        caption: "Antarmuka kasir SmartPOS — pindai barcode instan, shortcut F1–F12, Split Pay, Cash/EDC/QRIS, dan cetak struk",
         fit: "center",
         width: 1440,
-        height: 1080,
+        height: 810,
       },
     ],
     problem:
