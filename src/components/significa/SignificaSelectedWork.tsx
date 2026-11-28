@@ -11,22 +11,20 @@ import {
 } from "@/data/significa-work";
 import { ClayReveal } from "./ClayReveal";
 
-// Clay signature curated 12-card selection: balanced 50% modern Website UIs across 6 sectors + Automation Workflow & ERP/POS
-const LEFT_COLUMN_SLUGS = [
+// Strict canonical order on BOTH Mobile (1..12 top-to-bottom) & Desktop (odd left, even right staggered):
+// 1. Look.u AI -> 2. KINETIC -> 3. FlowNest -> 4. SmartPOS -> 5. PropSmart -> 6. AI CV Screening -> rest
+const ORDERED_SHOWCASE_SLUGS = [
   "looku-ai",
+  "kinetic-fitness",
   "wa-automation-workflow",
+  "smartpos-aneka-rasa",
+  "propsmart-saas",
+  "ai-cv-screening",
+  "central-scaffolding",
   "capstonenews-portal",
   "ypi-al-fuad",
   "toko-amen-snack",
   "heavytrack-wms",
-];
-
-const RIGHT_COLUMN_SLUGS = [
-  "kinetic-fitness",
-  "central-scaffolding",
-  "smartpos-aneka-rasa",
-  "propsmart-saas",
-  "ai-cv-screening",
   "logisync-fleet",
 ];
 
@@ -105,13 +103,12 @@ function ClayWorkCard({
 export function SignificaSelectedWork() {
   const [showAll, setShowAll] = useState(false);
 
-  const leftItems = LEFT_COLUMN_SLUGS.map((s) =>
+  const orderedItems = ORDERED_SHOWCASE_SLUGS.map((s) =>
     SIGNIFICA_WORK_ITEMS.find((p) => p.slug === s)
   ).filter((p): p is CaseStudyItem => Boolean(p));
 
-  const rightItems = RIGHT_COLUMN_SLUGS.map((s) =>
-    SIGNIFICA_WORK_ITEMS.find((p) => p.slug === s)
-  ).filter((p): p is CaseStudyItem => Boolean(p));
+  const leftItems = orderedItems.filter((_, idx) => idx % 2 === 0);
+  const rightItems = orderedItems.filter((_, idx) => idx % 2 === 1);
 
   const extraItems = EXTRA_ARCHIVE_SLUGS.map((s) =>
     SIGNIFICA_WORK_ITEMS.find((p) => p.slug === s)
@@ -120,17 +117,24 @@ export function SignificaSelectedWork() {
   return (
     <section id="karya" className="scroll-mt-24 bg-white pb-20 lg:pb-28">
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-[clamp(1.5rem,5vw,4.75rem)]">
-        {/* Clay Signature Staggered 2-Column Portfolio Grid (100% uncropped previews on Mobile & Desktop) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 xl:gap-x-28 items-start">
-          {/* Left Column */}
-          <div className="space-y-12 sm:space-y-16 lg:space-y-28">
+        {/* Mobile & Tablet (< lg): Strict linear sequence 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> rest */}
+        <div className="lg:hidden space-y-12 sm:space-y-16">
+          {orderedItems.map((item) => (
+            <ClayWorkCard key={item.slug} item={item} />
+          ))}
+        </div>
+
+        {/* Desktop (lg+): Clay Signature Staggered 2-Column Grid (1/2, 3/4, 5/6, 7/8, ...) */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-x-16 xl:gap-x-28 items-start">
+          {/* Left Column (1, 3, 5, 7, 9, 11) */}
+          <div className="space-y-28">
             {leftItems.map((item) => (
               <ClayWorkCard key={item.slug} item={item} />
             ))}
           </div>
 
-          {/* Right Column — Intentionally Staggered Downward on Desktop (Clay exact visual rhythm) */}
-          <div className="mt-12 sm:mt-16 lg:mt-32 space-y-12 sm:space-y-16 lg:space-y-28">
+          {/* Right Column (2, 4, 6, 8, 10, 12) — Intentionally Staggered Downward */}
+          <div className="mt-32 space-y-28">
             {rightItems.map((item) => (
               <ClayWorkCard key={item.slug} item={item} delay={0.05} />
             ))}

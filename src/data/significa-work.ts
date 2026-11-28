@@ -127,9 +127,9 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     year: "2026",
     images: [
       {
-        src: "/images/portfolio/propsmart-saas.webp",
-        alt: "Dashboard Eksekutif PropSmart menampilkan okupansi kamar, arus kas, dan estimasi harga sewa",
-        caption: "Dashboard ringkas okupansi kamar, laporan arus kas, dan rekomendasi harga sewa",
+        src: "/images/portfolio/propsmart-dashboard.webp",
+        alt: "Dashboard PropSmart menampilkan peta status 32 kamar, okupansi, pendapatan, arus kas bersih, simulasi harga sewa, dan grafik keuangan",
+        caption: "Dashboard properti PropSmart — status 32 kamar, pengingat tagihan WA, simulasi harga sewa, dan analisis arus kas",
         fit: "center",
         width: 1440,
         height: 1080,
@@ -696,10 +696,10 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     year: "2026",
     images: [
       {
-        src: "/images/portfolio/ai-cv-screening.webp",
-        alt: "Antarmuka BlindATS AI CV Screening dengan mode sensor identitas pelamar",
-        caption: "Seleksi kandidat terstruktur dengan pemisahan data pribadi pelamar agar objektif",
-        fit: "top",
+        src: "/images/portfolio/ai-cv-screening-web.webp",
+        alt: "Tampilan produk web BlindATS AI CV Screening menampilkan sensor identitas otomatis UU PDP dan evaluasi skor kecocokan kandidat dua tahap",
+        caption: "Antarmuka web & pratinjau seleksi BlindATS — sensor data pribadi otomatis, evaluasi dua tahap, dan alasan skor transparan",
+        fit: "center",
         width: 1440,
         height: 1080,
       },
