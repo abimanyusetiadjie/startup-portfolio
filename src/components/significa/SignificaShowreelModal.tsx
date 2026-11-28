@@ -112,7 +112,7 @@ export function SignificaShowreelModal({
                       Muat di bawah 0,8 detik pada jaringan 4G seluler.
                     </h3>
                     <p className="text-[14.5px] text-white/70 leading-relaxed">
-                      Dibangun di atas arsitektur statis Next.js dengan struktur Schema JSON-LD rapi agar iklan Google &amp; Meta tidak bocor karena halaman lambat.
+                      Dibangun di atas arsitektur web modern yang ringan agar iklan Google &amp; Meta tidak bocor karena halaman lambat.
                     </p>
                     <ul className="space-y-2 text-[13.5px] text-white/85">
                       <li className="flex items-center gap-2">

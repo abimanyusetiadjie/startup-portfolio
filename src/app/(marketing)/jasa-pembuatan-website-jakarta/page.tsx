@@ -107,7 +107,7 @@ const serviceData: ServiceDetailData = {
         "Bebas dari kerentanan plugin pihak ketiga yang sering membuat situs lambat atau diretas, dengan kendali penuh di tangan Anda.",
       deliverables: [
         "SSL HTTPS aktif & header keamanan tingkat produksi",
-        "Repositori kode bersih (Next.js / TypeScript)",
+        "Repositori kode bersih dengan kepemilikan penuh",
         "Bebas dipasang di cloud pribadi atau dikelola Abinest",
         "Pelatihan singkat pengelolaan teks & gambar untuk staf",
       ],

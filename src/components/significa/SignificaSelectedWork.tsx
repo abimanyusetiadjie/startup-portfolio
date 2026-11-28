@@ -89,10 +89,6 @@ function ClayWorkCard({
             {item.tagline}
           </p>
 
-          <p className="mt-2 text-[13px] sm:text-[13.5px] text-[#8C8E94]">
-            {item.techStack.slice(0, 3).join("  ·  ")}
-          </p>
-
           {/* Clay Mobile Exact Detail: explicit underlined "View case study ->" shown cleanly on mobile */}
           <div className="lg:hidden mt-3.5">
             <span className="clay-arrow-link !text-[14.5px]">
@@ -203,11 +199,8 @@ export function SignificaSelectedWork() {
                         </div>
                         <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] md:hidden shrink-0" />
                       </div>
-                      <div className="md:col-span-5 text-[15px] text-[#4B5563]">
+                      <div className="md:col-span-7 text-[15px] text-[#4B5563]">
                         {item.tagline}
-                      </div>
-                      <div className="md:col-span-2 text-[13px] text-[#8C8E94]">
-                        {item.techStack.slice(0, 2).join(" · ")}
                       </div>
                       <div className="hidden md:flex md:col-span-1 justify-end">
                         <ArrowUpRight className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#111111] transition-colors" />

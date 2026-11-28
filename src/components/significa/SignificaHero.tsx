@@ -83,15 +83,15 @@ const CAPABILITIES = [
   {
     id: "ai-wa",
     title: "Automasi WhatsApp & AI",
-    desc: "Asisten katalog WhatsApp 24/7 lewat API resmi Meta, hitung ongkir otomatis, dan pembacaan dokumen faktur OCR.",
-    meta: "Mulai Rp5 juta · Meta Cloud API",
+    desc: "Asisten katalog WhatsApp 24/7 lewat jalur resmi, hitung ongkir otomatis, dan pembacaan dokumen faktur OCR.",
+    meta: "Mulai Rp5 juta · Jalur Resmi WhatsApp",
     href: "/jasa-automasi-whatsapp",
   },
   {
     id: "ml",
     title: "Machine Learning & Data",
-    desc: "Pencarian RAG berbasis data katalog nyata, simulasi harga sewa & kompensasi, pemetaan retensi, hingga segmentasi pelanggan.",
-    meta: "Python FastAPI · Scikit-Learn · Gemini",
+    desc: "Pencarian pintar berbasis data katalog nyata, simulasi harga sewa & kompensasi, pemetaan retensi, hingga segmentasi pelanggan.",
+    meta: "Berbasis data bisnis Anda · Tanpa halusinasi",
     href: "/jasa-automasi-whatsapp",
   },
 ];

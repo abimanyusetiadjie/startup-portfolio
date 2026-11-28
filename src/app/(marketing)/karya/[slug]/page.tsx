@@ -138,24 +138,16 @@ export default async function CaseStudyDetailPage({
           </section>
         )}
 
-        {/* 3. Calm 3-Column Metadata Strip + Concise Story (No wall of text, no risky hype stats) */}
+        {/* 3. Calm 2-Column Metadata Strip + Concise Story (No wall of text, no tech-stack clutter) */}
         <section className="clay-container py-14 sm:py-16 lg:py-24 space-y-14 lg:space-y-16">
           <ClayReveal>
-            <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 pb-10 sm:pb-12 border-b border-[#E5E7EB]">
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 pb-10 sm:pb-12 border-b border-[#E5E7EB]">
               <div className="space-y-1">
                 <dt className="text-[12.5px] uppercase tracking-[0.06em] text-[#8C8E94]">
                   Fokus Sistem
                 </dt>
                 <dd className="text-[16px] font-medium text-[#111111]">
                   {project.scope}
-                </dd>
-              </div>
-              <div className="space-y-1">
-                <dt className="text-[12.5px] uppercase tracking-[0.06em] text-[#8C8E94]">
-                  Teknologi
-                </dt>
-                <dd className="text-[16px] font-medium text-[#111111]">
-                  {project.techStack.join(" · ")}
                 </dd>
               </div>
               <div className="space-y-1">

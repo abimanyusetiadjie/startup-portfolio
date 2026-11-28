@@ -21,7 +21,6 @@ export interface CaseStudyItem {
   scope: string;
   year: string;
   liveUrl?: string;
-  techStack: string[];
   images: CaseImage[];
   problem: string;
   functionalValue: string;
@@ -39,14 +38,13 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     client: "FlowNest — Automasi WA & ERP.",
     tagline: "Alur otomasi pesanan WhatsApp resmi, cek stok otomatis & sinkronisasi invoice ERP.",
     sector: "Automation Workflow & AI",
-    scope: "n8n Orchestration & Meta Cloud API",
+    scope: "Alur Otomasi WhatsApp & Integrasi ERP",
     year: "2026",
-    techStack: ["n8n", "Meta Cloud API", "Gemini AI", "PostgreSQL"],
     images: [
       {
         src: "/images/portfolio/wa-automation-workflow.webp",
-        alt: "Kanvas alur otomasi FlowNest menghubungkan WhatsApp Cloud API, AI Parser & Cek Stok, balasan QRIS, dan pencatatan invoice ERP",
-        caption: "Orkestrasi alur kerja n8n dari pesan WhatsApp masuk hingga pencatatan invoice dan notifikasi tim gudang",
+        alt: "Kanvas alur otomasi FlowNest menghubungkan WhatsApp resmi, AI Parser & Cek Stok, balasan QRIS, dan pencatatan invoice ERP",
+        caption: "Orkestrasi alur kerja otomatis dari pesan WhatsApp masuk hingga pencatatan invoice dan notifikasi tim gudang",
         fit: "center",
         width: 1440,
         height: 1080,
@@ -58,12 +56,12 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
       "Orkestrasi workflow mandiri yang menangkap pesan WhatsApp resmi, mengecek stok langsung ke database, membalas rincian plus tautan QRIS, sekaligus mencatat faktur ke ERP.",
     highlights: [
       {
-        title: "Webhook Resmi Meta API",
+        title: "Jalur Resmi WhatsApp",
         detail: "Menangkap pesanan dan bukti transfer secara aman tanpa risiko blokir akun.",
       },
       {
         title: "Cek Stok & Ongkir Otomatis",
-        detail: "AI membaca maksud pesanan lalu mencocokkan SKU langsung ke PostgreSQL.",
+        detail: "AI membaca maksud pesanan lalu mencocokkan SKU langsung ke database stok.",
       },
       {
         title: "Sinkronisasi Invoice & Gudang",
@@ -85,7 +83,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     scope: "Storefront E-Commerce & Asisten WA AI",
     year: "2026",
     liveUrl: "https://tokoamensnack.vercel.app",
-    techStack: ["Next.js", "PostgreSQL", "Vercel AI SDK", "WhatsApp API"],
     images: [
       {
         src: "/images/portfolio/toko-amen-snack-web.webp",
@@ -128,7 +125,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "PropTech SaaS",
     scope: "Dashboard Properti & Auto-Billing",
     year: "2026",
-    techStack: ["Next.js", "FastAPI", "Supabase", "Scikit-Learn"],
     images: [
       {
         src: "/images/portfolio/propsmart-saas.webp",
@@ -179,7 +175,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Industrial WMS",
     scope: "Warehouse System & Dokumen Legal",
     year: "2026",
-    techStack: ["React", "Node.js", "SQLite WAL", "Laravel"],
     images: [
       {
         src: "/images/portfolio/heavytrack-wms.webp",
@@ -222,7 +217,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Fashion Tech & Applied AI",
     scope: "Web App AI & Kurasi Katalog",
     year: "2026",
-    techStack: ["Next.js", "Gemini RAG", "Vision AI", "Supabase"],
     images: [
       {
         src: "/images/portfolio/looku-ai.webp",
@@ -273,7 +267,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Media & Civic Data",
     scope: "Portal Berita & Visualisasi Peta",
     year: "2026",
-    techStack: ["Astro", "Next.js", "FastAPI", "PostGIS"],
     images: [
       {
         src: "/images/portfolio/lacak-korupsi.webp",
@@ -324,7 +317,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Konstruksi B2B · Jabodetabek",
     scope: "Website B2B & Kalkulator Material",
     year: "2026",
-    techStack: ["Astro", "React", "Tailwind CSS", "Local SEO"],
     images: [
       {
         src: "/images/portfolio/central-scaffolding-web.webp",
@@ -367,7 +359,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Yayasan Pendidikan · Tangerang",
     scope: "Portal Yayasan & Informasi PPDB",
     year: "2026",
-    techStack: ["Astro", "TypeScript", "Tailwind CSS", "SEO Schema"],
     images: [
       {
         src: "/images/portfolio/ypi-al-fuad-web.webp",
@@ -410,7 +401,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Enterprise HRIS",
     scope: "HR Management & People Analytics",
     year: "2026",
-    techStack: ["Next.js", "FastAPI", "Scikit-Learn", "PostgreSQL"],
     images: [
       {
         src: "/images/portfolio/crew-ai-hris.webp",
@@ -440,7 +430,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
       },
       {
         title: "Siap Deploy Mandiri",
-        detail: "Arsitektur container bersih agar mudah dipasang di server internal perusahaan.",
+        detail: "Struktur instalasi rapi agar mudah dipasang langsung di server internal perusahaan.",
       },
     ],
     serviceHref: "/jasa-pembuatan-sistem-erp",
@@ -453,7 +443,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Omnichannel Retail POS",
     scope: "Sistem Kasir POS & Katalog Ritel",
     year: "2026",
-    techStack: ["React", "Vite", "USB Barcode", "Marketplace Sync"],
     images: [
       {
         src: "/images/portfolio/smartpos-kasir.webp",
@@ -496,7 +485,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "B2B Sales CRM",
     scope: "Sales Pipeline & Customer Workspace",
     year: "2026",
-    techStack: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL"],
     images: [
       {
         src: "/images/portfolio/scalebase-crm.webp",
@@ -539,7 +527,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Website Media & Portal Berita",
     scope: "News Portal & Editorial CMS",
     year: "2026",
-    techStack: ["Laravel", "Filament", "Inertia Vue", "PostgreSQL"],
     images: [
       {
         src: "/images/portfolio/capstonenews-portal.webp",
@@ -561,7 +548,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
       },
       {
         title: "Navigasi Baca Instan",
-        detail: "Perpindahan antar berita mulus tanpa muat ulang penuh berkat SPA Inertia.",
+        detail: "Perpindahan antar berita mulus dan cepat tanpa muat ulang halaman penuh.",
       },
       {
         title: "Kurasi & Bookmark",
@@ -582,7 +569,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Agritech B2B",
     scope: "Supply Chain & QR Traceability",
     year: "2026",
-    techStack: ["Laravel", "Filament", "Inertia Vue", "PostgreSQL"],
     images: [],
     problem:
       "Koperasi desa dan pembeli korporasi membutuhkan kepastian kapasitas pasokan pangan, kontrak bebas bentrok stok, dan jejak asal komoditas.",
@@ -616,7 +602,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Website Brand & Fitness Tech",
     scope: "Modern Brand Web & IoT Gate",
     year: "2026",
-    techStack: ["Next.js", "Supabase", "React Native", "IoT Gate"],
     images: [
       {
         src: "/images/portfolio/kinetic-fitness.webp",
@@ -659,7 +644,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Logistics & Fleet",
     scope: "Command Center, WMS & PWA Kurir",
     year: "2026",
-    techStack: ["Next.js", "FastAPI", "Redis", "Leaflet GPS"],
     images: [
       {
         src: "/images/portfolio/logisync-fleet.webp",
@@ -698,11 +682,10 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     slug: "ai-cv-screening",
     tier: "gallery",
     client: "AI CV Screening.",
-    tagline: "Seleksi CV otomatis dengan sensor identitas pelamar & alur kerja n8n.",
+    tagline: "Seleksi CV otomatis dengan sensor identitas pelamar & alur kerja terpadu.",
     sector: "HR Automation & Applied AI",
     scope: "Blind ATS & Workflow Otomasi",
     year: "2026",
-    techStack: ["Python", "Gemini API", "n8n Workflow", "Streamlit"],
     images: [
       {
         src: "/images/portfolio/ai-cv-screening.webp",
@@ -731,7 +714,7 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
         detail: "Setiap peringkat disertai ringkasan pertimbangan yang mudah diaudit tim HR.",
       },
       {
-        title: "Terhubung ke n8n",
+        title: "Alur Otomatisasi Terjadwal",
         detail: "Otomatis menarik berkas lamaran masuk dan mengirim ringkasan ke tim rekrutmen.",
       },
     ],
@@ -745,7 +728,6 @@ export const SIGNIFICA_WORK_ITEMS: CaseStudyItem[] = [
     sector: "Sistem Informasi Akademik",
     scope: "Panel Akademik & Ekspor Rapor",
     year: "2026",
-    techStack: ["Laravel", "Filament", "RBAC", "DomPDF"],
     images: [],
     problem:
       "Data siswa, jadwal pelajaran, absensi harian, dan nilai akhir sering tersebar di berkas terpisah sehingga rekap akhir semester memakan banyak waktu.",

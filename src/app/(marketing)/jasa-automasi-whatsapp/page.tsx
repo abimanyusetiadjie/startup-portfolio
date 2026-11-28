@@ -70,7 +70,7 @@ const serviceData: ServiceDetailData = {
   previewImage: {
     src: "/images/portfolio/wa-automation-workflow.webp",
     alt: "Kanvas alur otomasi FlowNest menghubungkan WhatsApp Cloud API, AI cek stok, dan sinkronisasi invoice ERP",
-    caption: "Orkestrasi n8n + Meta Cloud API · Cek Stok & Ongkir Otomatis · Sinkronisasi Invoice ERP",
+    caption: "Alur Otomasi WhatsApp Resmi · Cek Stok & Ongkir Otomatis · Sinkronisasi Invoice ERP",
   },
   architectureHeading: "Solusi AI Praktis untuk Efisiensi Nyata",
   architectureSubheading:

@@ -122,7 +122,7 @@ const serviceData: ServiceDetailData = {
     {
       title: "Integritas Data Transaksional & Cadangan Otomatis",
       description:
-        "Menggunakan database relasional PostgreSQL dengan validasi ketat agar saldo stok, nilai siswa, dan kas tidak pernah tumpang tindih.",
+        "Menggunakan database relasional dengan validasi ketat agar saldo stok, nilai siswa, dan kas tidak pernah tumpang tindih.",
     },
     {
       title: "Rilis Bertahap Mengurangi Risiko Operasional",
